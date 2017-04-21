@@ -1,4 +1,4 @@
-# React
+# Redux & React
 
 Topics:
 
