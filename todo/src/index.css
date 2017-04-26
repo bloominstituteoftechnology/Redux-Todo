@@ -215,5 +215,9 @@ ul {
   .Footer {
     font-size: 0.9em;
   }
+
+  .TodoAddForm input {
+    width: 80px;
+  }
 }
 
