@@ -8,7 +8,6 @@
 
 *:focus {
   outline: none;
-  border: 3px solid #000;
 }
 
 html {
@@ -202,5 +201,19 @@ ul {
 
 .Footer a:hover {
   text-decoration: underline;
+}
+
+@media all and (max-width: 700px) {
+  body {
+    font-size: 1.0em;
+  }
+
+  .TodoItem {
+    width: 410px;
+  }
+
+  .Footer {
+    font-size: 0.9em;
+  }
 }
 
