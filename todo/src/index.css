@@ -132,7 +132,7 @@ ul {
 .TodoAddForm input {
   margin: 0 20px 10px 10px;
   padding: 10px 20px 0px 5px;
-  min-width: 120px;
+  width: 300px;
   font-size: 1.1em;
   font-weight: bold;
   outline: none;
@@ -217,7 +217,7 @@ ul {
   }
 
   .TodoAddForm input {
-    min-width: 100px;
+    width: 190px;
   }
 }
 
