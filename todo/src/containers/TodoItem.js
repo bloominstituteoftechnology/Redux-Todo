@@ -20,7 +20,6 @@ class TodoItem extends Component {
   }
 
   handleDelete() {
-    console.log(this.props.todo.id);
     this.props.deleteTodo(this.props.todo.id);
   }
 
@@ -37,7 +36,7 @@ class TodoItem extends Component {
             name="toggle" 
             checked={ completed }
           />
-          <label for="toggle"> </label>
+          <label htmlFor="toggle"> </label>
         </div>
         <p className={`todo-text ${completed ? 'completed' : ''}`} >{ value }</p>
         <span>

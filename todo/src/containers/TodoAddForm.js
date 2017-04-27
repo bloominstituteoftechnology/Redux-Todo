@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { dispatch } from 'redux';
 import { addTodo } from '../actions';
 
 class TodoAddForm extends Component {
@@ -44,4 +43,4 @@ class TodoAddForm extends Component {
   }
 }
 
-export default connect(dispatch, { addTodo })(TodoAddForm);
+export default connect(null, { addTodo })(TodoAddForm);
