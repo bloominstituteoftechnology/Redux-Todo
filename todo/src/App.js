@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { TodoList, Footer } from './components';
-import { TodoAddForm } from './containers';
+import { Footer } from './components';
+import { TodoAddForm, TodoList } from './containers';
 
 class App extends Component {
   render() {
