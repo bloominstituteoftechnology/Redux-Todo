@@ -9,10 +9,6 @@ class TodoItem extends Component {
 
     this.handleToggle = this.handleToggle.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-
-    this.state = {
-      checked: this.props.completed
-    };
   }
 
   handleToggle() {
@@ -26,24 +22,24 @@ class TodoItem extends Component {
   render() {
       const { todo } = this.props;
       const { value, completed } = todo;
-    return (
-      <li className="TodoItem">
-        <div className="fancy-checkbox" onClick={ this.handleToggle }>
-          <input 
-            type="checkbox" 
-            className="btn-toggle" 
-            onClick={ this.handleToggle } 
-            name="toggle" 
-            checked={ completed }
-          />
-          <label htmlFor="toggle"> </label>
-        </div>
-        <p className={`todo-text ${completed ? 'completed' : ''}`} >{ value }</p>
-        <span>
-          <button className="btn btn-delete" onClick={ this.handleDelete } >X</button>
-        </span>
-      </li>
-    );
+      return (
+        <li className="TodoItem">
+          <div className="fancy-checkbox" onClick={ this.handleToggle }>
+            <input 
+              type="checkbox" 
+              className="btn-toggle" 
+              onClick={ this.handleToggle } 
+              name="toggle" 
+              checked={ completed }
+            />
+            <label htmlFor="toggle"> </label>
+          </div>
+          <p className={`todo-text ${completed ? 'completed' : ''}`} >{ value }</p>
+          <span>
+            <button className="btn btn-delete" onClick={ this.handleDelete } >X</button>
+          </span>
+        </li>
+      );
   }
 };
 
