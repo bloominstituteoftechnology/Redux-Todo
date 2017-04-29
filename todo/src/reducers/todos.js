@@ -21,16 +21,7 @@ export default (state = [], { type, payload }) => {
         return todo;
       });
     case DELETE_TODO:
-      return state.reduce((updated, todo) => {
-        if (todo.id !== payload.id) {
-          updated.push({
-            id: updated.length,
-            value: todo.value,
-            completed: todo.completed
-          });
-        }
-        return updated;
-      }, []);
+      return state.filter(todo => todo.id !== payload.id);
     default: 
       return state;
   }
