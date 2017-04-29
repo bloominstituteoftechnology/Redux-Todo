@@ -5,7 +5,7 @@ import { TodoItem } from '../containers';
 class TodoList extends Component {
   render() {
     const { todos } = this.props;
-    if (!todos.length) return <h3>No todos yet.</h3>;
+    if (!todos.length) return <h3>Nothing to do, yet.</h3>;
 
     return (
       <ul className="TodoList">
