@@ -1,16 +1,15 @@
 import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
-
-let latestTodoId = 0;
+import { v4 } from 'node-uuid';
 
 export default (todos = [], { type, payload }) => {
   switch (type) {
+    case 'persist/REHYDRATE':
+      return { ...todos, persistedState: payload };
     case ADD_TODO:
       return [
-        // break out the individual objects that are currently in the state array
         ...todos,
-        // add new todo to the end of the array
         {
-          id: ++latestTodoId,
+          id: v4(),
           value: payload.value,
           completed: false
         }
