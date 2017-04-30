@@ -9,7 +9,7 @@ class TodoList extends Component {
 
     return (
       <ul className="TodoList">
-        { todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+        { todos.map((todo, index) => <TodoItem key={index} id={index} todo={todo} />) }
       </ul>
     );
   }

@@ -203,6 +203,11 @@ ul {
   text-decoration: underline;
 }
 
+.TodoCount {
+  font-size: 0.7em;
+  padding: 10px 20px;
+}
+
 @media all and (max-width: 700px) {
   body {
     font-size: 1.0em;
@@ -212,7 +217,7 @@ ul {
     width: 410px;
   }
 
-  .Footer {
+  .Footer, .TodoCount {
     font-size: 0.9em;
   }
 

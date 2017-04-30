@@ -22,6 +22,7 @@ class TodoItem extends Component {
   render() {
       const { todo } = this.props;
       const { value, completed } = todo;
+
       return (
         <li className="TodoItem">
           <div className="fancy-checkbox" onClick={ this.handleToggle }>
