@@ -8,11 +8,10 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h3>Welcome to Lambda School's LS-Redux Project</h3>
+          <h5>prepare to have your MIND === BLOWN !!!</h5>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        THE AMAZING TODO LIST WILL GO HERE
       </div>
     );
   }
