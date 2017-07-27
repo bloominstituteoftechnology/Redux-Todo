@@ -8,7 +8,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo}
+               className="App-logo"
+               alt="logo" />
           <h3>Welcome to Lambda School's LS-Redux Project</h3>
           <h5>prepare to have your MIND === BLOWN !!!</h5>
         </div>
