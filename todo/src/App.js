@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TodoList from './TodoList'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
           <h5>prepare to have your MIND === BLOWN !!!</h5>
         </div>
         THE AMAZING TODO LIST WILL GO HERE
+        <TodoList />
       </div>
     );
   }
