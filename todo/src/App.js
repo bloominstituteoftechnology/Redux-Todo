@@ -12,7 +12,6 @@ class App extends Component {
           <h3>Welcome to Lambda School's LS-Redux Project</h3>
           <h5>prepare to have your MIND === BLOWN !!!</h5>
         </div>
-        THE AMAZING TODO LIST WILL GO HERE
         <TodoList />
       </div>
     );
