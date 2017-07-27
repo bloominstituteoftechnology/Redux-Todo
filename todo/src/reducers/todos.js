@@ -4,6 +4,6 @@ export default () => {
       id: 1,
       value: 'walk the dog',
       completed: false
-     }
+    }
   ]
 };
