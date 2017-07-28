@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+a {
+  color: #FF7400;
+}
 .navbar {
     background-color: #FF7400;
 }
@@ -11,8 +14,8 @@
 
 .App-header {
   background-color: #000044;
-  height: 150px;
-  padding-top: 20px;
+  height: 200px;
+  /*padding-top: 20px;*/
   color: #999911;
 }
 
