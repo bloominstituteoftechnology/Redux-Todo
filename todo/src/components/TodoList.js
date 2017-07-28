@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './TodoList.css';
+import '../css/TodoList.css';
 // import { addTodoItem } from './actions';
 
 class TodoList extends Component {

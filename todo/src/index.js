@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+
+// import registerServiceWorker from './misc/registerServiceWorker'; // <--- ??????????
+
+import App from './components/App';
+import rootReducer from './reducers' // <--- ./reducers/index.js
+
 import './css/index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import reducers from './reducers'
 
 
-let STORAGE_WAREHOUSE = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let STORAGE_WAREHOUSE = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 ReactDOM.render(
@@ -18,4 +21,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'));
 
-registerServiceWorker();
+// registerServiceWorker();
