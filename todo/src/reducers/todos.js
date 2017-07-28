@@ -18,11 +18,7 @@ export default (state = [], action) => {
       }
     );
     case 'REMOVE_TODO':
-      return [
-        ...state.slice(0, action.id),
-        ...state.slice(action.id + 1)
-      ];
-
+      return state.filter(todo => todo.id !== action.id);
     default:
       return state;
   }
