@@ -1,17 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const showTodo = (props) => {
-  
+const ShowTodo = (props) => {
     return (
      <div>
       <h3>Todo List</h3>
-      <ul>
-        <li>
-        </li>
-      </ul>
      </div>
     )
 };
 
-export default showTodo;
+export default ShowTodo;

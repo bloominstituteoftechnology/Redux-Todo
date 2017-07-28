@@ -1,19 +1,19 @@
-import React from 'react';
-import showTodo from './showTodo';
+import React, { Component } from 'react';
+import ShowTodo from './ShowTodo';
 import {addTodo} from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-class TodoListMain extends React.Component {
+class TodoListMain extends Component {
   //Create Constructor
   constructor(props) {
     super(props);
     this.state = {
       value: ''
       }
+    this.handleSubmit = this.handleSubmit.bind(this);
     }
-    this.handleChange = this.handleChange.bind(this);
-  }
+  
   
   handleChange(event) {
     this.setState({value: event.target.value});
@@ -22,24 +22,21 @@ class TodoListMain extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
-      text: '',
-      todos: [...this.state.todos, this.state.value]
+      value: '',
     });
+    this.props.addTodo(this.state.value);
   } 
   
-  addTodo() {
-    this.props.addTodo(this.state.value);
-  }
   
   render() {
     return (
      <div>
         <h2>I am</h2>
-      <form >
+      <form onSubmit={ this.handleSubmit }>
         <input placeholder='Add Task...' />
         <button type='submit'>Submit</button>
       </form>
-      <showTodo />
+      <ShowTodo />
      </div>
     );
   }
