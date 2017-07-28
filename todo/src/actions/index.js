@@ -5,6 +5,8 @@ export const addTodo = (todo) => {
   return {
     type: 'ADD_TODO',
     id: todoId ++,
-    todo: todo,
+    payload: todo,
   };
 };
+
+export default addtodo;
