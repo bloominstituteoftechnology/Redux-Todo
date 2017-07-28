@@ -9,19 +9,16 @@ class TodoListMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [{
-        value: '',
-        completed: false,
-      }]
+      value: ''
+      }
     }
-    // this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  /*
-  // Added handleChange method
+  
   handleChange(event) {
-    this.setState({text: event.target.value});
+    this.setState({value: event.target.value});
   }
-  // Added hanleSub method
+  
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
@@ -32,7 +29,7 @@ class TodoListMain extends React.Component {
   
   addTodo() {
     this.props.addTodo(this.state.value);
-  } */
+  }
   
   render() {
     return (

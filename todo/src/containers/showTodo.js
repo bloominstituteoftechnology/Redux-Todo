@@ -7,18 +7,11 @@ const showTodo = (props) => {
      <div>
       <h3>Todo List</h3>
       <ul>
-        {this.props.todos.map(todo =>
-          <li key={todo.id}>{todo.value}</li>
-        )}
+        <li>
+        </li>
       </ul>
      </div>
     )
 };
 
-const mapStateToProps = (state) => {
-    return {todos: state.todos};
-  };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(showTodo);
-
-export default connect(mapStateToProps)(showTodo);
+export default showTodo;
