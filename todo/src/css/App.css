@@ -1,14 +1,16 @@
 .App {
   text-align: center;
 }
-
+.navbar {
+    background-color: #ff6600;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40px;
 }
 
 .App-header {
-  background-color: #eeddee;
+  background-color: #eeddff;
   height: 150px;
   padding-top: 20px;
   color: #119911;

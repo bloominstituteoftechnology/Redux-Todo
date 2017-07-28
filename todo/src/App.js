@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './art/logo.svg';
+import './css/App.css';
 import TodoList from './TodoList'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <nav className="navbar">
+          <h2>THE TRUNK OF A DOM TREE GROWS FROM THE <a href="https://youtu.be/v2f8kd1d278?t=7s">ROOT</a> OF THE PROJECT</h2>
+          <h4>index.html >>> src/index.js >>> src/App.js</h4>
+        </nav>
         <div className="App-header">
           <img src={logo}
                className="App-logo"
