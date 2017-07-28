@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 // import registerServiceWorker from './misc/registerServiceWorker'; // <--- ??????????
 import App from './components/App';
-import rootReducer from './reducers' // <--- ./reducers/index.js
+import trunkToRootReducer from './reducers' // <--- ./reducers/index.js
 
 import './css/index.css';
 
 
-let STORAGE_WAREHOUSE = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let STORAGE_WAREHOUSE = createStore(trunkToRootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 ReactDOM.render(

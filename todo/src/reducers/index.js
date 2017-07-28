@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import todoListReducer from './todoListReducer'
-// import addItem from './addItem'
+import todosReducer from './todosReducer'
 
-const rootReducer = combineReducers({
-  listItems: todoListReducer,
-  // addItem: addItem
+
+const todoApp = combineReducers({
+  listItems: todosReducer,
+
 });
 
-export default rootReducer;
+export default todoApp;

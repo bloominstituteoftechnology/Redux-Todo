@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../css/TodoList.css';
-// import { addTodoItem } from './actions';
+
 
 class TodoList extends Component {
   render() {
@@ -11,7 +11,7 @@ class TodoList extends Component {
         <h2 className='title'>A list of very important things!</h2>
         <h3 className='title'>All of which need doing:</h3>
         <ol>
-          {this.props.listItems.map((item, i) => {
+          {this.props.listItems.map((item, i) => { // <----- currently invoking listItems from src/reducers/index.js
             return (
               <li key={i}>
                 {item.todoText}
