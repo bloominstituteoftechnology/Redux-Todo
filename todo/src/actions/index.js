@@ -21,4 +21,3 @@ export const toggleTodo = id => {
     id
   }
 }
-s

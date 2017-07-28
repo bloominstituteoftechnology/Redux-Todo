@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import TodoList from '../containers/TodoList'
+// import TodoList from '../containers/TodoList'
+import AddTodo from '../containers/AddTodo';
 
 import logo from '../art/logo.svg';
 import '../css/App.css';
@@ -21,7 +22,8 @@ class App extends Component {
           <h3>Welcome to Lambda School's LS-Redux Project</h3>
           <h5>prepare to have your MIND === BLOWN !!!</h5>
         </div>
-        <TodoList />
+        {/* <TodoList /> */}
+        <AddTodo />
       </div>
     );
   }
