@@ -5,7 +5,7 @@ import ul from './TodoList.css';
 
 class TodoList extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <ul>
         {this.props.listItems.map((item, i) => {
