@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // import TodoList from '../containers/TodoList'
 import AddTodo from '../containers/AddTodo';
-import VisibleTodoList from '../containers/VisibleTodoList'
+import VisibleTodoList from '../containers/VisibleTodoList';
 
 import logo from '../art/logo.svg';
 import '../css/App.css';

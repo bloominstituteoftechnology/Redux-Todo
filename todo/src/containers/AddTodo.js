@@ -4,10 +4,10 @@ import { addTodo } from '../actions';
 import '../css/AddTodo.css';
 
 let AddTodo = ({ dispatch }) => {
-  let input
+  let input;
 
   return (
-    <div>
+    <div className="main">
       <form
         onSubmit={event => {
           event.preventDefault()

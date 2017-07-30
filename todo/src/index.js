@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 // import registerServiceWorker from './misc/registerServiceWorker'; // <--- ??????????
 import App from './components/App';
-import trunkToRootReducer from './reducers' // <--- ./reducers/index.js
+import trunkToRootReducer from './reducers'; // <--- ./reducers/index.js
 
 import './css/index.css';
 
@@ -19,4 +19,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'));
 
-// registerServiceWorker();
+// registerServiceWorker(); // <-------------------------------------------- ??????????
