@@ -1,6 +1,7 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
+import '../css/AddTodo.css';
 
 let AddTodo = ({ dispatch }) => {
   let input
@@ -8,8 +9,8 @@ let AddTodo = ({ dispatch }) => {
   return (
     <div>
       <form
-        onSubmit={e => {
-          e.preventDefault()
+        onSubmit={event => {
+          event.preventDefault()
           if (!input.value.trim()) {
             return
           }
@@ -18,18 +19,22 @@ let AddTodo = ({ dispatch }) => {
         }}
       >
         <input
-          placeholder="Something to do?"
+          className="input"
+          placeholder='Got something to do? e.g. "Dust all the MyLittlePony statues on the credenza."'
           ref={node => {
             input = node
           }}
         />
-        <button type="submit">
-          Add Todo
+        <button
+          className="button"
+          type="submit">
+          Add a "To Do" item to the list!
         </button>
       </form>
     </div>
   )
 }
-AddTodo = connect()(AddTodo)
 
-export default AddTodo
+AddTodo = connect()(AddTodo);
+
+export default AddTodo;
