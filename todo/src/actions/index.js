@@ -1,4 +1,3 @@
-
 let todoId = 0;
 
 export const addTodo = (todo) => {
@@ -9,4 +8,4 @@ export const addTodo = (todo) => {
   };
 };
 
-export default addtodo;
+export default addTodo;

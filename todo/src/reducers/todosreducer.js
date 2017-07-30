@@ -1,4 +1,3 @@
-
 const todosReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -6,7 +5,7 @@ const todosReducer = (state = [], action) => {
         ...state,
         { 
           id: action.id,
-          todo: action.todo,
+          todo: action.payload,
           completed: false
         }
       ]
