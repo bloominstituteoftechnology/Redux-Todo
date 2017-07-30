@@ -12,6 +12,7 @@ class TodoListMain extends Component {
       value: ''
       }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     }
   
   
@@ -33,7 +34,7 @@ class TodoListMain extends Component {
      <div>
         <h2>I am</h2>
       <form onSubmit={ this.handleSubmit }>
-        <input placeholder='Add Task...' />
+        <input value={ this.state.value } placeholder='Add Task...' onChange={ this.handleChange }/>
         <button type='submit'>Submit</button>
       </form>
       <ShowTodo />
