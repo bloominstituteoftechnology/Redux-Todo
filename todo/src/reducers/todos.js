@@ -1,7 +1,4 @@
-const todoReducer = (state = [{
-          id: 0,
-          text: 'Something something something darkside',
-          completed: false}], action) => {
+const todoReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [

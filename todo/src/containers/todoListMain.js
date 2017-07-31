@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ShowTodo from './ShowTodo';
-import {addTodo} from '../actions';
+import {addTodo, toggleComplete} from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -9,10 +9,11 @@ class TodoListMain extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
       }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
     }
   
   
@@ -23,10 +24,17 @@ class TodoListMain extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
-      value: '',
+      value: ''
     });
     this.props.addTodo(this.state.value);
-  } 
+  }
+  
+  handleToggle(event) {
+    this.setState({
+      id: this.props.todos.todos[0].id
+    })
+    this.props.toggleComplete(this.state.id);
+  }
   
   
   render() {
@@ -37,14 +45,14 @@ class TodoListMain extends Component {
         <input value={ this.state.value } placeholder='Add Task...' onChange={ this.handleChange }/>
         <button type='submit'>Submit</button>
       </form>
-      <ShowTodo />
+      <ShowTodo toggle={ this.handleToggle } todos={this.props.todos} />
      </div>
     );
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({addTodo}, dispatch);
+  return bindActionCreators({addTodo, toggleComplete}, dispatch);
 }
 
 const mapStateToProps = (state) => {
