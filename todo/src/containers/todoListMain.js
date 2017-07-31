@@ -43,11 +43,13 @@ class TodoListMain extends Component {
   render() {
     return (
      <div>
+      <center>
       <form onSubmit={ this.handleSubmit }>
         <input value={ this.state.value } placeholder='Add Task...' onChange={ this.handleChange }/>
         <button type='submit'>Submit</button>
       </form>
       <ShowTodo toggle={ this.handleToggle } todos={this.props.todos} />
+      </center>
      </div>
     );
   }
