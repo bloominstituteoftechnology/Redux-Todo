@@ -1,5 +1,5 @@
 
-let nextTodoId = 0;
+let nextTodoId = 1;
 export const addTodo = (value) => ({
   type: 'ADD_TODO',
   id: nextTodoId++,

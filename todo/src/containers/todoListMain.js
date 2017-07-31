@@ -3,6 +3,7 @@ import ShowTodo from './ShowTodo';
 import {addTodo, toggleComplete} from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import './todoListMain.css';
 
 class TodoListMain extends Component {
   //Create Constructor
@@ -10,6 +11,7 @@ class TodoListMain extends Component {
     super(props);
     this.state = {
       value: '',
+      id: ''
       }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -30,17 +32,17 @@ class TodoListMain extends Component {
   }
   
   handleToggle(event) {
+    event.preventDefault();
     this.setState({
-      id: this.props.todos.todos[0].id
+      id: event.target.value
     })
-    this.props.toggleComplete(this.state.id);
+    this.props.toggleComplete(event.target.value);
   }
   
   
   render() {
     return (
      <div>
-        <h2>I am</h2>
       <form onSubmit={ this.handleSubmit }>
         <input value={ this.state.value } placeholder='Add Task...' onChange={ this.handleChange }/>
         <button type='submit'>Submit</button>

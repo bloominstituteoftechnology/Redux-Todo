@@ -6,15 +6,16 @@ const ShowTodo = (props) => {
    
     return (
      <div>
-      <h3>Todo List</h3>
-        <ol>
+      <h1>Todo List</h1>
+        <hr />
+        <ul>
           {
             
             props.todos.todos.map(todo => {
-            return <li onClick={props.toggle} key={todo.id}>{todo.value}</li>
+            return <li value={todo.id} onClick={props.toggle} key={todo.id} style={{textDecoration: todo.completed ? 'line-through' : 'none'}}>{todo.id}. {todo.value}</li>
       })
           }
-        </ol>
+        </ul>
      </div>
     )
 };
