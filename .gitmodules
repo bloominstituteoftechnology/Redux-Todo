@@ -1,0 +1,6 @@
+[submodule "redux-intro"]
+	path = redux-intro
+	url = https://github.com/mixelpixel/redux-intro.git
+[submodule "redux-basics"]
+	path = redux-basics
+	url = https://github.com/mixelpixel/redux-basics.git
