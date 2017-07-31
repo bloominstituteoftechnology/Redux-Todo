@@ -1,4 +1,6 @@
-let nextTodoId = 0;
+// let nextTodoId = 0;
+// Starting at three to accomodate default list items
+let nextTodoId = 3;
 
 export const addTodo = text => {
   return {
