@@ -1,4 +1,25 @@
-const todos = (state = [], action) => {
+// default items
+const initialState = [
+    {
+      id: 1,
+      text: 'Crush enemies.',
+      completed: false
+    },
+    {
+      id: 2,
+      text: 'See enemies driven before me.',
+      completed: false
+
+    },
+    {
+      id: 3,
+      text: 'Hear lamentations of enemies\' women.',
+      completed: false
+    }
+];
+
+// const todos = (state = [], action) => {
+const todos = (state = initialState, action) => {
   // console.log('>>>>>>>REDUCER: src/reducers/todosReducer.js')
   switch (action.type) {
     case 'ADD_TODO':
