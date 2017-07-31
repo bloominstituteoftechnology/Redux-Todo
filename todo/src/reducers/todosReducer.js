@@ -1,18 +1,18 @@
 // default items
 const initialState = [
     {
-      id: 101,
+      id: 0,
       text: 'Crush enemies.',
       completed: false
     },
     {
-      id: 102,
+      id: 1,
       text: 'See enemies driven before me.',
       completed: false
 
     },
     {
-      id: 103,
+      id: 2,
       text: 'Hear lamentations of enemies\' women.',
       completed: false
     }
