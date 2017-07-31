@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addTodo } from '../actions';
+import { toggleTodo } from '../actions';
 
 
 class TodoInput extends Component {
@@ -31,7 +32,7 @@ class TodoInput extends Component {
         </form>
         <ul> 
           {this.props.todo.map((item) => {
-          return <li key={item.id}>{item.todo}</li>
+          return <li key={item.id}>{item.todo} <button {...item.completed? true:false}>Completed</button></li>
           })}
         </ul>
       </div>

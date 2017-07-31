@@ -8,4 +8,11 @@ export const addTodo = (todo) => {
   };
 };
 
+export const toggleTodo = (id) => {
+  return {
+    type: 'TOGGLE_TODO',
+    id
+  }
+}
+
 export default addTodo;
