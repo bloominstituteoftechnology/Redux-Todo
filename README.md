@@ -30,15 +30,14 @@ Topics:
   * Your application's state tree should have a single property called `todos`.  It should take the same form as the object shown below.
    ```
   {
-    todos: [],
+    todos: []
   }
   ```
   * Each `todo` item that is in the `todos` array should have the following format:
   ```
   {
-    id: 1,
     value: 'Walk the dog.',
-    completed: false,
+    completed: false
   }
   ```
   * You will create your store in `src/index.js`.  The `<Provider >` component will wrap `<App />` and you will pass the created store into `<Provider >` as one of its properties.  Use `movies` as a reference.
