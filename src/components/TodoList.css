@@ -1,0 +1,11 @@
+.list-div {
+  border: solid;
+  border-color: gray;
+  margin-top: 2em;
+  margin-left: 1em;
+  border-radius: 1em;
+  background-color: white;
+  overflow-y: scroll;
+  display: flex;
+  width: 10px;
+}
