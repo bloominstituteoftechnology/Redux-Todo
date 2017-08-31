@@ -1,0 +1,10 @@
+/*ul {
+  list-style-type: none;
+}*/
+li {
+  text-align: left;
+}
+.title {
+  text-align: left;
+  padding-left: 20px;
+}

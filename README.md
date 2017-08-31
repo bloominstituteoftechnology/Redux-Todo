@@ -1,5 +1,9 @@
 # Redux & React
 
+### Supplemental exercises:
+  - https://github.com/mixelpixel/redux-intro (Ben Nelson)
+  - https://github.com/mixelpixel/redux-basics (Dan Abramov)
+
 Topics:
 
  * `redux` package
@@ -47,14 +51,14 @@ Topics:
   * When the user presses submit you will invoke the appropriate action creator which will then have its new action fed through all of the reducers.
   * You will display the todo list by creating a container that receives the application's `todos` array as a prop.  That container then uses `map` to display the array.
   * When you click on each todo list item you will dispatch an action that will toggle that todo item's `completed` property to either `true` or `false`.  You will need to send the `id` property along with what `completed` should be set to.  The `todos` reducer will return a brand new array that will replace the old array.  We do not mutate the original array but rather replace it with a brand new version.
-  
+
 ### Notes/Hints
  * You should only need one reducer.  This reducer will control the `todos` array property on the state tree.
  * You will have several action creators.  One for adding a new todo item and another for toggling each todo item.
  * Containers require `connect` and a `mapStateToProps(state)` function to read from the state tree.
  * Actions require you to create a `mapDispatchToProps(dispatch)` function that you'll also pass to the `connect` function.
  * http://redux.js.org/ has a todo list as an example project in their documentation.  Feel free to use this as a reference as well.
- 
+
 ## Extra Credit
  * Implement the ability to delete todo list items.  You can create a button next to each todo list item and when it is pressed it will call an action creator that will dispatch an action that removes the specified todo list item from the `todos` array.
  * Use `localStorage` to make the data persist.

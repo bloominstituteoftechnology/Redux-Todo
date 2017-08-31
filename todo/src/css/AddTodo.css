@@ -1,0 +1,23 @@
+.main {
+  padding-top: 20px;
+}
+.input {
+  height:50px;
+  width: 66%;
+  font-size:14pt;
+  text-align: center;
+}
+::placeholder {
+  font-style: italic;
+}
+.button {
+  background-color: #FF7400;
+  color: #000044;
+  height: 30px;
+  border-radius: 20px;
+}
+.button:hover {
+    background-color: #000044;
+    color: #FF7400;
+    cursor: pointer;
+}
