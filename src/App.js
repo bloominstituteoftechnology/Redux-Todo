@@ -27,7 +27,7 @@ class App extends Component {
         this.setState({
             newTodo: e.target.value
         });
-    }
+    };
 
     render() {
         return (

@@ -10,7 +10,7 @@ class TodoItem extends Component {
     render() {
         return (
             <li>
-                <input type="checkbox" onChange={this.toggleComplete} />
+                <input type="checkbox" onClick={this.toggleComplete} />
                 {this.props.todo.value}
             </li>
         );
