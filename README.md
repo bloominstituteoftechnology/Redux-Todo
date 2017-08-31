@@ -40,7 +40,7 @@ Topics:
     completed: false
   }
   ```
-  * You will create your store in `src/index.js`.  The `<Provider >` component will wrap `<App />` and you will pass the created store into `<Provider >` as one of its properties.  Use `movies` as a reference.
+  * You will create your store in `src/index.js`.  The `<Provider >` component will wrap `<App />` and you will pass the created store into `<Provider >` as one of its properties.  Use [this](https://github.com/SunJieMing/redux-example-movies) repository as a reference.
 
 ### React
   * When you type a new todo list item into the input field and press the submit button you should call an action creator that adds a new todo item to the `todos` array on the application state tree.
