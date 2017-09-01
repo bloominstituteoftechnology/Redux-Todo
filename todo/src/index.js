@@ -5,8 +5,10 @@ import App from './components/App';
 import { createStore } from 'redux';
 import allReducers from './reducers';
 import { Provider } from 'react-redux';
+import { loadState } from './localStorage';
 
-const store = createStore(allReducers);
+const persistance= loadState();
+const store = createStore(allReducers, persistance);
 
 
 

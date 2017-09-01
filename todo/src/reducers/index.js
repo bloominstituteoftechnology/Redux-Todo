@@ -1,7 +1,7 @@
 import { ADD, TOGGLE, REMOVE} from '../actions';
 import { combineReducers } from 'redux';
 
-let i = 0;
+let i = Math.random() * Math.random() * 1000;
 const todos = (state = [], action) => {
     switch (action.type) {
         case ADD: 
@@ -9,7 +9,7 @@ const todos = (state = [], action) => {
                 { 
                     text: action.text,
                     completed: false,
-                    id: i++,
+                    id: i * Math.random() * 15,
                 }];
         case TOGGLE:
             const mapped = state.map((todo) => {

@@ -5,8 +5,12 @@ import { add, toggle, remove } from '../actions'
 import { bindActionCreators } from 'redux';
 import AddToDo from './AddToDo';
 import List from './List';
+import { saveState } from '../localStorage';
 
 class App extends Component {
+  componentDidUpdate() {
+    saveState(this.props);
+  }
   handleOnSubmit(e) {
     e.preventDefault();
     this.props.add(e.target.input.value);
@@ -21,6 +25,7 @@ class App extends Component {
   render() {
   return (
     <div className="main-container">
+      <h1>Your To Do List</h1>
       <AddToDo handleOnSubmit={this.handleOnSubmit.bind(this)} />
       <ol className="whole-list">
         {this.props.todos.map((todo, i) => {
