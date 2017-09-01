@@ -5,21 +5,15 @@ export const addTodo = value => ({
 })
 
 export const DELETETODO = 'DELETETODO'
-export const deleteTodo = id => {
-  return {
-    type: DELETETODO, 
-    id
-  }
-}
+export const deleteTodo = id => ({
+  type: DELETETODO, 
+  id
+})
+
 export const COMPLETETODO = 'COMPLETETODO'
 export const completeTodo = id => ({
   type: COMPLETETODO,
   id
-})
-
-export const GETTODOSFROMLOCALSTORAGE = 'GETTODOSFROMLOCALSTORAGE'
-export const getTodosFromLocalStorage = ()  => ({
-  type: GETTODOSFROMLOCALSTORAGE
 })
 
 export const PUTTODOSFROMLOACALSTORAGE = 'PUTTODOSFROMLOACALSTORAGE'

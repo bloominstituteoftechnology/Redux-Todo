@@ -4,12 +4,18 @@ import {connect} from 'react-redux'
 import {deleteTodo, completeTodo} from '../actions'
 
 const Todo = ({todo, index, completed, deleteTodo, completeTodo}) => (
-  <div>
+  <li>
     <h1>{todo.value}</h1>
-    <h4>Complete? {completed ? 'true' : 'false' }</h4>
+    <h4>
+      Complete? {
+        completed
+          ? 'True'
+          : 'False'
+      }
+    </h4>
     <button onClick={() => deleteTodo(index)}>Delete</button>
     <button onClick={() => completeTodo(index)}>Complete</button>
-  </div>
+  </li>
 )
 
 const mapStateToProps = (state, ownProps) => ({

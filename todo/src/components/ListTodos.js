@@ -4,15 +4,13 @@ import {connect} from 'react-redux'
 import Todo from './Todo'
 
 const ListTodos = ({todos}) => (
-  <div>
+  <ul>
     {todos.map((todo, index) => (
       <Todo todo={todo} index={index} key={index}/>
     ))}
-  </div>
+  </ul>
 )
 
-const mapStateToProps = state => ({
-  todos: state.todos
-})
+const mapStateToProps = state => ({todos: state.todos})
 
 export default connect(mapStateToProps, null)(ListTodos)

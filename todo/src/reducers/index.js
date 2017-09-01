@@ -7,7 +7,6 @@ import {
 } from '../actions'
 
 const initialState = {
-  value: '',
   todos: []
 }
 
@@ -19,17 +18,19 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case ADDTODO:
-      newTodos = [...todos, {
-        value: action.value,
-        completed: false
-      }]
+      newTodos = [
+        ...todos, {
+          value: action.value,
+          completed: false
+        }
+      ]
       return Object.assign({}, state, {
         todos: newTodos
       })
 
     case DELETETODO:
       newTodos = [...todos]
-      newTodos.splice(action.id, 1)
+      newTodos.splice(action.id, 1) 
       return Object.assign({}, {
         todos: newTodos
       })
