@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import { add, update } from '../actions'
+import { add, toggle } from '../actions'
+import { bindActionCreators } from 'redux';
+import AddToDo from './AddToDo';
+import List from './List';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  handleOnSubmit(e) {
+    e.preventDefault();
+    this.props.add(e.target.input.value);
+    e.target.input.value = '';
+  }
+  handleOnClick(e) {
+    this.props.toggle(e.target.id);
   }
   render() {
   return (
-    <div>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        this.props.add(e.target.input.value);
-        e.target.input.value = '';
-      }
-        }>
-        <input type="text" name="input"/>
-      </form>
+    <div className="main-container">
+      <AddToDo handleOnSubmit={this.handleOnSubmit.bind(this)} />
+      <ol className="whole-list">
+        {this.props.todos.map((todo, i) => {
+          return <List 
+            completed={todo.completed}
+            key={i} 
+            todo={todo.text} 
+            id={todo.id} 
+            handleOnClick={this.handleOnClick.bind(this)} />
+        })}
+      </ol>
     </div>
   )
   }
@@ -26,7 +37,12 @@ class App extends Component {
 const mapStateToProps =(state) => {
   return {
     todos: state.todos,
-    input: state.input,
   }
 };
-export default connect(mapStateToProps, {add, update})(App);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    add,
+    toggle,
+  }, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
