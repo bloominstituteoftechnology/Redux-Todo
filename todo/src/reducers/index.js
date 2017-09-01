@@ -1,4 +1,4 @@
-import { ADD, TOGGLE } from '../actions';
+import { ADD, TOGGLE, REMOVE} from '../actions';
 import { combineReducers } from 'redux';
 
 let i = 0;
@@ -13,10 +13,13 @@ const todos = (state = [], action) => {
                 }];
         case TOGGLE:
             const mapped = state.map((todo) => {
-                if (todo.id == action.id) todo.completed = !todo.completed;
+                if (Number(todo.id) === Number(action.id)) todo.completed = !todo.completed;
                 return todo;
             });
             return mapped;
+        case REMOVE:
+            const filtered = state.filter(todo => Number(todo.id) !== Number(action.id));
+            return filtered;
         default:  
             return state;
     }
