@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+
+body {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Comfortaa', cursive;
+  background: linear-gradient(to right, rgba(171, 219, 254, 0.36), rgba(223, 127, 237, 0.22)), url('bg.gif');
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-right: 50px;
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(to right, 
+  lightblue, violet);
+  width: 200px;
+  margin: 0 auto;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+  font-family: 'VT323', monospace;
+}
+
+li:hover {
+  width: 300px;
+  transition: width 1s;
+}
+
+input[id='textbox'] {
+  padding: 5px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.3s, border 0.3s;
+  width: 110px;
+  margin-right: 5px;
+  font-size: 15px;
+  font-family: 'VT323', monospace;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+input[id='textbox']:focus,
+input[id='textbox'].focus {
+  border: none;
+  border-bottom: solid 2px paleturquoise;
+  transition: border 0.3s;
+  outline: none;
+  color: white;
+}
+
+input[type='submit'] {
+  border: none;
+  background-color: paleturquoise;
+  color: white;
+  border-radius: 100px;
+  font-size: 18px;
+  margin-right: -40px;
+}
+
+input[type='submit']:focus {
+  outline: none;
+}
+
+h1 {
+  background: linear-gradient(to right, cyan, cyan,
+  lightblue, violet, #FFB6C0, #FFB6C0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 60px;
+  line-height: 60px;
+  margin-left: 40px;
+}
+
+::-webkit-input-placeholder {
+  color: lightgray;
+}
