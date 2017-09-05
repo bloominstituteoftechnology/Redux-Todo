@@ -1,0 +1,8 @@
+input {
+  line-height: 2em;
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  margin-left: 10;
+}

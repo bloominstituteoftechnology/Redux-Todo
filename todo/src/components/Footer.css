@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  font-family: inherit;
+  font-size: 11px;
+  text-justify: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  width: 200px;
+}
+span {
+  color: #999;
+}
+a:link, a:hover, a:visited {
+  color: #777;
+  text-decoration: none;
+}
