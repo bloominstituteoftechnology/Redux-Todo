@@ -9,7 +9,7 @@ import { saveState } from '../localStorage';
 
 class App extends Component {
   componentDidUpdate() {
-    saveState(this.props);
+    saveState(this.props.todos);
   }
   handleOnSubmit(e) {
     e.preventDefault();
@@ -43,9 +43,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps =(state) => {
+const mapStateToProps =(todos) => {
   return {
-    todos: state.todos,
+    todos,
   }
 };
 const mapDispatchToProps = (dispatch) => {
