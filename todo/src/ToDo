@@ -1,0 +1,44 @@
+1. Need an input field with a button to submit (AddTodo)
+2. A list that renders the todo items (TodoList)
+3. A filter that shows the items accordingly (Filter)
+
+State and Actions
+
+1. No state since data doesn't change based on input
+The action is to be allowed to add items
+
+2. One state is for displaying an array of items, 
+One state is for endering out accordingly to the filter
+The action is to display wheter an item is completed or not(ToggleCompleted)
+
+3. One state for rendering acoordingly to the currently set filter
+The action is to click a link to display other links
+
+Reducers
+
+Each action needs a corresponding reducer. Put the reducer logic into container 
+components to keep presentational components clean
+
+1. Define the shape of State
+2. Handle Actions
+
+The state has to be extended by an item when the addTodo action is called
+The staate has to be reorganized when the filter action is called
+
+Store and Dispatching
+
+1. Displaying the list requires the container of TodoList to define a function
+that filters the items according to the filter variable
+
+Return that function in mapStateToProps to transform redux state into Props.
+
+Dispatch the action like toggleTodo with mapDispatchToPrps
+
+the container will be created with connect, connecting the passed props to 
+the presentational component
+
+2. Create AddToDoForm as container needs the same steps for reading
+Redux state and dispatching an onSubmit function
+
+3. The filter component needs the same steps for reading Redux state and dispatching
+an onClick function
