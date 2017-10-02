@@ -33,6 +33,7 @@ body {
   background-color: black;
   height: 10%;
   width: 100%;
+  min-width: 900px;
   position: fixed;
   z-index: 1;
   border-bottom: 2px solid #FFB310;
