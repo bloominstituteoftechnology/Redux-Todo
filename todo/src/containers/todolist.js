@@ -14,14 +14,18 @@ class TodoApp extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+
         const text = this.state.text.trim();
-        this.props.addTodo({
-            text,
-            completed: false
-        });
-        this.setState({
-            text: ''
-        })
+        if(text) {
+            this.props.addTodo({
+                text,
+                completed: false
+            });
+            this.setState({
+                text: ''
+            })
+        }
+
     }
     handleChange = (e) => {
         const text = e.target.value;
@@ -34,6 +38,7 @@ class TodoApp extends Component {
             <div className="todoList">
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" value={this.state.text} onChange={this.handleChange}/>
+                    <button type="submit">add todo</button>
                 </form>
                 <ul>
                     { this.props.todos.map((todo, i) => (
