@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { addTodo, removeTodo, toggleTodo } from '../actions'
 
 import TodoItem from '../components/todoitem'
+import './todolist.css'
+
 class TodoApp extends Component {
     constructor(props) {
         super(props);
@@ -29,11 +31,11 @@ class TodoApp extends Component {
     }
     render() {
         return (
-            <div className="todo-app">
+            <div className="todoList">
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" value={this.state.text} onChange={this.handleChange}/>
                 </form>
-                <ul className="todo-list">
+                <ul>
                     { this.props.todos.map((todo, i) => (
                         <TodoItem key={i} todo={todo} remove={(e) =>{ e.stopPropagation(); this.props.removeTodo(i) }} toggleComplete={()=> { this.props.toggleTodo(i)}}/>
                     ))}
