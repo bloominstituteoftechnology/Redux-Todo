@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import list from './reducers';
+import ToDo from './components';
 import './App.css';
 
-const ToDo = (props) => {
-  return <p>test</p>
-}
-let store = {test: 'test',};
-// const store = createStore();
+const store = createStore(list);
 
+console.log(store);
 class App extends Component {
   render() {
     return (
