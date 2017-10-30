@@ -12,7 +12,7 @@ export const addItem = (text) => {
 };
 
 
-export const decrement = (id) => {
+export const removeItem = (id) => {
   return {
     type: REMOVEITEM,
     id,

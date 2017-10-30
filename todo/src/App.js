@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import list from './reducers';
-import ToDo from './components';
-import './App.css';
+import ToDo from './components/ToDo';
 
 const store = createStore(list);
 
@@ -11,11 +10,9 @@ console.log(store);
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Provider store={store}>
-          <ToDo />
-        </Provider>
-      </div>
+      <Provider store={ store }>
+        <ToDo />
+      </Provider>
     );
   }
 }
