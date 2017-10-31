@@ -5,7 +5,6 @@ import { addItem } from '../actions';
 
  class Counter extends Component {
      render() {
-         console.log(this.state);
          return (
             <p>
                 Input Field:
@@ -15,7 +14,10 @@ import { addItem } from '../actions';
                 <button onClick={() => this.props.addItem()}>
                     Submit
                 </button>
-                { this.state }
+                { console.log(this.props.todos) }
+                { this.props.todos.map((list) => {
+                    return this.props.todos[list];
+                }) }
             </p>
          );
      }

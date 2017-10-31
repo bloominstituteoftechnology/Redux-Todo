@@ -1,15 +1,14 @@
 import { ADDITEM } from '../actions';
 
-export default (state = [], action) => {
+export default (todos = [], action) => {
     switch(action.type) {
         case ADDITEM:
-            return this.state = [...state,
+            return todos = [...todos,
                 {
-                    id: action.id,
-                    text: action.text,
+                    value: 'walk dog',
                     completed: false,
                 }]
         default:
-            return state;
+            return todos;
     }
 }
