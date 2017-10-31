@@ -4,21 +4,34 @@ import { addItem } from '../actions';
 
 
  class Counter extends Component {
+     constructor() {
+         super();
+         this.state = {
+             todos: []
+         }
+     }
      render() {
-         return (
-            <p>
-                Input Field:
-                <input type='text'>
 
-                </input>
-                <button onClick={() => this.props.addItem()}>
-                    Submit
-                </button>
-                { console.log(this.props.todos) }
-                { this.props.todos.map((list) => {
-                    return this.props.todos[list];
-                }) }
-            </p>
+         return (
+            <div>
+                <div>
+                    <label htmlFor='chore'>Input Field: </label>
+                    <input type='text' id='chore' name='name'
+                        placeholder="enter task here"/>
+                </div>
+                <div>
+                    <button onClick={() => this.props.addItem()}>
+                        Submit
+                    </button>
+                </div>
+                { console.log(this.chore) }
+                { this.props.todos.value }
+                <ul>
+                    { this.props.todos.map((list) => {
+                        return list.value;
+                    })}
+                </ul>
+            </div>
          );
      }
  }

@@ -5,7 +5,7 @@ export default (todos = [], action) => {
         case ADDITEM:
             return todos = [...todos,
                 {
-                    value: 'walk dog',
+                    value: 'Hello World\n',
                     completed: false,
                 }]
         default:
