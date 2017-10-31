@@ -10,6 +10,7 @@ import { addItem } from '../actions';
             <p>
                 Input Field:
                 <input type='text'>
+
                 </input>
                 <button onClick={() => this.props.addItem()}>
                     Submit
@@ -22,7 +23,7 @@ import { addItem } from '../actions';
 
  const mapStateToProps = (state) => {
      return {
-         count: state
+         todos: state
      };
  };
 

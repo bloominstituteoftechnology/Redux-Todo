@@ -2,6 +2,7 @@ export const ADDITEM = 'ADDITEM';
 
 export const addItem = () => {
     return {
-        type: ADDITEM
+        type: ADDITEM,
+        payload: this.states
     }
 };
