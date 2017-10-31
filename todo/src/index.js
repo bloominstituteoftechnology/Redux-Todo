@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import todoApp from './reducers'
+import todos from './reducers'
 import App from './App.js'
 import registerServiceWorker from './registerServiceWorker';
 
-let store = createStore(todoApp);
 
-render(
-  <Provider store={store}>
+ReactDOM.render(
+  <Provider store={createStore(todos)}>
     <App />,
   </Provider>,
   document.getElementById('root')

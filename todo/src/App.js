@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import AddTodo from './containers/AddTodo';
-import VisibleTodoList from './containers/VisibleTodoList'
+import AddToList from './containers/AddToList';
+import VisibleList from './containers/VisibleList';
+import './App.css';
 
-const App = () => (
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-  </div>
-)
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <AddToList />
+        <VisibleList />
+      </div>
+    );
+  }
+}
 
 export default App
