@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import Counter from './components/counter';
+import counter from './reducers';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const store = createStore(counter);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Counter />
+    </Provider>,
+    document.getElementById('root')
+)
