@@ -1,5 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_SELECT ='TOGGLE_SELECT';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
 
 export const addTodo = (text, id) => {
    const payload = {
@@ -18,4 +19,11 @@ export const toggleSelect = (id) => {
         type: TOGGLE_SELECT,
         id
     };
+};
+
+export const removeItem = (id) => {
+    return {
+        type: REMOVE_ITEM,
+        id
+    }
 };
