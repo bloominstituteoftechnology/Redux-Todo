@@ -22,7 +22,7 @@ class ToDo extends Component {
           return (
             <p 
               key={ i + 1 }
-              onClick={() => { this.props.removeItem(listItem.id) }}
+              onClick={() => this.props.removeItem(listItem.id) }
             >
               { listItem.text }
             </p>
