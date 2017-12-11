@@ -1,4 +1,4 @@
-# Redux & React
+``# Redux & React
 
 Topics:
 
@@ -35,6 +35,7 @@ Topics:
   ```
   * Each `todo` item that is in the `todos` array should have the following format:
   ```
+
   {
     value: 'Walk the dog.',
     completed: false
