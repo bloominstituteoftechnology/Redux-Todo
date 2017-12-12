@@ -1,0 +1,52 @@
+.TodoItem {
+  position: relative;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: #f5f5f5;
+}
+.TodoItem:hover {
+  background-color: #eee;
+}
+
+.TodoItem__text {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 60px);
+  text-align: left;
+}
+.TodoItem__name {
+  font-size: 24px;
+  letter-spacing: 0.25px;
+  padding: 5px 25px;
+}
+.TodoItem--completed .TodoItem__name {
+  text-decoration: line-through;
+}
+
+
+.TodoItem__delete {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.TodoItem__delete > .icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  left: 0px;
+  border-radius: 50%;
+  background-image: url("./delete_icon.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  filter: grayscale(1.0) opacity(0.5);
+  transition: filter 0.25s ease 0s;
+}
+.TodoItem__delete > .icon:hover {
+  filter: grayscale(0);
+}
