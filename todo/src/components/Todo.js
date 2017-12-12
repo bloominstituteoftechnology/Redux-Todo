@@ -12,7 +12,7 @@ class Todo extends Component {
     render() {
         return (
             <li className= "Todo">
-              <input 
+            <input 
               type="checkbox"
               onChange={this.toggleComplete.bind(this)} 
               />

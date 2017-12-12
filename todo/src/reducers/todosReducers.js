@@ -1,7 +1,7 @@
 import {
   NEW_TODO,
   TOGGLE_COMPLETE // screaming snake case? convention for configurations
-} from "../actions";
+} from '../actions';
 
 export default (todos = [], action) => {
   //receive action & check action type
@@ -15,4 +15,4 @@ export default (todos = [], action) => {
     default:
       return todos;
   }
-};
+}

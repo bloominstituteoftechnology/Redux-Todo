@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Todo from './Todo';
 
 const Todos = (props) => {
-    const todos= props.todos.map(( todo, i) => <Todo todo = {todo} key={i} index={i} />); //providing index for toggling
+    const todos= props.todos.map(( todo, i) => <Todo todo ={todo} key={i} index={i} />); //providing index for toggling
     return (
         <ul>
             {todos}
