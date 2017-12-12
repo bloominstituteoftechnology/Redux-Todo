@@ -1,0 +1,21 @@
+.Todo {
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: row;
+}
+
+.Todo__text {
+  align-self: flex-start;
+}
+
+.Todo__toggle {
+  margin-left: auto;
+}
+
+.Todo__delete {
+  margin-left: auto
+}
+
+.Todo--completed {
+  text-decoration: line-through;
+}
