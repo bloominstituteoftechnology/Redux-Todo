@@ -9,7 +9,6 @@ class Todo extends Component {
   }
 
   del = () => {
-    console.log('delete at index ', this.props.index);
     this.props.deleteTodo(this.props.index);
   }
 
