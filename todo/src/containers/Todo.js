@@ -8,7 +8,8 @@ const Todo = (props) => (
         textDecoration: props.completed ? "line-through" : "none"
       }}
     >
-      {props.value}
+      <strong>{props.value}</strong><br/>
+      <span>{props.completed ? 'Completed' : 'Not Completed'}</span>
     </div>
     <button onClick={props.remove}>Remove</button>
   </div>
