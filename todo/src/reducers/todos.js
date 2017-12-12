@@ -15,8 +15,6 @@ export default (todos = [], action) => {
 
     case TOGGLE_TODO:
       return todos.map((todo) => {
-        console.log('toggle');
-        console.log({...todo, completed: !todo.completed});
         if (todo.id === action.id) return {...todo, completed: !todo.completed};
         return todo;
       });
