@@ -1,17 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import reducers from './reducers';
-import './index.css';
-import App from './App';
+import { combineReducers } from 'redux';
+import todosReducers from './todosReducers';
 
-const store = createStore(reducers);
+const rootReducer = combineReducers({
+  todos: todosReducers
+});
 
-ReactDOM.render(
-<Provider store={createStore(reducers)}>
-  <App />
-</Provider>,
-document.getElementById('root'));
-
-
+export default rootReducer;

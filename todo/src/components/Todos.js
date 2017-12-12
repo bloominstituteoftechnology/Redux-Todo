@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Todo from './Todo';
 
-const Todos = (props) => {
-    const todos = props.todos.map((todo, i) => <Todo todo={todo} key={i} index={i} />);
+import { toggleComplete } from '../actions';
+
+class Todo extends Component {
+  toggleComplete() {
+    this.props.toggleComplete(this.props.index);
+    console.log(this.props.todo.completed)
+  }
+
+  render() {
     return (
-        <ul>
-          { todos }
-        </ul>
+      <li className="Todo">
+        <input
+          type="checkbox"
+          onChange={this.toggleComplete.bind(this)}
+          />
+        {this.props.todo.value}
+      </li>
     );
+  }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        todos: state.todos
-    }
-}
-
-export default connect(mapStateToProps)(Todos);
+export default connect(null, { toggleComplete })(Todo);
