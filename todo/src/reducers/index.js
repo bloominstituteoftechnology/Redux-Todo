@@ -9,5 +9,9 @@ export default(todos = [], action) => {
           return todos.concat(action.payload);
         case TOGGLE_COMPLETE:
           const newTodos = todos.slice(0);
+          newTodos[action.payload].complete = !newTodos[action.payload].complete;
+          return newTodos;
+        default:
+          return todos; 
     }
 }
