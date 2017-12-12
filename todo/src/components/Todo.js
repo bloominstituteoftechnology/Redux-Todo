@@ -1,20 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Todo from './Todo';
 
-const Todos = (props) => {
-    const todos = props.todos.map((todo, i) => <Todo todo={todo} key={i} index={i} />);
-    return (
-        <ul>
-          { todos }
-        </ul>
-    );
+import { toggleComplete } from '../actions';
+
+class Todo extends Component {
+
 }
 
-const mapStateToProps = (state) => {
-    return {
-        todos: state.todos
-    }
-}
-
-export default connect(mapStateToProps)(Todos);
+export default connect(null, { toggleComplete })(Todo);
