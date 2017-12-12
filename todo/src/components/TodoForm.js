@@ -1,0 +1,40 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
+
+class TodoForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            todoValue: ""
+        };
+        this.addTodo = this.addTodo.bind(this);
+        this.updateNewTodo = this.updateNewTodo
+    }
+
+addTodo(event) {
+    event.preventDefault();
+    this.props.addTodo({
+
+    })
+}
+updateNewTodo(event) {
+    this.setState({
+      todoValue: event.target.value
+    })
+}
+
+render() {
+    return (
+      <div> className="TodoForm">
+        <form onSubmit={this.addTodo}>
+        <input
+          onChange={this.updateNewTodo}
+          placeholder="new todo"
+          value={this.state.newTodo}
+          />
+        </form>
+     </div>
+ );
+  }
+}

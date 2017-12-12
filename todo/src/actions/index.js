@@ -1,13 +1,16 @@
-const mapStateToProps = (state) => { //Header's mapStateToProps
-  const username = state.user.username; 
-  return { 
-    username
-  }
-  }
+export const NEW_TODO = 'NEW TODO';
+export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
-const mapStatetoProps = (state) => {
-  const friends = state.user.friends
+export const addTodo = (todo) => {
   return {
-    friends
+      type: NEW_TODO,
+      payload: todo
+  }
+}
+
+export const toggleComplete = (index) => {
+  return {
+    type: TOGGLE_COMPLETE, 
+    payload: index
   }
 }

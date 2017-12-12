@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import Counter from './components/Counter'; 
-import counter from './reducers';
+import {
+  NEW_TODO, 
+  TOGGLE_COMPLETE
+} from '../actions';
 
-const store = createStore(reducers); 
+export default (todos = [], action) => {
+  switch (action.type) {
+    case NEW_TODO:
+      return todos.concat(action.payload);
+    case TOGGLE_COMPLETE:
+      const newTodos = todos.slice(0); 
+      newTodos[action.payload].complete = !newTodos[action.payload].complete;
+      return newTodos
+    default:
+      return todos;
 
-ReactDOM.render
-// Provider store=(store=(store)>
-    <App />
-</Provider>
-    document.getElementById('root'));
-registerServiceWorker();
+  }
+}
