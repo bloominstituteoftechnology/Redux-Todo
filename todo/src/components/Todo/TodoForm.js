@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../../actions';
+import './TodoForm.css';
 
 class TodoForm extends Component {
     constructor(props) {

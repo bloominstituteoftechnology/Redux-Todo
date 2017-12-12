@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
-
+import './Todos.css'
 const Todos = (props) => {
     const todos = props.todos.map((todo, i) => <Todo todo={todo} key={i} index={i} />);
     return (
-        <ul>
+        <ul className="Todos">
             {todos}
         </ul>
     );
