@@ -9,21 +9,24 @@ class TodoForm extends Component {
             todoValue: ""
         };
         this.addTodo = this.addTodo.bind(this);
-        this.updateNewTodo = this.updateNewTodo
+        this.updateNewTodo = this.updateNewTodo.bind(this)
     }
 
 addTodo(event) {
     event.preventDefault();
     this.props.addTodo({
-
-    })
+    value: this.state.todoValue,
+    completed: false
+});
+    this.setState({
+      todoValue: ''
+    });
 }
 updateNewTodo(event) {
-    this.setState({
-      todoValue: event.target.value
+  this.setState({
+    todoValue: event.target.value
     })
 }
-
 render() {
     return (
       <div> className="TodoForm">
@@ -31,10 +34,18 @@ render() {
         <input
           onChange={this.updateNewTodo}
           placeholder="new todo"
-          value={this.state.newTodo}
+          value={this.state.todoValue)
           />
         </form>
      </div>
  );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps, {addTodo})(TodoForm);
