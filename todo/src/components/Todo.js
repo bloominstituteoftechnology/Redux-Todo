@@ -19,3 +19,26 @@ Todo.propTypes = {
 }
 
 export default Todo
+/*
+import React from 'react';
+import { connect } from 'react-redux';
+import { toggleComplete } from '../actions';
+
+class Todo extends Component {
+  toggleComplete() {
+
+  }
+  render() {
+    return (
+      <li> 
+        <input
+          type="checkbox"
+          onChange={this.toggleComplete.bind(this)}
+          />
+          {this.props.todo.value}
+          </li>
+    );
+  }
+}
+
+export default connect(null, )(Todos)* unfinished*/

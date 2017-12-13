@@ -2,7 +2,7 @@
 //set visibility state
 const setvisibleFilter = (state = 'SHOW', action) => {
     switch (action.type) {
-      case 'SETVISIBILITY':
+      case SETVISIBILITY:
         return action.filter
       default:
         return state
