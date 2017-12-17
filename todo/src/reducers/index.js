@@ -13,9 +13,10 @@ export default (todos=[],action) => {
           ]
 
         case REMOVETODO:
-            console.log(action.payload)
+            // console.log(action.payload)
             return todos.filter(todo => todo.id !== action.payload);
         default:
             return todos;
     }
 }
+
