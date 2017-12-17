@@ -5,12 +5,12 @@ export const addTodo = (todo) => {
   return {
     type: NEW_TODO,
     payload: todo
-  }
-}
+  };
+};
 
 export const toggleComplete = (index) => {
   return {
     type: TOGGLE_COMPLETE,
     payload: index
-  }
-}
+  };
+};

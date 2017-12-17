@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
+import { toggleComplete } from '../actions';
 import { connect } from 'react-redux';
 
-import { toggleComplete } from '../actions';
+class TodoItem extends Component {
 
-class Todo extends Component {
-  toggleComplete() {
+  toggleComplete(event) {
     this.props.toggleComplete(this.props.index);
-    console.log(this.props.todo.completed)
   }
 
   render() {
     return (
-      <li className="Todo">
+      <li>
         <input
           type="checkbox"
           onChange={this.toggleComplete.bind(this)}
@@ -22,4 +21,4 @@ class Todo extends Component {
   }
 }
 
-export default connect(null, { toggleComplete })(Todo);
+export default connect(null, { toggleComplete })(TodoItem);
