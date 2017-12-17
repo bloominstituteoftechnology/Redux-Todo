@@ -5,7 +5,7 @@ import Todo from './Todo';
 const Todos = (props) => {
     const todos = props.todos.map((todo, i) => <Todo todo={todo} key={i} index={i} />);
     return (
-        <ul>
+        <ul style={props.b}>
             { todos }
         </ul>
     )
