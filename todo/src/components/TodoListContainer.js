@@ -19,6 +19,7 @@ class TodoList extends Component {
 			text: '',
 			edit: '',
 			isEditingId: -1,
+			visibility: '',
 		};
 	}
 
@@ -28,6 +29,8 @@ class TodoList extends Component {
 		if (localStorage.getItem('todos')) {
 			this.props.loadTodos();
 		}
+
+		this.setState({ visibility: undefined });
 	}
 
 	componentWillUnmount() {
@@ -35,7 +38,6 @@ class TodoList extends Component {
 	}
 
 	componentCleanup = () => {
-		// this.props.changeVisibility('all');
 		this.props.saveTodos();
 	};
 
@@ -93,7 +95,8 @@ class TodoList extends Component {
 	};
 
 	changeVisibilityHandler(filter) {
-		this.props.changeVisibility(filter);
+		this.setState({ visibility: filter });
+		this.props.changeVisibility();
 	}
 
 	render() {
@@ -123,19 +126,19 @@ class TodoList extends Component {
 				<div>
 					<button
 						className="ShowIncompleteButton"
-						onClick={() => this.changeVisibilityHandler('incomplete')}
+						onClick={() => this.changeVisibilityHandler(false)}
 					>
 						Incomplete
 					</button>
 					<button
 						className="ShowAllButton"
-						onClick={() => this.changeVisibilityHandler('all')}
+						onClick={() => this.changeVisibilityHandler(undefined)}
 					>
 						All
 					</button>
 					<button
 						className="ShowCompletedButton"
-						onClick={() => this.changeVisibilityHandler('completed')}
+						onClick={() => this.changeVisibilityHandler(true)}
 					>
 						Completed
 					</button>
@@ -144,74 +147,80 @@ class TodoList extends Component {
 				<br />
 
 				<div className="TodoList">
-					{this.props.todos.map(todo => {
-						return (
-							<div key={todo.id} className="TodoContainer">
-								<button
-									className="DeleteButton"
-									onClick={() => this.deleteTodoHandler(todo.id)}
-								>
-									&#x2717;
-								</button>
+					{this.props.todos
+						.filter(todo => {
+							return this.state.visibility !== undefined
+								? todo.completed === this.state.visibility
+								: todo;
+						})
+						.map(todo => {
+							return (
+								<div key={todo.id} className="TodoContainer">
+									<button
+										className="DeleteButton"
+										onClick={() => this.deleteTodoHandler(todo.id)}
+									>
+										&#x2717;
+									</button>
 
-								{todo.completed ? (
-									<div className="TodoItemContainer">
-										<button
-											className="ToggleCompleteButton"
-											onClick={() => this.toggleCompleteHandler(todo.id)}
-											style={{ opacity: 0.2 }}
-										>
-											&#x2713;
-										</button>
-
-										<li
-											className="TodoItem"
-											style={{ textDecoration: 'line-through', opacity: 0.2 }}
-										>
-											{todo.text}
-										</li>
-									</div>
-								) : (
-									<div className="TodoItemContainer">
-										<button
-											className="ToggleCompleteButton"
-											onClick={() => this.toggleCompleteHandler(todo.id)}
-										>
-											&#x2713;
-										</button>
-
-										{this.state.isEditingId === todo.id ? (
+									{todo.completed ? (
+										<div className="TodoItemContainer">
 											<button
-												className="EditTodoButton"
-												onClick={() => this.editTodoHandler(todo)}
+												className="ToggleCompleteButton"
+												onClick={() => this.toggleCompleteHandler(todo.id)}
+												style={{ opacity: 0.2 }}
 											>
-												done
+												&#x2713;
 											</button>
-										) : (
-											<button
-												className="EditTodoButton"
-												onClick={() => this.isEditing(todo)}
-											>
-												edit
-											</button>
-										)}
 
-										{this.state.isEditingId === todo.id ? (
-											<input
-												className="EditTodo"
-												onChange={this.handleTodoInput}
-												name="edit"
-												value={this.state.edit}
-												placeholder={todo.text}
-											/>
-										) : (
-											<li className="TodoItem">{todo.text}</li>
-										)}
-									</div>
-								)}
-							</div>
-						);
-					})}
+											<li
+												className="TodoItem"
+												style={{ textDecoration: 'line-through', opacity: 0.2 }}
+											>
+												{todo.text}
+											</li>
+										</div>
+									) : (
+										<div className="TodoItemContainer">
+											<button
+												className="ToggleCompleteButton"
+												onClick={() => this.toggleCompleteHandler(todo.id)}
+											>
+												&#x2713;
+											</button>
+
+											{this.state.isEditingId === todo.id ? (
+												<button
+													className="EditTodoButton"
+													onClick={() => this.editTodoHandler(todo)}
+												>
+													done
+												</button>
+											) : (
+												<button
+													className="EditTodoButton"
+													onClick={() => this.isEditing(todo)}
+												>
+													edit
+												</button>
+											)}
+
+											{this.state.isEditingId === todo.id ? (
+												<input
+													className="EditTodo"
+													onChange={this.handleTodoInput}
+													name="edit"
+													value={this.state.edit}
+													placeholder={todo.text}
+												/>
+											) : (
+												<li className="TodoItem">{todo.text}</li>
+											)}
+										</div>
+									)}
+								</div>
+							);
+						})}
 				</div>
 			</div>
 		);

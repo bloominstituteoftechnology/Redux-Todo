@@ -33,17 +33,7 @@ export default (todos = [], action) => {
 		case LOAD_TODOS:
 			return JSON.parse(localStorage.getItem('todos'));
 		case CHANGE_VISIBILITY:
-			if (action.payload === 'all')
-				return JSON.parse(localStorage.getItem('todos'));
-			if (action.payload === 'incomplete') {
-				localStorage.setItem('todos', JSON.stringify(todos));
-				return todos.filter(todo => todo.completed === false);
-			}
-			if (action.payload === 'completed') {
-				localStorage.setItem('todos', JSON.stringify(todos));
-				return todos.filter(todo => todo.completed === true);
-			}
-			return console.error('visibility not specified');
+			return todos;
 		default:
 			return todos;
 	}

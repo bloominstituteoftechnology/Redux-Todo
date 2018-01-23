@@ -49,9 +49,8 @@ export const loadTodos = () => {
 	};
 };
 
-export const changeVisibility = filter => {
+export const changeVisibility = () => {
 	return {
 		type: CHANGE_VISIBILITY,
-		payload: filter,
 	};
 };
