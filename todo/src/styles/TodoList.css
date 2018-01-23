@@ -15,7 +15,23 @@
 }
 
 .AddTodoButton {
+	margin-left: 4px;
 	display: inline;
+}
+
+.ShowIncompleteButton {
+	width: 100px;
+}
+
+.ShowAllButton {
+	width: 100px;
+
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.ShowCompletedButton {
+	width: 100px;
 }
 
 .TodoList {

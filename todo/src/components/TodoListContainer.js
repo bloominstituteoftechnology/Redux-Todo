@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, deleteTodo, toggleComplete, editTodo } from '../actions';
+import {
+	addTodo,
+	deleteTodo,
+	toggleComplete,
+	editTodo,
+	saveTodos,
+	loadTodos,
+} from '../actions';
 
 import '../styles/TodoList.css';
 
@@ -13,6 +20,24 @@ class TodoList extends Component {
 			isEditingId: -1,
 		};
 	}
+
+	componentDidMount() {
+		console.log(localStorage);
+		// console.log(this.props);
+		window.addEventListener('beforeunload', this.componentCleanup);
+
+		if (localStorage.getItem('todos')) {
+			this.props.loadTodos();
+		}
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('beforeunload', this.componentCleanup);
+	}
+
+	componentCleanup = () => {
+		this.props.saveTodos();
+	};
 
 	handleTodoInput = e => {
 		this.setState({
@@ -35,13 +60,13 @@ class TodoList extends Component {
 		});
 	};
 
-	deleteTodoHandler = todo => {
-		this.props.deleteTodo(todo);
+	deleteTodoHandler = id => {
+		this.props.deleteTodo(id);
 	};
 
-	toggleCompleteHandler = todo => {
+	toggleCompleteHandler = id => {
 		this.setState({ isEditing: false });
-		this.props.toggleComplete(todo);
+		this.props.toggleComplete(id);
 	};
 
 	isEditing = todo => {
@@ -52,10 +77,11 @@ class TodoList extends Component {
 	};
 
 	editTodoHandler = todo => {
+		const edit = this.state.edit;
 		const editedTodo = {
-			text: todo.text,
+			text: edit,
 			completed: todo.completed,
-			edit: this.state.edit,
+			id: todo.id,
 		};
 
 		this.props.editTodo(editedTodo);
@@ -67,6 +93,7 @@ class TodoList extends Component {
 	};
 
 	render() {
+		// console.log(JSON.stringify(this.props.todos));
 		return (
 			<div className="TodoListContainer">
 				<br />
@@ -96,7 +123,7 @@ class TodoList extends Component {
 							<div key={todo.id} className="TodoContainer">
 								<button
 									className="DeleteButton"
-									onClick={() => this.deleteTodoHandler(todo)}
+									onClick={() => this.deleteTodoHandler(todo.id)}
 								>
 									&#x2717;
 								</button>
@@ -105,7 +132,7 @@ class TodoList extends Component {
 									<div className="TodoItemContainer">
 										<button
 											className="ToggleCompleteButton"
-											onClick={() => this.toggleCompleteHandler(todo)}
+											onClick={() => this.toggleCompleteHandler(todo.id)}
 											style={{ opacity: 0.2 }}
 										>
 											&#x2713;
@@ -122,7 +149,7 @@ class TodoList extends Component {
 									<div className="TodoItemContainer">
 										<button
 											className="ToggleCompleteButton"
-											onClick={() => this.toggleCompleteHandler(todo)}
+											onClick={() => this.toggleCompleteHandler(todo.id)}
 										>
 											&#x2713;
 										</button>
@@ -176,4 +203,6 @@ export default connect(mapStateToProps, {
 	deleteTodo,
 	toggleComplete,
 	editTodo,
+	saveTodos,
+	loadTodos,
 })(TodoList);

@@ -1,56 +1,37 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_COMPLETE, EDIT_TODO } from '../actions';
-
-const mySessionStorage = window.sessionStorage;
-// mySessionStorage.clear();
-
-const renderTodos = () => {
-	const todos = [];
-	const keys = Object.keys(mySessionStorage);
-
-	for (let i = 0; i < mySessionStorage.length; i++) {
-		const todo = {};
-
-		todo['text'] = keys[i];
-
-		const isCompleted = mySessionStorage[keys[i]];
-		if (isCompleted === 'true') todo['completed'] = true;
-		else todo['completed'] = false;
-
-		todo['id'] = todos.length;
-
-		todos.push(todo);
-	}
-	return todos;
-};
+import {
+	ADD_TODO,
+	DELETE_TODO,
+	TOGGLE_COMPLETE,
+	EDIT_TODO,
+	SAVE_TODOS,
+	LOAD_TODOS,
+} from '../actions';
 
 export default (todos = [], action) => {
-	// console.log(action.payload);
 	switch (action.type) {
 		case ADD_TODO:
-			// console.log(todos);
-			// console.log(action.payload.text);
-			// console.log(Object.keys(mySessionStorage));
-			mySessionStorage.setItem(action.payload.text, action.payload.completed);
-			return renderTodos();
+			return [action.payload, ...todos];
 		case DELETE_TODO:
-			mySessionStorage.removeItem(action.payload.text);
-			return renderTodos();
+			return todos.filter(todo => todo.id !== action.payload);
 		case TOGGLE_COMPLETE:
-			let sessionCompleted = mySessionStorage.getItem(action.payload.text);
-
-			if (sessionCompleted === 'false') sessionCompleted = 'true';
-			else sessionCompleted = 'false';
-
-			mySessionStorage.setItem(action.payload.text, sessionCompleted);
-			return renderTodos();
+			return todos.map(todo => {
+				if (todo.id === action.payload)
+					return { ...todo, completed: !todo.completed };
+				return todo;
+			});
 		case EDIT_TODO:
-			// console.log(action.payload);
-			const todoCompleted = mySessionStorage.getItem(action.payload.text);
-			mySessionStorage.setItem(action.payload.edit, todoCompleted);
-			mySessionStorage.removeItem(action.payload.text);
-
-			return renderTodos();
+			return todos.map(todo => {
+				if (todo.id === action.payload.id)
+					return { ...todo, text: action.payload.text };
+				return todo;
+			});
+		case SAVE_TODOS:
+			localStorage.setItem('todos', JSON.stringify(todos));
+			localStorage.setItem('id', action.payload);
+			break;
+		case LOAD_TODOS:
+			return JSON.parse(localStorage.getItem('todos'));
 		default:
-			return renderTodos();
+			return todos;
 	}
 };
