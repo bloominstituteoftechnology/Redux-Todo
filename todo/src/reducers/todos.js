@@ -6,6 +6,7 @@ import {
 	SAVE_TODOS,
 	LOAD_TODOS,
 	CHANGE_VISIBILITY,
+	CLEAR_COMPLETED,
 } from '../actions';
 
 export default (todos = [], action) => {
@@ -31,9 +32,11 @@ export default (todos = [], action) => {
 			localStorage.setItem('id', action.payload);
 			break;
 		case LOAD_TODOS:
-			return JSON.parse(localStorage.getItem('todos'));
+			return [...action.payload];
 		case CHANGE_VISIBILITY:
 			return todos;
+		case CLEAR_COMPLETED:
+			return todos.filter(todo => !todo.completed);
 		default:
 			return todos;
 	}

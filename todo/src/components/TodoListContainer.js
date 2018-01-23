@@ -8,6 +8,7 @@ import {
 	saveTodos,
 	loadTodos,
 	changeVisibility,
+	clearCompleted,
 } from '../actions';
 
 import '../styles/TodoList.css';
@@ -27,7 +28,7 @@ class TodoList extends Component {
 		window.addEventListener('beforeunload', this.componentCleanup);
 
 		if (localStorage.getItem('todos')) {
-			this.props.loadTodos();
+			this.props.loadTodos(JSON.parse(localStorage.getItem('todos')));
 		}
 
 		this.setState({ visibility: undefined });
@@ -98,6 +99,10 @@ class TodoList extends Component {
 		this.setState({ visibility: filter });
 		this.props.changeVisibility();
 	}
+
+	clearCompletedHandler = () => {
+		this.props.clearCompleted();
+	};
 
 	render() {
 		return (
@@ -233,6 +238,15 @@ class TodoList extends Component {
 							);
 						})}
 				</div>
+
+				<br />
+
+				<button
+					className="ClearCompletedButton"
+					onClick={this.clearCompletedHandler}
+				>
+					Clear completed
+				</button>
 			</div>
 		);
 	}
@@ -252,4 +266,5 @@ export default connect(mapStateToProps, {
 	saveTodos,
 	loadTodos,
 	changeVisibility,
+	clearCompleted,
 })(TodoList);

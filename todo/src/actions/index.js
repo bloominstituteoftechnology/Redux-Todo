@@ -5,6 +5,7 @@ export const EDIT_TODO = 'EDIT_TODO';
 export const SAVE_TODOS = 'SAVE_TODOS';
 export const LOAD_TODOS = 'LOAD_TODOS';
 export const CHANGE_VISIBILITY = 'CHANGE_VISIBILITY';
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 
 let nextTodoId = Number(localStorage.getItem('id'));
 
@@ -43,14 +44,21 @@ export const saveTodos = () => {
 	};
 };
 
-export const loadTodos = () => {
+export const loadTodos = todos => {
 	return {
 		type: LOAD_TODOS,
+		payload: todos,
 	};
 };
 
 export const changeVisibility = () => {
 	return {
 		type: CHANGE_VISIBILITY,
+	};
+};
+
+export const clearCompleted = () => {
+	return {
+		type: CLEAR_COMPLETED,
 	};
 };
