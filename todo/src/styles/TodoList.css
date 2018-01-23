@@ -79,3 +79,11 @@
 
 	display: inline;
 }
+
+.ClearTodoList {
+	margin-right: 2px;
+}
+
+.ClearCompletedButton {
+	margin-left: 2px;
+}

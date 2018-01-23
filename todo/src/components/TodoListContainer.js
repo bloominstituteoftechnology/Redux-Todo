@@ -8,6 +8,7 @@ import {
 	saveTodos,
 	loadTodos,
 	changeVisibility,
+	clearTodoList,
 	clearCompleted,
 } from '../actions';
 
@@ -99,6 +100,17 @@ class TodoList extends Component {
 		this.setState({ visibility: filter });
 		this.props.changeVisibility();
 	}
+
+	clearTodoListHandler = () => {
+		if (this.props.todos.length > 0) {
+			if (
+				window.confirm(
+					'You are about to delete ALL your to do items. This CANNOT be undone. Are you sure you want to continue?'
+				)
+			)
+				this.props.clearTodoList();
+		} else window.alert('Your list is empty! There is nothing to clear!');
+	};
 
 	clearCompletedHandler = () => {
 		this.props.clearCompleted();
@@ -241,12 +253,17 @@ class TodoList extends Component {
 
 				<br />
 
-				<button
-					className="ClearCompletedButton"
-					onClick={this.clearCompletedHandler}
-				>
-					Clear completed
-				</button>
+				<div>
+					<button className="ClearTodoList" onClick={this.clearTodoListHandler}>
+						Clear ALL to do items
+					</button>
+					<button
+						className="ClearCompletedButton"
+						onClick={this.clearCompletedHandler}
+					>
+						Clear completed to do items
+					</button>
+				</div>
 			</div>
 		);
 	}
@@ -266,5 +283,6 @@ export default connect(mapStateToProps, {
 	saveTodos,
 	loadTodos,
 	changeVisibility,
+	clearTodoList,
 	clearCompleted,
 })(TodoList);

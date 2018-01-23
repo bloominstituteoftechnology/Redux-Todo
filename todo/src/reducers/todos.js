@@ -6,6 +6,7 @@ import {
 	SAVE_TODOS,
 	LOAD_TODOS,
 	CHANGE_VISIBILITY,
+	CLEAR_TODOLIST,
 	CLEAR_COMPLETED,
 } from '../actions';
 
@@ -35,6 +36,8 @@ export default (todos = [], action) => {
 			return [...action.payload];
 		case CHANGE_VISIBILITY:
 			return todos;
+		case CLEAR_TODOLIST:
+			return [];
 		case CLEAR_COMPLETED:
 			return todos.filter(todo => !todo.completed);
 		default:
