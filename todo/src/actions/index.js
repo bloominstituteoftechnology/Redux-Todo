@@ -3,33 +3,30 @@ export const DELETE_TODO = 'DELETE_TODO';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 export const EDIT_TODO = 'EDIT_TODO';
 
-let nextTodoId = 0;
-
 export const addTodo = todo => {
 	return {
 		type: ADD_TODO,
-		payload: { ...todo, id: nextTodoId++ },
+		payload: todo,
 	};
 };
 
-export const deleteTodo = id => {
+export const deleteTodo = todo => {
 	return {
 		type: DELETE_TODO,
-		payload: id,
+		payload: todo,
 	};
 };
 
-export const toggleComplete = id => {
+export const toggleComplete = todo => {
 	return {
 		type: TOGGLE_COMPLETE,
-		payload: id,
+		payload: todo,
 	};
 };
 
-export const editTodo = todo => {
-	console.log(todo);
+export const editTodo = editedTodo => {
 	return {
 		type: EDIT_TODO,
-		payload: todo,
+		payload: editedTodo,
 	};
 };

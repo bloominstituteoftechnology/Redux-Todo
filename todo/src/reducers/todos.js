@@ -1,24 +1,56 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_COMPLETE, EDIT_TODO } from '../actions';
 
+const mySessionStorage = window.sessionStorage;
+// mySessionStorage.clear();
+
+const renderTodos = () => {
+	const todos = [];
+	const keys = Object.keys(mySessionStorage);
+
+	for (let i = 0; i < mySessionStorage.length; i++) {
+		const todo = {};
+
+		todo['text'] = keys[i];
+
+		const isCompleted = mySessionStorage[keys[i]];
+		if (isCompleted === 'true') todo['completed'] = true;
+		else todo['completed'] = false;
+
+		todo['id'] = todos.length;
+
+		todos.push(todo);
+	}
+	return todos;
+};
+
 export default (todos = [], action) => {
+	// console.log(action.payload);
 	switch (action.type) {
 		case ADD_TODO:
-			return [action.payload, ...todos];
+			// console.log(todos);
+			// console.log(action.payload.text);
+			// console.log(Object.keys(mySessionStorage));
+			mySessionStorage.setItem(action.payload.text, action.payload.completed);
+			return renderTodos();
 		case DELETE_TODO:
-			return todos.filter(todo => todo.id !== action.payload);
+			mySessionStorage.removeItem(action.payload.text);
+			return renderTodos();
 		case TOGGLE_COMPLETE:
-			return todos.map(todo => {
-				if (todo.id === action.payload)
-					return { ...todo, completed: !todo.completed };
-				return todo;
-			});
+			let sessionCompleted = mySessionStorage.getItem(action.payload.text);
+
+			if (sessionCompleted === 'false') sessionCompleted = 'true';
+			else sessionCompleted = 'false';
+
+			mySessionStorage.setItem(action.payload.text, sessionCompleted);
+			return renderTodos();
 		case EDIT_TODO:
-			return todos.map(todo => {
-				if (todo.id === action.payload.id)
-					return { ...todo, text: action.payload.text };
-				return todo;
-			});
+			// console.log(action.payload);
+			const todoCompleted = mySessionStorage.getItem(action.payload.text);
+			mySessionStorage.setItem(action.payload.edit, todoCompleted);
+			mySessionStorage.removeItem(action.payload.text);
+
+			return renderTodos();
 		default:
-			return todos;
+			return renderTodos();
 	}
 };

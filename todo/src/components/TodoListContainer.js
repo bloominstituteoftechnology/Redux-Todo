@@ -35,13 +35,13 @@ class TodoList extends Component {
 		});
 	};
 
-	deleteTodoHandler = id => {
-		this.props.deleteTodo(id);
+	deleteTodoHandler = todo => {
+		this.props.deleteTodo(todo);
 	};
 
-	toggleCompleteHandler = id => {
+	toggleCompleteHandler = todo => {
 		this.setState({ isEditing: false });
-		this.props.toggleComplete(id);
+		this.props.toggleComplete(todo);
 	};
 
 	isEditing = todo => {
@@ -52,11 +52,10 @@ class TodoList extends Component {
 	};
 
 	editTodoHandler = todo => {
-		const edit = this.state.edit;
 		const editedTodo = {
-			text: edit,
+			text: todo.text,
 			completed: todo.completed,
-			id: todo.id,
+			edit: this.state.edit,
 		};
 
 		this.props.editTodo(editedTodo);
@@ -97,7 +96,7 @@ class TodoList extends Component {
 							<div key={todo.id} className="TodoContainer">
 								<button
 									className="DeleteButton"
-									onClick={() => this.deleteTodoHandler(todo.id)}
+									onClick={() => this.deleteTodoHandler(todo)}
 								>
 									&#x2717;
 								</button>
@@ -106,7 +105,7 @@ class TodoList extends Component {
 									<div className="TodoItemContainer">
 										<button
 											className="ToggleCompleteButton"
-											onClick={() => this.toggleCompleteHandler(todo.id)}
+											onClick={() => this.toggleCompleteHandler(todo)}
 											style={{ opacity: 0.2 }}
 										>
 											&#x2713;
@@ -123,7 +122,7 @@ class TodoList extends Component {
 									<div className="TodoItemContainer">
 										<button
 											className="ToggleCompleteButton"
-											onClick={() => this.toggleCompleteHandler(todo.id)}
+											onClick={() => this.toggleCompleteHandler(todo)}
 										>
 											&#x2713;
 										</button>
