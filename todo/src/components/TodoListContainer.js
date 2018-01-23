@@ -127,18 +127,29 @@ class TodoList extends Component {
 					<button
 						className="ShowIncompleteButton"
 						onClick={() => this.changeVisibilityHandler(false)}
+						style={
+							this.state.visibility === false ? { fontWeight: 'bold' } : null
+						}
 					>
 						Incomplete
 					</button>
 					<button
 						className="ShowAllButton"
 						onClick={() => this.changeVisibilityHandler(undefined)}
+						style={
+							this.state.visibility === undefined
+								? { fontWeight: 'bold' }
+								: null
+						}
 					>
 						All
 					</button>
 					<button
 						className="ShowCompletedButton"
 						onClick={() => this.changeVisibilityHandler(true)}
+						style={
+							this.state.visibility === true ? { fontWeight: 'bold' } : null
+						}
 					>
 						Completed
 					</button>
