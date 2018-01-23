@@ -1,0 +1,52 @@
+.TodoListContainer {
+	/*width: 500px;*/
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.AddTodoSection {
+	display: inline;
+}
+
+.InputForm {
+	display: inline;
+}
+
+.AddTodoButton {
+	display: inline;
+}
+
+.TodoList {
+	width: 40%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.TodoContainer {
+	display: inline;
+}
+
+.TodoItemContainer {
+	display: inline;
+}
+
+.DeleteButton {
+	margin-right: 4px;
+	display: inline;
+}
+
+.ToggleCompleteButton {
+	display: inline;
+}
+
+.TodoItem {
+	list-style-type: none;
+	margin-left: 7px;
+	margin-bottom: 2px;
+
+	display: inline;
+}
