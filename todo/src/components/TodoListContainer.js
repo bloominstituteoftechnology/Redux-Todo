@@ -35,7 +35,7 @@ class TodoList extends Component {
 	}
 
 	componentCleanup = () => {
-		this.props.changeVisibility('all');
+		// this.props.changeVisibility('all');
 		this.props.saveTodos();
 	};
 
