@@ -10,6 +10,21 @@ class TodoList extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log(this.props);
+    // check if todos exists in localStorage?
+    // if todos exists in localStorage
+    // dispatch a getTodos action, that sets the initial state of our todos
+  }
+  componentWillUnmount() {
+    // what is on props as my todos?
+    // Save todos to localStorage json stringify
+    //
+  }
+  handleTodoComplete = todoId => {
+    this.props.toggleTodo(todoId);
+  };
+
   handleTodoInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -41,9 +56,23 @@ class TodoList extends Component {
             Add Todo
           </button>
         </form>
-        {todos.map(todo => {
-          return <li key={todo.id}>{todo.text}</li>;
-        })}
+        <ul>
+          {todos.map(todo => {
+            return (
+              <li
+                onClick={() => this.handleTodoComplete(todo.id)}
+                style={
+                  todo.completed
+                    ? { color: '#d3d3d3', textDecoration: 'line-through' }
+                    : null
+                }
+                key={todo.id}
+              >
+                {todo.text}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
