@@ -5,6 +5,7 @@ import {
 	EDIT_TODO,
 	SAVE_TODOS,
 	LOAD_TODOS,
+	CHANGE_VISIBILITY,
 } from '../actions';
 
 export default (todos = [], action) => {
@@ -31,6 +32,18 @@ export default (todos = [], action) => {
 			break;
 		case LOAD_TODOS:
 			return JSON.parse(localStorage.getItem('todos'));
+		case CHANGE_VISIBILITY:
+			if (action.payload === 'all')
+				return JSON.parse(localStorage.getItem('todos'));
+			if (action.payload === 'incomplete') {
+				localStorage.setItem('todos', JSON.stringify(todos));
+				return todos.filter(todo => todo.completed === false);
+			}
+			if (action.payload === 'completed') {
+				localStorage.setItem('todos', JSON.stringify(todos));
+				return todos.filter(todo => todo.completed === true);
+			}
+			return console.error('visibility not specified');
 		default:
 			return todos;
 	}

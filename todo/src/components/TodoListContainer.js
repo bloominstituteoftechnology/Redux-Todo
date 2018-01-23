@@ -7,6 +7,7 @@ import {
 	editTodo,
 	saveTodos,
 	loadTodos,
+	changeVisibility,
 } from '../actions';
 
 import '../styles/TodoList.css';
@@ -22,8 +23,6 @@ class TodoList extends Component {
 	}
 
 	componentDidMount() {
-		console.log(localStorage);
-		// console.log(this.props);
 		window.addEventListener('beforeunload', this.componentCleanup);
 
 		if (localStorage.getItem('todos')) {
@@ -36,6 +35,7 @@ class TodoList extends Component {
 	}
 
 	componentCleanup = () => {
+		this.props.changeVisibility('all');
 		this.props.saveTodos();
 	};
 
@@ -92,8 +92,11 @@ class TodoList extends Component {
 		});
 	};
 
+	changeVisibilityHandler(filter) {
+		this.props.changeVisibility(filter);
+	}
+
 	render() {
-		// console.log(JSON.stringify(this.props.todos));
 		return (
 			<div className="TodoListContainer">
 				<br />
@@ -112,6 +115,29 @@ class TodoList extends Component {
 						onClick={this.addTodoHandler}
 					>
 						+
+					</button>
+				</div>
+
+				<br />
+
+				<div>
+					<button
+						className="ShowIncompleteButton"
+						onClick={() => this.changeVisibilityHandler('incomplete')}
+					>
+						Incomplete
+					</button>
+					<button
+						className="ShowAllButton"
+						onClick={() => this.changeVisibilityHandler('all')}
+					>
+						All
+					</button>
+					<button
+						className="ShowCompletedButton"
+						onClick={() => this.changeVisibilityHandler('completed')}
+					>
+						Completed
 					</button>
 				</div>
 
@@ -205,4 +231,5 @@ export default connect(mapStateToProps, {
 	editTodo,
 	saveTodos,
 	loadTodos,
+	changeVisibility,
 })(TodoList);

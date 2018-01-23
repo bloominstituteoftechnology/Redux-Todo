@@ -4,6 +4,7 @@ export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 export const EDIT_TODO = 'EDIT_TODO';
 export const SAVE_TODOS = 'SAVE_TODOS';
 export const LOAD_TODOS = 'LOAD_TODOS';
+export const CHANGE_VISIBILITY = 'CHANGE_VISIBILITY';
 
 let nextTodoId = Number(localStorage.getItem('id'));
 
@@ -45,5 +46,12 @@ export const saveTodos = () => {
 export const loadTodos = () => {
 	return {
 		type: LOAD_TODOS,
+	};
+};
+
+export const changeVisibility = filter => {
+	return {
+		type: CHANGE_VISIBILITY,
+		payload: filter,
 	};
 };
