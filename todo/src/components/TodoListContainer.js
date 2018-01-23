@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, deleteTodo, toggleComplete } from '../actions';
+import { addTodo, deleteTodo, toggleComplete, editTodo } from '../actions';
 
 import '../styles/TodoList.css';
 
@@ -9,6 +9,8 @@ class TodoList extends Component {
 		super();
 		this.state = {
 			text: '',
+			edit: '',
+			isEditingId: -1,
 		};
 	}
 
@@ -21,7 +23,7 @@ class TodoList extends Component {
 	addTodoHandler = e => {
 		e.preventDefault();
 
-		const { text } = this.state;
+		const text = this.state.text;
 		const newTodo = {
 			text,
 			completed: false,
@@ -38,7 +40,31 @@ class TodoList extends Component {
 	};
 
 	toggleCompleteHandler = id => {
+		this.setState({ isEditing: false });
 		this.props.toggleComplete(id);
+	};
+
+	isEditing = todo => {
+		this.setState({
+			edit: todo.text,
+			isEditingId: todo.id,
+		});
+	};
+
+	editTodoHandler = todo => {
+		const edit = this.state.edit;
+		const editedTodo = {
+			text: edit,
+			completed: todo.completed,
+			id: todo.id,
+		};
+
+		this.props.editTodo(editedTodo);
+
+		this.setState({
+			edit: '',
+			isEditingId: -1,
+		});
 	};
 
 	render() {
@@ -102,7 +128,33 @@ class TodoList extends Component {
 											&#x2713;
 										</button>
 
-										<li className="TodoItem">{todo.text}</li>
+										{this.state.isEditingId === todo.id ? (
+											<button
+												className="EditTodoButton"
+												onClick={() => this.editTodoHandler(todo)}
+											>
+												done
+											</button>
+										) : (
+											<button
+												className="EditTodoButton"
+												onClick={() => this.isEditing(todo)}
+											>
+												edit
+											</button>
+										)}
+
+										{this.state.isEditingId === todo.id ? (
+											<input
+												className="EditTodo"
+												onChange={this.handleTodoInput}
+												name="edit"
+												value={this.state.edit}
+												placeholder={todo.text}
+											/>
+										) : (
+											<li className="TodoItem">{todo.text}</li>
+										)}
 									</div>
 								)}
 							</div>
@@ -124,4 +176,5 @@ export default connect(mapStateToProps, {
 	addTodo,
 	deleteTodo,
 	toggleComplete,
+	editTodo,
 })(TodoList);

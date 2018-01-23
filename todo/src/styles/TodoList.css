@@ -28,6 +28,7 @@
 
 .TodoContainer {
 	display: inline;
+	margin-bottom: 7px;
 }
 
 .TodoItemContainer {
@@ -43,10 +44,22 @@
 	display: inline;
 }
 
+.EditTodoButton {
+	margin-left: 4px;
+}
+
+.EditTodo {
+	margin-left: 4px;
+	outline: none;
+	/*font-size: 15px;*/
+	font-style: bold;
+	resize: none;
+	border: 0;
+}
+
 .TodoItem {
 	list-style-type: none;
 	margin-left: 7px;
-	margin-bottom: 2px;
 
 	display: inline;
 }

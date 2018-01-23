@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_COMPLETE } from '../actions';
+import { ADD_TODO, DELETE_TODO, TOGGLE_COMPLETE, EDIT_TODO } from '../actions';
 
 export default (todos = [], action) => {
 	switch (action.type) {
@@ -10,6 +10,12 @@ export default (todos = [], action) => {
 			return todos.map(todo => {
 				if (todo.id === action.payload)
 					return { ...todo, completed: !todo.completed };
+				return todo;
+			});
+		case EDIT_TODO:
+			return todos.map(todo => {
+				if (todo.id === action.payload.id)
+					return { ...todo, text: action.payload.text };
 				return todo;
 			});
 		default:
