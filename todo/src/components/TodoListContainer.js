@@ -59,7 +59,6 @@ class TodoList extends Component {
 			completed: false,
 			id: this.checkId(0),
 		};
-		console.log(newTodo);
 		this.props.addTodo(newTodo);
 
 		this.setState({
