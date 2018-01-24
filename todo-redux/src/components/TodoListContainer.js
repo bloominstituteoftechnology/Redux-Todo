@@ -12,7 +12,6 @@ class TodoList extends Component {
 
   componentDidMount() {
     const myTodos = JSON.parse(localStorage.getItem('todos'));
-    console.log(myTodos);
     if (myTodos !== null) {
       this.props.getTodos(myTodos);
     }
