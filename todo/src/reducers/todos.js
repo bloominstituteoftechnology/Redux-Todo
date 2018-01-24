@@ -3,7 +3,6 @@ import {
 	DELETE_TODO,
 	TOGGLE_COMPLETE,
 	EDIT_TODO,
-	SAVE_TODOS,
 	LOAD_TODOS,
 	CHANGE_VISIBILITY,
 	CLEAR_TODOLIST,
@@ -28,10 +27,6 @@ export default (todos = [], action) => {
 					return { ...todo, text: action.payload.text };
 				return todo;
 			});
-		case SAVE_TODOS:
-			localStorage.setItem('todos', JSON.stringify(todos));
-			localStorage.setItem('id', action.payload);
-			break;
 		case LOAD_TODOS:
 			return [...action.payload];
 		case CHANGE_VISIBILITY:

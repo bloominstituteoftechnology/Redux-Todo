@@ -5,7 +5,6 @@ import {
 	deleteTodo,
 	toggleComplete,
 	editTodo,
-	saveTodos,
 	loadTodos,
 	changeVisibility,
 	clearTodoList,
@@ -26,22 +25,19 @@ class TodoList extends Component {
 	}
 
 	componentDidMount() {
-		window.addEventListener('beforeunload', this.componentCleanup);
-
 		if (localStorage.getItem('todos')) {
 			this.props.loadTodos(JSON.parse(localStorage.getItem('todos')));
 		}
 
-		this.setState({ visibility: undefined });
+		this.setState({
+			visibility: undefined,
+		});
 	}
 
-	componentWillUnmount() {
-		window.removeEventListener('beforeunload', this.componentCleanup);
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.todos !== this.props.todos)
+			localStorage.setItem('todos', JSON.stringify(nextProps.todos));
 	}
-
-	componentCleanup = () => {
-		this.props.saveTodos();
-	};
 
 	handleTodoInput = e => {
 		this.setState({
@@ -52,16 +48,37 @@ class TodoList extends Component {
 	addTodoHandler = e => {
 		e.preventDefault();
 
+		if (this.state.text === '') {
+			window.alert('Your to do is empty! There is nothing to add!');
+			return;
+		}
+
 		const text = this.state.text;
 		const newTodo = {
 			text,
 			completed: false,
+			id: this.checkId(0),
 		};
+		console.log(newTodo);
 		this.props.addTodo(newTodo);
 
 		this.setState({
 			text: '',
 		});
+	};
+
+	checkId = id => {
+		let idExists = false;
+
+		this.props.todos.forEach(todo => {
+			if (todo.id === id) {
+				idExists = true;
+				return null;
+			}
+		});
+
+		if (idExists) return this.checkId(++id);
+		return id;
 	};
 
 	deleteTodoHandler = id => {
@@ -280,7 +297,6 @@ export default connect(mapStateToProps, {
 	deleteTodo,
 	toggleComplete,
 	editTodo,
-	saveTodos,
 	loadTodos,
 	changeVisibility,
 	clearTodoList,

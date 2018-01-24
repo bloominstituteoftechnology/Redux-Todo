@@ -8,12 +8,10 @@ export const CHANGE_VISIBILITY = 'CHANGE_VISIBILITY';
 export const CLEAR_TODOLIST = 'CLEAR_TODOLIST';
 export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 
-let nextTodoId = Number(localStorage.getItem('id'));
-
 export const addTodo = todo => {
 	return {
 		type: ADD_TODO,
-		payload: { ...todo, id: nextTodoId++ },
+		payload: todo,
 	};
 };
 
@@ -35,13 +33,6 @@ export const editTodo = todo => {
 	return {
 		type: EDIT_TODO,
 		payload: todo,
-	};
-};
-
-export const saveTodos = () => {
-	return {
-		type: SAVE_TODOS,
-		payload: nextTodoId,
 	};
 };
 
