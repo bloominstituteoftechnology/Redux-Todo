@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo, removeTodos } from '../actions';
+import { addTodo, toggleTodo, removeTodos, getTodos } from '../actions';
 
 class TodoList extends Component {
   constructor() {
@@ -11,16 +11,18 @@ class TodoList extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
-    // check if todos exists in localStorage?
-    // if todos exists in localStorage
-    // dispatch a getTodos action, that sets the initial state of our todos
+    const myTodos = JSON.parse(localStorage.getItem('todos'));
+    console.log(myTodos);
+    if (myTodos !== null) {
+      this.props.getTodos(myTodos);
+    }
   }
-  componentWillUnmount() {
-    // what is on props as my todos?
-    // Save todos to localStorage json stringify
-    //
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.todos !== this.props.todos) {
+      localStorage.setItem('todos', JSON.stringify(nextProps.todos));
+    }
   }
+
   handleTodoComplete = todoId => {
     this.props.toggleTodo(todoId);
   };
@@ -34,7 +36,7 @@ class TodoList extends Component {
     const newTodo = {
       text,
       completed: false,
-      id: this.props.todos ? this.props.todos.length : 0
+      id: this.props.todos ? this.props.todos.length + text : 0 + text
     };
     this.props.addTodo(newTodo);
     this.setState({
@@ -89,6 +91,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addTodo, toggleTodo, removeTodos })(
-  TodoList
-);
+export default connect(mapStateToProps, {
+  addTodo,
+  toggleTodo,
+  removeTodos,
+  getTodos
+})(TodoList);
