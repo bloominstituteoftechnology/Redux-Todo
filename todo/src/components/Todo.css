@@ -1,0 +1,15 @@
+li {
+  border-bottom: thin dotted #ddd;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+.line-through {
+  color: #999;
+  text-decoration: line-through;
+}
+.reg {
+  color: #4d4d4d;
+  text-decoration: none;
+}
