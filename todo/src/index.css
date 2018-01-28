@@ -1,0 +1,230 @@
+/*********************************************
+ Global Styles
+*********************************************/
+* {
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline-style: dotted;
+  outline-width: 0.15em;
+  outline-color: #0D5263;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0F7F8D;
+  color: #FBFAF5;
+  font-size: 1.5em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.btn {
+  font-size: 1em;
+  padding: 10px 20px;
+  border: 0;
+  background-color: #FFDA21;
+  cursor: pointer;
+  transition: 0.1s linear;
+}
+
+.btn-add:hover {
+  font-weight: bold;
+  box-shadow: 0.5px 0.5px 1px;
+}
+
+.btn-delete {
+  padding: 5px 10px;
+  font-size: 0.7em;
+  font-weight: bolder;
+  background-color: transparent;
+}
+.btn-delete:hover {
+  padding: 5px 10px;
+  font-size: 0.7em;
+  background-color: #F21D44;
+}
+
+.fancy-checkbox {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  background: #fcfff4;
+}
+
+.fancy-checkbox label {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  background: #0D5263;
+
+}
+.fancy-checkbox label:after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border: 3px solid #fcfff4;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.fancy-checkbox label:hover::after {
+  opacity: 0.3;
+}
+.fancy-checkbox input[type=checkbox] {
+  visibility: hidden;
+}
+.fancy-checkbox input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+.completed {
+  /*color: #0F7F8D;*/
+  color: #0D5263;
+  text-decoration: line-through;
+}
+
+/*********************************************
+ Component Styles
+*********************************************/
+.App {
+  margin-top: 20px;
+}
+
+.Body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.TodoList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.TodoAddForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 550px;
+}
+
+.TodoAddForm input {
+  margin: 0 20px 10px 10px;
+  padding: 10px 20px 0px 5px;
+  width: 300px;
+  font-size: 1.1em;
+  font-weight: bold;
+  outline: none;
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px dotted #0D5263;
+}
+
+.TodoItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 550px;
+  border-bottom: 1px solid #007886;
+}
+
+.TodoItem .fancy-checkbox {
+  min-width: 28px;
+  margin-right: 20px;
+}
+
+.TodoItem .btn-delete {
+  margin-left: 20px;
+}
+
+.TodoItem .todo-text {
+  text-align: center;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Body {
+  margin-top: 20px;
+  flex: 1;
+}
+
+.Footer {
+  font-size: 0.6em;
+  align-self: flex-end;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+
+.Footer a {
+  color: inherit;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.Footer i {
+  margin-right: 5px;
+  color: #F21D44;
+}
+
+.Footer i:hover {
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+.Footer a:hover {
+  text-decoration: underline;
+}
+
+.TodoCount {
+  font-size: 0.7em;
+  padding: 10px 20px;
+}
+
+@media all and (max-width: 700px) {
+  body {
+    font-size: 1.0em;
+  }
+
+  .TodoItem {
+    width: 410px;
+  }
+
+  .Footer, .TodoCount {
+    font-size: 0.9em;
+  }
+
+  .TodoAddForm input {
+    width: 190px;
+  }
+}
+
