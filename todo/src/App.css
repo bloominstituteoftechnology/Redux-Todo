@@ -1,0 +1,21 @@
+#todos{
+  text-align: center;
+}
+.App {
+  text-align: center;
+}
+
+body {
+  text-align: center;
+  font-weight: bold;
+  background: linear-gradient(to right, rgba(171, 219, 254, 0.36), rgba(223, 127, 237, 0.22)), url('bg2.jpg');
+}
+
+li {
+  margin-right: 50px;
+  color: #FF0000;
+}
+
+
+
+
