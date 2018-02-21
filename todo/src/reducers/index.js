@@ -5,11 +5,12 @@ import { ADD_TODO } from "../actions";
 // of our redux store, along with an action created
 // by our action creator. What does the reducer
 // need to do the count in each case?
-export default (list = [], action) => {
+export default (todos = [], action) => {
+  console.log("Action: ", action);
   switch (action.type) {
     case ADD_TODO:
-      return [...list, action.payload];
+      return [...todos, action.payload];
     default:
-      return list;
+      return todos;
   }
 };

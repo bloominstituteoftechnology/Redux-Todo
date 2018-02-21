@@ -4,7 +4,8 @@ import { add_todo } from "../actions";
 
 class App extends Component {
   state = {
-    todo: ""
+    todo: "",
+    display: false,
   };
 
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
         <h1> To Do List </h1>
         <ul>
           {/* I know index is bad practive */}
-          {this.props.list.map((item, index) => {
+          {this.props.todos.map((item, index) => {
             return <li key={index}> {item.todo} </li>;
           })}
         </ul>
@@ -39,7 +40,7 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log("State: ", state);
   return {
-    list: state
+    todos: state
   };
 };
 
