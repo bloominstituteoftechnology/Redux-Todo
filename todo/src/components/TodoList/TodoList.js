@@ -4,17 +4,17 @@ import { addTodo, todoCompleted } from '../../actions/actions';
 
 class TodoList extends Component {
   state = {
-    todo: '',
+    text: '',
   };
   handleInputChange = event => {
-    this.setState({ todo: event.target.value });
-    console.log(event.target.value);
+    this.setState({ text: event.target.value });
+    console.log(this.state);
   };
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state.todo);
-    this.props.addTodo(this.state.todo);
-  }
+    console.log(this.state);
+    this.props.addTodo(this.state);
+  };
   render() {
     return (
       <div>
@@ -24,7 +24,7 @@ class TodoList extends Component {
           })}
         </ul>
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleInputChange} />
+          <input type="text" onChange={this.handleInputChange}/>
           <button type="submit">Submit</button>
         </form>
       </div>

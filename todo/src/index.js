@@ -8,7 +8,7 @@ import reducers from './reducers/reducers';
 let STORAGE_WAREHOUSE = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
-  <Provider store={STORAGE_WAREHOUSE}>
+ <Provider store={STORAGE_WAREHOUSE}>
     <TodoList />
   </Provider>,
   document.getElementById('root')
