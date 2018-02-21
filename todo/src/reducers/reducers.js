@@ -6,22 +6,23 @@ export default (todoState = null, action) => {
     case ADD_TODO:
       return Object.assign({}, todoState, {
         todos: [
-            ...todoState, {
+          ...todoState,
+          {
             text: action.text,
-            completed: false
+            completed: false,
           },
         ],
       });
     case COMPLETE_TODO:
       return Object.assign({}, todoState, {
-          todos: todoState.todos.map((todo, index) => {
-            if (index === action.index) {
-                return Object.assign({}, todo, {
-                    completed: !todo.completed
-                })
-            }
-          })
-      })
+        todos: todoState.todos.map((todo, index) => {
+          if (index === action.index) {
+            return Object.assign({}, todo, {
+              completed: !todo.completed,
+            });
+          }
+        }),
+      });
     default:
       return todoState;
   }
