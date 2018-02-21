@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { add_todo } from "../actions";
+import { add_todo, completed } from "../actions";
 
 class App extends Component {
   state = {
     todo: "",
-    display: false,
+    completed: false
   };
 
   render() {
@@ -16,7 +16,18 @@ class App extends Component {
         <ul>
           {/* I know index is bad practive */}
           {this.props.todos.map((item, index) => {
-            return <li key={index}> {item.todo} </li>;
+            return item.completed ? null : (
+              <div style={{ display: "flex", flexFlow: "row" }} key={index}>
+                <li> {item.todo} </li>
+                <button
+                  style={{ marginLeft: "5px" }}
+                  onClick={() => this.props.completed(this.state, index)}
+                >
+                  {" "}
+                  delete{" "}
+                </button>
+              </div>
+            );
           })}
         </ul>
         <input
@@ -44,4 +55,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { add_todo })(App);
+export default connect(mapStateToProps, { add_todo, completed })(App);
