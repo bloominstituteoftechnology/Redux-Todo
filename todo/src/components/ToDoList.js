@@ -1,14 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {toggle_todo} from '../actions/toggle_todo';
-import Item from './Item';
+import { toggle_todo } from '../actions/toggle_todo';
+// import Item from './Item';
 
-const ToDoList = ({ items, onToDoClick }) => {
+const ToDoList = (props) => {
+  console.log(props);
 
   return(
     <ul>
-      {items.map( item =>
-        <Item key={item.id} {...item} onClick={() => onToDoClick(item.id)} />
+      {props.todo.map(item =>
+        <li key={item.id} onClick={() => props.onToDoClick(item.id)}>
+          {item.value}
+        </li>
       )}
     </ul>
   )
