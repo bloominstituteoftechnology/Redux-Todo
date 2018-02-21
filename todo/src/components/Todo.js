@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { add_todo, update_completed, delete_item } from "../actions/index.js";
 
+import './todo.css';
+
 class ToDo extends React.Component {
   state = {
     todo: ""
@@ -10,7 +12,8 @@ class ToDo extends React.Component {
   render() {
     return (
       <div>
-        <h1> To Do List </h1>
+        <h1 className="header"> To Do List </h1>
+        <div className="list">
         <ul>
           {this.props.todos.map((item, index) => {
             return (
@@ -29,14 +32,17 @@ class ToDo extends React.Component {
             );
           })}
         </ul>
+        </div>
+        <div className="list">
         <input
           type="text"
           name="todo"
           value={this.state.todo}
-          placeholder="Enter ToDo Here"
+          placeholder="Enter New Item Here"
           onChange={this.handleInputChange}
         />
-        <button onClick={this.handleAddClick}>Add To Do to the List</button>
+        <button onClick={this.handleAddClick}>Add to the List</button>
+        </div>
       </div>
     );
   }
