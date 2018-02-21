@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 
 const todoReducer = (todos = [], action) => {
   switch (action.type) {
@@ -7,6 +7,10 @@ const todoReducer = (todos = [], action) => {
     case TOGGLE_TODO:
       todos[action.payload].complete = !todos[action.payload].complete;
       return todos;
+    case DELETE_TODO:
+      const newTodos = todos.slice(0);
+      newTodos.splice(action.payload, 1);
+      return newTodos;
     default:
       return todos;
   }

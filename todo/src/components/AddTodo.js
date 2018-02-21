@@ -9,7 +9,6 @@ class AddTodo extends React.Component {
   
   addTodo = (event) => {
     event.preventDefault();
-    console.log(this.props);
     this.props.addTodo({
       value: this.state.newTodo,
       complete: false,
