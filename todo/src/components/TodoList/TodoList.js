@@ -8,6 +8,7 @@ class TodoList extends Component {
   }
   handleInputChange = event => {
     this.setState({ todo: event.target.value });
+    console.log(event.target.value);
   };
   render() {
     return (
