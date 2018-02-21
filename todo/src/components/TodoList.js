@@ -1,16 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { complete_todo_item } from '../actions';
 
 function TodoList(props) {
   console.log(props);
+
   return (
-    <div>
+    <ul>
       { props.todo.map(item => {
+        let completed = item.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' }
+        console.log(item.completed, completed);
         return (
-          <li key={item.id}>{item.payload}</li>
+          <li style={completed} key={item.id} onClick={() => props.complete_todo_item(item.id)}>{item.payload}</li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
@@ -20,4 +24,4 @@ const mapStatetoProps = (state) => {
   }
 }
 
-export default connect(mapStatetoProps)(TodoList);
+export default connect(mapStatetoProps, { complete_todo_item })(TodoList);

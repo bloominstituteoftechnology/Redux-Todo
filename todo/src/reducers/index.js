@@ -11,14 +11,15 @@ export default (state = [], action) => {
           completed: false
         }
       ];
-    // case COMPLETE_TODO_ITEM:
-    //   console.log('completed');
-    //   return state.map(todo =>
-    //     (todo.id === action.id)
-    //       ? {...todo, completed: !todo.completed}
-    //       : todo
-    //     )
+    case COMPLETE_TODO_ITEM:
+      console.log('completed', action.id);
+      return state.map(todo =>
+        (todo.id === action.id)
+          ? {...todo, completed: !todo.completed}
+          : todo
+        );
     default:
       return state;
   }
 }
+
