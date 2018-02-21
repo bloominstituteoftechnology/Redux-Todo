@@ -6,10 +6,11 @@ export const addTodo = text => {
         type: ADD_TODO,
         text
     }
-}
+};
+
 export const todoCompleted = (index) => {
     return {
         type: COMPLETE_TODO,
         index
     }
-}
+};
