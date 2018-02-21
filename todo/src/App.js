@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
-import './App.css';
+import ToDo from "./components/Todo.js";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-      Yup
-      </div>
-    );
-  }
-}
+import todo from "./reducers/index.js";
 
-export default App;
+const store = createStore(todo);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Todo />
+  </Provider>,
+  document.getElementById("root")
+);
