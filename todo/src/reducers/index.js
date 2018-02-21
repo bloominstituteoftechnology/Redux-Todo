@@ -1,14 +1,14 @@
 import { ADDTODO, TOGGLE } from '../actions';
 
-export default (todos = [], action) => {
+export default todos(state = [], action) => {
     switch (action.type) {
         case ADDTODO:
 
-            return todos;
+            return state;
         case TOGGLE:
             
-            return todos;
+            return state;
         default:
-            return todos;
+            return state;
     }
 };
