@@ -3,12 +3,14 @@ export const TOGGLE = 'TOGGLE';
 
 export const addTodo = () => {
   return {
-    type: ADDTODO
+    type: ADDTODO,
+    text
   }
 };
 
 export const toggle = () => {
   return {
-    type: TOGGLE
+    type: TOGGLE,
+    index
   }
 };
