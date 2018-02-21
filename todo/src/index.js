@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
+import AddToDo from './components/AddToDo';
 import ItemList from './components/ItemList';
 import reducers from './reducers';
 
@@ -15,7 +16,10 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <ItemList />
+    <div>
+      <AddToDo />
+      <ItemList />
+    </div>
   </Provider>,
   document.getElementById('root')
 );

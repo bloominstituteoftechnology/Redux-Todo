@@ -6,7 +6,11 @@ class ItemList extends Component {
   render() {
     return (
       <div>
-        {this.props.toDoList[0].text}
+        <ul>
+          {this.props.toDoList.map(todo => {
+            return <li>{todo.text}</li>;
+          })}
+        </ul>
       </div>
     );
   }
