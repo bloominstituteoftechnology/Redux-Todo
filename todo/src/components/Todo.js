@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { add_todo, update_completed } from "../actions/index.js";
+import { add_todo, update_completed, delete_item } from "../actions/index.js";
 
 class ToDo extends React.Component {
   state = {
-    todo: "",
+    todo: ""
   };
 
   render() {
@@ -14,8 +14,17 @@ class ToDo extends React.Component {
         <ul>
           {this.props.todos.map((item, index) => {
             return (
-              <div key={item.id}>
-                <li onClick={() => this.props.update_completed(item)}> {item.todo} </li>
+              <div style={{ display: "flex", flexFlow: "row" }} key={item.id}>
+                <li style={{ margin: "5px" }} onClick={() => this.props.update_completed(item)}>
+                  {" "}
+                  {item.todo}{" "}
+                </li>
+                <button
+                  style={{ marginLeft: "5px" }}
+                  onClick={() => this.props.delete_item(item)}
+                >
+                  delete
+                </button>
               </div>
             );
           })}
@@ -31,19 +40,17 @@ class ToDo extends React.Component {
       </div>
     );
   }
-  getKey = () => {
-    const key = this.props.todos.length + 1;
-    this.setState({ key: key });
-  };
 
   handleInputChange = event => {
     const todo = event.target.value;
     this.setState({ todo: todo });
   };
   handleAddClick = () => {
-    this.getKey();
-    this.props.add_todo(this.state.todo);
-    this.setState({ todo: "" });
+    if (this.state.todo === "") return alert("Fill Out Your ToDo");
+    else {
+      this.props.add_todo(this.state.todo);
+      this.setState({ todo: "" });
+    }
   };
 }
 
@@ -54,4 +61,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { add_todo, update_completed })(ToDo);
+export default connect(mapStateToProps, {
+  add_todo,
+  update_completed,
+  delete_item
+})(ToDo);
