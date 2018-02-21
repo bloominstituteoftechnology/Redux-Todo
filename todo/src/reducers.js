@@ -1,10 +1,19 @@
 import { ADD_TODO } from './actions.js';
 
-export default (todos = null, action) => {
+const todos = (state = [], action) => {
   switch(action.type) {
     case ADD_TODO:
-      return action.payload;
+      return [
+        ...state,
+        {
+          id: action.id,
+          text: action.todoText,
+          completed: false,
+        }
+      ];
     default:
-      return todos;
+      return state;
   }
 }
+
+export default todos

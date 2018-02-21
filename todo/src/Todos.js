@@ -3,7 +3,8 @@ import React from 'react';
 function Todos(props) {
   return(
     <div>
-      <h4>{props.todo.value}</h4>
+      {console.log('props within Todos.js', props.todo)}
+      <h4>{props.todo.text}</h4>
     </div>
   )
 }

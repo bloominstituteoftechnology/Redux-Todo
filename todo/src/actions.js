@@ -1,11 +1,10 @@
 export const ADD_TODO = 'ADD_TODO';
+let nextTodoId = 0;
 
-export const addTodo = (todo) => {
+export const addTodo = (todoText) => {
   return {
     type: ADD_TODO,
-    payload: {
-      value: todo,
-      completed: false,
-    },
+    id: nextTodoId++,
+    todoText,
   }
 }
