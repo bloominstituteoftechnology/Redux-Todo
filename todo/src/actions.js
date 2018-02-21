@@ -1,7 +1,11 @@
-export const CAPS = 'CAPS';
+export const ADD_TODO = 'ADD_TODO';
 
-export const caps = () => {
+export const addTodo = (todo) => {
   return {
-    type: CAPS,
+    type: ADD_TODO,
+    payload: {
+      value: todo,
+      completed: false,
+    },
   }
 }
