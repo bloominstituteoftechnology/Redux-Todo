@@ -8,7 +8,7 @@ class TodoForm extends Component {
       <div>
         <ul>
           {this.props.todos.map(todo => {
-            <li >{this.todo}</li>
+            <li>{this.todo}</li>
           })}
         </ul>
         <input />
