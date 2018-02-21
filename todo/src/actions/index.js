@@ -6,7 +6,7 @@ export const add_todo_item = (text) => {
   return {
     type: ADD_TODO_ITEM,
     payload: text,
-    todoID: todoID++
+    id: todoID++
   };
 };
 
