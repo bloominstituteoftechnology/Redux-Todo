@@ -24,7 +24,7 @@ class TodoList extends Component {
         </ul>
         <form onSubmit={this.props.addTodo}>
           <input onChange={this.handleInputChange} />
-          <button onClick={}>Submit</button>
+          <button>Submit</button>
         </form>
       </div>
     );
