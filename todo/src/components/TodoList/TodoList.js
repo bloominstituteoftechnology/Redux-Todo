@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class TodoForm extends Component {
+class TodoList extends Component {
   render() {
     return (
       <div>
         <ul>
           {this.props.todos.map(todo => {
-            <li>{this.todo}</li>
+            <li>{todo}</li>
           })}
         </ul>
         <input />
@@ -24,4 +24,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TodoForm);
+export default connect(mapStateToProps)(TodoList);

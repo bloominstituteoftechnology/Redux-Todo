@@ -5,15 +5,16 @@ export default (todoState = null, action) => {
   switch (action.type) {
     case ADD_TODO:
       return Object.assign({}, todoState, {
-        todos: [...todoState.todos, {
+        todos: [
+            ...todoState, {
             text: action.text,
-            completed: false,
+            completed: false
           },
         ],
       });
     case COMPLETE_TODO:
       return Object.assign({}, todoState, {
-          todos: todoState.todos.map((todo, index) {
+          todos: todoState.todos.map((todo, index) => {
             if (index === action.index) {
                 return Object.assign({}, todo, {
                     completed: !todo.completed
