@@ -9,7 +9,7 @@ const ToDoList = (props) => {
   return(
     <ul>
       {props.todo.map(item =>
-        <li key={item.id} onClick={() => props.onToDoClick(item.id)}>
+        <li key={item.id} onClick={() => props.toggle_todo(item.id)}>
           {item.value}
         </li>
       )}
@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ToDoList);
+export default connect(mapStateToProps,{ toggle_todo })(ToDoList);
