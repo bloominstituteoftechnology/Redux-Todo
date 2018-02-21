@@ -14,7 +14,7 @@ class App extends Component {
       <div>
         <h1> To Do List </h1>
         <ul>
-          {/* I know index is bad practive */}
+          {/* I know index is bad practive, couldn't get state to keep track of keys */}
           {this.props.todos.map((item, index) => {
             return item.completed ? null : (
               <div style={{ display: "flex", flexFlow: "row" }} key={index}>
@@ -23,8 +23,8 @@ class App extends Component {
                   style={{ marginLeft: "5px" }}
                   onClick={() => this.props.completed(this.state, index)}
                 >
-                  {" "}
-                  delete{" "}
+                  
+                  delete
                 </button>
               </div>
             );
@@ -36,12 +36,18 @@ class App extends Component {
           value={this.state.todo}
           onChange={this.handleInputChange}
         />
-        <button onClick={() => this.props.add_todo(this.state)}>
+        <button onClick={this.handleClick}>
           Add To Do to the List
-        </button>{" "}
+        </button>
       </div>
     );
   }
+
+  handleClick = () => {
+    this.props.add_todo(this.state);
+    this.setState({todo:''})
+  }
+  
   handleInputChange = event => {
     const todo = event.target.value;
     this.setState({ todo: todo });
