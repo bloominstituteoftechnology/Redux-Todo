@@ -1,14 +1,16 @@
-export const COMPLETE = 'COMPLETE';
-export const UNCOMPLETE = 'DECREMENT';
+export const ADD_TODO = 'ADD_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
 
-export const complete = () => {
+export const addToDo = (todo) => {
   return {
-    type: COMPLETE,
+    type: ADD_TODO,
+    payload: todo,
   };
 };
 
-export const uncomplete = () => {
+export const toggleToDo = (todo) => {
   return {
-    type: UNCOMPLETE,
+    type: TOGGLE_TODO,
+    payload: todo,
   };
 };

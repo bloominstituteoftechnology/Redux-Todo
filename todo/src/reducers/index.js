@@ -1,31 +1,40 @@
-import { COMPLETE, UNCOMPLETE } from '../actions';
+import { ADD_TODO, TOGGLE_TODO } from '../actions';
 
-export const oldState = () => {
-  const todos = [
-    {
-      value: 'Walk the dog.',
-      completed: true,
-    },
-    {
-      value: 'Buy milk.',
-      completed: false,
-    },
-    {
-      value: 'Relax.',
-      completed: false,
-    },
-  ];
-};
+const dummyData = [
+  {
+    id: 0,
+    text: 'Walk the dog.',
+    completed: true,
+  },
+  {
+    id: 1,
+    text: 'Buy milk.',
+    completed: false,
+  },
+  {
+    id: 2,
+    text: 'Relax.',
+    completed: false,
+  },
+];
 
-export const toggleToDo = (completed = false, action) => {
+export const ToDoList = (state = dummyData, action) => {
   switch (action.type) {
-    case COMPLETE:
-      return (completed = true);
-    case UNCOMPLETE:
-      return (completed = false);
+    case ADD_TODO:
+      return [...state, action.payload];
+    case TOGGLE_TODO:
+      return state.map(todo => {
+        if (todo.id !== action.id) {
+          return todo;
+        }
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      });
     default:
-      return completed;
+      return state;
   }
 };
 
-export default toggleToDo;
+export default ToDoList;
