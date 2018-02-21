@@ -1,0 +1,14 @@
+.TodoList {
+  border: 1px solid black;
+  width: 50%; 
+}
+.TodoList__content {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.TodoList__header {
+  background-color: orange;
+}
