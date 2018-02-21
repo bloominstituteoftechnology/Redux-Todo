@@ -16,7 +16,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <button onClick={this.props.add}>TEST ADD ME</button>
-        <button onClick={console.log(this.props.todo)}> Log out todo</button>
+        {console.log('Todo Store: ' , this.props.todo)}
       </div>
     );
   }
