@@ -1,14 +1,14 @@
-import { ACTION1 } from '../actions/action1';
-import { ACTION2 } from '../actions/action2';
+import { ADD_TODO } from '../actions/add_todo';
+import { TOGGLE_TODO } from '../actions/toggle_todo';
 
-export default (state = [], action) => {
+export default (todos = [], action) => {
   switch (action.type) {
-    case ACTION1:
+    case ADD_TODO:
       return null;
-    case ACTION2:
+    case TOGGLE_TODO:
       return null;
     default:
-       return state;
+       return todos;
   }
 
 };
