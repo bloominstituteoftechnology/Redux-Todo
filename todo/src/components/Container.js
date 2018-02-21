@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { addtodo, toggle } from '../actions';
+import { addTodo, toggle } from '../actions';
 
 class Container extends Component {
-
     render() {
         return (
           <div>
           <h1>Todo List</h1>
           <ul>
-          {this.props.todos.map((todo) => {
+          {this.props.todos.map((todo, index) => {
             return (
-              <li key={id}>{todo}</li>
+              <li key='index'>{todo}</li>
             )
           })
           }
@@ -27,4 +26,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { addtodo, toggle })(Container);
+export default connect(mapStateToProps, { addTodo, toggle })(Container);

@@ -1,14 +1,14 @@
 export const ADDTODO = 'ADDTODO';
 export const TOGGLE = 'TOGGLE';
 
-export const addTodo = () => {
+export function addTodo(text) {
   return {
     type: ADDTODO,
     text
   }
 };
 
-export const toggle = () => {
+export function toggle(index) {
   return {
     type: TOGGLE,
     index

@@ -1,6 +1,6 @@
 import { ADDTODO, TOGGLE } from '../actions';
 
-export default todos(state = [], action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case ADDTODO:
           return [
