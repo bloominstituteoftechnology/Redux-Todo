@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { add_todo, update_completed, delete_item } from "../actions/index.js";
 
-import './todo.css';
+import "./todo.css";
 
 class ToDo extends React.Component {
   state = {
@@ -14,34 +14,36 @@ class ToDo extends React.Component {
       <div>
         <h1 className="header"> To Do List </h1>
         <div className="list">
-        <ul>
-          {this.props.todos.map((item, index) => {
-            return (
-              <div style={{ display: "flex", flexFlow: "row" }} key={item.id}>
-                <li style={{ margin: "5px" }} onClick={() => this.props.update_completed(item)}>
-                  {" "}
-                  {item.todo}{" "}
-                </li>
-                <button
-                  style={{ marginLeft: "5px" }}
-                  onClick={() => this.props.delete_item(item)}
-                >
-                  delete
-                </button>
-              </div>
-            );
-          })}
-        </ul>
+          <ul>
+            {this.props.todos.map((item, index) => {
+              return (
+                <div style={{ display: "flex", flexFlow: "row" }} key={item.id}>
+                  <li
+                    style={{ margin: "5px" }}
+                    onClick={() => this.props.update_completed(item)}
+                  >
+                    {item.todo}
+                  </li>
+                  <button
+                    style={{ marginLeft: "5px" }}
+                    onClick={() => this.props.delete_item(index)}
+                  >
+                    delete
+                  </button>
+                </div>
+              );
+            })}
+          </ul>
         </div>
         <div className="list">
-        <input
-          type="text"
-          name="todo"
-          value={this.state.todo}
-          placeholder="Enter New Item Here"
-          onChange={this.handleInputChange}
-        />
-        <button onClick={this.handleAddClick}>Add to the List</button>
+          <input
+            type="text"
+            name="todo"
+            value={this.state.todo}
+            placeholder="Enter New Item Here"
+            onChange={this.handleInputChange}
+          />
+          <button onClick={this.handleAddClick}>Add to the List</button>
         </div>
       </div>
     );

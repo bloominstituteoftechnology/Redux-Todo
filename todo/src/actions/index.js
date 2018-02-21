@@ -18,10 +18,10 @@ export const update_completed = todo => {
     };
 };
 
-export const delete_item = todo => {
+export const delete_item = index => {
   return {
       type: "DELETE_ITEM",
-      payload: todo,
+      payload: index,
   };
 };
 

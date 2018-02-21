@@ -11,10 +11,11 @@ export default (todos = [], action) => {
       });
     case DELETE_ITEM:
       return [
-        ...todos.slice(0, action.payload.id),
-        ...todos.slice(action.payload.id+1)
+        ...todos.slice(0, action.payload),
+        ...todos.slice(action.payload+1)
       ];
     default:
       return todos;
   }
+
 };
