@@ -21,6 +21,7 @@ export default (todoState = null, action) => {
               completed: !todo.completed,
             });
           }
+          return todo
         }),
       });
     default:
