@@ -12,7 +12,7 @@ class TodoList extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    
+    console.log(event);
   }
   render() {
     return (
@@ -24,7 +24,7 @@ class TodoList extends Component {
         </ul>
         <form onSubmit={this.props.addTodo}>
           <input onChange={this.handleInputChange} />
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
