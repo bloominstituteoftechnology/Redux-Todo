@@ -40,10 +40,4 @@ class AddTodo extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos,
-  };
-};
-
-export default connect(mapStateToProps, { addTodo })(AddTodo);
+export default connect(null, { addTodo })(AddTodo);
