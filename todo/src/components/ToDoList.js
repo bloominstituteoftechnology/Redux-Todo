@@ -9,7 +9,10 @@ const ToDoList = (props) => {
   return(
     <ul>
       {props.todo.map(item =>
-        <li key={item.id} onClick={() => props.toggle_todo(item.id)}>
+        <li key={item.id}
+          onClick={() => props.toggle_todo(item.id)}
+          style={ item.completed ? {textDecoration: 'line-through'} : {textDecoration: 'none'} }
+        >
           {item.value}
         </li>
       )}
