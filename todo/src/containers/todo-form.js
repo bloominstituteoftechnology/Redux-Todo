@@ -17,13 +17,13 @@ class ToDoForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.addToDo(this.state.newToDo);
-    // console.log('Submitted new task:', this.state.newToDo);
+    this.setState({ newToDo : '' });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" onChange={this.formHandler}/>
+        <input type="text" onChange={this.formHandler} value={this.state.newToDo}/>
         <button type="submit">Add Todo</button>
       </form>
     )
