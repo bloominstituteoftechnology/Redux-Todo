@@ -1,6 +1,6 @@
 import { ADDTODO, TOGGLE } from '../actions';
 
-export default todos(state = [], action) => {
+export default function todos (state = [], action) {
     switch (action.type) {
         case ADDTODO:
           return [
@@ -20,6 +20,6 @@ export default todos(state = [], action) => {
             return todo
           })
         default:
-            return state;
+            return state
     }
-};
+}
