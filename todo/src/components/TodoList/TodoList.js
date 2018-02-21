@@ -10,9 +10,10 @@ class TodoList extends Component {
     this.setState({ todo: event.target.value });
     console.log(event.target.value);
   };
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
-    console.log(event);
+    console.log(this.state.todo);
+    this.props.addTodo(this.state.todo);
   }
   render() {
     return (
@@ -22,7 +23,7 @@ class TodoList extends Component {
             return <li key={i}>{todo}</li>;
           })}
         </ul>
-        <form onSubmit={this.props.addTodo}>
+        <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleInputChange} />
           <button type="submit">Submit</button>
         </form>
