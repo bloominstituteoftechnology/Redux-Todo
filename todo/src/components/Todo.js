@@ -10,8 +10,6 @@ class ToDo extends React.Component {
   };
 
   render() {
-      console.log("prop.todos length" , this.props.todos.length);
-      console.log("state.key number", this.state.key)
     return (
       <div>
         <h1> To Do List </h1>
