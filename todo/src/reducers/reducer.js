@@ -4,9 +4,20 @@ import { TOGGLE_TODO } from '../actions/toggle_todo';
 export default (todos = [], action) => {
   switch (action.type) {
     case ADD_TODO:
-      return null;
+      return [
+        ...todos,
+        {
+          id: action.id,
+          value: action.text,
+          completed: false
+        }
+      ];
     case TOGGLE_TODO:
-      return null;
+      return todos.map(item =>
+        (item.id === action.id)
+          ? {...item, completed: !item.completed}
+          : item
+      );
     default:
        return todos;
   }
