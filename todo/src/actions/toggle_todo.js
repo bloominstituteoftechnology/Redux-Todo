@@ -1,7 +1,8 @@
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 
-export const toggle_todo = () => {
+export const toggle_todo = (id) => {
   return {
-    type: TOGGLE_TODO
+    type: TOGGLE_TODO,
+    id
   };
 };

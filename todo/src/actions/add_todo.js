@@ -1,7 +1,10 @@
 export const ADD_TODO = 'ADD_TODO';
 
-export const add_todo = () => {
+let nextToDoID = 0;
+export const add_todo = (text) => {
   return {
-    type: ADD_TODO
+    type: ADD_TODO,
+    id: nextToDoID++,
+    text
   };
 };
