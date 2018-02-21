@@ -8,7 +8,7 @@ let Form = (props) => {
   return (
     <form onSubmit={event => {
       event.preventDefault();
-      add_todo('tada');
+      props.add_todo('tada');
     }}>
       <input type="text"/>
       <button type="submit">
@@ -18,8 +18,10 @@ let Form = (props) => {
   );
 };
 
-const mapDispatchToProps = {
-  add_todo: add_todo
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
 };
 
-export default connect(mapDispatchToProps)(Form);
+export default connect(mapStateToProps,{add_todo})(Form);

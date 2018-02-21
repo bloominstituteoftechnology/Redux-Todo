@@ -24,8 +24,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
-  onToDoClick: toggle_todo
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);
+export default connect(mapStateToProps)(ToDoList);
