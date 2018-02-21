@@ -1,19 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import Form from './Form';
+import ToDoList from './ToDoList';
 
-class App extends React.Component {
-
-  render() {
-    return(
-      null
-    );
-  }
+const App = () => {
+  return(
+    <div>
+      <Form />
+      <ToDoList />
+    </div>
+  );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    todo: state
-  };
-};
-
-export default connect(mapStateToProps, {})(App);
+export default App;
