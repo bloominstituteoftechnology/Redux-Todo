@@ -5,7 +5,7 @@ export default (todo = [], action) => {
     case ADD:
       return todo.concat(action.payload);
     case COMPLETE:
-      return todo.slice(1);
+      return;
     default:
       return todo;
   }

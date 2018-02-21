@@ -1,25 +1,49 @@
 import React, { Component } from "react";
 import { add, complete } from "./actions";
 import { connect } from "react-redux";
-import logo from "./logo.svg";
 import "./App.css";
+import ListGen from "./ListGen";
 
 class App extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      value: "",
+      complete: false,
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button onClick={this.props.complete}> TEST COMPLETE </button>
-        <button onClick={this.props.add}>TEST ADD ME</button>
-        {console.log('Todo Store: ' , this.props.todo)}
+        <h1 className="App-title">Todo List App</h1>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            New Todo:
+            <input
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+        <ListGen list={this.props.todo} />
       </div>
     );
+  }
+
+  handleChange(event) {
+    event.preventDefault();
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.add(this.state);
+    this.setState({ value: "", complete: false });
   }
 }
 

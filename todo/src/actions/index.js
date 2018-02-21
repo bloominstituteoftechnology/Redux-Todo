@@ -1,13 +1,10 @@
 export const ADD = "ADD";
 export const COMPLETE = "COMPLETE";
 
-export const add = () => {
+export const add = (newTodo) => {
   return {
     type: ADD,
-    payload: {
-      value: "TESTING",
-      complete: true,
-    }
+    payload: newTodo,
     };
 };
 
