@@ -1,8 +1,10 @@
-export default (stateProp = null, action) => {
+export default (state = null, action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return [...stateProp.todos, action.payload];
+      console.log('payload: ', action.payload);
+      // console.log(state)
+      return state
     default:
-      return stateProp;
+      return state;
   }
 }

@@ -4,7 +4,7 @@ import AddToDo from './add-todo'
 
 const rootReducer = combineReducers({
   todos: ToDosReducer,
-  addTodo: AddToDo,
+  addToDo: AddToDo,
 });
 
 export default rootReducer;

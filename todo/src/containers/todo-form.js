@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addToDo } from '../actions';
 
 class ToDoForm extends Component {
   state = {
@@ -12,8 +15,9 @@ class ToDoForm extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('Submitted new task:', this.state.newToDo)
+    event.preventDefault();
+    this.props.addToDo(this.state.newToDo);
+    // console.log('Submitted new task:', this.state.newToDo);
   }
 
   render() {
@@ -26,4 +30,14 @@ class ToDoForm extends Component {
   }
 }
 
-export default ToDoForm;
+const mapStateToProps = (state) => {
+  return {
+    addToDo: addToDo,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ addToDo: addToDo }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoForm);
