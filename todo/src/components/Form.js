@@ -2,20 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import add_todo from '../actions/add_todo';
 
-let Form = (props) => {
-  console.log(props);
+class Form extends React.Component {
+  state = {
+    text: ''
+  }
 
-  return (
-    <form onSubmit={event => {
-      event.preventDefault();
-      props.add_todo('tada');
-    }}>
-      <input type="text"/>
-      <button type="submit">
-        Add To List
-      </button>
-    </form>
-  );
+  render() {
+    return (
+      <form onSubmit={event => {
+        event.preventDefault();
+        this.props.add_todo(this.state.text);
+        this.setState({ text: '' });
+      }}>
+        <input type="text" value={this.state.text} onChange={(event) => {this.setState({ text: event.target.value })}} />
+        <button type="submit">
+          Add To List
+        </button>
+      </form>
+    );
+  }
 };
 
 const mapStateToProps = state => {
