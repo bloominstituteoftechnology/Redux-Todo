@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { addTodo, todoCompleted } from '../../actions/actions'
 
 class TodoList extends Component {
   state = {
@@ -13,11 +13,11 @@ class TodoList extends Component {
     return (
       <div>
         <ul>
-          {this.props.todos.map(todo => {
-            return <li>{todo}</li>
+          {this.props.todos.map((todo, i) => {
+            return <li key={i}>{todo}</li>
           })}
         </ul>
-        <input onChange={this.handleChange} />
+        <input onChange={this.handleInputChange} />
         <button>Submit</button>
       </div>
     );
@@ -29,4 +29,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, { addTodo, todoCompleted })(TodoList);
