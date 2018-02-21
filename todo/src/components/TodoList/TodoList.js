@@ -3,21 +3,26 @@ import { connect } from 'react-redux';
 
 
 class TodoList extends Component {
+  state = {
+    todo: '', 
+  }
+  handleInputChange = event => {
+    this.setState({ todo: event.target.value });
+  };
   render() {
     return (
       <div>
         <ul>
           {this.props.todos.map(todo => {
-            <li>{todo}</li>
+            return <li>{todo}</li>
           })}
         </ul>
-        <input />
+        <input onChange={this.handleChange} />
         <button>Submit</button>
       </div>
     );
   }
 }
-
 const mapStateToProps = state => {
   return {
     todos: [state],
