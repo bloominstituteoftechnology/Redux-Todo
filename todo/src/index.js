@@ -5,10 +5,10 @@ import { Provider } from 'react-redux';
 import TodoList from './components/TodoList/TodoList'
 import reducers from './reducers/reducers';
 
-const store = createStore(reducers);
+let STORAGE_WAREHOUSE = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={STORAGE_WAREHOUSE}>
     <TodoList />
   </Provider>,
   document.getElementById('root')
