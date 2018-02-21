@@ -1,12 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { add_todo } from "../actions/index.js";
+import { add_todo, update_completed } from "../actions/index.js";
 
 class ToDo extends React.Component {
   state = {
-    key: this.props.todos.length,
     todo: "",
-    completed: false
   };
 
   render() {
@@ -16,8 +14,8 @@ class ToDo extends React.Component {
         <ul>
           {this.props.todos.map((item, index) => {
             return (
-              <div key={item.key}>
-                <li> {item.todo} </li>
+              <div key={item.id}>
+                <li onClick={() => this.props.update_completed(item)}> {item.todo} </li>
               </div>
             );
           })}
@@ -29,7 +27,7 @@ class ToDo extends React.Component {
           placeholder="Enter ToDo Here"
           onChange={this.handleInputChange}
         />
-        <button onClick={this.handleClick}>Add To Do to the List</button>
+        <button onClick={this.handleAddClick}>Add To Do to the List</button>
       </div>
     );
   }
@@ -42,9 +40,9 @@ class ToDo extends React.Component {
     const todo = event.target.value;
     this.setState({ todo: todo });
   };
-  handleClick = () => {
+  handleAddClick = () => {
     this.getKey();
-    this.props.add_todo(this.state);
+    this.props.add_todo(this.state.todo);
     this.setState({ todo: "" });
   };
 }
@@ -56,4 +54,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { add_todo })(ToDo);
+export default connect(mapStateToProps, { add_todo, update_completed })(ToDo);
