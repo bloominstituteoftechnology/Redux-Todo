@@ -13,3 +13,10 @@ export const remove = id => {
     payload: id,
   };
 };
+
+export const toggle = id => {
+  return {
+    type: 'TOGGLE_COMPLETE',
+    payload: id,
+  };
+};
