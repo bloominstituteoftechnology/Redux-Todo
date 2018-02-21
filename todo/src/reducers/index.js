@@ -1,4 +1,4 @@
-//e combineReducers helper function turns an object whose 
+//The combineReducers helper function turns an object whose 
 //values are different reducing functions into a single reducing function
 import { combineReducers } from 'redux';
 
@@ -13,4 +13,10 @@ const todoReducer = (state = [], action) => {
       break;
   }
   return state;
-}
+},
+
+reducers = combineReducers({
+  todos: todoReducer
+});
+
+export default reducers;
