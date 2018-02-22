@@ -23,8 +23,18 @@
   padding: 1%;
 }
 
-.item{
+.itemTodo{
   display: flex;
   justify-content: center;
   list-style: none;
+  padding: .5%;
+  margin: .5%;
+}
+.itemComplete{
+  display: flex;
+  text-decoration-line: line-through;
+  justify-content: center;
+  list-style: none;
+  padding: .5%;
+  margin: .5%;
 }

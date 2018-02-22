@@ -5,7 +5,13 @@ export default (todo = [], action) => {
     case ADD:
       return todo.concat(action.payload);
     case COMPLETE:
-      return;
+      console.log(todo);
+      let temp = todo;
+      temp[action.target] = {
+        value: todo[action.target].value,
+        complete: true
+      };
+      return temp;
     default:
       return todo;
   }

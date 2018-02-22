@@ -1,11 +1,11 @@
 import React from "react";
 
 const ListGen = props => {
-  return props.list.map(ele => {
+  return props.list.map((ele, i) => {
     return (
-      <div key={props.id} className="item">
+      <div key={i} className="item">
         {ele.value}
-        <button>Complete</button>
+        <button onClick={() => props.complete(i)}>Complete</button>
       </div>
     );
   });

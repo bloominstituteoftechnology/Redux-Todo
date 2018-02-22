@@ -8,9 +8,9 @@ export const add = (newTodo) => {
     };
 };
 
-export const complete = () => {
+export const complete = (i) => {
   return {
     type: COMPLETE,
-    payload: true,
+    target: i,
     };
 };

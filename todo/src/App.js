@@ -30,7 +30,7 @@ class App extends Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-        <ListGen list={this.props.todo} />
+        <ListGen list={this.props.todo} complete={this.props.complete}/>
       </div>
     );
   }
