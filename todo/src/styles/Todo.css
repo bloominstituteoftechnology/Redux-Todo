@@ -1,0 +1,20 @@
+body {
+  align-self: center;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+  background: #fff;
+  margin: 2px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.button {
+  margin: 0px 2px 0px 2px;
+  float: right;
+  padding: 0px;
+
+}
+

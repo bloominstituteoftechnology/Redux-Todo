@@ -1,13 +1,15 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
+import '../styles/AddTodo.css';
 
 let AddTodo = ({ dispatch }) => {
   let input
 
   return (
-    <div>
-      <form onSubmit={e => {
+    <div className="todoForm-container">
+      <form 
+      onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
           return
@@ -15,10 +17,12 @@ let AddTodo = ({ dispatch }) => {
         dispatch(addTodo(input.value))
         input.value = ''
       }}>
-        <input ref={node => {
+        <input className="todoForm" ref={node => {
           input = node
         }} />
-        <button type="submit">
+        <button
+        className="todoForm-button" 
+        type="submit">
           Add Todo
         </button>
       </form>

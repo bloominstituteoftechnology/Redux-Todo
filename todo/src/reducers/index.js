@@ -5,7 +5,6 @@ import {
   SET_VISIBILITY_FILTER,
   VisibilityFilters
 } from '../actions/';
-
 //Here we destructure VF to get access to all views
 const { SHOW_ALL } = VisibilityFilters
  
