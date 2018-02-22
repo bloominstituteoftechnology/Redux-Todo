@@ -37,7 +37,7 @@ class Todo extends Component {
                         {this.props.todos.map((todo, i) => {
                             return (
                                 <li key={i} id={i} className={todo.completed ? 'todo-completed' : ''} onClick={this.toggleHandler}>
-                                {todo.value} <button onClick={() => this.deleteTodo()}>Delete</button>
+                                {todo.value} <button onClick={() => this.deleteTodo()}>x</button>
                                 </li>
                             );
                         })}
