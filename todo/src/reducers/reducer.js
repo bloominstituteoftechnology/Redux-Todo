@@ -2,7 +2,7 @@ import { ADD_TODO } from '../actions/add_todo';
 import { TOGGLE_TODO } from '../actions/toggle_todo';
 import { DELETE_TODO } from '../actions/delete_todo';
 
-export default (todos = (localStorage.getItem("storedArray") !== 'undefined') ? JSON.parse(localStorage.getItem("storedArray")) : [] , action) => {
+export default (todos = (localStorage.getItem("storedArray") !== null) ? JSON.parse(localStorage.getItem("storedArray")) : [] , action) => {
   switch (action.type) {
     case ADD_TODO:
       let newArray = [

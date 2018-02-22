@@ -23,10 +23,4 @@ class Form extends React.Component {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    todos: state.todos
-  };
-};
-
-export default connect(mapStateToProps,{add_todo})(Form);
+export default connect(null,{add_todo})(Form);
