@@ -8,7 +8,7 @@ class ToDoForm extends Component {
     newToDo: '',
   }
 
-  formHandler = (event) => {
+  handleInput = (event) => {
     // event.preventDefault();
     this.setState({ newToDo: event.target.value });
     console.log(this.state.newToDo);
@@ -23,7 +23,7 @@ class ToDoForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" onChange={this.formHandler} value={this.state.newToDo}/>
+        <input type="text" onChange={this.handleInput} value={this.state.newToDo}/>
         <button type="submit">Add Todo</button>
       </form>
     )
