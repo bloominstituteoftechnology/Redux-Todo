@@ -7,7 +7,15 @@ import { Provider } from 'react-redux';
 import todo from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(todo);
+const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {}
+
+const store = createStore(todo, persistedState);
+
+store.subscribe(()=>{
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+})
+
+
 
 ReactDOM.render(
       <Provider store={store} >
