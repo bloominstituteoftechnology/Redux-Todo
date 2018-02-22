@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+ul {
+  width: 200px;
+  text-align: left;
+  position: absolute;
+  left: calc(50% - 100px);
+}
+
+.todo-completed {
+  text-decoration: line-through;
+}
+

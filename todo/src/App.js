@@ -13,11 +13,8 @@ class App extends Component {
         </header>
 				  <div>
 					<Todo />
-					</div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
+		</div>
     );
   }
 }

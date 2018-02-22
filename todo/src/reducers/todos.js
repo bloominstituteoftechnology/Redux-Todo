@@ -6,9 +6,9 @@ export default (todos = [], action) => {
 			return [...todos, action.payload];
 
 		case TOOGLE_COMPLETE:
-			  return todos.map(todo => {
-			 if( todo.id === action.payload) {
-				return Object.assign({}, todo, { completed: true }) 
+			  return todos.map((todo, i) => {
+			 if (i === Number(action.payload)) {
+				return Object.assign({}, { value: todo.value, completed: !todo.completed }); 
 			}
 			return todo;
 		});
