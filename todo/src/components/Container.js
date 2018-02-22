@@ -10,7 +10,7 @@ class Container extends Component {
           <ul>
           {this.props.todos.map((todo, index) => {
             return (
-              <li key="index">{todo}</li>
+              <li key={index}>{this.todo}</li>
             )
           })
           }
