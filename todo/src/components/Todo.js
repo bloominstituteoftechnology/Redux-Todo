@@ -1,12 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import { add_todo, update_completed, delete_item } from "../actions/index.js";
+import React from 'react';
+import { connect } from 'react-redux';
+import { add_todo, update_completed, delete_item } from '../actions/index.js';
 
-import "./todo.css";
+import './todo.css';
 
 class ToDo extends React.Component {
   state = {
-    todo: ""
+    todo: '',
   };
 
   render() {
@@ -14,22 +14,26 @@ class ToDo extends React.Component {
       <div>
         <h1 className="header"> To Do List </h1>
         <div className="list">
-          <ul>
+          <ul style={{ width: '100%' }}>
             {this.props.todos.map((item, index) => {
               return (
-                <div style={{ display: "flex", flexFlow: "row" }} key={item.id}>
-                  <li
-                    style={{ margin: "5px" }}
-                    onClick={() => this.props.update_completed(item)}
-                  >
-                    {item.todo}
-                  </li>
+                <div
+                  style={{
+                    marginBottom: '5px',
+                    display: 'flex',
+                    flexFlow: 'row',
+                    padding: '5px',
+                    border: '2px solid blue',
+                  }}
+                  key={item.id}>
                   <button
-                    style={{ marginLeft: "5px" }}
-                    onClick={() => this.props.delete_item(index)}
-                  >
+                    style={{ marginLeft: '5px' }}
+                    onClick={() => this.props.delete_item(index)}>
                     delete
                   </button>
+                  <li style={{ margin: '5px' }} onClick={() => this.props.update_completed(item)}>
+                    {item.todo}
+                  </li>
                 </div>
               );
             })}
@@ -54,23 +58,23 @@ class ToDo extends React.Component {
     this.setState({ todo: todo });
   };
   handleAddClick = () => {
-    if (this.state.todo === "") return alert("Fill Out Your ToDo");
+    if (this.state.todo === '') return alert('Fill Out Your ToDo');
     else {
       this.props.add_todo(this.state.todo);
-      this.setState({ todo: "" });
+      this.setState({ todo: '' });
     }
   };
 }
 
 const mapStateToProps = state => {
-  console.log("State: ", state);
+  console.log('State: ', state);
   return {
-    todos: state
+    todos: state,
   };
 };
 
 export default connect(mapStateToProps, {
   add_todo,
   update_completed,
-  delete_item
+  delete_item,
 })(ToDo);

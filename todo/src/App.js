@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ToDo from './components/ToDo.js'
+import ToDo from './components/ToDo.js';
 
 import './App.css';
 
