@@ -1,39 +1,39 @@
 .addToDo {
-  background: red;
+  border: solid 2px red;
 }
 
 .submitField {
-  background: blue;
+  border: solid 2px blue;
 }
 
 .submitButton {
-  background: green;
+  border: solid 2px green;
 }
 
 .toDoContainer {
-  background: rgb(138, 138, 0);
+  border: solid 2px rgb(138, 138, 0);
 }
 .toDoList {
-  background: purple;
+  border: solid 2px purple;
 }
 .toDoItem {
-  background: red;
+  border: solid 2px red;
 }
 .checkBox {
-  background: blue;
+  border: solid 2px blue;
 }
 .toDoText {
-  background: green;
+  border: solid 2px green;
 }
 .completeButtonContainer {
-  background: rgb(138, 138, 0);
+  border: solid 2px rgb(138, 138, 0);
 }
 .completeButton {
-  background: purple;
+  border: solid 2px purple;
 }
 .deleteButtonContainer {
-  background: red;
+  border: solid 2px red;
 }
 .deleteButton {
-  background: blue;
+  border: solid 2px blue;
 }
