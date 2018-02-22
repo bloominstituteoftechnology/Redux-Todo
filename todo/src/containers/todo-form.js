@@ -14,10 +14,9 @@ class ToDoForm extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
     this.props.addToDo(this.state.newToDo);
     this.setState({ newToDo : '' });
-    // console.log(this.props);
+    event.preventDefault();
   }
 
   render() {
@@ -32,7 +31,6 @@ class ToDoForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    // addToDo: addToDo,
     todos: state
   }
 }

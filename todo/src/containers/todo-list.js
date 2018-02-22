@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ToDoItem from './todo-item';
-import { addToDo } from '../actions';
 
 class ToDoList extends Component {
   render() {
@@ -22,7 +20,7 @@ class ToDoList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos,
+    todos: state,
   }
 }
 

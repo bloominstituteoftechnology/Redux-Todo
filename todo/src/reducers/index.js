@@ -1,10 +1,16 @@
-import { combineReducers } from 'redux';
-import ToDosReducer from './todos';
-import AddToDo from './add-todo'
+import { ADD_TODO } from '../actions';
 
-const rootReducer = combineReducers({
-  todos: ToDosReducer,
-  addToDo: AddToDo,
-});
+const ToDoReducer =  (state = [], action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      const newToDo = {
+        value: action.payload,
+        completed: false
+      }
+      return [...state, newToDo]
+    default:
+      return state;
+  }
+}
 
-export default rootReducer;
+export default ToDoReducer;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import ToDoList from './containers/todo-list';
 import ToDoForm from './containers/todo-form';
+import './App.css';
 
 class App extends Component {
   render() {
