@@ -8,7 +8,7 @@ class TodoForm extends React.Component {
     newTodo: {
       text: '',
       id: 1,
-      completed: false
+      completed: false,
     },
   };
 
@@ -18,28 +18,29 @@ class TodoForm extends React.Component {
     this.setState(newTodoCopy);
   };
 
+  add = () => {
+    if (this.state.newTodo.text) {
+      this.props.add(this.state.newTodo);
+      const newID = this.state.newTodo.id + 1;
+      this.setState({
+        newTodo: {
+          text: '',
+          id: newID,
+          completed: false,
+        },
+      });
+    }
+  };
+
   render() {
     return (
-      <div>
+      <div className="todo__form">
         <input
           onChange={this.handleChange}
           value={this.state.newTodo.text}
           type="text"
         />
-        <button
-          onClick={() => {
-            this.props.add(this.state.newTodo);
-            const newID = this.state.newTodo.id + 1;
-            this.setState({
-              newTodo: {
-                text: '',
-                id: newID,
-                completed: false
-              },
-            });
-          }}>
-          Add Todo
-          </button>
+        <button onClick={this.add}>Add Todo</button>
       </div>
     );
   }

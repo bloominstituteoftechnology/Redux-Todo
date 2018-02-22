@@ -1,36 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { remove, toggle } from '../actions';
+import { toggle, remove } from '../actions';
 
-class ToDo extends React.Component{
+class ToDo extends React.Component {
   render() {
-    console.log('props', this.props);
-    const todos = this.props.todos.filter((todo) => {return todo.completed === false});
+    const todos = this.props.todos.filter(todo => {
+      return todo.completed === false;
+    });
 
-    const completed = this.props.todos.filter((todo)=> todo.completed === true);
-    console.log('todo', todos);
+    const completed = this.props.todos.filter(todo => todo.completed === true);
     return (
-      <div>
+      <div className="todo__list">
         <ul>
           {todos.map(x => {
             return (
-              <li key={x.id} >
+              <li key={x.id}>
+                <button onClick={() => this.props.remove(x.id)}>X</button>
+                <input
+                  className="todo__checkbox"
+                  onClick={() => this.props.toggle(x.id)}
+                  type="checkbox"
+                />
                 {x.text}
-                <input onClick={() => this.props.toggle(x.id)} type="checkbox" />
               </li>
-
             );
           })}
           {completed.map(x => {
             return (
-              <li key={x.id} >
+              <li key={x.id}>
+                <button onClick={() => this.props.remove(x.id)}>X</button>
+                <input
+                  className="todo__checkbox"
+                  onClick={() => this.props.toggle(x.id)}
+                  type="checkbox"
+                />
                 <del>{x.text}</del>
-                <input onClick={() => this.props.toggle(x.id)} type="checkbox" />
               </li>
             );
           })}
-
-
         </ul>
       </div>
     );
@@ -38,10 +45,9 @@ class ToDo extends React.Component{
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     todos: state,
   };
 };
 
-export default connect(mapStateToProps, {remove, toggle})(ToDo);
+export default connect(mapStateToProps, { toggle, remove })(ToDo);
