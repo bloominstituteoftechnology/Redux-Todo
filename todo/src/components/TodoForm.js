@@ -20,7 +20,7 @@ class TodoForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <input onChange={this.onChange} value={this.state.todoItemInput} placeholder='todo'/>
+          <input onChange={this.onChange} value={this.state.todoItemInput} placeholder='todo' required='true'/>
           <button>Submit</button>
         </form>
       </div>
