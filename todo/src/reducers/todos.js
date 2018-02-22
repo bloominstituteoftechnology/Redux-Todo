@@ -1,21 +1,21 @@
-import { ADDTODO, TOGGLE_COMPLETE } from '../actions/todoActions';
+import { ADDTODO, TOOGLE_COMPLETE } from '../actions/todoActions';
 
 export default (todos = [], action) => {
-    switch (action.type) {
-        case ADDTODO:
-            return [...todos, action.payload];
-        
-        case TOGGLE_COMPLETE:
-            return todos.map(todo => {
-                if (todo.id === action.payload) {
-                    return Object.assign({}, todo, { completed: true })
-                }
-                return todo;
-            });
+	switch (action.type) {
+		case ADDTODO: 
+			return [...todos, action.payload];
 
-        default:
-            return todos;
+		case TOOGLE_COMPLETE:
+			  return todos.map((todo, i) => {
+			 if (i === Number(action.payload)) {
+				return Object.assign({}, { value: todo.value, completed: !todo.completed }); 
+			}
+			return todo;
+		});
 
-    }
+		default:
+			return todos;
+		
+	}
 
 }

@@ -2,47 +2,51 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo, toggleComplete } from '../actions/todoActions';
 
-
 class Todo extends Component {
-    state = {
-            value: '',
-            }
-
+   state = {
+        value: '',
+		completed: false,			 
+  	}
 
     handleInput = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ value: event.target.value });
     }
-
+ 
     addTodoHandler = (event) => {
-        const { value } = this.state;
-        const todo = {
-          value,
-          completed: false,
-        };
-        this.props.addTodo(todo);
-      };
+        event.preventDefault();
+        this.props.addTodo(this.state);
+        this.setState({ value: '', completed: false });
+    };
+
+    toggleHandler = (event) => {
+        this.props.toggleComplete(event.target.getAttribute('id'));
+    }
 
     render() {
-        return(
-            <div>
-                <h1>To do list</h1>
-                <form>
-                    <input onChange={this.handleInput} name='value' value={this.state.value}/>
-                    <button type='button' onClick={this.addTodoHandler}>Add Task</button>
-                    {console.log(this.state)}
-                </form>
-                
-            </div>
-        );
-    }
-
-}
-
-
+            return (
+                <div>
+                    <form onSubmit={this.addTodoHandler}>
+                        <input id='input' onChange={this.handleInput} name='value' value={this.state.value}/>
+                        <input type='submit' value='Add Task' onClick={this.addTodoHandler} />
+                    </form>
+                    <ul>
+                        {this.props.todos.map((todo, i) => {
+                            return (
+                                <li key={i} id={i} className={todo.completed ? 'todo-completed' : ''} onClick={this.toggleHandler}>
+                                {todo.value}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            );
+    } 
+} 
+					
 const mapStateToProps = (state) => {
-    return {
+	return {
         todos: state
-    };
+	};
 }
 
-export default connect(mapStateToProps, { addTodo, toggleComplete })(Todo);
+export default connect(mapStateToProps, { addTodo, toggleComplete })(Todo); 
