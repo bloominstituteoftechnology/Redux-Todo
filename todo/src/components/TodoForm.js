@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { add_todo_item } from '../actions';
 
-
 class TodoForm extends React.Component {
   state = {
     todoItemInput: '',

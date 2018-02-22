@@ -11,6 +11,7 @@ const todo = (state = [], action) => {
           completed: false
         }
       ];
+
     case COMPLETE_TODO_ITEM:
     console.log('completed', action.id);
     return state.map(todo =>
@@ -22,6 +23,7 @@ const todo = (state = [], action) => {
     case DELETE_TODO_ITEM:
       console.log('deleted', action.id);
       return state.filter(todo => todo.id !== action.id);
+
     default:
       return state;
   }
