@@ -6,12 +6,12 @@ function TodoList(props) {
   console.log(props);
 
   return (
-    <ul>
+    <ul className='list'>
       { props.todo.map(item => {
         let completed = item.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
         console.log(item.completed, completed);
         return (
-          <div>
+          <div className='item'>
             <li style={completed} key={item.id} onClick={() => props.complete_todo_item(item.id)}>{item.payload}</li>
             <button onClick={() => props.delete_todo_item(item.id)}>Delete</button>
           </div>

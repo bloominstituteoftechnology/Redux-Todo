@@ -17,7 +17,7 @@ class TodoForm extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className='form'>
         <form onSubmit={this.onSubmit}>
           <input onChange={this.onChange} value={this.state.todoItemInput} placeholder='todo' required='true'/>
           <button>Submit</button>
