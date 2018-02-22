@@ -26,14 +26,17 @@ class AddToDo extends Component {
   render() {
     return (
       <div className="addToDo">
-        <form className="submitField" onSubmit={this.sendToReducer}>
+        <form onSubmit={this.sendToReducer}>
           <input
+            className="submitField"
             type="text"
             placeholder="Enter To Do"
             value={this.state.text}
             onChange={this.updateState}
           />
-          <button className="submitButton" type="submit">^</button>
+          <button className="submitButton" type="submit">
+            >
+          </button>
         </form>
       </div>
     );

@@ -5,8 +5,8 @@ import './ItemList.css';
 
 class ItemList extends Component {
   ifCompleted = completed => {
-    if (completed === true) return '|';
-    return 'x';
+    if (completed === true) return <div>&#10004;</div>;
+    return <div>x</div>;
   };
 
   toggleToDo = (event, todo) => {
@@ -15,8 +15,8 @@ class ItemList extends Component {
   };
 
   toggleButton = completed => {
-    if (completed === true) return <div>Uncheck</div>;
-    return <div>Check</div>;
+    if (completed === true) return <div>uncheck</div>;
+    return <div>check</div>;
   };
 
   deleteToDo = (event, todo) => {
