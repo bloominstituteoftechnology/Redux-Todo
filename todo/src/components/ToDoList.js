@@ -5,7 +5,9 @@ import { delete_todo } from '../actions/delete_todo';
 // import Item from './Item';
 
 const ToDoList = (props) => {
-  console.log(props);
+  console.log('props:', props);
+  console.log('todo:', props.todo)
+  console.log('local storage:', localStorage.getItem("storedArray"));
 
   return(
     <ul>
