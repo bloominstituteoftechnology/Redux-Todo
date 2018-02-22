@@ -3,37 +3,37 @@
 }
 
 .submitField {
-  background: red;
+  background: blue;
 }
 
 .submitButton {
-  background: red;
+  background: green;
 }
 
 .toDoContainer {
-  background: red;
+  background: rgb(138, 138, 0);
 }
 .toDoList {
-  background: red;
+  background: purple;
 }
 .toDoItem {
   background: red;
 }
 .checkBox {
-  background: red;
+  background: blue;
 }
 .toDoText {
-  background: red;
+  background: green;
 }
 .completeButtonContainer {
-  background: red;
+  background: rgb(138, 138, 0);
 }
 .completeButton {
-  background: red;
+  background: purple;
 }
 .deleteButtonContainer {
   background: red;
 }
 .deleteButton {
-  background: red;
+  background: blue;
 }
