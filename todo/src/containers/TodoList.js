@@ -6,7 +6,7 @@ const TodoList = (props) => {
     const todos = props.todos.map((todo, i) => 
     <Todo todo={todo} key={i} index={i} />);
     return (
-    <ul className='item'>
+    <ul>
         {todos}
     </ul>
     );
