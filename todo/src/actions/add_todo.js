@@ -1,8 +1,9 @@
 export const ADD_TODO = 'ADD_TODO';
 
-let nextToDoID = 0;
+let nextToDoID = JSON.parse(localStorage.getItem("counter"))+1 || 0;
 
 export const add_todo = (text) => {
+  localStorage.setItem("counter", JSON.stringify(nextToDoID))
   return {
     type: ADD_TODO,
     id: nextToDoID++,
