@@ -3,7 +3,8 @@ import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 const todoReducer = (todos = [], action) => {
   switch (action.type) {
     case ADD_TODO:
-      return todos.concat(action.payload);
+      //return todos.concat(action.payload);
+      return [...todos, action.payload];
     case TOGGLE_TODO:
       todos[action.payload].complete = !todos[action.payload].complete;
       return todos;
