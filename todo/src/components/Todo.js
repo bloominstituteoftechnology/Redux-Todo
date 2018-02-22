@@ -11,7 +11,9 @@ const Todo = ({ onClick, completed, text }) => (
   }}
   >
     {text}
-    <button className="button">Delete</button>
+    <button 
+    // onClick={}
+    className="button">Delete</button>
   </li>
 )
 
