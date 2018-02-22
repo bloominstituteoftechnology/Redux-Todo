@@ -22,7 +22,7 @@ class Todo extends Component {
         this.props.toggleComplete(event.target.getAttribute('id'));
     }
 
-    deleteTodo = () => {
+    deleteTodo = (event) => {
         this.props.deleteTodo();
     }
 
@@ -37,8 +37,10 @@ class Todo extends Component {
                         {this.props.todos.map((todo, i) => {
                             return (
                                 <li key={i} id={i} className={todo.completed ? 'todo-completed' : ''} onClick={this.toggleHandler}>
-                                {todo.value} <button onClick={() => this.deleteTodo()}>x</button>
+                                {todo.value}
+                                <button onClick={() => this.deleteTodo()}>X</button>
                                 </li>
+                                
                             );
                         })}
                     </ul>

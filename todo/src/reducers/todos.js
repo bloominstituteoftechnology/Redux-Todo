@@ -14,7 +14,9 @@ export default (todos = [], action) => {
         });
         
         case DELETE_TODO:
-            return todos.filter(todo => todo.id !== action.id);
+			const newTodo = todos.slice(0);
+			newTodo.splice(action.payload, 1);
+			return newTodo;
 
 		default:
 			return todos;
