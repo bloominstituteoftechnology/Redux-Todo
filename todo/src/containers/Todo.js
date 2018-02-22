@@ -16,7 +16,8 @@ class Todo extends Component {
 
     render() {
         return (
-        <li>
+        let styleItem = item.styleItem ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
+        <li style={styleItem}>
             <input type="checkbox" 
             onChange={this.toggleTodoItem.bind(this)}/>
             {this.props.todo.value}
