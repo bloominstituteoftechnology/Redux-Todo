@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDo, toggleToDo } from '../actions';
+import { addToDo, toggleToDo, deleteToDo } from '../actions';
+import './ItemList.css';
 
 class AddToDo extends Component {
   state = {
-    id: 3,
+    id: 0,
     text: '',
     completed: false,
   };
@@ -15,21 +16,26 @@ class AddToDo extends Component {
     });
   };
 
+  sendToReducer = event => {
+    event.preventDefault();
+    let newId = this.state.id;
+    this.props.addToDo(this.state);
+    this.setState({ text: '', id: ++newId });
+  };
+
   render() {
     return (
-      <form
-        onSubmit={() => {
-          this.props.addToDo(this.state);
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Enter To Do"
-          value={this.state.text}
-          onChange={this.updateState}
-        />
-        <button type="submit">^</button>
-      </form>
+      <div className="addToDo">
+        <form className="submitField" onSubmit={this.sendToReducer}>
+          <input
+            type="text"
+            placeholder="Enter To Do"
+            value={this.state.text}
+            onChange={this.updateState}
+          />
+          <button className="submitButton" type="submit">^</button>
+        </form>
+      </div>
     );
   }
 }
@@ -40,4 +46,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addToDo, toggleToDo })(AddToDo);
+export default connect(mapStateToProps, { addToDo, toggleToDo, deleteToDo })(
+  AddToDo
+);

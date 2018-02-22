@@ -1,24 +1,6 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 
-const dummyData = [
-  {
-    id: 0,
-    text: 'Walk the dog.',
-    completed: true,
-  },
-  {
-    id: 1,
-    text: 'Buy milk.',
-    completed: false,
-  },
-  {
-    id: 2,
-    text: 'Relax.',
-    completed: false,
-  },
-];
-
-export const ToDoList = (state = dummyData, action) => {
+export const ToDoList = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [...state, action.payload];
@@ -31,6 +13,10 @@ export const ToDoList = (state = dummyData, action) => {
           ...todo,
           completed: !todo.completed,
         };
+      });
+    case DELETE_TODO:
+      return state.filter(todo => {
+        return todo.id !== action.id;
       });
     default:
       return state;
