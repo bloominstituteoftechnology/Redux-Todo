@@ -3,7 +3,8 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   SET_VISIBILITY_FILTER,
-  VisibilityFilters
+  VisibilityFilters,
+  DELETE_TODO
 } from '../actions/';
 //Here we destructure VF to get access to all views
 const { SHOW_ALL } = VisibilityFilters
