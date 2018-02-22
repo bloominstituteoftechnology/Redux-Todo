@@ -1,5 +1,6 @@
 export const NEW_TODO_ITEM = 'NEW_TODO_ITEM';
 export const TOGGLE_TODO_ITEM = 'TOGGLE_TODO_ITEM';
+export const DELETE_TODO_ITEM = 'DELETE_TODO_ITEM';
 
 export const addNewTodoItem = (todo) => {
     return {
@@ -15,9 +16,9 @@ export const toggleTodoItem = (index) => {
     }
 }
 
-// export const deleteTodoItem = (index) => {
-//     return {
-//         type: DELETE_TODO_ITEM,
-//         id: index,
-//     }
-// }
+export const deleteTodoItem = (index) => {
+    return {
+        type: DELETE_TODO_ITEM,
+        id: index,
+    }
+}

@@ -6,7 +6,7 @@ class TodoForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formInputValue: ""
+            formInputValue: ''
         }
         this.addNewTodoItem = this.addNewTodoItem.bind(this);
         this.formInputUpdate = this.formInputUpdate.bind(this);
