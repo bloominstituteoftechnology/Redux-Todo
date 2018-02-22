@@ -1,4 +1,4 @@
-import { ADD_TODO } from './actions.js';
+import { ADD_TODO, TOGGLE_TODO } from './actions.js';
 
 const todos = (state = [], action) => {
   switch(action.type) {
@@ -11,6 +11,13 @@ const todos = (state = [], action) => {
           completed: false,
         }
       ];
+    case TOGGLE_TODO:
+      return state.map(each => {
+        if (action.id === each.id) {
+          each.completed = !each.completed;
+          return each;
+        } else return each;
+      })
     default:
       return state;
   }
