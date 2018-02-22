@@ -1,20 +1,39 @@
 body {
   align-self: center;
+  
+}
+
+ul {
+  padding-left: 0px;
+  text-align: left;
+  width: relative;
+  word-wrap: break-word; 
 }
 
 li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 2px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
   list-style: none;
-  width: 100%;
-  background: #fff;
-  margin: 2px;
-  flex-wrap: wrap;
-  display: flex;
+  margin: 0px;
+}
+
+li:nth-child(odd) {
+  background: #f9f9f9;
 }
 
 .button {
-  margin: 0px 2px 0px 2px;
-  float: right;
-  padding: 0px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
 
+.button:hover {
+  background-color: #bbb;
+  color: white;
 }
 

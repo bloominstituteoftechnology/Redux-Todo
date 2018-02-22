@@ -1,5 +1,7 @@
 .todoForm-container {
   margin-top: 5px;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .todoForm {

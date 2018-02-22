@@ -1,16 +1,28 @@
 .App {
   display: flex;
   text-align: center;
-  justify-content: center;
+  /* justify-content: center; */
   box-sizing: border-box;
   flex-direction: column;
   background-color: #efefef;
   width: 50%;
   height: 100%;
-  align-self: center;
+  /* align-self: center; */
   margin: 0px;
   padding: 0px;
   border: 1px solid;
+  border-radius: 10px;
 }
+
+.title {
+  background-color: #666;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+  margin-top: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 
 

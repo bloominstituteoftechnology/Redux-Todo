@@ -6,6 +6,7 @@ import '../styles/App.css';
 
 const App = () => (
   <div className="App">
+    <h1 className="title">Todo List</h1>
     <AddTodo />
     <VisibleTodoList />
     <Footer />
