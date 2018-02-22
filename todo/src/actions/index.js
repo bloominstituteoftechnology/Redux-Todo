@@ -1,18 +1,17 @@
-export const ADD_TODO = 'ADD_TODO';
-export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const ADD_TO_DO = 'ADD_TO_DO';
+export const TOGGLE_TO_DO = 'TOGGLE_TO_DO';
 
-let nextToDo = 0;
-export const addTodo = text => {
-    return {
-        type: 'ADD_TODO',
-        id: nextToDoId++,
-        text
-    }
-}
+export const addToDo = (todo) => {
+  return {
+    type: ADD_TO_DO,
+    payload: todo
+  };
+};
 
-export const toggleToDo = id => {
+export const toggleTodo = (index) => {
     return {
-        type: 'TOGGLE_TODO',
-        id
-    }
-}
+      type: TOGGLE_TO_DO,
+      payload: index
+    };
+  };
+
