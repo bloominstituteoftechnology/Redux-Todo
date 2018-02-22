@@ -34,6 +34,10 @@ ul {
   left: calc(50% - 100px);
 }
 
+li {
+  float: left;
+}
+
 .todo-completed {
   text-decoration: line-through;
 }
