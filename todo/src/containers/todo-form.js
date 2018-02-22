@@ -9,7 +9,6 @@ class ToDoForm extends Component {
   }
 
   handleInput = (event) => {
-    // event.preventDefault();
     this.setState({ newToDo: event.target.value });
     console.log(this.state.newToDo);
   }
@@ -18,6 +17,7 @@ class ToDoForm extends Component {
     event.preventDefault();
     this.props.addToDo(this.state.newToDo);
     this.setState({ newToDo : '' });
+    // console.log(this.props);
   }
 
   render() {
@@ -32,7 +32,8 @@ class ToDoForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    addToDo: addToDo,
+    // addToDo: addToDo,
+    todos: state
   }
 }
 
