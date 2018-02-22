@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleComplete } from '../actions/todoActions';
+import { addTodo, toggleComplete, deleteTodo } from '../actions/todoActions';
 
 class Todo extends Component {
    state = {
@@ -22,6 +22,10 @@ class Todo extends Component {
         this.props.toggleComplete(event.target.getAttribute('id'));
     }
 
+    deleteTodo = () => {
+        this.props.deleteTodo();
+    }
+
     render() {
             return (
                 <div>
@@ -33,7 +37,7 @@ class Todo extends Component {
                         {this.props.todos.map((todo, i) => {
                             return (
                                 <li key={i} id={i} className={todo.completed ? 'todo-completed' : ''} onClick={this.toggleHandler}>
-                                {todo.value}
+                                {todo.value} <button onClick={() => this.deleteTodo()}>Delete</button>
                                 </li>
                             );
                         })}
@@ -49,4 +53,4 @@ const mapStateToProps = (state) => {
 	};
 }
 
-export default connect(mapStateToProps, { addTodo, toggleComplete })(Todo); 
+export default connect(mapStateToProps, { addTodo, toggleComplete, deleteTodo })(Todo); 
