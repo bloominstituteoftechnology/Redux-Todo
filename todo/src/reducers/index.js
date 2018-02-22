@@ -18,14 +18,17 @@ function visibilityFilter(state = SHOW_ALL, action) {
   }
 }
  
+let id = 0;
 function todos(state = [], action) {
   switch (action.type) {
     case ADD_TODO:
+      id++
       return [
         ...state,
         {
           text: action.text,
-          completed: false
+          completed: false,
+          id: id
         }
       ]
     case TOGGLE_TODO:
@@ -37,6 +40,8 @@ function todos(state = [], action) {
         }
         return todo
       })
+      case DELETE_TODO:
+          return state.filter(todo => todo.id !== action.id);
     default:
       return state
   }
