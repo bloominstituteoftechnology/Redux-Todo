@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo, toggleTodo } from "./actions";
+import { addTodo, toggleTodo, deleteTodo } from "./actions";
 import Todos from "./Todos";
 import "./App.css";
 
@@ -16,6 +16,9 @@ class App extends Component {
                 todo={todo}
                 onClick={() => {
                   this.props.toggleTodo(todo.id);
+                }}
+                delete={() => {
+                  this.props.deleteTodo(todo.id);
                 }}
               />
             );
@@ -46,4 +49,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addTodo, toggleTodo })(App);
+export default connect(mapStateToProps, { addTodo, toggleTodo, deleteTodo })(App);
