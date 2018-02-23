@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './2.3.png';
 import './App.css';
-import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 import TodoList from './TodoList.js';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {
@@ -39,11 +39,13 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Devinci Tech Solutions' Todo List</h1>
         </header>
+        <br/>
         <form onSubmit={this.newTodo}>
           <input onChange={this.updateNewTodo} 
                 placeholder="Add a todo" 
                 value={this.state.newTodo}>
           </input>
+          <button onClick={this.addTodo}>Submit</button>
         </form>
           <TodoList todos={this.props.todos} />
       </div>
@@ -57,4 +59,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default App (mapStateToProps, { addTodo })(App);
+export default connect (mapStateToProps, { addTodo })(App);

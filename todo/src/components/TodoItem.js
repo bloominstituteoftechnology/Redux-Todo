@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { toggleComplete } from '../actions';
 import { connect } from 'react-redux';
  class TodoItem extends Component {
-     toggleComplete = (event) => {
+     toggleComplete(event) {
          this.props.toggleComplete(this.props.index);     
-    };
+    }
 
     render() {
         return (

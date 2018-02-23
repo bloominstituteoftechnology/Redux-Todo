@@ -10,14 +10,7 @@ export default (todos = [], action) => {
             return [...todos, action.payload ];
         case TOGGLE_COMPLETE:
             todos[action.payload].complete = !todos[action.payload].complete;
-            return todos;
-            /*return todos.map((todo, index) => {
-                if (index === action.payload) {
-                    return Object.assign({}, todo, {
-                        complete: !todo.complete
-                    });
-                } */
-            
+            return todos;     
         default:
             return todos;
     }
