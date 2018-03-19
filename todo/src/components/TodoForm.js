@@ -9,7 +9,7 @@ class TodoForm extends React.Component {
             <div>
                 <form onSubmit={(elem) => {
                     elem.preventDefault();
-                    this.props.AddTodo(this.state.todo);
+                    this.props.AddTodo(this.props.todo);
                 }}>
                     <input />
                     <button type = "submit">

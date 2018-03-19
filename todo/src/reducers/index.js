@@ -1,13 +1,13 @@
 import { ADDTODO, COMPLETETODO } from '../actions';
 
-export default (state = [], action) => {
+export default (todo = [], action) => {
     switch (action.type) {
         case ADDTODO:
         console.log('add');
-        return[ ...state, {
+        return[ ...todo, {
             id: action.id,
             completed: false 
         }];
-        default: return state;
+        default: return todo;
     }
 } 

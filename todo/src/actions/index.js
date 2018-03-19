@@ -1,3 +1,5 @@
+export const ADDTODO = 'ADDTODO';
+export const COMPLETETODO = 'COMPLETETODO';
 
 let todoID = 0;
 
