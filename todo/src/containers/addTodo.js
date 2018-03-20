@@ -1,6 +1,6 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
 import { Button } from 'reactstrap';
 
 
@@ -17,7 +17,7 @@ const AddTodo = ({ dispatch }) => {
         dispatch(addTodo(input.value))
         input.value = ''
       }}>
-        <input ref={node => input = node} />
+        <input placeholder="Things to Complete..." ref={node => input = node} />
         <Button color="success" type="submit">Add To List</Button>
       </form>
     </div>
