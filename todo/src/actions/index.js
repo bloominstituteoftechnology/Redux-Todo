@@ -1,16 +1,16 @@
 export const ADD = 'ADD';
 export const TOGGLE = 'TOGGLE';
 
-export const add = () => {
+export const add = (todo) => {
    return {
        type: ADD,
-       data: {}
+       text: todo,
    }
 };
 
 export const toggle = () => {
     return {
         type: TOGGLE,
-        completed: false
+        completed: true
     }
 };
