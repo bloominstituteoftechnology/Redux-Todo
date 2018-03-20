@@ -3,23 +3,23 @@ export const REMOVETODO = "REMOVETODO";
 export const TOGGLETODO = "TOGGLETODO";
 
 
-export const addTodo = (todo) => {
-    return{
-        type: addTodo,
+export function addTodo(todo) {
+    return {
+        type: ADDTODO,
         payload: todo
     };
 }
 
 export const removeTodo = (id) => {
-    return{
-        type: removeTodo,
+    return {
+        type: REMOVETODO,
         payload: id
     };
 }
 
 export const toggleTodo = (id) => {
-    return{
-        type: toggleTodo,
+    return {
+        type: TOGGLETODO,
         payload: id
     };
 }
