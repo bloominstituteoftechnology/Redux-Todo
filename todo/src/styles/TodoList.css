@@ -1,0 +1,91 @@
+.TodoListContainer {
+	/*width: 500px;*/
+
+	margin-bottom: 200px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.AddTodoSection {
+	display: inline;
+}
+
+.InputForm {
+	display: inline;
+}
+
+.AddTodoButton {
+	margin-left: 4px;
+	display: inline;
+}
+
+.ShowIncompleteButton {
+	width: 100px;
+}
+
+.ShowAllButton {
+	width: 100px;
+
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.ShowCompletedButton {
+	width: 100px;
+}
+
+.TodoList {
+	width: 40%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.TodoContainer {
+	display: inline;
+	margin-bottom: 7px;
+}
+
+.TodoItemContainer {
+	display: inline;
+}
+
+.DeleteButton {
+	margin-right: 4px;
+	display: inline;
+}
+
+.ToggleCompleteButton {
+	display: inline;
+}
+
+.EditTodoButton {
+	margin-left: 4px;
+}
+
+.EditTodo {
+	margin-left: 4px;
+	outline: none;
+	/*font-size: 15px;*/
+	font-style: bold;
+	resize: none;
+	border: 0;
+}
+
+.TodoItem {
+	list-style-type: none;
+	margin-left: 7px;
+
+	display: inline;
+}
+
+.ClearTodoList {
+	margin-right: 2px;
+}
+
+.ClearCompletedButton {
+	margin-left: 2px;
+}
