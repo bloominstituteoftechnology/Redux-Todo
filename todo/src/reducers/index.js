@@ -1,13 +1,22 @@
-import { ADDTODO, COMPLETETODO } from '../actions';
+import { ADD, COMPLETE } from '../actions';
 
-export default (todo = [], action) => {
+export default function todo(state = [], action) {
     switch (action.type) {
-        case ADDTODO:
+        case ADD:
         console.log('add');
-        return[ ...todo, {
+        return[ ...state, {
             id: action.id,
+            text: action.text,
             completed: false 
         }];
-        default: return todo;
+        case COMPLETE:
+        console.log('completed', action.id);
+        return state.map(todo =>
+            (todo.id === action.id) 
+            ? {...todo, completed: !todo.completed} 
+            : todo
+        );
+        default: 
+            return state;
     }
 } 

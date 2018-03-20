@@ -1,30 +1,36 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
-import { AddTodo, CompleteToDo } from '../actions';
+
+import { add_todo } from '../actions';
 
 class TodoForm extends React.Component {
+    state = {
+        todoItem: '',
+    }
+    handleChange = (event) => {
+        this.setState({ todoItem: event.target.value });
+    }
+    onSubmit = (e) => {
+        e.preventDefault();
+        this.props.add_todo(this.state.todoItem);
+        this.setState({ todoItem: '' });
+    }
     render() {
         return (
             <div>
-                <form onSubmit={(elem) => {
-                    elem.preventDefault();
-                    this.props.AddTodo(this.props.todo);
-                }}>
-                    <input />
-                    <button type = "submit">
-                        Add Todo
-                    </button>
+                <form onSubmit={this.onSubmit}>
+                    <input onChange = {this.handleChange} value={this.state.todoItem} placeholder='Add Items'/>
+                    <button>Add Todo</button>
                 </form>    
             </div>   
         );
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        todo: state.todo
+        todo: state,
     };
 };
 
-export default connect(mapStateToProps, {AddTodo, CompleteToDo})(TodoForm);
+export default connect(mapStateToProps, { add_todo })(TodoForm);

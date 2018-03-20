@@ -1,18 +1,18 @@
-export const ADDTODO = 'ADDTODO';
-export const COMPLETETODO = 'COMPLETETODO';
+export const ADD = 'ADD';
+export const COMPLETE = 'COMPLETE';
 
 let todoID = 0;
-
-export const AddTodo = () => {
+export const add_todo = (text) => {
     return {
-        type: 'ADDTODO',
+        type: 'ADD',
+        text: text,
         id: todoID++
     };
 };
 
-export const CompleteToDo = todoID => {
+export const complete_todo = (todoID) => {
     return {
-        type: 'COMPLETETODO',
+        type: 'COMPLETE',
         id: todoID,
     };
 }
