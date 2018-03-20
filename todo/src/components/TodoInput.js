@@ -14,10 +14,8 @@ class TodoInput extends React.Component {
   }
 
   handleAdd = event => {
-    console.log(event.target);
     event.preventDefault();
     this.props.add(this.refs.test.value);
-    console.log(this.refs);
     this.refs.test.value = '';
   };
 }

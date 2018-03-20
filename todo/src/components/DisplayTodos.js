@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 class DisplayTodos extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.props.todos.map((todo, i) => {
