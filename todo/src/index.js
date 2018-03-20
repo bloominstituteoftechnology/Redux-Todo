@@ -10,7 +10,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 const store = createStore(rootReducer);
 
 ReactDOM.render(
-<Provider store={store}>
-    <App />
-</Provider>, 
+    <div className="TodoList">
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </div>, 
 document.getElementById('root'));

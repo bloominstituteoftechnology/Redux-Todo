@@ -1,5 +1,6 @@
-body {
+.TodoList {
   display: flex;
-  font-family: sans-serif;
-  background: gold;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
 }
