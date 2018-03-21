@@ -1,0 +1,25 @@
+.todo{
+  margin:10px auto;
+}
+.remove{
+  margin-left:10%;
+}
+
+.completed{
+  background:red;
+  display:inline-block;
+  width:80%;
+}
+
+label{
+  font-size:2rem;
+}
+
+
+input{
+  margin-left:10%;
+}
+
+.notCompleted{
+  background:green;
+}
