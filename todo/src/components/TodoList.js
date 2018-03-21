@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo, deleteTodo } from '../actions';
+import { Todo } from './Todo';
 
 class TodoList extends Component {
     constructor(props) {
@@ -11,9 +12,6 @@ class TodoList extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleClick(id) {
     }
 
     handleChange(event) {
@@ -37,7 +35,7 @@ class TodoList extends Component {
                 <div>{this.props.todos.map(todo => {
                     return (
                     <div>
-                    <p key={todo.id} onClick={() => this.handleClick() }>{todo.text}</p>
+                    <Todo key={todo.id} text={todo.text}/>
                     <button onClick={() => this.props.deleteTodo(todo.id) }>X</button>
                     </div>
                     )

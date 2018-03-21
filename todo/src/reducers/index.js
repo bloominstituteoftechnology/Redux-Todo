@@ -1,13 +1,9 @@
 import {
     ADD_TODO, 
-    DELETE_TODO,
-    COMPLETE,
-    UNCOMPLETE,
+    DELETE_TODO
 } from '../actions/';
 
-const initialState = {todos: []};
-
-
+const initialState = {todos:[]};
 
 export default (state=initialState, action) => {
     switch (action.type) {
