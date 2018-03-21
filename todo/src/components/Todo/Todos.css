@@ -1,0 +1,28 @@
+.Todos {
+    margin: 10px auto auto 110px;
+    list-style-type: none;
+    width: 400px;
+}
+
+.Todo {
+    width: 100%;
+    font-size: 20px;
+    color: #586b88;
+}
+
+.Todo input {
+    color: #586b88;
+}
+
+.Todo  hr {
+    width: 100%;
+    font-size: 20px;
+    color: #586b88;
+    text-align: left;
+}
+
+.DeleteButton {
+    float: right;
+    border-radius: 4px;
+    border: 1px solid #586b88;
+}
