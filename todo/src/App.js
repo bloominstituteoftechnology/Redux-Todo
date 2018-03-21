@@ -1,21 +1,47 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { addTodo, toggleTodo } from './actions/TodoActions';
 import './App.css';
 
 class App extends Component {
+  handleNewTodo = event => {
+    event.preventDefault();
+    if (this.refs.newTodo.value !== '')
+      this.props.addTodo(this.refs.newTodo.value);
+    this.refs.newTodo.value = '';
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <div className="listOfTodos">
+          <h2>To Do List</h2>
+          {this.props.todos.map((object, index) => (
+            <li
+              style={
+                object.completed
+                  ? { textDecoration: 'line-through' }
+                  : { textDecoration: 'none' }
+              }
+              onClick={() => this.props.toggleTodo(index)}
+            >
+              {object.value}
+            </li>
+          ))}
+        </div>
+        <div className="todoInput">
+          <input type="text" ref="newTodo" />
+          <button onClick={this.handleNewTodo}> Add Todo</button>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    todos: state
+  };
+};
+
+export default connect(mapStateToProps, { addTodo, toggleTodo })(App);
