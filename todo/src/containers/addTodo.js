@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../actions";
+import { addTodo, completeTodo } from "../actions";
 
 class AddTodo extends Component {
   state = {
@@ -16,6 +16,11 @@ class AddTodo extends Component {
     event.preventDefault();
     this.props.addTodo(this.state.currentItem);
     this.setState({ currentItem: "" });
+  };
+
+  toggleComplete = event => {
+    event.preventDefault();
+    this.props.completeTodo(event.target.id);
   };
 
   render() {
@@ -34,7 +39,14 @@ class AddTodo extends Component {
           {console.log(this.props.todo, "check")}
           {this.props.todo.map(item => {
             return (
-              <li key={item.id} id={item.id}>
+              <li
+                onClick={this.toggleComplete}
+                key={item.id}
+                id={item.id}
+                style={
+                  item.completed ? { textDecoration: "line-through" } : null
+                }
+              >
                 {item.value}
               </li>
             );
@@ -51,4 +63,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addTodo })(AddTodo);
+export default connect(mapStateToProps, { addTodo, completeTodo })(AddTodo);

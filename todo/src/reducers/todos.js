@@ -1,4 +1,4 @@
-import { ADD_TODO } from "../actions";
+import { ADD_TODO, TOGGLE_COMPLETE } from "../actions";
 
 export default (todo = [], action) => {
   console.log(action);
@@ -6,11 +6,12 @@ export default (todo = [], action) => {
     case ADD_TODO:
       return [
         ...todo,
-        { id: action.id, value: action.payload, completed: false }
+        { id: todo.length, value: action.payload, completed: false }
       ];
-    case "TOGGLE_COMPLETED":
+    case TOGGLE_COMPLETE:
+      console.log("toggle", todo);
       return todo.map(item => {
-        if (item.id === action.id) {
+        if (Number(item.id) === Number(action.id)) {
           return { ...item, completed: !item.completed };
         } else {
           return item;
