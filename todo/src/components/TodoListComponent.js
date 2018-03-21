@@ -11,7 +11,13 @@ class TodoListComponent extends Component {
         <h1>ToDo List Component Loaded</h1>
         <ListGroup>
           {this.props.todos.map(todo => {
-            return <TodoComponent todo={todo.text} id={todo.id} />;
+            return (
+              <TodoComponent
+                todo={todo.text}
+                id={todo.id}
+                complete={todo.complete}
+              />
+            );
           })}
         </ListGroup>
       </div>

@@ -21,7 +21,7 @@ class FormComponent extends Component {
   render() {
     console.log("Form Props", this.props);
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form className="my-3" onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label for="todo">Todo</Label>
           <Input

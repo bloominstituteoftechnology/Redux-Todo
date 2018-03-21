@@ -1,14 +1,19 @@
-import { ADD_TODO, DELETE_TODO } from "../actions/index.js";
+import { ADD_TODO, DELETE_TODO, COMPLETE_TODO } from "../actions/index.js";
 
-const initial_state = [{ text: "Walk the cat" }, { text: "Feed fish" }];
-
-export default function todo(state = initial_state, action) {
+export default function todo(state = [], action) {
   console.log("lock reducer got this", action.type);
   switch (action.type) {
     case ADD_TODO:
-      return [...state, { text: action.text, id: action.id }];
+      return [...state, { text: action.text, id: action.id, complete: false }];
     case DELETE_TODO:
-      return state.filter(todo => todo.id != action.id);
+      return state.slice().filter(todo => todo.id !== action.id);
+    case COMPLETE_TODO:
+      return state.slice().map(todo => {
+        if (todo.id === action.id) {
+          todo.complete = !todo.complete;
+        }
+        return todo;
+      });
     default:
       return state;
   }
