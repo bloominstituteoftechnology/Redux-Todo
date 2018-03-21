@@ -10,6 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 export const ADDTODO = 'ADDTODO';
 export const TOGGLETODO = 'TOGGLETODO';
+export const DELETETODO = 'DELETETODO';
 const store = createStore(reducer);
 
 ReactDOM.render(

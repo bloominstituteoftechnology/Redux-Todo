@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo } from './actions/TodoActions';
+import { addTodo, toggleTodo, deleteTodo } from './actions/TodoActions';
 import './App.css';
 
 class App extends Component {
@@ -16,18 +16,28 @@ class App extends Component {
       <div>
         <div className="listOfTodos">
           <h2>To Do List</h2>
-          {this.props.todos.map((object, index) => (
-            <li
-              style={
-                object.completed
-                  ? { textDecoration: 'line-through' }
-                  : { textDecoration: 'none' }
-              }
-              onClick={() => this.props.toggleTodo(index)}
-            >
-              {object.value}
-            </li>
-          ))}
+          <ol className="card">
+            {this.props.todos.map((object, index) => (
+              <li
+                key={index}
+                style={
+                  object.completed
+                    ? { textDecoration: 'line-through' }
+                    : { textDecoration: 'none' }
+                }
+                onClick={() => this.props.toggleTodo(index)}
+              >
+                {object.value}
+
+                <button
+                  className="deleteButton"
+                  onClick={() => this.props.deleteTodo(index)}
+                >
+                  <span> X </span>
+                </button>
+              </li>
+            ))}
+          </ol>
         </div>
         <div className="todoInput">
           <input type="text" ref="newTodo" />
@@ -44,4 +54,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addTodo, toggleTodo })(App);
+export default connect(mapStateToProps, { addTodo, toggleTodo, deleteTodo })(
+  App
+);

@@ -1,4 +1,4 @@
-import { ADDTODO, TOGGLETODO } from '../';
+import { ADDTODO, TOGGLETODO, DELETETODO } from '../';
 
 // Our reducer that handles our two action cases,
 // increment and decrement. It receives the state
@@ -13,14 +13,16 @@ export default (todos = [{value: "test", completed: false}], action) => {
          completed : false,
       });
       return [...todos];
-      break;
     case TOGGLETODO:
       //toggles the boolean for item complete to trigger style in App.js
-      todos[action.index].completed = !todos[action.index].completed;
+      if(todos[action.index])todos[action.index].completed = !todos[action.index].completed;
+      return [...todos];
+    case DELETETODO:
+      //delete function
+      todos.splice(action.index,1);
       return [...todos];
     default:
       return [...todos];
   }
-        //delete function
-      //todos.splice(action.index,1);
+
 };

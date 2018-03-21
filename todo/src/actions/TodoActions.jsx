@@ -1,5 +1,6 @@
 const ADDTODO = 'ADDTODO';
 const TOGGLETODO = 'TOGGLETODO';
+const DELETETODO = 'DELETETODO'
 
 // Our action creators will return
 // an action packet that our reducer will
@@ -26,3 +27,11 @@ export const toggleTodo = (i) => {
       index: i,
    };
 };
+
+export const deleteTodo = (i) => {
+
+   return {
+      type: DELETETODO,
+      index: i,
+   }
+}
