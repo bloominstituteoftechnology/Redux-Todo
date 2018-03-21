@@ -37,19 +37,22 @@ class ToDoList extends Component{
     return (
     <div>
       <form onSubmit={this.handleSubmit}>
-       <label>Enter something to do</label> 
        <input type="text" value={this.state.value} onChange={this.handleChange} />
 
       </form>
       <div>
+        <h1 className="title">ToDos</h1>
         {
           this.props.list.todos.map( (e,i)=>{
             if(e && e.completed === true){
               return (
               <div className="todo" key={i}>
-                <h1 className="completed" onClick={()=>this.done(i)}>{e.text}</h1>
-                <button className="remove"onClick={()=>this.remove(i)}>Remove</button>
-                </div>
+                <h1 className="completed" onClick={()=>this.done(i)}>{e.text}
+            <button className="remove"onClick={()=>this.remove(i)}>Remove</button>
+
+                
+                </h1>
+                                </div>
 
               );
             }
@@ -57,7 +60,9 @@ class ToDoList extends Component{
               if(e){
                 return (
 
+              <div className="todo">
                 <h1 className="notCompleted" key={i} onClick={()=>this.done(i)}>{e.text}</h1>
+                </div>
                 );
               }
               else{

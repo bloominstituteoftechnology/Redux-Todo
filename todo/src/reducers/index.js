@@ -14,7 +14,7 @@ export default (state = defaultState,action) => {
     case SWITCHDO:
       return Object.assign({},state,{
         todos:state.todos.map( (e,i)=>{
-          if(i === action.id){
+          if(e && i === action.id){
             e.completed = !e.completed;
           }
           return e;
