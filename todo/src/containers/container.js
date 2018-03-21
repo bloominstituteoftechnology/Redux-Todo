@@ -42,8 +42,10 @@ render() {
             </form>
             <ul>
                 {this.props.todos.map((todo, index) => {
+                    console.log(todo.toggle);
                     return(
-                        <li onClick={() => this.toggleTodoInput()} key={index} id={index}>{todo.todos}</li>
+                        <li key={index} id={index} onClick={this.toggleTodoInput}>{todo.todos}</li>
+                   
                     )
                 })}
                 <li> Hello! </li>
