@@ -1,0 +1,27 @@
+.title{
+  text-align:center;
+}
+.todo{
+  margin:10px auto;
+  width:80%;
+}
+.remove{
+  float:right;
+}
+
+.completed{
+  background:red;
+}
+
+label{
+  font-size:2rem;
+}
+
+
+input{
+  margin: 0px auto;
+}
+
+.notCompleted{
+  background:#80ffaa;
+}
