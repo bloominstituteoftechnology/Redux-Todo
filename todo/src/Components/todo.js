@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteTodo } from '../actions';
+import { deleteTodo } from '/src/Actions/Actions';
 
 const Todo = (props) => {
     const {text: todo } = {...props.todo}
