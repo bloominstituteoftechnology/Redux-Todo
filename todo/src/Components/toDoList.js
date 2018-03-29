@@ -1,7 +1,7 @@
 import React, { Component } from  'react';
 import { connect } from 'react-redux';
 import Todo from './todo';
-import { addTodo } from '/Actions/Actions';
+import { addTodo } from '../Actions/Actions';
 
 
 class TodoList extends Component {
@@ -18,7 +18,6 @@ class TodoList extends Component {
 
     handleSubmit = () => {
         this.props.addTodo(this.state.Input);
-        // reset the Input state
         this.setState({
             Input: '',
         });

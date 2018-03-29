@@ -1,4 +1,4 @@
-import { ADD, DELETE } from '/src/Actions/Actions';
+import { ADD, DELETE } from '../Actions/Actions';
 
 export default (state = [] , action) => {
     switch(action.type){
