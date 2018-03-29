@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import TodoList from './components/toDoList'
 import { VaporLook } from './Components/VaporLook';
 
 
@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div>
         <VaporLook />
-
+        <TodoList />
       </div>
     );
   }
