@@ -8,6 +8,7 @@ class TodoList extends Component {
     state = {
         Input: '',
     }
+
     handleInput = (event) => {
         const input = event.target.value;
         this.setState({
@@ -15,9 +16,14 @@ class TodoList extends Component {
         })
     }
 
+    LineThrough = (i) => {
+        let Arr = this.state.Input;    
+        Arr[i].completed = !Arr[i].completed
+        this.setState( {Input: Arr} )
+    }
+
     handleSubmit = () => {
         this.props.addTodo(this.state.Input);
-        // reset the Input state
         this.setState({
             Input: '',
         });
@@ -26,7 +32,7 @@ class TodoList extends Component {
     render() {
         return (
             <div className="Todos">
-                {this.props.Todos.map((todo, index) => <Todo key={index} todo={todo} index={index}/>)}
+                {this.props.Todos.map((todo, index) => <Todo key={index} todo={todo} index={index} LineThrough={this.LineThrough} toggle={this.toggle} />)}
                 <div className="ADD">
                     <input onChange={this.handleInput} value={this.state.Input} type="text" placeholder="INCREASE TODOS"  />
                 </div>
