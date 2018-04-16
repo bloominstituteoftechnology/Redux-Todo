@@ -35,7 +35,7 @@ const TodoListLayout = props => (
   <div>{props.todos.map((todo, i) => <Todo {...todo} key={i} />)}</div>
 )
 
-TodoList.propTypes = {
+TodoListLayout.propTypes = {
   todos: PropTypes.array.isRequired
 }
 export default connect(null, { addTodo })(TodoList)
