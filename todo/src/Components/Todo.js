@@ -6,7 +6,7 @@ const Todo = (props) => {
         const {index, deleteTodo} = { ...props};
         return (
             <div className="Todo">
-                <p className="Delete" onClick={() => deleteTodo(index)}>x {index + 1}. </p>
+                <p className="Delete" onClick={() => deleteTodo(index)}> [X] </p>
                 {todo}
             </div>
         );
