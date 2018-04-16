@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import TodoForm from "./components/TodoForm";
+import { connect } from "react-redux";
+import { addTodoAction } from "./actions/addTodoAction";
+import { toggleTodoAction } from "./actions/toggleTodoAction";
 
 class App extends Component {
   render() {
@@ -22,4 +25,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    todos: state
+  };
+};
+
+export default connect(mapStateToProps, { addTodoAction, toggleTodoAction })(
+  App
+);
