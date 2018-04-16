@@ -5,6 +5,7 @@ import { Provider } from "redux";
 
 import "./index.css";
 import App from "./App";
+import todosReducer from "./reducers/todosReducer";
 import registerServiceWorker from "./registerServiceWorker";
 
 const store = createStore(
