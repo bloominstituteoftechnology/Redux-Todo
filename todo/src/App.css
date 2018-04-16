@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 20px auto;
 }
 
 .App-logo {
@@ -44,7 +45,7 @@
 .button {
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -112,7 +113,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 5px 0;
+  padding: 5px;
 }
 
 .smurfs:hover {
@@ -125,21 +126,6 @@
 
 .smurfs:first-child {
   border-top: 1px solid black;
-}
-
-.smurfs_name {
-  width: 10%;
-  margin: 0 40px;  
-}
-
-.smurfs_age {
-  width: 10%;
-  margin: 0 40px;
-}
-
-.smurfs_height {
-  width: 20%;
-  margin: 0 40px;
 }
 
 .input {
