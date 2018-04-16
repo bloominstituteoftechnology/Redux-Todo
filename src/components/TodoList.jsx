@@ -16,7 +16,7 @@ const TodoList = props => (
     >
       <input ref={node => (input = node)} placeholder='New todos here' />
     </form>
-    {props.todos.map((todo, i) => <Todo value={todo.value} key={i} />)}
+    {props.todos.map((todo, i) => <Todo {...todo} key={i} />)}
   </div>
 )
 

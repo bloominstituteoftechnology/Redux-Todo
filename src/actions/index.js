@@ -1,6 +1,7 @@
 export const ADD_TODO = 'ADD_TODO'
 export const REMOVE_TODO = 'REMOVE_TODO'
 export const GET_TODO = 'GET_TODO'
+export const UPDATE_TODO = 'UPDATE_TODO'
 
 const addTodo = value => ({
   type: ADD_TODO,
@@ -10,7 +11,12 @@ const addTodo = value => ({
 
 const removeTodo = value => ({
   type: REMOVE_TODO,
-  payload: { value, completed: true }
+  payload: { value }
 })
 
-export { addTodo, removeTodo }
+const updateTodo = ({ value, completed }) => ({
+  type: UPDATE_TODO,
+  payload: { value, completed: !completed }
+})
+
+export { addTodo, removeTodo, updateTodo }

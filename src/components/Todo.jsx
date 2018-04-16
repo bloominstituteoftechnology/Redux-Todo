@@ -1,12 +1,23 @@
 import React from 'react'
-import { removeTodo } from '../actions'
+import { removeTodo, updateTodo } from '../actions'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 const Todo = props => (
   <div>
-    <p>{props.value}</p>
-    <button onClick={() => props.removeTodo(props.value)}>finish me</button>
+    <p
+      style={
+        props.completed
+          ? { textDecoration: 'line-through' }
+          : { textDecoration: 'none' }
+      }
+      onClick={() => {
+        props.updateTodo(props)
+      }}
+    >
+      {props.value}
+    </p>
+    <button onClick={() => props.removeTodo(props.value)}>X</button>
   </div>
 )
 
@@ -15,4 +26,4 @@ Todo.propTypes = {
   removeTodo: PropTypes.func.isRequired
 }
 
-export default connect(null, { removeTodo })(Todo)
+export default connect(null, { removeTodo, updateTodo })(Todo)
