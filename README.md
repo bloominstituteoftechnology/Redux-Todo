@@ -7,7 +7,7 @@ Topics:
 * Redux state vs react component state
 * `<Provider>` and `createStore(reducer)`
 * One state object for entire application
-* `reducer` functions control the values for the state properties.
+* `reducer` functions control the values for the state properties.cre
 * `container` components are React components that connect to the Redux state
 * `actions` - objects produced by `action creators` that will be fed through all reducers.
 * `mapStateToProps()` & `connect`
@@ -17,7 +17,7 @@ Topics:
 ### Initialize Project
 
 * Run `create-react-app todo` to create your starter application.
-* `npm i --save redux react-redux` This command will install the needed dependencies.
+* `npm i --save redux react-redux` This command will install the needed dependencies. 
 * You will create a todo list using React and Redux.
 * Use the movies project as a reference.
 * The general flow of steps will be to create your store, create your reducers, create your containers, and then create the action creators.
