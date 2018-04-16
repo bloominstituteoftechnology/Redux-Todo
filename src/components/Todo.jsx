@@ -23,7 +23,9 @@ const Todo = props => (
 
 Todo.propTypes = {
   value: PropTypes.string.isRequired,
-  removeTodo: PropTypes.func.isRequired
+  completed: PropTypes.bool.isRequired,
+  removeTodo: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired
 }
 
 export default connect(null, { removeTodo, updateTodo })(Todo)
