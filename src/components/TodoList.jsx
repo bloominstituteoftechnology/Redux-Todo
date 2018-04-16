@@ -1,10 +1,12 @@
 import React from 'react'
 import Todo from './Todo'
+import PropTypes from 'prop-types'
 
-export default props => (
-  <div>
-    {props.todos.map((todo, i) => (
-      <Todo value={todo.value} key={i} onComplete={props.removeTodo} />
-    ))}
-  </div>
+const TodoList = props => (
+  <div>{props.todos.map((todo, i) => <Todo value={todo.value} key={i} />)}</div>
 )
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired
+}
+export default TodoList
