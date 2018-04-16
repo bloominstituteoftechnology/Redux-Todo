@@ -4,9 +4,11 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
 
-const store = createStore(todo);
+import TodoList from "./components/TodoList";
+import todos from "./reducers/todo";
+
+const store = createStore(todos);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,4 +16,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
