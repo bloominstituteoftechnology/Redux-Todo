@@ -29,3 +29,4 @@ Todo.propTypes = {
 }
 
 export default connect(null, { removeTodo, updateTodo })(Todo)
+// connect -> everything  -> everything(state): state -> <Todo {...state} />

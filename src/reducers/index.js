@@ -19,8 +19,9 @@ export default (state = defaults, { type, payload }) => {
       break
 
     case UPDATE_TODO:
-      newState = state.filter(curVal => curVal.value !== payload.value)
-      newState = newState.concat(payload)
+      newState = state
+        .filter(curVal => curVal.value !== payload.value)
+        .concat(payload)
       break
 
     default:
