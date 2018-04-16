@@ -30,6 +30,16 @@ class TodoList extends Component {
     console.log(this.state);
     return (
       <div>
+        {this.state.todos.map((todo, index) => (
+          <div
+            onClick={() => {
+              console.log(todo);
+            }}
+            key={todo + index}
+          >
+            {todo}
+          </div>
+        ))}
         {/* <TodoList {...this.state} /> */}
         <input
           type="text"
