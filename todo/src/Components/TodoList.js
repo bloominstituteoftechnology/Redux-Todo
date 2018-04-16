@@ -6,8 +6,8 @@ const TodoList = props => {
             {console.log('todolist', props)}
             {props.todos.map((todo, index) => {
                 return (
-                    <div className="smurfs" key={todo.value + index}>
-                        {todo.value}
+                    <div onClick={() => props.complete({ value: todo.value })} className="smurfs" key={todo.value + index}>
+                        <span className={todo.complete? "task completed" : "task"} > {todo.value} </span>
                         <button onClick={() => props.remove({ value: todo.value })} className="button button-delete" > X </button>
                     </div>)
             })}

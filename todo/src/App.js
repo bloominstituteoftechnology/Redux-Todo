@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { add, remove } from './actions'
+import { add, remove, complete } from './actions'
 import TodoList from './Components/TodoList'
 import './App.css';
 
@@ -24,7 +24,7 @@ class App extends Component {
     event.preventDefault();
     const task = {
       value: this.state.value,
-      completed: false
+      complete: false
     }
     this.props.add(task);
     this.setState({ value: '' });
@@ -55,11 +55,9 @@ class App extends Component {
             <button className="button button-add" type="submit">Add To List</button>
           </form>
         </div>
-        <p> List of ToDos </p>
+        <h2> List of ToDos </h2>
         <div className="smurfList" >
-          <div>
-            <TodoList todos={this.props.todos} remove={this.props.remove} />
-          </div>
+            <TodoList todos={this.props.todos} complete={this.props.complete} remove={this.props.remove} />
         </div>
       </div>
     );
@@ -72,4 +70,4 @@ const appProps = state => {
 };
 
 
-export default connect(appProps, { add, remove })(App);
+export default connect(appProps, { add, remove, complete })(App);

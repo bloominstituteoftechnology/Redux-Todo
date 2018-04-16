@@ -109,7 +109,6 @@
 .smurfs {
   border-bottom: 1px solid black;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -118,6 +117,7 @@
 
 .smurfs:hover {
   box-shadow: 1px 1px 10px;
+  cursor: pointer;
 }
 
 .SmurfForm {
@@ -140,4 +140,13 @@
 .input:focus {
   outline: none;
   border: 2px solid rgb(47, 154, 216);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: green;
+}
+
+.task {
+  flex-grow: 1;
 }
