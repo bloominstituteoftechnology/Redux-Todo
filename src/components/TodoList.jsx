@@ -3,8 +3,8 @@ import Todo from './Todo'
 
 export default props => (
   <div>
-    {props.todos.map(todo => (
-      <Todo value={todo.value} onComplete={props.removeTodo} />
+    {props.todos.map((todo, i) => (
+      <Todo value={todo.value} key={i} onComplete={props.removeTodo} />
     ))}
   </div>
 )
