@@ -1,11 +1,12 @@
 import React from 'react'
-import { removeTodo, updateTodo } from '../actions'
+import { removeTodo, updateTodo } from '../../actions'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 const Todo = props => (
-  <div>
+  <div className='Todo'>
     <p
+      className='Todo--val'
       style={
         props.completed
           ? { textDecoration: 'line-through' }
@@ -17,7 +18,12 @@ const Todo = props => (
     >
       {props.value}
     </p>
-    <button onClick={() => props.removeTodo(props.value)}>X</button>
+    <button
+      className='Todo--delete'
+      onClick={() => props.removeTodo(props.value)}
+    >
+      X
+    </button>
   </div>
 )
 
