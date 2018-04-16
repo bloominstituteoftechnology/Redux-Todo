@@ -3,10 +3,10 @@ export const DELETE = 'DELTE';
 
 export const addTodo = (todo) => {
     return {
-        type: Add,
+        type: ADD,
         todo: {
             text: todo,
-            completed: fasle
+            completed: false
         },
     }
 };
