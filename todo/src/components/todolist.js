@@ -39,7 +39,7 @@ class TodoList extends Component {
         <button
           onClick={() => {
             this.props.addTodo(this.state.todoInput);
-            this.state.todoInput = "";
+            this.setState({ todoInput: "" });
           }}
         >
           Add Todo
@@ -47,7 +47,7 @@ class TodoList extends Component {
         <button
           onClick={() => {
             this.props.removeTodo(this.state.todoInput);
-            this.state.todoInput = "";
+            this.setState({ todoInput: "" });
           }}
         >
           Remove Todo

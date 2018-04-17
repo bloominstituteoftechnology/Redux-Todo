@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 
-import TodoList from "./components/TodoList";
 import todos from "./reducers";
 
 const store = createStore(todos);
