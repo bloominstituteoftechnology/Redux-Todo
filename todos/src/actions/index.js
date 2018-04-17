@@ -2,7 +2,7 @@ export const GET_TODOS = 'GET_TODOS';
 export const SUBMIT_TODO = 'SUBMIT_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 
-export const todos = { value: 'todos', completed: false };
+export const todos = [];
 
 export const getTodos = () => {
   return { 
@@ -11,16 +11,16 @@ export const getTodos = () => {
   }
 };
 
-export const submitTodo = () => {
+export const submitTodo = payload => {
   return { 
     type: SUBMIT_TODO,
-    payload: todos
+    payload: payload
   }
 };
 
 export const toggleTodo = () => {
   return { 
     type: TOGGLE_TODO,
-    payload: todos
+    payload: 'placeholderData'
   }
 };

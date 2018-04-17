@@ -38,19 +38,12 @@ class App extends Component {
     return (
       <div className="ToDoList">
       <input onChange={e => this.handleTodoText(e)} value={this.state.formText} type="text" placeholder='Add your To Dos here!' />
-      <button onClick={() => this.props.submitTodo()}>Submit</button>
+      <button onClick={() => this.props.submitTodo(this.state.formText)}>Submit</button>
       </div>
 
       // <div>
       //   Add Task list here
       // </div>
-
-      // this.props.store.dispatch({ 
-      //   type: 'SUBMIT_TODO', 
-      //   payload: { 
-      //     value: 'something', 
-      //     completed: false } 
-      //   })
     );
   }
 }
