@@ -23,7 +23,7 @@ class App extends Component {
         {/* render todo form here */}
         <TodoForm {...addTodoAction} />
         {/* render todo list here */}
-        <TodoList todos={this.props.todos} {...toggleTodoAction} />
+        <TodoList todos={this.props.todos} />
       </div>
     );
   }
