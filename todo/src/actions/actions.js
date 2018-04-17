@@ -2,25 +2,19 @@ export const ADD = 'ADD';
 export const REMOVE = 'REMOVE';
 
 let todos = [];
-export const add = (name) => {
+export const add = (litem) => {
 	return {
-		todos: [
-			{
-				value: name,
-				completed: false
-			}
-		]
+		type: ADD,
+		payload: todos.concat(litem)
 	};
+	
+	
 };
 
-export const remove = (name) => {
+export const remove = (litem) => {
 	return {
-		todos: [
-			{
-				value: name,
-				completed: true
-			}
-		]
+		type: REMOVE,
+		payload: litem
 	};
 };
 
