@@ -11,11 +11,12 @@ class TodoForm extends React.Component {
 	}
 
 	handleNewTodo(event) {
-		this.state.newTodo = event.target.value;
+		this.setState({ newTodo: event.target.value });
+		// this.setState({value: event.target.value.toUpperCase()});
 	}
 
 	render() {
-		// console.log(this.state.value);
+		console.log(this.state);
 		return (
 			<div>
 				<h1>form here</h1>
@@ -25,7 +26,7 @@ class TodoForm extends React.Component {
 						placeholder="Type your Todos Here"
 						name="newTodo"
 						value={this.state.newTodo}
-						onChange={this.handleNewTodo}
+						onChange={event => this.handleNewTodo(event)}
 					/>
 					<button
 						type="button"
