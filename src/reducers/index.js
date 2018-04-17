@@ -1,4 +1,5 @@
 import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../actions'
+
 const { localStorage } = window
 const defaults = JSON.parse(localStorage.getItem('state')) || [
   { value: 'im not real' },
@@ -6,9 +7,8 @@ const defaults = JSON.parse(localStorage.getItem('state')) || [
   { value: 'chuck testa' }
 ]
 
-let newState
-
 export default (state = defaults, { type, payload }) => {
+  let newState
   switch (type) {
     case ADD_TODO:
       newState = [...state, payload]

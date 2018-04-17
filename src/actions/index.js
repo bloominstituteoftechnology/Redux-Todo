@@ -4,7 +4,6 @@ export const UPDATE_TODO = 'UPDATE_TODO'
 
 const addTodo = value => ({
   type: ADD_TODO,
-  // completed can be here or in reducers, let's find out later
   payload: { value, completed: false }
 })
 
