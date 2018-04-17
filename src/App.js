@@ -2,13 +2,20 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TodoList from './components/TodoList'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 class App extends Component {
   render () {
     return (
-      <div className='App'>
+      <Container>
         <TodoList todos={this.props.todos} />
-      </div>
+      </Container>
     )
   }
 }

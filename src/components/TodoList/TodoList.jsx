@@ -3,9 +3,17 @@ import Todo from './../Todo'
 import PropTypes from 'prop-types'
 import { addTodo } from '../../actions'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
+
+const TodosContainer = styled.div`
+  width: 800px;
+`
+
+const Input = styled.input`
+margin: 10px;
+`
 
 let input
-
 class TodoList extends Component {
   constructor (props) {
     super(props)
@@ -13,33 +21,34 @@ class TodoList extends Component {
       value: ''
     }
   }
+  
+  todoElements() {
+    return this.props.todos.map((todo, i) => <Todo {...todo} key={i} />)
+  }
 
+  handleSubmit = (e) => {
+    this.props.addTodo(input.value)
+    e.preventDefault()
+  }
+  
   // input needs to be in the state
   render () {
     return (
       <React.Fragment>
-        <form
-          onSubmit={e => {
-            this.props.addTodo(input.value)
-            e.preventDefault()
-          }}
-        >
-          <input ref={node => (input = node)} placeholder='New todos here' />
+        <form onSubmit={this.handleSubmit}>
+          <Input innerRef={node => (input = node)} placeholder='New todos here' />
         </form>
-        <TodoListLayout {...this.props} />
+        <TodosContainer>
+          {this.todoElements()}
+        </TodosContainer>
       </React.Fragment>
     )
   }
 }
-const TodoListLayout = props => (
-  <div>{props.todos.map((todo, i) => <Todo {...todo} key={i} />)}</div>
-)
-
-TodoListLayout.propTypes = {
-  todos: PropTypes.array.isRequired
-}
-export default connect(null, { addTodo })(TodoList)
 
 TodoList.propTypes = {
   addTodo: PropTypes.func
 }
+
+export default connect(null, { addTodo })(TodoList)
+

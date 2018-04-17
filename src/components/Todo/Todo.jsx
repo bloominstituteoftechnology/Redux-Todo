@@ -1,30 +1,32 @@
 import React from 'react'
 import { removeTodo, updateTodo } from '../../actions'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: tomato;
+  padding: 10px;
+  margin-bottom: 10px;
+`
+
+const Label = styled.div`
+  text-decoration: ${props => props.completed ? 'line-through' : 'none'}
+  margin-right: 10px;
+`
+
 const Todo = props => (
-  <div className='Todo'>
-    <p
-      className='Todo--val'
-      style={
-        props.completed
-          ? { textDecoration: 'line-through' }
-          : { textDecoration: 'none' }
-      }
-      onClick={() => {
-        props.updateTodo(props)
-      }}
-    >
+  <Wrapper>
+    <Label completed={props.completed} onClick={() => props.updateTodo(props)}>
       {props.value}
-    </p>
-    <button
-      className='Todo--delete'
-      onClick={() => props.removeTodo(props.value)}
-    >
-      X
+    </Label>
+    <button onClick={() => props.removeTodo(props.value)}>
+      &times;
     </button>
-  </div>
+  </Wrapper>
 )
 
 Todo.propTypes = {
@@ -35,4 +37,3 @@ Todo.propTypes = {
 }
 
 export default connect(null, { removeTodo, updateTodo })(Todo)
-// connect -> everything  -> everything(state): state -> <Todo {...state} />
