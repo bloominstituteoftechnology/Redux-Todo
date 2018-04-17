@@ -38,7 +38,8 @@ class TodoList extends Component {
         />
         <button
           onClick={() => {
-            if (!this.props.todos.includes(this.state.todoInput)) {
+            if (this.state.todoInput === "") alert("Fill in input!");
+            else if (!this.props.todos.includes(this.state.todoInput)) {
               this.props.addTodo(this.state.todoInput);
               this.setState({ todoInput: "" });
             } else alert("No duplicates allowed!");
