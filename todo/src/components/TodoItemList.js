@@ -13,10 +13,10 @@ class TodoItemList extends React.Component {
         return (
             <div >
                 <ul className='Todoitem'>
-                    {this.props.todos.map((todo, index) =>
-
-                            <TodoItem  key={index} todoItem={todo}/>
-                    )}
+                    {this.props.todos.map((todo, index) => {
+                        console.log(todo);
+                       return <TodoItem key={index} todoName={todo.value} todoComplete={todo.completed}/>
+                    })}
                 </ul>
             </div>
         );

@@ -8,7 +8,8 @@ class TodoItem extends React.Component {
         return (
             <li>
 
-                {this.props.todoItem}
+                {this.props.todoName}
+                {this.props.todoComplete === true ? ` True` : ` False`}
             </li>);
     }
 }

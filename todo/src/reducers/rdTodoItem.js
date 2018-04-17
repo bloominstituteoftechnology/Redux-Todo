@@ -1,4 +1,4 @@
-import {ADD_TODO, GET_TODOS, REMOVE_TODO} from "../actions";
+import {ADD_TODO, GET_TODOS, REMOVE_TODO, TOGGLE} from "../actions";
 
 export default (todos = [], action) => {
     switch (action.type) {
@@ -8,6 +8,8 @@ export default (todos = [], action) => {
             return todos.filter(todo => !todo.completed);
         case GET_TODOS:
             return action.payload;
+        case TOGGLE:
+            return todos[action.payload].completed = !todos[action.payload].completed;
         default:
             return todos;
 
