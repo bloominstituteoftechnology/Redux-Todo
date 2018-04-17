@@ -12,4 +12,5 @@ export const completeTodo = id => {
   return {
     type: TOGGLE_COMPLETE,
     id
-  }};
+  };
+};
