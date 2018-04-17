@@ -5,7 +5,9 @@ class DisplayTodos extends React.Component {
   render() {
     return (
       <div>
-        <div>{this.props.todos}</div>
+            {this.props.todos.map((todo, i) => {
+          return <div key={i}>{todo.value}</div>;
+        })}
       </div>
     );
   }
@@ -13,7 +15,7 @@ class DisplayTodos extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state
   };
 }
 
