@@ -5,6 +5,8 @@ import TodoForm from "./components/TodoForm";
 import { connect } from "react-redux";
 import { addTodoAction } from "./actions/addTodoAction";
 import { toggleTodoAction } from "./actions/toggleTodoAction";
+import TodoList from "./components/TodoList";
+import Todo from "./components/Todo";
 
 class App extends Component {
   render() {
@@ -21,6 +23,7 @@ class App extends Component {
         {/* render todo form here */}
         <TodoForm {...addTodoAction} />
         {/* render todo list here */}
+        <TodoList todos={this.props.todos} />
       </div>
     );
   }
@@ -28,7 +31,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    todos: state
+    todos: state.todos
   };
 };
 
