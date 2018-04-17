@@ -18,6 +18,12 @@ export const CompletedTodo = {
     
 }
 
+export const CompletedFilters = {
+    SHOW_ALL: 'SHOW_ALL',
+    SHOW_COMPLETED: 'SHOW_COMPLETED',
+    SHOW_ACTIVE: 'SHOW_ACTIVE'
+}
+
 export function AddTodo(value) {
     return { type: ADD_TODO, value };
 }
