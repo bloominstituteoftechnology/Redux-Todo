@@ -8,10 +8,9 @@ import { localState, saveState } from './persistence'
 import './index.css';
 import App from './App';
 
-const load = localState();
 const store = createStore(
     reducer,
-    load
+    localState()
     // +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

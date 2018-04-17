@@ -53,6 +53,10 @@
   margin: 5px;
 }
 
+.button-disabled {
+  display: none;
+}
+
 .button:hover {
   cursor: pointer;
 }
@@ -150,4 +154,7 @@
 
 .task {
   flex-grow: 1;
+  height: 18px;
+  margin: 5px;
+  padding: 5px 0;
 }
