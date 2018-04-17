@@ -1,8 +1,8 @@
-import { ADD, DELETE } from "../actions";
+import { ADD_TODO, DELETE_TODO } from "../actions";
 
 export default (todos = [], action) => {
   switch (action.type) {
-    case "ADD":
+    case ADD_TODO:
       return [
         ...todos,
         {
@@ -11,7 +11,7 @@ export default (todos = [], action) => {
           completed: false
         }
       ];
-    case "TOGGLE":
+    case TOGGLE_TODO:
       return todos.map(
         todo =>
           todo.id === action.id ? { ...todo, compelted: !todo.completed } : todo
