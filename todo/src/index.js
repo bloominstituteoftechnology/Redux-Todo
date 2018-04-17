@@ -20,3 +20,17 @@ ReactDOM.render(
 	document.getElementById("root")
 );
 registerServiceWorker();
+
+// store.subscribe(() => {
+// 	console.log(store.getState());
+// });
+
+// store.dispatch({
+// 	type: "NEWTODO",
+// 	payload: { text: "Ryan", isComplete: true }
+// });
+
+// store.dispatch({
+// 	type: "TOGGLETODO",
+// 	payload: { text: "Ryan", isComplete: true }
+// });
