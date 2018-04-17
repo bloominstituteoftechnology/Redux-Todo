@@ -3,15 +3,17 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const COMPLETED_TODO = 'COMPLETED_TODO';
 
 export const AddTodo = {
-    value: '',
-    CompletedTodo: false
+    type: ADD_TODO,
+    text: ''
 }
 
 export const ToggleTodo = {
+    type: TOGGLE_TODO,
     index: ''
 }
 
 export const CompletedTodo = {
+    type: COMPLETED_TODO,
     filter: SHOW_COMPLETED
     
 }
