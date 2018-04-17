@@ -1,3 +1,37 @@
-.strikeout {
+/* .strikeout {
     text-decoration: line-through;
+} */
+
+li {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 35px;
+    /* justify-content: center; */
+    /* align-content: center; */
+    /* text-align: center; */
+}
+
+.todo:first-child { 
+    padding-top: 125px;
+}
+
+.todo {
+    max-width: 400px;
+    width: 200px;
+    margin: 0px auto 0px 450px;
+    /* justify-content: center; */
+    /* text-align: center; */ 
+}
+
+.taskbar {
+    text-align: center;
+    justify-content: center;
+}
+
+.button {
+    background-color: lightskyblue;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
 }
