@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addTodo, removeTodo, checkTodo } from "../actions";
 
+import "./../index.css";
+
 class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,7 @@ class TodoList extends Component {
         {this.props.todos.map((todo, index) => (
           <div
             onClick={() => {
-              console.log(todo);
+              this.props.checkTodo(todo);
             }}
             key={todo + index}
           >
