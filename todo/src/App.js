@@ -8,6 +8,7 @@ import { toggleTodoAction } from "./actions/toggleTodoAction";
 
 class App extends Component {
   render() {
+    // console.log(this.props);
     return (
       <div className="App">
         <header className="App-header">
@@ -18,7 +19,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         {/* render todo form here */}
-        <TodoForm />
+        <TodoForm {...addTodoAction} />
         {/* render todo list here */}
       </div>
     );
