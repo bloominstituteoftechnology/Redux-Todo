@@ -7,11 +7,11 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./reducers";
 
-// initialize Redux store
-// pass reducer to createStore function
+// Initialize Redux store
+// Pass reducer to createStore function
 const store = createStore(reducer);
 
-// wrap React component with Provider
+// Wrap React component with Provider
 ReactDOM.render(
   <Provider store={store}>
     <App />
