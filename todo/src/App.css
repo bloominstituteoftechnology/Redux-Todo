@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-color: #000;
+  color: white;
+  height: 100%;
+  min-height: 850px;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -111,6 +117,7 @@
 
 .smurfs {
   border-bottom: 1px solid black;
+  border-color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,16 +132,17 @@
 }
 
 .smurfForm {
-  margin: 10px auto;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .smurfs:first-child {
   border-top: 1px solid black;
+  border-color: #333
 }
 
 .input {
   border: 2px solid red;
+  background-color: #222;
   border-radius: 4px;
   text-align: center;
   width: 250px;
@@ -161,4 +169,5 @@
 
 .footnote {
   font-size: 10px;
+  margin-top: auto;
 }
