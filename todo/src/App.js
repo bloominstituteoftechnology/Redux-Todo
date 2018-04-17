@@ -12,6 +12,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Redux ToDo List</h1>
         </header>
+          <div>
+            <Todo />
+          </div>
       </div>
     );
   }

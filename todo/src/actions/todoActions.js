@@ -5,7 +5,7 @@ export const IMPORT_STATE = 'IMPORT_STATE';
 
 export const addTodo = (todo) => {
     return {
-        type: 'ADDTODO',
+        type: ADDTODO,
         payload: todo,
     };
 };
