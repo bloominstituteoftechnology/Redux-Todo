@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
+
 import './App.css';
 import { todoReducer } from './reducers';
 import { submitTodo } from './actions';
@@ -11,6 +11,7 @@ class App extends Component {
       value: 'Default',
       completed: false
     }
+    console.log(this.props.store);
     return (
       <div className="ToDoList">
       <input type="text" placeholder='Add your To Dos here!'></input>
@@ -24,7 +25,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(this, state);
+  console.log(state);
   return {
     todos: state,
   };
