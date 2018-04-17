@@ -1,7 +1,7 @@
 export const todoReducers = (todos = [], action) => {
   switch (action.type) {
     case "GET_TODOS":
-      return [...todos, ...action.payload];
+      return [...todos];
     case "SUBMIT_TODO":
       return todos.concat(action.payload);
     case "TOGGLE_TODO":

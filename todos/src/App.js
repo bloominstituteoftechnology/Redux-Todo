@@ -9,7 +9,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      todos: [],
       formText: ""
     }
   }
@@ -30,20 +29,14 @@ class App extends Component {
   }
 
   render() {
-    let name = {
-      value: 'Default',
-      completed: false
-    }
-
     return (
       <div className="ToDoList">
       <input onChange={e => this.handleTodoText(e)} value={this.state.formText} type="text" placeholder='Add your To Dos here!' />
       <button onClick={() => this.props.submitTodo(this.state.formText)}>Submit</button>
-      </div>
+        <ul>
 
-      // <div>
-      //   Add Task list here
-      // </div>
+        </ul>
+      </div>
     );
   }
 }
