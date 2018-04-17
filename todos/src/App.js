@@ -15,11 +15,19 @@ class App extends Component {
     return (
       <div className="ToDoList">
       <input type="text" placeholder='Add your To Dos here!'></input>
-      <button>Submit</button>
+      <button >Submit</button>
       </div>
+
       // <div>
       //   Add Task list here
       // </div>
+
+      // this.props.store.dispatch({ 
+      //   type: 'SUBMIT_TODO', 
+      //   payload: { 
+      //     value: 'something', 
+      //     completed: false } 
+      //   })
     );
   }
 }
