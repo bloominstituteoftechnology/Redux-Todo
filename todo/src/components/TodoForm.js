@@ -15,7 +15,7 @@ class TodoForm extends React.Component {
 	}
 
 	render() {
-		console.log(this.state);
+		// console.log(this.state);
 		return (
 			<div>
 				<h1>form here</h1>
