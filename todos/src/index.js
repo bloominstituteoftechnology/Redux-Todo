@@ -5,10 +5,10 @@ import { createStore } from 'redux'
 
 import './index.css';
 import App from './App';
-import todos from './reducers';
+import { todoReducers } from './reducers';
 
 const store = createStore(
-  todos,
+  todoReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
