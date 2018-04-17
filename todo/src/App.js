@@ -4,19 +4,46 @@ import './App.css';
 import { connect } from 'react-redux';
 import { Add_todo } from './ActionCall';
 
+
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      value: '',
+      newTodo: "",
+    }
+  }
+
+  handleAddToDo = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmitToDo = () => {
+    let { value } = this.state;
+    value = <div>{this.state.newTodo}</div>;
+    this.setState({ value, newTodo: "" });
+  };
   
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Redux Todos</h1>
         </header>
+        <input 
+        type="text"
+        placeholder='new todo'
+        name='newTodo'
+        value={this.state.newTodo}
+        onChange={this.handleAddToDo}
+         /> 
+         <button onClick={this.handleSubmitToDo}>new todo</button>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and {this.props.note}
-          <button onClick={() => {Add_todo()}}> . </button>
+          <button onClick={() => {Add_todo(this.state.value)}}> Confirm todo </button>
         </p>
+        <span> {this.props.note} </span>
       </div>
     );
   }
