@@ -1,0 +1,11 @@
+.button {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    background-color: lightseagreen;
+}
+
+.allButton {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    background-color: lightblue;
+}
