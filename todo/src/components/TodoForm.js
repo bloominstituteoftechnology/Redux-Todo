@@ -12,7 +12,6 @@ class TodoForm extends React.Component {
 
 	handleNewTodo(event) {
 		this.setState({ newTodo: event.target.value });
-		// this.setState({value: event.target.value.toUpperCase()});
 	}
 
 	render() {
@@ -31,7 +30,7 @@ class TodoForm extends React.Component {
 					<button
 						type="button"
 						onClick={() => {
-							this.props.addTodoAction();
+							this.props.addTodoAction(this.state.newTodo);
 						}}
 					>
 						Add Todo
