@@ -127,7 +127,7 @@
 }
 
 .smurfs:hover {
-  box-shadow: 1px 1px 10px;
+  box-shadow: 1px 1px 10px rgb(2, 138, 184);
   cursor: pointer;
 }
 
