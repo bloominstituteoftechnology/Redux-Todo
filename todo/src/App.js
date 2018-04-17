@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { addToDo, updateToDo } from '../actions';
+import { connect } from 'react-redux';
+import TodoList from './Todo/ToDo';
 
 import logo from './logo.svg';
 import './App.css';
@@ -11,7 +12,7 @@ class App extends Component {
       savedList: [{}]
     };
   }
-  
+
   render() {
     return (
       <div className="App">
