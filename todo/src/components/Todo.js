@@ -15,7 +15,7 @@ class Todo extends Component {
         
 
     render() {
-        console.log('passed todo', this.props.todos)
+        console.log('passed todo', this.props)
         return(
             <div>
                 <input type="text" placeholder="Add todo" name="todo" onChange={this.handleInputChange} />
