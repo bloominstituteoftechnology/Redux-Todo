@@ -6,24 +6,21 @@ import DisplayTodos from "./DisplayTodos";
 
 
 class Todo extends Component {
-    constructor(props) {
-        super(props)
-    }
-    
-    
+
     handleInputChange = e => {
             this.setState({ [e.target.name]: e.target.value });
             console.log(e.target.value)
+            return e.target.value;
           };
         
 
     render() {
-        console.log(this.props)
+        console.log('passed todo', this.props.todos)
         return(
             <div>
                 <input type="text" placeholder="Add todo" name="todo" onChange={this.handleInputChange} />
-                <button onClick={() => this.props.add()} >Submit</button>
-                <DisplayTodos/>
+                <button onClick={() => this.props.add(this.state.todo)}  >Submit</button>
+                <DisplayTodos  todoList={this.props.todos}/>
             </div>
         )
     }
@@ -37,23 +34,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { add })(Todo);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// handleInputChange = e => {
-//     this.setState({ [e.target.name]: e.target.value });
-//   };

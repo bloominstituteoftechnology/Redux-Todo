@@ -1,13 +1,26 @@
 import React from 'react';
+import todos from '../reducers';
 import { connect } from 'react-redux';
+import Todo from "./Todo"
 
 
-
-const DisplayTodos = () => {
+const DisplayTodos = props => {
+    console.log('display', props.todoList)
     return (
         <div>
             <ul>
-                <li>lol</li>
+
+                {
+                    (props.todoList === undefined)
+                 ? <div>No todos yet!</div>
+                  : <ul>
+                      {props.todoList.map(todo => {
+                    return(
+                        <li>{todo}</li>
+                    )
+                })}
+                  </ul>
+                }
             </ul>
         </div>
     )
@@ -15,8 +28,16 @@ const DisplayTodos = () => {
 
 const mapStateToProps = (state) => {
     return {
-        todos: state
+        todos: state,
     };
 };
 
-export default connect(mapStateToProps)(DisplayTodos);
+export default connect(mapStateToProps, {todos})(DisplayTodos);
+
+// {props.todoList.map(todo => {
+//     return(
+//         <div>
+//             <p>{todo}</p>
+//         </div>
+//     )
+// })}
