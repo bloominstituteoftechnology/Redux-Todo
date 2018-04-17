@@ -2,21 +2,23 @@ export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const COMPLETED_TODO = 'COMPLETED_TODO';
 
-export const AddTodo = {
+let nextTodoItemId = 0;
+
+export const AddTodo = text => ({
     type: ADD_TODO,
-    text: ''
-}
+    id: nextTodoItemId++,
+    text
+})
 
-export const ToggleTodo = {
+export const ToggleTodo = id => ({
     type: TOGGLE_TODO,
-    index: ''
-}
+    id
+})
 
-export const CompletedTodo = {
+export const CompletedTodo = filter => ({
     type: COMPLETED_TODO,
-    filter: SHOW_COMPLETED
-    
-}
+    filter
+})
 
 export const CompletedFilters = {
     SHOW_ALL: 'SHOW_ALL',
