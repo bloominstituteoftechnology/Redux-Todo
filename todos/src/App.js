@@ -23,4 +23,20 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    count: state.count,
+    friends: state.friends
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    increment,
+    decrement,
+    incrementIfOdd
+  };
+};
+
 export default connect(mapStateToProps, mapDispatchToProps())(App);
