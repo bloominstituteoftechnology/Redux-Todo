@@ -1,4 +1,3 @@
-export default () => {
-    return [{item: 'Test Item'}
+export default () => [
+    'Test Item'
     ]
-}

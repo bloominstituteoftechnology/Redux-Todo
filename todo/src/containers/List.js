@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { doneToDo } from '../actions';
+import { addtodo } from '../actions';
 import { bindActionCreators } from 'redux';
-import Complete from './completion2'
 
 class ToDoList extends Component {
        
     renderArray() {
         return this.props.array.map((array, i) => {
             return(
-            <li
-            onClick={() => this.props.doneToDo()}
+                <div>
+            <ul
             key={i}>
-            {array.item}
-            </li>
+            {array}
+            </ul>
+            
+                </div>
             );
         });
     }
@@ -34,7 +35,7 @@ class ToDoList extends Component {
     };
 
     const mapDispatchToProps = (dispatch) => {
-        return bindActionCreators({ doneToDo: doneToDo}, dispatch);
+        return bindActionCreators({ addtodo: addtodo}, dispatch);
     };
 
     export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);

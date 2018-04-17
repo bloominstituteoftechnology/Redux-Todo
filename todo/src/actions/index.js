@@ -1,7 +1,8 @@
-export const doneToDo = (array) => {
+export const ADDTODO = 'ADDTODO';
+
+export const addtodo = () => {
     return {
-        type: 'ListItem_completed',
-        payload: array
-        
-    };
-};
+        type: ADDTODO,
+        value: ''
+    }
+}
