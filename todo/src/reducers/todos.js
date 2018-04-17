@@ -1,4 +1,3 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from '../actions/index';
 
 const defaultState = {
   todos: []
@@ -10,7 +9,7 @@ const todos = (state = defaultState, action) => {
         return Object.assign({}, state, {
           todos: [...state.todos,{ text: action.text,completed: action.completed }]
         });
-      case TOGGLE_TODO:
+      case 'TOGGLE_TODO':
         return Object.assign({}, state,{
           todos: state.todos.map((e, i)=>{
             if(e && i === action.id){
@@ -19,7 +18,7 @@ const todos = (state = defaultState, action) => {
             return e;
           })
         });
-      case REMOVE_TODO:
+      case 'REMOVE_TODO':
         return Object.assign({}, state,{
           todos:state.todos.map( (e, i)=>{
             if(i !== action.id){
