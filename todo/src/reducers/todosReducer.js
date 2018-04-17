@@ -11,7 +11,11 @@ export default function todosReducer(
 		}
 		case "TOGGLETODO": {
 			// change isComplete to the opposite value
-			return !action.payload.isComplete;
+			return state.todos.map((todo, index) => {
+				if (action.payload === index) {
+					return !todo.isComplete;
+				}
+			});
 		}
 		default:
 			return state;
