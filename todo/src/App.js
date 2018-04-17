@@ -19,12 +19,16 @@ class App extends Component {
     this.setState({newToDo : { value: e.target.value }});
   }
 
+  handleSubmit= (props) => {
+    this.props.addToDo(this.state.newToDo)
+  }
+
   render() {
     return (
       <div className="App">
-          <input type='text' onChange={this.handleOnChange} value={this.state.newToDo.value}>
-
+          <input type='text' onChange={this.handleOnChange} value={this.state.newToDo.value}>           
           </input>
+          <button onClick={this.handleSubmit}>Add To Do</button>
         <ul>
           {this.props.todoList.map(el => <li>{el.value}</li>)}
         </ul>
