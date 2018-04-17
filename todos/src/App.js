@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 import { submitToDo } from './reducers';
+import { SUBMIT_TODO } from './actions';
 
 class App extends Component {
   render() {
+    let name = {
+      value: 'Default',
+      completed: false
+    }
     return (
       <div className="ToDoList">
       <input type="text" placeholder='Add your To Dos here!'></input>
-      <button>Submit</button>
+      <button onClick={this.props.store.dispatch({type: SUBMIT_TODO, payload: name })} >Submit</button>
       </div>
       // <div>
       //   Add Task list here
@@ -17,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps())(App);
