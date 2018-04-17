@@ -1,13 +1,12 @@
+import { ADD_TODO } from './ActionCall';
 
-function todos(state = [], action) {
+export default (note = ['testing'], action) => {
     switch (action.type) {
-      case 'ADD_TODO':
-        return state.concat([action.text])
+      case ADD_TODO:
+        return note;
       default:
-        return state
+        return note
     }
   }
 
 
-
-  export { todos };

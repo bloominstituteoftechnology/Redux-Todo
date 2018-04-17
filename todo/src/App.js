@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import { Add_todo } from './ActionCall';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [],
-    }
-
-    
-  }
+  
   render() {
     return (
       <div className="App">
@@ -20,11 +14,18 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, edit <code>src/App.js</code> and {this.props.note}
+          <button onClick={() => {Add_todo()}}> . </button>
         </p>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (note) => {
+  return {
+      note: note
+  };
+};
+
+export default connect(mapStateToProps, { Add_todo })(App);
