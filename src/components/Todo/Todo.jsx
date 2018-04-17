@@ -8,19 +8,19 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: tomato;
+  background-color: ${({ completed }) => completed? 'steelblue' : 'tomato'};
   padding: 10px;
   margin-bottom: 10px;
 `
 
 const Label = styled.div`
-  text-decoration: ${props => props.completed ? 'line-through' : 'none'}
+  text-decoration: ${({ completed }) => completed ? 'line-through' : 'none'}
   margin-right: 10px;
 `
 
 const Todo = props => (
-  <Wrapper>
-    <Label completed={props.completed} onClick={() => props.updateTodo(props)}>
+  <Wrapper completed={props.completed} onClick={() => props.updateTodo(props)}>
+    <Label completed={props.completed}>
       {props.value}
     </Label>
     <button onClick={() => props.removeTodo(props.value)}>
