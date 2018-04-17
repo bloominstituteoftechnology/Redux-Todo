@@ -142,7 +142,8 @@
 
 .input {
   border: 2px solid red;
-  background-color: #222;
+  background-color: #111;
+  color: #AAA;
   border-radius: 4px;
   text-align: center;
   width: 250px;
@@ -153,6 +154,7 @@
 .input:focus {
   outline: none;
   border: 2px solid rgb(47, 154, 216);
+  background-color: #333;
 }
 
 .completed {
