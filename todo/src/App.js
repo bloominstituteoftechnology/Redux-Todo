@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { addtodo, removetodo, getToDos } from './action/index';
 
 class App extends Component {
   render() {
@@ -10,11 +12,21 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <input type='text' placeholder='Add ToDo' name='ToDo' />
-        <button> Add ToDo </button>
+        <input 
+        type='text' 
+        placeholder='Add ToDo' 
+        name='ToDo' 
+        onChange='function'/>
+        <button onClick={() => this.props.addtodo()}> Add ToDo </button>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+      todos: state
+  };
+};
+
+export default connect(mapStateToProps, { addtodo, removetodo, getToDos })(App);
