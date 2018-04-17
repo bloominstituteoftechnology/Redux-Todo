@@ -27,6 +27,5 @@ export const toggleComplete = (id) => {
 export const importState = () => {
     return {
         type: 'IMPORT_STATE',
-        payload: id,
     };
 };
