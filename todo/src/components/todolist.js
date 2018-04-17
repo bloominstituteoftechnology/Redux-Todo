@@ -19,7 +19,6 @@ class TodoList extends Component {
   render() {
     return (
       <div>
-        {/* <TodoItem /> */}
         {this.props.todos.map((todo, index) => (
           <div
             key={todo + index}
@@ -28,7 +27,6 @@ class TodoList extends Component {
             }}
           >
             {todo}
-            {/* <TodoItem todo={todo} /> */}
           </div>
         ))}
         <input
@@ -40,8 +38,10 @@ class TodoList extends Component {
         />
         <button
           onClick={() => {
-            this.props.addTodo(this.state.todoInput);
-            this.setState({ todoInput: "" });
+            if (!this.props.todos.includes(this.state.todoInput)) {
+              this.props.addTodo(this.state.todoInput);
+              this.setState({ todoInput: "" });
+            } else alert("No duplicates allowed!");
           }}
         >
           Add Todo
