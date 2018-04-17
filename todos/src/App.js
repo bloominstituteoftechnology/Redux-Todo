@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="ToDoList">
       <input type="text" placeholder='Add your To Dos here!'></input>
-      <button onClick={this.props.store.dispatch({type: SUBMIT_TODO, payload: name })} >Submit</button>
+      <button>Submit</button>
       </div>
       // <div>
       //   Add Task list here
