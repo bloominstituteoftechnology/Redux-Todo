@@ -5,16 +5,16 @@ export const HIDE_TO_DO = 'HIDE_TO_DO';
     todos: [];
 }
 
-export const addToDo = () => {
+export const addToDo = (todo) => {
     return {
         type: ADD_TO_DO,
-        payload:
+        payload: todo
     }
 };
 
-export const addToDo = () => {
+export const hideToDo = (todo) => {
     return {
         type: HIDE_TO_DO,
-        payload:
+        payload: todo
     }
 };

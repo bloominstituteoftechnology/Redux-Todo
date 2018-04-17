@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import {connect} from 'react-redux';
 import './App.css';
 import {addToDo, hideToDo} from './actions'
 
@@ -24,5 +25,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect (mapStateToProps, { addToList,  })(Counter);
+export default connect (mapStateToProps, { addToDo, hideToDo  }) (App);
 
