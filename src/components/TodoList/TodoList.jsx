@@ -47,7 +47,8 @@ class TodoList extends Component {
 }
 
 TodoList.propTypes = {
-  addTodo: PropTypes.func
+  todos: PropTypes.array.isRequired,
+  addTodo: PropTypes.func.isRequired
 }
 
 export default connect(null, { addTodo })(TodoList)
