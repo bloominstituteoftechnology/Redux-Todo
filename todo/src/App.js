@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
+import { addToDo, updateToDo } from '../actions';
 
 import logo from './logo.svg';
 import './App.css';
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
       savedList: [{}]
     };
   }
-
-class App extends Component {
+  
   render() {
     return (
       <div className="App">
@@ -21,4 +21,18 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    savedList: state.savedList
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    addToDo,
+    updateToDo
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(App);

@@ -5,4 +5,4 @@ import { connect } from "react-redux";
 
 
 
-export default connect(mapStateToProps, { increment, decrement })(Counter);
+export default connect(mapStateToProps, { addToDo, updateToDo })(ToDo);
