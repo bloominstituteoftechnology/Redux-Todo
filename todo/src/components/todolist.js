@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { addTodo, removeTodo, checkTodo } from "../actions";
 import "./../index.css";
-import TodoItem from "./TodoItem";
 
 class TodoList extends Component {
   constructor(props) {
@@ -23,12 +22,13 @@ class TodoList extends Component {
         {/* <TodoItem /> */}
         {this.props.todos.map((todo, index) => (
           <div
-            // onClick={() => {
-            //   this.props.checkTodo(todo);
-            // }}
             key={todo + index}
+            onClick={() => {
+              this.props.checkTodo(todo);
+            }}
           >
-            <TodoItem todo={todo} />
+            {todo}
+            {/* <TodoItem todo={todo} /> */}
           </div>
         ))}
         <input

@@ -14,10 +14,12 @@ export default (todos = ["startingTodo"], action) => {
         )
       ];
     case CHECKTODO:
-      return [
-        ...todos.filter(todo => todo !== action.payload),
-        <strike>{action.payload}</strike>
-      ];
+      return todos.map(todo => {
+        if (todo === action.payload) {
+          return <strike>{todo}</strike>;
+        }
+        return todo;
+      });
     default:
       return todos;
   }
