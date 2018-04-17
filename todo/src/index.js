@@ -6,7 +6,7 @@ import "./index.css";
 import App from "./App";
 
 import TodoList from "./components/TodoList";
-import todos from "./reducers/todo";
+import todos from "./reducers";
 
 const store = createStore(todos);
 

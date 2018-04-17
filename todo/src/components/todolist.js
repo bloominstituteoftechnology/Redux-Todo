@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addtodo, removetodo, checktodo } from "../actions";
+import { addTodo, removeTodo, checkTodo } from "../actions";
 
 class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newTodo: "",
-      todos: ["starting item"],
-      classes: [""]
+      todoInput: ""
     };
   }
 
@@ -16,21 +14,10 @@ class TodoList extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmitTodo = () => {
-    const { todos } = this.state;
-    if (this.state.newTodo !== "") todos.push(this.state.newTodo);
-    this.setState({ todos, newTodo: "" });
-  };
-
-  handleCheckTodo = e => {
-    console.log("YOU CHECKED IT BRUV");
-  };
-
   render() {
-    console.log(this.state);
     return (
       <div>
-        {this.state.todos.map((todo, index) => (
+        {this.props.todos.map((todo, index) => (
           <div
             onClick={() => {
               console.log(todo);
@@ -40,25 +27,40 @@ class TodoList extends Component {
             {todo}
           </div>
         ))}
-        {/* <TodoList {...this.state} /> */}
         <input
           type="text"
-          name="newTodo"
-          value={this.state.newTodo}
+          name="todoInput"
+          value={this.state.todoInput}
           placeholder="add todo"
           onChange={this.handleAddTodo}
         />
-        <button onClick={this.handleSubmitTodo}>Add Todo</button>
+        <button
+          onClick={() => {
+            this.props.addTodo(this.state.todoInput);
+            this.state.todoInput = "";
+          }}
+        >
+          Add Todo
+        </button>
+        <button
+          onClick={() => {
+            this.props.removeTodo(this.state.todoInput);
+            this.state.todoInput = "";
+          }}
+        >
+          Remove Todo
+        </button>
       </div>
     );
   }
 }
+
 const mapStateToProps = state => {
   return {
-    todos: state
+    todos: state.todos
   };
 };
 
-export default connect(mapStateToProps, { addtodo, removetodo, checktodo })(
+export default connect(mapStateToProps, { addTodo, removeTodo, checkTodo })(
   TodoList
 );
