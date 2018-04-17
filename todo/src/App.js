@@ -55,9 +55,12 @@ class App extends Component {
             <button className="button button-add" type="submit">Add To List</button>
           </form>
         </div>
-        <h2> List of ToDos </h2>
         <div className="smurfList" >
-            <TodoList todos={this.props.todos} complete={this.props.complete} remove={this.props.remove} />
+          <h2> List of ToDos </h2>
+          <TodoList todos={this.props.todos} complete={this.props.complete} remove={this.props.remove} />
+        </div>
+        <div className="footnote" >
+          Click on the task you wish to complete
         </div>
       </div>
     );
