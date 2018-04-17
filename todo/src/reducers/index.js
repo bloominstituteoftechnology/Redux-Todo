@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import ListReducer from './list';
 
-const rootReducer = combineReducers({
-  list: ListReducer
+import todosReducer from './todos';
+import addTodosReducer from './addTodosReducer';
+
+export default combineReducers({
+  todos: todosReducer, // the list of ToDos
+  addTodos: addTodosReducer // the function of adding Todo items
 })
-
-export default rootReducer;

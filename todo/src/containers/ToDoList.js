@@ -4,29 +4,37 @@ import { selectToDo } from "../actions";
 import { bindActionCreators } from "redux";
 
 class ToDoList extends Component {
-  renderList() {
-    return this.props.movies.map((item, i) => {
+  renderToDoList() {
+    return this.props.todos.map((item, i) => {
       return (
-        <li onClick={() => this.props.strikeItem(item)} key={i}>
-          {(item.value, item.completed)}
-        </li>
+        <div onClick={() => this.props.selectToDo(item)} key={i}>
+          {item.value} {item.completed}
+        </div>
       );
     });
   }
 
   render() {
-    return <div>{this.renderList()}</div>;
+    // pass to this.props.selectToDo(todo) on click
+    return (
+      <div>
+        <div>{this.renderToDoList()}</div>
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    list: state.list
+    todos: state.todos
   };
 };
 
+//methods on the returned object will be a prop
+// When we call selectToDO we should pass the action to all reducers
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ selectToDo: selectToDo }, dispatch);
 };
 
+// connect mapStateToProps and mapDispatchToProps to ToDoList.js
 export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);
