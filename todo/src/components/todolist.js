@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo, removeTodo, checkTodo } from "../actions";
 
+import { addTodo, removeTodo, checkTodo } from "../actions";
 import "./../index.css";
+import TodoItem from "./TodoItem";
 
 class TodoList extends Component {
   constructor(props) {
@@ -19,14 +20,15 @@ class TodoList extends Component {
   render() {
     return (
       <div>
+        {/* <TodoItem /> */}
         {this.props.todos.map((todo, index) => (
           <div
-            onClick={() => {
-              this.props.checkTodo(todo);
-            }}
+            // onClick={() => {
+            //   this.props.checkTodo(todo);
+            // }}
             key={todo + index}
           >
-            {todo}
+            <TodoItem todo={todo} />
           </div>
         ))}
         <input
