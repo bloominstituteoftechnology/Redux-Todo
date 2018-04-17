@@ -19,9 +19,7 @@ export default (state = defaults, { type, payload }) => {
       break
 
     case UPDATE_TODO:
-      newState = state
-        .filter(curVal => curVal.value !== payload.value)
-        .concat(payload)
+      newState = state.map(todo => todo.value === payload.value ? payload : todo)
       break
 
     default:
