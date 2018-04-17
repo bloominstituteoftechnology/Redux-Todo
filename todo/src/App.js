@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {addToDo, hideToDo} from './action';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -18,5 +20,11 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+    return {
+        todoList: state
+    };
+};
 
-export default App;
+
+export default connect(mapStateToProps, {addToDo, hideToDo})(App);
