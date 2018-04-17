@@ -16,11 +16,17 @@ class App extends Component {
   }
 
   handleOnChange = (e) => {
-    this.setState({newToDo : { value: e.target.value }});
+    this.setState({newToDo : { value: e.target.value,
+      completed: false,
+     }});
   }
 
   handleSubmit= (props) => {
     this.props.addToDo(this.state.newToDo)
+  }
+
+  handleToggleComplete = (todo) => {
+    this.props.hideToDo(todo)
   }
 
   render() {
@@ -30,7 +36,8 @@ class App extends Component {
           </input>
           <button onClick={this.handleSubmit}>Add To Do</button>
         <ul>
-          {this.props.todoList.map(el => <li>{el.value}</li>)}
+          {this.props.todoList.filter(todo => !todo.completed ).
+            map(todo => <div><li>{todo.value}</li><button onClick={() => this.handleToggleComplete(todo)}></button></div>)}
         </ul>
       </div>
     );
