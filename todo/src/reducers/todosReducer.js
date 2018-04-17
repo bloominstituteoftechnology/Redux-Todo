@@ -4,16 +4,18 @@ export default function todosReducer(
 	},
 	action
 ) {
+	console.log(action.payload);
 	switch (action.type) {
 		case "NEWTODO": {
 			// update store with the new todo
 			// return { ...state.todos.concat(action.payload) };
 			let newTodos = state.todos.concat(action.payload);
-			return Object.assign({}, state, {todos: newTodos});
+			return Object.assign({}, state, { todos: newTodos });
 		}
 		case "TOGGLETODO": {
 			// change isComplete to the opposite value
-			return state.todos.map((todo, index) => {
+			state.todos.map((todo, index) => {
+				// something is wrong here
 				if (action.payload === index) {
 					return !todo.isComplete;
 				}
