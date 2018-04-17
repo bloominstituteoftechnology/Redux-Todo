@@ -9,7 +9,17 @@ export default (todos = [], action) => {
     case ADD_TO_DO:
     return todos.concat(action.payload);
     case HIDE_TO_DO:
-    return null;
+    const currentTodo = action.payload;
+    return todos.map(todo => {
+        if(todo.value === currentTodo.value){
+          return {
+            value: todo.value,
+            completed: !todo.completed
+          };
+        } else {
+          return todo;
+        }
+    })
     default:
       return todos;
   }
