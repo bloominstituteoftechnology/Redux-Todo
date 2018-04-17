@@ -21,9 +21,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         {/* render todo form here */}
-        <TodoForm {...addTodoAction} {...toggleTodoAction} />
+        <TodoForm {...addTodoAction} />
         {/* render todo list here */}
-        <TodoList todos={this.props.todos} />
+        <TodoList todos={this.props.todos} {...toggleTodoAction} />
       </div>
     );
   }
