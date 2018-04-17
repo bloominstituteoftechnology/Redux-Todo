@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
-import { submitToDo } from './reducers';
-import { SUBMIT_TODO } from './actions';
+import { todoReducer } from './reducers';
+import { submitTodo } from './actions';
 
 class App extends Component {
   render() {
@@ -24,7 +24,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+  console.log(this, state);
   return {
     todos: state,
   };
@@ -32,7 +32,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = () => {
   return {
-    SUBMIT_TODO,
+    submitTodo,
   };
 };
 
