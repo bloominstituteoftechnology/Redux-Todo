@@ -26,16 +26,13 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    count: state.count,
-    friends: state.friends
+    todos: state.todos,
   };
 };
 
 const mapDispatchToProps = () => {
   return {
-    increment,
-    decrement,
-    incrementIfOdd
+    SUBMIT_TODO,
   };
 };
 
