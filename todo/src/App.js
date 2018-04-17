@@ -26,7 +26,9 @@ handleOnChange = (e) => {
 }
 
 
-
+handleSubmit = () => {
+  this.props.addToDo(this.state.newToDo)
+}
 
   render() {
     return (
@@ -34,6 +36,7 @@ handleOnChange = (e) => {
         <input type='text' onChange={this.handleOnChange} value={this.state.newToDo.value}>
 
         </input>
+        <button onClick={this.handleSubmit} >Add todo</button>
       <ul>
         {this.props.todoList.map(el => <li>{el.value}</li>)}
 
