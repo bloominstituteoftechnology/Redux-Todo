@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import AddTodo from "./containers/addTodo";
+import AddTodo from "./component/addTodo";
 
 class App extends Component {
   render() {
