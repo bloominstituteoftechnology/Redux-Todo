@@ -1,6 +1,6 @@
 export default function todosReducer(
 	state = {
-		todos: []
+		todos: [{ text: "call Fred", isComplete: false }]
 	},
 	action
 ) {
