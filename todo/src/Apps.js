@@ -43,6 +43,8 @@ const todos = (state = [], action) => {
       return [...state, todo(undefined, action)];
     case TOGGLE_TODO:
       return state.map(t => todo(t, action));
+    case REMOVE_TODO:
+      return state.filter(id => state.id !== action.id) 
     default:
       return state;
   }
