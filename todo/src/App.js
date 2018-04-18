@@ -24,6 +24,14 @@ class App extends Component {
     value = <div>{this.state.newTodo}</div>;
     this.setState({ value, newTodo: "" });
   };
+
+  idGen = () => {
+    let randomNum = Math.random();
+    randomNum = randomNum.toString().split('').splice(2).join('');
+    let pt2 = Math.random();
+    pt2 = pt2.toString().split('').splice(2).join('');
+  return randomNum.concat(pt2);
+  }
   
   render() {
     return (
@@ -41,9 +49,11 @@ class App extends Component {
          /> 
          <button onClick={this.handleSubmitToDo}>new todo</button>
         <p className="App-intro">
-          <button onClick={() => {Add_todo(this.state.value)}}> Confirm todo </button>
+          <button onClick={() => {this.props.Add_todo(this.state.value)}}> Confirm todo </button>
         </p>
-        <span> {this.props.note} </span>
+        <div className='todo-container'>
+        <p> {this.props.note} </p>
+        </div>
       </div>
     );
   }

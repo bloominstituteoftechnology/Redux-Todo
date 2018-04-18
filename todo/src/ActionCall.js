@@ -4,5 +4,5 @@ export const ADD_TODO = 'ADD_TODO';
 
 
 export const Add_todo = (value) => {
-    store.dispatch({type: ADD_TODO, payload: value})
+    return ({type: ADD_TODO, payload: value})
   };

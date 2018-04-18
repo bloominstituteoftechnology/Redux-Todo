@@ -1,4 +1,4 @@
-import { ADD_TODO } from './ActionCall';
+import { ADD_TODO } from '../ActionCall';
 
 export default (note = ['testing'], action) => {
     switch (action.type) {

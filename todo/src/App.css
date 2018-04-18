@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.todo-container {
+  color: red;
+  background-color: blue;
+
+}
+
+.todo-item {
+  border: solid 5px black;
+  margin: 10px;
+}
