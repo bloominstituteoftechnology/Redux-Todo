@@ -5,99 +5,118 @@ import { add, remove } from '../actions/actions';
 let cstyle = {
 	// color: 'red',
 	cursor: 'pointer',
-
-
-}
+	// hover: {backgroundColor: 'yellow'}
+};
+let test = {};
 let bstyle = {
-	cursor: 'pointer'
-
-}
+	cursor: 'pointer',
+	// width: '10%'
+};
 let lstyle = {
-	border: '2px solid blue'
-}
+	border: '2px solid blue',
+	display: 'flex',
+	justifyContent: 'center'
+};
+let cstate;
+let cindex = [];
+
 class List extends Component {
 	constructor(props) {
 		super(props);
-		this.state= {
+		this.state = {
 			completed: false,
-			item: ''
-		}
+			item: '',
+			cindex: []
+		};
 	}
 	addItem = (e) => {
 		e.preventDefault();
 		const name = this.input.value;
 		this.input.value = '';
-		// this.props.add(name);
-		this.props.add(name)
-		
-		// const compState = this.state.completed;
+		this.props.add(name);
 
-		// this.setState({completed: false});
-		console.log('Inside addItem, this.props: ', this.props)
-		// this.setState({...this.props.todos, completed:false})
-		this.setState({item: ''});
+		console.log('Inside addItem, this.props: ', this.props.todos.length);
+		cindex[this.props.todos.length] = 'false';
+
+		cstate = 'false';
 		cstyle = {
-			color: 'red'
-			// cursor: 'pointer'
-		
-		}
-
+			color: 'red',
+			cursor: 'pointer'
+		};
+		test = {
+			color: 'red',
+			cursor: 'pointer'
+		};
 	};
-	completeI = () => {
-		// e.preventDefault();
-		console.log('STATE: ', this.state);
-		this.setState({completed: !this.state.completed})
-		if (cstyle.color === 'blue') {
-			// console.log('BLUE')
-			cstyle = {
-				color: 'red' ,
+	completeI = (i) => {
+		if (test.color === 'blue') {
+			test = {
+				color: 'red',
 				cursor: 'pointer'
-			
-			}
-		} else {
-			cstyle = {
+			};
+			cindex[i] = 'false';
+		} else if (test.color === 'red') {
+			test = {
 				color: 'blue',
-				cursor: 'pointer'			
-			}
+				cursor: 'pointer'
+			};
+			cindex[i] = 'true';
+		} else {
+			test = {
+				color: 'red',
+				cursor: 'pointer'
+			};
+			cindex[i] = 'false';
 		}
-		
-
-	}
+		this.setState({ completed: !this.state.completed });
+		console.log('cindex[i] boolean: ', this.state.cindex[i]);
+		console.log('color inside cindex, color: ', cstyle.color);
+	};
 
 	componentDidMount() {
 		// this.props.add();
 		// this.props.remove();
-    }
-    removeItem = (item) => {
-        let rname = item
-        // e.preventDefault();
+	}
+	removeItem = (item) => {
+		let rname = item;
+		// e.preventDefault();
 		this.props.remove(rname);
-		this.setState({completed: !this.state.completed})
+		this.setState({ completed: !this.state.completed });
 
-        console.log('remove item... Value is: ', rname)
-	}
-	handleChange = (e) => {
-		this.setState({ item: e.target.value });
-	}
+		console.log('remove item... Value is: ', rname);
+	};
 
 	render() {
+		{
+			let cnum = 0;
+		}
 		return (
 			<div>
 				<p>
-					<input type="text" placeholder="Add Todo" onChange={this.handleChange} ref={(input) => (this.input = input)} />
+					<input type="text" placeholder="Add Todo" ref={(input) => (this.input = input)} />
 					<button onClick={this.addItem}>Add Todo</button>
 				</p>
 				{/* List: */}
 				<ul>
-					{this.props.todos.map((item,i) => {
-						console.log('inside todos map of container',item)
-                        return (
-                        <li key={item+i} style={lstyle} >						
-							{item}
-							<h5 style={cstyle} onClick={() => this.completeI()} >Completed: {this.state.completed.toString()}</h5>
-                            <button style={bstyle} onClick={() => this.removeItem(item)}>Remove Todo</button>
-                        </li>)
-                    })}
+					{this.props.todos.map((item, i) => {
+						console.log('inside todos map of container', item);
+						return (
+							<div style={lstyle} key={item + i}>
+							<li  >
+								<h3>{item}</h3>
+								</li>
+								<div>
+								<button style={bstyle} onClick={() => this.removeItem(item)}>Remove Todo</button>
+								</div>
+								{/* <div> */}
+
+								<h3 style={cstyle} onClick={() => this.completeI(i)}>
+								Completed: {cindex[i]}, click if completion changed
+								</h3>
+								</div>
+							
+						);
+					})}
 				</ul>
 			</div>
 		);
