@@ -7,7 +7,7 @@ import './components/App.css';
 import './index.css';
 import App from './components/App';
 
-const store =createStore(todoList);
+export default const store =createStore(todoList);
 
 ReactDOM.render(
     <Provider store={store}>

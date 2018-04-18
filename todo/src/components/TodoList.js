@@ -1,12 +1,12 @@
 import React from 'react';
-
+import store from "../index.js"
+import {remove} from "../actions/index.js"
 const TodoList = props => {
-    console.log(props)
     return(
 
-        <ul className='todo-style'>
+        <ul className='todo-style' >
         {props.todo.map(output=>{
-         return   <li>{output}</li>
+         return   <li key={output} onClick={() => store.dispatct(remove(output))}>{output}</li>
         })}</ul>
 
     )

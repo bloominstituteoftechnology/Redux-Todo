@@ -1,4 +1,4 @@
-import {ADD} from '../actions'
+import {ADD, REMOVE} from '../actions'
 
 export default (todo = [], action) =>{
   switch(action.type){
@@ -7,7 +7,16 @@ export default (todo = [], action) =>{
    // const newTodo = todo.push(action.payload)
     //what it should do
       //return newTodo;
-      return [...todo, action.payload]
+      return [...todo, action.payload,]
+      case REMOVE:
+
+      const newArr = todo.find((e) =>{
+        return e === todo.target.innertext
+      
+      })
+      console.log("we got here")
+      return newArr;
+
     default:
      return todo;
   }

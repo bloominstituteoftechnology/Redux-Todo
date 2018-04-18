@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { add } from "../actions/index"
+
 import TodoList from "./TodoList"
 import './App.css';
 
@@ -20,6 +21,11 @@ handleSubmitTodo = (value) => {
   this.props.add(value)
   
   }
+  // handleToggle = (value) =>{
+  //   console.log(this.props)
+  //   this.props.remove(value);
+  // };
+  
 
   render() {
     console.log(this.props.todo);
@@ -37,7 +43,7 @@ handleSubmitTodo = (value) => {
      <button  className="button-style" onClick={() =>  this.handleSubmitTodo(this.state.newTodo)}>Add Todo</button>
 
      </div>
-     <TodoList todo={this.props.todo}/>
+     <TodoList todo={this.props.todo} handleToggle={this.handleToggle}/>
      
      </div>
     );
