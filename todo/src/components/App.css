@@ -50,7 +50,8 @@ border: 1px solid cornflowerblue;
 }
 .todo-style{
   display:flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-size: 20px;
   color: cornflowerblue
 }

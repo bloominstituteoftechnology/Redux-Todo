@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { add } from "../actions/index"
+import TodoList from "./TodoList"
 import './App.css';
 
 class App extends Component {
 constructor(){
   super()
   this.state={
-    newTodo: "anyh",
-    todos: ""
+    newTodo: "",
   }
 }
 handleAddTodo = e =>{
   this.setState({[e.target.name]: e.target.value})
 }
-handleSubmitToDo = () => {
-  let { value } = this.state;
-  value = this.state.newTodo;
-  this.setState({ value, newTodo: "" });
-};
+handleSubmitTodo = (value) => {
+ 
+  this.setState({newTodo: ""});
+  this.props.add(value)
+  
+  }
 
   render() {
-   
+    console.log(this.props.todo);
     return (
       
    <div className="container">
@@ -29,24 +30,21 @@ handleSubmitToDo = () => {
      <input className="input-style"
       name="newTodo"
        type="text"
-       //value={this.state.newTodo}
+       value={this.state.newTodo}
         placeholder="Add todo"
-        //onChange={this.handleAddTodo}
-        value={this.state.newTodo}
-        onChange={this.handleAddToDo}
+        onChange={this.handleAddTodo}
         />
-     <button onClick={this.handleSubmitToDo}>>Add Todo</button>
-     <button onClick={() => {add(this.state.todo)}}>confirm</button>
+     <button  className="button-style" onClick={() =>  this.handleSubmitTodo(this.state.newTodo)}>Add Todo</button>
 
      </div>
-     <div className="todo-style">{this.props.todo}</div>
+     <TodoList todo={this.props.todo}/>
      
      </div>
     );
   }
 }
- const mapStateToProps = (todo) =>{
-  return {todo: todo};
+ const mapStateToProps = (value) =>{
+  return {todo: value}; 
 }
 
 export default connect(mapStateToProps, {add})(App);
