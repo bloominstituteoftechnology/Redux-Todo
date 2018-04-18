@@ -1,10 +1,14 @@
 import { ADD } from '../actions/actions';
+import { COMPLETED } from '../actions/actions';
 
-export default (todo = [], action) => {
+
+export default ( todo = [], action) => {
     switch(action.type){
         case ADD:
-        const newTodo = todo.push(action.payload)
-            return [...newTodo, action.payload];
+        console.log(action.payload);
+            return [...todo, action.payload];
+        case COMPLETED:
+            return [...todo, action.payload]
         default:
             return todo;
     }

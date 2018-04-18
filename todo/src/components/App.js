@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { add } from '../actions/actions';
 import './App.css';
+import TodoList from './TodoList'
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       newTodo: "",
-      todo: ""
     };
   }
   
@@ -16,14 +16,12 @@ class App extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  handleSubmitTodo = () => {
-    let {todo} = this.state;
-    todo = this.state.newTodo;
-    this.setState({ todo, newTodo: ""})
+  handleSubmitTodo = (value) => {
+    this.setState({newTodo: ""});
+    this.props.add(value)
   }
 
   render() {
-    console.log(this.state)
     return (
      <div>
        <div>
@@ -33,20 +31,18 @@ class App extends Component {
                  value={this.state.newTodo}
                  onChange={this.handleAddTodo}
           />
-
-          <button onClick={() => this.props.add(this.state.newTodo)}>Add Todo</button>
-          <button onClick={() => this.handleSubmitTodo}>Confirm</button>
+          <button onClick={() => this.handleSubmitTodo(this.state.newTodo)}>Add Todo</button>
         </div>
-        {this.props.todo}
+        <TodoList todo={this.props.todo} />
       </div>
     )
   }
 };
 
-const mapStateToProps = (todo) => {
+const mapStateToProps = (value) => {
   return {
-    todo: todo
+    todo: value
   };
 }
 
-export default connect(mapStateToProps, {add})(App);
+export default connect( mapStateToProps, { add })(App);
