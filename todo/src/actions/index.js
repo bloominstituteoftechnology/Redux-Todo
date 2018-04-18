@@ -1,10 +1,13 @@
-export const NEW_TODO = 'NEW_TODO';
-export const DELETE_TODO = 'DELETE_TODO';
-export const GET_TODO = 'GET_TODO';
+export const ADD_TODO = 'ADD_TODO';
+export const UPDATE_TODO = 'UPDATE_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
 
-const newTodo = value => ({
-  type: NEW_TODO,
-  payload: { value, completed: false }
+export const addTodo = todo => ({
+  type: 'ADD_TODO',
+  payload: text
 });
 
-export default { newTodo };
+export const completeTodo = () => {
+  console.log('calledComplete');
+  return {};
+}
