@@ -1,44 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/actions';
+import { Todo } from './Todo';
 
-export const AddTodo = () => {
-  let input;
-  return (
-    <div>
-      <form onSubmit={event => {
-        if (!input.value.trim()) {
-          return;
-        } else {
-          this.store.dispatch(addTodo(input.value));
-          input.value = "";
-        }
-      }}>
-        <input 
-          ref={node => input = node}
-          placeholder="add task to list"
-        />
-        <button type="submit">add</button>
-      </form>
-    </div>
-  )
+let input;
+export class TodoList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ""
+    }
+  }
+
+  handleSubmit = event => {
+    this.props.addTodo(input.value);
+  }
+
+  todoTasks = () => {
+    return this.props.todos.map((todo, index) => <Todo {...todo} key={index} />);
+  }
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input ref={node => (input = node)} placeholder="add new todo task" />
+        </form>
+        {console.log(this.props)}
+      </div>
+    )
+  }
 }
 
-export const ToDoS = ({ todos, toggleTodo }) => {
-  return (
-    <div>
-      {todos.map(todo => <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />)}
-    </div>
-  )
-}
-
-export const Todo = ({ onClick, completed, text }) => {
-  return (
-    <div onClick={onClick} style={{textDecoration: completed ? "line-through" : "none"}}>
-      {text}
-    </div>
-  )
-}
-
-connect()(AddTodo);
-connect()(ToDoS);
+export default connect(null, { addTodo })(TodoList);
