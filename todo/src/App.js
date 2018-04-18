@@ -2,39 +2,53 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import { addTodo } from './Actions';
-import ToDoList from './components/todolist';
-import ToDoForm from './components/todoform';
+import { addTodo } from './Actions/actions';
+import ToDoList from './components/ToDoList';
 
 class App extends Component {
-  constructor(props) { // props = entire project state correct?
+  constructor(props) { 
     super(props);
     this.state = {
-      todos: []
-    }
+      newTodo: {
+      value: '', 
+      completed: false,
+      }
+    };
   }
 
-  componentDidMount() {
-    this.setState({todos: this.state.todos}); // setting todos to the todos found in state
+  handleChange = event => {
+    this.setState({ newTodo : { value: event.target.value, 
+    completed: false,
+    }});
   }
 
-  addTodo = () => {
-    return false;
+  handleSubmit = (props) => {
+    this.props.addTodo(this.state.newTodo)
+  }
+
+  handleSwitchCompleted = (todo) => {
+    this.props.slashTodo(todo)
   }
 
   render() {
     return (
       <div className="todo-wrapper">
-        <div className="todo-header">
-          <h1 className="title">TO DO APP</h1>
-        </div>
-        <div className="todo">
-          <ToDoList />
-          <ToDoForm />
-        </div>
+        <h1 className="todo-header">TO-DO LIST</h1>
+        <input type="text" placeholder="Add a todo..." onChange={this.handleChange} value={this.state.newTodo.value}></input>
+        <button onClick={this.handleSubmit}>Add todo</button>
+        <ul className="todos-list">
+        {this.props.todos.filter(todo => !todo.completed ).
+            map(todo => <div><li>{todo.value}</li><button onClick={() => this.handleSwitchCompleted(todo)}></button></div>)}
+        </ul>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, { addTodo, ToDoList })(App); // not sure about this line, but it works
+const mapStateToProps = (state) => {
+  return {
+    todos: state
+  }
+}
+
+export default connect(mapStateToProps, { addTodo, ToDoList })(App); 
