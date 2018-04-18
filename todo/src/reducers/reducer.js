@@ -1,18 +1,22 @@
-import { ADD_TODO, UPDATE_TODO, REMOVE_TODO } from '../actions/actions';
+import { ADD_TODO, TOGGLE_TODO } from '../actions/actions';
 
-export const reducer = (state = [], { type, payload }) => {
-  switch(type) {
+
+export const reducer = (state = [], action) => {
+  switch(action.type) {
 
     case ADD_TODO:
-      return [...state, payload];
+      return [...state, action.payload];
 
-    case UPDATE_TODO:
-      return state.map(todo => todo.value === payload.value ? payload : todo)
-
-    case REMOVE_TODO:
-      return state.filter(item => item.value !== payload.value)
+    case TOGGLE_TODO:
+      return state.map((todo) => {
+        if (action.payload === todo.id) {
+          todo.complete = !todo.complete;
+          return todo;
+        } else {return todo}
+      })
 
     default:
       return state;
+
   }
 }
