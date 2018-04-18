@@ -1,33 +1,35 @@
+// Action Types
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
-export const COMPLETED_TODO = 'COMPLETED_TODO';
+export const REMOVE_TODOS = 'REMOVE_TODOS';
+export const GET_TODOS = 'GET_TODOS';
 
-let nextTodoItemId = 0;
+// Action Creaters 
 
-export const addTodo = text => ({
-    type: ADD_TODO,
-    id: nextTodoItemId++,
-    text
-})
+export const addTodo = text => {
+    return {
+        type: ADD_TODO,
+        payload: todo
+    }
+    
+};
 
-export const toggleTodo = id => ({
-    type: TOGGLE_TODO,
-    id
-})
+export const toggleTodo = id => {
+    return {
+        type: TOGGLE_TODO,
+        payload: id
+    }
+};
 
-export const completedTodo = filter => ({
-    type: COMPLETED_TODO,
-    filter
-})
+export const removeTodos = () => {
+    return {
+        type: REMOVE_TODOS,
+    }
+};
 
-function AddTodo(value) {
-    return { type: ADD_TODO, value };
-}
-
-function ToggleTodo(index) {
-    return { type: TOGGLE_TODO, index };
-}
-
-function CompletedTodo(filter) {
-    return { type: COMPLETED_TODO, filter };
-}
+export const getTodos = todos => {
+    return {
+        type: GET_TODOS,
+        payload: todos
+    }
+};
