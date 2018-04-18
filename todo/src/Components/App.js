@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Todo from './Container/Todo';
-import TodoList from './Container/TodoList';
+import TodoList from './TodoList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Todo />
+        <header className="App-header">
+          <h1>Todo List</h1>
+        </header>
         <TodoList />
       </div>
     );
