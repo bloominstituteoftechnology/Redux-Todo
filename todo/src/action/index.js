@@ -1,23 +1,22 @@
 export const ADDTODO = 'ADDTODO';
-export const REMOVETODO = 'REMOVETODO';
-export const GETTODO = 'GETTODO';
+export const TOGGLETODO = 'TOGGLETODO';
+
+let todoID = 0;
 
 export const addtodo = todo => {
     return {
         type: ADDTODO,
-        payload: todo,
+        payload: {
+            todo: todo,
+            complete: false,
+            id: todoID++
+        }
     }
 }
 
-export const removetodo = () => {
+export const toggletodo = id => {
     return {
-        type: REMOVETODO,
-    }
-}
-
-export const getToDos = todo => {
-    return {
-        type: GETTODO,
-        payload: todo,
+        type: TOGGLETODO,
+        payload: id
     }
 }
