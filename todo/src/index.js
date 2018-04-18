@@ -9,7 +9,10 @@ import reducer from "./reducers";
 
 // Initialize Redux store
 // Pass reducer to createStore function
-const store = createStore(reducer);
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 // Wrap React component with Provider
 ReactDOM.render(

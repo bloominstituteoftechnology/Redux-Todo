@@ -1,7 +1,8 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-console.log(todos);
+// console.log(todos);
+// Will pull data from TodoListContainer
 
 const TodoList = todos => {
   <div>
@@ -10,3 +11,5 @@ const TodoList = todos => {
     })}
   </div>;
 };
+
+export default TodoList;

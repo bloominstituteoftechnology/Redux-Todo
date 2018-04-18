@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO } from "../actions";
+import { ADD_TODO, TOGGLE_TODO } from "../actions";
 
 // One reducer function to accept 2 action cases: ADD_TODO, TOGGLE_TODO
 // Receives state from Redux store
@@ -10,7 +10,7 @@ export default (todos = [], action) => {
       return [
         ...todos,
         {
-          //   id: action.id,
+          id: action.id,
           value: action.value,
           completed: false
         }
