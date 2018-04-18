@@ -1,26 +1,21 @@
-import { ADD_TODO, TOGGLE_TODO } from '../Action/Action.js';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODOS, GET_TODOS } from "../actions";
 
-const todos = (state = [], action) => {
-    switch (action.type) {
-        case 'ADD_TODO':
-            return [
-                ...state,
-                {
-                    id: action.id,
-                    text: action.text,
-                    completed: false
-                }
-            ]
-            case 'TOGGLE_TODO':
-                return state.map(todo => 
-                    (todo.id === action.id)
-                        ? {...todo, completed: !todo.completed}
-                        : todo
-                )
-    
-        default:
-            return state;
-    }
-}
-
-export default todos;
+export default (todos = [], action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      return [...todos, action.payload];
+    case TOGGLE_TODO:
+      return todos.map(todo => {
+        if (todo.id === action.payload) {
+          return Object.assign({}, todo, { completed: !todo.completed });
+        }
+        return todo;
+      });
+    case REMOVE_TODOS:
+      return todos.filter(todo => !todo.completed);
+    case GET_TODOS:
+      return action.payload;
+    default:
+      return todos;
+  }
+};
