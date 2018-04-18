@@ -1,10 +1,13 @@
-import { combineReducers } from 'redux';
-import listToDo from './array';
-import completeToDo from './completion';
+import { ADDTODO, TOGGLETODO } from '../actions'
 
-const rootReducer = combineReducers({
-    array: listToDo,
-    completion: completeToDo,
-});
-
-export default rootReducer;
+export default (state = [], action) => {
+    switch(action.type) {
+        case ADDTODO:
+        return [...state, action.payload];
+    case TOGGLETODO:
+        state[action.payload].complete = !state[action.payload].complete;
+        return state;
+        default:
+        return state;
+    }
+}
