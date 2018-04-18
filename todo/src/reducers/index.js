@@ -11,7 +11,7 @@ export default (todos = [], action) => {
         ...todos,
         {
           id: action.id,
-          value: action.value,
+          text: action.text,
           completed: false
         }
       ];

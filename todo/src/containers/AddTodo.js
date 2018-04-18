@@ -11,6 +11,8 @@ const AddTodo = ({ dispatch }) => {
     <div>
       <form
         onSubmit={event => {
+          // Prevents form submit (refresh)
+          event.preventDefault();
           // dispatch function accepts an action (addTodo) and dispatches to store
           // Uses input variable
           dispatch(addTodo(input.value));
