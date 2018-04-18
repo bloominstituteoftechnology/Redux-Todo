@@ -1,10 +1,16 @@
 export const ADDTODO = 'ADDTODO'
 export const TOGGLETODO = 'TOGGLETODO'
 
-export const addtodo = todo => {
+let todoId = 0;
+
+export const addtodo = text=> {
     return {
         type: ADDTODO,
-        payload: todo
+        payload: {
+            todo: text,
+            completed: false,
+            id: todoId++
+        }
     }
 }
 

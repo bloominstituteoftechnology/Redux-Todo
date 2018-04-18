@@ -5,8 +5,15 @@ export default (state = [], action) => {
         case ADDTODO:
         return [...state, action.payload];
     case TOGGLETODO:
-        state[action.payload].complete = !state[action.payload].complete;
-        return state;
+ return state.map((todo) => {
+     if (action.payload === todo.id) {
+         todo.complete = !todo.complete;
+         return todo;
+     } else {
+         return todo;
+     }
+        
+ })
         default:
         return state;
     }
