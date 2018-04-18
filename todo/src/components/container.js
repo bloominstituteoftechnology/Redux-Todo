@@ -126,7 +126,7 @@ class List extends Component {
 								</div>
 								{/* <div> */}
 
-								<h3 style={{color : test.color[i]}} onClick={() => this.completeI(i, item)}>
+								<h3 style={{color : test.color[i], cursor: 'pointer'}} onClick={() => this.completeI(i, item)}>
 									Completed: {cindex[i]}, click if completion changed
 								</h3>
 							</div>
