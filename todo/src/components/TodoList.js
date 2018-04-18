@@ -3,12 +3,15 @@ import TodoItem from "./TodoItem";
 
 // console.log(todos);
 // Will pull data from TodoListContainer
+// toggleTodoOnClick from TodoListContainer
 
-const TodoList = todos => {
+const TodoList = ({ todos, toggleTodoOnClick }) => {
   <div>
-    {todos.map(todo => {
-      <TodoItem />;
-    })}
+    <ul>
+      {todos.map(todo => {
+        <TodoItem />;
+      })}
+    </ul>
   </div>;
 };
 
