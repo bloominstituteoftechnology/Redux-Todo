@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-import todos from "./reducers/index";
+import "./index.css";
+import App from "./App";
+import { rootReducer } from "./reducers/index";
 
-import registerServiceWorker from "./registerServiceWorker";
+// import registerServiceWorker from "./registerServiceWorker";
 
 //create store, initial state is "todos"
 const store = createStore(
-  todos,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
@@ -22,4 +21,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
+// registerServiceWorker();
