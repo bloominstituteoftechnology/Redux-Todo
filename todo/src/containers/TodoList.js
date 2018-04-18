@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo  } from '../actions';
+import { addTodo, deleteTodo, toggleTodo } from '../actions';
+
+import './TodoList.css';
 
 class TodoList extends Component {
   constructor() {
@@ -10,35 +12,13 @@ class TodoList extends Component {
     };
   }
 
-  render() {
-    return (
-      <div>
-        <h2>To-Do List</h2>
-        <ul>
-          {this.props.todos.map(todo => {
-            return (
-              <div key={todo.id}>
-                <li>{todo.value}</li>
-                <button onClick={() => this.handleDeleteTodo(todo.id)}>Delete</button>
-              </div>
-            );
-          })}
-        </ul>
-        <input
-          type="text"
-          value={this.state.value}
-          placeholder="add new todo"
-          onChange={this.handleInputChange}
-        />
-        <button onClick={this.handleSubmitTodo}>Add Todo</button>
-      </div>
-    );
-  }
-
   handleDeleteTodo = e => {
-    e.preventDefault();
-    console.log(this.props);
-  }
+    this.props.deleteTodo(e.target.getAttribute('id'));
+  };
+
+  handleToggleTodo = e => {
+    this.props.toggleTodo(e.target.getAttribute('id'));
+  };
 
   handleInputChange = e => {
     this.setState({ value: e.target.value });
@@ -49,6 +29,39 @@ class TodoList extends Component {
     this.props.addTodo(this.state.value);
     this.setState({ value: '' });
   };
+
+  render() {
+    return (
+      <div>
+        <h2>To-Do List</h2>
+        <ul>
+          {this.props.todos.map(todo => {
+            return (
+              <div>
+                <li
+                  key={todo.id}
+                  id={todo.id}
+                  onClick={this.handleToggleTodo}
+                  className={todo.completed ? 'completed' : null}
+                >
+                  {todo.value}
+                </li>
+                <button id={todo.id} onClick={this.handleDeleteTodo}>Delete</button>
+              </div>
+            );
+          })}
+        </ul>
+        <input
+          type="text"
+          name="value"
+          value={this.state.value}
+          placeholder="add new todo"
+          onChange={this.handleInputChange}
+        />
+        <button onClick={this.handleSubmitTodo}>Add Todo</button>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -57,4 +70,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { addTodo })(TodoList);
+export default connect(mapStateToProps, { addTodo, deleteTodo, toggleTodo })(TodoList);
