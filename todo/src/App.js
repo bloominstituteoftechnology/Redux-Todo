@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addTodo } from './actions/App';
 import logo from './logo.svg';
 import './App.css';
 
+import TodoList from './components/TodoList';
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      todo: [],
+      input: ''
+    }
+  }
+
+  handleInput = (e) => {
+    this.setState({input: e.target.value})
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,17 +26,20 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Todo List</h1>
         </header>
-        <form>
-          <input></input>
-          <button>Add</button>
-        </form>
+        <div>
+          <input placeholder='Add a task' onChange={this.handleInput}></input>
+          <button onClick={() => this.props.addTodo(this.state.input)}>Add</button>
+        </div>
+        <TodoList task={this.props.task}/>
       </div>
     );
   }
 }
 
 const mapStatetoProps = (state) => {
-  return {};
+  return {
+    task: state
+  };
 }
 
-export default connect(mapStatetoProps, { })(App);
+export default connect(mapStatetoProps, { addTodo })(App);

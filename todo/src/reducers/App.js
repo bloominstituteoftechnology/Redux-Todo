@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions';
+import { ADD_TODO } from '../actions/App';
 
 export default (state = [], action) => {
     switch(action.type) {
