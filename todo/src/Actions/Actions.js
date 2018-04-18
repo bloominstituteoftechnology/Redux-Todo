@@ -1,18 +1,14 @@
-export const ADD_TODO  = 'ADD_TODO';
-export const HANDLE_INPUT = 'HANDLE_INPUT';
+export const ADD_TODO = 'ADD_TODO';
+export const COMPLETE_TODO = 'COMPLETE_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
 
-const temp = ['jeffrey', 'mark', 'kevin'];
+export const addTodo = todo => {
+  return {
+    type: ADD_TODO,
+    payload: todo
+  };
+};
 
-export const add_todo = todo => {
-    return {
-        type: ADD_TODO,
-        payload: todo
-    }
-}
-
-export const handle_input = text => {
-    return {
-        type: HANDLE_INPUT,
-        payload: text
-    }
-}
+export const completeTodo = todoId => {
+  return { type: COMPLETE_TODO, payload: todoId };
+};
