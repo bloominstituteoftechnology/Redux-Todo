@@ -1,18 +1,19 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-// console.log(todos);
 // Will pull data from TodoListContainer
-// toggleTodoOnClick from TodoListContainer
+// todos, toggleTodoOnClick from TodoListContainer
 
-const TodoList = ({ todos, toggleTodoOnClick }) => {
-  <div>
-    <ul>
-      {todos.map(todo => {
-        <TodoItem />;
-      })}
-    </ul>
-  </div>;
-};
+const TodoList = ({ todos, toggleTodoOnClick }) => (
+  <ul>
+    {todos.map(todo => (
+      <TodoItem
+        key={todo.id}
+        {...todo}
+        onClick={() => toggleTodoOnClick(todo.id)}
+      />
+    ))}
+  </ul>
+);
 
 export default TodoList;

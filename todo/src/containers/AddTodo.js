@@ -18,6 +18,7 @@ const AddTodo = ({ dispatch }) => {
         }}
       >
         <input
+          placeholder="Things to do..."
           ref={value => {
             // Assign value ref to input variable
             input = value;
