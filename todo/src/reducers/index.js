@@ -1,4 +1,4 @@
-import { ADDTODO, DELETETODO } from '../actions';
+import { ADDTODO, DELETETODO, TOGGLETODO } from '../actions';
 
 export default (todos = [], action) => {
     switch(action.type) {
@@ -9,7 +9,16 @@ export default (todos = [], action) => {
                 completed: false
             }];
         case DELETETODO: 
-            return todos.filter(todo => {return todo.id !== action.id})
+            const deleteId = Number(action.payload);
+            return todos.filter(todo => {return todo.id !== deleteId});
+        case TOGGLETODO:
+            const toggleId = Number(action.payload);
+            return todos.map(todo => {
+                if (todo.id !== toggleId) {
+                  return todo;
+                }
+                return {...todo, completed: !todo.completed}
+            })
         default:
             return todos;
     }
