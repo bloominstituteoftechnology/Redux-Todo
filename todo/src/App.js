@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {connect} from 'react-redux';
 import { addTodo } from './Actions/Actions';
-import DisplayTodo from './Components/DisplayTodo';
+import DisplayTodo from './Components/DisplayTodo/DisplayTodo';
 class App extends Component {
   constructor(props){
     super(props);
@@ -11,7 +11,7 @@ class App extends Component {
     }
   }
   submitToDo = () => {
-    this.props.addTodo(this.state.inputValue);
+    this.props.addTodo({todo:this.state.inputValue, complete: false});
     this.setState({inputValue: ''});
   }
   inputValue = (e) => {
@@ -22,13 +22,15 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">To Do App</h1>
-          <input
-            placeholder='type in a new todo'
-            name='inputValue'
-            value={this.state.inputValue}
-            onChange={this.inputValue}
-          />
-          <button onClick={this.submitToDo}>Submit</button>
+          <div className='inputContainer'>
+            <input
+              placeholder='type in a new todo'
+              name='inputValue'
+              value={this.state.inputValue}
+              onChange={this.inputValue}
+            />
+            <button onClick={this.submitToDo}>Submit</button>
+          </div>
         </header>
         <DisplayTodo todos={this.props.todos}/>
       </div>

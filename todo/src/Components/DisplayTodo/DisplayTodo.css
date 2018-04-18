@@ -9,3 +9,9 @@
   max-width: 300px;
   margin: 0 auto;
 }
+.listItem{
+  list-style-type: square;
+}
+.completed{
+  text-decoration: line-through;
+}
