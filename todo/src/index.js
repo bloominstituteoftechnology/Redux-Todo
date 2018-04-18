@@ -5,7 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux'; // tool from redux to allow us to create a "store".
 import { Provider } from 'react-redux'; // tool to wrap around our app.
-import reducer from '.Reducers';
+import CombinedReducers from '.Reducers';
 
 const store = createStore(Combinedreducers);
 
