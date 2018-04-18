@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import ToDo from './todo/todo.js';
-import toDo from './reducers';
 
-const store = createStore(toDo);
+import TodoList from './reducers';
+
+const store = createStore(TodoList);
 
 ReactDOM.render(
     <Provider store={store}>

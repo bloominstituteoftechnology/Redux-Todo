@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ToDo from './todo/todo';
 
 import logo from './logo.svg';
 import './App.css';
+import ToDo from './todo/todo';
 
 class App extends Component {
   constructor() {
@@ -22,8 +22,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log(state);
+const mapStateToProps = (state) => {
   return {
     savedList: state.savedList
   };
