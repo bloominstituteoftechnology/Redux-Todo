@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { add } from '../actions/actions';
+import { add, completed } from '../actions/actions';
 import './App.css';
 import TodoList from './TodoList'
 
@@ -21,6 +21,11 @@ class App extends Component {
     this.props.add(value)
   }
 
+  handleComplete = (value) => {
+    this.setState({newTodo: ""});
+    this.props.completed(value)
+  }
+
   render() {
     return (
      <div>
@@ -33,7 +38,7 @@ class App extends Component {
           />
           <button onClick={() => this.handleSubmitTodo(this.state.newTodo)}>Add Todo</button>
         </div>
-        <TodoList todo={this.props.todo} />
+        <TodoList todo={this.props.todo} handleComplete={this.handleComplete} />
       </div>
     )
   }
@@ -45,4 +50,4 @@ const mapStateToProps = (value) => {
   };
 }
 
-export default connect( mapStateToProps, { add })(App);
+export default connect( mapStateToProps, { add, completed })(App);

@@ -8,7 +8,7 @@ export default ( todo = [], action) => {
         console.log(action.payload);
             return [...todo, action.payload];
         case COMPLETED:
-            return [...todo, action.payload]
+            return todo.filter(remove => remove !== action.payload);
         default:
             return todo;
     }
