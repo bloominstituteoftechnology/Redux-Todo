@@ -28,16 +28,18 @@ class App extends Component {
 
   render() {
     return (
-     <div>
-       <div>
+      <div className="container">
+      <h1 className="header">Justin's Redux To-do List</h1>
+        
           <input type="text" 
                  placeholder="Add todo"
                  name="newTodo"
                  value={this.state.newTodo}
                  onChange={this.handleAddTodo}
+                 className="input"
           />
-          <button onClick={() => this.handleSubmitTodo(this.state.newTodo)}>Add Todo</button>
-        </div>
+          <button className="button" onClick={() => this.handleSubmitTodo(this.state.newTodo)}>Add Todo</button>
+          
         <TodoList todo={this.props.todo} handleComplete={this.handleComplete} />
       </div>
     )
