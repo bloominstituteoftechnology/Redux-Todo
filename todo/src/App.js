@@ -27,21 +27,20 @@ class App extends Component {
   render() {
     console.log(this.props.todos);
     return (
-      <div >
-       <h1> *** TODO List ***</h1>
+      <div className="Card-body" >
+       <h1 className="Note-header"> MUST DO LIST</h1>
 
-       <div className="todo"> {this.props.todos.map((todo, index) => {
-          return (
-            <div key={index}> {todo.value} </div>
-          )
-        })}
-        </div>
         <form onSubmit={this.valueChange}>
-          <input type='text' value={this.state.newTodo} onChange={this.inputChange} /> 
-
+          <input className="InputElement" type='text' value={this.state.newTodo} onChange={this.inputChange} placeholder="Enter new task" /> 
 
 
         </form>
+       <div className="todo"> {this.props.todos.map((todo, index) => {
+          return (
+            <div key={index} className="Card-item"> {todo.value} </div>
+          )
+        })}
+        </div>
 
 
       </div>
