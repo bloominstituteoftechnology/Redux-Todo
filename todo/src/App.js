@@ -12,6 +12,16 @@ class App extends Component {
     }
   }
 
+  inputChange = (event) => {
+    this.setState({ newTodo: event.target.value})
+  }
+
+  valueChange = (event) => {
+    event.preventDefault();
+    this.props.addTodo(this.state.newTodo);
+    this.setState({newTodo: ""});
+  }
+
 
 
   render() {
@@ -26,7 +36,14 @@ class App extends Component {
           )
         })}
         </div>
-       
+        <form onSubmit={this.valueChange}>
+          <input type='text' value={this.state.newTodo} onChange={this.inputChange} /> 
+
+
+
+        </form>
+
+
       </div>
     );
   }
