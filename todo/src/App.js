@@ -4,24 +4,29 @@ import './App.css';
 import { connect } from 'react-redux';
 import { addTodo, toggleTodo } from './actions/actions';
 class App extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      newTodo: ""
+    }
+  }
+
+
+
   render() {
     console.log(this.props.todos);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">{this.props.todos.value}</h1>
-        </header>
-        {this.props.todos.map((todo, index) => {
+      <div >
+       <h1> *** TODO List ***</h1>
+
+       <div className="todo"> {this.props.todos.map((todo, index) => {
           return (
             <div key={index}> {todo.value} </div>
           )
-
-        } )}
-
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        })}
+        </div>
+       
       </div>
     );
   }
