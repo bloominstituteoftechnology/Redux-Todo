@@ -5,16 +5,18 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 
 
-export const addTodo = (value) => {
+export const addTodo = (value, index) => {
 return {
     type: ADD_TODO,
     payload: value,
+    id: index,
 }
 }
 
-export const toggleTodo = (value) => {
+export const toggleTodo = (index, value) => {
+    console.log(index, value);
     return {
         type: TOGGLE_TODO,
-        payload: value,
+        id: index,
     }
 }

@@ -16,7 +16,7 @@ class App extends Component {
     this.setState({ newTodo: event.target.value})
   }
 
-  valueChange = (event) => {
+  valueChange = (event, index) => {
     event.preventDefault();
     this.props.addTodo(this.state.newTodo);
     this.setState({newTodo: ""});
@@ -30,14 +30,16 @@ class App extends Component {
       <div className="Card-body" >
        <h1 className="Note-header"> MUST DO LIST</h1>
 
-        <form onSubmit={this.valueChange}>
+        <form onSubmit={this.valueChange.bind(this, )}>
           <input className="InputElement" type='text' value={this.state.newTodo} onChange={this.inputChange} placeholder="Enter new task" /> 
-
 
         </form>
        <div className="todo"> {this.props.todos.map((todo, index) => {
           return (
+            <div>
             <div key={index} className="Card-item"> {todo.value} </div>
+            <button onClick={this.props.toggleTodo.bind(null, index)}>Toggle</button>
+            </div>
           )
         })}
         </div>

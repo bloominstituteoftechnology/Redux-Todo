@@ -11,12 +11,13 @@ export default (todos = [{value: 'buy milk', completed: false}], action) => {
                 ...todos,
                 {
                     value: action.payload,
-                    completed: false
+                    completed: false,
+                    
                 }
             ]
     // Fill in the body of this case
     case TOGGLE_TODO:
-        return todos.map(todo => (todo.payload === action.payload )
+        return todos.map((todo, index) => (index === action.id )
                     ? {...todo, completed: !todo.completed}
                     : todo
         )
