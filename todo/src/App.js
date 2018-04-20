@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
-import './App.css';
+
+import TodoNav from './components/TodoNav/TodoNav';
 import TodoList from './components/TodoList';
+import { Container, Row, Col } from 'reactstrap';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <TodoList />
-      </div>
+      <Container className="App">
+        <Row>
+          <Col>
+            <TodoNav/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <TodoList />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

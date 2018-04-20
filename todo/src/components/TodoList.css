@@ -1,3 +1,24 @@
-.done {
-    color:red;
+.Content {
+    min-height: 800px;
+    background: rgb(110, 169, 184);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.TodoList__Row {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+.TodoList__Todo {
+    width: 25%;
+}
+
+.TodoList__Create Input {
+    width: 1000px;
 }

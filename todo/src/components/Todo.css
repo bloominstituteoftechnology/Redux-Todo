@@ -1,3 +1,15 @@
+.Todo {
+    padding: .5rem 0 .5rem 0;
+    margin: .5rem 0 .5rem 0;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.Todo__text {
+    font-size: 1.1em;
+}
+
 .Done {
     text-decoration: line-through;
+    color: rgb(112, 110, 110);
 }

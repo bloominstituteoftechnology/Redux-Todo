@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Container, Row, Col, Form, FormGroup, Input } from 'reactstrap';
+
 import { addTodo, deleteTodo } from '../actions';
-import { Todo } from './Todo';
+import { Todo } from './Todo'
+import './TodoList.css';
 
 class TodoList extends Component {
     constructor(props) {
@@ -30,21 +33,26 @@ class TodoList extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Todo List</h1>
-                <div>{this.props.todos.map(todo => {
-                    return (
-                    <div>
-                    <Todo key={todo.id} text={todo.text}/>
-                    <button onClick={() => this.props.deleteTodo(todo.id) }>X</button>
-                    </div>
-                    )
-                })}</div>
-                <form onSubmit={this.handleSubmit}>
-                    <input placeholder="Do something!" onChange={this.handleChange} type="text" value={this.state.text} />
-                    <input type="submit" />
-                </form>
-            </div>
+            <Container className="Content">
+                <Row>
+                    <h1>Todo List</h1>
+                </Row>
+                <Row className="TodoList__Row">
+                    <Col className="TodoList__Col">
+                        {this.props.todos.map(todo => {
+                            return (
+                            <Todo key={todo.id} todo={todo} 
+                            deleteTodo={this.props.deleteTodo}/>
+                            )
+                    })}</Col>
+                </Row>
+                <Form className="TodoList__Create_" onSubmit={this.handleSubmit}>
+                    <FormGroup className="TodoList__Create__Group">
+                        <Input placeholder="Do something!" onChange={this.handleChange} type="text" value={this.state.text} />
+                        <Input type="submit" />
+                    </FormGroup>
+                </Form>
+            </Container>
         );
     }
 }
