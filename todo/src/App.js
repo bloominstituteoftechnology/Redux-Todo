@@ -1,31 +1,46 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { addToDo, removeToDo } from './components/actions';
 import { connect } from 'react-redux';
+import TODOLIST from './components/toDoList';
+import ADDTODOFORM from './components/addToDoForm';
+import { addToDo, removeToDo, checkToDo } from './components/actions';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      todos: [],
+      toDoText: '',
     }
   }
 
-  componentDidMount() {
-    this.props.todos;
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  addToDo = () => {
+    const { toDoText } = this.state;
+    const newToDo = { id: this.props.toDos.length + 1, completed: false, text: toDoText };
+    this.props.addToDo(newToDo);
+    this.setState({toDoText: ''});
   }
 
   render() {
+    console.log('App props is ' + this.state)
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">YOUR TODO LIST!</h1>
+      <div className="APP">
+        <header className="APP__HEADER">
+          <img src={logo} className="APP__LOGO" alt="logo" />
+          <h1 className="APP__TITLE">YOUR TODO LIST!</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="APP__BODY">
+            <ADDTODOFORM 
+              handleInputChange={this.handleInputChange}
+              toDoText={this.state.toDoText}
+              addToDo={this.addToDo}
+            />
+            <TODOLIST toDos={this.props.toDos}/>
+        </div>
       </div>
     );
   }
@@ -33,8 +48,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state
-  }
-}
+    toDos: state
+  };
+};
 
-export default connect(mapStateToProps, { addToDo, removeToDo })(App);
+export default connect(mapStateToProps, { addToDo, removeToDo, checkToDo })(App);
