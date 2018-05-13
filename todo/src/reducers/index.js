@@ -1,19 +1,39 @@
 import { 
   ADD,
-  HANDLE_CHANGE
+  HANDLE_CHANGE,
+  COMPLETE
 } from '../actions';
 
-export default (state = {input : '', todos : []}, action) => {
-  switch (action.type) {
+export default (state = {input : '', todos : []}, {type, value, input, index}) => {
+  switch (type) {
     case ADD:
-      return Object.assign({}, state, {
+      return {
         input: '',
-        todos: [...state.todos, action.todo]
-      });
+        todos: [
+          ...state.todos, 
+          {
+            value,
+            complete: false
+          }
+        ]
+      };
     case HANDLE_CHANGE:
-      return Object.assign({}, state, {
-        input: action.input
-      })
+      return {
+        ...state,
+        input
+      }
+    case COMPLETE:
+      return {
+        ...state,
+        todos: [
+          ...state.todos.slice(0, index),
+          {
+            ...state.todos[index],
+            complete: !state.todos[index].complete
+          },
+          ...state.todos.slice(index + 1)
+          ]
+        }
     default:
       return state
   }

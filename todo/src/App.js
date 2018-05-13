@@ -6,7 +6,6 @@ import { add, handleChange } from './actions';
 class App extends Component {
   render() {
     const { input, add, handleChange } = this.props
-    console.log(this.props)
     return (
       <div>
         <input name='input' type='text' value={input} onChange={e => handleChange(e.target.value)}/>
@@ -18,10 +17,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { input, todos } = state
+  const { input } = state
   return {
-    input,
-    todos
+    input
   };
 };
 
