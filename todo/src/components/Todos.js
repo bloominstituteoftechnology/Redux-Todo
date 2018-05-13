@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import {  } from '../actions';
 
-class Todo extends Component {
+class Todos extends Component {
 
     render() {
         return (
@@ -17,4 +17,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {  })(Todo);
+export default connect(mapStateToProps, {  })(Todos);
