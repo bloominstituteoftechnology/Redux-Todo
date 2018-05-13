@@ -1,12 +1,20 @@
 import { 
-  // INCREMENT 
+  ADD,
+  HANDLE_CHANGE
 } from '../actions';
 
-export default (initialState = '', action) => {
+export default (state = {input : '', todos : []}, action) => {
   switch (action.type) {
-    // case INCREMENT:
-    //   return ++action.count
+    case ADD:
+      return Object.assign({}, state, {
+        input: '',
+        todos: [...state.todos, action.todo]
+      });
+    case HANDLE_CHANGE:
+      return Object.assign({}, state, {
+        input: action.input
+      })
     default:
-      return count;
+      return state
   }
 };
