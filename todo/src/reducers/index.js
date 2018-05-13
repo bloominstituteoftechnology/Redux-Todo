@@ -1,7 +1,8 @@
 import { 
   ADD,
   HANDLE_CHANGE,
-  COMPLETE
+  COMPLETE,
+  REMOVE
 } from '../actions';
 
 export default (state = {input : '', todos : []}, {type, value, input, index}) => {
@@ -31,6 +32,14 @@ export default (state = {input : '', todos : []}, {type, value, input, index}) =
             ...state.todos[index],
             complete: !state.todos[index].complete
           },
+          ...state.todos.slice(index + 1)
+          ]
+        }
+    case REMOVE:
+      return {
+        ...state,
+        todos: [
+          ...state.todos.slice(0, index),
           ...state.todos.slice(index + 1)
           ]
         }

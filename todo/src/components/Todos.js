@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { complete } from '../actions';
+import { complete, remove } from '../actions';
 
 class Todos extends Component {
 
     render() {
-        const { todos, complete } = this.props
-        console.log(todos)
+        const { todos, complete, remove } = this.props
         return (
             <div>
                 <h2>Your To-do List:</h2>
@@ -16,6 +15,7 @@ class Todos extends Component {
                     <div key={todo.value}>
                         <div>{todo.value}</div>
                         <input type='checkbox' checked={todo.complete} onClick={() => complete(index)}/>
+                        <button onClick={() => remove(index)}>Delete</button>
                     </div>
                 )}
             </div>
@@ -29,4 +29,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { complete })(Todos);
+export default connect(mapStateToProps, { complete, remove })(Todos);

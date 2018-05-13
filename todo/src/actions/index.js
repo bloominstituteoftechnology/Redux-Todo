@@ -1,6 +1,7 @@
 export const ADD = 'ADD';
 export const HANDLE_CHANGE = 'HANDLE_CHANGE';
 export const COMPLETE = 'COMPLETE';
+export const REMOVE = 'REMOVE';
 
 export const add = (value) => {
   return {
@@ -19,6 +20,13 @@ export const handleChange = (input) => {
 export const complete = (index) => {
   return {
     type: COMPLETE,
+    index
+  }
+}
+
+export const remove = (index) => {
+  return {
+    type: REMOVE,
     index
   }
 }
