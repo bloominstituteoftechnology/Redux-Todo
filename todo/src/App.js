@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   handleTaskDone = (index) => {
-
+    this.props.toggle(index);
   }
 
 

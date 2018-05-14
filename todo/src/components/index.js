@@ -13,7 +13,15 @@ export const ListView = (props) => {
   return (
     <ul>
       {
-        props.todos.map((todo, index) => <li key={index} onClick={() => props.onClick(index)}>{todo.text}</li>)
+        props.todos.map((todo, index) => {
+          if (!todo.complete) {
+            return <li key={index} onClick={() => props.onClick(index)}>{todo.text}</li>
+          }
+          else {
+            return <li key={index} onClick={() => props.onClick(index)}><s>{todo.text}</s></li>
+          }
+        }
+        )
       }
     </ul>
   );

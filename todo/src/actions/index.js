@@ -9,7 +9,7 @@ export const add = (text) => {
     payload: {
       id: todoId++,
       text: text,
-      completed: false
+      complete: false
     }
   };
 };
