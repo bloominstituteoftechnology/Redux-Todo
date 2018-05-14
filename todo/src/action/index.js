@@ -25,9 +25,11 @@ export const deleteTodo = (i) => {
     };
 };
 
-export const completeTodo = () => {
+export const completeTodo = (i) => {
     return {
-        type: DELETE_TODO,
-        payload: {}
+        type: COMPLETE_TODO,
+        payload: {
+            id: i,
+        }
     }
 }
