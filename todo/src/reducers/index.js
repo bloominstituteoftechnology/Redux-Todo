@@ -1,4 +1,4 @@
-
+import { TOGGLE_TODO, ADD_TODO } from '../actions';
 
 export default (todos = [], action) => {
   switch (action.type) {

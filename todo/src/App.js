@@ -1,21 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AddButton, { AddField, ListView } from './components';
+import { connect } from 'react-redux';
+import { add, toggle } from './actions';
+
+
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      task: ""
+    }
+  }
+
+  handleAddTask = () => {
+    this.props.add(this.state.task);
+    this.setState({task: ""});
+  }
+
+  handleTaskType = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleTaskDone = (index) => {
+
+  }
+
+
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1>{this.state.title}</h1>
+        <AddButton onClick={this.handleAddTask} />
+        <AddField name="task" onChange={this.handleTaskType} value={this.state.task} />
+        <ListView {...this.props} onClick={this.handleTaskDone} tasks={this.state.tasks} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        todos: state
+    };
+};
+
+
+export default connect(mapStateToProps, { add, toggle })(App);
