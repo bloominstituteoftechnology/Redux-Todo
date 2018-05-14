@@ -68,3 +68,5 @@ Topics:
 
 * Implement the ability to delete todo list items. You can create a button next to each todo list item and when it is pressed it will call an action creator that will dispatch an action that removes the specified todo list item from the `todos` array.
 * Use `localStorage` to make the data persist.
+
+# Xang Thao changed this
