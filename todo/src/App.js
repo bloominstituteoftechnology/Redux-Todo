@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AddButton, { AddField, ListView } from './components';
 import { connect } from 'react-redux';
-import { add, toggle } from './actions';
+import { add, toggle, deleteTodo } from './actions';
 
 
 
@@ -26,6 +26,10 @@ class App extends Component {
     this.props.toggle(index);
   }
 
+  handleTaskDelete = (index) => {
+    this.props.deleteTodo(index);
+  }
+
 
 
   render() {
@@ -34,7 +38,7 @@ class App extends Component {
         <h1>{this.state.title}</h1>
         <AddButton onClick={this.handleAddTask} />
         <AddField name="task" onChange={this.handleTaskType} value={this.state.task} />
-        <ListView {...this.props} onClick={this.handleTaskDone} tasks={this.state.tasks} />
+        <ListView {...this.props} onClick={this.handleTaskDone}  onButton={this.handleTaskDelete} />
       </div>
     );
   }
@@ -47,4 +51,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, { add, toggle })(App);
+export default connect(mapStateToProps, { add, toggle, deleteTodo })(App);

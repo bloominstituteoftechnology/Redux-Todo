@@ -15,10 +15,16 @@ export const ListView = (props) => {
       {
         props.todos.map((todo, index) => {
           if (!todo.complete) {
-            return <li key={index} onClick={() => props.onClick(index)}>{todo.text}</li>
+            return (
+              <li key={index} onClick={() => props.onClick(index)}>{todo.text}<button onClick={() => props.onButton(index)} >Delete</button></li>
+
+            )
           }
           else {
-            return <li key={index} onClick={() => props.onClick(index)}><s>{todo.text}</s></li>
+            return (
+              <li key={index} onClick={() => props.onClick(index)}><s>{todo.text}</s><button onClick={() => props.onButton(index)} >Delete</button></li>
+
+            )
           }
         }
         )

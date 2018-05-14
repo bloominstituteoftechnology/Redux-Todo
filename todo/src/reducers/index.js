@@ -1,9 +1,11 @@
-import { TOGGLE_TODO, ADD_TODO } from '../actions';
+import { TOGGLE_TODO, ADD_TODO, DELETE_TODO } from '../actions';
 
 export default (todos = [], action) => {
   switch (action.type) {
+
     case ADD_TODO:
     return todos.concat(action.payload);
+
     case TOGGLE_TODO:
     return todos.map((todo) => {
       if (todo.id === action.payload) {
@@ -11,7 +13,12 @@ export default (todos = [], action) => {
       }
       else return todo;
     })
+
+    case DELETE_TODO:
+    return todos.filter((todo) => todo.id !== action.payload)
+
     default:
       return todos;
+
   }
 };
