@@ -10,12 +10,17 @@ class App extends Component {
       <div className="App">
         <ToDoForm />
         {this.props.todos.map((e, i) => {
+          console.log(e.completed)
           return (
             <div key={e.id}>
-              <p>{e.value}</p>
+
+              <p style={e.completed ? { textDecoration: "line-through" } : { textDecoration: "none" }}> {e.value} </p>
               <button onClick={() => {
                 this.props.deleteTodo(e.id)
               }}>delete</button>
+              <button onClick={() => {
+                this.props.completeTodo(e.id)
+              }}>Mark Completed</button>
             </div>
           );
         })}
