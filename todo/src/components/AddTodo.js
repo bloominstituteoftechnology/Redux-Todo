@@ -8,7 +8,7 @@ class AddTodo extends Component {
     newTodo:''
   };
 
-// set state to newTodo  
+// set state  
  handleTodo = event => {
    this.setState({ newTodo: event.target.value });
 
@@ -23,13 +23,13 @@ class AddTodo extends Component {
 
 // this takes marks items as completed
   toggleComplete = event => {
-    this.props.toggleComplete(event.target.id);
+    this.props.completeTodo(event.target.id);
   };
 
   render() {
     return (
       <div>
-	<input onChange={this.handleChange}
+	<input onChange={this.handleTodo}
 	       placeholder="add task"
 	       value={this.state.newTodo}
 	       />
@@ -37,7 +37,11 @@ class AddTodo extends Component {
 	<ul>
 	  {this.props.todo.map(item => {
 	    return (
-	      <li onClick={this.toggleComplete} key={item.id} id={item.id}>{item.value}</li>
+	      <li onClick={this.toggleComplete}
+		  key={item.id}
+		  id={item.id}>
+		{item.value}
+	      </li>
 	    );
 	  })}
       </ul>
@@ -52,5 +56,5 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStatetoProps, { addTodo, completeTodo })(AddTodo);
+export default connect(mapStateToProps, { addTodo, completeTodo })(AddTodo);
 //I do not really understand mapStateToProps very well and basically stole this from the redux documentation and other online sources.

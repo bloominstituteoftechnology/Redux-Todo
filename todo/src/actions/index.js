@@ -1,5 +1,5 @@
 export const ADD_TODO = "ADD_TODO";
-export const TOGGLE = "TOGGLE";
+export const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
 
 export const addTodo = todo => {
   return {
@@ -9,9 +9,9 @@ export const addTodo = todo => {
 
 };
 
-export const toggleComplete = id => {
+export const completeTodo = id => {
   return {
-    type: TOGGLE,
+    type: TOGGLE_COMPLETE,
     id
   };
 };
