@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { fetchTodos } from '../actions';
+import AddTodo from './AddTodo'
 
 class TodoContainer extends Component {
 
     componentDidMount() {
         this.props.fetchTodos();
+
       }
+
+
+
     
     // incrementIfOdd = () => {
 
@@ -27,14 +32,11 @@ class TodoContainer extends Component {
         // should decrement or increment accordingly
         return (
             <div>
-                <input></input>
-                <button></button>
-        
+                <AddTodo />
                 <ul className="App-intro">
                 {this.props.todos.map(todo => <li key={ todo }>{ todo }</li>)}
                 </ul>
             </div>
-
         );
     }
 }

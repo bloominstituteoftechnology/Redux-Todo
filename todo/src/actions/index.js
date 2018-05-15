@@ -17,10 +17,6 @@ export const addTodo = todo => {
 };
 
 
-export const createAnimal = animal => {
-  return { type: CREATE_ANIMAL, payload: animal };
-};
-
 
 
 
