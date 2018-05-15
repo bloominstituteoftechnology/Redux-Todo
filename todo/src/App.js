@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTodos, createTodo } from './actions';
 import './App.css';
+import AddTodo from './AddTodo';
 
 class App extends Component {
   
@@ -10,12 +11,13 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.todos)
+    // console.log(this.props.todos)
     return (
       <div>
+        <AddTodo />
         <h1>TODO LIST</h1>
         {this.props.todos.map(todo => 
-          <li>{todo}</li>
+          <li key={todo}>{todo}</li>
         )}
       </div>
     );
