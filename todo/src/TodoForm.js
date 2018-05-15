@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class TodoForm extends Component {
+import { addTodo } from './actions';
+
+class TodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +19,7 @@ export default class TodoForm extends Component {
   render() {
     return (
       <div className='todo-form-container'>
-        <form action='' method='POST'>
+        <form action='' method='POST' onSubmit={ e => e.preventDefault() }>
           <input
             type='text'
             placeholder='What have you been putting off?'
@@ -27,10 +30,18 @@ export default class TodoForm extends Component {
           <input
             type='submit'
             value='New Task'
-            // onClick={}
+            onClick={ () => this.props.dispatchAddTodo(this.state.todoInputVal) }
           />
         </form>
       </div>
     )
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatchAddTodo: todoInputVal => dispatch(addTodo(todoInputVal))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(TodoForm);
