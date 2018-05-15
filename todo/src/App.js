@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ToDoList from './components/ToDoList'
 
 import { connect } from 'react-redux';
-import { addToDos } from './actions'
+import { addToDos, toggleCompleted } from './actions'
 
 import logo from './logo.svg';
 import './App.css';
@@ -21,10 +21,10 @@ class App extends Component {
   };
 
   addToDos = () => {
-    const { aToDo } = this.state;
     const toAdd = {
-      todo: aToDo,
-      completed: false,
+      todo: this.state.aToDo,
+      // completed: false,
+      id: this.props.toDos.length
     }
     this.props.addToDos(toAdd);
     this.setState({ aToDo: ''})
@@ -48,7 +48,7 @@ class App extends Component {
           />
           <button onClick={this.addToDos} >Submit</button>          
         
-        <ToDoList list={this.props.toDos}/>
+        <ToDoList list={this.props}/>
       </div>
     );
   }
@@ -59,8 +59,8 @@ class App extends Component {
 const mapStateToProps = state => {
   
   return {
-    toDos: state.toDos,
+    toDos: state,
     
   }
 }
-export default connect(mapStateToProps, { addToDos })(App);
+export default connect(mapStateToProps, { addToDos, toggleCompleted })(App);
