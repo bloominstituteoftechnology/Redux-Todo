@@ -12,63 +12,40 @@ class Todo extends Component {
     }
 
     handleInput = (e) => {
-        e.preventDefault();
         this.setState({ newTodo: e.target.value });
     }
     handleClick = (e) => {
-        e.preventDefault();
         this.props.add(this.state.newTodo);
         this.setState({ newTodo: '' });
     }
 
     handleToggle = (e) => {
-        // console.log(e.target);
-        // console.log(e.target.id);
-        // console.log("index",e.target.dataset.index);
         const item = document.querySelector(`#${e.target.id}`);
-        // console.log("item",item);
-        // console.log(item.classList);
-
-        let itemClasses = item.classList;
-        // console.log(itemClasses.contains("taskDone"))
-        // if (itemClasses.contains("taskDone")) {
-        //     // this.props.toggle(e.target.dataset.index); // WORKS
-        //     // item.toggle("taskDone");
-        // }
         this.props.toggle(item.dataset.index); // WORKS
 
 
     }
     
     handleRemove = (e) => {
-        // console.log(e.target.dataset.index);
         this.props.remove(e.target.dataset.index);
         e.stopPropagation();
     }
 
     /** Make the delte button appear on hover */
-    toggleDelete = (index) => {
-        const badge = document.querySelector(`#badge${index}`)
-        console.log(badge);
-        // badge.style.display = 'none';
-    }
+    // toggleDelete = (index) => {
+    //     const badge = document.querySelector(`#badge${index}`)
+    // }
     handleMouseEnter = (e) => {
-        console.log(e.type);
         const index = e.target.dataset.index;
-        // this.toggleDelete(index);
         const badge = document.querySelector(`#badge${index}`)
-        console.log(badge);
         badge.classList.remove("invisible");
         badge.classList.add("visible");
         
     }   
     
     handleMouseLeave = (e) => {
-        console.log(e.type);
         const index = e.target.dataset.index;
-        // this.toggleDelete(index);
         const badge = document.querySelector(`#badge${index}`)
-        console.log(badge);
         badge.classList.remove("visible");
         badge.classList.add("invisible");
 
