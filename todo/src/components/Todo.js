@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Container, Row, Col, Form, Input, Button} from 'reactstrap';
-import {add , remove} from '../actions';
+import {Container, Row, Col, Form, Input, Button, Badge} from 'reactstrap';
+import {add , remove, toggle} from '../actions';
 import {connect} from 'react-redux';
 
 class Todo extends Component {
@@ -18,8 +18,29 @@ class Todo extends Component {
         this.props.add(this.state.newTodo);
         this.setState({ newTodo: '' });
     }
+
+    handleToggle = (e) => {
+        console.log(e.target);
+        console.log(e.target.id);
+        console.log("index",e.target.dataset.index);
+        const item = document.querySelector(`#${e.target.id}`);
+        console.log("item",item);
+        console.log(item.classList);
+
+        let itemClasses = item.classList;
+        console.log(itemClasses.contains("taskDone"))
+        // if (itemClasses.contains("taskDone")) {
+        //     // this.props.toggle(e.target.dataset.index); // WORKS
+        //     // item.toggle("taskDone");
+        // }
+        this.props.toggle(item.dataset.index); // WORKS
+
+
+    }
     
     render() {
+        const todos = this.props.todos.slice().reverse();
+        let length = todos.length - 1;
         return (
             <Container>
                 <Form>
@@ -30,10 +51,27 @@ class Todo extends Component {
                         placeholder="Add new task..."
 
                     />
-                    <Button onClick={this.handleClick} >Add todo</Button>
+                    <Button onClick={this.handleClick} >Add</Button>
                 </Form>
-                {this.props.todos.map(
-                    (todo, i) => (<Row key={i} ><Col>{todo}</Col></Row>)
+                {todos.map(
+                    (todo, i) => (<Row
+                                    style={{cursor: "pointer"}}
+                                    key={i}
+                                    onClick={this.handleToggle}
+                                    >
+                                        {/* data-finished="no" */}
+                                    <Col
+                                        className={todo.done ? 'taskDone' : ''}
+                                        id={`task-${i}`}
+                                        data-index={length--}
+                                    >
+                                        <Badge
+                                            color="danger"
+                                        >Delete
+                                        </Badge>
+                                        {todo.name}
+                                    </Col>
+                                </Row>)
                 )}
                 <Row></Row>
                 <Row></Row>
@@ -49,4 +87,4 @@ const mapStateToProps = (state) => {
     }
   }
 
-export default connect(mapStateToProps, {add, remove})(Todo);
+export default connect(mapStateToProps, {add, remove, toggle})(Todo);

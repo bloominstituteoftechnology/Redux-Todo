@@ -1,5 +1,6 @@
 export const ADD = 'ADD';
 export const REMOVE = 'REMOVE';
+export const TOGGLE = 'TOGGLE';
 
 const add = (newTodo) => {
     return {
@@ -15,3 +16,11 @@ export const remove = (removeTodo) => {
         payload: removeTodo
     }
 };
+
+export const toggle = (index) => {
+    console.log("Toggle() invoked");
+    return {
+        type: TOGGLE,
+        payload: index
+    }
+}
