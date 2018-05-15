@@ -12,6 +12,7 @@ export const addTodo = (value) => {
         type: ADD_TODO,
         payload: {
             id: v4(),
+            date: new Date(),
             value: value,
             completed: false
         }

@@ -16,7 +16,13 @@ class TodoForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="mb3">
+              <h3>What do you need to do today?</h3>
+              <form onSubmit={e => {
+                e.preventDefault();
+                this.props.addTodo(this.state.value);
+                this.setState({ value: "" });
+              }}>
                 <input
                     onChange={this.valueChangedHandler}
                     className="form-control"
@@ -25,10 +31,8 @@ class TodoForm extends Component {
                     name="todo"
                     type="todo"
                 />
-                <button onClick={() => {
-                   this.props.addTodo(this.state.value)
-                   this.setState({ value: "" })
-               }}>Add Todo</button>
+                <button>Add Todo</button>
+              </form>
             </div>
         );
     }

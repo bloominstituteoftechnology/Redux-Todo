@@ -26,3 +26,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.delete {
+  border-radius: 6px;
+  padding: 2px;
+  background-color: red;
+  color: white;
+  
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+

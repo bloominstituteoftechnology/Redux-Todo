@@ -12,7 +12,7 @@ export const todoReducer = (state = [], action) => {
               if (obj.id === action.payload.id) {
                 return {
                   ...obj,
-                  completed: true,
+                  completed: !obj.completed,
                 }
               }
               return {
