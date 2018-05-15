@@ -18,7 +18,7 @@ class App extends Component {
         <h1>TODO LIST</h1>
         {this.props.todos.map(todo => 
           <li 
-            
+            style={todo.completed ? {textDecoration: 'line-through'} : {textDecoration: 'none'}}
             onClick={() => this.props.completeTodo(todo.id)} 
             key={todo.id}>{todo.value}
           </li>
