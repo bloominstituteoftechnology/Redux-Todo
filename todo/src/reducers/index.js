@@ -1,6 +1,6 @@
 import { FETCH_TODOS } from "../actions";
 
-export const toDoReducer = (state = [], action) => {
+export const todoReducer = (state = [], action) => {
   if (action.type === FETCH_TODOS) {
     return state.concat(action.payload);
   }
