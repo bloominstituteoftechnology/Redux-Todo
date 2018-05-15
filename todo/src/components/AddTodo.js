@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {createTodo} from "../actions/index.js";
+import {createTodo, toggleTodo} from "../actions/index.js";
 
 class AddTodo extends Component {
 constructor (props) {
@@ -33,9 +33,9 @@ render = () => {
       <ul>
         {this.props.todos.map(todo => {
           return(
-            <li key={todo.value}>{todo.value}</li>
+            <li key={todo.value} onClick={this.props.toggleTodo}>{todo.value}</li>
           );
-        })};
+        })}
       </ul>
 
     </div>
@@ -49,4 +49,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {createTodo})(AddTodo);
+export default connect(mapStateToProps, {createTodo, toggleTodo})(AddTodo);

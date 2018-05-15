@@ -5,7 +5,14 @@ export const todoReducer = (state = [], action)  => {
     case CREATE_TODO:
       return state.concat(action.payload);
     case TOGGLE_TODO:
-      return ;
+      return state.map(todo => {
+        if (todo.value === action.payload) {
+          return Object.assign({}, todo, {completed: !todo.completed});
+        }
+        else {
+          return todo;
+        }
+      })
     default:
       return state;
   }

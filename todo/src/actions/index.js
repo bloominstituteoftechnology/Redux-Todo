@@ -11,6 +11,7 @@ export const createTodo = todo => {
 export const toggleTodo = todo => {
   return {
     type: TOGGLE_TODO,
-    payload: {completed: !todo.completed}//I don't know?
+    payload: todo.value
+    // payload: {completed: !todo.completed}//I don't know?
   }
 }
