@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import ToDoForm from './TodoForm';
 
 class App extends Component {
-  
+  // Inspiration and Guidance from here: https://stackoverflow.com/questions/46802448/how-do-i-group-items-in-an-array-by-date
+  // and answer: https://stackoverflow.com/a/46802505
   dateDivide = (todos) => {
     console.log(todos);
     const groups = todos.reduce((groups, todo) => {
