@@ -11,13 +11,13 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.props.todos)
+    console.log(this.props.todos)
     return (
       <div>
         <AddTodo />
         <h1>TODO LIST</h1>
         {this.props.todos.map(todo => 
-          <li key={todo}>{todo}</li>
+          <li key={todo.value}>{todo.value}</li>
         )}
       </div>
     );

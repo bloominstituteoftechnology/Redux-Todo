@@ -6,10 +6,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { todosReducer } from './reducers';
 
-const store = createStore(
-  todosReducer, 
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
-);
+const store = createStore(todosReducer);
 
 ReactDOM.render(
   <Provider store={store}>
