@@ -1,12 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { deleteTodo } from '../actions';
+
 
 class TodoList extends React.Component {
     render() {
-        return (
+        return(
             <div>
-                <ul className='todo-list'>
-                    {this.props.todos.map(list => <li key={list}>{ list }</li>)}
+                <ul>
+                    {this.props.todos.map(todo =>
+                    <div>
+                        <li key={todo}>{todo}</li>
+                        <button onClick={() => {this.props.deleteTodo(todo)}}>X</button>
+                    </div>
+                    )}
                 </ul>
             </div>
         )
@@ -21,4 +28,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, { deleteTodo })(TodoList);
