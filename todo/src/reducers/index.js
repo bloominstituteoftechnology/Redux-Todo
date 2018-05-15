@@ -7,8 +7,10 @@ export const todoReducer = (state = [], action) => {
 
     case FETCH_TODOS:
     return state.concat(action.payload);
+    
 
     case ADD_TODO:
+      // return state.concat(action.payload);
       return state.concat(action.payload);
 
     default:

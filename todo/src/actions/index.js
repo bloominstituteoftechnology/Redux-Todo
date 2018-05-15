@@ -4,7 +4,38 @@ export const ADD_TODO = "ADD_TODO";
 export const fetchTodos = () => {
   return {
     type: FETCH_TODOS,
-    payload: ["Laundry", "Homework", "Exercise", "Dishes", "Shopping", "Walk dog"]
+    payload: [
+      {
+      value: "Laundry",
+      completed: false
+     },
+
+    {
+      value: "Homework",
+      completed: false
+    }, 
+
+    {
+      value:"Exercise",
+      completed: false
+    },
+
+    {
+      value: "Dishes",
+      completed: false
+    },
+    
+    {
+     value: "Shopping",
+     completed: false,
+    },
+    
+    {
+      value: "Walk dog",
+      completed: false
+    }
+  ]
+
   };
 };
 
@@ -12,7 +43,7 @@ export const fetchTodos = () => {
 export const addTodo = todo => {
   return {
     type: ADD_TODO,
-    payload: todo
+    payload: {value: todo, completed: false}
   };
 };
 

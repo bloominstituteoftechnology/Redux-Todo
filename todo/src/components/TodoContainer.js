@@ -34,8 +34,10 @@ class TodoContainer extends Component {
             <div>
                 <AddTodo />
                 <ul className="App-intro">
-                {this.props.todos.map(todo => <li key={ todo }>{ todo }</li>)}
+                {this.props.todos.map(todo => <div key={ todo }><li>{ todo.value }</li><button>Task Complete!</button></div>)}
+                
                 </ul>
+
             </div>
         );
     }
