@@ -26,10 +26,15 @@ class TodoContainer extends Component {
         // Upon clicking these buttons, the count
         // should decrement or increment accordingly
         return (
-         
+            <div>
+                <input></input>
+                <button></button>
+        
                 <ul className="App-intro">
                 {this.props.todos.map(todo => <li key={ todo }>{ todo }</li>)}
                 </ul>
+            </div>
+
         );
     }
 }
