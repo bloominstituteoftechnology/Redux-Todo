@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
 import AddTodo from './components/AddTodo.js';
+import './App.css';
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
       todos: [],
-    }
-  }
+    };
+  };
 
   render() {
     return (
@@ -16,11 +16,10 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Todo List</h1>
         </header>
-
         <AddTodo/>
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;

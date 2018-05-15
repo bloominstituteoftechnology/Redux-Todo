@@ -1,16 +1,16 @@
 export const CREATE_TODO = "CREATE_TODO";
-export const TODO_LIST = "TODO_LIST"
+export const TOGGLE_TODO = "TOGGLE_TODO";
 
-export const createTodo = () => {
+export const createTodo = todo => {
   return {
     type: CREATE_TODO,
-    payload: [""],
+    payload: {value: todo, completed: false}
   };
-}
+};
 
-export const todoList = todo => {
+export const toggleTodo = todo => {
   return {
-    type: TODO_LIST,
-    payload: todo
-  };
+    type: TOGGLE_TODO,
+    payload: {completed: !todo.completed}//I don't know?
+  }
 }

@@ -1,10 +1,12 @@
-import { CREATE_TODO } from "../actions";
+import { CREATE_TODO, TOGGLE_TODO } from "../actions";
 
-export const todo = (state = [], action)  => {
+export const todoReducer = (state = [], action)  => {
   switch (action.type) {
     case CREATE_TODO:
       return state.concat(action.payload);
+    case TOGGLE_TODO:
+      return ;
     default:
       return state;
   }
-}
+};

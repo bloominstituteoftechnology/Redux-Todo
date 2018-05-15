@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {createTodo} from "../actions";
+import {createTodo} from "../actions/index.js";
 
-export default class AddTodo extends Component {
+class AddTodo extends Component {
 constructor (props) {
-super(props);
-this.state = {
+  super(props);
+  this.state = {
   todolist: ""
-}
-}
-
+  };
+};
 
 handleTodoList = e => {
   this.setState({todolist:e.target.value});
@@ -30,9 +29,24 @@ render = () => {
         onChange={this.handleTodoList}
       />
       <button onClick={this.addTodo}>Add Todo</button>
+
+      <ul>
+        {this.props.todos.map(todo => {
+          return(
+            <li key={todo.value}>{todo.value}</li>
+          );
+        })};
+      </ul>
+
     </div>
   )
 }
 }
 
-// export default connect(null, {createTodo})(AddTodoList);
+const mapStateToProps = state => {
+  return {
+    todos: state
+  }
+}
+
+export default connect(mapStateToProps, {createTodo})(AddTodo);
