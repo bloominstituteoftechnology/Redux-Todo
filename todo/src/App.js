@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import TodoList from "./components/TodoList.js";
 import { connect } from "react-redux";
-import { addTodo, completeTodo, deleteTodo } from "./actions";
+import { addTodo} from "./actions";
 
 const App = props => {
 
@@ -21,11 +21,9 @@ const App = props => {
 }
 
   const mapStateToProps = state => {
-    console.log(state);
     return {
-      value: state.value,
-      completed: state.completed
+      addToDo: state.addTodo
     };
   };
 
-export default connect(mapStateToProps, { addTodo, completeTodo, deleteTodo })(TodoList);
+export default connect(mapStateToProps, {addTodo})(App);

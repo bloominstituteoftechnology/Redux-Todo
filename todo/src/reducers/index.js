@@ -1,7 +1,7 @@
 import { DELETE_TODO, ADD_TODO, COMPLETE_TODO } from "../actions";
 
 
-export default (state = [], action) => {
+export default (state = {todos: []}, action) => {
     switch (action.type) {
         case 'DELETE_TODO':
             return state.filter(item => item !== action.payload);
