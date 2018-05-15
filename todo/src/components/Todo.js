@@ -20,15 +20,15 @@ class Todo extends Component {
     }
 
     handleToggle = (e) => {
-        console.log(e.target);
-        console.log(e.target.id);
-        console.log("index",e.target.dataset.index);
+        // console.log(e.target);
+        // console.log(e.target.id);
+        // console.log("index",e.target.dataset.index);
         const item = document.querySelector(`#${e.target.id}`);
-        console.log("item",item);
-        console.log(item.classList);
+        // console.log("item",item);
+        // console.log(item.classList);
 
         let itemClasses = item.classList;
-        console.log(itemClasses.contains("taskDone"))
+        // console.log(itemClasses.contains("taskDone"))
         // if (itemClasses.contains("taskDone")) {
         //     // this.props.toggle(e.target.dataset.index); // WORKS
         //     // item.toggle("taskDone");
@@ -38,6 +38,13 @@ class Todo extends Component {
 
     }
     
+    handleRemove = (e) => {
+        console.log(e.target.dataset.index);
+
+        this.props.remove(e.target.dataset.index);
+        e.stopPropagation();
+    }
+
     render() {
         const todos = this.props.todos.slice().reverse();
         let length = todos.length - 1;
@@ -66,7 +73,9 @@ class Todo extends Component {
                                         data-index={length--}
                                     >
                                         <Badge
+                                            onClick={this.handleRemove}
                                             color="danger"
+                                            data-index={length + 1}
                                         >Delete
                                         </Badge>
                                         {todo.name}

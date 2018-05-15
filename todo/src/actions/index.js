@@ -10,10 +10,11 @@ const add = (newTodo) => {
 };
 export {add};
 
-export const remove = (removeTodo) => {
+export const remove = (index) => {
+    console.log("Remove() invoked");
     return {
         type: REMOVE,
-        payload: removeTodo
+        payload: Number(index)
     }
 };
 
