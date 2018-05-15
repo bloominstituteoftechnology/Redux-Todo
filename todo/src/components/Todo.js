@@ -1,12 +1,17 @@
 import React from 'react'
 
-const ToDo = ({ onClick, completed, text }) => (
-    <li
-    onClick={onClick}
-    style={ {
-        textDecoration: completed ? 'line-through' : 'none'
-    }}>
-    {text}
-    </li>
-)
+const ToDo = props => {
+    return (
+    <div>
+        <input
+        name="todo"
+        value={props.todo}
+        type="text"
+        onChange={props.handleChange}
+        placeholder="Add item"
+    />
+    <button onClick={props.addToDo}> Add Todo </button>
+    </div>
+    )
+}
 export default ToDo
