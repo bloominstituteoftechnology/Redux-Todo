@@ -1,3 +1,0 @@
-const todo = (state = [], action) {
-    
-}
