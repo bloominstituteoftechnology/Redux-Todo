@@ -8,12 +8,17 @@ class TodoList extends Component {
         this.props.fetchTodos();
     }
 
+    toggleComplete = (e) => {
+        if (e.target.style.textDecoration === 'line-through') e.target.style.textDecoration = 'none';
+        else e.target.style.textDecoration = 'line-through';
+    }
+
     render () {
         console.log(this.props);
         return(
             <div>
                 <ul>
-                    {this.props.todos.map(todo => <li key={todo}>{todo}</li>)}
+                    {this.props.todos.map(todo => <li key={todo} onClick={this.toggleComplete}>{todo}</li>)}
                 </ul>
             </div>
         )
