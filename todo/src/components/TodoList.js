@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
-import { fetchTodos } from "../actions";
+import { fetchTodos , deleteTodo } from "../actions";
 
 class TodoList extends Component {
 
@@ -14,11 +14,15 @@ class TodoList extends Component {
     }
 
     render () {
-        console.log(this.props);
         return(
             <div>
                 <ul>
-                    {this.props.todos.map(todo => <li key={todo} onClick={this.toggleComplete}>{todo}</li>)}
+                    {this.props.todos.map(todo => 
+                    <div>
+                        <li key={todo} onClick={this.toggleComplete}>{todo}</li>
+                        <button onClick={() => {this.props.deleteTodo(todo)}}>X</button>
+                    </div>
+                    )}
                 </ul>
             </div>
         )
@@ -29,4 +33,4 @@ const mapStateToProps = state => {
     return {todos: state};
 };
 
-export default connect(mapStateToProps, { fetchTodos })(TodoList);
+export default connect(mapStateToProps, { fetchTodos , deleteTodo })(TodoList);
