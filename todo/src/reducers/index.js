@@ -1,28 +1,24 @@
 import { ADD_TODO, TOGGLE_COMPLETE } from '../actions';
 
-export default (todo = [], action) => {
+export default (state = [], action) => {
   switch (action.type) {
   case ADD_TODO:
-    return [...todo,
-      {
-	id: todo.length,
-	text: action.payload,
-	completed: false
-      }
-    ];
-    case TOGGLE_COMPLETE:
-    return todo.map(item => {
-      if (Number(item.id) === Number(action.id)) {
-	return { ...item, completed: !item.completed
-	       };
+    return [...state, action.payload];
+
+  case TOGGLE_COMPLETE:
+    return state.map((todo) => {
+      if (action.payload === todo.id) {
+	todo.complete = !todo.complete;
+      return todo;
+	 
       }
       else {
-	return item;
+	return todo;
       }
     });
 
     default:
-     return todo;
+     return state;
 
   }
 };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, completeTodo } from '../actions';
+import { addTodo, toggleTodo } from '../actions';
+
 
 class AddTodo extends Component {
 // set state to null
@@ -22,25 +23,26 @@ class AddTodo extends Component {
 
 
 // this takes marks items as completed
-  toggleComplete = event => {
-    this.props.completeTodo(event.target.id);
-  };
+//  toggleComplete = event => {
+//    this.props.completeTodo(event.target.id);
+//  };
 
   render() {
     return (
       <div>
 	<input onChange={this.handleTodo}
 	       placeholder="add task"
+	       name="newTodo"
 	       value={this.state.newTodo}
 	       />
 	<button onClick={this.handleSubmit}>Submit</button>
 	<ul>
-	  {this.props.todo.map(item => {
+	  {this.props.todos.map((todo, index) => {
 	    return (
-	      <li onClick={this.toggleComplete}
-		  key={item.id}
-		  id={item.id}>
-		{item.value}
+	      <li onClick={() => this.props.toggleTodo(todo.id)}
+		key={index}
+		style={todo.complete ? {textDecoration: 'line-through'} : null}>
+		{todo.todo}
 	      </li>
 	    );
 	  })}
@@ -52,9 +54,9 @@ class AddTodo extends Component {
 
 const mapStateToProps = state => {
   return {
-    todo: state
+    todos: state
   };
 };
 
-export default connect(mapStateToProps, { addTodo, completeTodo })(AddTodo);
+export default connect(mapStateToProps, { addTodo, toggleTodo })(AddTodo);
 //I do not really understand mapStateToProps very well and basically stole this from the redux documentation and other online sources.
