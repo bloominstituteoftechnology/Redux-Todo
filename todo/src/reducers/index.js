@@ -16,6 +16,8 @@ export default (state = [], action) => {
                 stateCopy2[action.payload].completed = true;
             }
             return stateCopy2;
+        case REMOVE_TODO:
+            
         default:
             return state;
     }

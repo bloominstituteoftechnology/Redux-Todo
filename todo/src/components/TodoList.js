@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo } from '../actions';
+import { addTodo, completeTodo, removeTodo } from '../actions';
 
 
 class TodoList extends Component {
@@ -22,6 +22,12 @@ class TodoList extends Component {
         this.setState({todo: ''});
     }
 
+    handleCompleteTodo = (event, index) => {
+        event.preventDefault();
+        this.props.completeTodo(index)
+        console.log(this.props.todos);
+    }
+
     render() {
         // console.log(this.props.todos);
         return (
@@ -36,8 +42,33 @@ class TodoList extends Component {
                     <button onClick={this.addTodo}>Submit</button>
                 </form>
                 {this.state.todo}
-                {this.props.todos.map(item => {
-                    return <li key={item.todoText}>{item.todoText}</li>
+                {this.props.todos.map((item, index) => {
+                    if (item.completed === true) {
+                        return (
+                        <div>
+                            <li 
+                            key={item.todoText} 
+                            onClick={(event) => {
+                                this.handleCompleteTodo(event, index)
+                            }}
+                            >
+                            {item.todoText}
+                            </li>
+                            <button value={index} onClick={}>X</button>
+                        </div> )
+                    } else {
+                        return (
+                        <div>
+                            <li
+                                key={item.todoText}
+                                onClick={(event) => {
+                                    this.handleCompleteTodo(event, index)
+                                }}
+                            >
+                                {item.todoText}
+                            </li>
+                        </div> )
+                    }
                 })}
             </div>
         );
@@ -50,4 +81,4 @@ const mapStoreToProps = store => {
     };
 };
 
-export default connect(mapStoreToProps, { addTodo })(TodoList);
+export default connect(mapStoreToProps, { addTodo, completeTodo, removeTodo })(TodoList);
