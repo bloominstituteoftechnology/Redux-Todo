@@ -1,6 +1,6 @@
 import { TOGGLE_TODO, ADD_TODO, DELETE_TODO } from '../actions';
 
-export default (todos = [], action) => {
+export default (todos = [{id: -1, text: "Default Todo", complete: false}], action) => {
   switch (action.type) {
 
     case ADD_TODO:
