@@ -8,11 +8,10 @@ export const todosReducer = (todos = [], action) => {
             return todos.concat(action.payload)
         case COMPLETE_TODO:
             return todos.map(todo => {
-                if(todo.value === action.payload.value){
-                    return {
-                        completed: !todo.completed
-                    }           
+                if(todo.id === action.payload){
+                    todo.completed = !todo.completed;
                 }
+                return todo
             })
         default:
             return todos;

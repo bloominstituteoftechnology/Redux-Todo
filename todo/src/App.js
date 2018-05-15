@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTodos, createTodo } from './actions';
+import { fetchTodos, createTodo, completeTodo } from './actions';
 import './App.css';
 import AddTodo from './AddTodo';
 
@@ -17,7 +17,11 @@ class App extends Component {
         <AddTodo />
         <h1>TODO LIST</h1>
         {this.props.todos.map(todo => 
-          <li key={todo.value}>{todo.value}</li>
+          <li 
+            
+            onClick={() => this.props.completeTodo(todo.id)} 
+            key={todo.id}>{todo.value}
+          </li>
         )}
       </div>
     );
@@ -31,4 +35,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchTodos, createTodo})(App);
+export default connect(mapStateToProps, { fetchTodos, createTodo, completeTodo})(App);
