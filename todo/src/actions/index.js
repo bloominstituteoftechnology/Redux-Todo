@@ -1,14 +1,18 @@
+export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
+
 let nextId = 0;
 
-export const addToDo = text => ({
+export const addToDo = text => {
+return {
     type: 'ADD_TODO',
-    payload: {
-        id: nextId++,
-    text
-}})
+    payload: { id: nextId++, todo: text }
+    }
+}
 
-export const todoToggle = id => ({
+export const todoToggle = id => {
+return {
     type: 'TOGGLE_TODO',
-    payload: {
-        id
-}})
+    payload: { id: id }
+    }
+};
