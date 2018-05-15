@@ -1,6 +1,6 @@
 import { FETCH_TODOS, CREATE_TODO} from '../actions'
 
-export default (todos = [], action) => {
+export const todosReducer = (todos = [], action) => {
     switch (action.type) {
         case FETCH_TODOS:
             return todos.concat(action.payload)
