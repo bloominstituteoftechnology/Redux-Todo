@@ -1,4 +1,4 @@
-import { ADD, HANDLE_CHANGE, DELETE } from "../actions";
+import { ADD, HANDLE_CHANGE, COMPLETE, REMOVE } from "../actions";
 
 export default (
   state = { input: "", todos: [] },
@@ -16,13 +16,14 @@ export default (
           }
         ]
       };
+
     case HANDLE_CHANGE:
       return {
         ...state,
         input
       };
 
-    case DELETE:
+    case REMOVE:
       return {
         ...state,
         todos: [...state.todos.slice(0, index), ...state.todos.slice(index + 1)]
