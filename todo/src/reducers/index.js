@@ -2,7 +2,6 @@ import { TOGGLE_TODO, ADD_TODO, DELETE_TODO, UPDATE_FIELD } from '../actions';
 
 let initialState = { todos: [{id: -1, text: "Default Todo", complete: false}], field: "" };
 export default (state = initialState , action) => {
-  console.log(state);
   switch (action.type) {
 
     case ADD_TODO:
