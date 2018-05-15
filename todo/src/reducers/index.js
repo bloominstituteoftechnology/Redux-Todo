@@ -6,12 +6,12 @@ export const todoReducer = (state = [], action) => {
   if (action.type === FETCH_TODOS) {
     return state.concat(action.payload);
   }
-  return state;
+
 
   switch (action.type) {
 
     case FETCH_TODOS:
-    return state.concat(action.payload);
+      return state.concat(action.payload);
 
     case ADD_TODO:
       return state.concat(action.payload);
