@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgb(235, 235, 235);
+  height: 100vh;
 }
 
 .App-logo {
@@ -77,6 +79,7 @@
   /* box-shadow: 3px 3px 5px 2px #222;
   border-radius: 8px; */
   border: 1px solid lightgray;
+  background-color: white;
 }
 
 .delete-task {
