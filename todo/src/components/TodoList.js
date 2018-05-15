@@ -1,37 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { connect } from "react-redux";
-import { addTodo } from "../actions";
+import { fetchTodos } from "../actions";
 
-class AddTodo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todo: ''
-        }
+class TodoList extends Component {
+
+    componentDidMount() {
+        this.props.fetchTodos();
     }
 
-    handleTodoChange = e => {
-        this.setState({ todo: e.target.value });
-    }
-
-    plusTodo = () => {
-        this.props.addTodo(this.state.todo);
-        this.setState({ todo: '' });
-    }
-
-    render() {
+    render () {
+        console.log(this.props);
         return(
             <div>
-                <input 
-                    placeholder='Add Todo Here'
-                    type='text'
-                    value={this.state.todo}
-                    onChange={this.handleTodoChange}
-                />
-                <button onClick={this.plusTodo}>Add To List</button>
+                <ul>
+                    {this.props.todos.map(todo => <li key={todo}>{todo}</li>)}
+                </ul>
             </div>
         )
     }
 }
 
-export default connect(null, { addTodo })(AddTodo);
+const mapStateToProps = state => {
+    return {todos: state};
+};
+
+export default connect(mapStateToProps, { fetchTodos })(TodoList);
