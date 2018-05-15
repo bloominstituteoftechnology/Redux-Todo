@@ -4,33 +4,35 @@ import { connect } from 'react-redux';
 import { addTodo } from './actions';
 
 class TodoForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       todoInputVal: '',
     };
-  }
 
   // setTodoInputVal
   setTodoInputVal = e => {
-    this.setState({ todoInputVal: e.target.value });
+    const todoInputVal = e.target.value;
+    this.setState({ todoInputVal });
   }
 
   render() {
+    const { setTodoInputVal } = this;
+    const { dispatchAddTodo } = this.props;
+    const { todoInputVal }    = this.state;
+    
     return (
       <div className='todo-form-container'>
         <form action='' method='POST' onSubmit={ e => e.preventDefault() }>
           <input
             type='text'
             placeholder='What have you been putting off?'
-            value={ this.state.todoInputVal }
-            onChange={ this.setTodoInputVal }
+            value={ todoInputVal }
+            onChange={ setTodoInputVal }
           />
 
           <input
             type='submit'
             value='New Task'
-            onClick={ () => this.props.dispatchAddTodo(this.state.todoInputVal) }
+            onClick={ () => dispatchAddTodo(todoInputVal) }
           />
         </form>
       </div>
