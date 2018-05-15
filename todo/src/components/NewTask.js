@@ -21,10 +21,12 @@ class NewTask extends Component {
 
     render() { 
         return (
-            <div className="task">
-                <input name="task" type="text" value={this.state.task}
-                    onChange={this.handleChange}/>
-                <button className="submit-btn" onClick={this.newTask}>Add Task</button>
+            <div className="new-task">
+                <form onSubmit={this.newTask}>
+                    <input name="task" type="text" placeholder="new task" value={this.state.task}
+                        onChange={this.handleChange}/>
+                    <button className="submit-btn">Add Task</button>
+                </form>
             </div>
         )
     }

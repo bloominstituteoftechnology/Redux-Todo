@@ -6,7 +6,6 @@ import ToDoList from './components/ToDoList';
 import { connect } from 'react-redux';
 import { getTasks } from './actions';
 
-
 class App extends Component {
   componentDidMount() {
     this.props.getTasks();

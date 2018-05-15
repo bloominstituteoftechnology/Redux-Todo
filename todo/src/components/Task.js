@@ -9,8 +9,8 @@ const Task = (props) => {
 
     return (
         <div className="task-item">
-         <p className="task-content">{props.task}</p>
-         <button className="delete-task" onClick={toggleComplete}>Delete</button>
+            <button className="delete-task" onClick={toggleComplete}>x</button>
+            <p className="task-content">{props.task}</p>
         </div>
     )
 }

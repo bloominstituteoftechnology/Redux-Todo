@@ -26,3 +26,74 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.new-task {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.new-task form {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 25px;
+ border-bottom: 1px solid #222;
+ width: 50%;
+ margin-bottom: 20px;
+}
+
+.new-task input {
+  height: 20px;
+  width: 28%;
+  margin: 20px;
+  font-size: 1em;
+  padding-left: 10px;
+}
+
+.submit-btn {
+  height: 25px;
+  width: 12%;
+  border: none;
+  background-color: rgb(0, 87, 128);
+  color: white;
+}
+
+.to-do-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.task-item {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 0 5px 30px;
+  margin: 10px 0px;
+  /* box-shadow: 3px 3px 5px 2px #222;
+  border-radius: 8px; */
+  border: 1px solid lightgray;
+}
+
+.delete-task {
+  color: lightgray;
+  border: 1px solid lightgray;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  margin-right: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.delete-task:hover {
+  color: white;
+  background-color: tomato;
+  border: none;
+}
+
+
