@@ -7,9 +7,6 @@ import { connect } from 'react-redux';
 import { getTasks } from './actions';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.getTasks();
-  }
   
   render() {
     return (
@@ -19,15 +16,10 @@ class App extends Component {
           <h1 className="App-title">Sagar's ToDo App</h1>
         </header>
         <NewTask/>
-        <List tasks={this.props.tasks}/>
+        <List />
       </div>
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    tasks: state
-  }
-}
-
-export default connect(mapStateToProps, { getTasks })(App);
+export default App;
+// export default connect(mapStateToProps, { getTasks })(App);

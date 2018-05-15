@@ -24,9 +24,12 @@ class NewTask extends Component {
             <div className="task">
                 <input name="task" type="text" value={this.state.task} 
                     onChange={this.handleChange}/>
-                <button className="submit-btn" onclick={this.newTask}>Add</button>
+                <button className="submit-btn" onClick={() => this.props.dispatchAddTask(this.state.task)}>Add</button>
             </div>
         )
     }
 }
-export default connect(null, {addTask})(NewTask);
+const mapDispatchToProps = dispatch => {
+    return { dispatchAddTask: (inputValue) => dispatch(addTask(inputValue)) };
+}
+export default connect(null, mapDispatchToProps)(NewTask);
