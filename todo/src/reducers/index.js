@@ -10,7 +10,7 @@ export const taskReducer = (state = initialState, action) => {
     case ADD_TASK:
       const newTask = {
         id: taskId,
-        task: action.payload,
+        value: action.payload,
         completed: false
       }
       taskId++;
