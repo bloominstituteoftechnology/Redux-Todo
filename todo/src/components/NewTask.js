@@ -16,7 +16,7 @@ class NewTask extends Component {
 
     newTask = () => {
         this.props.addTask(this.state.task);
-        this.setState({task: ''});
+        this.setState({task:''});
     }
 
     render() { 
