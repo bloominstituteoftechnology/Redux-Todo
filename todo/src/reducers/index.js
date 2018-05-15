@@ -2,16 +2,16 @@ import { ADD_TODOS, TOGGLE_COMPLETED, DELETE_TODO } from '../actions';
 
 const settingState = 
   [
-    {
-      todo: 'do something',
-      completed: false,
-      id: 0
-    },
-    {
-      todo: 'do something else',
-      completed: false,
-      id: 1
-    }
+    // {
+    //   todo: 'do something',
+    //   completed: false,
+    //   id: 0
+    // },
+    // {
+    //   todo: 'do something else',
+    //   completed: false,
+    //   id: 1
+    // }
   ]
 
 

@@ -21,7 +21,8 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addToDos = () => {
+  addToDos = (e) => {
+    e.preventDefault()
     const toAdd = {
       todo: this.state.aToDo,
       // completed: false,
@@ -40,15 +41,15 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        
+        <form onSubmit={this.addToDos}>
           <input 
             onChange={this.handleInputChange}
             placeholder="Type ToDo"
             value={this.state.aToDo}
             name="aToDo"
           />
-          <button onClick={this.addToDos} >Submit</button>          
-        
+          <button type="summit">Submit</button>          
+        </form>        
         <ToDoList list={this.props}/>
       </div>
     );
