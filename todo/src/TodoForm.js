@@ -16,7 +16,7 @@ class TodoForm extends Component {
 
   render() {
     const { setTodoInputVal } = this;
-    const { dispatchAddTodo } = this.props;
+    const { addTodo }         = this.props;
     const { todoInputVal }    = this.state;
     
     return (
@@ -32,7 +32,7 @@ class TodoForm extends Component {
           <input
             type='submit'
             value='New Task'
-            onClick={ () => dispatchAddTodo(todoInputVal) }
+            onClick={ () => addTodo(todoInputVal) }
           />
         </form>
       </div>
@@ -40,10 +40,4 @@ class TodoForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    dispatchAddTodo: todoInputVal => dispatch(addTodo(todoInputVal))
-  }
-}
-
-export default connect(null, mapDispatchToProps)(TodoForm);
+export default connect(null, { addTodo })(TodoForm);
