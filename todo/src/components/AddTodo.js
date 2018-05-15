@@ -22,11 +22,6 @@ class AddTodo extends Component {
   };
 
 
-// this takes marks items as completed
-//  toggleComplete = event => {
-//    this.props.completeTodo(event.target.id);
-//  };
-
   render() {
     return (
       <div>
@@ -59,4 +54,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { addTodo, toggleTodo })(AddTodo);
-//I do not really understand mapStateToProps very well and basically stole this from the redux documentation and other online sources.
+
+//I do not really understand mapStateToProps very well and basically stole this from the redux documentation and other online sources. I think this part links this file to our defined actions. It seems to the app specifically which parts of state should be shared.
