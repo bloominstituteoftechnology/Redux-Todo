@@ -27,7 +27,7 @@ render = () => {
         placeholder="Todo List" 
         type="text" 
         value={this.state.todolist}
-        onChange={this.handleTodoListChange}
+        onChange={this.handleTodoList}
       />
       <button onClick={this.addTodo}>Add Todo</button>
     </div>
