@@ -7,6 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { todoReducer } from './reducer';
+import { loadState, saveState } from './localStorage'
 
 // const dummyData = [
 //     {
@@ -26,7 +27,15 @@ import { todoReducer } from './reducer';
 //     },
 // ];
 
-const store = createStore(todoReducer);
+const persistedState = loadState();
+const store = createStore(
+    todoReducer,
+    persistedState
+);
+
+store.subscribe(() => {
+    saveState(store.getState());
+})
 
 ReactDOM.render(
     <Provider store={store}>
