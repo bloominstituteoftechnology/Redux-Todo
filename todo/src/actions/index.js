@@ -1,42 +1,29 @@
-/*
- * action types
- */
-​
-export const ADD_TODO = 'ADD_TODO'
-export const TOGGLE_TODO = 'TOGGLE_TODO'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-​
-/*
- * other constants
- */
-​
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
-​
-/*
- * action creators
- */
-​
-export function addTodo(text) {
-  return { 
-      type: ADD_TODO, 
-      text
+/* action types */
+
+export const ADD_TODO = "ADD_TODO";
+export const GET_TODOS = "GET_TODOS";
+export const DELETE_TODO = "DELETE_TODO";
+
+/* action creators */
+
+ export const addTodo = (newTodo) => {
+    return {
+        type: ADD_TODO,
+        payload: newTodo
     }
 }
-​
-export function toggleTodo(index) {
-  return { 
-      type: TOGGLE_TODO, 
-      index 
+
+export const getTodos = () => {
+    console.log("here");
+    return {
+        type: GET_TODOS,
+        payload: []
     }
 }
-​
-export function setVisibilityFilter(filter) {
-  return { 
-      type: SET_VISIBILITY_FILTER, 
-      filter 
+
+export const deleteTodo = (todo) => {
+    return {
+        type: DELETE_TODO,
+        payload: todo
     }
 }
