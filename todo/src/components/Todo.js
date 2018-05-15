@@ -14,9 +14,13 @@ class Todo extends Component {
     handleInput = (e) => {
         this.setState({ newTodo: e.target.value });
     }
-    handleClick = (e) => {
-        this.props.add(this.state.newTodo);
-        this.setState({ newTodo: '' });
+    handleAdd = (e) => {
+        // console.log(e.type);
+        // console.log(e.key);
+        if(e.type === 'click' || e.key === 'Enter'){
+            this.props.add(this.state.newTodo);
+            this.setState({ newTodo: '' });
+        }
     }
 
     handleToggle = (e) => {
@@ -32,17 +36,13 @@ class Todo extends Component {
     }
 
     /** Make the delte button appear on hover */
-    // toggleDelete = (index) => {
-    //     const badge = document.querySelector(`#badge${index}`)
-    // }
     handleMouseEnter = (e) => {
         const index = e.target.dataset.index;
         const badge = document.querySelector(`#badge${index}`)
         badge.classList.remove("invisible");
         badge.classList.add("visible");
         
-    }   
-    
+    }
     handleMouseLeave = (e) => {
         const index = e.target.dataset.index;
         const badge = document.querySelector(`#badge${index}`)
@@ -58,13 +58,14 @@ class Todo extends Component {
             <Container>
                 <Form>
                     <Input
+                        onKeyPress={this.handleAdd} 
                         onChange={this.handleInput}
                         value={this.state.newTodo}
                         name="new-task"
                         placeholder="Add new task..."
 
                     />
-                    <Button onClick={this.handleClick} >Add</Button>
+                    <Button onClick={this.handleAdd} >Add</Button>
                 </Form>
                 {todos.map(
                     (todo, i) => (<Row
