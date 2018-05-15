@@ -16,13 +16,6 @@ class App extends Component {
     this.props.updateField(event.target.value);
   }
 
-  handleTaskDone = (index) => {
-    this.props.toggle(index);
-  }
-
-  handleTaskDelete = (index) => {
-    this.props.deleteTodo(index);
-  }
 
 
 
@@ -33,7 +26,7 @@ class App extends Component {
         <h1>TODO</h1>
         <AddButton onClick={this.handleAddTask} />
         <AddField name="task" onChange={this.handleTaskType} value={this.props.state.field} />
-        <ListView {...this.props} onClick={this.handleTaskDone}  onButton={this.handleTaskDelete} />
+        <ListView {...this.props} onClick={this.props.toggle}  onButton={this.props.deleteTodo} />
       </div>
     );
   }
