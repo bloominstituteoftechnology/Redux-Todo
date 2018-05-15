@@ -1,4 +1,4 @@
-import { ADD, HANDLE_CHANGE, COMPLETE, REMOVE } from "../actions";
+import { ADD, HANDLE_CHANGE, REMOVE } from "../actions";
 
 export default (
   state = { input: "", todos: [] },
