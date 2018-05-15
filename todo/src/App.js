@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import AddButton, { AddField, ListView } from './components';
 import { connect } from 'react-redux';
-import { add, toggle, deleteTodo } from './actions';
+import { add, toggle, deleteTodo, updateField } from './actions';
 
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      task: ""
-    }
-  }
 
   handleAddTask = () => {
-    this.props.add(this.state.task);
-    this.setState({task: ""});
+    this.props.add(this.props.state.field);
+    this.props.updateField("");
   }
 
   handleTaskType = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.props.updateField(event.target.value);
   }
 
   handleTaskDone = (index) => {
@@ -33,22 +27,23 @@ class App extends Component {
 
 
   render() {
+
     return (
       <div>
-        <h1>{this.state.title}</h1>
+        <h1>TODO</h1>
         <AddButton onClick={this.handleAddTask} />
-        <AddField name="task" onChange={this.handleTaskType} value={this.state.task} />
+        <AddField name="task" onChange={this.handleTaskType} value={this.props.state.field} />
         <ListView {...this.props} onClick={this.handleTaskDone}  onButton={this.handleTaskDelete} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        todos: state
+        state: state
     };
 };
 
 
-export default connect(mapStateToProps, { add, toggle, deleteTodo })(App);
+export default connect(mapStateToProps, { add, toggle, deleteTodo, updateField })(App);

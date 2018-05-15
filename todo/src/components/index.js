@@ -13,7 +13,7 @@ export const ListView = (props) => {
   return (
     <ul>
       {
-        props.todos.map((todo, index) => {
+        props.state.todos.map((todo, index) => {
           if (!todo.complete) {
             return (
               <li key={index} onClick={() => props.onClick(todo.id)}>{todo.text}<button onClick={() => props.onButton(todo.id)} >Delete</button></li>
