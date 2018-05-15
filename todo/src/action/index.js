@@ -8,11 +8,12 @@ export const COMPLETE_TODO = "COMPLETE_TODO";
 
 
 export const addTodo = (value) => {
+    const date = new Date();
     return {
         type: ADD_TODO,
         payload: {
             id: v4(),
-            date: new Date(),
+            date: `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`,
             value: value,
             completed: false
         }

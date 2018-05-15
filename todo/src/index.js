@@ -15,17 +15,20 @@ import throttle from 'lodash/throttle';
 const dummyData = [
     {
         id: 1,
+        date: '3-7-2018',
+        value: "Celebrate being on this planet for another year. Yay.",
+        completed: false,
+    },
+    {
+        id: 2,
+        date: '4-15-2018',
         value: "Walk Dog",
         completed: false,
     },
-        {
-        id: 2,
-        value: "Netflix and Chill",
-        completed: false,
-    },
-        {
+    {
         id: 3,
-        value: "Play Poker",
+        date: '4-20-2018',
+        value: "Go on a trip on your favorite rocket ship",
         completed: false,
     },
 ]; // Above: Just some dummy data to throw into `createStore` to check things are working.
