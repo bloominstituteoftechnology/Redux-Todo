@@ -1,17 +1,21 @@
 import React from 'react';
 
 const ToDoList = (props) => {
-console.log(props)
+// console.log(props)
   return (
-    <ul>
+    <div>
       {props.list.toDos.map(todo => (
-      <li 
-        key={todo.id}
-        onClick={() => props.list.toggleCompleted(todo.id)}
-      >
-        {todo.todo}
-      </li>))}
-    </ul>
+      <ul key={todo.id}>
+        <li 
+          onClick={() => props.list.toggleCompleted(todo.id)}
+          style={todo.completed ? {textDecoration:"line-through"} : {textDecoration:"none"}}
+        >
+          {todo.todo}
+        </li>
+        <button onClick={() => props.list.deleteToDo(todo.id)}>remove</button>
+      </ul>
+    ))}
+    </div>
   )
 }
 

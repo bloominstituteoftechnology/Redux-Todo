@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ToDoList from './components/ToDoList'
 
 import { connect } from 'react-redux';
-import { addToDos, toggleCompleted } from './actions'
+import { addToDos, toggleCompleted, deleteToDo } from './actions'
 
 import logo from './logo.svg';
 import './App.css';
@@ -12,6 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       aToDo: '',
+      idCount: 2
     }
   }
  
@@ -24,10 +25,10 @@ class App extends Component {
     const toAdd = {
       todo: this.state.aToDo,
       // completed: false,
-      id: this.props.toDos.length
+      id: this.state.idCount
     }
     this.props.addToDos(toAdd);
-    this.setState({ aToDo: ''})
+    this.setState({ aToDo: '', idCount: this.state.idCount + 1})
     // console.log('test on click')
   }
 
@@ -63,4 +64,4 @@ const mapStateToProps = state => {
     
   }
 }
-export default connect(mapStateToProps, { addToDos, toggleCompleted })(App);
+export default connect(mapStateToProps, { addToDos, toggleCompleted, deleteToDo })(App);

@@ -1,4 +1,4 @@
-import { ADD_TODOS, TOGGLE_COMPLETED } from '../actions'; 
+import { ADD_TODOS, TOGGLE_COMPLETED, DELETE_TODO } from '../actions'; 
 
 const settingState = 
   [
@@ -21,8 +21,18 @@ export const reducersForToDo = (state = settingState, action) => {
       return state.concat(action.payload);
 
     case TOGGLE_COMPLETED:
-      console.log("clicked")
-      return state;
+      console.log(action.payload)
+      return state.map(todo => {
+        // todo.id === action.payload ? todo.completed = !todo.completed : todo;
+        if(todo.id === action.payload){
+          todo.completed = !todo.completed
+          return todo;
+        }return todo;
+      });
+
+    case DELETE_TODO:
+      console.log(action.payload)
+      return state.filter(todo => { return todo.id !== action.payload});
     default:
       return state;
   }
