@@ -25,7 +25,10 @@ class TodoForm extends Component {
                     name="todo"
                     type="todo"
                 />
-                <button onClick={() => this.props.addTodo(this.state.value)}>Add Todo</button>
+                <button onClick={() => {
+                   this.props.addTodo(this.state.value)
+                   this.setState({ value: "" })
+               }}>Add Todo</button>
             </div>
         );
     }
