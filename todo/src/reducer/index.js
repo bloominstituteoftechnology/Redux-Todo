@@ -9,15 +9,15 @@ export const todoReducer = (state = [], action) => {
             return newState.filter(obj => obj.id !== action.payload.id);
         case COMPLETE_TODO:
             return state.map(obj => {
-              if (obj.id === action.payload.id) {
-                return {
-                  ...obj,
-                  completed: true,
+                if (obj.id === action.payload.id) {
+                    return {
+                        ...obj,
+                        completed: !obj.completed,
+                    }
                 }
-              }
-              return {
-                ...obj,
-              };
+                return {
+                    ...obj,
+                };
             })
         default:
             return state;

@@ -12,13 +12,13 @@ class App extends Component {
         {this.props.todos.map((e, i) => {
           console.log(e.completed)
           return (
-            <div key={e.id}>
+            <div key={e.id} className="element">
 
-              <p style={e.completed ? { textDecoration: "line-through" } : { textDecoration: "none" }}> {e.value} </p>
-              <button onClick={() => {
+              <p className="list-text" style={e.completed ? { textDecoration: "line-through" } : { textDecoration: "none" }}>{e.value} </p>
+              <button className="btn" onClick={() => {
                 this.props.deleteTodo(e.id)
-              }}>delete</button>
-              <button onClick={() => {
+              }}>Delete</button>
+              <button className="btn" onClick={() => {
                 this.props.completeTodo(e.id)
               }}>Mark Completed</button>
             </div>

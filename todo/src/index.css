@@ -3,3 +3,49 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.list-text {
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.element {
+  border-radius: 5px;
+  border: 2px solid lightgray;
+  width: 700px;
+  align-self: center;
+  margin-top: 20px;
+  background: #4D7C8A;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.form-control {
+  width: 200px;
+  margin: 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  height: 20px;
+}
+
+.form {
+  background: #1B4079;
+}
+
+button {
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  border: 2px solid black;
+  background: white;
+  padding: 7px 10px;
+}
+
+button:hover {
+  background: lightblue;
+}

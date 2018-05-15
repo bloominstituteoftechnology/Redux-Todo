@@ -16,7 +16,7 @@ class TodoForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="form">
                 <input
                     onChange={this.valueChangedHandler}
                     className="form-control"
@@ -25,7 +25,7 @@ class TodoForm extends Component {
                     name="todo"
                     type="todo"
                 />
-                <button onClick={() => {
+                <button className="btn" onClick={() => {
                     this.props.addTodo(this.state.value)
                     this.setState({ value: "" })
                 }}>Add Todo</button>
