@@ -1,9 +1,9 @@
 import React from 'react';
 import { todo, todo2 } from '../actions';
 
-// const list = props => {
+const list = props => {
     
-// }
+}
 
 
 
