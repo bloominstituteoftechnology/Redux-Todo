@@ -7,12 +7,11 @@ class Todos extends Component {
     const { todos, remove } = this.props;
     return (
       <div>
-        <h2>Your To-do List:</h2>
+        <h2>To-do List:</h2>
         {todos.length > 0 &&
           todos.map((todo, index) => (
             <div key={todo.value}>
               <div>{todo.value}</div>
-              <input type="checkbox" onClick={() => complete(index)} />
               <button onClick={() => remove(index)}>Delete</button>
             </div>
           ))}
