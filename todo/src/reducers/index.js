@@ -1,12 +1,12 @@
-import { todo } from '../actions'; 
+import { ADD_TODO, COMPLETE_TOGGLE } from '../actions'; 
 
-export default (todo, action) => { 
+export default (todos = []   , action) => { 
     switch (action.type) {
-        case todo: 
-        return (todo.action.payload)    
-        case todo2:
-        return (todo.action.payload)
+        case ADD_TODO:
+            return todos.concat(action.payload);    
+        case COMPLETE_TOGGLE:
+            return todos.concat(action.payload);
         default:
-            return todo;    
+            return todos;    
     }
 }

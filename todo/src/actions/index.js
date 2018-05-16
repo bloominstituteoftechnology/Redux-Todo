@@ -1,17 +1,19 @@
-export const TODO_LIST = 'TODO_LIST';
-export const TODO_FORM = 'TODO_FORM';
+export const ADD_TODO = 'TODO_LIST';
+export const COMPLETE_TOGGLE = 'TODO_FORM';
 
 
 
-export const todoList = () => {
+export const addTodo = todo => {
     return {
-        type: TODO_LIST,
+        type: ADD_TODO,
+        payload: todo
     };
 }
 
 
-export const todoForm = () => {
+export const completeToggle = id => {
     return {
-        type: TODO_FORM,
+        type: COMPLETE_TOGGLE,
+        payload: id
     };
 }

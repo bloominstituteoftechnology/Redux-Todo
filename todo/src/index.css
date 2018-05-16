@@ -5,7 +5,8 @@ body {
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
-    ), url("https://amp.businessinsider.com/images/587f91c6dd08959a4e8b4579-960-720.jpg");
+    ),
+    url("http://www.lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2015/04/London-skyline_CS.jpg");
   height: 30em;
   width: 100%;
   background-repeat: no-repeat;

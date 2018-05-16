@@ -7,7 +7,7 @@ const list = props => {
 
 
 
-const mapStateToProps = state => {
+const mapStoreToProps = state => {
     return {
 
     };
@@ -15,4 +15,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, { todo, todo2 })(list);
+export default connect(mapStoreToProps, { ADD_TODO, COMPLETE_TODO })(list);
