@@ -1,17 +1,22 @@
 import { CREATE_TODO } from '../actions';
-
-let non_state = [];
-console.log('non_state', non_state);
+import { HANDLE_CLICK } from '../actions';
 
 export const todoReducer = (state = [], action) => {
     switch (action.type) {
         case CREATE_TODO:
             let newTodo = {
-                name: action.payload,
-                id: non_state.length,
+                value: action.payload,
+                completed: false,
             };
-            non_state.push(newTodo);
             return state.concat(newTodo);
+        case HANDLE_CLICK:
+            const item = document.getElementById(action.payload.index);
+            if (action.payload.todos[action.payload.index].completed === true) {
+                item.style.textDecoration = "line-through";
+            }
+            else {
+                item.style.textDecoration = "none";
+            }
         default:
             return state;
     }
