@@ -14,8 +14,8 @@ class AddTodo extends Component {
     this.setState({ todoItem: e.target.value });
   };
 
-  handleAddTodo = () => {
-    this.props.addTodo(this.state.todoItem); // this will be our action
+  handleAddTodoClick = () => {
+    this.props.addTodo(this.state.todoItem); // this will be our action function addTodo being invoked
     this.setState({ todoItem: "" });
   };
 
@@ -28,7 +28,7 @@ class AddTodo extends Component {
           value={this.state.todoItem}
           onChange={this.handleTodoItemChange}
         />
-        <button onClick={this.handleAddTodo}>Add Todo Item</button>
+        <button onClick={this.handleAddTodoClick}>Add Todo Item</button>
       </div>
     );
   }

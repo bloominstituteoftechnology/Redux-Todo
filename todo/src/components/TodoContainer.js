@@ -5,9 +5,9 @@ import AddTodo from './AddTodo'
 
 class TodoContainer extends Component {
 
+    // grabbing relevant state from action fetchTodos
     componentDidMount() {
         this.props.fetchTodos();
-
       }
 
     render() {
@@ -17,7 +17,6 @@ class TodoContainer extends Component {
                 <AddTodo />
                 <ul className="App-intro">
                 {this.props.todos.map(todo => <div key={ todo }><li>{ todo.value }</li><button onClick= {() => this.props.deleteTodo(todo)}>Delete Task</button></div>)}
-                
                 </ul>
 
             </div>
