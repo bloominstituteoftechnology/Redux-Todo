@@ -18,3 +18,7 @@
 .task-list > .incomplete .fa-check-circle {
   opacity: 0.1;
 }
+
+.task-list > li .delete {
+  
+}
