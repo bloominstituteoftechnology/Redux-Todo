@@ -21,9 +21,11 @@
   text-transform: uppercase;
 }
 
-.TaskInput button:hover {
-  background: #FFF;
+.TaskInput button:hover,
+.TaskInput button:focus {
+  background-color: #FFF;
   color: #333;
+  outline: none;
 }
 
 .TaskInput button:focus {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
 
 import { addTask } from '../../actions';
 
@@ -32,7 +32,7 @@ class TaskInput extends Component {
           value={this.state.newTask}
           onChange={this.handleOnChange}
         />
-        <Button onClick={this.addTaskOnClick}>Add</Button>
+        <button onClick={this.addTaskOnClick}>Add</button>
       </InputGroup>
       </div>
      )
