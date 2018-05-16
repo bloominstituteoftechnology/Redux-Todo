@@ -17,8 +17,10 @@ class TaskInput extends Component {
     this.setState({ [event.target.name]:event.target.value });
   };
   addTaskOnClick = () => {
-    this.props.addTask(this.state.newTask);
-    this.setState({ newTask:'' });
+    if(this.state.newTask !== ''){
+      this.props.addTask(this.state.newTask);
+      this.setState({ newTask: '' });
+    }
   };
   render() { 
     return ( 
