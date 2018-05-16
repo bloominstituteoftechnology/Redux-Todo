@@ -14,11 +14,13 @@ if(window.localStorage) {
 if (myStorage.length === 0) {
     console.log("myStorage.length === 0", true)
     initialState = [
-        {name:'Hola Caracola', done: false},
-        {name:'Qué pasa calabaza?', done: false},
+        {name:'Sample task: Learn harder CS and JS', done: false},
+        {name:'Sample task: Learn harder to code', done: false},
         {name:'To add a new task: hit "enter" or click the button', done: false},
+        {name: 'Task done...', done: true},
         {name:'To mark a task as done, click on the task.', done: false},
-        {name: 'Another task...', done: true}
+        {name:'....', done: false},
+        {name:'WELCOME! below some easy instruction, enjoy', done: false}
     ]
   
   
