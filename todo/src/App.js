@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'; 
+import { addTodo } from '/.Actions' 
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,7 +13,20 @@ class App extends Component {
     }
   }
 
+  addTodo = (e) => {
+    event.preventDefault(); 
+    this.props.addTodo({
+      value: this.state.newTodo, 
+      complete: false 
+    }); 
+    this.setState({
+      newTodo: ''
+    }); 
+  }
+
   
+
+
 
 
   render() {
