@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ListGroupItem } from 'reactstrap';
-import { toggleTask } from '../actions';
+import { toggleTask } from '../../actions';
 
 const Task = props => {
   return (

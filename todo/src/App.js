@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import TaskInput from './components/TaskInput';
-import TaskList from './components/TaskList';
+import TaskInput from './components/TaskInput/TaskInput';
+import TaskList from './components/TaskList/TaskList';
 
 class App extends Component {
   render() {
