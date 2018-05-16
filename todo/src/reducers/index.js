@@ -26,7 +26,8 @@ export const taskReducer = (state = initialState, action) => {
       return Object.assign({}, state, { tasks: newTaskList });
 
     case DELETE_TASK:
-      return state.todos.filter(task => task.id !== action.payload);
+      const newTaskList = state.tasks.filter(task => task.id !== action.payload);
+      return Object.assign({}, state, { tasks: newTaskList });
 
     default:
       return state;
