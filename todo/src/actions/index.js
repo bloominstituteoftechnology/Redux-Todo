@@ -1,23 +1,22 @@
 /* action types */
 
 export const ADD_TODO = "ADD_TODO";
-export const GET_TODOS = "GET_TODOS";
+export const TOGGLE_TODO = "TOGGLE_TODO";
 export const DELETE_TODO = "DELETE_TODO";
 
 /* action creators */
 
- export const addTodo = (newTodo) => {
+ export const addTodo = (todo) => {
     return {
         type: ADD_TODO,
-        payload: newTodo
+        payload: todo
     }
 }
 
-export const getTodos = () => {
-    console.log("here");
+export const toggleTodo = (todo) => {
     return {
-        type: GET_TODOS,
-        payload: []
+        type: TOGGLE_TODO,
+        payload: todo
     }
 }
 

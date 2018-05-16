@@ -1,28 +1,57 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ToDoList from './components/TodoList';
+import './css/App.css';
 
-import NewTodo from './components/NewTodo';
-import TodoList from './components/TodoList';
+import {addTodo, toggleTodo, deleteTodo} from './actions';
+import {connect} from 'react-redux';
 
-import { connect } from 'react-redux';
-import { getTodos } from './actions';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.getTodos();
+  constructor() {
+    super();
+    this.state = {
+      title: 'Welcome to My Todo App',
+      char: '',
+      // todos: this is in the Store Check mapStateToProps
+    }
   }
+  // lets build input that will allow us to type a new todo char
+  // then a button, that will add that char into our chars array
+  handleNameChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmitTodo = () => {
+    let nextId = Date.now();
+    var todo = {
+      task: this.state.char, 
+      id: nextId, 
+      completed: false
+    };
+
+    this.props.addTodo(todo);
+    this.setState({char: ''});
+  };
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">To Do:</h1>
-        </header>
-        <NewTodo/>
-        <TodoList todo={this.props.todo}/>
-      </div>
+      <div>
+        <h1>{this.state.title}</h1>
+        <input
+          name="char" // should be known as the state.value of the thing we update
+          onChange={this.handleNameChange}
+          onKeyPress={
+            (event) => {
+              if(event.key === 'Enter'){
+                this.handleSubmitTodo();
+              }
+            }
+          }
+          value={this.state.char} // should be bound to the state.value of thing we update
+          placeholder="New todo here"
+        />
+        <ToDoList/>
+    </div>
     );
   }
 }
@@ -33,4 +62,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps,{ getTodos })(App);
+export default connect(mapStateToProps, {addTodo, toggleTodo, deleteTodo})(App);
