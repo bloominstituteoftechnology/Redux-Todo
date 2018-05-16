@@ -1,12 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import todoReducer from './reducers/todos';
+import { createStore, combineReducers } from 'redux';
 import reducers from './reducers';
 
 
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { addTodo } from './actions';
+
+const rootReducer = combineReducers({
+    todo: todoReducer    
+});
+
+// const store = createStore(rootReducer);
+
+// console.log(store.getState());
+
+// store.subscribe(() => {
+//     console.log(store.getState());
+// })
+
+// store.dispatch(addTodo());
 
 
-ReactDOM.render(<Provider store={createStore(reducers)}><App /></Provider>, document.getElementById('root'));registerServiceWorker();
+ReactDOM.render(
+    <Provider store={createStore(reducers)}>
+        <App/>
+    </Provider>,
+    document.getElementById('root')
+)
