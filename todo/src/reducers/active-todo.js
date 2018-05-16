@@ -1,15 +1,15 @@
 import { createStore, combineReducers } from 'redux';
 
 const initalState = {todo: [], value: "Walked the dog" , value: false}
-const todoReducer = (state = intialState, action) => {
+const todoReducer = ( state = initalState, action) => {
     switch (action.type) {
         case 'ADD_TODO':
-            return state.concat(action.payload);
+            return Object.assign({}, state, {value: state.value + action.payload});
         default:
-            return stateProp;
+            return state;
     }
 };
 
-console.log(todoReducer)
+
 
 export default todoReducer;
