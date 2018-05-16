@@ -25,7 +25,7 @@ class App extends Component {
     e.preventDefault()
     const toAdd = {
       todo: this.state.aToDo,
-      // completed: false,
+      completed: false,
       id: this.state.idCount
     }
     this.props.addToDos(toAdd);

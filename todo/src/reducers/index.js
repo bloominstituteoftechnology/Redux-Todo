@@ -25,8 +25,8 @@ export const reducersForToDo = (state = settingState, action) => {
       return state.map(todo => {
         // todo.id === action.payload ? todo.completed = !todo.completed : todo;
         if(todo.id === action.payload){
-          todo.completed = !todo.completed
-          return todo;
+          return Object.assign({}, todo, {completed: !todo.completed})
+          ;
         }return todo;
       });
 
