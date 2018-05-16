@@ -22,4 +22,4 @@ class App extends Component {
 
 export default App;
 
-
+//I'm not totally sure this needs to be a separate file but it was already in here so I just put my AddTodo component here in the return so that it would display.
