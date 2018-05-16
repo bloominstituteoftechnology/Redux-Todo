@@ -1,18 +1,47 @@
 import React from 'react';
-import { todo, todo2 } from '../actions';
+import { ADD_TODO, COMPLETE_TOGGLE } from '../actions';
 
-const list = props => {
-    
+class todoForm extends Component {
+    constructor() {
+        super();
+        this.state = {
+            todoValue: ''
+        };
+        this.addTodo = this.addTodo.bind(this);
+        this.updateNewTodo = this.updateNewTodo.bind(this);
+    }
+
+    addTodo(event) {
+        event.preventDefault();
+        this.props.addTodo({
+            value: this.state.todoValue,
+            completed: false
+        });
+        this.setState({ todoValue: '' });
+    }
+    updateNewTodo(event) {
+        this.setState({ todoValue: event.target.value })
+    }
+    render() {
+        return (
+            <div className="todoForm">
+                <form onSubmit={this.addTodo}>
+                    <input
+                        onChange={this.updateNewTodo}
+                        placeholder="entries go here"
+                        value={this.state.todoValue} />
+                </form>
+            </div>
+        );
+    }
+}
+
+const mapStoreToProps = (store) => {
+    return {
+        todos: store.todos
+    }
 }
 
 
 
-const mapStoreToProps = state => {
-    return {
-
-    };
-};
-
-
-
-export default connect(mapStoreToProps, { ADD_TODO, COMPLETE_TODO })(list);
+export default connect(mapStoreToProps, { ADD_TODO })(list);

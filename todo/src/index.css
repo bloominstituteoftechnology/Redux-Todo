@@ -3,8 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-image: linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
     ),
     url("http://www.lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2015/04/London-skyline_CS.jpg");
   height: 30em;
