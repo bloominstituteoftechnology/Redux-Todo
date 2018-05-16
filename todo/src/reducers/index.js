@@ -16,17 +16,15 @@ const retrieveData = () => {
 export default (state = retrieveData(), action) => {
     switch (action.type) {
         case ADD_TODO:
-            const stateCopy = Array.from(state);;
+            const stateCopy = Array.from(state);
             stateCopy.push(action.payload);
             saveData(stateCopy);
             return stateCopy;
         case COMPLETE_TODO:
             const stateCopy2 = Array.from(state);
-            if (stateCopy2[action.payload].completed === true) {
-                stateCopy2[action.payload].completed = false;
-            } else {
+            stateCopy2[action.payload].completed === true ?
+                stateCopy2[action.payload].completed = false :
                 stateCopy2[action.payload].completed = true;
-            }
             saveData(stateCopy2);
             return stateCopy2;
         case REMOVE_TODO:
