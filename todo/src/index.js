@@ -6,10 +6,12 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import { createStore } from "redux";
 
+import { todoReducer } from "./reducers";
 
 
 
-const store = createStore((() => {})); //most basic reducer, will be replaced by reducer soon
+
+const store = createStore(todoReducer); //most basic reducer, will be replaced by reducer soon
 
 ReactDOM.render(
 <Provider store={store}> 

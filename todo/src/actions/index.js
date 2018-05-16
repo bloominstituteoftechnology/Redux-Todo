@@ -1,15 +1,19 @@
-export const CREATE_LIST = "CREATE_LIST"
-
+export const CREATE_LIST = "CREATE_LIST";
+export const ADD_TODO = "ADD_TODO";
+export const COMPLETION = "COMPLETION";
 
 export const createList = () =>{
     return {
-        todo: [],
+        type: 'CREATE_LIST',
+        payload: [],
     }
 };
 
 
-export const addToDo = () => {
+export const addToDo = todo => {
     return {
-        type
+        type: "ADD_TODO",
+        payload: todo,
     }
 }
+
