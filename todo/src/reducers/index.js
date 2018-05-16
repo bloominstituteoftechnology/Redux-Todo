@@ -1,12 +1,10 @@
-// import { ADD, COMPLETED } from '..'
+import { addTodo, setVisibilityFilter, toggleTodo } from '../actions';
 
-export default (todo = {}, action ) => {
+const todo = (state = [], action) => {
     switch (action.type) {
-        case ADD:
-            return todo ++;
-        case COMPLETED:
-            if (COMPLETED === true) {
-                //mark completed
-            }
+        case ADD_TODO:
+            return (
+                [...state, { id: action.id, text: action.text, completed: false }]
+            );
     }
-};
+}
