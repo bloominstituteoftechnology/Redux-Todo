@@ -13,19 +13,19 @@ const rootReducer = combineReducers({
     todo: todoReducer    
 });
 
-// const store = createStore(rootReducer);
+const store = createStore(rootReducer);
 
-// console.log(store.getState());
+console.log(store.getState());
 
-// store.subscribe(() => {
-//     console.log(store.getState());
-// })
+store.subscribe(() => {
+    console.log(store.getState());
+})
 
-// store.dispatch(addTodo());
+store.dispatch(addTodo());
 
 
 ReactDOM.render(
-    <Provider store={createStore(reducers)}>
+    <Provider store={store}>
         <App/>
     </Provider>,
     document.getElementById('root')
