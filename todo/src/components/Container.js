@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo, toggleTodo} from './actions';
 
+import TodoInput from './TodoInput';
+
+
 class Container extends Component{
     render(){
         console.log(this.props)
         return (
             <div>
-                <h1>Redux Todo List</h1>
                  <ul>
                     {this.props.todos.map((todo) => {
                         return (
@@ -17,7 +19,7 @@ class Container extends Component{
                         )
                     })}
                 </ul>
-                <button onClick={() => this.props.addTodo()}> add Todo</button>
+                <TodoInput />
             </div>
         )
     } 
