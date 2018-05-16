@@ -1,0 +1,20 @@
+.task-list > li {
+  cursor: pointer;
+  text-align: left;
+}
+
+.task-list > li:hover {
+  background: #f7f7f7;
+}
+
+.task-list > li .fa-check-circle {
+  margin-right: 10px;
+}
+
+.task-list > .complete {
+  text-decoration: line-through;
+}
+
+.task-list > .incomplete .fa-check-circle {
+  opacity: 0.1;
+}
