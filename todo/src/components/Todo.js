@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import Todos from 'todos'; 
 import { addItem } from '../actions';
 
+// My Container
+
 class Todo extends Component {
 
     displayTodoList() {
@@ -22,7 +24,7 @@ class Todo extends Component {
     handleInputChange = (event) => { this.setState({[event.target.todos]: event.target.value}) }
 
     buttonSubmit = () => {
-        
+
     }
 
     render() {
