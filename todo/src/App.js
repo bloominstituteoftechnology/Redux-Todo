@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import TaskInput from './components/TaskInput';
+import TaskList from './components/TaskList';
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">To Do App</h1>
         </header>
+        <TaskList />
         <TaskInput />
       </div>
     );

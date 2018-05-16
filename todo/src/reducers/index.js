@@ -2,7 +2,7 @@ import { ADD_TASK, TOGGLE_TASK, DELETE_TASK } from '../actions/actionTypes';
 
 let taskId = 0;
 const initialState = {
-  todos: []
+  tasks: []
 };
 
 export const taskReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ export const taskReducer = (state = initialState, action) => {
         completed: false
       }
       taskId++;
-      return Object.assign({}, state, { todos: state.todos.concat(newTask)});
+      return Object.assign({}, state, { tasks: state.tasks.concat(newTask)});
 
     case TOGGLE_TASK:
       return state.todos.map(task => {
