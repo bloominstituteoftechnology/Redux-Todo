@@ -1,18 +1,15 @@
-import React from 'react';
-import { todo, todo2 } from '../actions';
+import React from 'react'
+import Proptypes from 'prop-types'; 
 
-const list = props => {
-    
-}
+const Todo = ({ onClick, completed, text }) => (
+    <li
+        onClick={onclick}
+        style={{
+            textDecoration: completed ? 'line-through' : 'none'        
+        }}
+    > 
+        {text}
+    </li>    
+)
 
-
-
-const mapStateToProps = state => {
-    return {
-
-    };
-};
-
-
-
-export default connect(mapStateToProps, { todo, todo2 })(list);
+export default Todo; 
