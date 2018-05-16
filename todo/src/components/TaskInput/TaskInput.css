@@ -1,0 +1,31 @@
+.TaskInput .add-task-symbol {
+  align-items: center;
+  margin-left: 1.5rem;
+}
+
+.TaskInput input {
+  border: none;
+}
+
+.TaskInput input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.TaskInput button {
+  background: #FFF;
+  border: none;
+  color: #333;
+  font-size: 0.75rem;
+  margin-right: 1.5rem;
+  text-transform: uppercase;
+}
+
+.TaskInput button:hover {
+  background: #FFF;
+  color: #333;
+}
+
+.TaskInput button:focus {
+  box-shadow: none;
+}

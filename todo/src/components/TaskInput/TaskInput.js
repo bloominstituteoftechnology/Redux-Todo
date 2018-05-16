@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
+
 import { addTask } from '../../actions';
+
+import './TaskInput.css';
 
 class TaskInput extends Component {
   constructor(props) {
@@ -18,15 +22,18 @@ class TaskInput extends Component {
   };
   render() { 
     return ( 
-      <div>
-        <input
+      <div className="TaskInput">
+      <InputGroup>
+        <InputGroupAddon className="add-task-symbol" addonType="prepend"><i className="fas fa-plus"></i></InputGroupAddon>
+        <Input
           name="newTask"
           type="text"
           placeholder="Add a task"
           value={this.state.newTask}
           onChange={this.handleOnChange}
-         />
-         <button onClick={this.addTaskOnClick}>Add</button>
+        />
+        <Button onClick={this.addTaskOnClick}>Add</Button>
+      </InputGroup>
       </div>
      )
   }
