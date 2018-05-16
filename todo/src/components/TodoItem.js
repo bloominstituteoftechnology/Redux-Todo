@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { toggleComplete } from '../actions';
+import { handleDelete } from '../actions';
 import { connect } from 'react-redux';
 
 class TodoItem extends Component {
