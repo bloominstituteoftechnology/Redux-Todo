@@ -17,7 +17,9 @@ export default (state = [], action) => {
             }
             return stateCopy2;
         case REMOVE_TODO:
-            
+            const stateCopy3 = Array.from(state);
+            stateCopy3.splice(action.payload, 1);
+            return stateCopy3;
         default:
             return state;
     }

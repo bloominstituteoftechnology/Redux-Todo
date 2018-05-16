@@ -28,6 +28,11 @@ class TodoList extends Component {
         console.log(this.props.todos);
     }
 
+    handleRemoveTodo = (event, index) => {
+        event.preventDefault();
+        this.props.removeTodo(index)
+    };
+
     render() {
         // console.log(this.props.todos);
         return (
@@ -45,22 +50,22 @@ class TodoList extends Component {
                 {this.props.todos.map((item, index) => {
                     if (item.completed === true) {
                         return (
-                        <div>
+                        <div key={item.todoText}>
                             <li 
-                            key={item.todoText} 
                             onClick={(event) => {
                                 this.handleCompleteTodo(event, index)
                             }}
                             >
                             {item.todoText}
                             </li>
-                            <button value={index} onClick={}>X</button>
+                            <button value={index} onClick={(event) => {
+                                this.handleRemoveTodo(event, index)
+                            }}>X</button>
                         </div> )
                     } else {
                         return (
-                        <div>
+                        <div key={item.todoText}>
                             <li
-                                key={item.todoText}
                                 onClick={(event) => {
                                     this.handleCompleteTodo(event, index)
                                 }}
