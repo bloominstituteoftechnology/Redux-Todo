@@ -66,11 +66,11 @@ class Todo extends Component {
                             value={this.state.newTodo}
                             name="new-task"
                             placeholder="Add new task..."
-
                         />
                     </FormGroup>
-                    <Button onClick={this.handleAdd} >Add</Button>
+                    <Button onClick={this.handleAdd} >Add task to list</Button>
                 </Form>
+                <hr className="border"/>
                 {todos.map(
                     (todo, i) => (<Row
                                     style={{cursor: "pointer"}}
@@ -78,14 +78,13 @@ class Todo extends Component {
                                     onClick={this.handleToggle}
                                     >
                                         {/* data-finished="no" */}
-                                    <Col
-                                        className={todo.done ? 'taskDone' : ''}
+                                    <Col xs="12" sm={{ size: 10, offset:1 }}
+                                        className={todo.done ? 'text-left border border-info taskDone' : ('text-left border border-info')}
                                         id={`task-${i}`}
                                         data-index={length--}
                                         onMouseEnter={this.handleMouseEnter}
                                         onMouseLeave={this.handleMouseLeave}
                                     >
-                                        {todo.name}
                                         <Badge
                                             className="invisible"
                                             onClick={this.handleRemove}
@@ -94,6 +93,7 @@ class Todo extends Component {
                                             id={`badge${length + 1}`}
                                         >Delete
                                         </Badge>
+                                        {todo.name}
                                     </Col>
                                 </Row>)
                 )}
