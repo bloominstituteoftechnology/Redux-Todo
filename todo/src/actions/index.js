@@ -12,6 +12,5 @@ export const toggleTodo = id => {
   return {
     type: TOGGLE_TODO,
     payload: id
-    // payload: {completed: !todo.completed}//I don't know?
   }
 }

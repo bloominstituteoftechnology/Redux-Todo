@@ -17,10 +17,3 @@ export const todoReducer = (state = [], action)  => {
       return state;
   }
 };
-
-//case COMPLETE_TODO:
-//const myState = state.map(todo => {
-//   if (todo.id === action.payload) {
-//     return Object.assign({}, todo, {completed: !todo.completed})
-//   }
-// })
