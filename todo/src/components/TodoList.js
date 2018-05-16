@@ -5,7 +5,7 @@ import { addToDo } from '../actions'
 const ToDoList = props => {
         return (
             <div>
-                <form onSubmit={(event) => { props.addToDo(this.input.value); event.preventDefault()}}>
+                <form onSubmit={(event) => { props.addToDo(this.input.value); event.preventDefault(); this.input.value=''}}>
                     <label>
                         Add Item:
                     <input type="text" ref={(input) => this.input = input} />
