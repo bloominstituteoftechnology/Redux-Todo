@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Row, Col, Form, Input, Button, Badge} from 'reactstrap';
+import {Container, Row, Col, Form, FormGroup, Input, Button, Badge} from 'reactstrap';
 import {add , remove, toggle} from '../actions';
 import {connect} from 'react-redux';
 
@@ -59,14 +59,16 @@ class Todo extends Component {
         return (
             <Container>
                 <Form>
-                    <Input
-                        onKeyPress={this.handleAdd} 
-                        onChange={this.handleInput}
-                        value={this.state.newTodo}
-                        name="new-task"
-                        placeholder="Add new task..."
+                    <FormGroup>
+                        <Input
+                            onKeyPress={this.handleAdd} 
+                            onChange={this.handleInput}
+                            value={this.state.newTodo}
+                            name="new-task"
+                            placeholder="Add new task..."
 
-                    />
+                        />
+                    </FormGroup>
                     <Button onClick={this.handleAdd} >Add</Button>
                 </Form>
                 {todos.map(
