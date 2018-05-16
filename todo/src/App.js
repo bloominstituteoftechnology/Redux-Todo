@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './containers/Todos';
+import TodoList from './containers/TodoList';
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,6 +9,7 @@ class App extends Component {
     return (
       <div>
         <Todos />
+        <TodoList />
       </div>
     );
   }
