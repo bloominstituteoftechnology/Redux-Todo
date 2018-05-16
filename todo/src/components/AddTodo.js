@@ -31,9 +31,14 @@ render = () => {
       <button onClick={this.addTodo}>Add Todo</button>
 
       <ul>
-        {this.props.todos.map(todo => {
+        {this.props.todos.map((todo, i) => {
           return(
-            <li key={todo.value} onClick={this.props.toggleTodo}>{todo.value}</li>
+            <li 
+              key={todo.id} 
+              style={todo.completed ? {textDecoration: 'line-through'} : null}
+              onClick={() => this.props.toggleTodo(todo.id)}>
+              {todo.value}
+            </li>
           );
         })}
       </ul>

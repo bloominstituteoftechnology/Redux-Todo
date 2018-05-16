@@ -6,7 +6,7 @@ export const todoReducer = (state = [], action)  => {
       return state.concat(action.payload);
     case TOGGLE_TODO:
       return state.map(todo => {
-        if (todo.value === action.payload) {
+        if (todo.id === action.payload) {
           return Object.assign({}, todo, {completed: !todo.completed});
         }
         else {
@@ -17,3 +17,10 @@ export const todoReducer = (state = [], action)  => {
       return state;
   }
 };
+
+//case COMPLETE_TODO:
+//const myState = state.map(todo => {
+//   if (todo.id === action.payload) {
+//     return Object.assign({}, todo, {completed: !todo.completed})
+//   }
+// })
