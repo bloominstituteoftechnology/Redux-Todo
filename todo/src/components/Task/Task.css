@@ -20,5 +20,14 @@
 }
 
 .task-list > li .delete {
-  
+  background: transparent;
+  border: none;
+  float: right;
+  opacity: 0.1;
+}
+
+.task-list > li .delete:hover {
+  color: red;
+  cursor: pointer;
+  opacity: 1;
 }
