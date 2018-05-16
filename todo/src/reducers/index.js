@@ -5,23 +5,35 @@ import {ADD, REMOVE, TOGGLE} from '../actions'
 let initialState = [];
 let localStore;
 let myStorage;
-window.localStorage
-    ?
+if(window.localStorage) {
     myStorage = window.localStorage
-    :
-    /** Set initialState from localStorage */
-    (myStorage.length === 0
-        ?
-        initialState = [
+
+} 
+
+/** Set initialState from localStorage */
+if (myStorage.length === 0) {
+    console.log("myStorage.length === 0", true)
+    initialState = [
         {name:'Hola Caracola',done: false},
         {name: 'Qué pasa calabaza?', done: false},
         {name: 'Another task...', done: true}
-        ]
-        :
-        myStorage.forEach( data => initialState.push(JSON.parse(data)) )
-    );
+    ]
+  
+  
+} else {
+    console.log("myStorage.length === 0", false);
+    console.log(myStorage);
 
-console.log(myStorage);
+    const length = myStorage.length;
+    for( let i = 0; i < length; ++i ) {
+        console.log(myStorage.getItem(`item-${i}`));
+        console.log(JSON.parse( myStorage.getItem(`item-${i}`) ))
+        initialState.push( JSON.parse( myStorage.getItem(`item-${i}` )));
+
+    }
+}
+// console.log("Starting Storage",myStorage);
+// console.log("initialState)",initialState);
 
 function addToLocalStorage (state) {
     for (let i in localStorage) {

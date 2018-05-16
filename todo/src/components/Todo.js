@@ -18,9 +18,11 @@ class Todo extends Component {
         // console.log(e.type);
         // console.log(e.key);
         if(e.type === 'click' || e.key === 'Enter'){
+            e.preventDefault();
             this.props.add(this.state.newTodo);
             this.setState({ newTodo: '' });
         }
+        e.stopPropagation();
     }
 
     handleToggle = (e) => {
