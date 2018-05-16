@@ -4,17 +4,14 @@ import { connect } from 'react-redux';
 
 class TodoItem extends Component {
 
-  handleDelete(event) {
-    this.props.handleDelete(this.props.index);
-  }
-
   render() {
+    //console.log(this.props.index)
     return (
       <div>
         <li>
           {this.props.todo.value}
         </li>
-        <button type="text" onClick={() => handleDelete(e)}>remove</button>
+        <button type="text" onClick={() => this.props.handleDelete(this.props.index)}>remove</button>
       </div>  
     );
   }
