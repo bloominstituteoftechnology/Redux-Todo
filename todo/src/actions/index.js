@@ -3,7 +3,7 @@ export const COMPLETE_TOGGLE = 'TODO_FORM';
 
 
 
-export const addTodo = todo => {
+export const addTodo = (todo) => {
     return {
         type: ADD_TODO,
         payload: todo
@@ -11,9 +11,9 @@ export const addTodo = todo => {
 }
 
 
-export const completeToggle = id => {
+export const completeToggle = (index) => {
     return {
         type: COMPLETE_TOGGLE,
-        payload: id
+        payload: index
     };
 }
