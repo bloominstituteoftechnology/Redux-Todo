@@ -1,17 +1,33 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { toggleTodo } from '../actions'
 
-const ToDo = props => {
+const Todo = props => {  console.log('Todo props', props)
     return (
-    <div>
-        <input
-        name="todo"
-        value={props.todo}
-        type="text"
-        onChange={props.handleChange}
-        placeholder="Add item"
-    />
-    <button onClick={props.addToDo}> Add Todo </button>
-    </div>
+      
+        <div>
+            {props.todos.map(todo => {
+            return (
+                <div key={todo.id}>
+                    <li
+                        onClick={() => props.toggleTodo(todo.id)}
+                        style={ {
+                            textDecoration: todo.complete ? 'line-through' : 'none'
+                        }}
+                        name="todo"
+                        value={todo.complete}>
+                        {todo.text}
+                    </li>
+            
+                </div>)})}
+        </div>
     )
+
 }
-export default ToDo
+const mapStateToProps = state => {
+    return {
+        todos: state.todos
+    }
+}
+
+export default connect(mapStateToProps, { toggleTodo })(Todo)

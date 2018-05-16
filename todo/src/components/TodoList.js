@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { todoToggle } from '../actions'
+import { addToDo } from '../actions'
 
-const strikeout = { textDecoration: 'line-through'}
-const ToDoList = props => {
-    return (
-        <div>
-                <ul>
-                    {props.todos.map(todo => (
-                    <li
-                        key={todo.id}
-                        style={todo.completed ? strikeout : null}
-                        onClick={() => props.todoToggle(todo.id)}>
-                    {todo.text}
-                    </li>
-                    ))}
-                    </ul>
-        </div>
-    )
+class ToDoList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            todo: [],
+            item: '',
+        };
+    }
+    handleChange = event => {
+        this.setState({ [event.target.name]: event.target.value});
+    };
+    
+    render() {
+        return (
+            <div>
+                <input
+                    name="item"
+                    onChange={this.handleChange}
+                    value={this.state.item}
+                    placeholder="Add a item"
+                    />
+                    <button value={this.state.item} type="submit" onClick={(event) => this.props.addToDo(event.target.value)}> Add Item </button>
+            </div>
+        )
+    }
 }
 
-
-export default connect(null, { todoToggle })(ToDoList)
-
+export default connect(null, { addToDo })(ToDoList)
