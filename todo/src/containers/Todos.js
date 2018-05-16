@@ -12,7 +12,7 @@ class Todos extends Component {
             );
         }
         return (
-            <li>{this.props.todo}</li>
+            <li>{}</li>
         );
     }
 }
