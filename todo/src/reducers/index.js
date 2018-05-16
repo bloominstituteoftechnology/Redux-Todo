@@ -17,13 +17,13 @@ export const taskReducer = (state = initialState, action) => {
       return Object.assign({}, state, { tasks: state.tasks.concat(newTask)});
 
     case TOGGLE_TASK:
-      const newTaskList = state.tasks.map(task => {
+      const toggledTaskList = state.tasks.map(task => {
         if (task.id === action.payload) {
           return Object.assign({}, task, { completed: !task.completed });
         }
         return task;
       });
-      return Object.assign({}, state, { tasks: newTaskList });
+      return Object.assign({}, state, { tasks: toggledTaskList });
 
     case DELETE_TASK:
       const newTaskList = state.tasks.filter(task => task.id !== action.payload);
