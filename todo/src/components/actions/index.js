@@ -1,16 +1,26 @@
 const ADD_TODO = "ADD_TODO";
+//const REMOVE_TODO = "REMOVE_TODO";
 const TOGGLE = "TOGGLE";
 
-export const addTodo = (text) => {
+export const addTodo = (todo) => {
     return{
         type: 'ADD_TODO',
-         payload: text
+        payload: todo,
     }
 }
 
-export const toggleTodo = (index) => {
+
+// export const removeTodo = (text) => {
+//     return {
+//         type: 'REMOVE_TODO',
+//         payload: text
+//     }
+// }
+
+export const toggleTodo = (id) => {
+    console.log("id",id)
     return {
         type: 'TOGGLE',
-        payoad: index
+        payload: id
     }
 }

@@ -1,31 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo } from './actions';
+import { addTodo } from './actions';
 
 class TodoInput extends Component {
     constructor(){
         super()
         this.state = {
-           text: " "
+           text: ""
         }
     }
 
     handleInputChange = e => {
         console.log(this.state)
-        this.setState({ [e.target.text]: e.target.value });
+        this.setState({ text: e.target.value });
     };
+
+    submitTodo = (e) =>{
+        e.preventDefault();
+        const { text } = this.state;
+        const newTask = { text, completed: false, id: Date.now()}
+        this.props.addTodo(newTask);
+        this.setState({text:''})
+    }
 
 
     render() {
         return (
             <div>
-                <form onSubmit={this.props.addTodo(this.state.text)}>
+                <form >
                     <input
                         onChange={this.handleInputChange}
-                        value={this.state.name}
+                        value={this.state.text}
                         text="text"
                     />
-                    <button type="submit" >Add todo</button>
+                    <button onClick={this.submitTodo} >Add todo</button>
                 </form>
             </div>
         )

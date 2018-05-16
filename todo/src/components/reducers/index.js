@@ -1,17 +1,20 @@
-import { ADD_TODO, TOGGLE } from '../actions'
+import { ADD_TODO, TOGGLE, } from '../actions'
 
-export default (state = [], action) => {
+
+const initialState = [
+    {text: "Testing", id: Date.now(), completed: false}
+]
+
+export default (state = initialState, action) => {
     switch(action.type){
         case 'ADD_TODO':
-            return state.concat({text: action.payload, completed: false});
+            return state.concat(action.payload);
         case 'TOGGLE':
-            return state.map((state, index)=>{
-                if(index === action.index){
-                    return state.concat({}, state, {completed: !state.completed}
-                    )
-                }
-                else{
-                    return state;
+            return state.map((todo)=>{
+                if(todo.id === action.payload){
+                    return Object.assign({}, todo,{completed: !todo.completed})
+                }else{
+                    return todo;
                 }
             })
         default:
