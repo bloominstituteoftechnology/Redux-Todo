@@ -37,11 +37,11 @@ class App extends Component {
     );
   }
 }
-const mapStoreToProps = (store) => {
+const mapStateToProps = (state) => {
   return {
-    todos: store.todos
+    todos: state.todos
   }
 }
 
 
-export default connect(mapStoreToProps, {addTodo})(App);
+export default connect(mapStateToProps, {addTodo})(App);
