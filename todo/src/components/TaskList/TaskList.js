@@ -5,7 +5,7 @@ import Task from '../Task/Task';
 
 const TaskList = props => {
   return (
-    <div>
+    <div className="TaskList">
       <ListGroup className='task-list'>
         {props.tasks.map(task => <Task key={task.id} task={task} />)}
       </ListGroup>
