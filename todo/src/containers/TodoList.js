@@ -31,8 +31,8 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDipatchToProps = (state) => {
+const mapDipatchToProps = (dispatch) => {
     return bindActionCreators({addTodo: addTodo}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDipatchToProps)(addTodo)
+export default connect(mapStateToProps, mapDipatchToProps)(TodoList)
