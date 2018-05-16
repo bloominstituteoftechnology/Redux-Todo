@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { fetchTodos } from '../actions';
+import { fetchTodos, deleteTodo } from '../actions';
 import AddTodo from './AddTodo'
 
 class TodoContainer extends Component {
@@ -10,31 +10,13 @@ class TodoContainer extends Component {
 
       }
 
-
-
-    
-    // incrementIfOdd = () => {
-
-    //     return this.props.count % 2 !== 0 ?  this.props.increment(this.props.count) : this.props.count
-    // };
-
-    // incrementAsync = () => {
-    //     // Stretch Problem: Implement an increment function that
-    //     // increments after waiting for one second
-    //     setTimeout(() => {
-    //         this.props.increment (this.props.count)
-    //     },1000)
-    // };
-
     render() {
-        // Fill in the two button onClick methods
-        // Upon clicking these buttons, the count
-        // should decrement or increment accordingly
+
         return (
             <div>
                 <AddTodo />
                 <ul className="App-intro">
-                {this.props.todos.map(todo => <div key={ todo }><li>{ todo.value }</li><button>Task Complete!</button></div>)}
+                {this.props.todos.map(todo => <div key={ todo }><li>{ todo.value }</li><button onClick= {() => this.props.deleteTodo(todo)}>Delete Task</button></div>)}
                 
                 </ul>
 
@@ -60,4 +42,4 @@ const mapStateToProps = (state) => {
 // is only a dumb React component. We pass in all of the functions that
 // are reliant on Redux, along with the component itself, so that Redux
 // makes itself known to this component.
-export default connect(mapStateToProps, { fetchTodos })(TodoContainer);
+export default connect(mapStateToProps, { fetchTodos, deleteTodo })(TodoContainer);

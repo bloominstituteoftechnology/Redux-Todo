@@ -14,7 +14,7 @@ class AddTodo extends Component {
     this.setState({ todoItem: e.target.value });
   };
 
-  addTodo = () => {
+  handleAddTodo = () => {
     this.props.addTodo(this.state.todoItem); // this will be our action
     this.setState({ todoItem: "" });
   };
@@ -28,10 +28,10 @@ class AddTodo extends Component {
           value={this.state.todoItem}
           onChange={this.handleTodoItemChange}
         />
-        <button onClick={this.addTodo}>Add Todo Item</button>
+        <button onClick={this.handleAddTodo}>Add Todo Item</button>
       </div>
     );
   }
 }
 
-export default connect(null, { addTodo })(AddTodo);
+export default connect(null, { addTodo } )(AddTodo);

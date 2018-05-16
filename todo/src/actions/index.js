@@ -1,5 +1,6 @@
 export const FETCH_TODOS = "FETCH_TODOS";
 export const ADD_TODO = "ADD_TODO";
+export const DELETE_TODO = "DELETE_TODO";
 
 export const fetchTodos = () => {
   return {
@@ -39,15 +40,20 @@ export const fetchTodos = () => {
   };
 };
 
-
-export const addTodo = todo => {
+export const addTodo  = (todo) => {
   return {
     type: ADD_TODO,
     payload: {value: todo, completed: false}
+  }
+}
+
+export const deleteTodo = (todo) => {
+  return {
+    type: DELETE_TODO,
+    payload: todo
   };
-};
 
-
+}
 
 
 
