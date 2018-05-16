@@ -14,7 +14,7 @@ export const taskReducer = (state = initialState, action) => {
         completed: false
       }
       taskId++;
-      return state.todos.concat(newTask);
+      return Object.assign({}, state, { todos: state.todos.concat(newTask)});
 
     case TOGGLE_TASK:
       return state.todos.map(task => {

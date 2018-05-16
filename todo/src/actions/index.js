@@ -3,7 +3,7 @@ import { ADD_TASK, TOGGLE_TASK, DELETE_TASK } from './actionTypes';
 export const addTask = task => {
   return {
     type: ADD_TASK,
-    payload: newTask
+    payload: task
   };
 };
 
