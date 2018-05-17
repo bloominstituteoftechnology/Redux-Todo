@@ -1,26 +1,16 @@
+export const ADD_TODO = 'ADD_TODO';
+export const COMPLETE_TODO = 'COMPLETE_TODO';
 
-
-export const addTodo = (text) => {
+export const addTodo = todo => {
     return {
         type: ADD_TODO,
-        id: nextTodoId++,
-        text:text,  
-        completed: false 
-    }
-}
+        payload: todo
+    };
+};
 
-
-export const setVisibilityFilter = (filter) => {
+export const completeTodo = id => {
     return {
-        type: SET_VISIBILITY_FILTER,
-        filter
-    }
-}
-
-
-export const toggleTodo = (id) => {
-    return {
-        type: TOGGLE_TODO,
-        id
-    }
-}
+        type: COMPLETE_TODO,
+        payload: id
+    };
+};
