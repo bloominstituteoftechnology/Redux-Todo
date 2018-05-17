@@ -1,26 +1,19 @@
-// export const ADD_TODO = 'ADDTODO';
-
-
-// export const addTodo = (todo) => {
-//     return {
-//         type: ADD_TODO,
-//         payload: todo,
-//     };
-// };
-
-export const ADD_TODO = 'ADD_TODO';
+export const ADD_TODO = 'ADDTODO';
 export const COMPLETE_TODO = 'COMPLETE_TODO';
 
-export const addTodo = packetFromSubmitTodo => {
-  return {
-    type: ADD_TODO,
-    payload: packetFromSubmitTodo
-  };
+//actions return an OBJECT with type and payload properties to the store
+//store dispatches this object to the reducers which makes a new copy of state and replaces it
+
+export const addTodo = (packetFromSubmitTodo) => {
+    return {
+        type: ADD_TODO,
+        payload: packetFromSubmitTodo,
+    };
 };
 
-export const completeTodo = id => {
+export const completeTodo = (idFromCompletedTodo) => {
   return {
     type: COMPLETE_TODO,
-    payload: id
-  };
-};
+    payload: idFromCompletedTodo,
+  }
+}
