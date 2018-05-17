@@ -4,7 +4,9 @@ import { addTask } from '../actions/index';
 import FormSubmit from './FormSubmit';
 
 class ToDoList extends Component{
-
+    componentDidMount(){
+        this.props.addTask();
+    }
     
 
     submitHandle = (e) =>{
@@ -21,12 +23,13 @@ class ToDoList extends Component{
     truthyHandle = (e) => {
         this.setState(()=>{
             if(this.props.completed ===true){
-                return this.props.completed ===false;
+                return (this.props.completed ===false);
             }
             else{
-                return this.props.completed ===true;
+                return (this.props.completed ===true);
             }
         })
+
     }
     render(){
         return(
@@ -37,10 +40,9 @@ class ToDoList extends Component{
                                 submitHandle = {this.submitHandle} />
            
                <ul>
-                    I will be an unordered List
-                    <li>with list items</li>
-                    <li> if I can figure out the syntax for the map function that I know I can do</li>
-                    <li> but can't seem to figure out the this-ness vs the prop-ness of things</li>              
+                    {this.props.tasks.map(task => {
+                        return <div key = {task}>{task}</div>
+                    })}             
                </ul>
             </div>         
         )

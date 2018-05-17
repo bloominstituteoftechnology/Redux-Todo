@@ -1,13 +1,18 @@
 import {ADD_TASK, REMOVE_TASK} from '../actions/index';
-import { initialState } from '../index';
 
-export const taskReducer = (state = initialState, action) => {
+export const taskReducer = (state, action) => {
     switch(action.type){
         case ADD_TASK:
             return {
                 ...state,
                 task: action.payload
             }
+        case REMOVE_TASK:
+            var index;
+            return {
+                ...state, 
+                task: state.slice(0,index).concat(state.slice(index+1))
+            }   
 
         default:
             return state;
