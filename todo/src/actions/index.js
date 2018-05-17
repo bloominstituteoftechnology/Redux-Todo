@@ -1,23 +1,15 @@
-let nextTodoId = 0
+export const addTask =(task)=> {
+    return {
+        type: 'ADD_TASK',
+        payload:task
+    };
+},
 
-export const addTodo = text => ({
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
-})
+deleteTask =(taskId) => {
+    return {
+        type:'DELETE_TASK',
+        payload: taskId
+    };
+}
 
-export const setVisibilityFilter = filter => ({
-    type: 'SET_VISIBILITY_FILTER',
-    filter
-})
-
-export const toggleTodo = id => ({
-    type: 'TOGGLE_TODO',
-    id
-  })
-  
-  export const VisibilityFilters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_COMPLETED: 'SHOW_COMPLETED',
-    SHOW_ACTIVE: 'SHOW_ACTIVE'
-  }
+export default {addTask, deleteTask};
