@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { addTodo, toggle } from '../actions';
+// import Todo from './components/Todo';
 
 class Container extends Component {
     render() {
@@ -9,11 +10,12 @@ class Container extends Component {
           <h1>Todo List</h1>
           <ul>
           {this.props.todos.map((todo, index) => {
-            return (
-              <li key={index}>{this.todo}</li>
-            )
-          })
-          }
+              console.log(todo);
+              return (
+                  <li key={index}>{todo.text}</li>
+                )
+             })
+           }
           </ul>
           </div>
         );
@@ -21,6 +23,7 @@ class Container extends Component {
 }
 
 const mapStateToProps = (state) => {
+    
     return {
         todos: state
     };

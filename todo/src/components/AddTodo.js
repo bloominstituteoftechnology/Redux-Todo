@@ -2,30 +2,37 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 
-let AddTodo = ({ dispatch }) => {
-  let input
+class AddTodo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: ''
+    }
+  }
+  handleSubmit = (event) => {
+  this.setState({ text: event.target.value});
+  }
 
+  handleTodo = () =>{
+    const { text } = this.state;
+    const newItem = {text, completeted: false, id: Date.now()};
+    this.props.addTodo(newItem);
+    this.setState({text: ''});
+  }
+ render() {
   return (
      <div>
-       <form onSubmit={e => {
-         e.preventDefault()
-         if (!input.value.trim()) {
-           return
-         }
-         dispatch(addTodo(input.value))
-         input.value = ''
-       }}>
-         <input ref={node => {
-           input = node
-         }} />
-         <button type="submit">
+       
+       <input onChange={this.handleSubmit} 
+       placeholder="Add to do" 
+       value={this.state.text} />
+         <button type="submit" onClick={this.handleTodo}>        
            Add Todo
-         </button>
-       </form>
+         </button>       
+       
      </div>
- )
+    )
+  }
 }
 
-AddTodo = connect()(AddTodo)
-
-export default AddTodo
+export default connect(null, {addTodo})(AddTodo)

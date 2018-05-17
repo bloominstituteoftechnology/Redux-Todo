@@ -1,5 +1,4 @@
 import React from 'react';
-import PropType from 'prop-types';
 
 const Todo = ({ onClick, completed, text }) => (
   <li

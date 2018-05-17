@@ -1,16 +1,16 @@
 export const ADDTODO = 'ADDTODO';
 export const TOGGLE = 'TOGGLE';
 
-export function addTodo(text) {
+export const addTodo = text => {
   return {
     type: ADDTODO,
     payload: text
   }
 };
 
-export function toggle(index) {
+export const toggle = id => {
   return {
     type: TOGGLE,
-    payload: index
+    payload: id
   }
 };
