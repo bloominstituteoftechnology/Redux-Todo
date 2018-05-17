@@ -1,32 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from 'react-redux';
-import { addTodo, toggle } from '../actions';
+import { toggle } from '../actions';
 // import Todo from './components/Todo';
 
-class Container extends Component {
-    render() {
+const Container = props => {
+    
         return (
           <div>
-          <h1>Todo List</h1>
-          <ul>
-          {this.props.todos.map((todo, index) => {
-              console.log(todo);
-              return (
-                  <li key={index}>{todo.text}</li>
-                )
+          <h1>Todo List</h1>          
+          {props.todos.map((todo) => {          
+             
+                return (
+                      <div style={todo.completed? {textDecoration: 'line-through'}: null }onClick={() => props.toggle(todo.id)} key={todo.id}>{todo.text}</div>
+                )                
              })
-           }
-          </ul>
+           }          
           </div>
-        );
-    }
+        );    
 }
-
 const mapStateToProps = (state) => {
     
     return {
         todos: state
     };
 };
-
-export default connect(mapStateToProps, { addTodo, toggle })(Container);
+export default connect(mapStateToProps, {toggle })(Container);
