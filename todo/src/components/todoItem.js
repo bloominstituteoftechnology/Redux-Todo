@@ -1,6 +1,7 @@
 import React from 'react';
 import { completeToggle } from '../actions';
 import { connect } from 'react-redux';
+import { Component } from 'react';
 
 class TodoItem extends Component {
     
