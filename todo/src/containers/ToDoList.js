@@ -1,29 +1,54 @@
-//this is our component that will take our stored state. 
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTask } from '../actions/index';
+import FormSubmit from './FormSubmit';
 
+class ToDoList extends Component{
 
-const ToDoList = () => {
-    return (
-        <div>{"I'm a div that contains a ToDo"}</div>
-      )
+    
+
+    submitHandle = (e) =>{
+        this.setState ({[e.target.name]:e.target.value})//every time you call setState you call the render function
+    }
+
+    changeHandle = (e) => {
+        e.preventDefault();
+        const tasks = this.props.tasks.slice(); //slice creates a copy of the array so we don't mutate the original
+            tasks.push(this.props.task);
+            this.setState({tasks:tasks, task: ''});                        
+    }
+
+    truthyHandle = (e) => {
+        this.setState(()=>{
+            if(this.props.completed ===true){
+                return this.props.completed ===false;
+            }
+            else{
+                return this.props.completed ===true;
+            }
+        })
+    }
+    render(){
+        return(
+            <div>       
+                <h1>My To-Do List</h1>     
+                    <FormSubmit tasks = {this.props.tasks}
+                                changeHandle = {this.changeHandle}
+                                submitHandle = {this.submitHandle} />
+           
+               <ul>
+                    I will be an unordered List
+                    <li>with list items</li>
+                    <li> if I can figure out the syntax for the map function that I know I can do</li>
+                    <li> but can't seem to figure out the this-ness vs the prop-ness of things</li>              
+               </ul>
+            </div>         
+        )
+    }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        state: state //maps state to props
-    };
-};
-
-export default connect(mapStateToProps, { addTask, removeTask  })(ToDoList);
-
-// The mapStateToProps function specifies which portion of the 
-// state tree this component needs to receive. In this case, 
-// since our redux store is only storing the value of the count,
-// this component receives the whole state. In a more complex
-// redux application, though, it would receive only the relevant
-// parts it needs from the state object.
-
-// The connect function is called in order to make this component aware
-// of the rest of the redux architecture. Without this, this component
-// is only a dumb React component. We pass in all of the functions that
-// are reliant on Redux, along with the component itself, so that Redux
-// makes itself known to this component.
+const mapStateToProps = (state) =>  ({
+    tasks: state
+    
+})
+export default connect (mapStateToProps, { addTask })(ToDoList);

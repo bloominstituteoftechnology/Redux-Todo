@@ -1,3 +1,21 @@
+import {ADD_TASK, REMOVE_TASK} from '../actions/index';
+import { initialState } from '../index';
+
+export const taskReducer = (state = initialState, action) => {
+    switch(action.type){
+        case ADD_TASK:
+            return {
+                ...state,
+                task: action.payload
+            }
+
+        default:
+            return state;
+
+    }
+}
+
+
 //the reducers describe how our action will take place. Always will be of some variation of  
 
 //function(previousState, action){
@@ -26,26 +44,5 @@
 //         type: 'EDIT_TASK',
 //         payload: `here is a placeholder for NOW (edited)`
 
-//declare initialState if you want to - I will do this so I have example input to start with
-
-const initialState = {
-    name: "task", 
-};
-
-const toDoer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'ADD_TASK':
-        //this needs to return a function that's an object BASED off of the action it was provided --- 
-        //so this needs to take the initialState and concat it to the newState so it returns everything all together
-          return state.concat(action.payload);
-        
-        case 'REMOVE_TASK':
-        //this needs to return a function that's an object BASED off of the action it was provided---
-        //so this needs to take the initialState and filter the tasks...when it finds the task we want to remove...just say that task is not part of the action.payload
-          return state.filter(task => task !== action.payload);
-        
-        default:
-          return state;
-    }
-};
+//declare currentState if you want to - I will do this so I have example input to start with
 
