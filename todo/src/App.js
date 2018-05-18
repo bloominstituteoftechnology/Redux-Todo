@@ -11,9 +11,9 @@ class App extends Component {
         <header className="App-header">          
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <div className="App-intro" >  
+        <div className="App-intro" >          
           <TodoForm />
-          <TodoList />                  
+          <TodoList />          
         </div>
       </div>
     );

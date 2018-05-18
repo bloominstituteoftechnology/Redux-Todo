@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';  
-import { completeToggle } from '/.actions';
+import { completeToggle } from '../actions/Action.js';
 
 const TodoList = props => {
   console.log(props.todos); 

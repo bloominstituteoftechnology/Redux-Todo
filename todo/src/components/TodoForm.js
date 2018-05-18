@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import { addTodo } from '/.actions' 
+import { addTodo } from '../actions/Action' 
 
 class TodoForm extends Component {
   constructor(props) { 
     super(props);
       this.state = {
-        todos: ''
+        doList: ''
       };
     }
   
   handleTodosChange = event => {
-      this.setState({ todos: event.target.value}); 
+      this.setState({ doList: event.target.value}); 
   }
   
   createTodo = () => {
-    const { todos } = this.state; 
-    const newTodo = { todos, completed: false, id: Date.bow() }; 
+    const { doList } = this.state; 
+    const newTodo = { doList, completed: false, id: Date.now() }; 
     this.props.addTodo(newTodo); 
-    this.setState({ todos: ''}); 
+    this.setState({ doList: ''}); 
   }; 
 
   render() {
@@ -27,7 +27,7 @@ class TodoForm extends Component {
           <input
             onChange={this.handleTodosChange}
             placeholder='Add Todo'            
-            value={this.state.todos}            
+            value={this.state.doList}            
           />
           <button onClick={this.createTodo}>Add Todo</button>
       </div>

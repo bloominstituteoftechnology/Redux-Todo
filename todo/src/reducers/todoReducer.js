@@ -1,7 +1,7 @@
-import { ADD_TODO, COMPLETE_TOGGLE } from '/.actions';
+import { ADD_TODO, COMPLETE_TOGGLE } from '../actions/Action';
 
 const initialState = [
-  {todos: 'Buy cake for the party', completed: false, id: Date.now() }
+  {doList: 'Buy cake for the party', completed: false, id: Date.now() }
 ];
 
 
