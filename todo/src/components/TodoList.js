@@ -6,7 +6,7 @@ export default (props) => {
   
   return (
     <ul>
-      { todos }
+      {todos}
     </ul>
   );
 };
