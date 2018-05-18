@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import { addTask } from '../actions'
+import { addTask, task } from '../actions'
 
 class App extends Component {
   state = {todoItem: ''}
@@ -9,6 +9,13 @@ class App extends Component {
     this.setState({
       [e.target.name]: e.target.value //=<input name="" value=.../>
     }) };
+
+  handleCompletedChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  };
+
   render() {
     console.log("this.props.todoList:", this.props.todoList)
     return (
@@ -19,7 +26,13 @@ class App extends Component {
         {this.props.todoList.length > 0 
         && 
         this.props.todoList.map(item => 
-          <div key={item.thingTodo}>{item.thingTodo}</div>
+          <ul 
+            key={item.thingTodo}
+            name="todoTask" 
+            onClick={() => this.props.task(this.state.todoItem)}
+           >
+              {item.thingTodo}
+           </ul>
         )
         }
       </div>
@@ -34,4 +47,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addTask })(App);
+export default connect(mapStateToProps, { addTask, task })(App);

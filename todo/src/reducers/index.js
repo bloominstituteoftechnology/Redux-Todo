@@ -1,4 +1,4 @@
-import { INPUT } from '../actions';
+import { INPUT, TASK } from '../actions';
 
 export default (state = [], action) => {
     console.log(action) // = {type:'INPUT', todo: 'clean the dog'}
@@ -9,6 +9,13 @@ export default (state = [], action) => {
                 {
                 thingTodo: action.todo,  //clean the dog
                 completed: false
+                }
+            ]
+        case TASK: 
+            return [
+                ...state,
+                {
+                    completed: true
                 }
             ]
         default:
