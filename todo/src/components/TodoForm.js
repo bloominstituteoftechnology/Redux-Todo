@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Input } from "reactstrap";
 export default class TodoForm extends React.Component {
   render() {
     return (
-      <Form>
+      <Form inline>
         <FormGroup>
           <Input
             type="text"
