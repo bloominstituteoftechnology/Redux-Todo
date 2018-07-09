@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
+import Todo from './components/Todo';
 
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-        
-          <h1 className="App-title">Welcome to ToDo App</h1>
-          <p><i class="fas fa-clipboard-list"></i></p>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Todo />
     );
   }
 }
