@@ -6,10 +6,10 @@ const initialState = {
     }, 
     {
         todo: "Practice Drums",
-        completed: false
+        completed: true
     }, 
     {
-        todo: "Figure out life plan",
+        todo: "Figure out life plan",   
         completed: false
     }]
 }

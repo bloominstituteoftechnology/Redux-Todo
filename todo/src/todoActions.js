@@ -17,3 +17,10 @@ const removeTodos = () => {
         type: REMOVE_TODOS
     }
 }
+
+const toggleCompleted = todo => {
+    return {
+        type: TOGGLE_COMPLETED,
+        payload: todo
+    }
+}
