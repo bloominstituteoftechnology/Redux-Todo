@@ -17,7 +17,11 @@ class TodoForm extends Component {
       <div>
         <form
           type='submit'
-          onSubmit={() => this.props.addTodo(this.state.newTodo)}
+          onSubmit={(e) => {
+            e.preventDefault()
+            this.setState({ newTodo: '' })
+            this.props.addTodo(this.state.newTodo)
+          }}
         >
           <input
             type='text'
