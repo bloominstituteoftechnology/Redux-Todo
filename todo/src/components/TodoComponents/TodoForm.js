@@ -28,6 +28,7 @@ class TodoForm extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        todos: state.todos,
         list: state.list
     };
 };

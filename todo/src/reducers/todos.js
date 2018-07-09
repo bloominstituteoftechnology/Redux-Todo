@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, TODO_INPUT, TOGGLE_COMPLETE, CLEAR_COMPLETE } from '../actions'
+import { ADD_TODO, DELETE_TODO, TODO_INPUT, TOGGLE_COMPLETE, CLEAR_COMPLETE, SET_TODOS } from '../actions'
 
 const initialState = {
     todos: [
@@ -44,6 +44,9 @@ export default (state = initialState, action) => {
         case CLEAR_COMPLETE:
             let clearTodos = state.todos.slice().filter(todo => !todo.completed)
             return Object.assign({}, state, { todos: clearTodos });
+
+        case SET_TODOS:
+            return Object.assign({}, state, { todos: action.payload });
 
         default:
             return state;
