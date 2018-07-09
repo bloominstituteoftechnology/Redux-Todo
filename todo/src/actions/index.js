@@ -11,3 +11,10 @@ export const remove = (todo) => {
         payload: todo
     }
 }
+
+export const complete = (todo) => {
+    return {
+        type: 'COMPLETE',
+        payload: todo
+    }
+}
