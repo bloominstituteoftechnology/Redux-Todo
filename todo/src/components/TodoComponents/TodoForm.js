@@ -11,11 +11,16 @@ class TodoForm extends React.Component {
         this.props.todoInput(event.target.value);
     }
 
+    addButton = () => {
+        const todoList = { value: this.props.list, completed: false, id: Math.random() }
+        this.props.addTodo(todoList);
+    }
+
     render() {
         return (
             <form onSubmit={event => event.preventDefault()}>
-                <input type='text' placeholder='...todo' name="item" onChange={this.handleInput} />
-                <button onClick={addTodo} >Add Task</button>
+                <input type='text' placeholder='...todo' name="item" value={this.props.list} onChange={this.handleInput} />
+                <button onClick={this.addButton} >Add Task</button>
                 <button>Clear Completed</button>
             </form >
         );
