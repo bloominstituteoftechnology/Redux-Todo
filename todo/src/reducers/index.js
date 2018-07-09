@@ -1,5 +1,5 @@
 const initialState = {
-  todos: [],
+  todos: [{ value: 'this is the first task', completed: false }],
 };
 
 const todosReducer = (state = initialState, action) => {
