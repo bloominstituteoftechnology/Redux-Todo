@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions'
+import { ADD_TODO, TODO_INPUT } from '../actions'
 const todoList = {
     todos: [
         {
@@ -9,13 +9,17 @@ const todoList = {
             value: 'Bake Cookies',
             completed: false
         }
-    ]
+    ],
+    list: ''
 }
 
-export default (todos = todoList.todos, action) => {
+export default (todos = todoList, action) => {
     switch (action.type) {
         case ADD_TODO:
-            return Object.assign({}, todos, action.payload);
+            return Object.assign({}, todoList.todos, action.payload);
+
+        case TODO_INPUT:
+            return Object.assign({}, todos, { list: action.payload });
 
         default:
             return todos;
