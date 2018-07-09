@@ -33,8 +33,9 @@ class NewTodo extends Component {
                            placeholder='new todo'
                            value={this.state.todo}
                            onChange={this.handleChange}/>
+                    <div>
                     <button>Add Todo</button>
-
+                    </div>
 
 
                 </form>

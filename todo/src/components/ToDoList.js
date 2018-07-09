@@ -11,11 +11,12 @@ const TodoList = props => {
             return (
                 <li key={todo.id}>
                         {todo.task}
-                    <div className="strike-line"></div>
+                    
                     <button onClick={ () => {props.deleteTodo(todo)} }>Delete</button>
                 </li>
             )
-          }else {
+          }
+          else {
             return (
                 <li key={todo.id} >
                         {todo.task}
