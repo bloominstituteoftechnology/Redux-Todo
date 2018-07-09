@@ -5,9 +5,7 @@ export const reducer = (state = [{value: 'clean car', complete: false}], action)
         case 'REMOVE':
             return state.filter(todo => todo.value !== action.payload.value);
         case 'COMPLETED':
-            return state.map(todo => {
-                if(todo.value === action.payload.value) todo.complete = !todo.complete
-            })
+            return state.map(todo => todo.value === action.payload.value ? !todo.complete : todo.complete )
         default:
             return state;
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { add, remove } from './actions';
 import './App.css';
+import { Button, ButtonGroup } from 'reactstrap';
 import TodoList from './Components/TodoList';
 
 class App extends Component {
@@ -31,17 +32,10 @@ class App extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
-    const { todos } = this.props;
-    const mappedTodos = todos.map(todo =>
-      <div>
-        {todo.value}
-        <button onClick={() => this.props.remove({value: todo.value})} className="button button-delete" > X </button>
-      </div>)
-
     if(!this.state.todos) return (
       <div>
           Please wait...
@@ -50,10 +44,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Todos</h1>
-        </header>
-        <p> Add To Do </p>
         <form className="todoForm" onSubmit={this.addTask}>
           <input 
             className="input"
@@ -62,12 +52,14 @@ class App extends Component {
             value={this.state.value}
             name="value"
           />
-          <button className="button button-add" type="submit">Add To List</button>
+          <ButtonGroup size="sm">
+            <Button>Add To List</Button>
+          </ButtonGroup>
         </form>
         <p> List of Todo's </p>
         <div className="todoList" >
-          <div className="todos" >
-            <u1>{mappedTodos}</u1>
+          <div>
+            <TodoList todos={this.props.todos} remove={this.props.remove} />
           </div>
         </div>
       </div>
