@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const TodoList = props => {
     return (
         <ul>
-            {props.todos.map(todo => <Todo todo={todo}/>)}
+            {props.todos.map((todo, index) => <Todo key={index} todo={todo} />)}
         </ul>
     );
 }
