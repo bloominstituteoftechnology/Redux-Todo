@@ -1,0 +1,38 @@
+import React from 'react';
+
+import {addTodo, toggleTodo, deleteTodo} from '../actions';
+import {connect} from 'react-redux';
+
+const TodoList = props => {
+  return (
+    <ul>
+      {props.todos.map((todo) => {
+          if(todo.completed){
+            return (
+                <li key={todo.id}>
+                        {todo.task}
+                    <div className="strike-line"></div>
+                    <button onClick={ () => {props.deleteTodo(todo)} }>Delete</button>
+                </li>
+            )
+          }else {
+            return (
+                <li key={todo.id} >
+                        {todo.task}
+                    <button onClick={ () => {props.deleteTodo(todo)} }>Delete</button>
+
+                </li>
+            )
+          }
+      })}
+    </ul>
+  );
+};
+
+const mapStateToProps = (state) => {
+    return {
+      todos: state
+    }
+  }
+  
+  export default connect(mapStateToProps, {addTodo, toggleTodo, deleteTodo})(TodoList);
