@@ -1,4 +1,5 @@
-import { ADD_TODO, TODO_INPUT, TOGGLE_COMPLETE, CLEAR_COMPLETE } from '../actions'
+import { ADD_TODO, DELETE_TODO, TODO_INPUT, TOGGLE_COMPLETE, CLEAR_COMPLETE } from '../actions'
+
 const initialState = {
     todos: [
         {
@@ -21,6 +22,10 @@ export default (state = initialState, action) => {
             let addTodos = state.todos.slice();
             addTodos.push(action.payload);
             return Object.assign({}, state, { todos: addTodos, list: '' });
+
+        case DELETE_TODO:
+            let deleteTodos = state.todos.slice().filter(todo => todo.id !== action.payload)
+            return Object.assign({}, state, { todos: deleteTodos });
 
         case TODO_INPUT:
             return Object.assign({}, state, { list: action.payload });
