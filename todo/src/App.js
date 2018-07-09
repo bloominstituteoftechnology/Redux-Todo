@@ -1,22 +1,69 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import { connect } from "react-redux";
+import TodoList from './components/TodoList.js';
+import { addTodo, deleteTodo } from './actions';
 import "./App.css";
 
-const App = props => {
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      title: 'TodoApp',
+      char: '',
+    }
+  }
+
+handleNameChange = event => {
+  this.setState({ [event.target.name]: event.target.value});
+};
+
+
+handleSubmitTodo = () => {
+  let nextId = Date.now();
+  var todo = {
+    task: this.state.char,
+    id: nextId,
+    completed: false
+  };
+
+  this.props.addTodo(todo);
+  this.setState({char: ''});
+};
+
+render() {
   return (
-    <div className="App">
-      <h1> Todo List</h1>
-      <input type="text" value="" />
-      <button>Add Todo</button>
-      {props.todoList.map(todo => <div key={todo}>{todo}</div>)}
+    <div>
+      <h1>{this.state.title}</h1>
+      <input
+        name='char' 
+        onChange={this.handleNameChange}
+        onKeyPress={
+          (event) => {
+            if(event.key === 'Enter'){
+              this.handleSubmitTodo();
+            }
+          }
+        }
+
+        value={this.state.char}
+        placeholder="new todo goes here"/>
+
+        <TodoList/>
+
+
+
+
+
     </div>
   );
-};
+}
+}
 
-const mapStateToProps = state => {
-  return {
-    todoList: state.todoList
-  };
-};
 
-export default connect(mapStateToProps)(App);
+const mapStateToProps = (state) => {
+return {
+  todos: state
+}
+}
+
+export default connect(mapStateToProps, {addTodo, deleteTodo})(App);
