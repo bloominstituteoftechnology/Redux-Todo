@@ -1,5 +1,5 @@
 import React from 'react';
-import { todoInput, addTodo } from '../../actions/index';
+import { todoInput, addTodo, clearCompleted } from '../../actions/index';
 import { connect } from 'react-redux';
 
 class TodoForm extends React.Component {
@@ -8,6 +8,9 @@ class TodoForm extends React.Component {
     }
 
     addButton = () => {
+        if (this.props.list === '') {
+            return;
+        }
         const todoList = { value: this.props.list, completed: false, id: Math.random() }
         this.props.addTodo(todoList);
     }
@@ -17,7 +20,7 @@ class TodoForm extends React.Component {
             <form onSubmit={event => event.preventDefault()}>
                 <input type='text' placeholder='...todo' name="item" value={this.props.list} onChange={this.handleInput} />
                 <button onClick={this.addButton} >Add Task</button>
-                <button>Clear Completed</button>
+                <button onClick={() => this.props.clearCompleted()} >Clear Completed</button>
             </form >
         );
     }
@@ -29,4 +32,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { todoInput, addTodo })(TodoForm);
+export default connect(mapStateToProps, { todoInput, addTodo, clearCompleted })(TodoForm);
