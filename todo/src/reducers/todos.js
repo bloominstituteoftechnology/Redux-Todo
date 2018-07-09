@@ -1,5 +1,5 @@
 import { ADD_TODO, TODO_INPUT, TOGGLE_COMPLETE, CLEAR_COMPLETE } from '../actions'
-const todoList = {
+const initialState = {
     todos: [
         {
             value: 'Organize Garage',
@@ -15,18 +15,18 @@ const todoList = {
     list: ''
 }
 
-export default (todos = todoList, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
-            let addTodos = todos.todos.slice();
+            let addTodos = state.todos.slice();
             addTodos.push(action.payload);
-            return Object.assign({}, todos, { todos: addTodos, list: '' });
+            return Object.assign({}, state, { todos: addTodos, list: '' });
 
         case TODO_INPUT:
-            return Object.assign({}, todos, { list: action.payload });
+            return Object.assign({}, state, { list: action.payload });
 
         case TOGGLE_COMPLETE:
-            let toggleTodos = todos.todos.slice()
+            let toggleTodos = state.todos.slice()
                 .map(list => {
                     if (list.id === action.payload) {
                         list.completed = !list.completed;
@@ -34,13 +34,13 @@ export default (todos = todoList, action) => {
                     }
                     return list;
                 });
-            return Object.assign({}, todos, { todos: toggleTodos });
+            return Object.assign({}, state, { todos: toggleTodos });
 
         case CLEAR_COMPLETE:
-            let clearTodos = todos.todos.slice().filter(todo => !todo.completed)
-            return Object.assign({}, todos, { todos: clearTodos });
+            let clearTodos = state.todos.slice().filter(todo => !todo.completed)
+            return Object.assign({}, state, { todos: clearTodos });
 
         default:
-            return todos;
+            return state;
     }
 }
