@@ -3,10 +3,6 @@ import { todoInput, addTodo } from '../../actions/index';
 import { connect } from 'react-redux';
 
 class TodoForm extends React.Component {
-    constructor() {
-        super();
-    }
-
     handleInput = event => {
         this.props.todoInput(event.target.value);
     }
