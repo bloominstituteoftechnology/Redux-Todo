@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'reactstrap';
 
 const TodoList = props => {
     return (
@@ -8,7 +9,7 @@ const TodoList = props => {
                 return (
                     <div className="todos" key={todo.value + index}>
                         {todo.value}
-                        <button onClick={() => props.remove({ value: todo.value })} className="button button-delete" > X </button>
+                        <Button color="success" onClick={() => props.remove({ value: todo.value })} className="button button-delete" > X </Button>
                     </div>)
             })}
 

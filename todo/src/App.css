@@ -88,12 +88,8 @@
   background-color: rgb(150, 105, 22);
 }
 
-.button-delete {
-  background-color: black;
-}
-
 .button-delete:hover {
-  background-color: Red;
+  background-color: red;
 }
 
 .todoList {
