@@ -5,11 +5,13 @@ const initialState = {
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO':
+      console.log('state in reducer', JSON.stringify(state));
+      let arr = state.todos;
+      arr.push({ value: 'this is a new task', completed: false });
       return Object.assign({}, state, {
-        todos: state.todos.push([
-          { value: 'this is a new task', completed: false },
-        ]),
+        todos: arr,
         // todos: state.todos.push([{ value: value, completed: false }]),
+        //return Object.assign({}, state, { userLoggedIn: !state.userLoggedIn });
       });
     default:
       return state;

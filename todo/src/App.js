@@ -5,7 +5,14 @@ import './App.css';
 
 class App extends Component {
   render() {
-    return <div className="App">{this.props.todos[0].value}</div>;
+    console.log('app.js props', JSON.stringify(this.props));
+    console.log('app.js state', JSON.stringify(this.state));
+    return (
+      <div className="App">
+        {this.props.todos.map(t => <div>{t.value}</div>)}
+        <button onClick={this.props.addTodo}>Add Todo</button>
+      </div>
+    );
   }
 }
 
