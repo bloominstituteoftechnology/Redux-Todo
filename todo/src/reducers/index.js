@@ -11,7 +11,7 @@ const todoReducer = (state = initialState, action) => {
         todos: state.todos.push(action.payload)
       });
     case TOGGLE_TODO:
-    //   return Object.assign({}, state, { completed: !state.completed });
+      return Object.assign({}, state, { completed: !state.completed });
     default:
       return state;
   }
