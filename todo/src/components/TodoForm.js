@@ -22,7 +22,7 @@ class TodoForm extends React.Component {
       <form>
         <input onChange={this.handleChange} value={this.props.input}/>
         <button onClick={this.handleSubmit}>Add todo</button>
-        <button onClick={this.handleDelete}>Delete</button>
+        <button onClick={this.handleDelete}>Clear completed</button>
       </form>
     );
   }
