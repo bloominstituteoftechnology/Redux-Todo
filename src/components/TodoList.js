@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import uuidv1 from 'uuid/v1';
 import { addTodo, toggleComplete, deleteTodo } from '../actions/actions';
 import Todo from './Todo';
 
@@ -23,7 +24,7 @@ class TodoList extends Component {
     event.preventDefault();
     const { addTodo: addThisTodo } = this.props;
     const { input } = this.state;
-    addThisTodo(input);
+    addThisTodo(input, uuidv1());
     this.setState({ input: '' });
   }
 

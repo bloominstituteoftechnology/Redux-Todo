@@ -1,4 +1,3 @@
-import uuidv1 from 'uuid/v1';
 import { ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions/actions';
 
 const reducer = (state = { todos: [] }, action) => {
@@ -8,7 +7,7 @@ const reducer = (state = { todos: [] }, action) => {
     case ADD_TODO:
       return {
         ...rest,
-        todos: [...todos, { id: uuidv1(), text: action.payload.text, completed: false }],
+        todos: [...todos, { id: action.payload.id, text: action.payload.text, completed: false }],
       };
 
     case TOGGLE_COMPLETE: {
