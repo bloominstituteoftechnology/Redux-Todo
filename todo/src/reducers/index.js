@@ -1,4 +1,4 @@
-import {ADD_NEW_TODO, TOGGLE_COMPLETE} from '../actions';
+import {ADD_NEW_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions';
 
 const initialState =  {
     todos: [
@@ -16,7 +16,7 @@ export const todoReducer = (state = initialState, action) => {
          console.log('action state: ', state.todos.concat(action.payload))
          return Object.assign({}, state, { todos: [...state.todos, action.payload] });
         case TOGGLE_COMPLETE:
-         const todoS = state.todos.map(item => {
+          const todoS = state.todos.map(item => {
              if(item.id === action.payload) {
                  item.completed = !item.completed;
                  return item;
@@ -24,8 +24,8 @@ export const todoReducer = (state = initialState, action) => {
              } else {
                  return item
              }
-         })
-            return Object.assign({}, state, { todos: todoS })
+          })
+          return Object.assign({}, state, { todos: todoS })
         // return state.todos.map(item => {
         //     if (item.id === action.payload) {
         //       return Object.assign({}, item, { completed: [...item.completed, !item.completed] });
@@ -33,7 +33,9 @@ export const todoReducer = (state = initialState, action) => {
         //       return item;
         //     }
         //   });
-    
+        case DELETE_TODO: 
+          const filtered = state.todos.filter( item => item.id !== action.payload )
+          return Object.assign({}, state, { todos: filtered })
         default:
          return state;
     }

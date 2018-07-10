@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleComplete } from '../actions';
+import { addTodo, toggleComplete, deleteTodo } from '../actions';
 
 class Todo extends Component {
     constructor(props) {
@@ -35,6 +35,9 @@ submitTodo = e => {
 toggleComplete = (id) => {
     this.props.toggleComplete(id);
 }
+deleteTodo = id => {
+    this.props.deleteTodo(id);
+}
 
     render() { 
         console.log('props in todo render: ', this.props)
@@ -59,6 +62,7 @@ toggleComplete = (id) => {
                         <div  key={i}>
                             <div style={ item.completed ? {textDecoration: 'line-through'} : null}> {item.value} 
                                 <button onClick={() => this.toggleComplete(item.id)}>{ item.completed ? this.state.clickedText : this.state.text}</button>
+                                <button onClick={() => this.deleteTodo(item.id)}>Delete</button>
                             </div>
                             
                         </div>
@@ -78,4 +82,4 @@ const mapStateToProps = state => {
     
 }
  
-export default connect(mapStateToProps, { addTodo, toggleComplete })(Todo);
+export default connect(mapStateToProps, { addTodo, toggleComplete, deleteTodo })(Todo);
