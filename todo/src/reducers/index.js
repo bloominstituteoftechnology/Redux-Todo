@@ -11,6 +11,8 @@ const rootReducer = (state = {todos}, action) => {
             todos: [...state.todos,{
             todo: action.payload, completed: false}
         ]});
+    //   case TOGGLE_COMPLETED:
+         
 
       default:
         return state;

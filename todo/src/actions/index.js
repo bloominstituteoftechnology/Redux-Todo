@@ -10,3 +10,7 @@ export const addToDo = (todo, e) => {
     return {type: 'ADD_TODO',
             payload: todo }
 }
+
+// export const toggleCompleted = () => {
+    
+// }

@@ -7,6 +7,7 @@ class TodoForm extends Component {
         super(props);
         this.state = {
          newToDo: '',
+         
         }
     }
 
@@ -25,10 +26,9 @@ class TodoForm extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        todos: state.todos
-    };
+const mapStateToProps = {
+        addToDo: addToDo,
+
 };
 
-export default connect(mapStateToProps, { addToDo })(TodoForm);
+export default connect(null,mapStateToProps)(TodoForm);
