@@ -1,4 +1,4 @@
-import { HANDLE_INPUT, ADD_TODO, TOGGLE_TODO } from '../actions';
+import { HANDLE_INPUT, ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 
 const initialState = {
   todos: [
@@ -33,6 +33,11 @@ export default (state = initialState, action) => {
         return todo;
       });
       return Object.assign({}, state, { todos: toggleTodos });
+
+    case DELETE_TODO:
+      let deleteTodos = state.todos.slice();
+      deleteTodos = deleteTodos.filter(todo => !todo.completed)
+      return Object.assign({}, state, { todos: deleteTodos });
 
     default:
       return state;
