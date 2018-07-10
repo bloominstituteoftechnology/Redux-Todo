@@ -1,7 +1,7 @@
 export const ADD_TODO = 'ADD_TODO';
 export const CHANGE_TODO = 'CHANGE_TODO';
 export const TOGGLE_COMPLETION = 'TOGGLE_COMPLETION';
-
+export const REMOVE_COMPLETED = 'REMOVE_COMPLETED';
 export const addTodo = (text) => {
     const todo = {
         text: text,
@@ -31,5 +31,18 @@ export const toggleCompletion = (id, todos) => {
     return {
         type: TOGGLE_COMPLETION,
         payload: newTodos
+    }
+}
+
+export const removeCompleted = (todos) => {
+    const newTodos = todos.filter(todo => {
+        if(todo.completed === true) {
+            return false;
+        }
+        return true;
+    })
+    return {
+        type: REMOVE_COMPLETED,
+        payload: newTodos,
     }
 }

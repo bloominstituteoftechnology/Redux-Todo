@@ -23,7 +23,8 @@ export default (state = initialState, action) => {
         
         case TOGGLE_COMPLETION:
         return Object.assign({}, state, { todos: action.payload });
-
+        case REMOVE_COMPLETED:
+        return Object.assign({}, state, { todos: action.payload });
         default:
         return state;
     }

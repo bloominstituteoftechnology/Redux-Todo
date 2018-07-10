@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo, changeTodo } from "../actions";
+import { addTodo, changeTodo, removeCompleted } from "../actions";
 const TodoForm = props => {
   return (
     <form
@@ -16,17 +16,20 @@ const TodoForm = props => {
       >
         Submit
       </button>
-      <button>Clear Completed</button>
+      <button onClick = {() => {
+        props.removeCompleted(props.todos);
+      }}>Clear Completed</button>
     </form>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    text: state.text
+    text: state.text,
+    todos: state.todos
   };
 };
 export default connect(
   mapStateToProps,
-  { addTodo, changeTodo }
+  { addTodo, changeTodo, removeCompleted }
 )(TodoForm);
