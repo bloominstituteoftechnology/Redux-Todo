@@ -1,6 +1,7 @@
 export const ADD_TODO = "ADD_TODO";
 export const REMOVE_TODOS = "REMOVE_TODOS";
 export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
+export const HANDLE_NEW_TODO = "HANDLE_NEW_TODO";
 
 export const addTodo = (todo) => {
     return {
@@ -25,3 +26,10 @@ export const toggleCompleted = todo => {
     }
 }
 
+export const handleNewTodo = (e) => {
+    console.log("e", e);
+    return {
+        type: HANDLE_NEW_TODO,
+        payload: e.target.value,
+    }
+  }

@@ -5,13 +5,14 @@ const initialState = {
         completed: false
     }, 
     {
-        todo: "Practice Drums",
+        todo: "Learn Redux",
         completed: true
     }, 
     {
-        todo: "Figure out life plan",   
+        todo: "Profit",   
         completed: false
-    }]
+    }],
+    newTodo: '',
 }
 const todoReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -27,6 +28,9 @@ const todoReducer = (state = initialState, action) => {
                 }
                 return todo;
             })});
+        case "HANDLE_NEW_TODO":
+            console.log(action.payload);
+            return Object.assign({}, state, {newTodo: action.payload})
         default:
             return state;
     }
