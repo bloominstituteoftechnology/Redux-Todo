@@ -22,6 +22,20 @@
   font-size: large;
 }
 
+.todo button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.todo.completed button {
+  text-decoration: line-through solid black;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

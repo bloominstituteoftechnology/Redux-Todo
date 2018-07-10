@@ -1,5 +1,5 @@
 import uuidv1 from 'uuid/v1';
-import { ADD_TODO } from '../actions/actions';
+import { ADD_TODO, TOGGLE_COMPLETE } from '../actions/actions';
 
 const reducer = (state = { todos: [] }, action) => {
   const { todos, ...rest } = state;
@@ -11,7 +11,17 @@ const reducer = (state = { todos: [] }, action) => {
         todos: [...todos, { id: uuidv1(), text: action.payload.text, completed: false }],
       };
 
-    default: return state;
+    case TOGGLE_COMPLETE: {
+      const index = todos.findIndex(todo => todo.id === action.payload.id);
+      const todo = todos[index];
+      return {
+        ...rest,
+        todos: [...todos.slice(0, index), { ...todo, completed: !todo.completed }],
+      };
+    }
+
+    default:
+      return state;
   }
 };
 
