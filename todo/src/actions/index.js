@@ -1,9 +1,10 @@
 // export const ADD_TODO = 'ADD_TODO';
 // export const MARK_DONE = 'MARK_DONE';
 
-export const addTodo = () => {
+export const addTodo = todo => {
   return {
     type: 'ADD_TODO',
+    payload: todo,
   };
 };
 
