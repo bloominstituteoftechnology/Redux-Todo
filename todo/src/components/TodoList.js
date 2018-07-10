@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 const TodoList = props => {
     return (
         <div>
-            {props.todos.map((todo) => <Todo todo={todo} />)}
+            {props.todos.map((todo, i) => <Todo todo={todo} key={i} index={i}/>)}
         </div>
     );
 }
 
 const mapStateToProps = (state) => {
     return {
-        todos: state
+        todos: state.todos
     };
 };
 

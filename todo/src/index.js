@@ -7,10 +7,8 @@ import todoReducer from './reducer';
  
 import App from './App';
 
-const store = createStore(todoReducer);
-
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={createStore(todoReducer)}>
         <App />
     </Provider>, 
     document.getElementById('root')
