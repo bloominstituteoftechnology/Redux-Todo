@@ -2,10 +2,10 @@ export const SUBMIT = 'SUBMIT';
 export const CLEAR = 'CLEAR';
 export const COMPLETED = 'COMPLETED';
 
-export const handleSubmit = e => {
+export const handleSubmit = todo => {
     return {
         type: SUBMIT,
-        payload: e.target.value
+        payload: todo
     };
 };
 
