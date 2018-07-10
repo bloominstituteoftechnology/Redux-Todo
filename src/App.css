@@ -22,7 +22,23 @@
   font-size: large;
 }
 
-.todo button {
+.todos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+}
+
+.todo {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.todo button.plain-text {
     background: none;
     color: inherit;
     border: none;
@@ -30,9 +46,10 @@
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    width: auto;
 }
 
-.todo.completed button {
+.todo.completed button.plain-text {
   text-decoration: line-through solid black;
 }
 

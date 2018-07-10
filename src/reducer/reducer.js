@@ -1,5 +1,5 @@
 import uuidv1 from 'uuid/v1';
-import { ADD_TODO, TOGGLE_COMPLETE } from '../actions/actions';
+import { ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions/actions';
 
 const reducer = (state = { todos: [] }, action) => {
   const { todos, ...rest } = state;
@@ -17,6 +17,13 @@ const reducer = (state = { todos: [] }, action) => {
       return {
         ...rest,
         todos: [...todos.slice(0, index), { ...todo, completed: !todo.completed }],
+      };
+    }
+
+    case DELETE_TODO: {
+      return {
+        ...rest,
+        todos: todos.filter(todo => todo.id !== action.payload.id),
       };
     }
 
