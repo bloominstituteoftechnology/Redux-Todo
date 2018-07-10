@@ -2,7 +2,7 @@ export const SUBMIT = 'SUBMIT';
 export const CLEAR = 'CLEAR';
 export const COMPLETED = 'COMPLETED';
 
-export const handleSubmit = todo => {
+export const handleSubmit = (todo) => {
     return {
         type: SUBMIT,
         payload: todo
@@ -15,8 +15,9 @@ export const handleClear = () => {
     };
 };
 
-export const handleCompleted = () => {
+export const handleCompleted = (todo) => {
     return {
-        type: COMPLETED
+        type: COMPLETED,
+        payload: todo
     };
 };

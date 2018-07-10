@@ -24,12 +24,20 @@ class App extends Component {
     this.setState({todo: ''});
   };
 
+  handleCompleted = (e) => {
+    this.props.handleCompleted(e);
+  };
+
+  handleClear = () => {
+
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Todo List</h1>
-        <TodoList todos={this.props.todos} value={this.state.todo} />
-        <TodoForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+        <TodoList todos={this.props.todos} handleCompleted={this.handleCompleted} />
+        <TodoForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClear={this.handleClear} value={this.state.todo}/>
       </div>
     );
   }

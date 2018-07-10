@@ -1,6 +1,6 @@
 import {SUBMIT, CLEAR, COMPLETED} from '../actions';
 
-const initialState = [{value: 'task1', completed: false}, {value: 'task2', completed: false}];
+const initialState = [{value: 'task1', completed: false}, {value: 'task2', completed: true}];
 
 const rootReducer = (todos = initialState, action) => {
     switch (action.type) {
@@ -9,7 +9,9 @@ const rootReducer = (todos = initialState, action) => {
         case CLEAR:
             return todos;
         case COMPLETED:
-            return todos;
+            return todos.map(todo =>
+                (todo.value === action.payload) ? {...todo, completed: !todo.completed} : todo
+            );
         default:
             return todos;
     }
