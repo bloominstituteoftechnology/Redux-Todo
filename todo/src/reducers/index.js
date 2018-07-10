@@ -5,7 +5,8 @@ const initialState = {
       completed: false,
       id: 1
     }
-  ]
+  ],
+  newTodo: ""
 };
 
 const todosReducer = (state = initialState, action) => {
