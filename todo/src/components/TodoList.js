@@ -16,6 +16,9 @@ class TodoList extends React.Component {
 
     handleAdd = event => {
         event.preventDefault();
+        if(!this.state.input) {
+            return;
+        }
         const { input } = this.state;
         const newItem = {
             input,
