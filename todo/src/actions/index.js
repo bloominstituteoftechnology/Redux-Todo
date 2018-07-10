@@ -3,9 +3,10 @@ export const TOGGLED_COMPLETED = 'TOGGLED_COMPLETED';
 
 
 
-export const addToDo = (e) => {
+export const addToDo = (todo, e) => {
     e.preventDefault();
-    let todo = e.target.value; 
+    console.log(e);
+    console.log(todo);
     return {type: 'ADD_TODO',
             payload: todo }
 }
