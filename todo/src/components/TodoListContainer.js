@@ -13,8 +13,8 @@ class TodoListContainer extends Component {
 
 
   handlechange = (e) => {
-    console.log("From changeHandler", e.target.value)
-    this.setState({[e.target.name]: e.target.value})
+    console.log("From changeHandler", e.target.value);
+    this.setState({[e.target.name]: e.target.value});
   }
 
   addTodoHandler = (e) => {
@@ -41,7 +41,7 @@ class TodoListContainer extends Component {
         <form>
           <input type="text" name="todo" placeholder="todo..."
           onChange={this.handleChange}
-          />
+          value={this.state.todo}/>
           <button type="button" onClick={this.addTodoHandler}>Submit</button>
         </form>
       </div>
