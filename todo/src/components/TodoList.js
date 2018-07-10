@@ -30,7 +30,7 @@ class TodoList extends React.Component {
         return (
             <div>
                 <form>
-                    <input onChange={this.handleInput} name="input" />
+                    <input onChange={this.handleInput} name="input" value={this.state.input} />
                     <button type="submit" onClick={this.handleAdd}>Add</button>
                 </form>
                 <ul>
