@@ -1,10 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  line-height: 1.6rem;
 }
 
 .App-header {
@@ -22,11 +18,18 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 i{
   font-size: 4rem;
+}
+i:hover {
+  cursor: default;
+  transform: rotate(360deg);
+  transition: all 1.3s ease-in-out 0s;
+}
+
+.App button {
+  margin-left: 1rem;
+}
+.App button:hover {
+  box-shadow: 10px 10px 18px #888888;
 }
