@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Todo = (props) => {
-    return <li></li>
+    return <li>{props.todo.text}</li>
 }
  
 export default Todo;
