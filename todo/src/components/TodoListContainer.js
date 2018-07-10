@@ -29,6 +29,7 @@ class TodoListContainer extends Component {
   }
 
   toggleComplete = (todoId) => {
+    console.log("is called")
     this.props.toggleTodo(todoId);
   }
 
@@ -39,7 +40,7 @@ class TodoListContainer extends Component {
       <div className="TodoList-Container">
         <ul>{this.props.todos.map(todo => {
           return <li onClick={() => this.toggleComplete(todo.id)}
-          style={todo.complete ? {color: 'red', textDecoration: 'line-through'}: null}
+          style={todo.completed ? {color: 'red', textDecoration: 'line-through'}: null}
           key={todo.id}>{todo.text}</li>
         })}</ul>
         <form>
@@ -60,4 +61,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addTodo })(TodoListContainer);
+export default connect(mapStateToProps, { addTodo, toggleTodo })(TodoListContainer);
