@@ -9,8 +9,8 @@ const Todo = (props) => {
 
     return (
         <div>
-            <button onClick={toggleComplete}> Delete</button>
             <p>{props.todo}</p>
+            <button onClick={toggleComplete}> Completed</button>
         </div>
     )
 }

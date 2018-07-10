@@ -1,5 +1,5 @@
 import React from "react";
-
+import Todo from './Todo';
 import { addTodo, deleteTodo } from "../actions";
 import { connect } from "react-redux";
 
@@ -7,35 +7,11 @@ const TodoList = props => {
   return (
     <div>
       {props.todos.map(todo => {
-        if (todo.completed) {
           return (
-            <p key={todo.id}>
-              {todo.task}
-              <button
-                onClick={() => {
-                  props.deleteTodo(todo);
-                }}
-              >
-                {" "}
-                Delete
-              </button>
-            </p>
-          );
-        } else {
-          return (
-            <p key={todo.id}>
-              {todo.task}{" "}
-              <button
-                onClick={() => {
-                  props.deleteTodo(todo);
-                }}
-              >
-                Delete
-              </button>
-            </p>
+            <Todo todo={todo.task}/>
           );
         }
-      })}
+      )}
     </div>
   );
 };
