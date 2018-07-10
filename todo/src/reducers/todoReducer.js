@@ -1,4 +1,4 @@
-import { TODO_ADDED, TODO_CLICKED } from "../actions";
+import { TODO_ADDED, TODO_CLICKED, TODO_DELETED } from "../actions";
 
 const defaultTodos = {
   todos: [
@@ -27,6 +27,13 @@ const todoReducer = (state = defaultTodos, action) => {
         }
       });
       console.log('Set completed state of', action.payload);
+      newState = {todos: newTodos};
+      console.log('newState: ', newState);
+      return newState;
+    case TODO_DELETED:
+      newTodos = state.todos.slice();
+      newTodos = newTodos.filter(todo => todo.id !== action.payload);
+      console.log('Deleted todo at ', action.payload);
       newState = {todos: newTodos};
       console.log('newState: ', newState);
       return newState;

@@ -10,21 +10,22 @@
 
 .todo-form button, .todo-form__input {
   font-size: 1.8rem;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .todo-form__input {
   margin: 0 10px 0 0;
 }
 
-.todo-list {
-  background-color: #eaeaea;
-  padding: 20px 20px 10px;
-}
-
 .todo-list__item {
-  display: block;
-  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 15px 0;
+  padding: 10px 20px;
   text-transform: uppercase;
+  background-color: #eaeaea;
   cursor: pointer;
   opacity: .7;
   transform: scale(1);
@@ -39,4 +40,16 @@
 
 .todo-list__item.is-completed {
   text-decoration: line-through;
+}
+
+.todo-list__item-button {
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+.todo-list__item-button:hover {
+  color: white;
+  background-color: cornflowerblue;
 }

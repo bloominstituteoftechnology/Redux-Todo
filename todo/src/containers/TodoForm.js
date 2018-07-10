@@ -8,6 +8,7 @@ class TodoForm extends Component {
     e.preventDefault();
     const formInput = document.querySelector('#newTodo');
     const todo = {
+      id: `${Math.random()}-${this.props.todos.length + 1}`,
       value: formInput.value,
       completed: false
     }
