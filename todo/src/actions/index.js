@@ -4,7 +4,7 @@ const NEW_TODO = 'NEW_TODO';
 const TODO_COMPLETED ='COMPLETED_TODO';
 const FETCH_TODOS = 'FETCH_TODOS';
 
-const todoList = ['item 1', 'item 2', 'item 3'];
+const todoList = [{value: 'item 1', completed: false}, {value: 'item 2', completed: false}, {value: 'item 3', completed: false}];
 
 export const fetchTodos = () => {
     return {

@@ -1,22 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
-import {fetchTodos, todoList} from './../actions/index';
+import {completedTodo} from './../actions/index';
 
 class TodoList extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    componentDidMount() {
-        this.props.fetchTodos();
-    }
-
     render() {
     return (
-        <div>
-            {this.props.todoList.map(item => {
-          return <div key={item} item={item}><Todo item={item}/></div>
+        <div>{console.log(this.props.todoList)}
+        
+             {this.props.todoList.map(item => {
+          return <div key={item} item={item.value}><Todo item={item.value} completedTodo={this.props.completedTodo}/></div>
         })}
         </div>
     )
@@ -25,8 +22,8 @@ class TodoList extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        todoList: state
+        todoList: state.todoList
     };
 }
 
-export default connect(mapStateToProps, {fetchTodos})(TodoList);
+export default connect(mapStateToProps, {completedTodo})(TodoList);
