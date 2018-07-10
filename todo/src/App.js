@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from "react-redux";
-import { addTodo, removeTodos, toggleCompleted } from './todoActions';
+import { addTodo, removeTodos} from './actions/index';
 import TodoList from './containers/TodoList';
 
 
@@ -51,4 +51,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { addTodo, removeTodos, toggleCompleted })(App);
+export default connect(mapStateToProps, { addTodo, removeTodos})(App);

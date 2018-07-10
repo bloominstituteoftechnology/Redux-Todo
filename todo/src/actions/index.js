@@ -1,6 +1,6 @@
-const ADD_TODO = "ADD_TODO";
-const REMOVE_TODOS = "REMOVE_TODOS";
-const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
+export const ADD_TODO = "ADD_TODO";
+export const REMOVE_TODOS = "REMOVE_TODOS";
+export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 
 export const addTodo = (todo) => {
     return {
