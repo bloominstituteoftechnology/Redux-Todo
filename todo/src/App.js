@@ -9,7 +9,7 @@ class App extends Component {
     super();
     this.state = {
       title: 'Todo List App',
-      char: '',
+      name: '',
     }
   }
 
@@ -21,13 +21,13 @@ handleNameChange = event => {
 handleSubmitTodo = () => {
   let nextId = Date.now();
   var todo = {
-    task: this.state.char,
+    task: this.state.name,
     id: nextId,
     completed: false
   };
 
   this.props.addTodo(todo);
-  this.setState({char: ''});
+  this.setState({name: ''});
 };
 
 render() {
@@ -35,7 +35,7 @@ render() {
     <div>
       <h1>{this.state.title}</h1>
       <input
-        name='char' 
+        name='name' 
         onChange={this.handleNameChange}
         onKeyPress={
           (event) => {
@@ -45,7 +45,7 @@ render() {
           }
         }
 
-        value={this.state.char}
+        value={this.state.name}
         placeholder="Add Todo..."/>
         <button onClick= {this.handleSubmitTodo}>Add</button>
 
