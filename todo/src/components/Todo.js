@@ -18,8 +18,13 @@ handleChange = e => {
 
 submitTodo = e => {
     e.preventDefault();
-    const newTask = this.state.task;
-    this.props.addTodo(newTask);
+    const { task } = this.state;
+    const newObjTask = {
+        id: Math.random(),
+        completed: false,
+        value: task,
+    }
+    this.props.addTodo(newObjTask);
     this.setState({ task: ''});
     // this.setState({ tasks: newTask, task: ''});
     // console.log('task: ', this.state.task)
@@ -45,7 +50,7 @@ submitTodo = e => {
                 </p>
                 <ul>
                     {this.props.list.map((item, i) => {
-                        return <li key={i}> {item} </li>
+                        return <li key={i}> {item.value} </li>
                     })}
                 </ul>
             </div>
@@ -56,7 +61,7 @@ submitTodo = e => {
 const mapStateToProps = state => {
     console.log('mapState state: ',  state)
     return {
-        list: state
+        list: state.todos
     }
     
 }
