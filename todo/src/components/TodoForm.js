@@ -2,7 +2,14 @@ import React from 'react';
 
 const TodoForm = () => {
     return (
-        <p>TodoForm</p>
+        <div>
+            <p>TodoForm</p>
+            <form>
+                <input type='text' />
+                <button>Submit</button>
+            </form>    
+        </div>
+        
     );
 }
  

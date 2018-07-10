@@ -1,7 +1,11 @@
-const initialTodoArray = [ 'Walk the dog', 'Clean the car', 'Add your own...' ];
+const initialTodoArray = [
+  { value: "Walk the dog", completed: false },
+  { value: "Clean House", completed: false },
+  { value: 'Do Laundry', completed: false }
+];
 
 const todoReducer = (state = initialTodoArray, action) => {
-    return state;
+  return state;
 };
 
 export default todoReducer;

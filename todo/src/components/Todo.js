@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Todo = () => {
+const Todo = (props) => {
+    console.log('Todo Props: ', props)
     return (
-        <p>Todo</p>
+        <div>
+            <p>{props.todo.value}</p>
+        </div>
     );
 }
  
