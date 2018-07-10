@@ -9,14 +9,18 @@ export default class NewTodoForm extends Component {
   }
 
   handleChange = event => {
-    event.preventDefault();
     this.setState({ newTodoValue: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log("HANDLE SUBMIT EVENT: ", event.target.newTodo.value);
   };
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="newTodo"
