@@ -9,7 +9,7 @@ const TodoList = props => {
                 return (
                     <div className="todos" key={todo.value + index}>
                         {todo.value}
-                        <Button color="success" onClick={() => props.remove({ value: todo.value })} className="button button-delete" > X </Button>
+                        <Button color="success" onClick={() => props.remove({ value: todo.value })} className={todo.complete? "button button-delete" : "button-disabled button-delete"} > X </Button>
                     </div>)
             })}
 

@@ -12,7 +12,8 @@ import { localState, saveState } from './persistence';
 const load = localState();
 const store = createStore(
     reducer,
-    load
+    localState(), 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 store.subscribe(() => {
