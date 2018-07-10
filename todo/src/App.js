@@ -26,5 +26,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App) ;
+export default connect(mapStateToProps, { TodoList })(App) ;
 // export default App;
