@@ -13,8 +13,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type) {
         case ADD_TODO:
-        const todo = Object.assign({}, state.todo, { text: state.text});
-        return Object.assign({}, state, { todos: [...state.todos, todo]})
+        return Object.assign({}, state, { todos: [...state.todos, action.payload]})
         case CHANGE_TODO:
         return Object.assign({}, state, { text: action.payload })
         default:

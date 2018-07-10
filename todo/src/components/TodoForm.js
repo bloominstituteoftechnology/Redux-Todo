@@ -8,10 +8,10 @@ const TodoForm = props => {
         e.preventDefault();
       }}
     >
-      <input type="text" onChange = { props.changeTodo } />
+      <input type="text" onChange={props.changeTodo} />
       <button
         onClick={e => {
-          props.addTodo(e);
+          props.addTodo(props.text);
         }}
       >
         Submit
@@ -22,10 +22,12 @@ const TodoForm = props => {
 };
 
 const mapStateToProps = state => {
-  console.log("State: ", state);
   return {
     todo: state.todo,
     text: state.text
   };
 };
-export default connect(mapStateToProps, { addTodo, changeTodo })(TodoForm);
+export default connect(
+  mapStateToProps,
+  { addTodo, changeTodo }
+)(TodoForm);
