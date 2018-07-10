@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodo, toggleComplete } from '../actions';
 
 class Todo extends Component {
     constructor(props) {
@@ -9,6 +9,8 @@ class Todo extends Component {
         this.state = { 
             // tasks: '',
             task: '',
+            text: 'Complete',
+            clickedText: 'Undo'
          }
     }
 
@@ -30,6 +32,9 @@ submitTodo = e => {
     // console.log('task: ', this.state.task)
     // console.log('tasks: ', this.state.tasks)
 }
+toggleComplete = (id) => {
+    this.props.toggleComplete(id);
+}
 
     render() { 
         console.log('props in todo render: ', this.props)
@@ -48,11 +53,18 @@ submitTodo = e => {
                     />
                 <button onClick={this.submitTodo}>Submit</button>
                 </p>
-                <ul>
+                <div>
                     {this.props.list.map((item, i) => {
-                        return <li key={i}> {item.value} </li>
+                        return (
+                        <div  key={i}>
+                            <div style={ item.completed ? {textDecoration: 'line-through'} : null}> {item.value} 
+                                <button onClick={() => this.toggleComplete(item.id)}>{ item.completed ? this.state.clickedText : this.state.text}</button>
+                            </div>
+                            
+                        </div>
+                        )
                     })}
-                </ul>
+                </div>
             </div>
          );
     }
@@ -66,4 +78,4 @@ const mapStateToProps = state => {
     
 }
  
-export default connect(mapStateToProps, { addTodo })(Todo);
+export default connect(mapStateToProps, { addTodo, toggleComplete })(Todo);
