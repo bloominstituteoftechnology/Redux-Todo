@@ -17,9 +17,11 @@ const initialState = {
 const todoReducer = (state = initialState, action) => {
     switch(action.type) {
         case "ADD_TODO": 
-            const newTodos = state.todos.slice().push(action.payload);
-            return Object.assign({}, state, {todos: newTodos});
+            const newTodos = state.todos.slice();
+            newTodos.push(action.payload);
+            return Object.assign({}, state, {todos: newTodos, newTodo: ""});
         case "REMOVE_TODOS":
+            console.log("Called remove todos");
             return Object.assign({}, state, {todos: state.todos.filter(todo => todo.completed === false)});
         case "TOGGLE_COMPLETED":
             return Object.assign({}, state, {todos: state.todos.map(todo => {
@@ -29,7 +31,6 @@ const todoReducer = (state = initialState, action) => {
                 return todo;
             })});
         case "HANDLE_NEW_TODO":
-            console.log(action.payload);
             return Object.assign({}, state, {newTodo: action.payload})
         default:
             return state;

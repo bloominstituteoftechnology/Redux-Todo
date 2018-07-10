@@ -10,7 +10,6 @@ const StyledUl = styled.ul`
 `;
 
 const TodoList = (props) => {
-    console.log(props);
     return (
         <StyledUl>
             {props.todos.map((item => {

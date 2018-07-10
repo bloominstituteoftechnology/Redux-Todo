@@ -19,7 +19,10 @@ class App extends Component {
         </header>
         <TodoList />
         <TodoForm changeEvent={this.props.handleNewTodo}
-                  displayText={this.props.newTodo} />
+                  displayText={this.props.newTodo}
+                  addNewTodo={this.props.addTodo}
+                  newTodo={this.props.newTodo}
+                  clearTodo={this.props.removeTodos} />
       </div>
     );
   }
@@ -28,7 +31,6 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return{
-    todos: state.todos,
     newTodo: state.newTodo, 
   }
 }

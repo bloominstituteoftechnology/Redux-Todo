@@ -10,9 +10,11 @@ const TodoForm = props => {
              onChange={props.changeEvent} />
       <button className="todo-add-btn"
               type="submit"
-              onClick={props.handler} >Add</button>
+              onClick={(e) => { e.preventDefault()
+                                props.addNewTodo(props.newTodo)}} >Add</button>
       <button className="todo-clear-btn"
-              onClick={props.clearTodo}>Clear Completed</button>
+              onClick={(e) => { e.preventDefault()
+                                props.clearTodo()}}>Clear Completed</button>
     </form>
   );
 }

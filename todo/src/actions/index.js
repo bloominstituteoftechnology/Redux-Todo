@@ -27,7 +27,6 @@ export const toggleCompleted = todo => {
 }
 
 export const handleNewTodo = (e) => {
-    console.log("e", e);
     return {
         type: HANDLE_NEW_TODO,
         payload: e.target.value,
