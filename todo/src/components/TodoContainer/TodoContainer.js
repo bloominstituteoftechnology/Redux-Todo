@@ -3,9 +3,15 @@ import { connect } from "react-redux";
 import Todo from "./Todo";
 
 const TodoContainer = props => {
-  props.todos.map(todo => {
-    return <Todo todo={todo} />;
-  });
+  console.log("TODO CONTAINER PROPS", props);
+  return (
+    <div>
+      <div>TODO CONTAINER</div>
+      {props.todos.map(todo => {
+        return <div key={todo.value}>{todo.value}</div>;
+      })}
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
@@ -15,7 +21,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {}
-)(TodoContainer);
+export default connect(mapStateToProps)(TodoContainer);
