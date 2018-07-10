@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addNewTodo } from "../../actions";
 
-export default class NewTodoForm extends Component {
+class NewTodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +17,7 @@ export default class NewTodoForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log("HANDLE SUBMIT EVENT: ", event.target.newTodo.value);
+    this.props.addNewTodo(event.target.newTodo.value);
   };
 
   render() {
@@ -34,3 +37,15 @@ export default class NewTodoForm extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  console.log("APP RECIEVING STORE FROM REDUX: ", state);
+  return {
+    todos: state.todos
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addNewTodo }
+)(NewTodoForm);
