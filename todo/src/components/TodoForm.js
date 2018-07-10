@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTask, clickAdd } from "../actions/action";
+import { addTask, clickAdd, clearCompleted } from "../actions/action";
 
 class TodoForm extends React.Component {
   addNewTask = event => {
@@ -20,10 +20,14 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form>
-        <input onChange={this.addNewTask} placeholder="add todo here" />
+      <form onSubmit={event => event.preventDefault()}>
+        <input
+          value={this.props.newTask}
+          onChange={this.addNewTask}
+          placeholder="add todo here"
+        />
         <button onClick={this.clickNewAdd}>Add Task</button>
-        <button>Clear Completed</button>
+        <button onClick={this.props.clearCompleted}>Clear Completed</button>
       </form>
     );
   }
@@ -38,5 +42,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTask, clickAdd }
+  { addTask, clickAdd, clearCompleted }
 )(TodoForm);

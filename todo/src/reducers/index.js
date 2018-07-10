@@ -1,4 +1,9 @@
-import { ADDTASK, CLICKADD } from "../actions/action";
+import {
+  ADDTASK,
+  CLICKADD,
+  TOGGLECOMPLETED,
+  CLEARCOMPLETED
+} from "../actions/action";
 
 const initialState = {
   tasks: [
@@ -20,6 +25,19 @@ export default (state = initialState, action) => {
       clickadd.push(action.payload);
       console.log("clicked add");
       return Object.assign({}, state, { tasks: clickadd, newTask: "" });
+    case TOGGLECOMPLETED:
+      let togglecompleted = state.tasks.slice();
+      togglecompleted = togglecompleted.map(toggle => {
+        if (toggle.id === action.payload) {
+          toggle.completed = !toggle.completed;
+          return toggle;
+        }
+      });
+      return Object.assign({}, state, { tasks: togglecompleted });
+    case CLEARCOMPLETED:
+      let tasks = state.tasks.slice();
+      tasks = tasks.filter(task => !task.completed);
+      return Object.assign({}, state, { tasks: tasks });
     default:
       return state;
   }
