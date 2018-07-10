@@ -17,12 +17,13 @@ export const todoReducer = (state = initialState, action) => {
     let newTodos = [];
   switch (action.type) {
     case ADD_TODO:
-      console.log("Add");
+      console.log(action);
       newTodos = state.concat(action.payload);
       saveTodoList(newTodos);
       return newTodos;
 case DELETE_TODO:
-    newTodos = state.filter(todo => {return todo !== action.payload});
+console.log(action);
+    newTodos = state.filter(todo => {return todo.task !== action.payload});
     saveTodoList(newTodos)
     return newTodos;
     default:

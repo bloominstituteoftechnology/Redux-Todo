@@ -4,6 +4,7 @@ import {deleteTodo} from '../actions/index';
 
 const Todo = (props) => {
     const toggleComplete = () => {
+        console.log('delete')
         props.deleteTodo(props.todo)
     }
 
@@ -15,4 +16,13 @@ const Todo = (props) => {
     )
 }
 
-export default connect(null, {deleteTodo})(Todo);
+const mapStateToProps = state => {
+    return {
+      todos: state
+    };
+  };
+
+  export default connect(
+    mapStateToProps,
+    { deleteTodo }
+  )(Todo);
