@@ -1,18 +1,14 @@
+import {ADD_TODO} from '../actions';
+
 const initialList = {
   todos: ['fiaofjfa', 'fwfijfjaowfj', 'jfoawjfaf']
 }
 
-const todoInput = ''
-
-const listReducer = (state = initialList, action) => {
+export default (state = [], action) => {
   switch(action.type) {
-    case "ADD_TODO":
-      return Object.assign({}, state, {value: todoInput, complete: false});
-    case "HANDLE_CHANGE":
-      return 'jyjf'
+    case ADD_TODO:
+      return [...state, action.payload];
     default:
       return state;
   }
 }
-
-export default listReducer;
