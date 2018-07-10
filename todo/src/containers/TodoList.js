@@ -1,14 +1,11 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { clickTodo } from '../actions';
+import TodoItem from './TodoItem';
 
 const TodoList = props => {
   return (
     <ul className="todo-list">
-      {props.todos.map((todo, i) => <li key={todo.id} id={todo.id} onClick={e => {
-        e.preventDefault();
-        props.clickTodo(todo.id);
-      }} className={todo.completed ? 'todo-list__item is-completed': 'todo-list__item'}>{todo.value}</li>)}
+      {props.todos.map((todo, i) => <TodoItem key={todo.id} todo={todo} /> )}
     </ul>
   );
 }
@@ -19,4 +16,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { clickTodo })(TodoList);
+export default connect(mapStateToProps)(TodoList);
