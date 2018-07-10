@@ -23,7 +23,6 @@ const TodoForm = props => {
 
 const mapStateToProps = state => {
   return {
-    todo: state.todo,
     text: state.text
   };
 };
