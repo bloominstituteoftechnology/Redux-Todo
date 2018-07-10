@@ -25,9 +25,12 @@ handleSubmitTodo = () => {
     id: nextId,
     completed: false
   };
-
+if (this.state.name === '') {
+  return
+} else {
   this.props.addTodo(todo);
   this.setState({name: ''});
+}
 };
 
 render() {
