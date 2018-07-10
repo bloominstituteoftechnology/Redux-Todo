@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleComplete, deleteTodo } from '../actions';
+import { addTodo, toggleComplete, deleteTodo, deleteCompleted, deleteAll } from '../actions';
 
 class Todo extends Component {
     constructor(props) {
@@ -32,13 +32,21 @@ submitTodo = e => {
     // console.log('task: ', this.state.task)
     // console.log('tasks: ', this.state.tasks)
 }
+
 toggleComplete = (id) => {
     this.props.toggleComplete(id);
 }
+
 deleteTodo = id => {
     this.props.deleteTodo(id);
 }
 
+deleteCompleted = () => {
+    this.props.deleteCompleted();
+}
+deleteAll = () => {
+    this.props.deleteAll();
+}
     render() { 
         console.log('props in todo render: ', this.props)
         return ( 
@@ -55,6 +63,8 @@ deleteTodo = id => {
                     onChange={this.handleChange}
                     />
                 <button onClick={this.submitTodo}>Submit</button>
+                <button onClick={this.deleteCompleted}>Delete Complete</button>
+                <button onClick={this.deleteAll}>Delete All</button>
                 </p>
                 <div>
                     {this.props.list.map((item, i) => {
@@ -82,4 +92,4 @@ const mapStateToProps = state => {
     
 }
  
-export default connect(mapStateToProps, { addTodo, toggleComplete, deleteTodo })(Todo);
+export default connect(mapStateToProps, { addTodo, toggleComplete, deleteTodo, deleteCompleted, deleteAll })(Todo);

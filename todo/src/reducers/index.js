@@ -1,4 +1,4 @@
-import {ADD_NEW_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions';
+import {ADD_NEW_TODO, TOGGLE_COMPLETE, DELETE_TODO, DELETE_COMPLETE, DELETE_ALL } from '../actions';
 
 const initialState =  {
     todos: [
@@ -8,7 +8,6 @@ const initialState =  {
     id: Math.random()
   }]
 }
-
 
 export const todoReducer = (state = initialState, action) => {
     switch (action.type){
@@ -20,7 +19,6 @@ export const todoReducer = (state = initialState, action) => {
              if(item.id === action.payload) {
                  item.completed = !item.completed;
                  return item;
-                
              } else {
                  return item
              }
@@ -35,7 +33,13 @@ export const todoReducer = (state = initialState, action) => {
         //   });
         case DELETE_TODO: 
           const filtered = state.todos.filter( item => item.id !== action.payload )
-          return Object.assign({}, state, { todos: filtered })
+          return Object.assign({}, state, { todos: filtered });
+        case DELETE_COMPLETE: 
+          const filteredC = state.todos.filter( item => item.completed !== true )
+          return Object.assign({}, state, { todos: filteredC });
+        case DELETE_ALL: 
+          const filteredAll = state.todos.filter( item => item.id === -100)
+          return Object.assign({}, state, { todos: filteredAll});
         default:
          return state;
     }
