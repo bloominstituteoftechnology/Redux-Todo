@@ -18,7 +18,7 @@ class App extends Component {
           <h1 className="App-title">My god, you've got SO MUCH TO DO!!</h1>
         </header>
         <TodoList />
-        <TodoForm changeEvent={this.props.addTodo}
+        <TodoForm changeEvent={this.props.handleNewTodo}
                   displayText={this.props.newTodo} />
       </div>
     );
