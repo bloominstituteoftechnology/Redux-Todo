@@ -9,7 +9,7 @@ class TodoList extends Component {
 
 handleNewTodo = event => {
     event.preventDefault();
-    this.state({ todo: event.target.value });
+    this.setState({ todo: event.target.value });
 }
 
 addTodo = event => {
@@ -30,6 +30,10 @@ addTodo = event => {
                     />
                     <button onClick={this.addTodo}>Add</button>
                 </form>
+                {this.state.todo}
+                {this.props.todos.map(todo => {
+                    return <ul key={todo.todoText}>{todo.todoText}</ul>
+                })}
             </div>
         )
     }

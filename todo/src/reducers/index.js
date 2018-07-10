@@ -1,6 +1,6 @@
 import { ADD_TODO } from '../actions';
 
-export default (state, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
     const newTodo = Array.from(state);
