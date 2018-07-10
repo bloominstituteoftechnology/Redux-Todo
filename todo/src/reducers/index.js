@@ -1,4 +1,4 @@
-import { ADD_TODO, CHANGE_TODO } from "../actions";
+import { ADD_TODO, CHANGE_TODO, TOGGLE_COMPLETION } from "../actions";
 
 
 const initialState = {
@@ -6,6 +6,7 @@ const initialState = {
     todo: {
         text: '',
         completed: false,
+        id: Date.now()
     },
     text: ''
 }
@@ -16,6 +17,8 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, { todos: [...state.todos, action.payload]})
         case CHANGE_TODO:
         return Object.assign({}, state, { text: action.payload })
+        case TOGGLE_COMPLETION:
+        return Object.assign({}, state, { todos: action.payload });
         default:
         return state;
     }

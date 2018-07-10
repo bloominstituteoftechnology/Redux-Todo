@@ -10,7 +10,7 @@ const TodoForm = props => {
     >
       <input type="text" onChange={props.changeTodo} />
       <button
-        onClick={e => {
+        onClick={() => {
           props.addTodo(props.text);
         }}
       >
