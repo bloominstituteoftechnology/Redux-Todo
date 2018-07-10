@@ -45,7 +45,7 @@ submitTodo = e => {
                 </p>
                 <ul>
                     {this.props.list.map((item, i) => {
-                        <li key={i}> {item} </li>
+                        return <li key={i}> {item} </li>
                     })}
                 </ul>
             </div>

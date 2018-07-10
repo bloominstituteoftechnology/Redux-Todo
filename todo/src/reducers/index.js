@@ -1,6 +1,9 @@
 import {ADD_NEW_TODO} from '../actions';
 
-export const todoReducer = (state = [], action) => {
+const initialState = [ 'check library', 'buy textbook'
+]
+
+export const todoReducer = (state = initialState, action) => {
     switch (action.type){
         case ADD_NEW_TODO:
         console.log('action state: ', state.concat(action.payload))
