@@ -12,13 +12,14 @@ class TodoListContainer extends Component {
   }
 
 
-  handlechange = e => {
+  handlechange = (e) => {
+    console.log("From changeHandler", e.target.value)
     this.setState({[e.target.name]: e.target.value})
   }
 
   addTodoHandler = (e) => {
-
-    const { text } = this.state;
+    const text = this.state.todo;
+    console.log(text);
     const newTodo = {
       text,
       completed: false,
@@ -30,7 +31,8 @@ class TodoListContainer extends Component {
 
 
   render() {
-    console.log("Props in App:", this.props);
+    console.log("Props in TodoList:", this.props);
+    console.log("From todoList render", this.state.todo);
     return (
       <div className="TodoList-Container">
         <ul>{this.props.todos.map(todo => {
