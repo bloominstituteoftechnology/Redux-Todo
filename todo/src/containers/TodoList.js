@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {addTodo} from '../actions/index.js';
+import { addTodo, toggleTodo } from '../actions/index.js';
 
 class TodoList extends Component {
     state = {
@@ -18,6 +18,11 @@ addTodo = event => {
     this.props.addTodo(toDo);
     this.setState({ todo: '' })
 }
+
+completeTodo = todoId => {
+    this.props.toggleTodo(todoId)
+};
+
     render() {
         return (
             <div>
@@ -30,9 +35,16 @@ addTodo = event => {
                     />
                     <button onClick={this.addTodo}>Add</button>
                 </form>
-                {this.state.todo}
                 {this.props.todos.map(todo => {
-                    return <ul key={todo.todoText}>{todo.todoText}</ul>
+                    return (
+                    <ul 
+                    onClick={() => this.completeTodo(todo.id)}
+                    style={{
+                        textDecoration: todo.completed ? "line-through" : "none",
+                        cursor: "pointer"
+                    }}
+                    key={todo.id}>{todo.todoText}</ul>
+                    )
                 })}
             </div>
         )
@@ -45,4 +57,4 @@ const mapStoreToProps = store => {
     };
 }
 
-export default connect (mapStoreToProps, {addTodo}) (TodoList);
+export default connect (mapStoreToProps, { addTodo, toggleTodo }) (TodoList);

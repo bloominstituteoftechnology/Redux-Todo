@@ -1,12 +1,17 @@
-import { ADD_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO } from '../actions';
 
 export default (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
-    const newTodo = Array.from(state);
-    newTodo.push(action.payload);
-    return newTodo;
-    
+        return [...state, action.payload];
+    case TOGGLE_TODO:
+        return state.map(todo => {
+            if (todo.id === action.payload.id) {
+            return Object.assign({}, todo, { completed: !todo.completed});
+            }
+            return todo;
+        });
+
     default:
       return state;
   }
