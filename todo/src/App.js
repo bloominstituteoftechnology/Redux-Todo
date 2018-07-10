@@ -1,38 +1,48 @@
 import React, { Component } from 'react';
 import './App.css';
-import styled from 'styled-components';
 import { connect } from "react-redux";
-import { getTodos, addTodo, removeTodos, toggleCompleted } from './todoActions';
+import { addTodo, removeTodos, toggleCompleted } from './todoActions';
+import TodoList from './containers/TodoList';
 
-const StyledLI = styled.li`
-    text-decoration: ${props => (props.completed ? "none" : "line-through")}
-`;
 
 class App extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      newTodo: "",
+    }
   }
 
-  componentDidMount(){
-    this.props.getTodos();
+  handleNewTodo = (e) => {
+    this.setState({newTodo: e.target.value});
   }
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">My god, you've got SO MUCH TO DO!!</h1>
         </header>
-        <ul>
+        <TodoList />
+        {/* <ul>
           {this.props.todos.map(todo => {
-            <StyledLI onClick={this.props.toggleCompleted} 
-                completed={todo.completed ? true : false}>{todo.todo}</StyledLI>
+            return <StyledLI onClick={() => this.props.toggleCompleted(todo)} 
+                              completed={todo.completed ? true : false}
+                              key={todo.todo} >{todo.todo}</StyledLI>
           })}
         </ul>
+
+        <form onSubmit={(e) => {e.preventDefault();
+                                this.props.addTodo(this.state.newTodo)}} >
+          <input type="text"
+                  placeholder="Type new Todo"
+                  value={this.state.newTodo}
+                  onChange={this.handleNewTodo} />      
+        </form> */}
       </div>
     );
   }
 }
+
 
 const mapStateToProps = state => {
   return{
@@ -40,4 +50,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getTodos, addTodo, removeTodos, toggleCompleted })(App);
+
+export default connect(mapStateToProps, { addTodo, removeTodos, toggleCompleted })(App);
