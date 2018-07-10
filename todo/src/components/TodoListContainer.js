@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodo, toggleTodo } from '../actions';
 
 class TodoListContainer extends Component {
   constructor() {
@@ -28,13 +28,19 @@ class TodoListContainer extends Component {
     this.setState({todo: ''})
   }
 
+  toggleComplete = (todoId) => {
+    this.props.toggleTodo(todoId);
+  }
+
 
   render() {
     console.log("Props in TodoList:", this.props);
     return (
       <div className="TodoList-Container">
         <ul>{this.props.todos.map(todo => {
-          return <li key={todo.id}>{todo.text}</li>
+          return <li onClick={() => this.toggleComplete(todo.id)}
+          style={todo.complete ? {color: 'red', textDecoration: 'line-through'}: null}
+          key={todo.id}>{todo.text}</li>
         })}</ul>
         <form>
           <input type="text" name="todo" placeholder="todo..."
