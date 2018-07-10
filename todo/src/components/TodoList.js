@@ -10,7 +10,7 @@ const TodoList = props => {
         if (todo.completed) {
           return (
             <p key={todo.id}>
-              {todo.task}{" "}
+              {todo.task}
               <button
                 onClick={() => {
                   props.deleteTodo(todo);
