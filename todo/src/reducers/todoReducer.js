@@ -21,10 +21,8 @@ const todoReducer = (state = initialState, action) => {
         case "REMOVE_TODOS":
             return Object.assign({}, state, {todos: state.todos.filter(todo => todo.completed === false)});
         case "TOGGLE_COMPLETED":
-            console.log(action);
-            console.log(state.todos);
             return Object.assign({}, state, {todos: state.todos.map(todo => {
-                if(todo.todo === action.payload.todo){
+                if(todo.todo === action.payload){
                     todo.completed = !todo.completed;
                 }
                 return todo;
