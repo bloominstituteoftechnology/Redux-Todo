@@ -1,4 +1,7 @@
 import React from 'react'
-export const Todo = (props) => {
-  return <li>{props.todo}</li>
+const Todo = (props) => {
+  console.log('in TODO, todo ', props.todo)
+  return <li>{props.todo.value}</li>
 }
+
+export default Todo

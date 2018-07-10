@@ -1,12 +1,20 @@
 import { ADD_TODO } from '../actions/addTodo'
 
-export const todoReducer = (state = [ 'toDo', 'testing' ], action) => {
+const initialState = {
+  todos: [
+    {
+      id: 0,
+      value: 'hello',
+      completed: false
+    }
+  ]
+}
+
+export const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      console.log(action)
-      return [ ...state, action.payload ]
+      return { ...state, todos: state.todos.concat(action.payload) }
     default:
-      console.log(action)
       return state
   }
 }

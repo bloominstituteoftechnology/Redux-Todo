@@ -19,8 +19,8 @@ class TodoForm extends Component {
           type='submit'
           onSubmit={(e) => {
             e.preventDefault()
-            this.setState({ newTodo: '' })
             this.props.addTodo(this.state.newTodo)
+            this.setState({ newTodo: '' })
           }}
         >
           <input
@@ -39,9 +39,4 @@ class TodoForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state
-  }
-}
-export default connect(mapStateToProps, { addTodo })(TodoForm)
+export default connect(null, { addTodo })(TodoForm)

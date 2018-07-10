@@ -8,6 +8,10 @@ import { todoReducer } from './reducers/todos'
 
 const store = createStore(todoReducer)
 
+store.subscribe(() => {
+  console.log('Store Changes', store.getState())
+})
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
