@@ -1,4 +1,4 @@
-import { HANDLE_INPUT, ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
+import { HANDLE_INPUT, ADD_TODO, TOGGLE_TODO, CLEAR_COMPLETED_TODOS } from '../actions';
 
 const initialState = {
   todos: [
@@ -34,10 +34,10 @@ export default (state = initialState, action) => {
       });
       return Object.assign({}, state, { todos: toggleTodos });
 
-    case DELETE_TODO:
-      let deleteTodos = state.todos.slice();
-      deleteTodos = deleteTodos.filter(todo => !todo.completed)
-      return Object.assign({}, state, { todos: deleteTodos });
+    case CLEAR_COMPLETED_TODOS:
+      let allTodos = state.todos.slice();
+      const uncompletedTodos = allTodos.filter(todo => !todo.completed)
+      return Object.assign({}, state, { todos: uncompletedTodos });
 
     default:
       return state;

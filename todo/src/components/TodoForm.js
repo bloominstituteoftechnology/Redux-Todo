@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { handleInput, addTodo, deleteTodo } from '../actions';
+import { handleInput, addTodo, clearCompletedTodos } from '../actions';
 
 class TodoForm extends React.Component {
   handleChange = e => {
@@ -14,7 +14,7 @@ class TodoForm extends React.Component {
 
   handleDelete = e => {
     e.preventDefault();
-    this.props.deleteTodo();
+    this.props.clearCompletedTodos();
   }
 
   render() {
@@ -35,4 +35,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { handleInput, addTodo, deleteTodo })(TodoForm);
+export default connect(mapStateToProps, { handleInput, addTodo, clearCompletedTodos })(TodoForm);
