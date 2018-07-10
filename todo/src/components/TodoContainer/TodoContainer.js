@@ -8,7 +8,7 @@ const TodoContainer = props => {
     <div>
       <div>TODO CONTAINER</div>
       {props.todos.map(todo => {
-        return <div key={todo.value}>{todo.value}</div>;
+        return <Todo key={todo.value} todo={todo.value} />;
       })}
     </div>
   );
