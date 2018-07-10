@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 import { connect } from 'react-redux';
 import { handleInput, addTodo, clearCompletedTodos } from '../actions';
 
@@ -20,9 +21,15 @@ class TodoForm extends React.Component {
   render() {
     return (
       <form>
-        <input onChange={this.handleChange} value={this.props.input}/>
-        <button onClick={this.handleSubmit}>Add todo</button>
-        <button onClick={this.handleDelete}>Clear completed</button>
+        <input type="text"
+               placeholder="what do you need to do?"
+               onChange={this.handleChange}
+               value={this.props.input}
+        />
+        <div className="buttons-container">
+          <button className="add-button" onClick={this.handleSubmit}>Add todo</button>
+          <button className="completed-button" onClick={this.handleDelete}>Clear completed</button>
+        </div>
       </form>
     );
   }

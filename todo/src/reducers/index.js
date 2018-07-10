@@ -1,4 +1,4 @@
-import { HANDLE_INPUT, ADD_TODO, TOGGLE_TODO, CLEAR_COMPLETED_TODOS } from '../actions';
+import { HANDLE_INPUT, ADD_TODO, TOGGLE_TODO, CLEAR_COMPLETED_TODOS, DELETE_TODO } from '../actions';
 
 const initialState = {
   todos: [
@@ -17,11 +17,14 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { input: action.payload });
 
     case ADD_TODO:
+      if (state.input === '') {
+        return Object.assign({}, state, { todos: state.todos, input: '' });
+      }
       const newId = state.todos.length + 1;
-      let todos = state.todos.slice();
       let newTodo = { id: newId, value: state.input, completed: false };
-      todos.push(newTodo);
-      return Object.assign({}, state, { todos: todos, input: '' });
+      let addTodos = state.todos.slice()
+      addTodos.push(newTodo);
+      return Object.assign({}, state, { todos: addTodos, input: '' });
 
     case TOGGLE_TODO:
       let toggleTodos = state.todos.slice();
@@ -35,9 +38,12 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { todos: toggleTodos });
 
     case CLEAR_COMPLETED_TODOS:
-      let allTodos = state.todos.slice();
-      const uncompletedTodos = allTodos.filter(todo => !todo.completed)
-      return Object.assign({}, state, { todos: uncompletedTodos });
+      let clearCompletedTodos = state.todos.slice().filter(todo => !todo.completed);
+      return Object.assign({}, state, { todos: clearCompletedTodos });
+
+    case DELETE_TODO:
+      let deleteTodos = state.todos.slice().filter(todo => todo.id !== action.payload);
+      return Object.assign({}, state, { todos: deleteTodos });
 
     default:
       return state;

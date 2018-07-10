@@ -1,24 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleTodo } from '../actions';
+import Todo from './Todo';
 
-class TodoList extends React.Component {
-  render() {
-    return (
-      <div>
-        {this.props.todos.map(todo => {
-          return (
-            <div key={Math.random()}
-                 onClick={() => this.props.toggleTodo(todo.id)}
-                 style={todo.completed ? {textDecoration: "line-through" } : null}
-            >
-              {todo.value}
-            </div>
-          )
-        })}
-      </div>
-    );
-  }
+const TodoList = props => {
+  return (
+    <div>
+      {props.todos.map((todo, index) => {
+        return (
+          <Todo todo={todo}
+                key={index}
+                number={(index + 1).toString()}
+          />
+        )
+      })}
+    </div>
+  );
 }
 
 const mapStateToProps = (state) => {
@@ -27,4 +23,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { toggleTodo })(TodoList);
+export default connect(mapStateToProps)(TodoList);
