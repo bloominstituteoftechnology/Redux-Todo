@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import TodoForm from './containers/TodoForm';
+import TodoList from './containers/TodoList'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        Hello
+        <TodoForm/>
+        <TodoList/>
       </div>
     );
   }
