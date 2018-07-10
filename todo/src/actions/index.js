@@ -9,9 +9,10 @@ export const handleSubmit = (todo) => {
     };
 };
 
-export const handleClear = () => {
+export const handleClear = (todo) => {
     return {
-        type: CLEAR
+        type: CLEAR,
+        payload: todo
     };
 };
 

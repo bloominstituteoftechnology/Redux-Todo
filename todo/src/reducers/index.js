@@ -7,7 +7,9 @@ const rootReducer = (todos = initialState, action) => {
         case SUBMIT:
             return [...todos, {value: action.payload, completed: false}];
         case CLEAR:
-            return todos;
+            return todos.filter(todo =>
+                (todo.value !== action.payload) ? todo : null
+            );
         case COMPLETED:
             return todos.map(todo =>
                 (todo.value === action.payload) ? {...todo, completed: !todo.completed} : todo
