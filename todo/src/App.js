@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { addHandler, completeTodo } from './actions';
+import { addHandler, completeTodo, deleteTodo } from './actions';
 
 class App extends Component {
 
-  formSubmitHandler = (e, input) => {
+  formSubmitHandler = (e) => {
     e.preventDefault();
-    this.props.addHandler(input.value);
-    input.value = '';
+    this.props.addHandler(this.input.value);
+    this.input.value = '';
   }
 
   render() {
@@ -19,18 +19,21 @@ class App extends Component {
 
         <ul>
           {this.props.todos.map((todo, index) =>
+          (<div key={index}>
             <li
-              key={index}
               id={index}
               onClick={() => {
                 this.props.completeTodo(index)
                 document.getElementById(index).style.textDecoration = this.props.todos[index].completed ? 'line-through' : null;
               }}>
               {todo.value}
-            </li>)}
+            </li>
+            <button onClick={() => this.props.deleteTodo(index)}>Delete</button>
+          </div>
+          ))}
         </ul>
 
-        <form onSubmit={(e) => this.formSubmitHandler(e, this.input)}>
+        <form onSubmit={(e) => this.formSubmitHandler(e)}>
           <input
             ref={node => this.input = node}
             type="text"
@@ -44,9 +47,10 @@ class App extends Component {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state.todos);
   return {
     todos: state.todos
   }
 }
 
-export default connect(mapStateToProps, { addHandler, completeTodo })(App);
+export default connect(mapStateToProps, { addHandler, completeTodo, deleteTodo })(App);
