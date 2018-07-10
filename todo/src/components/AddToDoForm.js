@@ -1,30 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo, handleInput } from '../actions';
 
-class AddToDoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      toDoItem: '',
-    };
-  }
-
-  handleChange = e => {
-    this.props.handleInput(e.target.value);
-    // this.setState({ toDoItem: e.target.value });
+const AddToDoForm = props => {
+  const handleChange = e => {
+    props.handleInput(e.target.value);
   };
 
-  handleClick = e => {
-    this.props.addTodo();
+  const handleClick = e => {
+    props.addTodo();
   };
 
-  render() {
-    return (
-      <React.Fragment>
-        <input onChange={this.handleChange} value={this.props.input} />
-        <button onClick={this.handleClick}>Add Todo</button>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+      <input onChange={handleChange} value={props.input} />
+      <button onClick={handleClick}>Add Todo</button>
+    </React.Fragment>
+  );
+};
 
-export default AddToDoForm;
+const mapStateToProps = state => {
+  return {
+    addTodo: state.addTodo,
+    handleInput: state.handleInput,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addTodo, handleInput },
+)(AddToDoForm);
