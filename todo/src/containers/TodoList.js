@@ -8,7 +8,7 @@ const TodoList = props => {
       {props.todos.map((todo, i) => <li key={todo.id} id={todo.id} onClick={e => {
         e.preventDefault();
         props.clickTodo(todo.id);
-      }} className={todo.completed ? 'is-completed': ''}>{todo.value}</li>)}
+      }} className={todo.completed ? 'todo-list__item is-completed': 'todo-list__item'}>{todo.value}</li>)}
     </ul>
   );
 }

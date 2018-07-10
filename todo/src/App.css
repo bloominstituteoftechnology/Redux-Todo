@@ -1,0 +1,42 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.todo-form {
+  margin: 0 0 20px 0;
+}
+
+.todo-form button, .todo-form__input {
+  font-size: 1.8rem;
+}
+
+.todo-form__input {
+  margin: 0 10px 0 0;
+}
+
+.todo-list {
+  background-color: #eaeaea;
+  padding: 20px 20px 10px;
+}
+
+.todo-list__item {
+  display: block;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: .7;
+  transform: scale(1);
+  transform-origin: center;
+  transition: all .3s linear;
+}
+
+.todo-list__item:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.todo-list__item.is-completed {
+  text-decoration: line-through;
+}
