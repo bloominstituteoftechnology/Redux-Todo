@@ -24,6 +24,7 @@ class TodoList extends Component {
     const { addTodo: addThisTodo } = this.props;
     const { input } = this.state;
     addThisTodo(input);
+    this.setState({ input: '' });
   }
 
   toggleComplete(id) {
@@ -68,7 +69,6 @@ TodoList.propTypes = {
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-    onButton: PropTypes.func.isRequired,
   })).isRequired,
 };
 

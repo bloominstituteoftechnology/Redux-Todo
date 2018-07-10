@@ -7,7 +7,26 @@ import reducer from './reducer/reducer';
 import './index.css';
 import App from './App';
 
-const store = createStore(reducer, devToolsEnhancer());
+let storedData;
+try {
+  storedData = window.localStorage.getItem('saved-todos');
+  if (storedData === null) {
+    storedData = undefined;
+  }
+  storedData = { todos: JSON.parse(storedData) };
+} catch (error) {
+  storedData = undefined;
+}
+const store = createStore(reducer, storedData, devToolsEnhancer());
+store.subscribe(() => {
+  store.getState();
+  try {
+    window.localStorage.setItem('saved-todos', JSON.stringify(store.getState().todos));
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

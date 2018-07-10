@@ -2,7 +2,7 @@ import uuidv1 from 'uuid/v1';
 import { ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions/actions';
 
 const reducer = (state = { todos: [] }, action) => {
-  const { todos, ...rest } = state;
+  const { todos = [], ...rest } = state;
 
   switch (action.type) {
     case ADD_TODO:
