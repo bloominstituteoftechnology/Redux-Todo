@@ -4,7 +4,6 @@ import TodoListContainer from './TodoListContainer'
 
 class App extends Component {
   render() {
-    console.log("Props in App:", this.props);
     return (
       <div className="App">
         <h1>Something is actually here</h1>

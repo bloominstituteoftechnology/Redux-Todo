@@ -1,14 +1,27 @@
-import {ADD_TODO} from '../actions';
+import {ADD_TODO, TOGGLE_TODO} from '../actions';
 
 const initialList = {
-  todos: ['fiaofjfa', 'fwfijfjaowfj', 'jfoawjfaf']
+  todos: [
+    {text: "fjaoifjowf", completed: false, id: 0 + "fjaoifjowf"},
+    {text: "jpwriowej", completed: false, id: 1 + "jpwriowej"},
+    {text: "kpkfpkfwpk", completed: false, id: 2 + "kpkfpkfwpk"}
+  ]
 }
 
 export default (state = initialList, action) => {
   switch(action.type) {
     case ADD_TODO:
       /*return [...state, action.payload];*/
-      return Object.assign({}, state, action.payload);
+      let newTodos = state.todos.slice();
+      newTodos.push(action.payload);
+      return Object.assign({}, state, {todos: newTodos});
+    case TOGGLE_TODO:
+      return state.todos.map(todo => {
+        if (todo.id === action.payload) {
+          return Object.assign({}, todo, {completed: !todo.completed});
+        }
+        return todo;
+      });
     default:
       return state;
   }

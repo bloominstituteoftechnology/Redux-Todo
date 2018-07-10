@@ -12,8 +12,7 @@ class TodoListContainer extends Component {
   }
 
 
-  handlechange = (e) => {
-    console.log("From changeHandler", e.target.value);
+  handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
   }
 
@@ -32,11 +31,10 @@ class TodoListContainer extends Component {
 
   render() {
     console.log("Props in TodoList:", this.props);
-    console.log("From todoList render", this.state.todo);
     return (
       <div className="TodoList-Container">
         <ul>{this.props.todos.map(todo => {
-          return <li>{todo}</li>
+          return <li key={todo.id}>{todo.text}</li>
         })}</ul>
         <form>
           <input type="text" name="todo" placeholder="todo..."
