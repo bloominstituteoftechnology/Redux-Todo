@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import logo from './logo.svg';
+import TodoList from './components/TodoList' ;
 import './App.css';
 
 class App extends Component {
@@ -11,9 +13,18 @@ class App extends Component {
           <h1 className="App-title">Welcome to Redux <br/> ToDo Project </h1>
         </header>
 
+        <TodoList />
+
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  alert('hey');
+  return {
+    tasksList: state.tasksList,
+  }
+}
 
-export default App;
+export default connect(mapStateToProps)(App) ;
+// export default App;
