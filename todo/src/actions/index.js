@@ -7,3 +7,10 @@ export const addHandler = (newTodo) => {
         }
     }
 }
+
+export const completeTodo = (index) => {
+    return {
+        type: 'TODO_COMPLETED',
+        payload: index
+    }
+}
