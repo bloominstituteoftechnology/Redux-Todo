@@ -4,11 +4,14 @@ import Todo from './Todo';
 const TodoList = props => {
     return (
         <div>
-            {/* {props.store.map(todo => {
+            {props.todos.map(todo => {
                 return (
-                    <Todo />
+                    <Todo
+                        key={todo}
+                        todo={todo}
+                    />
                 );
-            })} */}
+            })}
         </div>
     );
 };

@@ -4,7 +4,7 @@ const Todo = props => {
     return (
       <div className="todo">
         <span>
-          Todo
+          {props.todo.value}
         </span>
       </div>
     );

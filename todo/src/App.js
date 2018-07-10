@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Todo List</h1>
-        <TodoList store={this.props.store}/>
+        <TodoList todos={this.props.todos}/>
         <TodoForm />
       </div>
     );
