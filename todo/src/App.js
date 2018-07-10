@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      title: 'TodoApp',
+      title: 'Todo List App',
       char: '',
     }
   }
@@ -46,13 +46,10 @@ render() {
         }
 
         value={this.state.char}
-        placeholder="new todo goes here"/>
+        placeholder="Add Todo..."/>
+        <button onClick= {this.handleSubmitTodo}>Add</button>
 
         <TodoList/>
-
-
-
-
 
     </div>
   );

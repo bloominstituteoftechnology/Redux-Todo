@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from 'react=redux';
-import {deleteTodo} from '../actions';
+import {connect} from 'react-redux';
+import {deleteTodo} from '../actions/index';
 
 const Todo = (props) => {
     const toggleComplete = () => {
