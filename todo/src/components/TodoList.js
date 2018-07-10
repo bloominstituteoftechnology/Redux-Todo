@@ -2,18 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
 import {completedTodo} from './../actions/index';
+import { bindActionCreators } from 'redux';
 
 class TodoList extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
     return (
         <div>{console.log(this.props.todoList)}
         
              {this.props.todoList.map(item => {
-          return <div key={item} item={item.value}><Todo item={item.value} completedTodo={this.props.completedTodo}/></div>
+          return <div key={item} item={item.value} onClick={() => this.props.completedTodo()}><Todo item={item.value} /></div>
         })}
         </div>
     )
@@ -26,4 +24,8 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps, {completedTodo})(TodoList);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({completedTodo: completedTodo}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

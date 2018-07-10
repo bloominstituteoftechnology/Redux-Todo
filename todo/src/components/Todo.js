@@ -1,15 +1,22 @@
 import React from 'react';
 import { completedTodo } from './../actions/index';
+import { connect } from 'react-redux';
 
-const Todo = props => {
+const Todo = (props, {onClick, completed}) => {
     return (
-        <div onClick={props.completedTodo}
+        <div onClick={onClick}
         style={{
-            textDecoration: props.completed ? 'line-through' : 'none'
+            textDecoration: !props.completed ? 'line-through' : 'none'
           }}>
             {props.item}
         </div>
     )
 }
 
-export default Todo;
+const mapStateToProps = state => {
+    return {
+        completed: state.completed
+    };
+}
+
+export default connect(mapStateToProps, {completedTodo})(Todo);

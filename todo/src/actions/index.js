@@ -12,18 +12,17 @@ export const fetchTodos = () => {
         payload: todoList
     }
 }
-export const newTodo = (props) => {
+export const newTodo = (value) => {
     return {
         type: NEW_TODO,
-        payload: props.value
+        payload: value
     }
 }
 
-export const completedTodo = (props => {
+export const completedTodo = () => {
     return {
         type: TODO_COMPLETED,
-        payload: props.completed
     }
-})
+}
 
 export { NEW_TODO, TODO_COMPLETED, FETCH_TODOS, todoList }

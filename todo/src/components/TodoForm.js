@@ -1,19 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {newTodo} from './../actions/index';
 
-class TodoForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: '',
-            completed: false
-        }
-    }
+const TodoForm = ({onClick}) => {
 
-    addTodo = (e) => {
-        this.setState({value: e.target.value})
-    }
-
-    render() {
     return (
         <div>
             <input 
@@ -21,10 +11,15 @@ class TodoForm extends React.Component {
                 placeholder='New Todo'
                 defaultValue=''
                 />
-            <button onClick={this.addTodo}>Add</button>
+            <button onClick={onClick}>Add</button>
         </div>
     )
 }
+
+const mapDispatchToProps = (value) => {
+    return  {
+        onClick: () => newTodo(value)
+    }
 }
 
-export default TodoForm;
+export default connect(mapDispatchToProps, {newTodo})(TodoForm);
