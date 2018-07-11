@@ -13,7 +13,7 @@ class TodoList extends Component {
         return (
             <React.Fragment>
                 {this.props.todos.map((todo, index) => {
-                   return <TodoItem todo={todo} onClick={this.toggleCompleted} id={index} key={index}/>
+                   return <TodoItem todo={todo} toggledCompleted={this.props.toggleCompleted} onClick={this.props.toggleCompleted(index)} id={index} key={index}/>
                 })}
                 </React.Fragment>
         );

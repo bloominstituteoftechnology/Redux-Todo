@@ -11,8 +11,9 @@ export const addToDo = (todo, e) => {
             payload: todo }
 }
 
-export const toggleCompleted = (todo) => {
+export const toggleCompleted = (index) => {
+    console.log('toggle clicked');
     return {type: 'TOGGLE_COMPLETED',
-            payload : todo
+            payload : index
 }
 }

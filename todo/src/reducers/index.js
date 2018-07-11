@@ -12,12 +12,8 @@ const rootReducer = (state = {todos}, action) => {
             todo: action.payload, completed: false}
         ]});
       case TOGGLE_COMPLETED:
-        state.todos.map((item, index)=> {
-           if (index === action.payload.id) {
-           return    item.completed = !item.completed;
-           } 
-        
-        })
+      console.log('clicked');
+      todos[action.payload].completed = !todos[action.payload].completed;
 
       default:
         return state;
