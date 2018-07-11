@@ -1,7 +1,9 @@
-import React from 'react';
+import { combineReducers } from 'redux';
+import todosReducer from './todos';
 
+const rootReducer =combineReducers({
+	todos: todosReducer
+});
 
-export const listReducer = (state =[], action => {
-	return state;
-})
+export default rootReducer;
 
