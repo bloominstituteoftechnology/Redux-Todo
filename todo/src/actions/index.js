@@ -5,20 +5,21 @@ export const COMPLETED = 'COMPLETED';
 export const handleSubmit = (todo) => {
     return {
         type: SUBMIT,
+        id: Date.now(),
         payload: todo
     };
 };
 
-export const handleClear = (todo) => {
+export const handleClear = (id) => {
     return {
         type: CLEAR,
-        payload: todo
+        payload: id
     };
 };
 
-export const handleCompleted = (todo) => {
+export const handleCompleted = (id) => {
     return {
         type: COMPLETED,
-        payload: todo
+        payload: id
     };
 };

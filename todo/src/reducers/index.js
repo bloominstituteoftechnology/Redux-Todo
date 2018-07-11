@@ -1,18 +1,18 @@
 import {SUBMIT, CLEAR, COMPLETED} from '../actions';
 
-const initialState = [{value: 'task1', completed: false}, {value: 'task2', completed: true}];
+// const initialState = [{value: 'task1', completed: false}, {value: 'task2', completed: true}];
 
-const rootReducer = (todos = initialState, action) => {
+const rootReducer = (todos = [], action) => {
     switch (action.type) {
         case SUBMIT:
-            return [...todos, {value: action.payload, completed: false}];
+            return [...todos, {id: action.id, value: action.payload, completed: false}];
         case CLEAR:
             return todos.filter(todo =>
-                (todo.value !== action.payload) ? todo : null
+                (todo.id !== action.payload) ? todo : null
             );
         case COMPLETED:
             return todos.map(todo =>
-                (todo.value === action.payload) ? {...todo, completed: !todo.completed} : todo
+                (todo.id === action.payload) ? {...todo, completed: !todo.completed} : todo
             );
         default:
             return todos;

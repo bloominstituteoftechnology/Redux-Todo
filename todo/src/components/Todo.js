@@ -1,15 +1,17 @@
 import React from 'react';
 
+import './Todo.css';
+
 const Todo = props => {
     return (
       <div className="todo">
         <span
-          id={props.todo.value}
+          id={props.todo.id}
           style={{textDecoration: props.todo.completed ? 'line-through' : 'none'}}
-          onClick={() => props.handleCompleted(props.todo.value)}>
+          onClick={() => props.handleCompleted(props.todo.id)}>
           {props.todo.value}
         </span>
-        <button onClick={() => props.handleClear(props.todo.value)}>Clear</button>
+        {props.todo.completed ? <button onClick={() => props.handleClear(props.todo.id)}>X</button> : null}
       </div>
     );
   };

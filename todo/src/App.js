@@ -20,8 +20,10 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleSubmit(this.state.todo);
-    this.setState({todo: ''});
+    if(this.state.todo !== '') {
+      this.props.handleSubmit(this.state.todo);
+      this.setState({todo: ''});      
+    }
   };
 
   handleCompleted = (e) => {
@@ -35,9 +37,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Todo List</h1>
-        <TodoList todos={this.props.todos} handleCompleted={this.handleCompleted} handleClear={this.handleClear} />
-        <TodoForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}  value={this.state.todo} />
+        <div className="todo-container">
+          <h1>Todo List</h1>
+          <TodoList todos={this.props.todos} handleCompleted={this.handleCompleted} handleClear={this.handleClear} />
+          <TodoForm todos={this.props.todos} handleChange={this.handleChange} handleSubmit={this.handleSubmit} value={this.state.todo} />
+        </div>
       </div>
     );
   }
