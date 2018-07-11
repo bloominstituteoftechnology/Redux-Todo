@@ -8,12 +8,11 @@ class TodoForm extends React.Component {
     this.props.addTask(event.target.value);
   };
   clickNewAdd = event => {
-    event.preventDefault();
     console.log("clickNewAdd clicked");
     const tasks = {
       task: this.props.newTask,
-      completed: false,
-      id: Math.random()
+      id: Math.random(),
+      completed: false
     };
     this.props.clickAdd(tasks);
   };
@@ -35,7 +34,6 @@ class TodoForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    tasks: state.tasks,
     newTask: state.newTask
   };
 };

@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { tasks: clickadd, newTask: "" });
     case TOGGLECOMPLETED:
       let togglecompleted = state.tasks.slice();
-      togglecompleted = togglecompleted.map(toggle => {
+      togglecompleted.map(toggle => {
         if (toggle.id === action.payload) {
           toggle.completed = !toggle.completed;
           return toggle;
