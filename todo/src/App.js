@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from "react-redux";
-import { addTodo } from './actions'
+import { addTodo, toggleCompletion } from './actions'
 
 class App extends Component {
 
-  buttonOnClickHandler = () => {
+  buttonOnClickHandler = (e) => {
     //Call the action creator ADD_TODO
     this.props.addTodo(this.input.value)
 
@@ -13,8 +13,10 @@ class App extends Component {
     this.input.value = ''
   }
 
-  todoItemClickHandler = () => {
-
+  todoItemClickHandler = (id) => {
+    console.log('You clicked on an item')
+    console.log(id)
+    this.props.toggleCompletion(id)
   }
   
   render() {
@@ -25,7 +27,7 @@ class App extends Component {
       <input ref={node => {this.input = node }}/>
       <button onClick={this.buttonOnClickHandler}>Add Todo</button>
       <ul>
-        {(this.props.todos) ? this.props.todos.map( todo => <li key={Math.random()}>{todo.value}</li>):null}
+        {(this.props.todos) ? this.props.todos.map( todo => <li onClick={()=>this.todoItemClickHandler(todo.id)} key={Math.random()}>{todo.value}</li>):null}
       </ul>
       </div>
     );
@@ -33,7 +35,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state in MSP', state)
   return {
       todos: state.todos
   };
@@ -41,4 +42,4 @@ const mapStateToProps = (state) => {
 
 //Connect (or wire up the actions to the store/reducer. This also allows you 
 // to have the actions as props
-export default connect(mapStateToProps, {addTodo})(App);
+export default connect(mapStateToProps, {addTodo, toggleCompletion})(App);
