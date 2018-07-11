@@ -1,9 +1,9 @@
 //Import the action strings from actions to prevent typing errors
-import { ADD_TODO, TOGGLE_COMPLETION } from '../actions';
+import { ADD_TODO, TOGGLE_COMPLETION, REMOVE_TODO } from '../actions';
 
 //Initialize the state
 // const initialState = {todos: [{text: ['learning redux'], completed:false}, ]}
-const initialState = {todos:[{value:'Learning Redux', id:1, completed:false}]}
+const initialState = {todos:[{value:'Learning Redux', id:Date.now(), completed:false}]}
 
 //Create a reducer with state,action
 const todosReducer = (state = initialState, action) => {
@@ -16,7 +16,7 @@ const todosReducer = (state = initialState, action) => {
       // The first argument makes a copy (using spread),
       // Therefore it doesn't mutate the original array.
       // Then we can add the new todo object into the array 
-      let addNewTodo = [...state.todos, {value:action.payload, id: state.todos.length+1, completed:false}]
+      let addNewTodo = [...state.todos, {value:action.payload, id: Date.now(), completed:false}]
 
       // We then use Object.assign, to create a brand new state object to ensure no mutation again
       // Gotta keep my shit PURE!!!!
@@ -33,7 +33,13 @@ const todosReducer = (state = initialState, action) => {
       let toggledTodo = [...state.todos].map( todo => (todo.id === action.payload) ? {...todo, completed:!todo.completed} : todo )
 
       return Object.assign( {}, {todos:toggledTodo} )
-      default:
+
+    case REMOVE_TODO:
+      let filteredTodos = [...state.todos].filter( todo => todo.id !== action.payload )
+
+      return Object.assign( {}, {todos:filteredTodos} )
+
+    default:
       return state;
   }
 };
