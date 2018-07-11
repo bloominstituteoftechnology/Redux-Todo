@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  display:flex;
+}
+
+body{
+	display:flex;
+	justify-content:center;
+}
+
+button{
+	margin-left:15px;
+}
