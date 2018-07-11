@@ -10,6 +10,10 @@ class TodoList extends Component {
     };
   }
 
+  handleTodoComplete = todoId => {
+    this.props.toggleTodo(todoId);
+  };
+
   handleTodoInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -38,12 +42,26 @@ class TodoList extends Component {
             value={this.state.text}
           />
           <button type="button" onClick={this.addTodoHandler}>
-            Add New Tasks
+            Add Todo
           </button>
         </form>
-        {todos.map(todo => {
-          return <li key={todo.id}>{todo.text}</li>;
-        })}
+        <ul>
+          {todos.map(todo => {
+            return (
+              <li
+                onClick={() => this.handleTodoComplete(todo.id)}
+                style={
+                  todo.completed
+                    ? { color: '#fffff', textDecoration: 'line-through' }
+                    : null
+                }
+                key={todo.id}
+              >
+                {todo.text}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
