@@ -27,8 +27,8 @@ const todosReducer = (state = initialState, action) => {
       //OK this shit was gangsta right here, finally fuckin understand spread!!!!!
       // The first thing to do is to make a copy using spread and put it into an array
       // We then map over it looking for the id that we passed into the click handler which is now on the payload
-      // When we do find it, we need to update the completed, so we again make a copy using spread, except this time it's an object
-      // We can just update the property of the object we wish to change, which is in this toggele completion!
+      // When we do find it, we need to toggle completed, so we again, make a copy using spread, except this time it's an object
+      // We can just update the property of the object we wish to change, which is in this case, completion.
       // If we don't find the id, just pass back the entire todo!
       let toggledTodo = [...state.todos].map( todo => (todo.id === action.payload) ? {...todo, completed:!todo.completed} : todo )
 

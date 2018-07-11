@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from "react-redux";
 import { addTodo, toggleCompletion } from './actions'
+import styled from 'styled-components'
+
+const Li = styled.li`
+  text-decoration: ${props => props.isCompleted ? 'line-through' : 'none' };
+`
 
 class App extends Component {
 
@@ -27,7 +32,7 @@ class App extends Component {
       <input ref={node => {this.input = node }}/>
       <button onClick={this.buttonOnClickHandler}>Add Todo</button>
       <ul>
-        {(this.props.todos) ? this.props.todos.map( todo => <li onClick={()=>this.todoItemClickHandler(todo.id)} key={Math.random()}>{todo.value}</li>):null}
+        {(this.props.todos) ? this.props.todos.map( todo => <Li isCompleted={todo.completed} onClick={()=>this.todoItemClickHandler(todo.id)} key={Math.random()}>{todo.value}</Li>):null}
       </ul>
       </div>
     );
