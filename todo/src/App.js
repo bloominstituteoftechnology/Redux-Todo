@@ -24,8 +24,9 @@ class App extends Component {
               id={index}
               onClick={() => {
                 this.props.completeTodo(index)
-                document.getElementById(index).style.textDecoration = this.props.todos[index].completed ? 'line-through' : null;
-              }}>
+              }}
+              style = {{textDecoration: this.props.todos[index].completed ? 'line-through' : null}}
+              >
               {todo.value}
             </li>
             <button onClick={() => this.props.deleteTodo(index)}>Delete</button>
@@ -47,7 +48,6 @@ class App extends Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.todos);
   return {
     todos: state.todos
   }

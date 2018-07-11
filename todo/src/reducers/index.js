@@ -1,5 +1,8 @@
 let initialState = {todos: []}
 
+const savingList = (todos) => {
+    
+}
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -13,7 +16,7 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {todos: newTodos})
         
         case 'DELETE_TODO':
-            return Object.assign({}, state, {todos: state.todos.filter((todo, index) => index!==action.payload)})
+            return Object.assign({}, state, {todos: state.todos.filter((todo, index) => todo.index!==action.payload)})
 
         default:
             return state;
