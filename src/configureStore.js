@@ -10,7 +10,7 @@ export default () => {
     if (storedData === null) {
       storedData = undefined;
     }
-    storedData = { todos: JSON.parse(storedData) };
+    storedData = { ...JSON.parse(storedData) };
   } catch (error) {
     storedData = undefined;
   }
@@ -20,7 +20,8 @@ export default () => {
   store.subscribe(() => {
     store.getState();
     try {
-      window.localStorage.setItem('saved-todos', JSON.stringify(store.getState().todos));
+      const { byId, allIds } = store.getState();
+      window.localStorage.setItem('saved-todos', JSON.stringify({ byId, allIds }));
     } catch (error) {
       console.log(error);
     }

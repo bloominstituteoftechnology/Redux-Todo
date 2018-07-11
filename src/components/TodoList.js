@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import uuidv1 from 'uuid/v1';
+import shortid from 'shortid';
 import { addTodo, toggleComplete, deleteTodo } from '../actions/actions';
+import { getTodos } from '../reducer/reducer';
 import Todo from './Todo';
 
 class TodoList extends Component {
@@ -22,9 +23,10 @@ class TodoList extends Component {
 
   addTodo(event) {
     event.preventDefault();
+    const id = shortid.generate();
     const { addTodo: addThisTodo } = this.props;
     const { input } = this.state;
-    addThisTodo(input, uuidv1());
+    addThisTodo(input, id);
     this.setState({ input: '' });
   }
 
@@ -74,7 +76,8 @@ TodoList.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return { todos: state.todos };
+  const todos = getTodos(state);
+  return { todos };
 }
 
 export default connect(mapStateToProps, { addTodo, toggleComplete, deleteTodo })(TodoList);
