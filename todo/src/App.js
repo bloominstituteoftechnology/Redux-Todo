@@ -4,10 +4,20 @@ import { connect } from "react-redux";
 import { addTodo, toggleCompletion, removeTodoItem } from './actions'
 import styled from 'styled-components'
 
-const P = styled.p`
+const TodoSpan = styled.span`
   text-decoration: ${props => props.isCompleted ? 'line-through' : 'none' };
 `
+const Xbutton = styled.span`
+  &:hover {
+    font-weight:bold;
+  }
+`
 
+const TodoDiv = styled.div`
+  margin: 5px 0;
+  height: 30px;
+
+`
 class App extends Component {
 
   buttonOnClickHandler = (e) => {
@@ -28,8 +38,10 @@ class App extends Component {
       <div>
         {
           (this.props.todos) ? 
-            this.props.todos.map( todo => 
-                <P isCompleted={todo.completed} onClick={()=>this.props.toggleCompletion(todo.id)} key={Math.random()}>{todo.value}<button onClick={()=>this.props.removeTodoItem(todo.id)}>Remove</button></P>)
+            this.props.todos.map( todo =>
+              <TodoDiv key={Math.random()}> 
+                <TodoSpan isCompleted={todo.completed} onClick={()=>this.props.toggleCompletion(todo.id)} >{todo.value}</TodoSpan> <Xbutton onClick={()=>this.props.removeTodoItem(todo.id)}> &#10006;</Xbutton>
+                </TodoDiv>)
           :null
         }
       </div>
