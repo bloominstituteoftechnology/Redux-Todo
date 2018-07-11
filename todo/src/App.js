@@ -8,6 +8,7 @@ const TodoSpan = styled.span`
   text-decoration: ${props => props.isCompleted ? 'line-through' : 'none' };
 `
 const Xbutton = styled.span`
+  border: 1px solid grey
   &:hover {
     font-weight:bold;
   }
