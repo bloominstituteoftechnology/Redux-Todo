@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { toggleCompleted } from '../actions'
+import { toggleCompleted } from '../actions'
 import TodoItem from './TodoItem';
 
 
@@ -27,5 +27,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps)(TodoList);
-// export default connect(mapStateToProps, {toggleCompleted} )(TodoList);
+export default connect(mapStateToProps, {toggleCompleted} )(TodoList);
