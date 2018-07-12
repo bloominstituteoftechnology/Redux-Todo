@@ -23,8 +23,12 @@ const todoReducer = (data=initialState, action) => {
 	)});
 
 	  
-	 	  
+    case "CLEAR_COMPLETED":
+        return Object.assign({}, data, {todos:data.todos.filter((item, index) => item.completed === false
+        
+        )});	 	  
 	  
+		  
     case "TOGGLE_STATE":
     return Object.assign({}, data, {todos:data.todos.map((item, index) => {
     	if(index === action.index) {

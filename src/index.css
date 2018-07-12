@@ -5,7 +5,7 @@ body {
 }
 
 li{
-	font-size: 1.4rem;
+	font-size: 1.3rem;
 	color: teal;
 }
 
@@ -46,6 +46,7 @@ li{
 	margin-left: 10px;
 	width: 100px;
         height: 22px;
+	font-size: 0.6rem;
         border-radius: 2px;
         border: 1px solid teal;
 

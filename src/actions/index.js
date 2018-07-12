@@ -5,6 +5,14 @@ export const addItem = (content) => {
         };
 };
 
+export const clearCompleted = () => {
+        return {
+                type: "CLEAR_COMPLETED"
+        };
+};
+
+
+
 export const toggleState = (index) => {
         return {
                 type: "TOGGLE_STATE",

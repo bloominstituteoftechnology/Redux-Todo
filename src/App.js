@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { addItem, toggleState, deleteItem } from './actions';
+import { addItem, toggleState, deleteItem, clearCompleted } from './actions';
 
 
 class App extends Component {
@@ -31,13 +31,16 @@ deleteHandler =(indexItem) => {
   render() {
     return (
       <div className="App">
-	{this.props.data.todos.map((item, index) =>{return <div key={index}><li className={item.completed ? "strike" : "regular"} onClick={() => this.props.toggleState(index)}>{item.content}</li>
+	 <h1>Todo List</h1>   
+	{this.props.data.todos.map((item, index) =>{return <div key={index}><li className={item.completed ? "strike" : "regular"} onClick={() => this.props.toggleState(index)}>{item.content}
 
-	<button className="delete-btn" onClick={() => this.deleteHandler(index)}>delete</button></div>} )}
+	<button className="delete-btn" onClick={() => this.deleteHandler(index)}>delete</button></li></div>} )}
 	    
      	
 <input className="input-container" onChange={this.changeHandler} type="text" placeholder="Input item" value={this.state.content} />
 	<button className="add-btn" onClick={() => this.addItemHandler(this.state.content)}>Add Item</button>
+
+	<button className="add-btn" onClick={() => this.props.clearCompleted()}>Clear Completed</button>    
       </div>
     );
   }
@@ -50,4 +53,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {addItem, toggleState, deleteItem})(App);
+export default connect(mapStateToProps, {addItem, toggleState, deleteItem, clearCompleted})(App);
