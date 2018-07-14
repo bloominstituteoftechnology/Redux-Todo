@@ -9,7 +9,7 @@ export const VisbilityFilters = {
 }
 
 //initializing todo id
-let initId = 0
+let initId = 1
 
 //addTodo Action creator
 export const addTodo = text => ({

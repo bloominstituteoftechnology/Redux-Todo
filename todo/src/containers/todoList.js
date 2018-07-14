@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 
 const TodoList = (props) => {
+    console.log("State",props)
     return (
         <div>
             {props.todos.map(todo => (
