@@ -1,9 +1,10 @@
 import React from 'react';
-
 const Todo = (props) => {
+    console.log("Props:",props)
+    const style = { textDecoration: 'line-through' }
     return (
         <div>
-            <li onClick={props.completedTodo}>{props.text}</li>
+            <li style = {props.todoStatus ? style : null}onClick={props.completedTodo}>{props.text}</li>
         </div>
     );
 };
