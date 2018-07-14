@@ -5,7 +5,7 @@ const visibilityFilter = ( state = VisbilityFilters.SHOW_ALL , action ) => {
         case 'SET_VISIBILITY_FILTER':
             return action.filter;
         default:
-            state;
+            return state;
     }
 }
 

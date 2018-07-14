@@ -1,7 +1,10 @@
 import { ADD_TODO,TOGGLE_TODO } from '../actions/index';
-
+const intialState = [
+    {id : 0,
+    text : 'testing Redux',
+    completed : false}]
 //implementing todoReducer
-const todos = (state = [], action) => {
+const todos = (state = intialState , action) => {
     switch (action.type) {
         case ADD_TODO:
             return [...state , {
