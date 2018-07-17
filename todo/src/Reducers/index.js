@@ -1,13 +1,14 @@
 const initialState = {
-    Todos: [],
+    todos: [],
 }
+
 
 const todosReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_NEW_FRIEND':
-            return {
-
-            }
+            return state.todos.push({
+                
+            });
         case 'TOGGLE_COMPLETED':
             return {
                 
@@ -16,4 +17,6 @@ const todosReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export default todosReducer;
 

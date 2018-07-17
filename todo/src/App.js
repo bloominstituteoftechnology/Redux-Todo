@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from './Components/Form';
 import TodoList from './Components/TodoList';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -15,4 +16,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+  }
+}
+
+export default connect(mapStateToProps, {  })(App);
