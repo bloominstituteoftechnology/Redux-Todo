@@ -12,9 +12,8 @@ const store = createStore(Todos,
 );
 
 ReactDOM.render(
-<Provider store={createStore(Todos)}>
+<Provider store={store}>
     <App />
     </Provider>, 
     document.getElementById('root'));
 registerServiceWorker();
-

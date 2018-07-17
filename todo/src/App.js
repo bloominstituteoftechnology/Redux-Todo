@@ -10,19 +10,17 @@ class App extends Component {
       todos: []
     }
   }
+
+  addTodo(){
+
+  }
   render() {
     return (
-      <div className="App">
+      <div>
       <TodoList todos={this.props.todos} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default connect(App);

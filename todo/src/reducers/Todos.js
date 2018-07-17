@@ -1,16 +1,16 @@
-const Todos = (state = [], action) => {
+import { ADD_TODO, TOGGLE_TODO } from '../actions/actions';
+
+const Todos = (todos = [], action) => {
     switch (action.type) {
         case 'ADD_TODO':
-            return [...state,{
-                id: action.id,
-                text: action.text,
-                completed: false
-            }]
+            return [...todos, action.payload]
         case 'TOGGLE_TODO':
-        return state.map(todo =>
-            (todo.id === action.id)
-              ? {...todo, completed: !todo.completed}
-              : todo)
+        return todos.map(todo => {
+           if (todo.id === action.payload) {
+             return Object.assign({}, todo, { completed: !todo.completed })
+        }
+        return todo
+    });
         default: 
             return state
     };
