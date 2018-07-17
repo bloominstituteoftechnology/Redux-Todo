@@ -14,7 +14,7 @@ Topics:
 
 ## Project Description
 
-### Initialize Project
+### Initialize Project 
 
 * Run `create-react-app todo` to create your starter application.
 * Now that you have created your `todo` directory, cd into it.
