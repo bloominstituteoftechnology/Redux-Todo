@@ -21,11 +21,11 @@ class App extends Component {
   addTodo = () => {
     const { todoText } = this.state;
     const newTodo = {
-      id: this.props.todos.length + 1,
+      id: this.props.todos + 1,
       completed: false,
       text: todoText
     };
-    this.props.addTodo(newTodo);
+    this.props.addTodo(addTodo);
     this.setState({ todoText: '' });
   };
 

@@ -12,7 +12,8 @@ const Todos = props => {
 };
 
 const mapStateToProps = state => {
-    return { todos: state.todos };
+    console.log(state);
+    return { todos: state };
 };
 
-export default connect(null, { updateTodo } )(Todos);
+export default connect(mapStateToProps, { updateTodo } )(Todos);
