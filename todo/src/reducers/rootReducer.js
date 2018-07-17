@@ -1,3 +1,5 @@
+import { ADD_TODO, TOGGLE_TODO} from '../actions/todoActions';
+
 const rootReducer = (todos = [], action) => {
   switch (action.type) {
     case ADD_TODO:
@@ -9,8 +11,9 @@ const rootReducer = (todos = [], action) => {
         }
         return todo;
       });
+    default:
+      return todos;
   }
-  return todos;
 }
 
 export default rootReducer;
