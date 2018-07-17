@@ -1,7 +1,6 @@
 const initial = {
-
+newTodo:'',
 todos:[
-
 {
   value: 'Walk the dog.',
   completed: false
@@ -9,10 +8,12 @@ todos:[
 {
 value: 'Learn how to code.',
 completed: false
+},
+{
+value: 'League of legends demonstration!',
+completed: false
 }
-
 	]
-
 };
 
 const reducer = (state = initial, action) => {
