@@ -7,6 +7,20 @@ class Form extends Component {
             text: ''
         }
     }
+
+    updateInputState = e => {
+        this.setState( {text: e.target.value} )
+    }
+
+    submitTodo = () => {
+        const todo = {
+            id: math.random,
+            text: this.state.text,
+            completed: false,
+        }
+        this.props.state.push(todo);
+        this.setState({text: ''});
+    }
     
     render() {
         return ( 
@@ -15,11 +29,18 @@ class Form extends Component {
                     type='text'
                     placeholder='Type todo here!'
                     value={this.state.text}
+                    onChange={this.updateInputState}
                 />
-                <button>Submit</button>
+                <button onClick={this.submitTodo}>Submit</button>
             </form>
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        todos: state,
+    }
+}
  
-export default Form;
+export default connect(mapStateToProps, {  })(Form);
