@@ -1,5 +1,7 @@
 import React from 'react';
 import TodoForm from './TodoForm';
+import { addTodo, toggleTodo } from '../actions/todoActions';
+import { connect } from 'react-redux';
 
 const TodoList = () => {
   return (
@@ -9,5 +11,11 @@ const TodoList = () => {
     </div>
     );
 }
+
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
+};
  
-export default TodoList;
+export default connect(mapStateToProps, {addTodo, toggleTodo})(TodoList);
