@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const TodoList = () => {
-    return ( 
-        <div>
-        </div>
-     );
+class TodoList extends Component {
+    render() {
+        return ( 
+            <div>
+                {this.props.state.map()}
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        todos: state,
+    }
 }
  
-export default TodoList;
+export default connect(mapStateToProps, {  })(TodoList);

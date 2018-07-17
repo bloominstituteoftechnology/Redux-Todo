@@ -1,18 +1,11 @@
-const initialState = {
-    todos: [],
-}
-
-
-const todosReducer = (state = initialState, action) => {
+const todosReducer = (state = [], action) => {
     switch (action.type) {
         case 'ADD_NEW_FRIEND':
-            return state.todos.push({
-                
-            });
+            return [
+                ...state, action.payload
+            ]
         case 'TOGGLE_COMPLETED':
-            return {
-                
-            }
+            return 
         default:
             return state;
     }
