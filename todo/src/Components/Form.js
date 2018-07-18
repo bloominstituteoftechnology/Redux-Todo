@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addNewTodo } from '../Actions/index';
 
 class Form extends Component {
     constructor() {
@@ -12,13 +14,14 @@ class Form extends Component {
         this.setState( {text: e.target.value} )
     }
 
-    submitTodo = () => {
+    submitTodo = e => {
+        e.preventDefault();
         const todo = {
-            id: state.length + 1,
+            id: Math.random(),
             text: this.state.text,
             completed: false,
         }
-        this.props.state.push(todo);
+        this.props.addNewTodo(todo);
         this.setState({text: ''});
     }
     
@@ -43,4 +46,4 @@ const mapStateToProps = state => {
     }
 }
  
-export default connect(mapStateToProps, {  })(Form);
+export default connect(mapStateToProps, { addNewTodo })(Form);
