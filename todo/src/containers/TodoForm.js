@@ -1,4 +1,6 @@
 import React from 'react';
+import { addTodo, toggleTodo } from '../actions/todoActions';
+import { connect } from 'react-redux';
 
 class TodoForm extends React.Component {
   state = { todo: '' }
@@ -12,4 +14,4 @@ class TodoForm extends React.Component {
   }
 }
  
-export default TodoForm;
+export default connect(null, {addTodo, toggleTodo})(TodoForm);

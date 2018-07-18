@@ -3,19 +3,25 @@ import TodoForm from './TodoForm';
 import { addTodo, toggleTodo } from '../actions/todoActions';
 import { connect } from 'react-redux';
 
-const TodoList = () => {
-  return (
-    <div>
-      <h1>hi</h1>
-      <TodoForm />
-    </div>
-    );
+class TodoList extends React.Component {
+  
+  render() { 
+    return (
+      <div>
+        <h1>Todos</h1>
+        {
+          this.props.todos.map(todo => <p>{todo.value}</p>)
+        }
+        <TodoForm />
+      </div>
+      );
+  }
 }
 
 const mapStateToProps = state => {
   return {
-    todos: state.todos
+    todos: state
   };
 };
  
-export default connect(mapStateToProps, {addTodo, toggleTodo})(TodoList);
+export default connect(mapStateToProps)(TodoList);
