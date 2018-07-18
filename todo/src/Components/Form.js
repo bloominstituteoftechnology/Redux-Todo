@@ -14,7 +14,7 @@ class Form extends Component {
 
     submitTodo = () => {
         const todo = {
-            id: math.random,
+            id: state.length + 1,
             text: this.state.text,
             completed: false,
         }
