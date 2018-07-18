@@ -1,15 +1,26 @@
 import React from 'react';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
+import { toggleTodo } from '../actions/todoActions';
 
 class TodoList extends React.Component {
+  toggleHandler = (id) => {
+    this.props.toggleTodo(id);
+   };
   
   render() { 
     return (
       <div>
         <h1>Todos</h1>
         {
-          this.props.todos.map(todo => <p>{todo.value}</p>)
+          this.props.todos.map(todo => (
+            <p 
+              onClick={() => this.toggleHandler(todo.id)}
+              style={todo.completed ? {textDecoration: 'line-through'} : null }
+            >
+              {todo.value}
+            </p>
+          ))
         }
         <TodoForm />
       </div>
@@ -23,4 +34,4 @@ const mapStateToProps = state => {
   };
 };
  
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, {toggleTodo})(TodoList);
