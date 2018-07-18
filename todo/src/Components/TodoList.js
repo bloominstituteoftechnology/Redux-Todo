@@ -7,7 +7,7 @@ class TodoList extends Component {
         return ( 
             <div>
                 {this.props.todos.map(todo => (
-                    <Todo key={todo.id} todo={todo}/>
+                    <Todo key={todo.id}todo={todo}/>
                 ))}
             </div>
         );
@@ -20,4 +20,4 @@ const mapStateToProps = state => {
     }
 }
  
-export default connect(mapStateToProps, {  })(TodoList);
+export default connect(mapStateToProps)(TodoList);
