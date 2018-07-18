@@ -1,9 +1,19 @@
-export const ADD_TODO= 'ADD_TODO';
+export const ADD_ITEM= 'ADD_ITEM';
+export const GET_ITEMS= 'GET_ITEMS';
 
-export const addTodo= todo => {
+//ACTION CREATORS
+
+export const addItem= todo => {
     return {
-        type:ADD_TODO,
+        type:ADD_ITEM,
         payload:todo
+    };
+};
+
+export const getItems= todos => {
+    return {
+        type:GET_ITEMS,
+        payload:todos
     };
 };
 

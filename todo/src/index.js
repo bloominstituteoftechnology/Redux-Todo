@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import registerServiceWorker from './registerServiceWorker';
+import rootReducer from './reducers/index';
+
 
 const store= createStore(
     rootReducer,
@@ -18,4 +19,3 @@ ReactDOM.render(
 document.getElementById('root')
 );
 
-registerServiceWorker();
