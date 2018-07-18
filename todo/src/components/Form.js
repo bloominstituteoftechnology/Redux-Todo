@@ -1,36 +1,37 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/actions';
 
-class Form extends component {
+class Form extends Component {
 constructor(props){
     super(props);
     this.state = {
-      text: ''
+      task: ''
 }
 }
+
 handleAddTodo = e => {
     e.preventDefault();
-    const { text } = this.state;
-    const newTodo = {
-        text,
-        completed: false,
-        id: Math.random() + text
-    };
+    const { task } = this.state;
+    const newTodo = {task, completed: false, id: Date.now()};
     this.props.addTodo(newTodo);
-    this.setState({ text: ''});
+    this.setState({ task: '' });
 };
 
 handleSubmit = (e) => {
-    this.setSTate({ text: e.target.value});
-}
+    this.setState({ task: e.target.value});
 };
 
-return (
-    <form>
-        <input onChange={this.handleSubmit} value={this.state.text}
+render(){
+    return(
+    <div>
+        <input onChange={this.handleSubmit} value={this.state.text} placeholder='Add Todo'
         />
-        <Button onClick={this.handleAddTodo} />
-        </form>
-)
+        <button onClick={this.handleAddTodo}>Add</button>
+        </div>
+);
+}
+}
 
-export default connect(null, { addTodo })(Form);ß
+
+export default connect(null, { addTodo })(Form);

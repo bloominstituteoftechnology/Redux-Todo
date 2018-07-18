@@ -4,13 +4,10 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './App';
-import Todos from './reducers/Todos';
+import todoReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker'
 
-const store = createStore(Todos,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
+const store = createStore(todoReducer);
 ReactDOM.render(
 <Provider store={store}>
     <App />

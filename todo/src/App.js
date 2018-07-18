@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 import './App.css';
-import TodoList from './components/TodoList';
+import Todo from './components/Todo';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: []
-    }
-  }
-
-  addTodo(){
-
-  }
   render() {
     return (
       <div>
-      <TodoList todos={this.props.todos} />
+      <Todo />
       </div>
     );
   }
 }
 
-export default connect(App);
+export default App;
