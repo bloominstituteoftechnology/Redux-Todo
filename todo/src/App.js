@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import TodoForm from './components/todoForm';
+import TodoForm from './components/TodoForm';
 import { connect } from 'react-redux';
 import { addItem, getItems } from './actions/actionTodo';
+import TodoList from './components/TodoList';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,11 +33,11 @@ class App extends React.Component {
 
   addItem= event => {
     event.preventDefault();
-    const {text}= this.state;
+    const {item}= this.state;
     const newItem ={
-      text,
+      item,
       completed:false,
-      id: this.props.todos ? this.props.todos.length + text: 0 + text
+      id: this.props.todos ? this.props.todos.length + item: 0 + item
     };
     this.props.addItem(newItem);
     this.setState({
@@ -45,6 +46,7 @@ class App extends React.Component {
   };
 
   render() {
+    const { todos } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -55,6 +57,11 @@ class App extends React.Component {
           addItem={this.addItem}
           handleTodoInput={this.handleTodoInput}
         />
+        <TodoList 
+          // items={this.state.todos}
+          items={todos}
+          
+        />
        
       </div>
     );
@@ -62,7 +69,7 @@ class App extends React.Component {
 }
 const mapStateToProps= state => {
   return {
-    todos:state.todos
+    todos: state.todos
   };
 };
 
