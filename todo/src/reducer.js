@@ -1,5 +1,4 @@
 const initial = {
-newTodo:'',
 todos:[
 {
   value: 'Walk the dog.',
@@ -19,7 +18,14 @@ completed: false
 const reducer = (state = initial, action) => {
 	switch(action.type){
 		case "SUBMIT":
-			return console.log('called!');
+		let copy = state.todos.slice()
+		copy.push(
+		{
+			value:action.payload,
+			completed:false
+		}
+		);
+		return Object.assign({},state,{todos:copy})
 		default:
 			return state;
 	}

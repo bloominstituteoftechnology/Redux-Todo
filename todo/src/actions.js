@@ -1,6 +1,7 @@
-const submitOrDie = () => {
+const submitOrDie = (props) => {
 	return {
-	type: "SUBMIT"
+	type: "SUBMIT",
+	payload: props
 	};
 };
 

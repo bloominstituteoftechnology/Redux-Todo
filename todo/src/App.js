@@ -4,18 +4,19 @@ import { connect } from 'react-redux';
 import submitOrDie from './actions';
 
 const App = props => {
-	console.log(props)
+let input;
     return (
       <div className="App">
           <h1 className="App-title">Todo List</h1>
 		  
 {props.todos.map(item => <div key={Math.random(Date.now())}> {item.value} </div>)}
 
-	<form onSubmit={submitOrDie}>
-	<label>
+	<form onSubmit={e => {e.preventDefault()
+								{props.submitOrDie(input.value)}}}>
+
 	New todo: 
-	<input type='text' todo='todo' />
-	</label>
+	<input type='text' ref={node => input = node} />
+
 	</form>
 		  
       </div>
@@ -26,8 +27,7 @@ const App = props => {
 const mapThingy = state => {
 return {
 	todos:state.todos,
-	newTodo:state.newTodo
 	};
 };
 
-export default connect(mapThingy, submitOrDie)(App);
+export default connect(mapThingy, {submitOrDie})(App);
