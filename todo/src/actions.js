@@ -1,8 +1,12 @@
-const submitOrDie = (props) => {
+export const submitOrDie = () => {
 	return {
-	type: "SUBMIT",
-	payload: props
+	type: "SUBMIT"
 	};
 };
 
-export default submitOrDie;
+export const changeText = (event) => {
+	return {
+	type: "BOX",
+	payload: event.target.value
+	};
+};

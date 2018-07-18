@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import submitOrDie from './actions';
+import { submitOrDie, changeText } from './actions';
 
 const App = props => {
-let input;
     return (
       <div className="App">
           <h1 className="App-title">Todo List</h1>
@@ -12,10 +11,10 @@ let input;
 {props.todos.map(item => <div key={Math.random(Date.now())}> {item.value} </div>)}
 
 	<form onSubmit={e => {e.preventDefault()
-								{props.submitOrDie(input.value)}}}>
+						 {props.submitOrDie()}}}>
 
 	New todo: 
-	<input type='text' ref={node => input = node} />
+	<input type='text' value={props.textBox} onChange={props.changeText} />
 
 	</form>
 		  
@@ -27,7 +26,8 @@ let input;
 const mapThingy = state => {
 return {
 	todos:state.todos,
+	textBox:state.textBox
 	};
 };
 
-export default connect(mapThingy, {submitOrDie})(App);
+export default connect(mapThingy, {submitOrDie, changeText})(App);
