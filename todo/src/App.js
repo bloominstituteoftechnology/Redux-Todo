@@ -1,21 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { addTodo, changeText } from './action/index.js';
+
+import todosReducers from './reducers';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const App = (props) => {
+  let input;
+  return (
+    <div>
+      <h1>Todos</h1>
+      {props.todos.map((todo) => <div key={todo.value}>{todo.value}</div>)}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          {
+            props.addTodo();
+          }
+        }}
+      >
+        New todo:
+        <input type="text" value={props.text} onChange={props.changeText} />
+      </form>
+    </div>
+  );
+};
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+    text: state.text
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addTodo, changeText }
+)(App);
