@@ -3,19 +3,20 @@ import { addTodo, toggleTodo } from '../actions/todoActions';
 import { connect } from 'react-redux';
 
 class TodoForm extends React.Component {
-  state = { todoText: '' }
+  state = {todoText: '' }
 
   inputHandler = (e) => {
     this.setState({ todoText: e.target.value });
   }
   addHandler = (e) => {
+    const text = this.state.todoText;
     const todo = {
-      value: this.state,
+      value: text,
       completed: false,
       id: Math.random()
     }
     this.props.addTodo(todo);
-    this.setState({ toDotext: '' })
+    this.setState({ todoText: '' })
   }
   render() { 
     return (

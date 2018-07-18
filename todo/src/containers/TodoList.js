@@ -1,6 +1,5 @@
 import React from 'react';
 import TodoForm from './TodoForm';
-import { addTodo, toggleTodo } from '../actions/todoActions';
 import { connect } from 'react-redux';
 
 class TodoList extends React.Component {
