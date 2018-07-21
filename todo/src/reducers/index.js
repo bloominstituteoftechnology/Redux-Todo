@@ -1,17 +1,30 @@
+import {ADD_TODO, TOGGLE_COMPLETED} from '../actions/index';
 
+const initialTodos = {
+    todos: [
+        {
+            value: 'walk the dog',
+            completed: false
+        }, 
+        {
+            value: 'take out the trash', 
+            completed: false
+        }
+    ]
+}
 
-const todoReducer = (state, action) => {
+const todosReducer = (state = initialTodos, action) => {
     switch(action.type) {
-        case 'ADD_TODO':
+        case ADD_TODO:
             return Object.assign({}, state, {todos:action.payload});
-        case 'TOGGLE_COMPLETED':
+        case TOGGLE_COMPLETED:
             return Object.assign({}, state, {todos:action.payload});
         default:
             return state;
     }
 }
 
-export default todoReducer;
+export default todosReducer;
 
 // When the user presses submit you will invoke the appropriate action creator 
 // which will then have its new action fed through all of the reducers.

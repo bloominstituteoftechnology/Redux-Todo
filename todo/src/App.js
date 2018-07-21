@@ -3,6 +3,14 @@ import './App.css';
 import {connect} from 'react-redux';
 import TodoForm from './Components/TodoForm'
 
+// The general flow of steps will be to create your store,
+// create your reducers, create your containers, and then 
+// create the action creators.
+
+// When you add a new item to the todo array an action 
+// containing the new todo object will be dispatched 
+// through all of the reducers.
+
 
 // Your application should have an input field, a submit button,
 // and a list of items that represents your todo list.
@@ -36,7 +44,7 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log("State in Redux Store: ", state);
   return {
-    todos: state.todos
+    todos: "neep"
   }
 }
 
