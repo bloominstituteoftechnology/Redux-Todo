@@ -11,7 +11,7 @@ export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
 // is left to the reducer(s).
 
 
-export const addTodo = (todo) => {
+export const addTodo = (todo) => {  
     return {
         type: ADD_TODO,
         payload: todo

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'; 
 import './App.css';
 import {connect} from 'react-redux';
-import TodoForm from './Components/TodoForm'
+import TodoForm from './components/TodoForm';
+import {addTodo} from './actions/index';
 
 // The general flow of steps will be to create your store,
 // create your reducers, create your containers, and then 
@@ -15,40 +16,42 @@ import TodoForm from './Components/TodoForm'
 // Your application should have an input field, a submit button,
 // and a list of items that represents your todo list.
 
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      todos: []
-    }
   }
-
-  // addTodo = (e) => {
-  //   const todosCopy = this.state.todos.slice();
-
-  // }
 
   render() {
     return (
       <div>
-        TODOS
-
-        <TodoForm 
-
+        <TodoForm
+          addTodo = {this.props.addTodo} 
         />
+
+        TODOS
+        {this.props.todos.map(todo => {
+          return (
+            <div key = {todo.value}>
+              -{todo.value}
+            </div>
+          )
+        })}
       </div>
     );
   }
 }
 
+// mapStateToProps takes whats in our REDUX store, 
+// and passes it to our component as props.
 const mapStateToProps = state => {
   console.log("State in Redux Store: ", state);
   return {
-    todos: "neep"
+    todos: state.todos
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {addTodo})(App);
 
 //When users interact with our React components, we call our 
 //action creator functions that are wired up through connect. 

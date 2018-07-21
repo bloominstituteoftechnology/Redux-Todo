@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import reducer from './Components/reducer';
+import todosReducer from './reducers/index';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 ReactDOM.render(
-<Provider store = {createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+<Provider store = {createStore(todosReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
     <App /> 
 </Provider>, 
 document.getElementById('root'));

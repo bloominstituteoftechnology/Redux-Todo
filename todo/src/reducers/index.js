@@ -16,7 +16,9 @@ const initialTodos = {
 const todosReducer = (state = initialTodos, action) => {
     switch(action.type) {
         case ADD_TODO:
-            return Object.assign({}, state, {todos:action.payload});
+            return state.concat(action.payload);
+        // case ADD_TODO:
+        //     return {todos:state.concat(action.payload)};
         case TOGGLE_COMPLETED:
             return Object.assign({}, state, {todos:action.payload});
         default:

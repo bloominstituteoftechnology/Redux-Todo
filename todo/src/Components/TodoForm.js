@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+import {addTodo} from '../actions/index'
 
 // Each todo item that is in the todos array should have the following format:
 // {
@@ -13,10 +14,6 @@ class TodoForm extends Component {
             value: ''
         }
     }
-
-    // addTodo = (e) => {
-    //     e.preventDefault();
-    // }
 
     handleInputChange = e => {
         console.log(e.target.value);
@@ -42,5 +39,11 @@ class TodoForm extends Component {
         )
     }
 }
+
+// const mapStateToProps = state => {
+//     return {
+
+//     }
+// }
 
 export default TodoForm;
