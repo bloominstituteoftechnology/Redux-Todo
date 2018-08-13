@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
+import TodoInput from './components/TodoInput';
 
 const App = props => {
   return (
-    <TodoList />
+    <div className="app">
+      <TodoList />
+      <TodoInput />
+    </div>
   );
 }
 
