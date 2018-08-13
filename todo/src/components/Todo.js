@@ -1,9 +1,8 @@
 import React from 'react';
 
-const Todo = ({text, completed, onClick}) => {
+const Todo = ({text, completed, toggle, remove}) => {
   return(
     <li
-      onClick={onClick}
       style={{
         textDecoration:
           completed ?
@@ -11,7 +10,8 @@ const Todo = ({text, completed, onClick}) => {
             'none'
       }}
     >
-      {text}
+      <span onClick={toggle}>{text}</span>
+      <button onClick={remove}>Delete Todo</button>
     </li>
   );
 }

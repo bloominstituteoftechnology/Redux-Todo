@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/todos';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from '../actions/todos';
 
 let nextID = 3;
 
@@ -29,7 +29,9 @@ export default (todos = initialState, action) => {
         } else{
           return todo
         }
-      })
+      });
+    case REMOVE_TODO:
+      return todos.filter(todo => todo.id !== action.id);
     default:
       return todos;
   }
