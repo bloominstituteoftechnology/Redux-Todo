@@ -8,7 +8,7 @@ import App from './App';
 
 const persistedState = localStorage.getItem('todos') 
   ? JSON.parse(localStorage.getItem('todos')) 
-  : {};
+  : [];
 
 const store = createStore(todos, persistedState);
 
