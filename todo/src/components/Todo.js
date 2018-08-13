@@ -1,11 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, toggleCompleted }) => {
   return (
     <div>
-      <p>{todo.value}</p>
+      <p style={{textDecoration: todo.completed ? 'line-through' : 'none'}} onClick={() => toggleCompleted(todo.id)}>{todo.value}</p>
     </div>
   )
 }
 
-export default Todo;
+export default connect(
+  null,
+  actions
+)(Todo);
