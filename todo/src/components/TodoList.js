@@ -1,39 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { toggleTodo } from '../actions';
 
-class TodoList extends Component {
 
-    renderTodos = () => {
-        return this.props.todos.map((todo, i) => {
-            return (
-                <li
-                    // onClick={() => this.props.toggleTodo(todo)}
-                    key={i}>
-                    {todo.text}
-                </li>
-            )
-        })
-    }
-
-    render() {
-        return (
+const TodoList = (props) => {
+    return (
         <div>
-            {this.renderTodos()}
+            {props.todos.map((todo) => {
+                return (
+                    <li
+                        // onClick={() => props.toggleTodo(todo)}
+                        key={todo.id}>
+                        {todo.text}
+                    </li>
+                )
+            })}
         </div>
-        )
-    }
-}
-
-const mapStateToProps = (state) => {
-    return {
-        todos: state.todo
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    addTodoHandler: todo => dispatch(addTodo(todo))
+    )
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export default connect(null, { toggleTodo })(TodoList);

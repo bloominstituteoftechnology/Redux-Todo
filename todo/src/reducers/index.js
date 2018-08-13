@@ -5,13 +5,10 @@ export const initialState = {
 export default function todosReducer(state = initialState, action) {
     switch (action.type) {
         case 'ADD_TODO':
-            return [
+            return {
                 ...state,
-                {
-                    text: action.payload,
-                    completed: false,
-                }
-            ];
+                todo: [...state.todo, action.payload]
+            };
         default:
             return state;
     }
