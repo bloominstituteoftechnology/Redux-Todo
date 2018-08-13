@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1 className="App-title">Welcome to React</h1>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div className="App">
+      <h1 className="App-title">Redux Todo List</h1>
+    </div>
+  );
+};
 
 export default App;
