@@ -5,7 +5,13 @@ import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import './index.css';
 import App from './App';
+import rootReducer from './reducers';
 
-const store = createStore();
+const store = createStore(rootReducer, {}, applyMiddleware(logger));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
