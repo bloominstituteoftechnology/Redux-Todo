@@ -7,7 +7,15 @@ import './index.css';
 import App from './App';
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer, {}, applyMiddleware(logger));
+const store = createStore(
+  rootReducer,
+  JSON.parse(localStorage.getItem('redux-todos')) || {},
+  applyMiddleware(logger)
+);
+
+store.subscribe(() =>
+  localStorage.setItem('redux-todos', JSON.stringify(store.getState()))
+);
 
 ReactDOM.render(
   <Provider store={store}>
