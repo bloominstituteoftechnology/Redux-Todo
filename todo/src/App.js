@@ -1,21 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import * as actions from './actions'
+import { connect } from 'react-redux';
+import Todo from './components/Todo'
 
-class App extends Component {
-  render() {
+function App(props) {
+  const {todos, addTodo} = props
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>To Do List</h1>
+        {todos.map(todo => <Todo key={todo.id} todo={todo}/>)}
+        <div>
+          <input 
+            type='text'
+            placeholder='add todo'
+            onKeyDown={e =>{
+              if (e.key === 'Enter') {
+                addTodo(e.target.value);
+                e.target.value='';
+              }
+            }}
+            />
+        </div>
       </div>
     );
   }
+
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+  todos: state
+  }
 }
 
-export default App;
+export default connect(
+  mapStateToProps,
+  actions
+)(App);
