@@ -12,14 +12,13 @@ const persistedState = localStorage.getItem('todos')
 
 const store = createStore(todos, persistedState);
 
+store.subscribe(() => {
+  localStorage.setItem('todos', JSON.stringify(store.getState()))
+})
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
 );
-
-store.subscribe(() => {
-  localStorage.setItem('todos', JSON.stringify(store.getState()));
-  localStorage.setItem('index', JSON.stringify(store.getState().todos.length))
-})

@@ -1,5 +1,5 @@
-let nextTodoId = localStorage.getItem('index') 
-  ? JSON.parse(localStorage.getItem('index'))
+let nextTodoId = localStorage.getItem('todos') 
+  ? JSON.parse(localStorage.getItem('todos')).todos.length
   : 0;
 
 const addTodo = (todo, id) => {
