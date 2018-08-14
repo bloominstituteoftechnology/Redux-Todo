@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import { addTodo, toggleTodo } from "./actions"; 
+import { addTodo } from "./actions"; 
 import { connect } from 'react-redux'; 
 
 class App extends Component {
@@ -34,15 +34,11 @@ class App extends Component {
 
   }
 
-  
-
- 
-
   render() {
 
     return (
       <div className="App">
-        <TodoList toggle = {this.props.toggleTodo} todoData = {this.props.todos}/>
+        <TodoList />
         <TodoForm submitData = {this.submitFormDataHandler} value = {this.state.inputValue} change = {this.addInputValueHandler}/>
       </div>
     );
@@ -55,4 +51,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {addTodo, toggleTodo})(App);
+export default connect(mapStateToProps, {addTodo})(App);
