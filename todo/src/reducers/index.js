@@ -22,6 +22,12 @@ export default function todosReducer(state = initialState, action) {
                 ...state, 
                 todo: todos
             }
+        case 'DELETE_TODO':
+            let todos2 = state.todo.filter(todo => todo.id !== action.payload );
+            return {
+                ...state,
+                todo: todos2
+            }
         default:
             return state;
     }

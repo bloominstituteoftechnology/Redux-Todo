@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleTodo } from '../actions';
+import { deleteTodo } from '../actions';
 
 
 const TodoList = (props) => {
@@ -14,6 +15,7 @@ const TodoList = (props) => {
                         style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}
                         >
                         {todo.text}
+                        <button onClick={() => props.deleteTodo(todo.id) }>Delete</button>
                     </li>
                 )
             })}
@@ -22,4 +24,4 @@ const TodoList = (props) => {
 }
 
 
-export default connect(null, { toggleTodo })(TodoList);
+export default connect(null, { toggleTodo, deleteTodo })(TodoList);
