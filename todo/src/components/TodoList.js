@@ -23,5 +23,4 @@ const TodoList = (props) => {
     )
 }
 
-
 export default connect(null, { toggleTodo, deleteTodo })(TodoList);

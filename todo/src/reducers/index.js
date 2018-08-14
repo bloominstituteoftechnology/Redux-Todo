@@ -1,6 +1,4 @@
-export const initialState = {
-    todo: [{ text: 'test', completed: false, id: 0 }, { text: 'testingz', completed: false, id: 1 }],
-}
+export const initialState = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : {todo: [],}
 
 export default function todosReducer(state = initialState, action) {
     switch (action.type) {
