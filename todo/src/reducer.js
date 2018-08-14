@@ -22,7 +22,7 @@ const initialState = {
 //todo reducer will add tasks to the list
 
 const taskReducer = (state = initialState, action) => {
-    console.log(state);
+    console.log('state before action', state);
     switch(action.type){ //switch is a javascript function that operates like an if else statement
         case ADD_TASK:
             return state.tasks.push(action.payload); //concat function adds an aditional item to the array of tasks

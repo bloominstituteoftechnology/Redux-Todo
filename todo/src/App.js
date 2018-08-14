@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
-import TodoForm from './components/TodoForm'
+import TodoForm from './components/TodoForm';
+import TodoGroup from './components/TodoGroup'
 
 import './App.css';
 

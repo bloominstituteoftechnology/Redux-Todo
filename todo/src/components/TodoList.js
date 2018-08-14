@@ -1,27 +1,47 @@
-import react from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-const TodoList = props => {
-    console.log(props.tasks);
-    return (
-        <div>
-            {props.tasks.map(task =>(
+class TodoList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            tasks: [
+                {
+                task: "complete to do list",
+                completed: false
+                },
+        
+                {task: "review redux",
+                completed: false
+                },
+            ]
+        };
+    }    
+
+    render() {
+        return (
+            <div>
+            {this.props.tasks.map(task => (
                 <div>
-                    {task.task}
+                    <ul>
+                        <li>
+                            {task.task}
+                        </li>
+                    </ul>
                 </div>
             ))}
         </div>
-    );
-};
+        )
+    }
+}
 
 
 //mapStateToProps takes the info in the redux store and passes it to state
 const mapStateToProps = state => {
-    console.log('PROPS in redux store', props)
     return{
       tasks: state
-    }
-  }
+    };
+  };
   
   
 export default connect(mapStateToProps)(TodoList);
