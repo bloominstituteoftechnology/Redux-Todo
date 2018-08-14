@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { addToDo } from './actions';
+import {addToDo,toggleItem} from './actions';
 import { connect } from 'react-redux';
 import './App.css';
+
 
 class App extends Component {
   constructor() {
@@ -13,6 +14,7 @@ class App extends Component {
   handleInputChange=(e)=>{
     this.setState({[e.target.name]:e.target.value});
   }
+  
   render() {
     return (
       <div className="App">
@@ -21,7 +23,7 @@ class App extends Component {
           <button type='submit' onClick={(e)=>{e.preventDefault(); this.props.addToDo(this.state.newTask);this.setState({newTask:''})}} className='btn waves-effect waves-light'>Submit New Task</button>
         </form>
         <ul>
-          {this.props.todos.map((e,i)=><li key={i}>{e.value}</li>)}
+          {this.props.todos.map((e,i)=><li key={i}  onClick={()=>this.props.toggleItem(i)}>{e.value}</li>)}
         </ul>
       </div>
     );
@@ -38,4 +40,4 @@ const mapStateToProps = (state) => {
 // is only a dumb React component. We pass in all of the functions that
 // are reliant on Redux, along with the component itself, so that Redux
 // makes itself known to this component.
-export default connect(mapStateToProps, { addToDo })(App);
+export default connect(mapStateToProps, { addToDo,toggleItem })(App);

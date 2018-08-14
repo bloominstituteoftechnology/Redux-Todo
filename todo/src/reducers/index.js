@@ -1,4 +1,4 @@
-import {ADD_TODO} from '../actions';
+import {ADD_TODO,TOGGLE_ITEM} from '../actions';
 
 const initialState={
     todos:[]
@@ -13,6 +13,18 @@ export default function toDoApp(state=initialState,action) {
             }
         ]
         })
+        case TOGGLE_ITEM:
+        return Object.assign({},state, {
+            todos: state.todos.map((todo, index) => {
+              if (index === action.index) {
+                  console.log(todo)
+                return Object.assign({}, todo, {
+                  completed: !todo.completed
+                })
+              }
+            }
+        )
+    });
         default: 
             return state
     }
