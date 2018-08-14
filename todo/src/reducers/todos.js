@@ -2,11 +2,13 @@ import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from '../actions/todos';
 
 let nextID = 3;
 
-const initialState = [
+const dummyState = [
   {id: 0, text: 'todo#1', completed: false},
   {id: 1, text: 'todo#2', completed: true},
   {id: 2, text: 'todo#3', completed: false},
 ];
+
+const initialState = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : dummyState;
 
 export default (todos = initialState, action) => {
   switch(action.type) {
