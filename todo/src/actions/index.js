@@ -14,8 +14,6 @@ export const addTodo = (todo, completed) => {
 
 export const toggleTodo = event => {
     const find = event.target.innerHTML.split('----')
-    console.log(find[0])
-    console.log(find[0].length)
 
     store.dispatch({
         type:TOGGLE_TODO,
@@ -28,6 +26,16 @@ export const toggleTodo = event => {
 export const removeTodo = () => {
     store.dispatch({
         type: REMOVE_TODO
+    })
+}
+
+export const trashTodo = event => {
+    const find = event.target.innerHTML.split('----')
+    console.log(find[0].trim())
+    store.dispatch({
+        type: REMOVE_TODO,
+        payload: find[0].trim()
+
     })
 }
 

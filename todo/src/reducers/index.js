@@ -1,7 +1,7 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
-const initialState = []
+export const TRASH_TODO = 'TRASH_TODO'; 
 
 const reduceTodo = (state = [], action) => {
     switch(action.type){
@@ -13,6 +13,8 @@ const reduceTodo = (state = [], action) => {
             )
         case REMOVE_TODO:
             return state.filter(todo => todo.completed !== true)
+        case TRASH_TODO:
+            return state.filter(todo => todo.value !== action.payload)
         default:
             return state; 
     }

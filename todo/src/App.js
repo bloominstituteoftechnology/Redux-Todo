@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {addTodo, toggleTodo, removeTodo} from './actions'; 
+import {addTodo, toggleTodo, removeTodo, trashTodo} from './actions'; 
 import {connect} from 'react-redux'; 
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
         <h1>TODO List</h1>
         <ul>
           {/* Map through the list and produce them as a li */}
-          {todos.map((todo, i)=> <li style = {{textDecoration: todo.completed ? 'line-through' : 'none'}} onClick ={toggleTodo} key={i}>{todo.value} ---- {todo.completed.toString()}</li>)}
+          {todos.map((todo, i)=> <li style = {{textDecoration: todo.completed ? 'line-through' : 'none'}} onDoubleClick={trashTodo} onClick ={toggleTodo} key={i}>{todo.value} ---- {todo.completed.toString()}</li>)}
         </ul>
         <input id="todo" type="text" placeholder = "add todo..."
         ref={(input) => this.input = input}/>
