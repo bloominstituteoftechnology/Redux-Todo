@@ -2,10 +2,6 @@ import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from "../reducers";
 import {store} from '../index';
 
 export const addTodo = (todo, completed) => {
-    console.log("clicked")
-    
-    
-
     store.dispatch({
         type: ADD_TODO,
         payload: {value: todo, completed: completed}
@@ -31,7 +27,7 @@ export const removeTodo = () => {
 
 export const trashTodo = event => {
     const find = event.target.innerHTML.split('----')
-    console.log(find[0].trim())
+    
     store.dispatch({
         type: REMOVE_TODO,
         payload: find[0].trim()

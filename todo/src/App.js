@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import {addTodo, toggleTodo, removeTodo, trashTodo} from './actions'; 
 import {connect} from 'react-redux'; 
@@ -12,11 +12,13 @@ class App extends Component {
     this.input.value = ''
     addTodo(name,false); 
   }
+  
+
+  
   render() {
-    console.log(this.props.todo)
     let todos; 
     this.props.todo.length > 0 && this.props? todos = this.props.todo : todos = [];
-    
+        
     return (
       <div>
         <h1>TODO List</h1>
