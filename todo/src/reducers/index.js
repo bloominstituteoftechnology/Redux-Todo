@@ -1,12 +1,13 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 
-const initialState = {todo: []}
+const initialState = []
 
-const reduceTodo = (state = initialState, action) => {
+const reduceTodo = (state = [], action) => {
+    console.log(state); 
     switch(action.type){
         case ADD_TODO:
-          return state.todo.push(action.payload)
+          return state.push(action.payload)
         case TOGGLE_TODO:
             return state; 
         default:

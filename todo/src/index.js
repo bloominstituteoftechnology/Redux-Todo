@@ -7,7 +7,7 @@ import App from './App';
 import reduceTodo from './reducers'; 
 
 
-const store = createStore(reduceTodo); 
+export const store = createStore(reduceTodo); 
 
 ReactDOM.render(
   <Provider store = {store}>
