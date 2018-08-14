@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {addTodo} from './actions'; 
+import {addTodo, toggleTodo} from './actions'; 
 import {connect} from 'react-redux'; 
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
         <h1>TODO List</h1>
         <ul>
           {/* Map through the list and produce them as a li */}
-          {todos.map((todo, i)=> <li key={i}>{todo.value}</li>)}
+          {todos.map((todo, i)=> <li onClick ={toggleTodo} key={i}>{todo.value} ---- {todo.completed.toString()}</li>)}
         </ul>
         <input id="todo" type="text" placeholder = "add todo..."
         ref={(input) => this.input = input}/>
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps,{addTodo})(App);
+export default connect(mapStateToProps,{addTodo, toggleTodo})(App);
 // The mapStateToProps function specifies which portion of the 
 // state tree this component needs to receive. In this case, 
 // since our redux store is only storing the value of the count,
