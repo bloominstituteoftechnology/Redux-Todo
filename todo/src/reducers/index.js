@@ -11,16 +11,14 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
             console.log('add todo');
-            return {
-                todos: [
-                    ...state,
-                    {
-                        value: action.payload,
-                        completed: false,
-                        id: state.todos.length
-                    }
-                ]
-            }
+            const newArr = state.todos.slice()
+            newArr.push({
+                value: action.payload,
+                completed: false,
+                id: state.todos.length
+            });
+            return Object.assign({}, state, {todos: newArr})
+            
         default:
             return state;
     }
