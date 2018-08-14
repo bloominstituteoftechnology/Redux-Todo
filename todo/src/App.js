@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import "./App.css";
 import TodosList from "./components/todos/TodosList";
+import { addToTodosList } from "./actions";
 
 class App extends Component {
   constructor(props) {
@@ -22,4 +25,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    todos: state
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addToTodosList }
+)(App);
