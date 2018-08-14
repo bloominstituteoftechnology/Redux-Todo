@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_COMPLETED } from '../actions';
 
 const initialState = {
     todos: [
@@ -18,7 +18,12 @@ export default (state = initialState, action) => {
                 id: state.todos.length
             });
             return Object.assign({}, state, {todos: newArr})
-            
+        case TOGGLE_COMPLETED:
+            const arr1 = state.todos.slice(0, action.id);
+            const arr2 = [{value: state.todos[action.id].value, completed: !state.todos[action.id].completed, id: action.id}]
+            const arr3 = state.todos.slice(action.id + 1, state.todos.length);
+            const concat = arr1.concat(arr2).concat(arr3);
+            return Object.assign({}, state, {todos: concat})
         default:
             return state;
     }
