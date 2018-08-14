@@ -5,10 +5,10 @@ const TodosList = props => {
   console.log("TodosList props", props);
   return (
     <Fragment>
-      {props.todos.map(todo => {
-        // <Todo todoItem={todo} />;
-        return <Todo key={todo} todo={todo} />;
-      })}
+      {props.todos.todos.map(todo => (
+        <Todo key={todo} todo={todo} />
+      ))}
+      ;
     </Fragment>
   );
 };
