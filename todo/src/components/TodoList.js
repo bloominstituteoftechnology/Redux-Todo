@@ -6,7 +6,7 @@ import { deleteTodo } from '../actions';
 
 const TodoList = (props) => {
     return (
-        <div>
+        <div className="todo-container">
             {props.todos.map((todo) => {
                 return (
                     <li
@@ -15,7 +15,7 @@ const TodoList = (props) => {
                         style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}
                         >
                         {todo.text}
-                        <button onClick={() => props.deleteTodo(todo.id) }>Delete</button>
+                        <button onClick={() => props.deleteTodo(todo.id) }>X</button>
                     </li>
                 )
             })}

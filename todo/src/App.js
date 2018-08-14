@@ -32,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>Redux Todo</h1>
         <TodoList todos={this.props.todos} />
         <TodoForm handleInputChange={this.handleInputChange} currentText={this.state.currentText} addTodo={this.addTodo} />
       </div>
