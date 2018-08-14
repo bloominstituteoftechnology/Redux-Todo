@@ -2,7 +2,7 @@ import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import { connect } from 'react-redux';
-import { add, toggleCheck } from "./actions/actions";
+import { add, toggleCheck,removedChecked } from "./actions/actions";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -33,7 +33,10 @@ class App extends React.Component {
       completed: false
     });
     document.getElementById("todoInput").value = "";
+    
     this.props.addItem(todoListCopy);
+    this.setState({ display: this.props.todoList }, () => {});
+
     // this.setState(
     //   { todoList: todoListCopy, textBoxString: "", display: todoListCopy },
     //   () => {
@@ -43,18 +46,20 @@ class App extends React.Component {
   };
 
   clearComplete = () => {
-    const todoListCopy = this.state.todoList;
-    let recopy = todoListCopy.filter(element => {
-      if (element.completed === false) {
-        return true;
-      } else {
-        return false;
-      }
-    });
+    this.props.clearComplete()
 
-    this.setState({ todoList: recopy, display: recopy }, () => {
-      // this.writeToLS();
-    });
+    // const todoListCopy = this.state.todoList;
+    // let recopy = todoListCopy.filter(element => {
+    //   if (element.completed === false) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
+
+    // this.setState({ todoList: recopy, display: recopy }, () => {
+    //   // this.writeToLS();
+    // });
   };
 
   complete = event => {
@@ -79,8 +84,6 @@ class App extends React.Component {
     // this.setState({ todoList: recopy, display: recopy }, () => {
     //   // this.writeToLS();
     // });
-
-
   };
 
   handleKeyPress = event => {
@@ -94,6 +97,8 @@ class App extends React.Component {
   };
   componentDidMount() {
     document.title = "Hey Look a React Todo App";
+    this.setState({ display: this.props.todoList }, () => {});
+
     // if (localStorage.getItem("taskList") === null) {
     //   localStorage.setItem("taskList", "[]");
     // } else {
@@ -102,7 +107,7 @@ class App extends React.Component {
   }
 
   search() {
-    const todoListCopy = this.state.todoList;
+    const todoListCopy = this.props.todoList.slice();
 
     let recopy = todoListCopy.filter(x => {
       if (
@@ -125,7 +130,7 @@ class App extends React.Component {
       <div className="container">
         <h3>What you're putting off:</h3>
         <div className="todoListContainer">
-          <TodoList  methods={this.complete} array={this.props.todoList} />
+          <TodoList  methods={this.complete} array={this.state.display} />
         </div>
         <TodoForm
           methods={[this.addToList, this.handleKeyPress, this.clearComplete]}
@@ -142,7 +147,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(add(item)),
-  toggle: ID=> dispatch(toggleCheck(ID))
+  toggle: ID=> dispatch(toggleCheck(ID)),
+  clearComplete: ()=> dispatch(removedChecked())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

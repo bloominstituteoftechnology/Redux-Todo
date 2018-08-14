@@ -8,3 +8,8 @@ export const toggleCheck = (payload) => ({
   type:'TOGGLECHECK',
   payload:payload
 });
+
+export const removedChecked = (payload) => ({
+  type:'REMOVECHECKED',
+  payload:payload
+});
