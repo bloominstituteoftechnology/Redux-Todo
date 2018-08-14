@@ -5,8 +5,11 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import todos from './reducers';
+import { loadState, saveState } from './loadState'
 
-const store = createStore(todos);
+const persistentState = loadState()
+const store = createStore(todos, persistentState)
+store.subscribe(() => saveState(store.getState()))
 
 ReactDOM.render(
     <Provider store={store}>
