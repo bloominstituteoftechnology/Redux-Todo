@@ -1,6 +1,6 @@
 import React from 'react' 
 
-const Todo = ({ onClick, completed, title }) => {
+const Todo = ({ onClick, completed, title, id, onDelete }) => {
     return (
     <li 
         onClick={onClick}
@@ -8,6 +8,7 @@ const Todo = ({ onClick, completed, title }) => {
             textDecoration: completed ? 'line-through' : 'none'
           }}>
           {title}
+          <button id={id} onClick={onDelete}> Delete </button>
     </li>
         )
 }

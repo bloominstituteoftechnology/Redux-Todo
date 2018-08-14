@@ -1,6 +1,6 @@
 import React from 'react' 
 import Todo from './Todo';
-import { toggleTodo } from '../actions';
+import { toggleTodo, delteTodo } from '../actions';
 
 const TodoList = ({ todos, dispatch }) => {
     return (
@@ -10,6 +10,7 @@ const TodoList = ({ todos, dispatch }) => {
                     key={todo.id}
                     { ...todo }
                     onClick={() => dispatch(toggleTodo(todo))}
+                    onDelete={() => dispatch(delteTodo(todo))}
                 />
             )}
         </ul>

@@ -1,4 +1,4 @@
-import { ADDTODO, TOGGLETODO } from "../actions";
+import { ADDTODO, TOGGLETODO, DELTETODO } from "../actions";
 
 const initState = [
     {
@@ -28,6 +28,8 @@ const todos = (state = initState, action) => {
             return state.map(todo => todo.id === action.id 
                 ? {...todo, completed : !todo.completed }
                 : todo)
+        case DELTETODO:
+                return state.filter(todo => todo.id !== action.id)
         default:
             return state
     }
