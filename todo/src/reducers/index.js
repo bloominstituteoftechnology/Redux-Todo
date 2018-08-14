@@ -7,7 +7,7 @@ const reduceTodo = (state = [], action) => {
     console.log(state); 
     switch(action.type){
         case ADD_TODO:
-          return state.push(action.payload)
+          return state.concat(action.payload)
         case TOGGLE_TODO:
             return state; 
         default:
