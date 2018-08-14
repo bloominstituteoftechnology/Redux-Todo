@@ -10,7 +10,8 @@ class App extends Component {
     super(props);
     console.log("APP", props);
     this.state = {
-      todos: ["Hey", "Ho"]
+      todos: ["Bake Lasagana", "Flip the script!"]
+      // todos: props.todos
     };
   }
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("MapsStatetoProps state", state);
   return {
     todos: state
   };
