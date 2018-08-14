@@ -1,15 +1,14 @@
 import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
-import { connect } from 'react-redux';
-import { add, toggleCheck,removedChecked } from "./actions/actions";
+import { connect } from "react-redux";
+import { add, toggleCheck, removedChecked } from "./actions/actions";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor(props) {
     super(props);
     this.state = {
-      todoList: [],
       textBoxString: "",
       display: []
     };
@@ -33,9 +32,9 @@ class App extends React.Component {
       completed: false
     });
     document.getElementById("todoInput").value = "";
-    
+
     this.props.addItem(todoListCopy);
-    this.setState({ display: this.props.todoList }, () => {});
+   
 
     // this.setState(
     //   { todoList: todoListCopy, textBoxString: "", display: todoListCopy },
@@ -46,8 +45,8 @@ class App extends React.Component {
   };
 
   clearComplete = () => {
-    this.props.clearComplete()
-
+    this.props.clearComplete();
+    
     // const todoListCopy = this.state.todoList;
     // let recopy = todoListCopy.filter(element => {
     //   if (element.completed === false) {
@@ -63,7 +62,8 @@ class App extends React.Component {
   };
 
   complete = event => {
-    this.props.toggle(event.target.id )
+    this.props.toggle(event.target.id);
+    
     // const todoListCopy = this.state.todoList;
     // // event.target.classList.toggle('complete');
     // let recopy = todoListCopy.map(element => {
@@ -122,7 +122,12 @@ class App extends React.Component {
 
     this.setState({ display: recopy }, () => {});
   }
-
+  componentWillReceiveProps (nextProps) {
+    
+    if (this.props.todoList !== nextProps.todoList ) {
+      this.setState({ display: nextProps.todoList}, () => {});
+    }
+  }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
@@ -130,7 +135,7 @@ class App extends React.Component {
       <div className="container">
         <h3>What you're putting off:</h3>
         <div className="todoListContainer">
-          <TodoList  methods={this.complete} array={this.state.display} />
+          <TodoList methods={this.complete} array={this.state.display} />
         </div>
         <TodoForm
           methods={[this.addToList, this.handleKeyPress, this.clearComplete]}
@@ -140,16 +145,21 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+
+
+const mapStateToProps = state => {
   return {
     todoList: state.todoList
   };
 };
 const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(add(item)),
-  toggle: ID=> dispatch(toggleCheck(ID)),
-  clearComplete: ()=> dispatch(removedChecked())
+  toggle: ID => dispatch(toggleCheck(ID)),
+  clearComplete: () => {dispatch(removedChecked())
+  }
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
