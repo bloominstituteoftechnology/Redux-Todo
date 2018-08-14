@@ -13,13 +13,14 @@ class App extends React.Component {
       display: []
     };
   }
-  // writeToLS = () => {
-  //   localStorage.setItem("taskList", JSON.stringify(this.state.todoList));
-  // };
-  // readLS = () => {
-  //   let output = JSON.parse(localStorage.getItem("taskList"));
-  //   this.setState({ todoList: output, display: output });
-  // };
+  writeToLS = (list) => {
+    localStorage.setItem("taskList", JSON.stringify(list));
+  };
+  readLS = () => {
+    let output = JSON.parse(localStorage.getItem("taskList"));
+    console.log(output)
+    this.props.addItem(output);
+  };
   addToList = event => {
     if (this.state.textBoxString === "") {
       return;
@@ -99,11 +100,11 @@ class App extends React.Component {
     document.title = "Hey Look a React Todo App";
     this.setState({ display: this.props.todoList }, () => {});
 
-    // if (localStorage.getItem("taskList") === null) {
-    //   localStorage.setItem("taskList", "[]");
-    // } else {
-    //   // this.readLS();
-    // }
+    if (localStorage.getItem("taskList") === null) {
+      localStorage.setItem("taskList", "[]");
+    } else {
+      this.readLS();
+    }
   }
 
   search() {
@@ -123,10 +124,11 @@ class App extends React.Component {
     this.setState({ display: recopy }, () => {});
   }
   componentWillReceiveProps (nextProps) {
-    
+    this.writeToLS(nextProps.todoList );
     if (this.props.todoList !== nextProps.todoList ) {
       this.setState({ display: nextProps.todoList}, () => {});
     }
+
   }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
