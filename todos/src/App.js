@@ -2,16 +2,57 @@ import React, { Component } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import { addTodo, toggleTodo } from "./actions"; 
+import { connect } from 'react-redux'; 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      inputValue: '',
+    }
+  }
+
+  addInputValueHandler = (event) => {
+    this.setState({
+      inputValue: event.target.value
+    })
+  }
+
+  submitFormDataHandler = (event) => {
+    const newTask = {
+      id: new Date(),
+      task: this.state.inputValue, 
+      completed: false
+    }
+
+    this.props.addTodo(newTask); 
+
+    this.setState({
+      inputValue: '',
+    })
+
+  }
+
+  
+
+ 
+
   render() {
+
     return (
       <div className="App">
-        <TodoList />
-        <TodoForm />
+        <TodoList toggle = {this.props.toggleTodo} todoData = {this.props.todos}/>
+        <TodoForm submitData = {this.submitFormDataHandler} value = {this.state.inputValue} change = {this.addInputValueHandler}/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps, {addTodo, toggleTodo})(App);

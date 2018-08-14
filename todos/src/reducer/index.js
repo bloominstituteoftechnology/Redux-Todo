@@ -40,5 +40,7 @@ export default (state = initialState, action) => {
             return {
                todos: updatedToggles
             }
+        default: 
+            return state;
     }
 }
