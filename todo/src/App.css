@@ -8,10 +8,10 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: rgb(233, 252, 251);
+  height: 100px;
   padding: 20px;
-  color: white;
+  color: rgb(240, 66, 66);
 }
 
 .App-title {
@@ -22,7 +22,12 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+h1{
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+}
+
+p, button, input{
+  font-size: 15px;
+  font-family: 'dosis'
 }
