@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import "./App.css";
 import TodosList from "./components/todos/TodosList";
 import { addToTodosList } from "./actions";
+// import { submitHandler } from "./components/todoListForm/TodoListForm";
 import TodoListForm from "./components/todoListForm/TodoListForm";
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <TodosList todos={this.state.todos} />
-        <TodoListForm />
+        <TodoListForm submitHandler={addToTodosList} />
       </div>
     );
   }

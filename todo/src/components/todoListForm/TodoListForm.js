@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
+import { ADD_TO_TODOS_LIST } from "../../actions";
 
 export default class TodoListForm extends Component {
   constructor(props) {
     super(props);
+    console.log("TodoListForm", this.props.submitHandler);
     this.state = {
-      todos: ["Hey", "hey"],
       newTodo: ""
     };
   }
@@ -13,11 +14,21 @@ export default class TodoListForm extends Component {
     console.log("Input Change Handler", event.target.value);
     this.setState({ newTodo: event.target.value });
   };
+
+  // addToTodosList = event => {
+  //   event.preventDefault();
+  //   console.log("addToTodosList Working");
+  //   return {
+  //     type: ADD_TO_TODOS_LIST,
+  //     payload: this.state.newTodo
+  //   };
+  // };
+
   render() {
-    console.log("NewTodo", this.state.newTodo);
+    // console.log("NewTodo", this.submitHandler);
     return (
       <Fragment>
-        <form>
+        <form onSubmit={this.props.submitHandler}>
           <input
             placeholder="add todo to list..."
             onChange={this.inputChangeHandler}
