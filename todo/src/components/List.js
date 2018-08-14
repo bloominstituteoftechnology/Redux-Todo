@@ -24,10 +24,10 @@ class List extends Component {
         })
     }
 
-    deleteHandler = (event, key) => {
+    deleteHandler = (event, value) => {
       // event.preventDefault();
       console.log("deleteHandler", this.props)
-      this.props.deleteItem();
+      this.props.deleteItem(value);
     }
 
     render() {
@@ -47,7 +47,7 @@ class List extends Component {
                     return (
                       <div
                         key={item.id}
-                        onClick={(event) => this.deleteHandler(event, item.key)}>{item.value}</div>
+                        onClick={(event) => this.deleteHandler(event, item.id)}>{item.value}</div>
                     )
                 })}
             </div>

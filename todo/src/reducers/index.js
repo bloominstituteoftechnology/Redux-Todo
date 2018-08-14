@@ -20,7 +20,11 @@ export default ( state = initialState, action ) => {
             });
         case DELETEITEM:
             let deleteArr = state.todos.slice()
-            deleteArr.pop()
+            console.log(deleteArr)
+
+            deleteArr.splice(action.payload)
+            console.log(deleteArr)
+
             return Object.assign({}, state, {
               todos: deleteArr
             });
