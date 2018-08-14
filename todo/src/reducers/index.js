@@ -9,12 +9,9 @@ const reduceTodo = (state = [], action) => {
         case ADD_TODO:
           return state.concat(action.payload)
         case TOGGLE_TODO:
-            return state.filter(todo => {
-                if (todo.value === action.payload){
-                    console.log("found it")
-                    todo.completed = !todo.completed;
-                }
-            }); 
+            return state.map((todo) => todo.value!== action.payload? todo : 
+              Object.assign({}, todo, {completed: !todo.completed})
+            )
         default:
             return state; 
     }
