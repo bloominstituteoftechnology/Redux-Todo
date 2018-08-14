@@ -8,7 +8,6 @@ const TodosList = props => {
       {props.todos.todos.map(todo => (
         <Todo key={todo} todo={todo} />
       ))}
-      ;
     </Fragment>
   );
 };

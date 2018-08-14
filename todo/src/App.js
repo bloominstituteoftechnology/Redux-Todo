@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import "./App.css";
 import TodosList from "./components/todos/TodosList";
 import { addToTodosList } from "./actions";
+import TodoListForm from "./components/todoListForm/TodoListForm";
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <TodosList todos={this.state.todos} />
+        <TodoListForm />
       </div>
     );
   }
