@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     console.log("APP", props);
     this.state = {
-      todos: ["Bake Lasagana", "Flip the script!"]
+      todos: props.todos
       // todos: props.todos
     };
   }

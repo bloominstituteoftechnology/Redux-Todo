@@ -1,5 +1,5 @@
 // empty array containing our state
-export let todos = [];
+export let todos = ["Bake Lasagana", "Flip the script!"];
 
 export const ADD_TO_TODOS_LIST = "ADD_TO_TODOS_LIST";
 export const ADD_INITIAL_TODO_ITEMS = "ADD_INITIAL_TODO_ITEMS";
