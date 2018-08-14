@@ -13,7 +13,27 @@ export default (state = initialState, action) => {
     return Object.assign({}, state, {
       todoList: action.payload
     });
+    case "TOGGLECHECK":
+    const todoListCopy = state.todoList.slice();
 
+    let recopy = todoListCopy.map(element => {
+      if (
+        element.id.toString() === action.payload &&
+        element.completed === false
+      ) {
+        element["completed"] = true;
+      } else if (
+        element.id.toString() === action.payload &&
+        element.completed === true
+      ) {
+        element["completed"] = false;
+      }
+
+      return element;
+    });
+    return Object.assign({}, state, {
+      todoList: recopy
+    });
     default:
       return state;
   }

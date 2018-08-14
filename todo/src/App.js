@@ -2,7 +2,7 @@ import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import { connect } from 'react-redux';
-import { add } from "./actions/actions";
+import { add, toggleCheck } from "./actions/actions";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -25,7 +25,7 @@ class App extends React.Component {
     if (this.state.textBoxString === "") {
       return;
     }
-    const todoListCopy = this.props.todoList;
+    const todoListCopy = this.props.todoList.slice();
     const inputBox = this.state.textBoxString;
     todoListCopy.push({
       task: inputBox,
@@ -33,6 +33,7 @@ class App extends React.Component {
       completed: false
     });
     document.getElementById("todoInput").value = "";
+    this.props.addItem(todoListCopy);
     // this.setState(
     //   { todoList: todoListCopy, textBoxString: "", display: todoListCopy },
     //   () => {
@@ -57,26 +58,29 @@ class App extends React.Component {
   };
 
   complete = event => {
-    const todoListCopy = this.state.todoList;
-    // event.target.classList.toggle('complete');
-    let recopy = todoListCopy.map(element => {
-      if (
-        element.id.toString() === event.target.id &&
-        element.completed === false
-      ) {
-        element["completed"] = true;
-      } else if (
-        element.id.toString() === event.target.id &&
-        element.completed === true
-      ) {
-        element["completed"] = false;
-      }
+    this.props.toggle(event.target.id )
+    // const todoListCopy = this.state.todoList;
+    // // event.target.classList.toggle('complete');
+    // let recopy = todoListCopy.map(element => {
+    //   if (
+    //     element.id.toString() === event.target.id &&
+    //     element.completed === false
+    //   ) {
+    //     element["completed"] = true;
+    //   } else if (
+    //     element.id.toString() === event.target.id &&
+    //     element.completed === true
+    //   ) {
+    //     element["completed"] = false;
+    //   }
 
-      return element;
-    });
-    this.setState({ todoList: recopy, display: recopy }, () => {
-      // this.writeToLS();
-    });
+    //   return element;
+    // });
+    // this.setState({ todoList: recopy, display: recopy }, () => {
+    //   // this.writeToLS();
+    // });
+
+
   };
 
   handleKeyPress = event => {
@@ -137,7 +141,8 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(add(item))
+  addItem: item => dispatch(add(item)),
+  toggle: ID=> dispatch(toggleCheck(ID))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

@@ -4,3 +4,7 @@ export const add = (payload) => ({
   payload:payload
 });
 
+export const toggleCheck = (payload) => ({
+  type:'TOGGLECHECK',
+  payload:payload
+});

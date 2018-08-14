@@ -11,7 +11,6 @@ const TodoList = props => {
           completed={element.completed}
           onClickMethod={props.methods}
           id={element.id}
-         
           task={element.task}
         />
       </div>
