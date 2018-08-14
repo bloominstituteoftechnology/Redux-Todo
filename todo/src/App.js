@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from "react-redux";
+import todos from './reducers';
+import TodoList from './components/TodoList';
+import addToDo from './actions';
+import TodoForm from './components/TodoForm';
 import './App.css';
 
 class App extends Component {
+  constructor (props) {
+    super(props),
+    this.state = {
+      newToDo: ''
+    }
+  }
+
+  itemAdd = (event) => {
+    this.setState({newToDo: event.target.value})
+  }
+
+  addNewTodo = (event) => {
+    event.preventDefault();
+    this.props.addToDo(this.state.newToDo);
+    this.setState({newToDo: ''})
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <TodoList todos={this.props.todos} />
+        <TodoForm itemAdd={this.itemAdd} value={this.state.newToDo} add={this.addNewTodo} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  todos: state
+});
+
+export default connect(mapStateToProps, { addToDo })(App);
