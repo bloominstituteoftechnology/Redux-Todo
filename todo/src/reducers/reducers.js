@@ -22,7 +22,7 @@ export default (todos = initialState, action) => {
             ...todo,
             completed: !todo.completed
           }
-        } else{
+        } else {
           return todo
         }
       });
