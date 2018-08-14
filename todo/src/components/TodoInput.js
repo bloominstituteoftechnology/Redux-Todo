@@ -8,7 +8,7 @@ const TodoInput = props => {
       type="text"
       placeholder="Enter a task!"
       onKeyPress={event => {
-        if(event.key==='Enter'){
+        if(event.key==='Enter' && event.target.value !== ''){
           props.addTodo(event.target.value);
           event.target.value='';
         }

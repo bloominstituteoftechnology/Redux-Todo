@@ -10,7 +10,12 @@ const Todo = ({text, completed, toggle, remove}) => {
             'none'
       }}
     >
-      <span onClick={toggle}>{text}</span>
+      <span
+        onClick={toggle}
+        style={{marginRight: '10px'}}
+      >
+      {text}
+      </span>
       <button onClick={remove}>Delete Todo</button>
     </li>
   );

@@ -5,13 +5,13 @@ import { toggleTodo, removeTodo } from '../actions/todos';
 
 const TodoList = ({todos, toggleTodo, removeTodo}) => {
   return(
-    <ul>
+    <ul style={{listStyle: 'none'}}>
       {todos.map(todo =>
         <Todo
           key={todo.id}
           {...todo}
           toggle={() => toggleTodo(todo.id)}
-          remove={()=> removeTodo(todo.id)}
+          remove={() => removeTodo(todo.id)}
          />
       )}
     </ul>
