@@ -1,11 +1,13 @@
 export const ADDITEM = 'ADDITEM';
-export const DELETEITEM = 'DELETEITEM';
+// export const DELETEITEM = 'DELETEITEM';
 
 export const addItem = () => {
-    type: ADDITEM, 
-    
+    return {
+        type: ADDITEM
+    }
 }
-export const deleteItem = () => {
-    type: deleteITEM, 
-
-}
+// export const deleteItem = () => {
+//     return {
+//         type: DELETEITEM, 
+//     }
+// }

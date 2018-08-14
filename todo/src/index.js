@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import { createStore } from 'redux';
 import {Provider} from 'react-redux'
-import list from './reducers'
+import list from './reducers'; // this is a new thing
 
 const store = createStore(list, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-ReactDOM.render(<Provider store={store}> <App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
