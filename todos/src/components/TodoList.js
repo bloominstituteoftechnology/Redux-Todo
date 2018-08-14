@@ -1,7 +1,7 @@
 import React from 'react' ;
 import Todo from './Todo';
 import { connect } from 'react-redux'; 
-import { toggleTodo} from "../actions"; 
+import { toggleTodo, deleteTodo} from "../actions"; 
 
 const TodoList = (props) => {
 
@@ -9,7 +9,7 @@ const TodoList = (props) => {
         <div className = "todoList">
             <ul>
                 {props.todos.map((item, index) => {
-                   return <Todo styleTodo = {{textDecoration: item.completed ? 'line-through': 'none'}} click = {() => props.toggleTodo(item.id)} todoItem = {item.task} key = {item.id} />
+                   return <Todo styleTodo = {{textDecoration: item.completed ? 'line-through': 'none'}} click = {() => props.toggleTodo(item.id)} deleteClick = {()=> props.deleteTodo(item.id)} todoItem = {item.task} key = {item.id} />
                 })}
             </ul>
         </div>
@@ -22,4 +22,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {toggleTodo} )(TodoList); 
+export default connect(mapStateToProps, {toggleTodo, deleteTodo} )(TodoList); 

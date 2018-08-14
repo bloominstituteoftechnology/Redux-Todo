@@ -40,6 +40,11 @@ export default (state = initialState, action) => {
             return {
                todos: updatedToggles
             }
+        case('DELETE_TODO'): 
+        let updatedArray = state.todos.filter(item => item.id !== action.payload)
+        return {
+            todos: updatedArray
+        }    
         default: 
             return state;
     }
