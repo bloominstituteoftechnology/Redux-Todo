@@ -4,17 +4,24 @@ import './App.css';
 
 class App extends Component {
   render() {
+    console.log(this.props)
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1>TODO List</h1>
+        <ul>
+          <li></li>
+          {/* Map through the list and produce them as a li */}
+        </ul>
+        <input id="todo" type="text" placeholder = "add todo..."/>
+        <button>Submit</button>
       </div>
     );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    
   }
 }
 
