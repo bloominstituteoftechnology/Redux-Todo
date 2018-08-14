@@ -8,14 +8,17 @@ const initialState = {
         }
     ]
 }
-// thi is the 'list'
+//  'list' is here but can't be named for some reason
 export default ( state = initialState, action ) => {
     switch(action.type){
-        case ADDITEM: 
-            console.log('ADDITEM from reducers', state)
-            // console.log(this)
-            return initialState
-        default: 
-            return 'default'
+        case ADDITEM:
+            let newArr = state.todos.slice()
+            newArr.push({value: action.payload, completed: false})
+            return Object.assign({}, state, {
+              todos: newArr
+            });
+
+        default:
+            return state
     }
 }

@@ -11,11 +11,10 @@ class List extends Component {
         }
     }
 
-    submitHandler = item => {
-        item.preventDefault();
-        // console.log('submitHandler sucess', item)
-        console.log(Store.getState())
-        this.props.addItem();
+    submitHandler = event => {
+        event.preventDefault();
+        // console.log('submitHandler sucess', addItem)
+        this.props.addItem(this.state.inputValue);
         this.setState({inputValue: ""})
     }
 
@@ -24,25 +23,26 @@ class List extends Component {
             inputValue: event.target.value
         })
     }
-    
+
     render() {
         return (
             <div>
                 <form onSubmit={this.submitHandler}>
-                    <input 
-                        value={this.state.inputValue} 
-                        placeholder="new Item" 
-                        onChange={this.inputHandler} 
-                        // onClick={() => this.props.addItem()}
+                    <input
+                        value={this.state.inputValue}
+                        placeholder="new Item"
+                        onChange={this.inputHandler}
                     >{this.value}</input>
                     <button>Sumbit</button>
-                
+
                 </form>
-                {console.log(this)}
-                {/* {this.map(item => {
-                    <div>{item.value}</div>
-                })} */}
-            </div>  
+                {/* {console.log(this.props.state.todos)} */}
+                {this.props.state.todos.map(item => {
+                    return (
+                      <div key={item.value}>{item.value}</div>
+                    )
+                })}
+            </div>
         )
     }
 }

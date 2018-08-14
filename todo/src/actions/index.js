@@ -1,13 +1,14 @@
 export const ADDITEM = 'ADDITEM';
 // export const DELETEITEM = 'DELETEITEM';
 
-export const addItem = () => {
+export const addItem = (inputValue) => {
     return {
-        type: ADDITEM
+        type: ADDITEM,
+        payload: inputValue
     }
 }
 // export const deleteItem = () => {
 //     return {
-//         type: DELETEITEM, 
+//         type: DELETEITEM,
 //     }
 // }
