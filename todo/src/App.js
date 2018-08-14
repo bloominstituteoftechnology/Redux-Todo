@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {addTodo, toggleTodo} from './actions'; 
+import {addTodo, toggleTodo, removeTodo} from './actions'; 
 import {connect} from 'react-redux'; 
 
 class App extends Component {
@@ -27,7 +27,10 @@ class App extends Component {
         <input id="todo" type="text" placeholder = "add todo..."
         ref={(input) => this.input = input}/>
         {/* allows us to access the input value with adding a prop */}
+        <br/>
+        <br/>
         <button onClick= {this.newItem}>Submit</button>
+        <button onClick = {removeTodo}>Remove Completed</button>
       </div>
     );
   }

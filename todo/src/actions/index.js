@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from "../reducers";
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from "../reducers";
 import {store} from '../index';
 
 export const addTodo = (todo, completed) => {
@@ -23,6 +23,12 @@ export const toggleTodo = event => {
     })
 
 
+}
+
+export const removeTodo = () => {
+    store.dispatch({
+        type: REMOVE_TODO
+    })
 }
 
 
