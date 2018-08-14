@@ -9,6 +9,19 @@ export default function todosReducer(state = initialState, action) {
                 ...state,
                 todo: [...state.todo, action.payload]
             };
+        case 'TOGGLE_TODO':
+            let todos = state.todo.map(todo => {
+                if (todo.id === action.payload) {
+                    todo.completed = !todo.completed;
+                    return todo;
+                } else {
+                    return todo;
+                }
+            });
+            return {
+                ...state, 
+                todo: todos
+            }
         default:
             return state;
     }

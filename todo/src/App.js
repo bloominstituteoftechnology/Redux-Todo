@@ -25,7 +25,7 @@ class App extends Component {
       completed: false,
       text: todoText
     };
-    this.props.addTodo(newTodo);
+    this.props.addTodoHandler(newTodo);
     this.setState( { currentText: '' });
   }
 
@@ -45,4 +45,8 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addTodo })(App);
+const mapDispatchToProps = dispatch => ({
+  addTodoHandler: todo => dispatch(addTodo(todo))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
