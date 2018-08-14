@@ -7,7 +7,9 @@ import App from './App';
 import reduceTodo from './reducers'; 
 
 
-export const store = createStore(reduceTodo); 
+export const store = createStore(reduceTodo, 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+); 
 
 ReactDOM.render(
   <Provider store = {store}>

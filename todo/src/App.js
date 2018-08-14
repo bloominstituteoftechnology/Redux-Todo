@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {addTodo} from './actions'; 
+import {connect} from 'react-redux'; 
 
 class App extends Component {
 
@@ -12,13 +13,14 @@ class App extends Component {
     addTodo(name,false); 
   }
   render() {
-    console.log(this.props)
+    console.log(this.props.todo)
+    const todos = this.props.todo;
     return (
       <div>
         <h1>TODO List</h1>
         <ul>
-          <li></li>
           {/* Map through the list and produce them as a li */}
+          {todos.map((todo, i)=> <li key={i}>{todo.value}</li>)}
         </ul>
         <input id="todo" type="text" placeholder = "add todo..."
         ref={(input) => this.input = input}/>
@@ -31,8 +33,26 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    
+    todo: state
   }
 }
 
-export default App;
+export default connect(mapStateToProps,{addTodo})(App);
+// The mapStateToProps function specifies which portion of the 
+// state tree this component needs to receive. In this case, 
+// since our redux store is only storing the value of the count,
+// this component receives the whole state. In a more complex
+// redux application, though, it would receive only the relevant
+// parts it needs from the state object.
+// const mapStateToProps = (state) => {
+//   return {
+//       count: state
+//   };
+// };
+
+// The connect function is called in order to make this component aware
+// of the rest of the redux architecture. Without this, this component
+// is only a dumb React component. We pass in all of the functions that
+// are reliant on Redux, along with the component itself, so that Redux
+// makes itself known to this component.
+// export default connect(mapStateToProps, { increment, decrement})(Counter);
