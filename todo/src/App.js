@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
+import {connect} from 'react-redux';
+
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        
+      {props.todos.map(todo => <div>{todo.text}</div>)}
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    todos: state
+  };
+}
 
-export default App;
+export default connect(mapStateToProps)(App);
