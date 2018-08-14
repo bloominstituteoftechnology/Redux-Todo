@@ -4,13 +4,14 @@ import Todo from './Todo'
 
 
 
-const TodoList = ({todos, toggleTodo}) => (
+const TodoList = ({todos, toggleTodo,deleteTodo}) => (
     <ul>
         {todos.map(todo =>
         <Todo
         key={todo.id}
         {...todo}
         onClick={() => toggleTodo(todo.id)}
+        deleteTodo={() => deleteTodo(todo.id)}
         />
         )}
         </ul>
@@ -25,6 +26,7 @@ const TodoList = ({todos, toggleTodo}) => (
             }).isRequired,
         ).isRequired,
         toggleTodo: PropTypes.func.isRequired
+       
     }
 
     export default TodoList;
