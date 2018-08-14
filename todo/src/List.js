@@ -6,7 +6,7 @@ const List = (props) => {
     
 return (
     <div>
-        {props.list.map(todo => <p className={todo.complete ? "done" : null} onClick={()=> props.complete(todo.id)} >{todo.task}</p>)}
+        {props.list.map(todo => <p className={todo.completed ? "done" : null} onClick={()=> props.complete(todo.id)} >{todo.task}</p>)}
     </div>
     )
     
