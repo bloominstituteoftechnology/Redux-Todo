@@ -2,6 +2,7 @@ import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import { connect } from 'react-redux';
+import { add } from "./actions/actions";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -13,18 +14,18 @@ class App extends React.Component {
       display: []
     };
   }
-  writeToLS = () => {
-    localStorage.setItem("taskList", JSON.stringify(this.state.todoList));
-  };
-  readLS = () => {
-    let output = JSON.parse(localStorage.getItem("taskList"));
-    this.setState({ todoList: output, display: output });
-  };
+  // writeToLS = () => {
+  //   localStorage.setItem("taskList", JSON.stringify(this.state.todoList));
+  // };
+  // readLS = () => {
+  //   let output = JSON.parse(localStorage.getItem("taskList"));
+  //   this.setState({ todoList: output, display: output });
+  // };
   addToList = event => {
     if (this.state.textBoxString === "") {
       return;
     }
-    const todoListCopy = this.state.todoList;
+    const todoListCopy = this.props.todoList;
     const inputBox = this.state.textBoxString;
     todoListCopy.push({
       task: inputBox,
@@ -32,12 +33,12 @@ class App extends React.Component {
       completed: false
     });
     document.getElementById("todoInput").value = "";
-    this.setState(
-      { todoList: todoListCopy, textBoxString: "", display: todoListCopy },
-      () => {
-        this.writeToLS();
-      }
-    );
+    // this.setState(
+    //   { todoList: todoListCopy, textBoxString: "", display: todoListCopy },
+    //   () => {
+    //     // this.writeToLS();
+    //   }
+    // );
   };
 
   clearComplete = () => {
@@ -51,7 +52,7 @@ class App extends React.Component {
     });
 
     this.setState({ todoList: recopy, display: recopy }, () => {
-      this.writeToLS();
+      // this.writeToLS();
     });
   };
 
@@ -74,7 +75,7 @@ class App extends React.Component {
       return element;
     });
     this.setState({ todoList: recopy, display: recopy }, () => {
-      this.writeToLS();
+      // this.writeToLS();
     });
   };
 
@@ -89,11 +90,11 @@ class App extends React.Component {
   };
   componentDidMount() {
     document.title = "Hey Look a React Todo App";
-    if (localStorage.getItem("taskList") === null) {
-      localStorage.setItem("taskList", "[]");
-    } else {
-      this.readLS();
-    }
+    // if (localStorage.getItem("taskList") === null) {
+    //   localStorage.setItem("taskList", "[]");
+    // } else {
+    //   // this.readLS();
+    // }
   }
 
   search() {
@@ -120,7 +121,7 @@ class App extends React.Component {
       <div className="container">
         <h3>What you're putting off:</h3>
         <div className="todoListContainer">
-          <TodoList  methods={this.complete} array={this.state.display} />
+          <TodoList  methods={this.complete} array={this.props.todoList} />
         </div>
         <TodoForm
           methods={[this.addToList, this.handleKeyPress, this.clearComplete]}
@@ -132,10 +133,12 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    todoList: [],
-    textBoxString: "",
-    display: []
+    todoList: state.todoList
   };
 };
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  addItem: item => dispatch(add(item))
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);
 

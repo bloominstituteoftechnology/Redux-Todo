@@ -1,13 +1,18 @@
 // import { INCREMENT, DECREMENT } from '../actions';
 import { Object } from 'core-js';
 
-// Our reducer that handles our two action cases:
-// increment and decrement. It receives the state
-// of our redux store, along with an action created
-// by our action creator. What does the reducer
-// need to do with the count in each case?
-export default (state = {count : 0}, action) => {
+
+export const initialState = {
+todoList: []
+};
+
+
+export default (state = initialState, action) => {
   switch (action.type) {
+    case "ADD":
+    return Object.assign({}, state, {
+      todoList: action.payload
+    });
 
     default:
       return state;
