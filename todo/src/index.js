@@ -8,7 +8,10 @@ import App from "./App";
 
 import "./index.css";
 
-const store = createStore(reducerFunction);
+const store = createStore(
+  reducerFunction,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>
