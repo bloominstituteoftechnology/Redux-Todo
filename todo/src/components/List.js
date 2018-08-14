@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { addItem } from '../actions';
+import { addItem, deleteItem } from '../actions';
 // import store from './';
 
 class List extends Component {
@@ -24,6 +24,12 @@ class List extends Component {
         })
     }
 
+    deleteHandler = (event, key) => {
+      // event.preventDefault();
+      console.log("deleteHandler", this.props)
+      this.props.deleteItem();
+    }
+
     render() {
         return (
             <div>
@@ -39,7 +45,9 @@ class List extends Component {
                 {/* {console.log(this.props.state.todos)} */}
                 {this.props.state.todos.map(item => {
                     return (
-                      <div key={item.value}>{item.value}</div>
+                      <div
+                        key={item.id}
+                        onClick={(event) => this.deleteHandler(event, item.key)}>{item.value}</div>
                     )
                 })}
             </div>
@@ -53,4 +61,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {addItem})(List)
+export default connect(mapStateToProps, {addItem, deleteItem})(List)

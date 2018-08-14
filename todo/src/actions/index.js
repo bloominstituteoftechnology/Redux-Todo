@@ -1,5 +1,5 @@
 export const ADDITEM = 'ADDITEM';
-// export const DELETEITEM = 'DELETEITEM';
+export const DELETEITEM = 'DELETEITEM';
 
 export const addItem = (inputValue) => {
     return {
@@ -7,8 +7,9 @@ export const addItem = (inputValue) => {
         payload: inputValue
     }
 }
-// export const deleteItem = () => {
-//     return {
-//         type: DELETEITEM,
-//     }
-// }
+export const deleteItem = (id) => {
+    return {
+        type: DELETEITEM,
+        payload: id
+    }
+}

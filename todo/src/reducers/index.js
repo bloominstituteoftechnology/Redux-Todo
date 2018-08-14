@@ -1,10 +1,11 @@
-import {ADDITEM} from '../actions';
+import {ADDITEM, DELETEITEM} from '../actions';
 
 const initialState = {
     todos: [
         {
             value: 'default item',
-            completed: false
+            completed: false,
+            id: 0
         }
     ]
 }
@@ -12,10 +13,16 @@ const initialState = {
 export default ( state = initialState, action ) => {
     switch(action.type){
         case ADDITEM:
-            let newArr = state.todos.slice()
-            newArr.push({value: action.payload, completed: false})
+            let newArr = state.todos.slice();
+            newArr.push({value: action.payload, completed: false, id: state.todos.length})
             return Object.assign({}, state, {
               todos: newArr
+            });
+        case DELETEITEM:
+            let deleteArr = state.todos.slice()
+            deleteArr.pop()
+            return Object.assign({}, state, {
+              todos: deleteArr
             });
 
         default:
