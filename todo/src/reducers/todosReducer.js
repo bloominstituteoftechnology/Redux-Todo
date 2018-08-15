@@ -15,8 +15,14 @@ export default (todos = [], action) => {
             return [...todos, action.payload];
             // return todos.concat(action.payload);
         case TOGGLE_COMPLETE:
-            todos[action.payload].complete = !todos[action.payload].complete;
-            return todos;
+            // todos[action.payload].complete = !todos[action.payload].complete;
+            // return todos;
+            return todos.map(todo => {
+                if (todo.id === action.payload) {
+                  return Object.assign({}, todo, { complete: !todo.complete });
+                }
+                return todo;
+              });
         default:
             return todos;
     }

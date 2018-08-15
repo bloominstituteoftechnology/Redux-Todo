@@ -18,7 +18,7 @@ class TodoList extends Component {
         return (
             <div>
                 <ul>
-                    {this.props.todos.map((todo, i) => (<li  key={todo.id} index={i} onClick={() => this.handleTodoComplete(todo.index)} style={{textDecoration: todo.complete ? "line-through" : "none"}} >{todo.text}</li>) )}
+                    {this.props.todos.map((todo) => (<li  key={todo.id} onClick={() => this.handleTodoComplete(todo.id)} style={{textDecoration: todo.complete ? "line-through" : "none"}} >{todo.text}</li>) )}
                 </ul>
             </div>
         )

@@ -15,7 +15,9 @@ class TodoForm extends Component {
         // this.props.addTodo(this.state.text)
         const { text } = this.state;
         const newTodo = {
-            text
+            text,
+            complete: false,
+            // id: this.props.todos ? this.props.todos.length + text : 0 + text
         };
         this.props.addTodo(newTodo)
         this.setState({
