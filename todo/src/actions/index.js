@@ -19,9 +19,9 @@ export const toggleTodo = id => {
     };
 };
 
-export const removeTodos = () => {
+export const removeTodo = () => {
     return {
-        type: REMOVE_TODOS
+        type: REMOVE_TODO
     };
 };
 
