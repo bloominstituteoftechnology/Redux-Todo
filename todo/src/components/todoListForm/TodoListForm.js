@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { ADD_TO_TODOS_LIST } from "../../actions";
 
-export default class TodoListForm extends Component {
+class TodoListForm extends Component {
   constructor(props) {
     super(props);
     console.log("TodoListForm", this.props.submitHandler);
@@ -40,3 +39,5 @@ export default class TodoListForm extends Component {
     );
   }
 }
+
+export default TodoListForm;

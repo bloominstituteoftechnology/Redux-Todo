@@ -13,7 +13,6 @@ class App extends Component {
     console.log("APP", props);
     this.state = {
       todos: props.todos
-      // todos: props.todos
     };
   }
   render() {

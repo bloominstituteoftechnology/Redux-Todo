@@ -1,13 +1,33 @@
-import { ADD_TO_TODOS_LIST, ADD_INITIAL_TODO_ITEMS, todos } from "../actions";
+import {
+  ADD_TO_TODOS_LIST,
+  ADD_INITIAL_TODO_ITEMS,
+  startingState
+} from "../actions";
 
-export default (state = todos, action) => {
+export default (todos = startingState, action) => {
   console.log("ACTION", action);
-  console.log("STATE", state);
+  console.log("STATE", todos);
   switch (action.type) {
     case ADD_TO_TODOS_LIST:
-      return todos.push(action.payload);
+      // return [
+      //   ...todos,
+      //   {
+      //     key: Date.now(),
+      //     value: action.payload,
+      //     completed: false
+      //   }
+      // ];
+      return Object.assign(
+        {},
+        todos,
+        todos.todos.push({
+          key: Date.now(),
+          value: action.payload,
+          completed: false
+        })
+      );
     case ADD_INITIAL_TODO_ITEMS:
-      return state.push(action.payload);
+      return todos.push(action.payload);
     default:
       return { todos };
   }

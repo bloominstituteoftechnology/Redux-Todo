@@ -1,18 +1,12 @@
 import { store } from "../index";
 // empty array containing our state
-export let todos = ["Bake Lasagana", "Flip the script!", "Bake A Cake"];
+export let startingState = [
+  { id: 0, value: "Break Bread", completed: false },
+  { id: 1, value: "Break Dance", completed: true }
+];
 
 export const ADD_TO_TODOS_LIST = "ADD_TO_TODOS_LIST";
 export const ADD_INITIAL_TODO_ITEMS = "ADD_INITIAL_TODO_ITEMS";
-
-// export const addToTodosList = event => {
-//   event.preventDefault();
-//   console.log("addToTodosList Working");
-//   return {
-//     type: ADD_TO_TODOS_LIST
-//     // payload: decrement
-//   };
-// };
 
 // export const submitHandler = event => {
 //   event.target.preventDefault();
@@ -26,7 +20,7 @@ export const ADD_INITIAL_TODO_ITEMS = "ADD_INITIAL_TODO_ITEMS";
 export const addToTodosList = newTodo => event => {
   event.preventDefault();
   console.log("addToTodosList Working", store);
-  store.dispatch({
+  return store.dispatch({
     type: ADD_TO_TODOS_LIST,
     payload: newTodo
   });
