@@ -1,27 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-class TodoList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tasks: [
-                {
-                task: "complete to do list",
-                completed: false
-                },
-        
-                {task: "review redux",
-                completed: false
-                },
-            ]
-        };
-    }    
-
-    render() {
+const TodoList = props => {
         return (
             <div>
-            {this.props.tasks.map(task => (
+            {props.tasks.map(task => (
                 <div>
                     <ul>
                         <li>
@@ -31,9 +14,8 @@ class TodoList extends Component {
                 </div>
             ))}
         </div>
-        )
+        ) 
     }
-}
 
 
 //mapStateToProps takes the info in the redux store and passes it to state

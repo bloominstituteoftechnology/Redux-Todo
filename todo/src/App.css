@@ -1,6 +1,12 @@
 .App {
   text-align: center;
-  width: 880px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 15% auto 15%;
+  padding: 10px;
+  border: 1px solid rgb(240, 66, 66);
+  border-radius: 20px;
 }
 
 .App-header {
@@ -8,6 +14,9 @@
   height: 100px;
   padding: 20px;
   color: rgb(240, 66, 66);
+  border: 1px solid rgb(233, 252, 251);
+  border-radius: 20px;
+  margin: 20px;
 }
 
 
@@ -19,5 +28,9 @@ h1{
 p, button, input{
   font-size: 15px;
   font-family: 'dosis';
+}
 
+h3{
+  text-decoration: underline;
+  text-align: center;
 }

@@ -4,10 +4,10 @@ import TodoList from './TodoList';
 
 const TodoGroup = () => {
     return (
-        <div>
+        <React.Fragment>
             <TodoList />
             <TodoForm />
-        </div>
+        </React.Fragment>
     );
 };
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addTask } from '../actions';
+import { addTask } from '../actions/actions';
 
 import './TodoForm.css'
 
@@ -9,7 +9,7 @@ class TodoForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tasks: []
+            task: ''
         };
     }
 
@@ -21,9 +21,11 @@ handleTask = event => {
 
 handleSubmit = () => {
     const { task } = this.state;
-    this.state.push({ task, completed: false, id: Date.now()})
+    const newTask = { task, completed: false, id: Date.now() };
+    this.state.addTask(newTask);
+    this.setState({ task: '' });
     console.log('state after submit', this.state)
-}
+};
 
 render() {
     return (
