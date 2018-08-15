@@ -1,17 +1,8 @@
-import {ADD_ITEM, TOGGLE_COMPLETE} from '../actions';
+import { combineReducers } from 'redux';
+import todosReducer from './todos';
 
-const initialState = {
-    todos: []
-  }
+const rootReducer = combineReducers({
+  todos: todosReducer
+});
 
-  export default (state= initialState, action)=> {
-      switch(action.type) {
-        case ADD_ITEM:
-            return Object.assign({}, state, {todos:[...state, {value: action.payload}]});
-        case TOGGLE_COMPLETE:
-            return null;
-        default: 
-            return state; 
-      }
- 
-  }
+export default rootReducer;
