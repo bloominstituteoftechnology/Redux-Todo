@@ -1,21 +1,16 @@
 import React from 'react';
 
-const Link = ({ active, children, onClick }) => {
-    if (active) {
-        return <span>{children}</span>
-    }
-
-    return (
-        <a
-            href=""
-            onClick={e => {
-                e.preventDefault();
-                onClick();
+const Link = ({ active, children, onClick }) => (
+       <button
+            onClick={onClick}
+            disabled={active}
+            style={{
+                marginLeft: '4px',
             }}
         >
             {children}
-        </a>
+        </button>
     )
-}
+
 
 export default Link;
