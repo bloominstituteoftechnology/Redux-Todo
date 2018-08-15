@@ -28,7 +28,7 @@ export default class TodoListForm extends Component {
     // console.log("NewTodo", this.submitHandler);
     return (
       <Fragment>
-        <form onSubmit={this.props.submitHandler}>
+        <form onSubmit={this.props.submitHandler(this.state.newTodo)}>
           <input
             placeholder="add todo to list..."
             onChange={this.inputChangeHandler}

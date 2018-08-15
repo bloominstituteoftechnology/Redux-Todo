@@ -1,3 +1,4 @@
+import { store } from "../index";
 // empty array containing our state
 export let todos = ["Bake Lasagana", "Flip the script!", "Bake A Cake"];
 
@@ -22,11 +23,11 @@ export const ADD_INITIAL_TODO_ITEMS = "ADD_INITIAL_TODO_ITEMS";
 //   // };
 // };
 
-export const addToTodosList = event => {
+export const addToTodosList = newTodo => event => {
   event.preventDefault();
-  console.log("addToTodosList Working");
-  // return {
-  //   type: ADD_TO_TODOS_LIST,
-  //   payload: this.state.newTodo
-  // };
+  console.log("addToTodosList Working", store);
+  store.dispatch({
+    type: ADD_TO_TODOS_LIST,
+    payload: newTodo
+  });
 };

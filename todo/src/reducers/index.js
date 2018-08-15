@@ -5,9 +5,9 @@ export default (state = todos, action) => {
   console.log("STATE", state);
   switch (action.type) {
     case ADD_TO_TODOS_LIST:
-      return "hey";
+      return todos.push(action.payload);
     case ADD_INITIAL_TODO_ITEMS:
-      return { todos: state };
+      return state.push(action.payload);
     default:
       return { todos };
   }
