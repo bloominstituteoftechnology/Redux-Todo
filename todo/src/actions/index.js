@@ -1,5 +1,5 @@
 export const ADDITEM = 'ADDITEM';
-export const DELETEITEM = 'DELETEITEM';
+export const STRIKEITEM = 'STRIKEITEM';
 
 export const addItem = (inputValue) => {
     return {
@@ -7,9 +7,9 @@ export const addItem = (inputValue) => {
         payload: inputValue
     }
 }
-export const deleteItem = (id) => {
+export const strikeItem = (id) => {
     return {
-        type: DELETEITEM,
+        type: STRIKEITEM,
         payload: id
     }
 }

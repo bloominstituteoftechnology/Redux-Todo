@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { addItem, deleteItem } from '../actions';
+import { addItem, strikeItem } from '../actions';
 // import store from './';
 
 class List extends Component {
@@ -20,14 +20,14 @@ class List extends Component {
 
     inputHandler = event => {
         this.setState({
-            inputValue: event.target.value
+          inputValue: event.target.value
         })
     }
 
-    deleteHandler = (event, value) => {
+    strikeHandler = (event, value) => {
       // event.preventDefault();
       console.log("deleteHandler", this.props)
-      this.props.deleteItem(value);
+      this.props.strikeItem(value);
     }
 
     render() {
@@ -42,12 +42,12 @@ class List extends Component {
                     <button>Sumbit</button>
 
                 </form>
-                {/* {console.log(this.props.state.todos)} */}
                 {this.props.state.todos.map(item => {
                     return (
                       <div
+                        style={(item.completed) ? {"text-decoration": "line-through"} : {"text-decoration": "none"}}
                         key={item.id}
-                        onClick={(event) => this.deleteHandler(event, item.id)}>{item.value}</div>
+                        onClick={(event) => this.strikeHandler(event, item.id)}>{item.value}</div>
                     )
                 })}
             </div>
@@ -61,4 +61,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {addItem, deleteItem})(List)
+export default connect(mapStateToProps, {addItem, strikeItem})(List)

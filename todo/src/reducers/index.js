@@ -1,4 +1,4 @@
-import {ADDITEM, DELETEITEM} from '../actions';
+import {ADDITEM, STRIKEITEM} from '../actions';
 
 const initialState = {
     todos: [
@@ -18,15 +18,13 @@ export default ( state = initialState, action ) => {
             return Object.assign({}, state, {
               todos: newArr
             });
-        case DELETEITEM:
-            let deleteArr = state.todos.slice()
-            console.log(deleteArr)
-
-            deleteArr.splice(action.payload)
-            console.log(deleteArr)
+        case STRIKEITEM:
+            let strikeArr = state.todos.slice()
+            console.log(strikeArr)
+            strikeArr[action.payload].completed = (!strikeArr[action.payload].completed)
 
             return Object.assign({}, state, {
-              todos: deleteArr
+              todos: strikeArr
             });
 
         default:
