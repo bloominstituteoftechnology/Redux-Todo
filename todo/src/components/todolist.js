@@ -1,42 +1,76 @@
-import React, {Component } from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions'
-
+import {addTodo, toggleTodo} from '../actions'
 
 class TodoList extends Component {
     constructor() {
         super();
         this.state = {
-            text: ''
+            todo: ''
         }
+    };
+
+    handleTodoChange = e => {
+        this.setState({ todo: e.target.value })
     }
 
-    inputHandler = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-        console.log(this.state.text);
-    }
-
-    addToDoHandler = (e) => {
+    addTodoItem = (e) => {
         e.preventDefault();
-        const newTodo = {text: this.state.text, completed: false, id: Date.now()}
-        this.props.addTodo(newTodo);
-        this.setState({text: ''});
+        this.props.addTodo(this.state.todo);
+        this.setState({todo: ''})
+    }
+
+    toggleCompleted = () => {
+
     }
 
     render() {
-        console.log('Todo List', this.props)
-        return (
-            <form>
-                <input type="text" value={this.state.text} name='text' onChange={this.inputHandler}/>
-                <button onClick={this.addToDoHandler}>Add</button>
-            </form>
-            // {this.props}
+        console.log(this.props)
+        const todos = this.props.todos;
+        console.log(todos)
+        if(todos.length === 0) {
+            return(
+                <form>
+                    <input 
+                    type="text" 
+                    placeholder="Add To Do Item..."
+                    onChange={this.handleTodoChange}
+                    value={this.state.todo}/>
+                    <button onClick={this.addTodoItem}>Add To Do</button>
+                </form>
+            )}
+        return (  
+            <div>
+                <form>
+                    <input 
+                        type="text" 
+                        placeholder="Add To Do Item..." 
+                        onChange={this.handleTodoChange}
+                        value={this.state.todo}/>
+                    <button 
+                        onClick={this.addTodoItem}>
+                        Add To Do
+                    </button>
+                </form>
+                <ul>
+                    {todos.map(todo => {
+                        return (
+                            <li 
+                                key={todo.id} 
+                                onClick={() => this.props.toggleTodo(todo.id)}
+                                style={todo.completed === true ? {textDecoration: 'line-through'} : null}
+                                >{todo.payload}</li>);
+                        })}
+                </ul>                
+          </div>
         );
     }
 }
+ 
+const mapStateToProps = todos => {
+    return {
+        todos: todos
+    };
+};
 
-const mapStateToProps = state => {
-    return state
-}
-
-export default connect(mapStateToProps, {addTodo})(TodoList);
+export default connect(mapStateToProps, {addTodo, toggleTodo})(TodoList);

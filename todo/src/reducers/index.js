@@ -1,42 +1,20 @@
-// import { VisibilityFilters } from '../actions';
-// import { Object } from 'core-js';
 
-// const todos = (state = [], action) => {
-//     switch(action.type) {
-//         case 'ADD_TODO':
-//             return [
-//                 ...state,
-//                 {
-//                     id: action.id,
-//                     text: action.text,
-//                     completed: false
-//                 }
-//             ]
-//         case 'TOGGLE_TODO':
-//             return state.map(todo => 
-//                 (todo.id === action.id)
-//                 ? {...todo, completed: !todo.completed}
-//                 :todo
-//             )
-//         default:
-//             return state
-//     }
-// }
+import { ADD_TODO, TOGGLE_TODO } from '../actions'
 
-// const VisibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
-//     switch (action.type) {
-//         case 'SET_VISIBILITY_FILTER':
-//             return action.filter
-//         default:
-//             return state
-//     }
-// }
-
-import {ADD_TODO} from '../actions';
-
-export default (todos=[], action) => {
-    switch(action.type) {
+const reducer = (todos = [], action) => {
+    switch (action.type) {
         case ADD_TODO:
-        return [...todos, action.payload]
+            return [...todos, action];
+        case TOGGLE_TODO:
+            return todos.map(todo => {
+                if(todo.id === action.payload) {
+                    return Object.assign({}, todo, {completed: !todo.completed})
+                }
+                return todo;
+            });
+        default:
+            return todos;
     }
 }
+
+export default reducer;
