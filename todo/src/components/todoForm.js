@@ -12,7 +12,12 @@ class TodoForm extends Component {
 
     addTodoHandler = e => {
         e.preventDefault();
-        this.props.addTodo(this.state.text)
+        // this.props.addTodo(this.state.text)
+        const { text } = this.state;
+        const newTodo = {
+            text
+        };
+        this.props.addTodo(newTodo)
         this.setState({
             text: ''
         })
