@@ -18,8 +18,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <form>
           <input type='text' placeholder='Enter a new task' value={this.state.newTask} name='newTask' onChange={this.handleInputChange}/>
-          <button type='button' onClick={()=>{this.props.addToDo(this.state.newTask);this.setState({newTask:''})}} className='btn waves-effect waves-light'>Submit New Task</button>
+          <button type='submit' onClick={(e)=>{e.preventDefault();this.props.addToDo(this.state.newTask);this.setState({newTask:''})}} className='btn waves-effect waves-light'>Submit New Task</button>
+       </form>
         <ul>
           {this.props.todos.map((e,i)=><Todo key={i} data={e} index={i}/>)}
         </ul>

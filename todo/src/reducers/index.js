@@ -26,9 +26,9 @@ export default function toDoApp(state=initialState,action) {
         })
       })
       case DELETE_ITEM:
-      return {
+      return Object.assign({},state,{
           todos:state.todos.filter(e=>e.id!==action.payload)
-      }
+      })
 
         default:
             return {
