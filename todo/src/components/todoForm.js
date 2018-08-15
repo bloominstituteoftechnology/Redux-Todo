@@ -10,6 +10,14 @@ class TodoForm extends Component {
         };
     }
 
+    addTodoHandler = e => {
+        e.preventDefault();
+        this.props.addTodo(this.state.text)
+        this.setState({
+            text: ''
+        })
+    }
+
     todoInput = e => {
         this.setState({ [e.target.name]: e.target.value });
       }
