@@ -8,8 +8,9 @@ class TodoForm extends Component {
                     name="currentText" 
                     type="text" 
                     placeholder="Add todo!"
+                    onChange={this.props.handleInputChange}
                 />
-                <button>Add todo</button>
+                <button onClick={ this.props.addTodo}>Add todo</button>
             </div>
         );
     }
