@@ -11,6 +11,17 @@ const todos = (state = initialState, action) => {
         id: action.id
       }]
 
+      case "REMOVE_COMPLETED":
+        return state.filter(item => item.id !== action.id)
+
+      case "COMPLETED":
+        let completedItem = state.find(item => item.id === action.id);
+        completedItem.completed = !action.completed;
+        const index = state.findIndex(item => item.id === action.id);
+        const newState = state;
+        newState[index] = completedItem;
+        return newState;
+
     default:
       return state;
   }

@@ -12,9 +12,13 @@ const TodoList = (props) => {
   else if (props.todos.length !== 0)
   {
     return (
-    <ul>
-      {props.todos.map(item => <Todo todo={item} />)}
-    </ul>
+    <div>
+      <p>Single click to strike off</p>
+      <p>Double click to remove</p>
+      <ul>
+        {props.todos.map(item => <Todo todo={item} removecompleted={props.removecompleted} completed={props.completed} />)}
+      </ul>
+    </div>
     )
   }
 }
