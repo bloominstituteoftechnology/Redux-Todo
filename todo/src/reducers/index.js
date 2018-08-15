@@ -1,4 +1,4 @@
-import {ADD_TODO,TOGGLE_ITEM} from '../actions';
+import {ADD_TODO,TOGGLE_ITEM,DELETE_ITEM} from '../actions';
 
 const initialState={
     todos:[]
@@ -25,6 +25,11 @@ export default function toDoApp(state=initialState,action) {
           return todo
         })
       })
+      case DELETE_ITEM:
+      return {
+          todos:state.todos.filter(e=>e.id!==action.payload)
+      }
+
         default:
             return {
                 ...state
