@@ -8,24 +8,26 @@ export default function toDoApp(state=initialState,action) {
         case ADD_TODO:
         return Object.assign({},state,{
             todos:[...state.todos,{
+                id:Date.now(),
                 value:action.value,
                 completed:false
             }
         ]
         })
         case TOGGLE_ITEM:
-        return Object.assign({},state, {
-            todos: state.todos.map((todo, index) => {
-              if (index === action.index) {
-                  console.log(todo)
-                return Object.assign({}, todo, {
-                  completed: !todo.completed
-                })
-              }
+      return Object.assign({}, state, {
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.payload) {
+            return Object.assign({}, todo, {
+              completed: !todo.completed
+            })
+          }
+          return todo
+        })
+      })
+        default:
+            return {
+                ...state
             }
-        )
-    });
-        default: 
-            return state
     }
 }

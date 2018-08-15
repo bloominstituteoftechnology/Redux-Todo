@@ -10,6 +10,6 @@ export const addToDo=(value)=>{
 export const toggleItem=(index)=>{
     return {
         type: 'TOGGLE_ITEM',
-        index
+        payload: index
     }
 }

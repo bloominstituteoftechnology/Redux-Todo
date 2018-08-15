@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {addToDo,toggleItem} from './actions';
+import {addToDo} from './actions';
 import { connect } from 'react-redux';
 import './App.css';
-
+import Todo from './Todo.js';
 
 class App extends Component {
   constructor() {
@@ -18,12 +18,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <form>
           <input type='text' placeholder='Enter a new task' value={this.state.newTask} name='newTask' onChange={this.handleInputChange}/>
-          <button type='submit' onClick={(e)=>{e.preventDefault(); this.props.addToDo(this.state.newTask);this.setState({newTask:''})}} className='btn waves-effect waves-light'>Submit New Task</button>
-        </form>
+          <button type='button' onClick={()=>{this.props.addToDo(this.state.newTask);this.setState({newTask:''})}} className='btn waves-effect waves-light'>Submit New Task</button>
         <ul>
-          {this.props.todos.map((e,i)=><li key={i}  onClick={()=>this.props.toggleItem(i)}>{e.value}</li>)}
+          {this.props.todos.map((e,i)=><Todo key={i} data={e} index={i}/>)}
         </ul>
       </div>
     );
@@ -40,4 +38,4 @@ const mapStateToProps = (state) => {
 // is only a dumb React component. We pass in all of the functions that
 // are reliant on Redux, along with the component itself, so that Redux
 // makes itself known to this component.
-export default connect(mapStateToProps, { addToDo,toggleItem })(App);
+export default connect(mapStateToProps, { addToDo})(App);
