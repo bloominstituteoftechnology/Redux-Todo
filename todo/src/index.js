@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {todos} from './reducers/index';
+import rootReducer from './reducers/index';
 import TodoList from './components/TodoList';
 
-const store = createStore(todos);
+const store = createStore(rootReducer);
 
 function App() {
     return (

@@ -3,17 +3,16 @@ export const ADD_TODO = 'ADD_TODO';
 
 let nextID = 0;
 
-export const todo = () => {
+export const addTodo = todo => {
     return {
         type: ADD_TODO,
         id: nextID++,
-        text: '',
-        completed: false,
+        text: todo,
     }
 }
 
-// export const toggleTodo = () => {
-//     return {
-//         type: TOGGLE_TODO
-//     }
-// }
+// // export const toggleTodo = () => {
+// //     return {
+// //         type: TOGGLE_TODO
+// //     }
+// // }
