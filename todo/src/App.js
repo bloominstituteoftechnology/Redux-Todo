@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
+import * as actions from './actions/actions'
 
 class App extends Component {
   constructor(props) {
@@ -12,14 +13,14 @@ class App extends Component {
   }
 
   adding = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+    actions.addTodo({[e.target.name]: e.target.value})
   }
 
   render() {
     return (
       <div className="App">
         <h1> Todo but with Redux</h1>
-
+        
         <form>
         <input
         type='text'
@@ -31,10 +32,21 @@ class App extends Component {
         />
         <button>Add</button>
         </form>
+        <h2>{todos.map((todo, index) => {
+          return <div key={index}>{todo}</div>
+        })}</h2>
       </div>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    todos: state
+  }
+}
 
-export default App;
+export default connect(
+  mapStateToProps,
+  actions
+)(App);
