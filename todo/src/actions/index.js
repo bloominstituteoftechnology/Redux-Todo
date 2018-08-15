@@ -25,3 +25,12 @@ export const addToTodosList = newTodo => event => {
     payload: newTodo
   });
 };
+
+export const toggleCompletedStyle = todos => {
+  console.log("Toggle completed working", todos.todo.completed);
+  if (todos.todo.completed) {
+    todos.todo.completed = !todos.todo.completed;
+  } else {
+    todos.todo.completed = true;
+  }
+};

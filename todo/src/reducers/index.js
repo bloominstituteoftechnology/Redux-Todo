@@ -21,7 +21,7 @@ export default (todos = startingState, action) => {
         {},
         todos,
         todos.todos.push({
-          key: Date.now(),
+          id: Date.now(),
           value: action.payload,
           completed: false
         })
