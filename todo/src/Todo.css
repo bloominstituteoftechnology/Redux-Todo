@@ -1,7 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: paleturquoise;
+  font-family: 'Indie Flower', cursive;
+}
+
+
 .App {
   text-align: center;
 }
 
+input {
+  font-family: 'Indie Flower', cursive;
+  font-size: 90%;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 3px 2px inset rgba(236, 99, 99, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
+  outline: none;
+}
+
+p {
+  color: lightseagreen;
+  font-size: 150%;
+}
+
 .done {
   text-decoration:line-through;
+  color: palevioletred;
 }
+
+button {
+  border-radius: 10px;
+  margin-left: 1%;
+  outline: none;
+}
+

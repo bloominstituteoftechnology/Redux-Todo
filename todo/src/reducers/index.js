@@ -1,8 +1,9 @@
-import { ADD_TODO, COMPLETE_TODO} from '../actions';
+import { ADD_TODO, SAVE_TODO, COMPLETE_TODO} from '../actions';
 
 
 export default (list=[], action) => {
     switch (action.type) {
+      
       case ADD_TODO:
       return [ ...list, {
         id: action.id,

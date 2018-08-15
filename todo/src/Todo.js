@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Todo.css';
 import { connect } from 'react-redux';
-import { add, complete } from './actions';
+import { add, complete} from './actions';
 import AddToDo from './AddToDo';
 import List from './List';
 
@@ -20,7 +20,7 @@ class Todo extends Component {
 
 const mapStateToProps = (state) => {
   return {
-      list: state
+      list: state,
   };
   };
 
