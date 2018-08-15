@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux'; 
+import { addTodo, editInput } from './actions';
 import './App.css';
 
 class App extends Component {
+
+  editInputHandler = e => {
+    this.props.editInput(e.target.value);
+  }
+
+  addTodoHandler = e => {
+    this.props.addTodo(this.props.todo);
+  }
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {this.props.todos.map((todo, index) => <p key={index}>{todo.value}</p>)}
+        <input placeholder="Add Todo" onChange={this.editInputHandler}/>
+        <button onClick={this.addTodoHandler}>Add Todo</button>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+      todos: state.todos,
+      todo: state.todo
+  };
+};
+
+export default connect(mapStateToProps, {addTodo, editInput})(App);
