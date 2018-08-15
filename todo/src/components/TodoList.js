@@ -29,6 +29,7 @@ class TodoList extends React.Component{
     }
     render(){
         const {todos} = this.props;
+        console.log(todos)
         return(
             <div>
                 <input placeholder="Add todo item(s)"
@@ -40,7 +41,7 @@ class TodoList extends React.Component{
                     {todos.map(todo => {
                         return (
                             <li onClick={() => this.handleTodoComplete(todo.id)}
-                                style={todo.completed ? {color: '#d3d3d3', textDecoration: 'line-through'} : null}
+                                style={todo.completed ? {textDecoration: 'line-through'} : null}
                                 key={todo.id}>
                                 {todo.text}
                             </li>

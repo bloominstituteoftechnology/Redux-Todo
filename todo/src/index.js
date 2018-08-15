@@ -7,15 +7,7 @@ import TodoList from './components/TodoList';
 
 const store = createStore(rootReducer);
 
-function App() {
-    return (
-        <div className="App">
-            <TodoList />
-        </div>
-    )
-}
-
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+           <TodoList />
     </Provider>, document.getElementById('root'))

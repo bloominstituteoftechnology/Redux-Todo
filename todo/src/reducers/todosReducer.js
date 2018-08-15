@@ -6,9 +6,9 @@ export default (todos = [], action) => {
             return todos.concat(action.text);
         case TOGGLE_TODO:
             return todos.map(todo => {
-            if (todo.id === action.payload){
-                return Object.assign({}, todos, {completed: !todo.completed})
-            }
+                if (todo.id === action.payload){
+                    return Object.assign({}, ...todos, {completed: !todo.completed})
+                }
             return todo;
             });
         default:
