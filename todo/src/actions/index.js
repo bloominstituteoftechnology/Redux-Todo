@@ -1,21 +1,17 @@
-const ADD_TODO = 'ADD_TODO';
-const TOGGLE_TODO = 'TOGGLE_TODO';
+export const ADD_TODO = 'ADD_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 
-
-let initialState = [
-    {
-
-    }
-]
-
-export const addTodo = (text) => {
+export const addTodo = (todo) => {
     return {
         type: ADD_TODO,
-        text
+        payload: todo,
     }
 }
 
-export const toggleTodo = () => {
-    
+export const toggleTodo = (id) => {
+    return { 
+        type: TOGGLE_TODO,
+        payload: id,
+    }
 }

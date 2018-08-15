@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 
 const AddTodoContainer = styled.div`
-        width:50%;
-    display:flex;
-    flex-flow:column;
+        width:450px;
+        display:flex;
+        flex-flow:column;
 `;
 
 class AddTodo extends Component {

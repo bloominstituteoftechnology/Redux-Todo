@@ -1,16 +1,36 @@
 import React, { Component } from 'react';
+import Todo from './Todo.js';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { addTodo, toggleTodo } from '../actions/index.js';
 
 
 const TodoListContainer = styled.div`
-    width:50%;
+    width:450px;
     display:flex;
     flex-flow:column;
-
 `;
 
 const TodoList = (props) => {
-    return <TodoListContainer>TODOLIST</TodoListContainer>
+    console.log("todolist props", props);
+    
+    return <TodoListContainer>
+    TODOLIST
+        {/* {
+            props.todos.map((todo)=>{
+                return <Todo todo={todo}/>
+            })
+        } */}
+    </TodoListContainer>
 }
 
-export default TodoList;
+const mapStateToProps = (state) => {
+    return {
+        todos: this.state,
+    }
+}
+
+
+export default connect(mapStateToProps, {
+    addTodo, toggleTodo
+})(TodoList);

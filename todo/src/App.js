@@ -9,15 +9,16 @@ const AppContainer = styled.div`
   display:flex;
   flex-flow:row;
   justify-content:space-between;
+  margin: 0 auto;
 `;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         <AddTodo />
         <TodoList />
-      </div>
+      </AppContainer>
     );
   }
 }
