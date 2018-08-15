@@ -1,23 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./store/reducers";
+import TodoListContainer from './containers/TodoListContainer';
 
-import { createStore } from 'redux';
-import { Provider } from 'react-redux'
-import todos from './reducers/todos'
+import "./styles.css";
 
+const store = createStore(reducer,
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-const store = createStore( 
-    todos,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+function App() {
+  return (
+    <div className="App">
+      <h1>Keegans Todo List</h1>
+      <TodoListContainer />
+    </div>
+  );
+}
 
-
+const rootElement = document.getElementById("root");
 ReactDOM.render(
-<Provider store={store}>
+  <Provider store={store}>
     <App />
-</Provider>, 
-document.getElementById('root')
+  </Provider>,
+  rootElement
 );
-
