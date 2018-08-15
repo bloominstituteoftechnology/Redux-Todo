@@ -34,15 +34,18 @@ class List extends Component {
                         onChange={this.inputHandler}
                     >{this.value}</input>
                     <button>Sumbit</button>
-                    <button>Delete</button>
 
                 </form>
                 {this.props.todos.map(item => {
                     return (
-                      <div
-                        style={(item.completed) ? {"text-decoration": "line-through"} : {"text-decoration": "none"}}
-                        key={item.id}
-                        onClick={(event) => this.props.strikeItem(item.id)}>{item.value}</div>//third
+                      <div key={item.key} className="listItem">
+                        <div
+                          key={item.value}
+                          style={(item.completed) ? {"textDecoration": "line-through"} : {"textDecoration": "none"}}
+                          onClick={(event) => this.props.strikeItem(item.id)}>{item.value}</div>
+                          {/*third*/}
+                          <button key={item.completed}>Delete</button>
+                      </div>
                     )
                 })}
             </div>

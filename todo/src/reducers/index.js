@@ -1,13 +1,16 @@
-import {ADDITEM, STRIKEITEM} from '../actions';
+//reducers
+
+import {ADDITEM, STRIKEITEM, DELETEITEM} from '../actions';
 
 const initialState = {
     todos: [
         {
-            value: 'default item',
+            value: 'Make todo list',
             completed: false,
             id: 0
         }
     ],
+    counter : 1,
     user: [
       {
         name: "mike"
@@ -20,10 +23,11 @@ export default ( state = initialState, action ) => {
     switch(action.type){
         case ADDITEM:
             let newArr = state.todos.slice();
-            newArr.push({value: action.payload, completed: false, id: state.todos.length})
+            newArr.push({value: action.payload, completed: false, id: state.counter})
             return {
               ...state,
               todos: newArr,
+              counter: state.counter + 1
             }
             // return Object.assign({}, state, {
             //   todos: newArr
@@ -36,6 +40,9 @@ export default ( state = initialState, action ) => {
             return Object.assign({}, state, {
               todos: strikeArr
             });
+        case DELETEITEM:
+          let deleteItemArr = state.todos.slice();
+          console.log(action.payload, deleteItemArr)
         default:
             return state
     }
