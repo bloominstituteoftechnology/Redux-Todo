@@ -17,3 +17,10 @@ export const editInput = text => {
         todo: text
     };
 };
+
+export const toggleTodo = id => {
+    return {
+        type: "TOGGLE_TODO",
+        id: id
+    }
+}

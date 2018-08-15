@@ -17,6 +17,11 @@ export default (state = initialState, action) => {
                 ...state,
                 todo: action.todo
             }
+        case "TOGGLE_TODO":
+            let newState = {...state};
+            newState.todos[action.id].completed = !newState.todos[action.id].completed;
+            console.log(newState);
+            return newState;
         default:
             return state;
     }
