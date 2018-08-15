@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addTodo} from '../actions';
+import {addTodo, toggleTodo} from '../actions';
 
 let nextID = 0;
 
@@ -24,6 +24,9 @@ class TodoList extends React.Component{
         this.props.addTodo(newTodo);
         this.setState({text: ''});
     }
+    handleTodoComplete = todoId => {
+        this.props.toggleTodo(todoId);
+    }
     render(){
         const {todos} = this.props;
         return(
@@ -36,7 +39,9 @@ class TodoList extends React.Component{
                 <ul>
                     {todos.map(todo => {
                         return (
-                            <li key={todo.id}>
+                            <li onClick={() => this.handleTodoComplete(todo.id)}
+                                style={todo.completed ? {color: '#d3d3d3', textDecoration: 'line-through'} : null}
+                                key={todo.id}>
                                 {todo.text}
                             </li>
                         )})}
@@ -52,4 +57,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {addTodo})(TodoList)
+export default connect(mapStateToProps, {addTodo, toggleTodo})(TodoList)
