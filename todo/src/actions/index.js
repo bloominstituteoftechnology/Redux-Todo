@@ -7,7 +7,7 @@ export const addItem = (inputValue) => {
         payload: inputValue
     }
 }
-export const strikeItem = (id) => {
+export const strikeItem = (id) => {//first
     return {
         type: STRIKEITEM,
         payload: id
