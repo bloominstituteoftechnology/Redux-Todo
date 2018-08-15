@@ -4,7 +4,7 @@ import TodoForm from './components/todoForm';
 import TodoList from './components/todoList';
 
 class App extends Component {
-  render() {
+  render(props) {
     return (
       <div className="App">
         <h1>Get it Redone</h1>

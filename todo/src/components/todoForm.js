@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 
 class TodoForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             text: ''
         };
@@ -25,7 +25,7 @@ class TodoForm extends Component {
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.addTodoHandler} >
                     <input placeholder='Enter new task ...' name='text' value={this.state.text} onChange={this.todoInput} />
                     <button type='submit' >Let's Do It</button>
                 </form>
