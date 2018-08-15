@@ -1,14 +1,23 @@
-let nextTodoId = 0
-export const addTodo = text => ({
-  type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
+export const ADD_TODO = 'ADD_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const REMOVE_TODOS = 'REMOVE_TODOS';
+export const GET_TODOS = 'GET_TODOS';
+
+export const addTodo = todo => ({
+  type: ADD_TODO,
+  payload: todo
 })
-
-
 
 export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
-  id
+  type: TOGGLE_TODO,
+  payload: id
 })
 
+export const removeTodos = () =>({
+  type: REMOVE_TODOS
+})
+
+export const getTodos = todos => ({
+  type: GET_TODOS,
+  payload: todos
+})

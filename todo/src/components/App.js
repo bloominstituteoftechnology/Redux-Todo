@@ -1,12 +1,15 @@
-import React from 'react'
-import AddTodo from './AddTodo'
-import Todo from './Todo'
+import React, {Component} from 'react';
+import Container from './Container';
 ​
-const App = () => (
-  <div>
-    <AddTodo />
-    <Todo />
-  </div>
-)
+class App extends Component {
+  render() {
+    return(
+      <div>
+        <Container/>
+      </div>
+    )
+  }
+}
+
 ​
 export default App
