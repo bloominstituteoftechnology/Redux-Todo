@@ -1,61 +1,18 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {addTodo, toggleTodo} from '../actions';
+import React from "react";
+import Todo from "./Todo";
 
-let nextID = 0;
-
-class TodoList extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            text: '',
-        }
-    }
-    handleChange = e => {
-        this.setState({ [e.target.name] : e.target.value})
-    }
-    addTodoHandler = e => {
-        const {text} = this.state;
-        const newTodo = {
-            text,
-            completed: false,
-            id: nextID++,
-        };
-        this.props.addTodo(newTodo);
-        this.setState({text: ''});
-    }
-    handleTodoComplete = todoId => {
-        this.props.toggleTodo(todoId);
-    }
-    render(){
-        const {todos} = this.props;
-        console.log(todos)
-        return(
-            <div>
-                <input placeholder="Add todo item(s)"
-                       onChange={this.handleChange}
-                       name="text"
-                       value={this.state.text}/>
-                <button onClick={this.addTodoHandler}>Add Todo</button>
-                <ul>
-                    {todos.map(todo => {
-                        return (
-                            <li onClick={() => this.handleTodoComplete(todo.id)}
-                                style={todo.completed ? {textDecoration: 'line-through'} : null}
-                                key={todo.id}>
-                                {todo.text}
-                            </li>
-                        )})}
-                </ul>
-            </div>
-        )
-    }
+export default function TodoList(props) {
+  return (
+    <ul>
+      {props.todos.map((todo, index) => (
+        <Todo
+          style={todo.completed? {textDecoration:'line-through'}: null}
+          key={`${todo.value}${index}`}
+          toggleCompleted={props.toggleCompleted}
+          index={index}
+          todo={todo}
+        />
+      ))}
+    </ul>
+  );
 }
-
-const mapStateToProps = state => {
-    return {
-        todos: state.todos
-    };
-};
-
-export default connect(mapStateToProps, {addTodo, toggleTodo})(TodoList)
