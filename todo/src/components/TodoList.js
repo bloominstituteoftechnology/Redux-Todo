@@ -6,7 +6,6 @@ export default function TodoList(props) {
     <ul>
       {props.todos.map((todo, index) => (
         <Todo
-          style={todo.completed? {textDecoration:'line-through'}: null}
           key={`${todo.value}${index}`}
           toggleCompleted={props.toggleCompleted}
           index={index}
