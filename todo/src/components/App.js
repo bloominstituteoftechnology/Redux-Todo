@@ -2,18 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 
-import { submitTodo } from '../actions/actions';
+import { submitTodo, toggleTodo, removeTodo, getTodos } from '../actions/actions';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      newTodo: ''
+      newText: ''
     }
   }
 
   handleInputChange = (event) => {
-    this.setState({ newTodo: event.target.value });
+    this.setState({ newText: event.target.value });
+  }
+
+  handleToggleTodo = id => {
+    this.props.toggleTodo(id);
+  }
+
+  handleTodoSubmit = () => {
+    const text = this.state.newText;
+    console.log('text ',text);
+    const newTodo = {
+      text,
+      completed: false,
+      id: this.props.todos ? this.props.todos.length + text : 0 + text
+    };
+    this.props.submitTodo(newTodo);
+    this.setState({ newText: ''});
   }
 
   render() {
@@ -24,23 +40,19 @@ class App extends Component {
         </header>
         {this.props.todos.map((todo) => {
           return (
-            <p>
-              {todo}
-            </p>)
+            <div key={todo.id}>
+              <p onClick={() => this.handleToggleTodo(todo.id)}
+                style={todo.completed ? {textDecoration: 'line-through'} : null}>
+                {todo.text}
+              </p>
+              <button onClick={() => {this.props.removeTodo(todo.id)}}>Delete</button>
+            </div>)
         })}
 
         <div className='form-container'>
           <div className='input-container'>
-            <input className='input' onKeyPress={e => {if (e.charCode === 13) {
-              let val = this.state.newTodo;
-              this.setState({ newTodo: '' });
-              this.props.submitTodo(val);
-            }}} placeholder='Enter new item' value={this.state.newTodo} onChange={this.handleInputChange} />
-            <button className='submit' onClick={() => {
-              let val = this.state.newTodo;
-              this.setState({ newTodo: '' });
-              this.props.submitTodo(val)}
-            }>Submit</button>
+            <input className='input' onKeyPress={e => {if (e.charCode === 13) this.handleTodoSubmit() }} placeholder='Enter new item' value={this.state.newText} onChange={this.handleInputChange} />
+            <button className='submit' onClick={ this.handleTodoSubmit }>Submit</button>
           </div>
 
           {/*<div className='search-container'>
@@ -66,4 +78,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { submitTodo })(App);
+export default connect(mapStateToProps, { submitTodo, toggleTodo, removeTodo, getTodos })(App);
