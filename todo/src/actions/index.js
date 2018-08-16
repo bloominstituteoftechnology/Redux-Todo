@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button} from 'reactstrap';
+
 
 let nextTodoId = 0
 export const addTodo = text => ({
@@ -29,17 +29,4 @@ export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',
   SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
-
-let RemoveTodo = ({id, dispatch}) => {
-  return (
-      <div>
-        <Button onClick={e => {
-          e.preventDefault()
-          dispatch(deleteTodo(id))
-
-          //console.log(dispatch(deleteTodo(id)));
-        }}>Remove TODO</Button>
-      </div>
-  )
 }
