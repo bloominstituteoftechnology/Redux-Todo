@@ -14,12 +14,14 @@ const Main = styled.div`
   background: rgba(255, 255, 255, .9);
   margin: auto;
   margin-top: 30px;
-  max-width: 750px;
+  max-width: 850px;
   min-width: 200px;
   text-align: center;
   padding: 15px;
   padding-bottom: 25px;
 `;
+
+// Handle routing
 
 class App extends Component {
   render() {

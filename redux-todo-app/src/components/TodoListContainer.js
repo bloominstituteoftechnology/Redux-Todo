@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from "styled-components";
 
-import { addTodo, completeTodo, deleteTodo } from '../actions';
+import { addTodo, completeTodo, deleteCompletedTodos, deleteTodo } from '../actions';
 import TodoForm from './TodoForm';
 import TodoItem from './TodoItem';
 
@@ -36,6 +36,8 @@ const Article = styled.article`
 `;
 
 
+// Handle Main container + data
+
 class TodoListContainer extends React.Component {
   state = {
     todo: "",
@@ -50,12 +52,16 @@ class TodoListContainer extends React.Component {
     this.setState({ todo: "", todoDescription: "" });
   };
 
-  completeTodo = e => {
-    this.props.completeTodoHandle(e.target.textContent.toLowerCase())
+  completeTodo = (id) => {
+    this.props.completeTodoHandle(id)
   }
 
-  deleteTodo = () => {
-    this.props.deleteTodoHandler();
+  deleteCompletedTodos = () => {
+    this.props.deleteCompletedTodosHandler();
+  }
+
+  deleteTodo = (id) => {
+    this.props.deleteTodoHandler(id);
   }
  
   render() {
@@ -67,12 +73,12 @@ class TodoListContainer extends React.Component {
           handleOnChange={this.handleOnChange}
           todo={this.state.todo}
           todoDescription={this.state.todoDescription}
-          deleteTodo={this.deleteTodo}
+          deleteCompletedTodos={this.deleteCompletedTodos}
         />
         <Section>
           <Article>
             {this.props.todos.map((todo, index) => (
-              <TodoItem key={index} todoItem={todo.item} id={index} completeTodo={this.completeTodo} isTodoCompleted={todo.completed} />
+              <TodoItem key={index} todoItem={todo.item} id={todo.id} completeTodo={this.completeTodo} isTodoCompleted={todo.completed} deleteTodo={this.deleteTodo} />
             ))}
           </Article>
         </Section>
@@ -87,20 +93,28 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  
+  // set up obj payload
   addTodoHandler: (todo, description) => {
     let newTodo = {
       item: todo,
       description: description,
-      id: 2049 + Math.random(),
+      id: Date.now(),
       completed: false
     };
     dispatch(addTodo(newTodo));
   },
-  completeTodoHandle: (todoText) => {
-    dispatch(completeTodo(todoText));
+
+  completeTodoHandle: (todoId) => {
+    dispatch(completeTodo(todoId));
   },
-  deleteTodoHandler: () => {
-    dispatch(deleteTodo());
+
+  deleteCompletedTodosHandler: () => {
+    dispatch(deleteCompletedTodos());
+  },
+
+  deleteTodoHandler: (todoId) => {
+    dispatch(deleteTodo(todoId));
   }
 });
 

@@ -101,7 +101,8 @@ p {
 }
 
 .nav-item:hover {
-	border-bottom: solid 1px #222;
+	color: rgb(34,55,77);
+	text-shadow: .5px .5px rgba(50,80,112,.5);
 }
 
 .active {

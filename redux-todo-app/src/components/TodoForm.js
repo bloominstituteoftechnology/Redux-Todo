@@ -12,7 +12,7 @@ const Section = styled.section`
       font-size: 2.3rem;
       color: #222;
       text-shadow: .5px .5px rgba(77,74,165,.4);
-      margin-top: 10px;
+      margin-top: 15px;
     }
   }
   button {
@@ -57,7 +57,7 @@ const TodoForm = props => {
         />
         <button type="submit">Add Todo</button>
       </form>
-      <button type="submit" onClick={props.deleteTodo}>Clear Todos</button>
+      <button type="submit" onClick={props.deleteCompletedTodos}>Clear Todos</button>
     </Section>
   );
 };

@@ -11,18 +11,38 @@ const Section = styled.section`
   &:last-child {
     border-bottom: none;
   }
+  .todo {
+    width: 50%;
+    text-align: left;
+    word-break:break-all;
+  }
+  .link {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .delete {
+    color: red;
+    margin-left: 20px;
+    font-size: 2rem;
+    &:hover {
+      cursor: pointer;
+      color: darkred;
+    }
+  }
 `;
 
 const TodoItem = props => {
   return (
     <Section>
-      <div>
-        <p className={`${props.isTodoCompleted ? 'cross' : null}`} onClick={props.completeTodo}>{props.todoItem}</p>
+      <div className={`todo ${props.isTodoCompleted ? 'cross' : null}`} onClick={() => props.completeTodo(props.id)}>
+        <p>{props.todoItem}</p>
       </div>
-      <div>
+      <div className="link">
         <NavLink className="nav-item" activeClassName="active" to={`/todos/${props.id}`}>
           View Description
         </NavLink>
+        {props.id !== 2049 ? <p className="delete" onClick={() => props.deleteTodo(props.id)}>Delete</p> : null}
       </div>
     </Section>
   );

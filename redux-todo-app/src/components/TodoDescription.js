@@ -13,8 +13,12 @@ const Main = styled.main`
 `;
 
 const TodoItemDescription = props => {
+  //console.log(parseInt(props.match.params.id, 10), Date.now())
   let todo = props.todoList.filter(
-    (item, index) => parseInt(props.match.params.id, 10) === index
+    item =>{
+      console.log(parseInt(props.match.params.id, 10), item.id)
+      return parseInt(props.match.params.id, 10) === item.id
+    } 
   );
   return (
     <Main>
