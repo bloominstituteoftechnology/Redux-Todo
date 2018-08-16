@@ -38,34 +38,22 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to Redux Todo App</h1>
         </header>
-        {this.props.todos.map((todo) => {
-          return (
-            <div key={todo.id}>
-              <p onClick={() => this.handleToggleTodo(todo.id)}
-                style={todo.completed ? {textDecoration: 'line-through'} : null}>
-                {todo.text}
-              </p>
-              <button onClick={() => {this.props.removeTodo(todo.id)}}>Delete</button>
-            </div>)
-        })}
+        <div className='todo-list'>
+          {this.props.todos.map((todo) => {
+            return (
+              <div key={todo.id} className='todo-item'>
+                <p onClick={() => this.handleToggleTodo(todo.id)}
+                  style={todo.completed ? {textDecoration: 'line-through'} : null}>
+                  {todo.text}
+                </p>
+                <button onClick={() => {this.props.removeTodo(todo.id)}}>Delete</button>
+              </div>)
+          })}
+        </div>
 
-        <div className='form-container'>
-          <div className='input-container'>
-            <input className='input' onKeyPress={e => {if (e.charCode === 13) this.handleTodoSubmit() }} placeholder='Enter new item' value={this.state.newText} onChange={this.handleInputChange} />
-            <button className='submit' onClick={ this.handleTodoSubmit }>Submit</button>
-          </div>
-
-          {/*<div className='search-container'>
-            <input className='search' onKeyPress={e => {if (e.charCode === 13) {
-              prop.submitSearch();
-            }}} placeholder='search' onChange={prop.onchangeSearch} />
-            <button className='submit-search' onClick={prop.submitSearch}>Submit</button>
-          </div>
-
-          <div className='clears'>
-            <button className='clear-complete' onClick={prop.clearComplete}>Clear Completed Tasks</button>
-            <button className='clear-all' onClick={prop.annihilate}>Clear All</button>
-          </div>*/}
+        <div className='input-container'>
+          <input className='input' onKeyPress={e => {if (e.charCode === 13) this.handleTodoSubmit() }} placeholder='Enter new item' value={this.state.newText} onChange={this.handleInputChange} />
+          <button className='submit' onClick={ this.handleTodoSubmit }>Submit</button>
         </div>
       </div>
     );
