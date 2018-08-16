@@ -7,17 +7,3 @@ export const addTodo = todo => ({
   type: ADD_TODO,
   payload: todo
 })
-
-export const toggleTodo = id => ({
-  type: TOGGLE_TODO,
-  payload: id
-})
-
-export const removeTodos = () =>({
-  type: REMOVE_TODOS
-})
-
-export const getTodos = todos => ({
-  type: GET_TODOS,
-  payload: todos
-})

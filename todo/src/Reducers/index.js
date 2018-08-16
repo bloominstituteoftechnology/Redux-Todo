@@ -1,8 +1,18 @@
-import { combineReducers } from 'redux';
-import todosReducer from './todos';
+import { ADD_TODO } from '../actions';
 
-const rootReducer = combineReducers({
-  todos: todosReducer
-});
+const initialState = {
+  todos: []
+   
+}
 
-export default rootReducer;
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      return Object.assign( {}, state, {
+        todos: [...state.todos, action.payload]
+      });
+    
+    default:
+      return state;
+  }
+};
