@@ -17,7 +17,8 @@ class App extends Component {
     this.setState({ todoInputText: e.target.value });
   };
 
-  addTodoHandler = () => {
+  addTodoHandler = (e) => {
+    e.preventDefault();
     this.props.addTodoOnProps(this.state.todoInputText);
     this.setState({
       todoInputText: ""

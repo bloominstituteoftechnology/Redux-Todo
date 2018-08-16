@@ -24,10 +24,10 @@ export default function TodoForm(props) {
     // render() {
         return (
             <div>
-                 <span > {/* onSubmit={props.addTodo} */}
+                 <form onSubmit={props.addTodo} > 
                     <input placeholder='Enter new task ...' value={props.inputText} onChange={props.onInputChange} />
-                    <button onClick={props.addTodo} >Submit it</button>
-                </span>
+                     <button  >Submit it</button> {/* onClick={props.addTodo} */}
+                </form>
             </div>
         );
     // }
