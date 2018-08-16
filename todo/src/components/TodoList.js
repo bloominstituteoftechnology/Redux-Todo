@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Todo from './Todo.js';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { addTodo, toggleTodo } from '../actions/index.js';
 
 
 const TodoListContainer = styled.div`
@@ -12,25 +10,16 @@ const TodoListContainer = styled.div`
 `;
 
 const TodoList = (props) => {
-    console.log("todolist props", props);
     
     return <TodoListContainer>
-    TODOLIST
-        {/* {
-            props.todos.map((todo)=>{
-                return <Todo todo={todo}/>
+        {
+            props.todos.map((todo, index)=>{
+                return <Todo key={todo} index={index} todo={todo} />
             })
-        } */}
+        }
     </TodoListContainer>
 }
 
-const mapStateToProps = (state) => {
-    return {
-        todos: this.state,
-    }
-}
+export default TodoList;
 
 
-export default connect(mapStateToProps, {
-    addTodo, toggleTodo
-})(TodoList);

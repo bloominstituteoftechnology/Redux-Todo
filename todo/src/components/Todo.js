@@ -8,19 +8,12 @@ const TodoContainer = styled.div`
     flex-flow:column;
 `;
 
-class Todo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
-
-    render() {
+const Todo = (props) => {
+    console.log("todo props", props);
+    
         return <TodoContainer>
-            
-        </TodoContainer>
-    }
+            {props.todo.text}
+            </TodoContainer>
 
 }
 

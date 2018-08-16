@@ -16,8 +16,20 @@ class AddTodo extends Component {
         }
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+    }
+
+    handleInput
+
     render(){
-        return <AddTodoContainer>AddTdod</AddTodoContainer>
+        return (
+            <AddTodoContainer>
+                <input type="text" value="" placeholder="Add a todoooo" />
+                <button onClick={(e)=>{this.props.handleAddTodo(e)}} >Add Todo</button>
+            </AddTodoContainer>
+        )
     }
 
 }

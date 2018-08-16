@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import TodoList from './components/TodoList';
+import { connect } from 'react-redux';
+import TodoList from './components/TodoList.js';
 import AddTodo from './components/AddTodo';
 import styled from 'styled-components';
+import { addTodo, toggleTodo } from './actions/index.js';
 import './App.css';
 
 const AppContainer = styled.div`
@@ -13,14 +15,37 @@ const AppContainer = styled.div`
 `;
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      todoText: '',
+    }
+    console.log(props.todos);
+    
+  }
+
+  handleAddTodo = (e) => {
+    e.preventDefault();
+    this.props.addTodo(this.state);
+  }
+
   render() {
     return (
       <AppContainer>
-        <AddTodo />
-        <TodoList />
+        <AddTodo handleAddTodo={ this.handleAddTodo }/>
+        <TodoList todos={ this.props.todos }/>
       </AppContainer>
     );
   }
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+  }
+}
+
+export default connect(mapStateToProps, {
+  addTodo, toggleTodo
+})(App);
