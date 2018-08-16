@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {  ListGroupItem } from 'reactstrap';
-
 import RemoveTodo from '../containers/RemoveTodo';
 
 const Todo = ({ onClick, completed, text, id }) => (
