@@ -4,7 +4,10 @@ const Todos = props => {
   return (
     <div>
       {props.todos.map(todo => (
-        <li key={todo.id}>{todo.text}</li>
+        <div>
+          <li key={todo.id}>{todo.text}</li>
+          <button onClick={props.deleteTodo}>Delete Todo</button>
+        </div>
       ))}
     </div>
   );

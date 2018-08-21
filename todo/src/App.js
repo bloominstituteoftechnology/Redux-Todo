@@ -5,6 +5,7 @@ import Todos from "./components/Todos";
 import TodoForm from "./components/TodoForm";
 import { connect } from "react-redux";
 import { addTodo } from './actions';
+import { deleteTodo } from './actions';
 
 class App extends Component {
   constructor(props) {
@@ -57,5 +58,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, deleteTodo }
 )(App);
