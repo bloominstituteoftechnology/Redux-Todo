@@ -6,6 +6,13 @@ import TodoForm from './components/TodoForm';
 import { connect } from 'react-redux';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      todoText: ''
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,7 +20,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <TodoForm />
+        <TodoForm todoText={this.state.todoText}/>
         <div className="App-intro">
           <Todos todos={this.props.todos} />
         </div>
