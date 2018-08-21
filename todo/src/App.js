@@ -25,6 +25,8 @@ class App extends Component {
       completed: false,
       text: todoText
     };
+    this.props.addTodo(newTodo);
+    this.setState({ todoText: '' });
   };
 
   render() {
@@ -37,6 +39,7 @@ class App extends Component {
         <TodoForm
           handleInputChange={this.handleInputChange}
           todoText={this.state.todoText}
+          addTodo={this.addTodo}
         />
         <div className="App-intro">
           <Todos todos={this.props.todos} />
