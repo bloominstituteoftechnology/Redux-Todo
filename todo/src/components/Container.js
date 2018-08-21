@@ -8,7 +8,7 @@ class Container extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: ""
+      task: "",
     };
   }
 

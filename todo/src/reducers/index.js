@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actions";
+import { ADD_TODO, TOGGLE_TODO} from "../actions";
 
 const initialState = {
   todos: [{ text: "Clean room", completed: false, id: 0 }]
@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return {
+      return  {
         ...state,
         todos: [...state.todos, action.payload]
       };
@@ -15,8 +15,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map((todo, index) => {
-          if (index === action.payload)
+          if (index === action.payload) {
             return { ...todo, completed: !todo.completed };
+          }
           return todo;
         })
       };
