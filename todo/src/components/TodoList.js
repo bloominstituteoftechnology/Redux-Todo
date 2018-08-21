@@ -1,13 +1,24 @@
 import React from 'react';
+import {connect} from "react-redux"
 
+import Todo from "./Todo"
+import TodoInput from "./TodoInput"
 const TodoList = (props) => {
     return ( 
-        
         <div>
-        {console.log(props)}
-        we made it
-        </div>
+         {props.todoData.map(todo => <Todo todo={todo}   />)}
+        <TodoInput />
+         </div>
+       
      );
 }
  
-export default TodoList;
+const mapStateToProps = (state) => {
+    return {
+      todoData: state.todos
+    }
+  }
+  
+  export default connect(mapStateToProps)(TodoList);
+
+  
