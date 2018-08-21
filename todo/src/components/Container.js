@@ -12,10 +12,19 @@ class Container extends React.Component {
     render() {
         return (
             <div>
-                hello from container component.
+                {this.props.todos.map(todo => {
+                    return <p>{todo.text}</p>
+                })}
             </div>
         )
     }
 }
 
-export default Container
+const mapStateToProps = state => {
+    return {
+        todos: state.todos
+    }
+}
+
+
+export default connect(mapStateToProps, {})(Container) 
