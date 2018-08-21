@@ -1,18 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    todo: '',
+    todos: []
+  };
+
+  handleInput = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault()
+    const todos = [...this.state.todos]
+    todos.push(this.state.todo)
+    this.setState({
+      todos
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <form>
+          <input
+            onChange={this.handleInput}
+            name='todo'
+            value={this.state.todo}
+            placeholder='add task'
+            type='text'
+          />
+          <button>submit</button>
+        </form>
+        {this.state.todos.map((todo, index) => {
+          return (
+            <div key={index}>
+              {todo}
+            </div>
+          )
+        })}
+
       </div>
     );
   }
