@@ -1,7 +1,7 @@
 # Redux & React
 
 Topics:
-
+creating pull for the airtable
 * `redux` package
 * `react-redux` package
 * Redux state vs react component state
