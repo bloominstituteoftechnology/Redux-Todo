@@ -1,17 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Todos from './components/Todos';
-import TodoForm from './components/TodoForm';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Todos from "./components/Todos";
+import TodoForm from "./components/TodoForm";
+import { connect } from "react-redux";
+import { addTodo } from './actions';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      todoText: ''
+      todoText: ""
     };
   }
+
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  addTodo = () => {
+    const { todoText } = this.state;
+    const newTodo = {
+      id: this.props.todos.length + 1,
+      completed: false,
+      text: todoText
+    };
+  };
 
   render() {
     return (
@@ -20,7 +34,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <TodoForm todoText={this.state.todoText}/>
+        <TodoForm
+          handleInputChange={this.handleInputChange}
+          todoText={this.state.todoText}
+        />
         <div className="App-intro">
           <Todos todos={this.props.todos} />
         </div>
@@ -35,4 +52,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(App);
+export default connect(
+  mapStateToProps,
+  { addTodo }
+)(App);
