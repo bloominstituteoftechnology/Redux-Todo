@@ -4,7 +4,7 @@ const Todo = props => {
   return (
     <div>
     <li style={{textDecoration: props.todo.completed ? 'line-through' : 'none'}}>
-      <span onClick={() => props.handleToggle(props.index)}>
+      <span onClick={() => props.handleToggle(props.todo.id)}>
         {props.todo.text}
       </span>
       </li>

@@ -23,9 +23,11 @@ class Container extends React.Component {
     this.setState({ task: "" });
   };
 
-  handleToggleTodo = index => {
-    this.props.toggleTodo(index);
+  handleToggleTodo = id => {
+    this.props.toggleTodo(id);
   };
+
+  
 
   render() {
     return (
@@ -34,7 +36,7 @@ class Container extends React.Component {
           {this.props.todos.map((todo, index) => (
             <Todo
               key={`${todo.text}${index}`}
-              index={index}
+              id={todo.id}
               todo={todo}
               handleToggle={this.handleToggleTodo}
             />
@@ -49,6 +51,7 @@ class Container extends React.Component {
           />
           <button type="submit">add todo</button>
         </form>
+        <button onClick={this.handleCompleted}>remove completed</button>
       </div>
     );
   }
