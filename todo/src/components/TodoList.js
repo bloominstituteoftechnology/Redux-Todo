@@ -6,9 +6,6 @@ import TodoInput from "./TodoInput";
 const TodoList = props => {
   return (
     <div>
-      {props.todoData.map(todo => (
-        <Todo todo={todo} />
-      ))}
       <TodoInput />
     </div>
   );

@@ -13,16 +13,20 @@ const initialState = {
   ]
 };
 
-export default (state = initialState, action) => {
-  switch (action.type) {
+export default (state = initialState, {type, payload}) => {
+  switch (type) {
     case ADD_TODO:
-      return [...state, { value: action.newTodo }];
-
-    case DELETE_TODO:
-      return {
-        ...state,
-        value: action.deleteTodo
-      };
+    //   return {...state, todos: [payload]};
+    const states = {...state}
+    const todo = payload 
+    console.log(todo)
+    states.todos.push(todo)
+    console.log(states)
+    // case DELETE_TODO:
+    //   return {
+    //     ...state,
+    //     value: action.deleteTodo
+    //   };
     default:
       return state;
   }
