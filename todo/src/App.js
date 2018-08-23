@@ -7,10 +7,8 @@ import { connect } from "react-redux";
 import { addTodo, deleteTodo } from './actions';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todoText: ""
+  state = {
+      todoText: "",
     };
   }
 
