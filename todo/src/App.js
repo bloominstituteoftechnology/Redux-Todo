@@ -1,7 +1,7 @@
 import React from "react";
 // import logo from "./logo.svg";
 import { connect } from "react-redux";
-// import TodoList from "./Components/TodoList";
+import TodoList from "./Components/TodoList";
 import {submitNewTask} from './actions';
 
 import "./App.css";
@@ -44,17 +44,16 @@ class App extends React.Component {
             onchange={this.newTodoChange}
           />
         </form>
-        {/* <TodoList todos={this.props.todos} /> */}
+        <TodoList todos={this.props.todos} />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return (
-    <div>todos: state.todos</div>
-    // todos: state.todos
-  );
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos
+  };
 };
 
 export default connect(
