@@ -4,8 +4,7 @@ import "./App.css";
 import Todos from "./components/Todos";
 import TodoForm from "./components/TodoForm";
 import { connect } from "react-redux";
-import { addTodo } from './actions';
-import { deleteTodo } from './actions';
+import { addTodo, deleteTodo } from './actions';
 
 class App extends Component {
   constructor(props) {
