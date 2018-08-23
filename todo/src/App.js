@@ -11,7 +11,7 @@ class App extends Component {
   state = {
       todoText: "",
     };
-  }
+  
 
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
