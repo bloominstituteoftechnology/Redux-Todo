@@ -2,15 +2,15 @@ export const NEW_TODO = 'NEW_TODO';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
 export const submitNewTask = (todo) => {
-    return (
+    return {
         type: NEW_TODO,
         payload: todo,
-    );
+    };
 };
 
 export const toggleComplete = (index) => {
-    return(
+    return{
         type: TOGGLE_COMPLETE,
         payload: index,
-    )
-}
+    }
+};

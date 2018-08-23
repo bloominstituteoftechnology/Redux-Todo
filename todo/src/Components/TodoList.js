@@ -1,10 +1,14 @@
 import React from 'react';
+import TodoItems from './Todo';
 
-
-const TodoList = () => {
+export default (props) => {
+    const todos = props.todos.map((todo, i) => {
+        <TodoItems todo={todo} key={i} index={i} />
+    })
     return (
-        <div>
-            testing
-        </div>
-    )
-}
+        <ul>
+            { todos }
+        </ul>
+    );
+    
+};
