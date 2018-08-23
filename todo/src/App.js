@@ -12,6 +12,8 @@ class App extends React.Component {
     this.state = {
       newTodo: ""
     };
+    this.submitNewTask = this.submitNewTask.bind(this);
+    this.newTodoChange = this.newTodoChange.bind(this);
   }
 
   submitNewTask = event => {
@@ -37,9 +39,9 @@ class App extends React.Component {
         <form onSubmit="newTodoAdder">
           <label>Enter New Todo Here</label>
           <input
-            onchange={this.newTodoChange}
             placeholder="New Todo"
-            value={this.state.newTodo}
+            value={this.state.newTodoChange}
+            onchange={this.newTodoChange}
           />
         </form>
         {/* <TodoList todos={this.props.todos} /> */}
@@ -50,7 +52,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return (
-    <div>connection</div>
+    <div>todos: state.todos</div>
     // todos: state.todos
   );
 };
