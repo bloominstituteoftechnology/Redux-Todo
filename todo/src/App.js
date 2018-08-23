@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
+import React from "react";
+// import logo from "./logo.svg";
 import { connect } from "react-redux";
-import TodoList from "./Components/TodoList";
+// import TodoList from "./Components/TodoList";
+import {submitNewTask} from './actions';
 
 import "./App.css";
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +42,7 @@ class App extends Component {
             value={this.state.newTodo}
           />
         </form>
-        <TodoList todos={this.props.todos} />
+        {/* <TodoList todos={this.props.todos} /> */}
       </div>
     );
   }
