@@ -14,10 +14,7 @@ class App extends Component {
     }
   }
   
-  // updateInputValue = event => {
-    
-    
-  // }
+  
 
   submitNewTask = event => {
     event.preventDefault();
@@ -35,9 +32,6 @@ class App extends Component {
       newTodo: event.target.value
     });
   }
-
-
-  
   
   render() {
     return (
