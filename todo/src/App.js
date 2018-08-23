@@ -5,6 +5,7 @@ import Todos from "./components/Todos";
 import TodoForm from "./components/TodoForm";
 import { connect } from "react-redux";
 import { addTodo, deleteTodo } from './actions';
+import uuid from 'uuid';
 
 class App extends Component {
   state = {
@@ -19,7 +20,7 @@ class App extends Component {
   addTodo = () => {
     const { todoText } = this.state;
     const newTodo = {
-      id: this.props.todos.length + 1,
+      id: uuid(),
       completed: false,
       text: todoText
     };
