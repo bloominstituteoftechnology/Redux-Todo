@@ -1,10 +1,12 @@
-import { combineReducers } from 'redux';
-import ItemsReducer from './ItemsReducer';
-import InputReducer from './InputReducer';
+import { ADD_ITEM, REMOVE_ITEM } from '../Actions';
 
-const rootReducer = combineReducers({
-    items: ItemsReducer,
-    newItem: InputReducer,
-});
-
-export default rootReducer;
+const reducer = (state=initialState, action) => {
+    switch (action.type) {
+        case ADD_ITEM:
+            return [...state, action.payload]
+        case REMOVE_ITEM:
+            return [...state, action.payload]
+        default:
+            return state;
+    }
+};
