@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { add_item, remove_item } from '../Actions';
 class List extends Component {
@@ -17,8 +17,7 @@ class List extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        todo: '',
-        todos: state
+        state
     };
 };
 
