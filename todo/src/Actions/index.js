@@ -3,16 +3,17 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 
 
 
-export const add_item = () => {
+export const add_item = (newTodo) => {
+    console.log('Action',newTodo);
     return {
-        type: 'ADD_ITEM',
-        payload: todo.push(todos)
+        type: ADD_ITEM, 
+        payload: newTodo
     }
 };
 
-export const remove_item = () => {
-    return {
-        type: 'REMOVE_ITEM',
-        payload: todo.unshift(todos)
-    }
-};
+//export const remove_item = () => {
+//     return {
+//         type: 'REMOVE_ITEM',
+//         payload: todo.unshift(todos)
+//     }
+// };

@@ -7,17 +7,18 @@ const initialState = {
             completed: false
         }
     ],
-    todo: {
-        value: '',
-        completed: false
-    }
+    
 }
-const reducer = (state=initialState, action) => {
+export default (state=initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
-            return [...state, action.payload]
-        case REMOVE_ITEM:
-            return [...state, action.payload]
+         console.log('Reducer',action.payload);
+         return {
+            ...state,
+            todos: [...state.todos,action.payload],
+         }   
+        // case REMOVE_ITEM:
+        //     return {...state, todos: action.payload}
         default:
             return state;
     }
