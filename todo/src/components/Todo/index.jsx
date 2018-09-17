@@ -1,5 +1,4 @@
 import React from 'react';
-import './Todo.css';
 import { connect } from 'react-redux';
 
 const Todo = props => {
