@@ -1,12 +1,6 @@
-export const TODO_ACTION = 'TODO_ACTION';
 export const HANDLE_INPUT_CHANGE = 'HANDLE_INPUT_CHANGE';
 export const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
-
-export const todoActionCreator = () => {
-    return {
-        type: TODO_ACTION
-    };
-};
+export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
 
 export const handleInputChange = value => {
     return {
@@ -19,5 +13,12 @@ export const handleSubmit = value => {
     return {
         type: HANDLE_SUBMIT,
         payload: value
-    }
+    };
+};
+
+export const toggleCompleted = id => {
+    return {
+        type: TOGGLE_COMPLETED,
+        payload: id
+    };
 };

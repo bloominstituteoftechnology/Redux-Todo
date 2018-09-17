@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import TodoItem from './TodoItem';
 
 export default class Todo extends React.PureComponent {
 	handleInputChange(e) {
@@ -14,12 +13,23 @@ export default class Todo extends React.PureComponent {
 		this.props.handleSubmit(e.target[0].value);
 	}
 
+	toggleCompleted(e) {
+		this.props.toggleCompleted(e.target.id);
+	}
+
 	render() {
 		return(
 			<Fragment>
-				<div>
-					TodoList: { this.props.todoList.map((item, i) => <TodoItem key = { i } item = { item } />) }
-				</div>
+				<ul>
+					{ this.props.todoList.map((item, i) => 
+						<li 
+							id = { i } 
+							onClick = { e => this.toggleCompleted(e) } 
+							key = { i }
+							style = { item.completed ? { textDecoration: 'line-through' } : {}}
+						>{ item.value }</li>
+					) }
+				</ul>
 
 				<form onSubmit = { e => this.handleSubmit(e) }>
 					<input 

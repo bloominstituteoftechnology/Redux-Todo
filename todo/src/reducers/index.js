@@ -1,5 +1,5 @@
 // Actions
-import { TODO_ACTION, HANDLE_INPUT_CHANGE, HANDLE_SUBMIT } from '../actions/TodoActions';
+import { HANDLE_INPUT_CHANGE, HANDLE_SUBMIT, TOGGLE_COMPLETED } from '../actions/TodoActions';
 
 const initialState = {
 	todoList: [],
@@ -8,12 +8,13 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch(action.type) {
-		case TODO_ACTION:
-			return state;
-		case HANDLE_INPUT_CHANGE:
+		case HANDLE_INPUT_CHANGE: {
 			return {...state, inputText: action.payload};
-		case HANDLE_SUBMIT:
+		} // end case HANDLE_INPUT_CHANGE
+
+		case HANDLE_SUBMIT: {
 			const newTodoList = [...state.todoList];
+			
 			newTodoList.push({
 				value: action.payload,
 				completed: false
@@ -24,7 +25,18 @@ export default (state = initialState, action) => {
 				todoList: newTodoList, 
 				inputText: ''
 			};
-		default:
+		} // end case HANDLE_SUBMIT
+
+		case TOGGLE_COMPLETED: {
+			const newTodoList = [...state.todoList];
+			
+			newTodoList[action.payload].completed = !newTodoList[action.payload].completed;
+
+			return {...state, todoList: newTodoList};
+		} // end case TOGGLE_COMPLETED
+
+		default: {
 			return state;
-	}
+		} // case default
+	} // end switch(action.type)
 };
