@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
-
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Todos from './components/Todos'
 
 class App extends Component {
@@ -8,10 +7,14 @@ class App extends Component {
     return (
       <div className="App">
         <h1>TODOS LIST</h1>
-        <Todos />
+        <Todos todos={this.props.todos}/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  todos: state.todos.list
+})
+
+export default connect(mapStateToProps)(App)
