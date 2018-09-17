@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Todos from './components/Todos'
+import TodoForm from './components/TodoForm'
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div className="App">
         <h1>TODOS LIST</h1>
         <Todos todos={this.props.todos}/>
+        <TodoForm />
       </div>
     )
   }

@@ -4,13 +4,13 @@ const Todos = (props) => {
   return (
     <div>
       <h2>Todos Component</h2>
-      <ol>
+      <ul>
         {props.todos.map(todo =>{
           return (
             <li>{todo}</li>
           )
         })}
-      </ol>
+      </ul>
     </div>
   )
 }
