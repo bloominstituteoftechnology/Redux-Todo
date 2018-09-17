@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // Action Creators
-import { handleInputChange, handleSubmit, toggleCompleted } from '../actions/TodoActions';
+import { handleInputChange, handleSubmit, toggleCompleted, deleteItem } from '../actions/TodoActions';
 
 // Component
 import Todo from '../components/Todo';
@@ -14,4 +14,4 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps, { handleInputChange, handleSubmit, toggleCompleted })(Todo);
+export default connect(mapStateToProps, { handleInputChange, handleSubmit, toggleCompleted, deleteItem })(Todo);

@@ -1,6 +1,7 @@
 export const HANDLE_INPUT_CHANGE = 'HANDLE_INPUT_CHANGE';
 export const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
 export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
+export const DELETE_ITEM = 'DELETE_ITEM';
 
 export const handleInputChange = value => {
     return {
@@ -22,3 +23,10 @@ export const toggleCompleted = id => {
         payload: id
     };
 };
+
+export const deleteItem = id => {
+    return {
+        type: DELETE_ITEM,
+        payload: id
+    }
+}

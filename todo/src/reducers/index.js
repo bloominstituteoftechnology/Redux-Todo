@@ -1,8 +1,11 @@
 // Actions
-import { HANDLE_INPUT_CHANGE, HANDLE_SUBMIT, TOGGLE_COMPLETED } from '../actions/TodoActions';
+import { HANDLE_INPUT_CHANGE, HANDLE_SUBMIT, TOGGLE_COMPLETED, DELETE_ITEM } from '../actions/TodoActions';
 
 const initialState = {
-	todoList: [],
+	todoList: [{
+		value: 'abc',
+		completed: false
+	}],
 	inputText: ''
 };
 
@@ -29,11 +32,19 @@ export default (state = initialState, action) => {
 
 		case TOGGLE_COMPLETED: {
 			const newTodoList = [...state.todoList];
-			
+
 			newTodoList[action.payload].completed = !newTodoList[action.payload].completed;
 
 			return {...state, todoList: newTodoList};
 		} // end case TOGGLE_COMPLETED
+
+		case DELETE_ITEM: {
+			const newTodoList = [...state.todoList];
+
+			newTodoList.splice(action.payload, 1);
+
+			return {...state, todoList: newTodoList};
+		} // end case DELETE_ITEM
 
 		default: {
 			return state;
