@@ -8,9 +8,10 @@ const initialState = {
   ],
   input: ""
 };
-// created skeleton of reducer TODO: get some logic in here
+
 export default (state = initialState, action) => {
   switch (action.type) {
+    
     case "HANDLE_INPUT":
       return Object.assign({}, state, { input: action.payload });
 
@@ -33,7 +34,7 @@ export default (state = initialState, action) => {
 
       // update the store using object assign
       return Object.assign({}, state, { todos: addTodos, input: '' });
-      
+
     default:
       return state;
   }
