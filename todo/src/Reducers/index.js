@@ -58,7 +58,8 @@ const todoReducer = (state = initialState, action) => {
 
         case ACTIONS.DELETE_TODO:
         console.log('delete');
-        return state;
+        updateTodoList = updateTodoList.filter(todo => todo.completed === false);
+        return {...state, todos: [...updateTodoList]};
 
         default: 
         console.log('default');
