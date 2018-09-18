@@ -14,6 +14,7 @@ class TodoForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const newTodo = {
+      id: this.props.todos.length + 1,
       value: this.state.newTodo,
       completed: false
     }

@@ -1,19 +1,20 @@
 import React from 'react'
 
 const Todos = (props) => {
-  const items = props.todos.map(item => item.value)
+  const items = props.todos.map(item => item)
   return (
     <div>
       <h2>Todos Component</h2>
       <ul>
         { 
-          items.map((todo, index)  =>{
+          items.map((todo)  =>{
             return (
               <li
-                key={`todo-${index}`}
-                onClick={() => props.toggleTodo(index)}
+                key={`todo-${todo.id}`}
+                onClick={() => props.toggleTodo(todo.id)}
+                style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
               >
-                {todo}
+                {todo.value}
               </li>
             )
           })
