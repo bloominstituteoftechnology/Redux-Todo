@@ -9,19 +9,11 @@ import { handleChange, addTodo, toggleCompleted } from "./actions";
 
 class App extends Component {
   handleEvent(e) {
-    console.log(e.target.value);
     this.props.handleChange(e.target.value);
-    console.log(this.props);
   }
   render() {
-    {
-      console.log(this.props);
-    }
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Todo Application:</h1>
-        </header>
         <Todos
           toggleCompleted={this.props.toggleCompleted}
           todos={this.props.todos}
@@ -37,7 +29,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     todos: state.todos,
     inputText: state.inputText

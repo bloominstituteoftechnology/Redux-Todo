@@ -1,10 +1,16 @@
 import React from "react";
+import "./Todo.css";
 
 const Todos = props => {
   return (
-    <div className="todo-list">
+    <div className="todo-container">
       {props.todos.map(todo => (
-        <div onClick={e => props.toggleCompleted(todo.id)} className="todo">
+        <div
+          onClick={e => {
+            props.toggleCompleted(todo.id);
+          }}
+          className={`todo-item ${todo.completed ? `completed` : ` `}`}
+        >
           {todo.value}
         </div>
       ))}

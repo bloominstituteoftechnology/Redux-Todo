@@ -15,13 +15,15 @@ export function todoReducer(state = initialState, action) {
 
     case "TOGGLE_COMPLETED":
       let tmpId = action.payload;
-      let todo = state.todos.find(todo => todo.id === tmpId);
+      let tmpTodos = state.todos;
+      let todo = tmpTodos.find(todo => todo.id === tmpId);
 
       console.log(todo.value + " has been completed");
+      console.log(todo.completed);
       todo.completed = !todo.completed;
 
       //returning state object with modified completed property.. is this fine?
-      return { ...state };
+      return { ...state, todos: tmpTodos };
 
     case "ADD_TODO":
       console.log("add a todo");
@@ -37,8 +39,8 @@ export function todoReducer(state = initialState, action) {
       return { ...state, todos: newList, inputText: "" };
 
     case "HANDLE_CHANGE":
-      console.log("reducer fired - " + action.payload);
       return { ...state, inputText: action.payload };
+
     default:
       return state;
   }

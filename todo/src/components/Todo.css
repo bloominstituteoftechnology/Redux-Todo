@@ -1,0 +1,46 @@
+body {
+  width: 880px;
+  margin: 0 auto;
+}
+.todo-container {
+  width: 100%;
+  margin: 100px auto;
+}
+
+.input {
+  width: 450px;
+  height: 40px;
+  font-size: 24px;
+}
+
+.todo-item {
+  margin: 10px auto;
+  width: 50%;
+  height: 35px;
+  font-size: 24px;
+  text-align: left;
+  background-color: blueviolet;
+  color: white;
+}
+
+.completed {
+  color: black;
+  text-decoration: line-through;
+  /* background-color: white; */
+}
+
+button {
+  background-color: blueviolet;
+  color: white;
+  width: 175px;
+  height: 40px;
+  margin: 0 10px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.completed {
+  color: red;
+  text-decoration: line-through;
+  background-color: white;
+}
