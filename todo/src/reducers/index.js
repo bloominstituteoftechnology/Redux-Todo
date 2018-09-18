@@ -39,6 +39,14 @@ export default (state = initialState, action) => {
     case TOGGLE_COMPLETE: {
       const newList = [...state.todoList];
 
+      newList[action.payload].completed = !newList[action.payload].completed;
+
+      return[...state, todoList: newList];
+    }
+
+    case DELETE_ITEM: {
+      const newList = [...state.todoList];
+
       newList.splice(action.payload, 1);
 
       return {...state, todoList: newList};
