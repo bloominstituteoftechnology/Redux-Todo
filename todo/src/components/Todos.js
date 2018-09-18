@@ -6,11 +6,6 @@ const Todos = props => {
       {props.todos.map(todo => (
         <div className="todo">{todo.value}</div>
       ))}
-
-      <form>
-        <input type="text" placeholder="Add todo" />
-        <button onClick>Add!</button>
-      </form>
     </div>
   );
 };
