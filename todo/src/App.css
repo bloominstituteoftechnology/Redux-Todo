@@ -28,13 +28,19 @@
   font-size: 12px;
   display: flex;
 }
-
-.add-todo {
+.todo-button {
   width: 100%;
   height: 40px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+.add-todo {
   background-color: paleturquoise;
-  margin-top: 10px;
+}
+
+.remove-todo {
+  background-color: palevioletred;
 }

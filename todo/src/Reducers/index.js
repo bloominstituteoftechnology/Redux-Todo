@@ -21,7 +21,7 @@ const initialState = {
 
 const todoReducer = (state = initialState, action) => {
     switch(action.type) {
-        case ACTIONS.ADD_TODO:
+        case 'ADD_TODO':
         console.log('add');
         return state;
 
