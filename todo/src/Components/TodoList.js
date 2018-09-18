@@ -15,7 +15,7 @@ const TodoList = props => {
             <div className="container">
                 <div className="todos">
                     {props.todos.map(
-                        todo => <Todo complete={props.todoComplete} key={todo.id} text={todo.text}/>
+                        todo => <Todo key={todo.id} completed={todo.completed} complete={props.todoComplete} id={todo.id} text={todo.text}/>
                     )}
                 </div>
                 <div className="todo-form">

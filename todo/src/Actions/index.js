@@ -12,7 +12,7 @@ export const handleInput = text => ({type: ACTIONS.HANDLE_INPUT, text: text})
 export const todoAdd = () => ({type: ACTIONS.ADD_TODO});
 
 // Complete
-export const todoComplete = () => ({type: ACTIONS.COMPLETE_TODO});
+export const todoComplete = id => ({type: ACTIONS.COMPLETE_TODO, id: id});
 
 // Delete
 export const todoDelete = () => ({type: ACTIONS.DELETE_TODO});

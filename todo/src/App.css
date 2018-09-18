@@ -10,6 +10,10 @@
   width: 200px;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .new-todo.container {
   position: relative;
   display: flex;
@@ -28,6 +32,7 @@
   font-size: 12px;
   display: flex;
 }
+
 .todo-button {
   width: 100%;
   height: 40px;
