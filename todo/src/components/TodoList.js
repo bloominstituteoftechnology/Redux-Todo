@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo } from '../actions';
+import { addTodo } from '../actions';
 
 import Todo from './Todo';
 
@@ -27,8 +27,8 @@ class TodoList extends Component {
 				<ul>
 					{this.props.todos.map(todo => (
 						<Todo
-							key={Date.now()}
-							id={Date.now()}
+							key={todo.id}
+							id={todo.id}
 							value={todo.value}
 							completed={todo.completed}
 						/>
@@ -59,5 +59,5 @@ const mapStateToProps = state => {
 
 export default connect(
 	mapStateToProps,
-	{ addTodo, toggleTodo }
+	{ addTodo }
 )(TodoList);

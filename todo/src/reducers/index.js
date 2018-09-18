@@ -12,13 +12,16 @@ export default (
 ) => {
 	switch (action.type) {
 		case ADD_TODO:
-			// Fill in the body of this case
-			return [...todos, { value: action.text, completed: false }];
+			return [
+				...todos,
+				{ id: Date.now(), value: action.text, completed: false }
+			];
 		case TOGGLE_TODO:
-			// Fill in the body of this case
-			const todo = todos.filter(todo => todo.id === action.id);
-			todo.completed = !todo.completed;
-			return [...todos, todo];
+			let index = todos.findIndex(todo => todo.id === action.id);
+			let updatedTodos = todos.slice();
+			updatedTodos[index].completed = !updatedTodos[index].completed;
+			return updatedTodos;
+
 		default:
 			return todos;
 	}
