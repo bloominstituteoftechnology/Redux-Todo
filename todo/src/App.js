@@ -10,7 +10,7 @@ import './App.css';
 class App extends Component {
 	render() {
 		return (
-			<div className = 'app'>
+			<div className = 'app fade-in'>
 				<header className = 'app-header'>
 					<h1>Welcome to your Todo List</h1>
 				</header>
