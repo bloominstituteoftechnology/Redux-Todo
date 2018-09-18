@@ -1,22 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const Link = ({ active, children, onCLick }) => (
+const Link = ({ active, children, onClick }) => (
     <button
-        onClick= {onCLick}
-        disabled= {active}
-        style= {{
-            marginLeft: '4px',
-        }}
+       onClick={onClick}
+       disabled={active}
+       style={{
+           marginLeft: '4px',
+       }}
     >
-        {children}
+      {children}
     </button>
 )
 
 Link.propTypes = {
-    active: PropTypes.bool.isRequired,
-    children: PropTypes.node.isRequired,
-    onClick: PropTypes.func.isRequired
+  active: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 
 export default Link
