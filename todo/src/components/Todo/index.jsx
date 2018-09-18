@@ -9,6 +9,10 @@ const Todo = props => {
   );
 };
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  }
+};
 
 export default connect(mapStateToProps, {})(Todo);
