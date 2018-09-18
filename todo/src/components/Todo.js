@@ -48,7 +48,7 @@ export default class Todo extends React.PureComponent {
 			<div className = 'todo-div'>
 				<div className = 'todo-list'>
 					{ this.props.todoList.map((item, i) => 
-						<div key = { `item-div-${ i }` } className = 'expand'>
+						<div key = { `item-div-${ i }` } className = 'expand-vert'>
 							<div 
 								id = { i } 
 								onClick = { e => this.props.toggleCompleted(e.target.id) } 
@@ -67,7 +67,7 @@ export default class Todo extends React.PureComponent {
 					) }
 				</div>
 
-				<Form className = 'todo-form' onSubmit = { e => this.handleSubmit(e) }>
+				<Form className = { `todo-form ${ this.checkCompleted() && 'expand-horiz' }` } onSubmit = { e => this.handleSubmit(e) }>
 					<Input 
 						value = { this.state.inputText } 
 						onChange = { e => this.handleInputChange(e.target.value) }

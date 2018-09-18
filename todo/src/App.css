@@ -8,6 +8,7 @@
 
 
 /* Animations */
+
 @keyframes fade-in-anim {
 	from {opacity: 0;}
 	to {opacity: 1;}
@@ -15,17 +16,6 @@
 
 .fade-in {
 	animation-name: fade-in-anim;
-	animation-duration: 2s;
-	animation-fill-mode: forwards;
-}
-
-@keyframes expand-anim {
-	from {height: 0;}
-	to {height: 50px;}
-}
-
-.expand {
-	animation-name: expand-anim;
 	animation-duration: 2s;
 	animation-fill-mode: forwards;
 }

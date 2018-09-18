@@ -32,3 +32,28 @@
 .todo-div .todo-form * {
     margin: 10px;
 }
+
+
+/* Animations */
+
+@keyframes expand-vert-anim {
+	from {height: 0;}
+	to {height: 3rem;}
+}
+
+.expand-vert {
+	animation-name: expand-vert-anim;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes expand-horiz-anim {
+	from {width: 0; overflow: hidden;}
+	to {width: 40rem; overflow: hidden;}
+}
+
+.expand-horiz {
+	animation-name: expand-horiz-anim;
+	animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
