@@ -10,16 +10,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Input, Button } from 'reactstrap';
 
 export default class Todo extends React.PureComponent {
-	handleInputChange(e) {
-		e.preventDefault();
-		
-		this.props.handleInputChange(e.target.value);
-	}
-
 	handleSubmit(e) {
 		e.preventDefault();
 
 		this.props.handleSubmit(e.target[0].value);
+	}
+
+	checkCompleted() {
+		// if there is a task in this.props.todoList marked as completed, then
+		// return true, else return false
+		for (let task in this.props.todoList) {
+			if (this.props.todoList[task].completed) return true;
+		}
+
+		return false;
+	}
+
+	removeAllCompleted(e) {
+		e.preventDefault();
+
+		this.props.removeAllCompleted();
 	}
 
 	render() {
@@ -48,10 +58,12 @@ export default class Todo extends React.PureComponent {
 				<Form className = 'todo-form' onSubmit = { e => this.handleSubmit(e) }>
 					<Input 
 						value = { this.props.inputText } 
-						onChange = { e => this.handleInputChange(e) }
+						onChange = { e => this.props.handleInputChange(e.target.value) }
 					/>
 
 					<Button color = 'primary' type = 'submit'>Add Task</Button>
+
+					{ this.checkCompleted() && <Button color = 'warning' onClick = { e => this.removeAllCompleted(e) }>Remove All Completed Tasks</Button> }
 				</Form>
 			</div>
 		);

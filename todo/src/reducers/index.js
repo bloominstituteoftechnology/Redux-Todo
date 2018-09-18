@@ -1,5 +1,5 @@
 // Actions
-import { HANDLE_INPUT_CHANGE, HANDLE_SUBMIT, TOGGLE_COMPLETED, DELETE_ITEM } from '../actions/TodoActions';
+import { HANDLE_INPUT_CHANGE, HANDLE_SUBMIT, TOGGLE_COMPLETED, DELETE_ITEM, REMOVE_ALL_COMPLETED } from '../actions/TodoActions';
 
 export default (state, action) => {
 	switch(action.type) {
@@ -37,6 +37,12 @@ export default (state, action) => {
 
 			return {...state, todoList: newTodoList};
 		} // end case DELETE_ITEM
+
+		case REMOVE_ALL_COMPLETED: {
+			const newTodoList = state.todoList.filter(todo => !todo.completed);
+
+			return {...state, todoList: newTodoList};
+		} // end case REMOVE_ALL_COMPLETED
 
 		default: {
 			return state;

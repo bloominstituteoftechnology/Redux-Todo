@@ -2,6 +2,7 @@ export const HANDLE_INPUT_CHANGE = 'HANDLE_INPUT_CHANGE';
 export const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
 export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const REMOVE_ALL_COMPLETED = 'REMOVE_ALL_COMPLETED';
 
 export const handleInputChange = value => {
     return {
@@ -30,3 +31,7 @@ export const deleteItem = id => {
         payload: id
     }
 }
+
+export const removeAllCompleted = () => ({
+    type: REMOVE_ALL_COMPLETED
+});
