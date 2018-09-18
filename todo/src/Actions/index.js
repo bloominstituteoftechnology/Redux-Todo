@@ -6,7 +6,7 @@ export const ACTIONS = {
 };
 
 // Handle Input
-export const handleInput = text => ({type: ACTIONS.HANDLE_INPUT, text: text})
+export const handleInput = (text, eventTarget) => ({type: ACTIONS.HANDLE_INPUT, text: text, target:eventTarget})
 
 // Add
 export const todoAdd = () => ({type: ACTIONS.ADD_TODO});

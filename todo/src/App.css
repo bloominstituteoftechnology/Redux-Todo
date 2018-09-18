@@ -49,3 +49,12 @@
 .remove-todo {
   background-color: palevioletred;
 }
+
+.typing {
+  font-size: 12px;
+  padding: 14px 0 2px 8px!important;
+}
+
+label.is-typing {
+  transform: scale(.83333) translateY(-10px);
+}

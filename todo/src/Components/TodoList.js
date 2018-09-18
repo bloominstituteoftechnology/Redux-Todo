@@ -22,7 +22,7 @@ const TodoList = props => {
                     <form onSubmit={addSubmit}>
                         <div className="new-todo container">
                             <label htmlFor="new-todo">Add task here</label>
-                            <input type="text" name="new-todo" id="new-todo" value={props.currentInputText} onChange={(e) => props.handleInput(e.currentTarget.value)}/>
+                            <input type="text" name="new-todo" id="new-todo" value={props.currentInputText} onChange={(e) => props.handleInput(e.currentTarget.value, e.currentTarget)}/>
                         </div>
                         <div className="add-todo todo-button" onClick={addSubmit}>Add Task</div>
                     </form>

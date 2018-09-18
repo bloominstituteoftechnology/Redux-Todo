@@ -27,6 +27,16 @@ const todoReducer = (state = initialState, action) => {
     switch(action.type) {
         case ACTIONS.HANDLE_INPUT:
         console.log('input handled:', state.currentInputText);
+
+        if(action.target.value !== "") {
+        action.target.classList.add('typing')
+        action.target.previousSibling.classList.add('is-typing');
+        } else {
+        action.target.classList.remove('typing');
+        action.target.previousSibling.classList.remove('is-typing');
+        }
+
+
         return {...state, currentInputText: action.text};
 
         case ACTIONS.ADD_TODO:
