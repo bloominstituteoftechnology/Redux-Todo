@@ -40,6 +40,7 @@ class App extends Component {
             placeholder="new todo"
             value={this.state.newTodo}
           />
+          <input type="submit"/>
         </form>
         <TodoList todos={this.props.todos} />
       </div>
