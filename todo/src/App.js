@@ -25,7 +25,7 @@ import { addTodo } from './actions';
       completed: false,
       text: todoText
     };
-    this.props.addTodo(newTodo);
+    this.props.addTodoHandler(newTodo);
     this.setState( { textHolder: ''} );
   }
 
@@ -46,4 +46,8 @@ import { addTodo } from './actions';
    }
  }
 
- export default connect(mapState, { addTodo })(App);
+ const mapDispatch = dispatch => ({
+  addTodoHandler: todo => dispatch(addTodo(todo))
+})
+
+ export default connect(mapState, mapDispatch)(App);

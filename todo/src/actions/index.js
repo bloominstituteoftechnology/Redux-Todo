@@ -7,7 +7,7 @@ export const addTodo = (todo) => {
 
 export const toggleTodo = (todoId) => {
     return {
-        type: 'COMPLETE_TODO',
+        type: 'TOGGLE_TODO',
         payload: todoId
     }
 } 
