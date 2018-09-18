@@ -5,14 +5,16 @@ import { addTodo } from '../actions/index';
 class AddTodo extends React.Component {
 
     handlerInput = (event) => {
+        event.preventDefault();
+        console.log(event.target.value);
         return event.target.value; 
     }
 
   render() {
     return (
         <div>
-            <form onClick={() => this.props.addTodo(this.handlerInput)}>
-                <input type="text" placeholder="add todo"/>
+            <form onSubmit={() => this.props.addTodo(this.handlerInput)}>
+                <input type="text" placeholder="add todo" onChange={this.handlerInput}/>
                 <input type="submit"/>
             </form>
         </div>
