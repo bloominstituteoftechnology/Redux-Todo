@@ -1,25 +1,7 @@
 // Actions
 import { HANDLE_INPUT_CHANGE, HANDLE_SUBMIT, TOGGLE_COMPLETED, DELETE_ITEM } from '../actions/TodoActions';
 
-const initialState = {
-	todoList: [
-		{
-			value: 'Take out the trash',
-			completed: false
-		},
-		{
-			value: 'Wash the dishes',
-			completed: false
-		},
-		{
-			value: 'Do the laundry',
-			completed: false
-		}
-	],
-	inputText: ''
-};
-
-export default (state = initialState, action) => {
+export default (state, action) => {
 	switch(action.type) {
 		case HANDLE_INPUT_CHANGE: {
 			return {...state, inputText: action.payload};
@@ -58,6 +40,6 @@ export default (state = initialState, action) => {
 
 		default: {
 			return state;
-		} // case default
+		} // end case default
 	} // end switch(action.type)
 };
