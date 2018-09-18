@@ -6,9 +6,7 @@ import { connect } from 'react-redux';
 import { add_todo, toggle_completed } from '../actions'
 
 class Todo extends Component {
-  // constructor() {
-  //   super();
-  // }
+
   state = {
     todo: ''
   }
@@ -26,7 +24,10 @@ class Todo extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Your Day's Tasks</h1>
         </header>
-        <form onSubmit={() => this.props.add_todo(this.state.todo)}>
+        <form onSubmit={ e =>
+          {e.preventDefault()
+            this.props.add_todo(this.state.todo)
+          }}>
           <input
             type='text'
             value={this.state.todo}
@@ -38,7 +39,11 @@ class Todo extends Component {
           <ul>
             todo list goes here
           {this.props.todos.map(item =>
-            <li onClick={this.props.toggle_completed}>
+            <li onClick={ e => {
+              e.preventDefault()
+              this.props.toggle_completed(item.id)
+            }
+            }>
               {item.value}
             </li>
           )}
