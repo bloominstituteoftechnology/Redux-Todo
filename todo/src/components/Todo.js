@@ -1,10 +1,19 @@
 import React from 'react';
+import { toggleTodo } from '../actions';
+import { connect } from 'react-redux';
 
 const Todo = (props) => {
+
     return (
-        <span onClick={props.onClick}><input type = 'checkbox' defaultChecked = {props.completed}></input>{props.value}</span>
+        <span><input type = 'checkbox' onChange = {() => props.toggleTodo(props.id)} defaultChecked = {props.completed}></input>{props.value}</span>
 
     )
 }
 
-export default Todo;
+
+const mapStateToProps = state => {
+    return { todos: state.todos}
+}
+
+export default connect (
+    mapStateToProps, {toggleTodo})(Todo);

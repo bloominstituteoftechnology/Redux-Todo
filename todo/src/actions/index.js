@@ -11,9 +11,9 @@ export const addTodo = value => {
     }
 }
 
-export const toggleTodo = bool => {
+export const toggleTodo = id => {
     return {
         type: TOGGLE_TODO,
-        payload: !bool
+        id
     }
 }

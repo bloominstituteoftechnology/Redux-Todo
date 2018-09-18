@@ -25,8 +25,12 @@ export function ToDoReducer(state = initialState, action){
             return {...state, todos: newTodos}
 
             case TOGGLE_TODO:
-            //toggle logic
-                return state;
+            let toggleTodos = state.todos.map(todo => {
+                return todo;
+            })
+            toggleTodos[action.id].completed = !toggleTodos[action.id].completed;
+            return {...state, todos: toggleTodos}
+
 
         default: 
             return state;
