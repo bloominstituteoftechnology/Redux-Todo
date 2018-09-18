@@ -18,6 +18,7 @@ export default class Todo extends React.PureComponent {
 	}
 
 	render() {
+		console.log('todo props', this.props)
 		return(
 			<Fragment>
 				<ul>

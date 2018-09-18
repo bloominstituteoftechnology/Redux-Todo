@@ -43,6 +43,8 @@ const persistedState = localStorage.getItem('todoState') ? JSON.parse(localStora
 // add persistedState along with the reducer to the arguments when you create the store
 const store = createStore(todoReducer, persistedState);
 
+// subscribe to store change in order to save state into
+// localStorage every time an action is dispatched
 store.subscribe(() => {
 	// Check browser support for localStorage
 	if (typeof(Storage) !== 'undefined') {
