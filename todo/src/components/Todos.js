@@ -15,6 +15,11 @@ const Todos = (props) => {
                 style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
               >
                 {todo.value}
+                <button
+                  onClick={() => props.deleteTodo(todo.id)}
+                >
+                  Delete
+                </button>
               </li>
             )
           })

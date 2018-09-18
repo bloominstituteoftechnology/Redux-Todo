@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Todos from './components/Todos'
 import TodoForm from './components/TodoForm'
-import { toggleTodo, addTodo } from './actions'
+import { addTodo, toggleTodo, deleteTodo } from './actions'
 
 class App extends Component {
   render() {
@@ -12,6 +12,7 @@ class App extends Component {
         <Todos
           todos={this.props.todos}
           toggleTodo={this.props.toggleTodo}
+          deleteTodo={this.props.deleteTodo}
         />
         <TodoForm 
           addTodo={this.props.addTodo}
@@ -28,7 +29,8 @@ const mapStateToProps = (state) => ({
 
 const mapActionsToProps = {
   addTodo,
-  toggleTodo
+  toggleTodo,
+  deleteTodo
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(App)
