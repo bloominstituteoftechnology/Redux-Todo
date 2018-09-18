@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 
+import Todos from './components/Todos';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
-    return <div className="App">null</div>;
+    return (
+      console.log(this.props),
+      (
+        <div className="App">
+          <Todos todos={this.props.todos} />
+        </div>
+      )
+    );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(App);
