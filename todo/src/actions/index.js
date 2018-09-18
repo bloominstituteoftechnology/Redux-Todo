@@ -7,10 +7,3 @@ export const addTask = (task) => {
     payload: task
   };
 };
-
-export const toggleComplete = (index) => {
-  return {
-    type: TOGGLE_COMPLETE,
-    payload: index
-  };
-};
