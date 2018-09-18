@@ -1,16 +1,16 @@
 // import { TOGGLE_COMPLETED } from '../actions';
 
-export const initialState = {
+const initialState = {
     todos: [
         {
-            value: 'Finish MVP on Redux-Todo',
+            text: 'Finish MVP on Redux-Todo',
             completed: false
         }
     ]
 };
 
 
-const todosReducer = (state = initialState, action) => {
+const todos = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TASK':
             return [
@@ -22,7 +22,7 @@ const todosReducer = (state = initialState, action) => {
                 }
             ]
         case 'TOGGLE_COMPLETED':
-        const newTodos = state.todos.map(todo => todo.id === action.id)
+        const newTodos = state.map(todo => (todo.id === action.id)
          ? {...todo, completed: !todo.completed} 
          : todo )
             return {
@@ -33,4 +33,4 @@ const todosReducer = (state = initialState, action) => {
     }
 }
 
-
+export default todos;
