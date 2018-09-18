@@ -9,6 +9,7 @@ export const addTodo = text => {
 };
 
 
+
 export const toggleTodo = (id) => {
     return {
     type: TOGGLE_TODO,
@@ -16,4 +17,10 @@ export const toggleTodo = (id) => {
     }
 };
 
+export const getTodos = todos => {
+    return {
+        type: GET_TODOS,
+        payload: todos
+    };
+};
 
