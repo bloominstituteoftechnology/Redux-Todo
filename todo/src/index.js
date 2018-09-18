@@ -7,9 +7,9 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 //import reducer
-import { addTodo } from './reducer/index';
+import rootReducer from './reducers';
 
-const store = createStore(addTodo);
+const store = createStore(rootReducer);
 
 
 ReactDOM.render(
