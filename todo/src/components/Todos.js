@@ -1,15 +1,18 @@
 import React from 'react'
 
 const Todos = (props) => {
+  const items = props.todos.map(item => item.value)
   return (
     <div>
       <h2>Todos Component</h2>
       <ul>
-        {props.todos.map((todo, index) =>{
-          return (
-            <li key={`todo-${index}`}>{todo}</li>
-          )
-        })}
+        { 
+          items.map((todo, index)  =>{
+            return (
+              <li key={`todo-${index}`}>{todo}</li>
+            )
+          })
+        }
       </ul>
     </div>
   )
