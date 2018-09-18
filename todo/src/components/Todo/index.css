@@ -6,10 +6,21 @@
 }
 
 .todo {
-  font-size: 30px;
+  color: #fff;
+  min-width: 6000px;
+  font-size: 35px;
+  font-weight: 700;
   background: #2255aa;
   padding: 20px 30px;
   border: 2px solid #333;
   border-radius: 7px;
+}
+
+.complete {
+  background: #ee1122;
+}
+
+.incomplete {
+
 }
 
