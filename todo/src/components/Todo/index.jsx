@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const Todo = props => {
   return (
     <div className="todo-wrapper">
-      <div key={Math.random()}>> {props.todo.value}</div>
+      <div className="todo" key={Math.random()}>> {props.todo.value}</div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { handleInput, addTodo } from "../../actions";
-
+import './index.css';
 class TodoForm extends React.Component {
   handleChange = e => {
     this.props.handleInput(e.target.value);
