@@ -18,12 +18,6 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(event.target.name);
-  //   this.props.addTodo(this.state.todoInput);
-  // };
-
   addTodo = (event) => {
     event.preventDefault();
     const newTodo = {
@@ -35,27 +29,19 @@ class App extends Component {
     this.setState({ todoInput: '' });
   };
 
-  toggleComplete = (todo) => {
-    console.log('test');
-    this.props.toggleComplete(todo);
-  };
-
   render() {
     return (
-      console.log(this.state.todoInput),
-      (
-        <div className="App">
-          <Todos
-            todos={this.props.todos}
-            toggleComplete={this.toggleComplete}
-          />
-          <TodoForm
-            handleInput={this.handleInput}
-            addTodo={this.addTodo}
-            todoInput={this.state.todoInput}
-          />
-        </div>
-      )
+      <div className="App">
+        <Todos
+          todos={this.props.todos}
+          toggleComplete={this.props.toggleComplete}
+        />
+        <TodoForm
+          handleInput={this.handleInput}
+          addTodo={this.addTodo}
+          todoInput={this.state.todoInput}
+        />
+      </div>
     );
   }
 }

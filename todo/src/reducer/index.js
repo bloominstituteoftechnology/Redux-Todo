@@ -19,7 +19,6 @@ export function reducer(state = initialState, action) {
       });
     case TOGGLE_COMPLETE:
       return {
-        ...state,
         todos: state.todos.map((todo) => {
           if (todo === action.payload) {
             return {
