@@ -15,7 +15,7 @@ class TodoForm extends React.Component {
   render() {
     return (
       <div id="myDIV" class="header">
-        <h2>My To Do List</h2>
+        <h2>TODO LIST - REDUX</h2>
         <input
           type="text"
           value={this.props.input}
