@@ -13,8 +13,7 @@ export default (state, action) => {
 
 			return {
 				...state, 
-				todoList: newTodoList, 
-				inputText: ''
+				todoList: newTodoList
 			};
 		} // end case HANDLE_SUBMIT
 

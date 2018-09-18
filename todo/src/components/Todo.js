@@ -43,6 +43,7 @@ export default class Todo extends React.PureComponent {
 	}
 
 	render() {
+		console.log(this.props)
 		return(
 			<div className = 'todo-div'>
 				<div className = 'todo-list'>
@@ -83,6 +84,7 @@ export default class Todo extends React.PureComponent {
 Todo.propTypes = {
 	deleteItem: PropTypes.func,
 	handleSubmit: PropTypes.func,
+	removeAllCompleted: PropTypes.func,
 	todoList: PropTypes.arrayOf(PropTypes.shape({
 		value: PropTypes.string,
 		completed: PropTypes.bool
