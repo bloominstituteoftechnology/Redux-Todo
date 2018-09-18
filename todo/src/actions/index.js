@@ -1,4 +1,5 @@
 export const ADD_TODO = 'ADD_TODO';
+export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
 export const addTodo = newTodo => {
   console.log('in action: addTodo');
@@ -7,4 +8,10 @@ export const addTodo = newTodo => {
     payload: newTodo
   }
 
+}
+
+export const toggleComplete = () => {
+  return {
+    type: TOGGLE_COMPLETE
+  }
 }

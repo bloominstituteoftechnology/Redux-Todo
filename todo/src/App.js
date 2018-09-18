@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from './actions';
-import Todo from './components/Todo';
+import { addTodo, toggleComplete } from './actions';
+
 import Todos from './components/Todos';
 import TodoForm from './components/TodoForm';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,14 +26,28 @@ class App extends Component {
     console.log("this is what was sent using addTodo:", newTodo);
   };
 
+  changeCompleted = () => {
+
+  }
+
   handleInput = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   };
 
+  handleClick = (event, id) => {
+    event.preventDefault();
+    console.log("clicked on:", id);
+    toggleComplete(id);
+
+}
+
   render() {
 return (
   <div className="App">
-  <Todos todos={this.props.todos} />
+  <Todos
+    todos={this.props.todos}
+    handleClick={this.handleClick}
+    />
   <TodoForm
     handleInput={this.handleInput}
     todoInput={this.state.todoInput}
@@ -50,4 +65,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addTodo })(App);
+export default connect(mapStateToProps, { addTodo, toggleComplete })(App);
