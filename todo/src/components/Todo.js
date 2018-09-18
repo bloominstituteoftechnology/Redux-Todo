@@ -1,6 +1,9 @@
 // React
 import React, { Fragment } from 'react';
 
+// Dependencies
+import PropTypes from 'prop-types';
+
 // Styles
 import './Todo.css';
 
@@ -50,3 +53,15 @@ export default class Todo extends React.PureComponent {
 		);
 	}
 };
+
+Todo.propTypes = {
+	deleteItem: PropTypes.func,
+	handleInputChange: PropTypes.func,
+	handleSubmit: PropTypes.func,
+	inputText: PropTypes.string,
+	todoList: PropTypes.arrayOf(PropTypes.shape({
+		value: PropTypes.string,
+		completed: PropTypes.bool
+	})),
+	toggleCompleted: PropTypes.func
+}
