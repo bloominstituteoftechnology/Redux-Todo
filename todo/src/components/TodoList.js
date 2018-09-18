@@ -8,7 +8,7 @@ const TodoList = (props) => {
                  {props.todos.map((todo)=> {
                      return (
                       <li
-                        onClick={() => props.toggleTodo.id}
+                        onClick={() => props.toggleTodo(todo.id)}
                         key={todo.id}                        
                         style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}
                         >
