@@ -3,7 +3,7 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-    switch(action.type) {
+  switch(action.type) {
       case('ADD_TODO'):
           return{
               todos: [...state.todos, action.payload]
@@ -17,8 +17,10 @@ export default (state = initialState, action) => {
                   return item; 
               }
           })
-          return {
+         return {
             todos: updatedToggles
-          }
-  }
-}
+         }
+     default: 
+         return state;
+ }
+} 
