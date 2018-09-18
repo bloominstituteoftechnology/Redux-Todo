@@ -13,9 +13,9 @@ class TodoList extends Component {
 		});
 	};
 
-	submitHandler = (event, todoText) => {
+	submitHandler = event => {
 		event.preventDefault();
-		this.props.addTodo(todoText);
+		this.props.addTodo(this.state.todoText);
 		this.setState({
 			todoText: ''
 		});
@@ -34,10 +34,7 @@ class TodoList extends Component {
 						/>
 					))}
 				</ul>
-				<form
-					className="todo-form"
-					onSubmit={event => this.submitHandler(event, this.state.todoText)}
-				>
+				<form className="todo-form" onSubmit={this.submitHandler}>
 					<input
 						type="text"
 						required
