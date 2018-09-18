@@ -5,9 +5,9 @@ const Todos = (props) => {
     <div>
       <h2>Todos Component</h2>
       <ul>
-        {props.todos.map(todo =>{
+        {props.todos.map((todo, index) =>{
           return (
-            <li>{todo}</li>
+            <li key={`todo-${index}`}>{todo}</li>
           )
         })}
       </ul>

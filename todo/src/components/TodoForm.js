@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addTodo } from '../actions'
 
-export default class TodoForm extends Component {
+class TodoForm extends Component {
   state = {
     newTodo: ''
   }
@@ -11,19 +13,34 @@ export default class TodoForm extends Component {
     })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const newTodo = {
+      newTodo: this.state.newTodo
+    }
+    this.props.addTodo(newTodo)
+  }
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             name="newTodo"
+            type="text"
             placeholder="New Todo"
             value={this.state.newTodo}
-            onChange={(e) => this.handleInput(e)}
+            onChange={this.handleInput}
           />
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     )
   }
 }
+
+const mapActionsToProps = {
+  addTodo
+}
+
+export default connect(null, mapActionsToProps)(TodoForm)
