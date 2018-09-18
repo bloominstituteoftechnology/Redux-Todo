@@ -1,12 +1,8 @@
 // Actions
-import { HANDLE_INPUT_CHANGE, HANDLE_SUBMIT, TOGGLE_COMPLETED, DELETE_ITEM, REMOVE_ALL_COMPLETED } from '../actions/TodoActions';
+import { HANDLE_SUBMIT, TOGGLE_COMPLETED, DELETE_ITEM, REMOVE_ALL_COMPLETED } from '../actions/TodoActions';
 
 export default (state, action) => {
 	switch(action.type) {
-		case HANDLE_INPUT_CHANGE: {
-			return {...state, inputText: action.payload};
-		} // end case HANDLE_INPUT_CHANGE
-
 		case HANDLE_SUBMIT: {
 			const newTodoList = [...state.todoList];
 			

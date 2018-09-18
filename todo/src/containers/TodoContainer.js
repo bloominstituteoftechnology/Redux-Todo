@@ -2,16 +2,15 @@
 import { connect } from 'react-redux';
 
 // Action Creators
-import { handleInputChange, handleSubmit, toggleCompleted, deleteItem, removeAllCompleted } from '../actions/TodoActions';
+import { handleSubmit, toggleCompleted, deleteItem, removeAllCompleted } from '../actions/TodoActions';
 
 // Component
 import Todo from '../components/Todo';
 
 const mapStateToProps = state => {
     return {
-        todoList: state.todoList,
-        inputText: state.inputText
+        todoList: state.todoList
     };
 }
 
-export default connect(mapStateToProps, { handleInputChange, handleSubmit, toggleCompleted, deleteItem, removeAllCompleted })(Todo);
+export default connect(mapStateToProps, { handleSubmit, toggleCompleted, deleteItem, removeAllCompleted })(Todo);

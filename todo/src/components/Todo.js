@@ -10,10 +10,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Input, Button } from 'reactstrap';
 
 export default class Todo extends React.PureComponent {
+	state = {
+		inputText: ''
+	}
+
+	handleInputChange(value) {
+		return this.setState({...this.state, inputText: value});
+	}
+
 	handleSubmit(e) {
 		e.preventDefault();
 
 		this.props.handleSubmit(e.target[0].value);
+
+		this.setState({...this.state, inputText: ''});
 	}
 
 	checkCompleted() {
@@ -43,7 +53,7 @@ export default class Todo extends React.PureComponent {
 								onClick = { e => this.props.toggleCompleted(e.target.id) } 
 								key = { `item-task-${ i }` } 
 								className = 'list-item' 
-								style = { item.completed ? { textDecoration: 'line-through' } : {}}
+								style = { item.completed ? { textDecoration: 'line-through' } : {} }
 							>{ item.value }</div>
 
 							<Button 
@@ -57,8 +67,8 @@ export default class Todo extends React.PureComponent {
 
 				<Form className = 'todo-form' onSubmit = { e => this.handleSubmit(e) }>
 					<Input 
-						value = { this.props.inputText } 
-						onChange = { e => this.props.handleInputChange(e.target.value) }
+						value = { this.state.inputText } 
+						onChange = { e => this.handleInputChange(e.target.value) }
 					/>
 
 					<Button color = 'primary' type = 'submit'>Add Task</Button>
@@ -72,9 +82,7 @@ export default class Todo extends React.PureComponent {
 
 Todo.propTypes = {
 	deleteItem: PropTypes.func,
-	handleInputChange: PropTypes.func,
 	handleSubmit: PropTypes.func,
-	inputText: PropTypes.string,
 	todoList: PropTypes.arrayOf(PropTypes.shape({
 		value: PropTypes.string,
 		completed: PropTypes.bool

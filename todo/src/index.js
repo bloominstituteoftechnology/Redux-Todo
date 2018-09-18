@@ -32,8 +32,7 @@ const defaultState = {
 			value: 'Do the laundry',
 			completed: false
 		}
-	],
-	inputText: ''
+	]
 };
 
 // if you have a todoState saved in your localStorage, parse it into an object and
