@@ -1,3 +1,5 @@
+import { ADD_TODO } from '../action';
+
 const initialState = {
   todos: [
     {
@@ -9,8 +11,11 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action) {
-  console.log('in reducer: ');
   switch (action.type) {
+    case ADD_TODO:
+      return Object.assign({}, state, {
+        todos: [...state.todos, action.payload],
+      });
     default:
       return state;
   }
