@@ -4,7 +4,7 @@ import './App.css';
 
 import Todos from './components/Todos';
 import TodoForm from './components/TodoForm';
-import { addTodo } from './action';
+import { addTodo, toggleComplete } from './action';
 
 class App extends Component {
   constructor(props) {
@@ -35,12 +35,20 @@ class App extends Component {
     this.setState({ todoInput: '' });
   };
 
+  toggleComplete = (todo) => {
+    console.log('test');
+    this.props.toggleComplete(todo);
+  };
+
   render() {
     return (
       console.log(this.state.todoInput),
       (
         <div className="App">
-          <Todos todos={this.props.todos} />
+          <Todos
+            todos={this.props.todos}
+            toggleComplete={this.toggleComplete}
+          />
           <TodoForm
             handleInput={this.handleInput}
             addTodo={this.addTodo}
@@ -60,5 +68,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleComplete }
 )(App);

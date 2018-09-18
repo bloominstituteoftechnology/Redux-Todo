@@ -5,7 +5,7 @@ function Todos(props) {
   return (
     <ul>
       {props.todos.map((todo) => (
-        <Todo key={todo.id} todo={todo} />
+        <Todo key={todo.id} todo={todo} toggleComplete={props.toggleComplete} />
       ))}
     </ul>
   );
