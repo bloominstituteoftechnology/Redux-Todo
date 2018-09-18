@@ -2,10 +2,20 @@
 import { HANDLE_INPUT_CHANGE, HANDLE_SUBMIT, TOGGLE_COMPLETED, DELETE_ITEM } from '../actions/TodoActions';
 
 const initialState = {
-	todoList: [{
-		value: 'abc',
-		completed: false
-	}],
+	todoList: [
+		{
+			value: 'Take out the trash',
+			completed: false
+		},
+		{
+			value: 'Wash the dishes',
+			completed: false
+		},
+		{
+			value: 'Do the laundry',
+			completed: false
+		}
+	],
 	inputText: ''
 };
 
