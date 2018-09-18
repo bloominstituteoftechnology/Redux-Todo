@@ -5,7 +5,7 @@ import Todos from "./components/Todos";
 import { Provider } from "react-redux";
 import { connect } from "react-redux";
 import TodoForm from "./components/TodoForm";
-import { handleChange, addTodo } from "./actions";
+import { handleChange, addTodo, toggleCompleted } from "./actions";
 
 class App extends Component {
   handleEvent(e) {
@@ -22,7 +22,10 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Todo Application:</h1>
         </header>
-        <Todos todos={this.props.todos} />
+        <Todos
+          toggleCompleted={this.props.toggleCompleted}
+          todos={this.props.todos}
+        />
         <TodoForm
           handleChange={this.handleEvent.bind(this)}
           addTodo={this.props.addTodo}
@@ -43,5 +46,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { handleChange, addTodo }
+  { handleChange, addTodo, toggleCompleted }
 )(App);

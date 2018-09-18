@@ -12,10 +12,22 @@ export const initialState = {
 export function todoReducer(state = initialState, action) {
   switch (action.type) {
     //add actions
+
+    case "TOGGLE_COMPLETED":
+      let tmpId = action.payload;
+      let todo = state.todos.find(todo => todo.id === tmpId);
+
+      console.log(todo.value + " has been completed");
+      todo.completed = !todo.completed;
+
+      //returning state object with modified completed property.. is this fine?
+      return { ...state };
+
     case "ADD_TODO":
       console.log("add a todo");
+      let id = state.todos.length + 1;
       let newTodo = {
-        id: 1,
+        id: id,
         value: action.payload,
         completed: false
       };

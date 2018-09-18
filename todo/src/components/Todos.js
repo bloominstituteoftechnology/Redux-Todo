@@ -4,7 +4,9 @@ const Todos = props => {
   return (
     <div className="todo-list">
       {props.todos.map(todo => (
-        <div className="todo">{todo.value}</div>
+        <div onClick={e => props.toggleCompleted(todo.id)} className="todo">
+          {todo.value}
+        </div>
       ))}
     </div>
   );
