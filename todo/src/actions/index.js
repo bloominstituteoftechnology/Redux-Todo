@@ -14,3 +14,11 @@ export const addTodo = () => {
     type: 'ADD_TODO'
   }
 }
+
+// togle todo takes in an id and returns a TOGGLE_TODO action and a payload id
+export const toggleTodo = id => {
+  return {
+    type: 'TOGGLE_TODO',
+    payload: id
+  }
+}

@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleTodo } from '../actions';
+import { toggleTodo } from '../../actions';
+import './index.css';
 
 const Todo = props => {
   return (
     <div className="todo-wrapper">
-      <div className="todo" key={Math.random()} onClick={() => props.toggleTodo(props.todo.id)} className={props.todo.completed ? "complete" : "incomplete"}>> {props.todo.value}</div>
+      <div className="todo" key={Math.random()} onClick={() => props.toggleTodo(props.todo.id)} className={props.todo.completed ? "complete todo" : "incomplete todo"}>> {props.todo.value}</div>
     </div>
   );
 };

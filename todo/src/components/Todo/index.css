@@ -1,0 +1,15 @@
+.todo-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.todo {
+  font-size: 30px;
+  background: #2255aa;
+  padding: 20px 30px;
+  border: 2px solid #333;
+  border-radius: 7px;
+}
+

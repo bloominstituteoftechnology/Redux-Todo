@@ -11,7 +11,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    
     case "HANDLE_INPUT":
       return Object.assign({}, state, { input: action.payload });
 
@@ -27,14 +26,28 @@ export default (state = initialState, action) => {
       // set the next todo object up
       let nextTodo = { id: nextId, value: state.input, completed: false };
       // take a clice of the todos
-      let addTodos = state.todos.slice()
+      let addTodos = state.todos.slice();
 
       // push the next todo in to the addTodos
       addTodos.push(nextTodo);
 
       // update the store using object assign
-      return Object.assign({}, state, { todos: addTodos, input: '' });
+      return Object.assign({}, state, { todos: addTodos, input: "" });
+    
+    case "TOGGLE_TODO":
+      // slice up the todos
+      let toggleTodos = state.todos.slice();
 
+      // map over the todos and toggle the completed state of each one with the id from payload
+      toggleTodos.map(todo => {
+        if (todo.id === action.payload) {
+          todo.completed = !todo.completed;
+          return todo;
+        }
+        return todo;
+      });
+      // return the toggled state of todos back to the caller
+      return Object.assign({}, state, { todos: toggleTodos });
     default:
       return state;
   }
