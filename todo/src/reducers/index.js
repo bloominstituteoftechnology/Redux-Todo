@@ -8,7 +8,7 @@ import {
 const initialState = {
   todoList: [
     {
-      value: '',
+      value: 'ListItem',
       completed: false
     }
   ],
