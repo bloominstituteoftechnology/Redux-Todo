@@ -1,4 +1,7 @@
-import { ADD_TODO, TOGGLE_COMPLETED, DELETE_COMPLETED } from '../actions';
+import { ADD_TODO,
+        TOGGLE_COMPLETED,
+        DELETE_COMPLETED,
+        DELETE_ITEM } from '../actions';
 
 // Our reducer that handles our two action cases:
 // increment and decrement. It receives the state
@@ -15,6 +18,8 @@ export default (todos = [{value: 'Walk the dog.', completed: false, id:Date.now(
         : todo )
     case DELETE_COMPLETED:
       return todos.filter( todo => !todo.completed )
+    case DELETE_ITEM:
+      return todos.filter( todo => todo.id !== action.id )
     default:
       return todos;
   }

@@ -7,7 +7,7 @@ import { add_todo, toggle_completed } from '../actions'
 import SubmitForm from './SubmitForm'
 import TaskList from './TaskList'
 
-class Todo extends Component {
+class TodoApp extends Component {
 
   state = {
     todo: ''
@@ -44,4 +44,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {add_todo, toggle_completed})(Todo);
+export default connect(mapStateToProps, {add_todo, toggle_completed})(TodoApp);
