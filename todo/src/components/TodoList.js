@@ -23,7 +23,14 @@ class TodoList extends React.Component {
         <h1>Todo List</h1>
         <form>
           <input placeholder="Todo" value={this.state.inputValue} onChange={this.onChange}/>
-          <button type='submit' onClick={(event)=> { event.preventDefault(); this.props.addTodo(this.state.inputValue)}}>Add Todo</button>
+          <button 
+            type='submit' 
+            onClick={(event)=> { 
+              event.preventDefault(); 
+              this.props.addTodo(this.state.inputValue);
+              this.setState({inputValue: ''})
+            }}
+          >Add Todo</button>
         </form> 
         <ul>
           <Todo todos={this.props.todos} toggleCompleted={this.props.toggleCompleted} />   

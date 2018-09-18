@@ -1,18 +1,7 @@
 import { ADD_TODO, TOOGLE_COMPLETED } from '../actions';
 
 export const initialState = {
-  todos: [
-    {
-      id: 0,
-      value: 'Walk the dog.',
-      completed: false
-    },
-    {
-      id: 1,
-      value: 'Walk',
-      completed: false
-    }
-  ]
+  todos: []
 }
 
 export function todoReducers(state = initialState, action) {
@@ -20,8 +9,8 @@ export function todoReducers(state = initialState, action) {
     case ADD_TODO:
       return {todos: [...state.todos,
         { 
-          id: state.todos.length,  
-          value: action.payload,
+          id: action.id,  
+          value: action.text,
           completed: false,
         }
       ]}
