@@ -1,5 +1,5 @@
 // React
-import React, { Fragment } from 'react';
+import React from 'react';
 
 // Dependencies
 import PropTypes from 'prop-types';
@@ -21,26 +21,25 @@ export default class Todo extends React.PureComponent {
 	}
 
 	render() {
-		console.log('todo props', this.props)
 		return(
-			<Fragment>
-				<ul>
+			<div className = 'todo-div'>
+				<div className = 'todo-unordered-list'>
 					{ this.props.todoList.map((item, i) => 
 						<div key = { `item-div-${ i }` }>
-							<li 
+							<div 
 								id = { i } 
 								onClick = { e => this.props.toggleCompleted(e.target.id) } 
 								key = { `item-li-${ i }` } 
 								className = 'list-item' 
 								style = { item.completed ? { textDecoration: 'line-through' } : {}}
-							>{ item.value }</li>
+							>{ item.value }</div>
 							<span 
 								key = { `item-span-${ i }` } 
 								onClick = { () => this.props.deleteItem(i) }
 							>X</span>
 						</div>
 					) }
-				</ul>
+				</div>
 
 				<form onSubmit = { e => this.handleSubmit(e) }>
 					<input 
@@ -49,7 +48,7 @@ export default class Todo extends React.PureComponent {
 					/>
 					<button type = 'submit'>Add</button>
 				</form>
-			</Fragment>
+			</div>
 		);
 	}
 };

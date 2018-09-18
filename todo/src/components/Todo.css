@@ -1,3 +1,16 @@
-.list-item {
+.todo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.todo-div .todo-unordered-list {
+    width: fit-content;
+    margin-bottom: 40px;
+}
+
+.todo-div .todo-unordered-list .list-item {
     display: inline-block;
 }
