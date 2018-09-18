@@ -1,19 +1,26 @@
-
-
 export const initialState = {
   todos: [
     {
-      value: 'walk the dog', // will change this later
+      id: 0,
+      task: 'Do not die',
       completed: false
     }
-  ]  
-};
+  ],
+  inputText: ''
+}
 
 export function todoReducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
 
+    case 'ADD_TODO':
+      return {
+        ...state,
+        todo: [...state.todo, action.payload]
+      }
+
+     case 'HANDLE_CHANGE':
+      return { ...state, inputText: action.payload };
     
-
     default:
       return state;
   }
