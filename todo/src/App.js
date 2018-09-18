@@ -1,21 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import { addTodo } from "./actions";
+import { connect } from 'react-redux';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: '',
+    }
+  }
+
+  addInputValueHandler = (event) => {
+    this.setState({
+      inputValue: event.target.value
+    })
+  }
+
+  submitFormDataHandler = (event) => {
+    const newTask = {
+      id: new Date(),
+      task: this.state.inputValue,
+      completed: false
+    }
+
+    this.props.addTodo(newTask);
+
+    this.setState({
+      inputValue: '',
+    })
+
+  }
+
   render() {
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <TodoList />
+        <TodoForm submitData={this.submitFormDataHandler} value={this.state.inputValue} change={this.addInputValueHandler} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps=(state) => {
+  return {
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps, { addTodo })(App);
+ 
