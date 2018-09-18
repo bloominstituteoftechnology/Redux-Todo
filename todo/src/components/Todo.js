@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 
 import { connect } from 'react-redux';
-import { add_todo } from '../actions'
+import { add_todo, toggle_completed } from '../actions'
 
 class Todo extends Component {
   // constructor() {
@@ -37,7 +37,11 @@ class Todo extends Component {
         <div className='todo-list'>
           <ul>
             todo list goes here
-          {this.props.todos.map(item => <li>{item.value}</li>)}
+          {this.props.todos.map(item =>
+            <li onClick={this.props.toggle_completed}>
+              {item.value}
+            </li>
+          )}
           </ul>
         </div>
       </div>
@@ -51,4 +55,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {add_todo})(Todo);
+export default connect(mapStateToProps, {add_todo, toggle_completed})(Todo);
