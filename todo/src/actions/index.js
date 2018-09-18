@@ -22,3 +22,11 @@ export const toggleTodo = id => {
     payload: id
   }
 }
+
+// delete todo takes in an id and returns a DELETE_TODO with a payload of id
+export const deleteTodo = id => {
+  return {
+    type: 'DELETE_TODO',
+    payload: id
+  }
+}

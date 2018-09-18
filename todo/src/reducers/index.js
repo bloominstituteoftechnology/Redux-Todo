@@ -48,6 +48,12 @@ export default (state = initialState, action) => {
       });
       // return the toggled state of todos back to the caller
       return Object.assign({}, state, { todos: toggleTodos });
+    
+      
+    case 'DELETE_TODO':
+      let deleteTodos = state.todos.slice().filter(todo => todo.id !== action.payload);
+      return Object.assign({}, state, { todos: deleteTodos });
+
     default:
       return state;
   }
