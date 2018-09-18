@@ -1,38 +1,28 @@
-import { ADD_TODO } from '../actions'
+import { ADD_TODO, TOGGLE_TODO } from '../actions'
 
 const initialState = {
   todos: [
     {
+      id: 1,
       value: "Code Challenge",
       completed: false
     },
     {
+      id: 2,
       value: "Morning Standup",
       completed: false
     },
-    {
-      value: "Lecture",
-      completed: false
-    },
-    {
-      value: "Project Time",
-      completed: false
-    },
-    {
-      value: "Evening Standup",
-      completed: false
-    }
   ]
 }
 
 export default function (state = initialState, action) {
   switch(action.type) {
     case ADD_TODO:
-    console.log(action)
       return {
         ...state,
         todos: [...state.todos, action.payload]
       }
+    case TOGGLE_TODO:
     default:
       return state
   }

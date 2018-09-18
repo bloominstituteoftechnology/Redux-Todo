@@ -9,7 +9,12 @@ const Todos = (props) => {
         { 
           items.map((todo, index)  =>{
             return (
-              <li key={`todo-${index}`}>{todo}</li>
+              <li
+                key={`todo-${index}`}
+                onClick={() => props.toggleTodo(index)}
+              >
+                {todo}
+              </li>
             )
           })
         }

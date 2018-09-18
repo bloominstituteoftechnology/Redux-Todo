@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../actions'
 
 class TodoForm extends Component {
   state = {
@@ -40,8 +38,4 @@ class TodoForm extends Component {
   }
 }
 
-const mapActionsToProps = {
-  addTodo
-}
-
-export default connect(null, mapActionsToProps)(TodoForm)
+export default TodoForm
