@@ -19,17 +19,17 @@ export function ToDoReducer(state = initialState, action){
         case ADD_TODO:
             let newTodos = state.todos.map(todo => {
                 return todo;
-            })
+            });
             let newTask = {value: action.value, completed: false, id: action.id}
             newTodos.push(newTask);
-            return {...state, todos: newTodos}
+            return {...state, todos: newTodos};
 
-            case TOGGLE_TODO:
+        case TOGGLE_TODO:
             let toggleTodos = state.todos.map(todo => {
                 return todo;
             })
             toggleTodos[action.id].completed = !toggleTodos[action.id].completed;
-            return {...state, todos: toggleTodos}
+            return {...state, todos: toggleTodos};
 
 
         default: 

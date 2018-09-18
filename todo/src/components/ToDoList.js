@@ -15,13 +15,12 @@ const ToDoList = (props) => {
             })}
 
         </div>
-    )
-}
+    );
+};
 
 
 const mapStateToProps = state => {
     return { todos: state.todos}
-}
+};
 
-export default connect (
-    mapStateToProps)(ToDoList);
+export default connect (mapStateToProps)(ToDoList);

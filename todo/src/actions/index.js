@@ -8,12 +8,12 @@ export const addTodo = value => {
         type: ADD_TODO,
         value,
         id: nextID++    
-    }
-}
+    };
+};
 
 export const toggleTodo = id => {
     return {
         type: TOGGLE_TODO,
         id
-    }
-}
+    };
+};

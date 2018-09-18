@@ -9,12 +9,12 @@ class App extends Component {
       <div className="App">
         
         <AddTodo />
-        
+
         <ToDoList />
         
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;
