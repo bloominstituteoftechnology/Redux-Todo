@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { handleInput, addTodo } from "../../actions";
-import './index.css';
+import "./index.css";
 class TodoForm extends React.Component {
   handleChange = e => {
     this.props.handleInput(e.target.value);
@@ -14,17 +14,19 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <div id="myDIV" class="header">
+        <h2>My To Do List</h2>
         <input
           type="text"
-          placeholder="add a todo here..."
-          onChange={this.handleChange}
           value={this.props.input}
+          id="myInput"
+          placeholder="Title..."
+          onChange={this.handleChange}
         />
-        <div className="buttons-wrapper">
-          <button className="btn-add" onClick={this.handleSubmit}>Add todo</button>
-        </div>
-      </form>
+        <span onClick={this.handleSubmit} className="addBtn">
+          Add
+        </span>
+      </div>
     );
   }
 }
