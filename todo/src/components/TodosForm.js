@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-export default class TodosForm extends Component {
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
+class TodosForm extends Component {
   state = { inputText: '' };
 
   submitHandler = event => {
@@ -8,12 +10,27 @@ export default class TodosForm extends Component {
     this.setState({ inputText: '' });
   };
 
+  handleInput = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   render() {
     return (
       <form onSubmit={this.submitHandler}>
         <input type="submit" />
-        <input type="text" onChange={props.handleInput} />
+        <input
+          type="text"
+          name="inputText"
+          required
+          onChange={this.handleInput}
+        />
       </form>
     );
   }
 }
+
+// const mapDispatchToProps = {
+//   addTodo
+// };
+
+export default connect({ addTodo })(TodosForm);
