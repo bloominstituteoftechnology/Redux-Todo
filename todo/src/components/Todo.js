@@ -4,6 +4,8 @@ import '../App.css';
 
 import { connect } from 'react-redux';
 import { add_todo, toggle_completed } from '../actions'
+import SubmitForm from './SubmitForm'
+import TaskList from './TaskList'
 
 class Todo extends Component {
 
@@ -15,40 +17,22 @@ class Todo extends Component {
     this.setState({todo: event.target.value})
   }
 
+  reset = () => this.setState({todo:''})
+
   render() {
-    console.log(this.props);
-    console.log(this.state.todo);
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Your Day's Tasks</h1>
         </header>
-        <form onSubmit={ e =>
-          {e.preventDefault()
-            this.props.add_todo(this.state.todo)
-          }}>
-          <input
-            type='text'
-            value={this.state.todo}
-            placeholder='new task...'
-            onChange={this.inputChange}></input>
-          <input type='submit' value='Add Task'></input>
-        </form>
-        <div className='todo-list'>
-          <ul>
-            todo list goes here
-          {this.props.todos.map(item =>
-            <li onClick={ e => {
-              e.preventDefault()
-              this.props.toggle_completed(item.id)
-            }
-            }>
-              {item.value}
-            </li>
-          )}
-          </ul>
-        </div>
+        <SubmitForm
+          value={this.state.todo}
+          inputChange={this.inputChange}
+          reset={this.reset}
+        />
+        <TaskList  todos={this.props.todos}
+        />
       </div>
     );
   }
