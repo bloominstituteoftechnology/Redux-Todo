@@ -15,6 +15,11 @@ class TodoForm extends React.Component {
     this.setState({ value: e.target.value });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.addTodo();
+  }
+
   render() {
     return (
       <div>
@@ -27,10 +32,16 @@ class TodoForm extends React.Component {
             name="value"
           />
         </form>
-        <button>Add Todo</button>
+        <button className="btn-add" onClick={this.handleSubmit}>Add todo</button>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+    input: state.input
+  }
+}
 
-export default TodoForm;
+export default connect(mapStateToProps, { handleInput, addTodo })(TodoForm);
