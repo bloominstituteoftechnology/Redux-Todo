@@ -11,7 +11,7 @@ const ToDoList = (props) => {
             
             {props.todos.map(todo => {
                 return (
-                <Todo key = {todo.value} value = {todo.value} completed = {todo.completed}/>
+                <Todo key = {todo.id} value = {todo.value} completed = {todo.completed} onClick={toggleTodo}/>
                 )
             })}
 

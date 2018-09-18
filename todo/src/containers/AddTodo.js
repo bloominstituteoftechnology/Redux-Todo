@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 
-const AddTodo = ({dispatch}) => {
+const AddTodo = (props) => {
     let input;
 
     return (
         <div>
             <form onSubmit={event => {
                 event.preventDefault();
-                dispatch(addTodo(input.value));
+                props.addTodo(input.value);
                 input.value = '';
             }}>
             <input type = 'text' placeholder='New task' ref={node => input = node}></input>
@@ -20,4 +20,10 @@ const AddTodo = ({dispatch}) => {
     )
 }
 
-export default connect()(AddTodo);
+
+const mapStateToProps = state => {
+    return { todos: state.todos}
+}
+
+
+export default connect(mapStateToProps, {addTodo})(AddTodo);
