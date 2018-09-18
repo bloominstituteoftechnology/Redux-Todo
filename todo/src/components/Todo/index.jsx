@@ -1,14 +1,14 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
 const Todo = props => {
   return (
     <div className="todo-wrapper">
-      TODO
+      <div key={Math.random()}>> {props.todo.value}</div>
     </div>
   );
-}
+};
 
-const mapStateToProps = (state) => { }
+const mapStateToProps = state => {};
 
 export default connect(mapStateToProps, {})(Todo);
