@@ -7,8 +7,9 @@ const TodoForm = (props) => {
       type="text"
       name="todoInput"
       onChange={props.handleInput}
+      value={props.todoInput}
       />
-      <button onClick={props.addTodo}>Add Todo</button>
+      <button onClick={(event) => props.addTodo(event)}>Add Todo</button>
     </form>
   )
 };
