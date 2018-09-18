@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 
 // Styles
 import './Todo.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form, Input, Button } from 'reactstrap';
 
 export default class Todo extends React.PureComponent {
 	handleInputChange(e) {
@@ -23,31 +25,34 @@ export default class Todo extends React.PureComponent {
 	render() {
 		return(
 			<div className = 'todo-div'>
-				<div className = 'todo-unordered-list'>
+				<div className = 'todo-list'>
 					{ this.props.todoList.map((item, i) => 
 						<div key = { `item-div-${ i }` }>
 							<div 
 								id = { i } 
 								onClick = { e => this.props.toggleCompleted(e.target.id) } 
-								key = { `item-li-${ i }` } 
+								key = { `item-task-${ i }` } 
 								className = 'list-item' 
 								style = { item.completed ? { textDecoration: 'line-through' } : {}}
 							>{ item.value }</div>
-							<span 
+
+							<Button 
+								color = 'danger' 
 								key = { `item-span-${ i }` } 
 								onClick = { () => this.props.deleteItem(i) }
-							>X</span>
+							>X</Button>
 						</div>
 					) }
 				</div>
 
-				<form onSubmit = { e => this.handleSubmit(e) }>
-					<input 
+				<Form className = 'todo-form' onSubmit = { e => this.handleSubmit(e) }>
+					<Input 
 						value = { this.props.inputText } 
 						onChange = { e => this.handleInputChange(e) }
 					/>
-					<button type = 'submit'>Add</button>
-				</form>
+
+					<Button color = 'primary' type = 'submit'>Add Task</Button>
+				</Form>
 			</div>
 		);
 	}

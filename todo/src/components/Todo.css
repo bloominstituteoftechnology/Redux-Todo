@@ -6,11 +6,30 @@
     flex-direction: column;
 }
 
-.todo-div .todo-unordered-list {
+.todo-div .todo-list {
     width: fit-content;
     margin-bottom: 40px;
 }
 
-.todo-div .todo-unordered-list .list-item {
+.todo-div .todo-list .list-item {
     display: inline-block;
+    font-size: 1.2rem;
+    margin: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.todo-div .todo-list .list-item:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.todo-div .todo-form {
+    background: #444;
+    display: flex;
+}
+
+.todo-div .todo-form * {
+    margin: 10px;
 }
