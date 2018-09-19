@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo } from '../store/actions';
+import { addTodo, toggleTodo } from '../store/actions';
 
 import TodoList from '../components/TodoList'
 
@@ -19,11 +19,16 @@ class TodoContainer extends Component {
         this.props.addTodo(this.state.inputText);
     }
 
+    toggleTodo = index => {
+        this.props.toggleTodo(index);
+    }
+
     render() {
     return (
     <TodoList 
         handleChange={this.handleChange} 
         inputText={this.state.inputText} 
+        toggleTodo={this.toggleTodo}
         todosList={this.props.todos}
         addTodo={this.addTodo}
     />);
@@ -34,4 +39,4 @@ const mapStateToProps = state => ({
     todos: state.todos,
 });
 
-export default connect(mapStateToProps, {addTodo})(TodoContainer); // currying
+export default connect(mapStateToProps, {addTodo, toggleTodo})(TodoContainer); // currying

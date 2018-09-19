@@ -11,3 +11,11 @@ export const addTodo = todo => {
         }
     }
 };
+
+// Toggle the complted true/false
+export const toggleTodo = index => {
+    return {
+        type: TOGGLE_TODO,
+        payload: index,
+    }
+}

@@ -7,9 +7,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { todoReducer } from './store/reducers'
 
-//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-
-const store = createStore(todoReducer);
+const store = createStore(todoReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
