@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodo, deleteCompleted } from '../actions';
 
 class TodoForm extends Component {
     constructor(props) {
@@ -29,6 +29,7 @@ class TodoForm extends Component {
             <form onSubmit={ (e) => this.submitHandler(e) }>
                 <input type='text' value={this.state.fieldInput} onChange={this.inputHandler} />
                 <input type='submit' value='Add toDo' />
+                <button onClick={this.props.deleteCompleted} >Delete Completed</button>
             </form>
         );
     }
@@ -39,4 +40,4 @@ TodoForm.propTypes = {
     addTodo: PropTypes.func.isRequired
 };
 
-export default connect(null, { addTodo })(TodoForm);
+export default connect(null, { addTodo, deleteCompleted })(TodoForm);

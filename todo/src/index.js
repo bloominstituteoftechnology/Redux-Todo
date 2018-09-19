@@ -18,6 +18,5 @@ injectGlobal`
 const reduxDevToolsHook = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = createStore(todosReducer, reduxDevToolsHook);
 
-
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 // registerServiceWorker();
