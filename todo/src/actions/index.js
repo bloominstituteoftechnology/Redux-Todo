@@ -1,5 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const REMOVE_TODO = 'REMOVE_TODO';
 
 export const addTodo = newTodo => {
   console.log('in action: addTodo');
@@ -10,8 +11,16 @@ export const addTodo = newTodo => {
 
 }
 
-export const toggleComplete = () => {
+export const toggleComplete = (id) => {
   return {
-    type: TOGGLE_COMPLETE
+    type: TOGGLE_COMPLETE,
+    payload: id
+  }
+}
+
+export const removeTodo = (id) => {
+  return {
+    type: REMOVE_TODO,
+    payload: id
   }
 }

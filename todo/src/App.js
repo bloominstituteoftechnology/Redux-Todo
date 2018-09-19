@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleComplete } from './actions';
+import { addTodo, toggleComplete, removeTodo } from './actions';
 
 import Todos from './components/Todos';
 import TodoForm from './components/TodoForm';
@@ -37,7 +37,7 @@ class App extends Component {
   handleClick = (event, id) => {
     event.preventDefault();
     console.log("clicked on:", id);
-    toggleComplete(id);
+    this.props.toggleComplete(id);
 
 }
 
@@ -47,6 +47,7 @@ return (
   <Todos
     todos={this.props.todos}
     handleClick={this.handleClick}
+    removeTodo={this.props.removeTodo}
     />
   <TodoForm
     handleInput={this.handleInput}
@@ -65,4 +66,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addTodo, toggleComplete })(App);
+export default connect(mapStateToProps, { addTodo, toggleComplete, removeTodo })(App);
