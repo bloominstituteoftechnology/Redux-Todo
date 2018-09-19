@@ -8,7 +8,12 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			todo: [],
+			todo: [
+				{
+					value: "Walk The Dog",
+					completed: false
+				}
+			],
 			textField: ""
 		};
 	}
@@ -39,15 +44,24 @@ class App extends Component {
 				<div>
 					<form>
 						<input value={this.state.textField} onChange={this.handleNewItem} />
-						<button onClick={() => this.state.todo.ADD_ITEM()}>
+						<button
+							type="button"
+							onClick={() => this.props.ADD_ITEM(this.state.textField)}
+						>
 							Add Todo Item
+							{console.log(ADD_ITEM)}
 						</button>
-						<button>Clearn Completed</button>
+						<button>Clear Completed</button>
 					</form>
 				</div>
 				<ul />
-				{this.state.todo.map(todo => (
-					<Todo todo={todo} value={todo.value} completed={todo.completed} />
+				{this.props.todo.map(todo => (
+					<Todo
+						todo={todo}
+						value={todo.value}
+						id={todo.id}
+						completed={todo.completed}
+					/>
 				))}
 			</div>
 		);
@@ -55,7 +69,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-	value: state.todo
+	todo: state.todo
 });
 
 export default connect(

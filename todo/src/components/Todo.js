@@ -4,12 +4,13 @@ import { COMPLETED_ITEM } from "../actions/COMPLETE_ITEM";
 
 function Todo(props) {
 	return (
-		<li onClick={() => props.COMPLETED_ITEM(props.todo.completed)}>
+		<li id={props.id} onClick={() => props.COMPLETED_ITEM(props.id)}>
 			{props.todo.value}
-			{console.log(props.todo)}
+			{console.log(props)}
 		</li>
 	);
 }
+
 const mapStateToProps = state => ({
 	completed: state.completed
 });
