@@ -1,31 +1,27 @@
 import React from 'react';
-import Todo from './Todo';
 import { connect } from 'react-redux';
+import { completeTodo } from '../actions';
 
 
-const Todos = ({ todos }) => (
- 
+const style = { textDecoration: 'line-through' };
+const Todos = props => {
+  return (
     <ul>
-      {todos.map(todo => {
-          return(
-          <Todo
-            key={todo.id}
-            // value={todo.value}
-            {...todo}
-          />
-      );
-      })}
-    </ul>
-   );
- 
-   // write a mapStateToProps function to get our state from the Redux store
-const mapStateToProps = state => ({
-  todos: state.todos
-});
+      {props.todos.map(todo => (
+        <li
+          key={todo.id}
+          style={todo.completed ? style : null}
+          onClick={() => props.completeTodo(todo.id)}
+        >
+          {todo.value}
+        </li>
 
-// Use the "connect" HOC to get this component connected to Redux
+      ))}
+    </ul>
+  );
+};
 
 export default connect(
-  mapStateToProps,
-  // { changeColor: changeColor }
+  null,
+  { completeTodo }
 )(Todos);
