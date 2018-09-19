@@ -1,36 +1,25 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {add} from '../actions';
+import React, {Fragment} from 'react';
 
-class TodoList extends Component{
-    state = {
-        text: ''
-    };
-
-    render(){
-        const {todos} = this.props;
-        return(
-            <div>
-                Todo List!
-                <ul>
-                    {todos.map(todo =>{
-                        return(
-                            <li>
-                                todo.value
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
-        )
-    }
+export default function TodoList(props){
+    return(
+        <Fragment>
+            <input 
+                type='text' 
+                onChange={props.handleChange}
+                value={props.inputText}/>
+            <button onClick={props.addTodo}>Add Todo</button>
+            <ul>
+                {props.todoList.map((todo,index) =>{
+                    return(
+                        <li 
+                            key={index}
+                            onClick={props.toggleTodo}
+                        >
+                            {todo.value}
+                        </li>
+                    )
+                })}
+            </ul>
+        </Fragment>
+    )
 }
-
-const mapStateToProps = state =>{
-    todos: state.todos
-}
-
-export default connect(
-    mapStateToProps,
-    {add}
-)(TodoList);

@@ -5,16 +5,10 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import todoReducer from './reducers';
-import {combineReducers} from 'redux';
-
-const state = combineReducers({
-    todos: todoReducer,
-  });
+import {todoReducer} from './store/reducers';
 
 const store = createStore(
-    state,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    todoReducer
 );
 
 ReactDOM.render(
