@@ -1,5 +1,5 @@
 // React
-import React from 'react';
+import React, { Fragment } from 'react';
 
 // Dependencies
 import PropTypes from 'prop-types';
@@ -11,7 +11,8 @@ import { Form, Input, Button } from 'reactstrap';
 
 export default class TodoForm extends React.PureComponent {
 	state = {
-		inputText: ''
+		inputText: '',
+		errorMessage: ''
 	}
 
 	handleInputChange(value) {
@@ -21,9 +22,13 @@ export default class TodoForm extends React.PureComponent {
 	handleSubmit(e) {
 		e.preventDefault();
 
+		if (!e.target[0].value || e.target[0].value === ' ') {
+			return this.setState({...this.state, errorMessage: 'Your new task cannot be left blank. Please enter a task.'});
+		}
+
 		this.props.handleSubmit(e.target[0].value);
 
-		this.setState({...this.state, inputText: ''});
+		this.setState({...this.state, inputText: '', errorMessage: ''});
 	}
 
 	removeAllCompleted(e) {
@@ -33,18 +38,21 @@ export default class TodoForm extends React.PureComponent {
 	}
 	
 	render() {
-		console.log('tofoform', this.props)
 		return(
-			<Form className = { `todo-form ${ this.props.checkCompleted() && 'expand-horiz' }` } onSubmit = { e => this.handleSubmit(e) }>
-				<Input 
-					value = { this.state.inputText } 
-					onChange = { e => this.handleInputChange(e.target.value) }
-				/>
+			<Fragment>
+				<p>{ this.state.errorMessage }</p>
 
-				<Button color = 'primary' type = 'submit'>Add Task</Button>
+				<Form className = { `todo-form ${ this.props.checkCompleted() && 'expand-horiz' }` } onSubmit = { e => this.handleSubmit(e) }>
+					<Input 
+						value = { this.state.inputText } 
+						onChange = { e => this.handleInputChange(e.target.value) }
+					/>
 
-				{ this.props.checkCompleted() && <Button color = 'warning' onClick = { e => this.removeAllCompleted(e) }>Remove All Completed Tasks</Button> }
-			</Form>
+					<Button color = 'primary' type = 'submit'>Add Task</Button>
+
+					{ this.props.checkCompleted() && <Button color = 'warning' onClick = { e => this.removeAllCompleted(e) }>Remove All Completed Tasks</Button> }
+				</Form>
+			</Fragment>
 		);
 	}
 }
