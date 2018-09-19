@@ -8,13 +8,14 @@ const Todos = (props) => {
       <h2>Todos Component</h2>
       <ul>
         { 
-          items.map((todo)  =>{
+          items.map((todo, id)  =>{
             return (
               <li
-                class={`todo-item ${todo.completed ? 'lineThrough' : ''}`}
+                className={`todo-item ${todo.completed ? 'lineThrough' : ''}`}
                 key={`todo-${todo.id}`}
-                onClick={() => props.toggleTodo(todo.id)}
-                // style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
+                onClick={() => props.toggleTodo(id)}
+                // onClick={() => props.toggleTodo(todo.id)}, USING THE TODO'S ID
+                // style={{textDecoration: todo.completed ? 'line-through' : 'none'}}, USING INLINE STYLES
               >
                 {todo.value}
                 <button

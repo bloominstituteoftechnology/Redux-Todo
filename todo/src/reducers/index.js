@@ -24,18 +24,25 @@ export default function (state = initialState, action) {
       }
 
     case TOGGLE_TODO:
-      return {
-        ...state,
-        todos: state.todos.map(todo => {
-          if (todo.id === action.payload) {
-            return {
-              ...todo,
-              completed: !todo.completed
-            }
-          }
-          return todo
-        })
-      }
+      // USING INDEX
+      let toggleTodos = [...state.todos]
+      toggleTodos[action.payload].completed=!toggleTodos[action.payload].completed
+      return ({...state, todos:toggleTodos})
+
+      // USING TODO ID
+      // let toggleTodos = {...state}
+      // return {
+      //   ...state,
+      //   todos: state.todos.map(todo => {
+      //     if (todo.id === action.payload) {
+      //       return {
+      //         ...todo,
+      //         completed: !todo.completed
+      //       }
+      //     }
+      //     return todo
+      //   })
+      // }
       
     case DELETE_TODO:
       return {
