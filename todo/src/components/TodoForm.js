@@ -22,7 +22,16 @@ export default class TodoForm extends React.PureComponent {
 	handleSubmit(e) {
 		e.preventDefault();
 
-		if (!e.target[0].value || e.target[0].value === ' ') {
+		let blankInput = true;
+
+		for (let i = 0; i < e.target[0].value.length; i++) {
+			if (e.target[0].value[i] !== ' ') {
+				blankInput = false;
+				break;
+			}
+		}
+
+		if (!e.target[0].value || blankInput) {
 			return this.setState({...this.state, errorMessage: 'Your new task cannot be left blank. Please enter a task.'});
 		}
 
