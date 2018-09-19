@@ -17,6 +17,7 @@ export function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         todos: [...state.todos, action.payload],
       });
+
     case TOGGLE_COMPLETE:
       return {
         todos: state.todos.map((todo) => {
@@ -29,6 +30,7 @@ export function reducer(state = initialState, action) {
           return todo;
         }),
       };
+
     default:
       return state;
   }

@@ -21,7 +21,7 @@ class App extends Component {
   addTodo = (event) => {
     event.preventDefault();
     const newTodo = {
-      id: this.props.todos.length,
+      id: Date.now(),
       completed: false,
       value: this.state.todoInput,
     };
