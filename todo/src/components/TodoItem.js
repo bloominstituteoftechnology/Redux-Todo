@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// Dependencies
+import PropTypes from 'prop-types';
+
 // Styles
 import './TodoItem.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +26,16 @@ const TodoItem = props => {
 			>X</Button>
 		</div>
 	);
+}
+
+TodoItem.propTypes = {
+	deleteItem: PropTypes.func,
+	index: PropTypes.number,
+	item: PropTypes.shape({
+		value: PropTypes.string,
+		completed: PropTypes.bool
+	}),
+	toggleCompleted: PropTypes.func
 }
 
 export default TodoItem;

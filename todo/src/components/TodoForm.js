@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// Dependencies
+import PropTypes from 'prop-types';
+
 // Styles
 import './TodoForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -30,6 +33,7 @@ export default class TodoForm extends React.PureComponent {
 	}
 	
 	render() {
+		console.log('tofoform', this.props)
 		return(
 			<Form className = { `todo-form ${ this.props.checkCompleted() && 'expand-horiz' }` } onSubmit = { e => this.handleSubmit(e) }>
 				<Input 
@@ -43,4 +47,10 @@ export default class TodoForm extends React.PureComponent {
 			</Form>
 		);
 	}
+}
+
+TodoForm.propTypes = {
+	checkCompleted: PropTypes.func,
+	handleSubmit: PropTypes.func,
+	removeAllCompleted: PropTypes.func
 }
