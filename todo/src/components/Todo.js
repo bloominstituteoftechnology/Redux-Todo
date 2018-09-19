@@ -4,6 +4,9 @@ import React from 'react';
 // Dependencies
 import PropTypes from 'prop-types';
 
+// Components
+import TodoItem from './TodoItem';
+
 // Styles
 import './Todo.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -47,22 +50,12 @@ export default class Todo extends React.PureComponent {
 			<div className = 'todo-div'>
 				<div className = 'todo-list'>
 					{ this.props.todoList.map((item, i) => 
-						<div key = { `item-div-${ i }` } className = 'expand-vert'>
-							<div 
-								id = { i } 
-								onClick = { e => this.props.toggleCompleted(e.target.id) } 
-								key = { `item-task-${ i }` } 
-								className = 'list-item fade-in' 
-								style = { item.completed ? { textDecoration: 'line-through' } : {} }
-							>{ item.value }</div>
-
-							<Button 
-								color = 'danger' 
-								key = { `item-span-${ i }` } 
-								className = 'fade-in' 
-								onClick = { () => this.props.deleteItem(i) }
-							>X</Button>
-						</div>
+						<TodoItem 
+							item = { item } 
+							index = { i } 
+							deleteItem = { this.props.deleteItem } 
+							toggleCompleted = { this.props.toggleCompleted }
+						/>
 					) }
 				</div>
 

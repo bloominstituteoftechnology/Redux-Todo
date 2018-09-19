@@ -1,0 +1,26 @@
+.list-item {
+    display: inline-block;
+    font-size: 1.2rem;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.list-item:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+
+/* Animations */
+
+@keyframes expand-vert-anim {
+	from {height: 0;}
+	to {height: 3rem;}
+}
+
+.expand-vert {
+	animation-name: expand-vert-anim;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
+}
