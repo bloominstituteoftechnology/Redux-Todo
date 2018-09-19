@@ -22,7 +22,6 @@ class TodoForm extends Component {
             this.props.addTodo({value: this.state.fieldInput, completed: false});
             this.setState({fieldInput: ''});
         }
-        console.log('submitHandler end todos:', this.props.todos);
     }
 
     render() {
@@ -36,14 +35,8 @@ class TodoForm extends Component {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        todos: state.todos
-    };
-};
-
 TodoForm.propTypes = {
     addTodo: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, { addTodo })(TodoForm);
+export default connect(null, { addTodo })(TodoForm);

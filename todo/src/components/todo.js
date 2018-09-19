@@ -6,7 +6,8 @@ function Todo(props) {
         <li 
             onClick={ () => props.toggleComplete(props.index) } 
             className={ props.todo.completed ? 'strike-through' : '' }
-        >{props.todo.value}
+        >
+            {props.todo.value}
         </li>
     );
 }
