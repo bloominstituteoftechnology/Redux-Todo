@@ -1,0 +1,22 @@
+.todo-div .todo-form {
+    background: #444;
+    display: flex;
+}
+
+.todo-div .todo-form * {
+    margin: 10px;
+}
+
+
+/* Animations */
+
+@keyframes expand-horiz-anim {
+	from {width: 0; overflow: hidden;}
+	to {width: 40rem; overflow: hidden;}
+}
+
+.expand-horiz {
+	animation-name: expand-horiz-anim;
+	animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
