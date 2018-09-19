@@ -22,7 +22,7 @@
 
 .new-todo label {
   position: absolute;
-  left: 10px;
+  left: 12px;
   top: 11px;
   font-size: 12px;
 }
@@ -31,6 +31,7 @@
   height: 30px;
   font-size: 12px;
   display: flex;
+  padding-left: 10px;
 }
 
 .todo-button {

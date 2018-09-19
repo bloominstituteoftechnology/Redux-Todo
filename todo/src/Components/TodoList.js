@@ -21,8 +21,17 @@ const TodoList = props => {
                 <div className="todo-form">
                     <form onSubmit={addSubmit}>
                         <div className="new-todo container">
-                            <label htmlFor="new-todo">Add task here</label>
-                            <input type="text" name="new-todo" id="new-todo" value={props.currentInputText} onChange={(e) => props.handleInput(e.currentTarget.value, e.currentTarget)}/>
+                            <label htmlFor="new-todo" className={`${props.currentlyTyping ? "is-typing" : ""}`}>Add task here</label>
+                            <input 
+                            type="text" 
+                            name="new-todo" 
+                            id="new-todo" 
+                            className={`${props.currentlyTyping ? "typing" : ""}`} 
+                            value={props.currentInputText} 
+                            onChange={(e) => props.handleInput(e.currentTarget.value, e.currentTarget)} 
+                            onFocus={(e) => props.handleInput(e.currentTarget.value, e.currentTarget)} 
+                            onBlur={(e) => props.handleInput(e.currentTarget.value, e.currentTarget)} 
+                            />
                         </div>
                         <div className="add-todo todo-button" onClick={addSubmit}>Add Task</div>
                     </form>
@@ -36,7 +45,8 @@ const TodoList = props => {
 const connectMyProps = state => (
     {   
         todos: state.todos,
-        currentInputText: state.currentInputText
+        currentInputText: state.currentInputText,
+        currentlyTyping: state.currentlyTyping
     }
 )
 

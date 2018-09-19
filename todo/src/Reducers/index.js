@@ -18,7 +18,8 @@ const initialState = {
         completed: false
         }],
 
-    currentInputText: ''
+    currentInputText: '',
+    currentlyTyping: false
 }
 
 const todoReducer = (state = initialState, action) => {
@@ -27,29 +28,35 @@ const todoReducer = (state = initialState, action) => {
     switch(action.type) {
         case ACTIONS.HANDLE_INPUT:
         console.log('input handled:', state.currentInputText);
-
-        if(action.target.value !== "") {
-        action.target.classList.add('typing')
-        action.target.previousSibling.classList.add('is-typing');
-        } else {
-        action.target.classList.remove('typing');
-        action.target.previousSibling.classList.remove('is-typing');
+        let isTyping = true;
+        if(!action.target.value) {
+            isTyping = false;
         }
 
-
-        return {...state, currentInputText: action.text};
+        return {...state, currentInputText: action.text, currentlyTyping: isTyping};
 
         case ACTIONS.ADD_TODO:
         console.log('add');
-        if (!state.currentInputText){
+
+        if (!state.currentInputText) {
         return state;
         } 
-        return {...state, todos:[...state.todos, {id: Date.now(), text: state.currentInputText, completed: false}], currentInputText: ''};
+        return {...state, 
+            todos:
+            [...state.todos, 
+            {
+                id: Date.now(), 
+                text: state.currentInputText, 
+                completed: false
+            }], 
+            currentInputText: '',
+            currentlyTyping: false
+            };
 
         case ACTIONS.COMPLETE_TODO:
         console.log('complete');
         updateTodoList.forEach(todo => {
-            if(todo.id == Number(action.id)){todo.completed = !todo.completed;}
+            if(todo.id === Number(action.id)){todo.completed = !todo.completed;}
             console.log(todo.id, Number(action.id));
         })
         console.log(updateTodoList);
