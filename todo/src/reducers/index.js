@@ -32,9 +32,12 @@ export const reducer = (state = initialState, action) => {
       })
 
       case REMOVE_TODO:
+      console.log(state.todos);
       const newTodoArr = state.todos.filter((todo) => todo.id !== action.payload
     );
-    return { todos: [...newTodoArr] }
+    return Object.assign({}, state, {
+      todos: newTodoArr
+    })
       default:
       return state;
   }
