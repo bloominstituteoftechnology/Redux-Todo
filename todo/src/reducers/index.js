@@ -1,6 +1,6 @@
 import {ADD} from '../actions';
 
-export function todoReducer(todos = [], action){
+export default(todos = [], action) =>{
     console.log(action);
     switch(action.type){
         case ADD:
