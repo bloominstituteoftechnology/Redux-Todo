@@ -13,7 +13,7 @@ const initialState = {todos: [
 
 export const todosReducer = (state = initialState, action) => {
     console.log('reducer initial state:', state);
-    let newState = {...state};
+    let newState = {todos: [...state.todos]};
     switch (action.type) {
         case ADD_TODO:
             console.log('ADD_TODO reducer triggered');

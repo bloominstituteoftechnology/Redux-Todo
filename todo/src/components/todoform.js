@@ -18,8 +18,11 @@ class TodoForm extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.addTodo({value: this.state.fieldInput, completed: false});
-        this.setState({fieldInput: ''});
+        if(this.state.fieldInput) {
+            this.props.addTodo({value: this.state.fieldInput, completed: false});
+            this.setState({fieldInput: ''});
+        }
+        console.log('submitHandler end todos:', this.props.todos);
     }
 
     render() {
