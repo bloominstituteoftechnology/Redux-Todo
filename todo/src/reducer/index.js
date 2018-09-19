@@ -14,12 +14,14 @@ const initialState = {
 export function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         todos: [...state.todos, action.payload],
-      });
+      };
 
     case TOGGLE_COMPLETE:
       return {
+        ...state,
         todos: state.todos.map((todo) => {
           if (todo === action.payload) {
             return {
