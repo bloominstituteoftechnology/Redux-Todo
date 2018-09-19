@@ -1,19 +1,33 @@
-import { ADD_TODO, TOGGLE_TODO, GET_TODOS } from '../actions';
+import { ADD_TODO, COMPLETE_TODO } from '../actions';
 
-export default (todos = [], action) => {
+const initialState = {
+    todos: [
+        {
+            text: 'Learn Redux',
+            completed: false,
+            id: 0
+        }
+    ]
+};
+
+export const todoReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
-            return [...todos, action.payload];
-        case TOGGLE_TODO:
-            return todos.map(todo => {
-                if (todo.id === action.payload) {
-                    return Object.assign(todo, { completed: !todo.completed });
-                }
-                return todo;
+            return Object.assign({}, state, {
+                todos: [...state.todos, action.payload]
             });
-        case GET_TODOS:
-            return action.payload;
+        case COMPLETE_TODO:
+            const id = action.payload;
+            const todos = state.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed;
+                    return todo;
+                } else {
+                    return todo;
+                }
+            });
+            return Object.assign({}, state, { todos: todos });
         default:
-            return todos;
+            return state;
     }
 };
