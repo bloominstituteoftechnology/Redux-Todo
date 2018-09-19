@@ -1,12 +1,21 @@
 .todoItem {
     font-weight: bold;
-    
+    display: inline;
 }
 
-.todoItem:hover{
+/* .todoItem:hover{
+    cursor:pointer;
+} */
+
+.add-todo-button:hover{
     cursor:pointer;
 }
 
-.strikethrough{
-    text-decoration: line-through;
+.delete-button{
+    margin: 10px;
+    display: inline;
+}
+
+.delete-button:hover{
+    cursor:pointer;
 }

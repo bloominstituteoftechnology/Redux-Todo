@@ -9,29 +9,40 @@
 const initialState = {  todos:[{    value: 'Walk the dog.',
                                     completed: false
                             }],
-                        value: "",
-                        completed: false    };
+                        value: ""};
 
- const reducer= (state = initialState, action) => {
+const reducer= (state = initialState, action) => {
   switch (action.type) {
     case 'INPUT_VALUE':
-    return { ...state,
-            value: action.payload}
+        return { ...state,
+                value: action.payload}
 
     case 'TOGGLE_COMPLETED':
     // Fill in the body of this case
-        // if (!state.todos[action.payload].completed)
-            return 
-                    // { ...state, 
-                    // state.todos[action.payload].completed: !(state.todos[action.payload].completed)};
+        return { ...state,
+                todos: state.todos.map( (todo, index) => {
+                        // console.log(index);
+                        if (index === action.payload) {
+                                return Object.assign({}, todo, { completed: !todo.completed });
+                        }
+                        return todo;
+                        })}
+//     case 'REMOVE_TODOS':
+//         return { ...state,
+//                 todos: state.todos.filter(todo => !todo.completed)}
+
+    case 'REMOVE_TODO':
+        return { ...state,
+                todos: state.todos.filter((todo,index) => 
+                        index !== action.payload
+                )}
 
     case 'SUBMIT_TODO':
     // Fill in the body of this case
-    return {    todos: [ ...state.todos,
+        return {todos: [ ...state.todos,
                         action.payload ],
-                value:"", 
-                completed: false
-            };
+                value:""
+                };
 
     default:
       return state;
