@@ -35,7 +35,7 @@ const TodoList = props => {
                         </div>
                         <div className="add-todo todo-button" onClick={addSubmit}>Add Task</div>
                     </form>
-                        <div className="remove-todo todo-button" onClick={() => props.todoDelete()}>Remove Task</div>
+                        <div className="remove-todo todo-button" onClick={() => props.todoDelete()}>Remove Tasks</div>
                 </div>
             </div>
         </section>
