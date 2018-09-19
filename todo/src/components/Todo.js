@@ -43,7 +43,6 @@ export default class Todo extends React.PureComponent {
 	}
 
 	render() {
-		console.log(this.props)
 		return(
 			<div className = 'todo-div'>
 				<div className = 'todo-list'>
