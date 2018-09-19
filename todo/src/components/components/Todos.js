@@ -1,21 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-import Todo from './Todo';
+import { connect } from 'react-redux';
+import { completeTodo } from '../actions';
 
-// const Todos = props => {
+const style = { textDecoration: 'line-through' };
 
-class Todos extends Component {
-    render() {
-        console.log(this.props);
-        return(
-            <ul>
-                {this.props.todos.map(todo => {
-                    console.log(todo);
-                    return <Todo key={todo.id} todo={todo} />
-                })};
-            </ul>
-        );
-    }
+const Todos = props => {
+    return (
+        <div>
+            {props.todos.map(todo => (
+                <li
+                style = { todo.completed ? style : null }
+                onClick = {() => props.completeTodo(todo.id) }
+                key = {todo.id}
+                >
+                    {todo.text}
+                </li>
+            ))}
+        </div>
+    );
 }
 
-export default Todos;
+export default connect(null, { completeTodo })(Todos);

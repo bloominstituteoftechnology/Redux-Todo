@@ -14,6 +14,10 @@ class App extends Component {
     }
   }
 
+  handleInput = (event) => {
+    this.setState({[event.target.name]: event.target.value});
+  };
+
   addTodo = (event) => {
     event.preventDefault();
 
@@ -27,12 +31,7 @@ class App extends Component {
     this.setState({todoInput: ""});
   };
 
-  handleInput = (event) => {
-    this.setState({[event.target.name]: event.target.value});
-  };
-
   render() {
-    console.log(this.props);
     return (
       <div className="App">
         <Todos todos={this.props.todos} />
