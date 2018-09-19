@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { toggle_completed, delete_item } from '../actions'
 
 const Task = props => {
-  console.log(props.delete_item);
   return (
-    <div className='todo-list'>
+    <React.Fragment>
       <li onClick={ e => {
           e.preventDefault()
           props.toggle_completed(props.item.id)
@@ -13,8 +12,11 @@ const Task = props => {
         key={props.item.id}
         style={{textDecoration: props.item.completed ? 'line-through' : 'none'}}>
         {props.item.value}
-      </li><button onClick={() => props.delete_item(props.item.id)}>Delete Item</button>
-    </div>
+      </li>
+      <button onClick={() => props.delete_item(props.item.id)}>
+        Delete Item
+      </button>
+    </React.Fragment>
       )}
 
 

@@ -10,7 +10,8 @@ import TaskList from './TaskList'
 class TodoApp extends Component {
 
   state = {
-    todo: ''
+    todo: '',
+    filter: 'all'
   }
 
   inputChange = event => {
@@ -19,7 +20,12 @@ class TodoApp extends Component {
 
   reset = () => this.setState({todo:''})
 
+  setFilter = (value) => {
+    this.setState({filter: value})
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <header className="App-header">
@@ -30,8 +36,12 @@ class TodoApp extends Component {
           value={this.state.todo}
           inputChange={this.inputChange}
           reset={this.reset}
+          setFilter={this.setFilter}
+          filter={this.state.filter}
         />
-        <TaskList  todos={this.props.todos}
+        <TaskList
+          filter={this.state.filter}
+          todos={this.props.todos}
         />
       </div>
     );
