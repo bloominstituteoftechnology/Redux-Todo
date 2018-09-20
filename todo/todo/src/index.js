@@ -1,23 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { App } from './components';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-import { createStore, applyMiddleware } from 'redux';
-import { friendReducer } from './reducers'
+import React from 'react'
+import { render } from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import App from './App'
+import { todoReducer } from './reducers' //import reducer
 
-const store = createStore(
-    friendReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunk, logger));
 
-ReactDOM.render(
+//Create store and pass reducer as an argument
+const store = createStore(todoReducer)
+
+render(
     <Provider store={store}>
         <App />
     </Provider>,
     document.getElementById('root')
-);
-
+)
 
