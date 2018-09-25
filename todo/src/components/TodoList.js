@@ -5,13 +5,13 @@ return(
 <Fragment>
 <input
   type="text"
-  value= {props.inputText} 
+  value= {props.inputText}
   onChange ={props.handleChange}
 />
 <button onClick ={ props.addTodo}> Add Item to list </button>
 <ul>
   {props.todoList.map((todo,index) => (
-    <li onClick={() => props.toggleTodo(index)} key={index}>
+    <li className={props.changeClass(todo.completed)} onClick={() => props.toggleTodo(index)} key={index}>
             {todo.value}
           </li>
   ))}

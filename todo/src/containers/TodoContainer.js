@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import '../css/index.css'
 import { addTodo, toggleTodo} from '../actions/index.js';
 
 import TodoList from '../components/TodoList.js'
@@ -24,6 +24,12 @@ import TodoList from '../components/TodoList.js'
     this.props.toggleTodo(index);
   };
 
+  changeClass(completed){
+    if (completed) {
+      return "linethrough"
+    }
+  }
+
     render() {
     return (
       <TodoList
@@ -32,6 +38,7 @@ import TodoList from '../components/TodoList.js'
         toggleTodo={this.toggleTodo}
         todoList={this.props.todos}
         addTodo={this.addTodo}
+        changeClass ={this.changeClass}
       />
     );
   }
