@@ -1,5 +1,8 @@
 import React from 'react';
 
+// const red = { color: 'red' };
+// const black = { color: 'black' };
+
 function Todo(props) {
   return (
     <div>
@@ -8,7 +11,7 @@ function Todo(props) {
           <li
             key={todo.id}
             onClick={() => props.toggleCompleted(todo.id)}
-            style={{ color: todo.completed ? 'red' : 'black' }}
+            style={todo.completed ? { color: 'red' } : { color: 'black' }}
           >
             {todo.value}
           </li>
