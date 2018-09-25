@@ -28,7 +28,7 @@ Topics:
 ### State Tree
 
 * Your application should have an input field, a submit button, and a list of items that represents your todo list.
-* Your application's state tree should have a single property called `todos`. It should take the same form as the object shown below.
+* Your application's state tree should have a single property called `todos`. It shoulds take the same form as the object shown below.
 
 
 ```
