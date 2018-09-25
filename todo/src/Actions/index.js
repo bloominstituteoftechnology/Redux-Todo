@@ -5,10 +5,10 @@ export const ACTIONS = {
 };
 
 // Add
-export const todoAdd = () => ({ type: ACTIONS.ADD_TODO, todo: {} });
+export const todoAdd = text => ({ type: ACTIONS.ADD_TODO, text: text });
 
 // Complete
-export const todoComplete = () => ({ type: ACTIONS.COMPLETE_TODO, todo: {} });
+export const todoComplete = text => ({ type: ACTIONS.COMPLETE_TODO });
 
 // Delete
-export const todoDelete = () => ({ type: ACTIONS.DELETE_TODO, todo: {} });
+export const todoDelete = text => ({ type: ACTIONS.DELETE_TODO });
