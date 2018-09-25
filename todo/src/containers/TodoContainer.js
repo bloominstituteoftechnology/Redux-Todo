@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../css/index.css'
-import { addTodo, toggleTodo} from '../actions/index.js';
+import { addTodo, toggleTodo, deleteTodo} from '../actions/index.js';
 
 import TodoList from '../components/TodoList.js'
 
@@ -24,11 +24,20 @@ import TodoList from '../components/TodoList.js'
     this.props.toggleTodo(index);
   };
 
+
   changeClass(completed){
     if (completed) {
       return "linethrough"
     }
   }
+
+
+   removeItem = key => {
+console.log(key);
+
+//  this.props.deleteTodo(key);
+
+    }
 
     render() {
     return (
@@ -39,6 +48,7 @@ import TodoList from '../components/TodoList.js'
         todoList={this.props.todos}
         addTodo={this.addTodo}
         changeClass ={this.changeClass}
+        removeItem ={this.removeItem}
       />
     );
   }
@@ -56,5 +66,5 @@ const mapStateToProps = state => ({
 
  export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo }
+  { addTodo, toggleTodo,deleteTodo }
 )(TodoContainer);

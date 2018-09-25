@@ -1,9 +1,10 @@
 import React from 'react';
-import { ADD_TODO, TOGGLE_TODO } from '../actions/index.js';
+import { ADD_TODO, TOGGLE_TODO, DELETE_COMMENT} from '../actions/index.js';
 
 const initialTodoState = {
   todos: [
     {
+      id:0,
       value: 'Walk the dog.',
       completed: false,
 
@@ -26,7 +27,11 @@ export const todoReducer = (state= initialTodoState,action) =>{
                 }
               })
             };
+            case 'DELETE_COMMENT':
+            const commentId = action.payload;
+        return (state.todos.filter(comment => comment.id !== commentId));
           default:
             return state;
         }
+
   }

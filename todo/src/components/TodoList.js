@@ -13,7 +13,9 @@ return(
   {props.todoList.map((todo,index) => (
     <li className={props.changeClass(todo.completed)} onClick={() => props.toggleTodo(index)} key={index}>
             {todo.value}
+            <button onClick={props.removeItem(index)}>Delete</button>
           </li>
+
   ))}
 </ul>
 
