@@ -1,10 +1,14 @@
 import { ADD_TODO, COMPLETE_TODO } from '../actions';
 
-const initialState = [{
-  id: 0,
-  value: 'Walk the dog',
-  complete: false
-}];
+const initialState = {
+  todos: [
+    {
+      id: 0,
+      value: 'Walk the dog',
+      complete: false
+    }
+  ],
+};
 
 export const todosReducer = (state = initialState, action) => {
   switch(action.type) {
