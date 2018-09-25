@@ -1,7 +1,13 @@
-const initialState = [];
+const initialState = [{task: "Learn Redux", completed: fasle, id: Date.now()}];
 
 const todoReducer = (state = initialState, action) => {
-    return state;
+    switch(action.type) {
+        case ADD_TODO:
+        return state.concat(action.payload);
+        default:
+        return state;
+    }
+    
 }
 
 export default todoReducer;
