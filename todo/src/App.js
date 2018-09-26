@@ -21,21 +21,22 @@ class App extends Component {
   //   this.setState({ inputText: event.target.value });
   // }
 
+  // addTodoChange = event => {
+  //   console.log(this.state);
+  //   event.preventDefault();
+  //   this.props.addTodo(this.state.inputText);
+  // }
+  
   addTodoChange = event => {
     event.preventDefault();
-    this.props.addTodo(this.state.inputText);
-  }
-  
-  // addTodoChange = event => {
-  //   event.preventDefault();
-  //   const todos = this.state.todos.slice();
-  //   todos.push({
-  //     id: this.props.todos.length + 1,
-  //     value: this.state.inputText,
-  //     completed: false
-  //   });
-  //   this.setState({ todos, inputText: '' });
-  // };
+    const newTodo = {
+      id: this.props.todos.length + 1,
+      value: this.state.inputText,
+      completed: false
+    }
+    this.props.addTodo(newTodo)
+    this.setState({inputText: '' });
+  };
 
   completeTodoChange = index => {
     this.props.completeTodo(index)
