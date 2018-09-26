@@ -3,23 +3,29 @@ import './App.css';
 import { connect } from 'react-redux';
 import Todos from './components/Todos';
 import TodoForm from './components/TodoForm';
+import { addTodo } from './actions';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       inputText: ''
-    }
+    };
   }
 
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   }
   
-  handleAddTodoSubmit = event => {
-    event.preventDefault();
-    
-  }
+  addTodoChange = () => {
+    const todos = this.state.todos.slice();
+    todos.push({
+      id: this.props.todos.length + 1,
+      value: this.state.inputText,
+      completed: false
+    });
+    this.setState({ todos, inputText: '' });
+  };
 
   render() {
     return (
@@ -29,6 +35,7 @@ class App extends Component {
         <TodoForm 
           inputText={this.state.inputText}
           handleInput={this.handleInputChange}
+          addTodo={this.addTodoChange}
         />
       </div>
     );
@@ -41,4 +48,4 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {addTodo})(App);
