@@ -4,8 +4,10 @@ const TodoForm = props => {
   return (
     <form>
       <input 
+        name='inputText'
+        type='text'
         value={props.inputText}
-        placeholder='task' 
+        placeholder='Add todo' 
         onChange={props.handleInput} 
       />
       <button onClick={props.handleAddTodo}>Add Todo</button>
