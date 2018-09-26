@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const Todos = props => {
   return (
     <div>
-      {props.todos.map(todo => <li key={todo.id}>{todo.text}</li>)}
+      {props.todos.map(todo => <li key={todo.id}>{todo.value}</li>)}
     </div>
   );
 }
