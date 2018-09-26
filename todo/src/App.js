@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import Todos from './components/Todos';
 import TodoForm from './components/TodoForm';
-import { addTodo } from './actions';
+import { addTodo, completeTodo } from './actions';
 
 class App extends Component {
   constructor(props) {
@@ -20,22 +20,35 @@ class App extends Component {
   // handleInputChange = event => {
   //   this.setState({ inputText: event.target.value });
   // }
+
+  addTodoChange = event => {
+    event.preventDefault();
+    this.props.addTodo(this.state.inputText);
+  }
   
-  addTodoChange = () => {
-    const todos = this.state.todos.slice();
-    todos.push({
-      id: this.props.todos.length + 1,
-      value: this.state.inputText,
-      completed: false
-    });
-    this.setState({ todos, inputText: '' });
-  };
+  // addTodoChange = event => {
+  //   event.preventDefault();
+  //   const todos = this.state.todos.slice();
+  //   todos.push({
+  //     id: this.props.todos.length + 1,
+  //     value: this.state.inputText,
+  //     completed: false
+  //   });
+  //   this.setState({ todos, inputText: '' });
+  // };
+
+  completeTodoChange = index => {
+    this.props.completeTodo(index)
+  }
 
   render() {
     return (
       <div className="App">
         <h1>Todo List</h1>
-        <Todos todos={this.props.todos} />
+        <Todos 
+          todos={this.props.todos} 
+          completeTodo={this.completeTodoChange}
+        />
         <TodoForm 
           inputText={this.state.inputText}
           handleInput={this.handleInputChange}
@@ -52,4 +65,4 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps, {addTodo})(App);
+export default connect(mapStateToProps, {addTodo, completeTodo})(App);
