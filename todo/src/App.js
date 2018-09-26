@@ -8,8 +8,7 @@ import {addTodo} from './Actions/index'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      list: [], 
+    this.state = { 
       inputText: ''
     };
   };
@@ -20,15 +19,9 @@ class App extends Component {
 
   addTodo = e => {
     e.preventDefault();
-    this.props.aaddTodo(this.state.inputText);
+    this.props.addTodo(this.state.inputText);
   };
-  //   if (this.state.inputText) {
-  //     this.setState({
-  //       list: [...this.state.list, {text:this.state.inputText, completed: false, id: Date.now()}],
-  //       inputText: ""
-  //     });
-  //   }
-  // };
+  
 
   
   render() {
