@@ -13,8 +13,10 @@ const initialState = {
 export const todosReducer = (state = initialState, action) => {
   switch(action.type) {
     case ADD_TODO:
-      return [...state.todos, action.payload];
-      // return {...state, todos:[ ...state.todos, action.payload ]};
+    return Object.assign({}, state, {
+      todos: [...state.todos, action.payload]
+    });
+    // return {...state, todos:[ ...state.todos, action.payload ]};
     case COMPLETE_TODO:
      return {
        ...state,
