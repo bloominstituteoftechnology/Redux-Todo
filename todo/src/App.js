@@ -16,6 +16,10 @@ class App extends Component {
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   }
+
+  // handleInputChange = event => {
+  //   this.setState({ inputText: event.target.value });
+  // }
   
   addTodoChange = () => {
     const todos = this.state.todos.slice();
