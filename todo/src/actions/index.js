@@ -1,16 +1,7 @@
 
+export const ADD_TODO = "ADD_TODO";
 
 export const addTodo = () => {
-    return { 
-        type: 'ADD_TODO',  
-        id: id, 
-        completed: false 
-}
-
-// export const toggleStatus = (id) => {
-//    return {
-//        type: 'TOGGLE_STATUS', 
-//        id
-//     }
-// }
+    return {  type: 'ADD_TODO' };
+};
 

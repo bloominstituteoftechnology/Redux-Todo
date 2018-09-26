@@ -1,19 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from './index.js';
+import { addTodo } from '../actions';
+import { bindActionCreators } from 'redux';
 
 //a submit button and input form, stateless w/ action = ADD_TODO
-let AddTodo = () => {
-return (
-    <div>
-        <form onSubmit={event => {onSubmit(input.value)}}>
-            <input placeholder="what are we doing today?..." 
-                type="text" 
-                value={this.props.textOnProps}
-                onChange={event => {this.props.addTodo(event.target.value)}} />
-            <button type="submit">Adding Stuff</button>
-        </form>
-    </div>
-)
+class AddTodo extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            todotext: "",
+        }
+        this.handleInputChange = this.handleInputChange.bind(this)
+    }
+    
+    handleInputChange = event => {
+        this.setState({ todotext: event.target.value })
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>My Todo List!</h1>
+                <div className="theTodoListBox">
+                    <form>
+                        <input
+                            onChange={this.handleInputChange}
+                            placeholder="what are we doing?..."
+                            value={this.state.todotext}
+                            name="todoItem"
+                        />
+                        <button type="button" onClick={() => { this.props.addTodo(this.state.todotext); this.setState({todotext: ""})}}>
+                        adding Stuff
+                        </button>
+                    </form>
+                </div>
+            </div>
+        );
+    }
 }
-export default AddTodo;
+ const mapDispatchToProps = (dispatch) => {
+     return bindActionCreators({
+         addTodo
+     }, dispatch)
+ }   
+
+export default connect(null, mapDispatchToProps)(AddTodo);

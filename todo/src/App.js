@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AddTodo from './components/AddTodos';
 
 class App extends Component {
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <div className="TodoBox">
-          
+          <h1>Hello I'm a Work in Progress!</h1>
+          <AddTodo />
         </div>
       </div>
     );
