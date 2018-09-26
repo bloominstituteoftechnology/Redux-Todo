@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { completeTodo } from '../actions';
 
 const Todos = props => {
   return (
@@ -22,4 +23,4 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps)(Todos);
+export default connect(mapStateToProps, {completeTodo})(Todos);
