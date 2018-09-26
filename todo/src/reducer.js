@@ -1,4 +1,7 @@
-const initialState = [{task: "Learn Redux", completed: fasle, id: Date.now()}];
+import { ADD_TODO } from './actions';
+
+
+const initialState = [{task: "Learn Redux", completed: false, id: Date.now()}];
 
 const todoReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -11,3 +14,7 @@ const todoReducer = (state = initialState, action) => {
 }
 
 export default todoReducer;
+
+
+ 
+
