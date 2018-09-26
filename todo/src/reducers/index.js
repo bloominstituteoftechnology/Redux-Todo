@@ -13,20 +13,20 @@ const initialState = {
 export const todosReducer = (state = initialState, action) => {
   switch(action.type) {
     case ADD_TODO:
-      return [...state, action.payload];
+      return [...state.todos, action.payload];
+      // return {...state, todos:[ ...state.todos, action.payload ]};
     case COMPLETE_TODO:
-      let completeTodo = state.todos.map((todo) => {
-        if (todo.id === action.payload) {
-          todo.completed = !todo.completed
-          return todo;
-        }
-        else {
-          return todo;
-        }
-      })
-      return {
-        todos: completeTodo
-      }
+     return {
+       ...state,
+       todos: state.todos.map((todo, index) => {
+         if (index === action.payload) {
+           return {...todo, completed: !todo.completed}
+         }
+         else {
+           return todo;
+         }
+       })
+     };
     default:
       return state;
   };
