@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import Todos from './components/Todos';
 import TodoForm from './components/TodoForm';
-import { addTodo, completeTodo } from './actions';
+import { addTodo, completeTodo, deleteTodo } from './actions';
 
 class App extends Component {
   constructor(props) {
@@ -42,6 +42,12 @@ class App extends Component {
     this.props.completeTodo(index)
   }
 
+  deleteTodoChange = event => {
+    console.log('clicked');
+    event.preventDefault();
+    this.props.deleteTodo();
+  };
+
   render() {
     return (
       <div className="App">
@@ -54,6 +60,7 @@ class App extends Component {
           inputText={this.state.inputText}
           handleInput={this.handleInputChange}
           addTodo={this.addTodoChange}
+          deleteTodo={this.deleteTodoChange}
         />
       </div>
     );
@@ -66,4 +73,4 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps, {addTodo, completeTodo})(App);
+export default connect(mapStateToProps, {addTodo, completeTodo, deleteTodo})(App);
