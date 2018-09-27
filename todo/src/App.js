@@ -2,8 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import AddTodo from './components/AddTodos';
+import { connect } from 'react-redux';
+import { addTodo } from './actions';
+import { bindActionCreators } from 'redux';
 
 class App extends Component {
+  state = {
+    todotext: "",
+  };
+
+  handleInputChange = event => {
+    this.setState({ todotext: event.target.value })
+  }
+
+addTodo = event => {
+event.preventDefault();
+this.props.addTodo(this.state.todotext);
+};
   render() {
     return (
       <div className="App">
@@ -16,11 +31,20 @@ class App extends Component {
         </p>
         <div className="TodoBox">
           <h1>Hello I'm a Work in Progress!</h1>
-          <AddTodo />
+          <AddTodo 
+                handleInputChange={this.handleInputChange} 
+                todotext={this.state.todotext}
+                todoList={this.props.todos}
+                addTodo={this.addTodo} />  
+                </div>
         </div>
-      </div>
+      
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ addTodo }, dispatch)
+};  
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);
+
