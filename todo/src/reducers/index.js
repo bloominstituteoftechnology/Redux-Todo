@@ -1,4 +1,4 @@
-import { ADD_TODO, COMPLETE_TODO } from '../actions';
+import { ADD_TODO, COMPLETE_TODO, DELETE_TODO } from '../actions';
 
 const initialState = {
   todos: [
@@ -18,18 +18,23 @@ export const todosReducer = (state = initialState, action) => {
     });
     // return {...state, todos:[ ...state.todos, action.payload ]};
     case COMPLETE_TODO:
-     return {
-       ...state,
-       todos: state.todos.map((todo, index) => {
-         if (index === action.payload) {
-           return {...todo, completed: !todo.completed}
-         }
-         else {
-           return todo;
-         }
-       })
-     };
+      return {
+        ...state,
+        todos: state.todos.map((todo, index) => {
+          if (index === action.payload) {
+            return {...todo, completed: !todo.completed}
+          }
+          else {
+            return todo;
+          }
+        })
+      };
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter(todo => !todo.completed)
+      };
     default:
       return state;
-  };
+  }
 }
