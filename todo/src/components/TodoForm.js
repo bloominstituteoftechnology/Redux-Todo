@@ -27,10 +27,4 @@ class TodoForm extends React.Component {
   }
 }
 
-const mapStatetoProps = (state) => {
-  return {
-    todo: state,
-  }
-}
-
-export default connect(mapStatetoProps, { add_todo_item })(TodoForm);
+export default connect(null, { add_todo_item })(TodoForm);
