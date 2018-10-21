@@ -32,10 +32,9 @@ export default (state = initialState, action) => {
                 todos: todos
             })
 
-        // WORK ON THIS
         case 'DELETE': 
             return Object.assign({}, state, {
-                todos: [...state.todos.splice(action.payload)]
+                todos: [...state.todos.filter(todo => todo.id !== action.payload)]
             })
 
         default:

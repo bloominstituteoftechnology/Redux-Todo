@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { addTodo, completeTodo } from './actions';
+import { addTodo, completeTodo, deleteTodo } from './actions';
 
 import Form from './components/Form'
 import Todos from './components/Todos'
@@ -43,7 +43,7 @@ class App extends Component {
       <div className="App">
         <h1>To-Do List</h1>
         <Form changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
-        <Todos todos={this.props.todos} completeTodo={this.props.completeTodo}/>
+        <Todos todos={this.props.todos} completeTodo={this.props.completeTodo} deleteTodo={this.props.deleteTodo}/>
       </div>
     );
   }
@@ -55,4 +55,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {addTodo, completeTodo})(App);
+export default connect(mapStateToProps, {addTodo, completeTodo, deleteTodo})(App);
