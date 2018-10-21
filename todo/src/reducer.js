@@ -24,7 +24,6 @@ export default (state = initialState, action) => {
             const todos = state.todos.map(todo => {
                 if (todo.id === action.payload) {
                     todo.completed = !todo.completed;
-                    console.log(todo)
                     return todo;
                 }
                 else {return todo}

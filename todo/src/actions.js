@@ -6,7 +6,6 @@ export const addTodo = todo => {
 };
 
 export const completeTodo = id => {
-    console.log(`Complete Todo #${id}`)
     return { 
         type: 'COMPLETE', 
         payload: id 
