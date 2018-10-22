@@ -1,24 +1,29 @@
 import uuid from 'uuid'
 import { ADD, TOGGLE, DELETE } from '../actions'
 
+const local = localStorage.getItem('todos')
+
 const initialState = {
-  todos: [
-    {
-      id: uuid(),
-      value: 'Walk the dog.',
-      completed: false
-    },
-    {
-      id: uuid(),
-      value: 'Walk the dog.',
-      completed: false
-    },
-    {
-      id: uuid(),
-      value: 'Walk the dog.',
-      completed: true
-    }
-  ]
+  todos:
+    local !== 'undefined'
+      ? JSON.parse(local)
+      : [
+          {
+            id: uuid(),
+            value: 'Walk the dog.',
+            completed: false
+          },
+          {
+            id: uuid(),
+            value: 'Walk the dog.',
+            completed: false
+          },
+          {
+            id: uuid(),
+            value: 'Walk the dog.',
+            completed: true
+          }
+        ]
 }
 
 export default (state = initialState, action) => {
