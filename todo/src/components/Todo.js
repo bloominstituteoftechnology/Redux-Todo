@@ -10,7 +10,7 @@ const Todo = props => {
         {props.todo.value}</p>
       <div className='delete-todo'
         onClick={(event) => {
-          props.deleteTodo(event, props.todo.id)
+          props.deleteTodo(event, props.id)
         }}>
         Delete
       </div>

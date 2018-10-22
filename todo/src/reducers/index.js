@@ -3,12 +3,10 @@ import { HANDLE_INPUT, ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions
 
 const initialState = {
   todos: [ {
-      id: 1,
       value: 'test',
       completed: false,
     },
     {
-      id: 2,
       value: 'another test',
       completed: false,
     }],
@@ -37,8 +35,8 @@ export default (state = initialState, action) => {
       let deletingList = [
         ...state.todos,
       ]
-      deletingList = deletingList.filter(item => item.id !== action.payload);
-      return {...state, todos: deletingList }; 
+      deletingList = deletingList.filter((item, index) => index !== action.payload);
+      return {...state, todos: deletingList };
     default:
     return state;
   }
