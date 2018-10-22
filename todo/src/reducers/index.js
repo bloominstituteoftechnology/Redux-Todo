@@ -1,6 +1,8 @@
 import uuid from 'uuid'
 import { ADD, TOGGLE, DELETE } from '../actions'
 
+// check localstorage first to see if todos have been stored
+// if not, then load the initial array of todos below
 const local = localStorage.getItem('todos')
 
 // if localStorage is empty chrome returns the string "undefined"
