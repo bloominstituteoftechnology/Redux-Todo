@@ -1,57 +1,63 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addTodo } from './actions/index'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addTodo } from "./actions/index";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      newTodo: {
-        todoText : ''
-      },
+      // idCount : null,
+      todoText: ""
     };
   }
+
   handleChanges = ev => {
-    this.setState({ newTodo: { todoText : ev.target.value }});
+    this.setState({ todoText: ev.target.value });
   };
 
-  addNewTodo = ev =>{
+  addNewTodo = ev => {
     ev.preventDefault();
-    this.setState(
-      { newTodo: { id : new Date()},}
-    );
-    this.props.addTodo(this.state.newTodo);
-    
-    this.setState(
-      { newTodo: { id : null, todoText : '' }}
-    )
-  }
+
+    this.props.addTodo({
+      id: this.props.idCount,
+      todoText: this.state.todoText
+    });
+
+    this.setState({ todoText: "" });
+  };
 
   render() {
-
     return (
-     <div>
+      <div>
         <input
           type="text"
           name="inputText"
           onChange={this.handleChanges}
           placeholder="New title"
-          value={this.state.inputText}
+          value={this.state.todoText}
         />
         <button onClick={this.addNewTodo}>add</button>
 
-       {this.props.todos.map( (todo) => (
-         <p key={todo.id}>  {todo.todoText}</p>
-       ))}
-       
+        {this.props.todos.map(todo => (
+          <p key={todo.id}>
+            {" "}
+            {todo.id} : {todo.todoText}
+          </p>
+        ))}
       </div>
     );
   }
 }
 
-  const mapStateToProps = (state) => {
-    return { todos: state.todoList };
-   };
- 
-   export default connect(mapStateToProps, { addTodo })(App);
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    todos: state.todoList,
+    idCount: state.idCount
+  };
+};
 
+export default connect(
+  mapStateToProps,
+  { addTodo }
+)(App);
