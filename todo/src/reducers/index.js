@@ -1,4 +1,4 @@
-
+import {ADD_ITEM} from '../actions'
 
 const initialState = {
     todos: [{
@@ -9,6 +9,8 @@ const initialState = {
 
 export default (state = initialState, action) =>{
     switch (action.type) {
+        case ADD_ITEM:
+        return {todos:[...state.todos, action.payload]}
         default:
         return state;
     }

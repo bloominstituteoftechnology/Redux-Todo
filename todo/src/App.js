@@ -1,28 +1,39 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import './App.css';
-import TodoList from './components/TodoList';
-import Form from './components/Form'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "./App.css";
+import TodoList from "./components/TodoList";
+import Form from "./components/Form";
+import {addItem} from './actions'
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state= {
-      input:''
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ""
+    };
   }
-  changeHandler = e =>{
-    e.preventDefault()
-    this.setState({input: e.target.value})
-  }
+  changeHandler = e => {
+    e.preventDefault();
+    this.setState({ input: e.target.value });
+  };
 
-  
+  submitHandler = e => {
+    e.preventDefault();
+    this.props.addItem(this.state.input)
+    this.setState({ input: "" });
+  };
   render() {
+    console.log(this.props)
     return (
       <div className="App">
-      <h3>Todo List</h3>
-      <Form input={this.state.input} changeHandler={this.changeHandler}></Form>
-        <TodoList todos={this.props.todos}></TodoList>
+        <h3>Todo List</h3>
+        
+        <Form
+          input={this.state.input}
+          changeHandler={this.changeHandler}
+          submitHandler={this.submitHandler}
+        />
+        <TodoList todos={this.props.todos} />
       </div>
     );
   }
@@ -31,7 +42,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     todos: state.todos
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {addItem:addItem})(App);
