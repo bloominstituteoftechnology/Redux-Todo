@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+import TodoListContainer from './components/TodoListContainer';
+
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>Hi</h1>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div className="App">
+      <TodoListContainer />
+    </div>
+  );
 }
 
 export default App;
