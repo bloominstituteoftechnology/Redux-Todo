@@ -3,9 +3,13 @@ import { ADD, TOGGLE, DELETE } from '../actions'
 
 const local = localStorage.getItem('todos')
 
+// if localStorage is empty chrome returns the string "undefined"
+// whereas firefox returns the string "null"
+// the easiest way to deal with both these cases was
+// simply to inspect the string length returned from localstorage
 const initialState = {
   todos:
-    local !== 'undefined'
+    local.length > 30
       ? JSON.parse(local)
       : [
           {
