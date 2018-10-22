@@ -2,11 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodoItem } from '../actions';
 
+import TodoForm from './ToDoForm';
+
 class TodoList extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			inputText: ''
+			task: '',
+			todo: {
+				name: 'task',
+				id: Date.now(),
+				task: '',
+				complete: false
+			}
 		};
 	}
 
@@ -16,20 +24,21 @@ class TodoList extends React.Component {
 
 	handleClick = (e) => {
 		e.preventDefault();
-		this.props.addTodoItem(this.state.inputText);
+		// this.props.addTodoItem(this.state.todo.task);
 	};
 
 	render() {
 		return (
 			<div>
-				<p>Imagine that I wrote something here</p>
-				<input
-					type="text"
-					name="inputText"
-					onChange={this.handleChanges}
-					placeholder="What's todays focus?"
-					value={this.state.inputText}
-				/>
+				<p>imagine I wrote something here please</p>
+				<form action="submit">
+					<input
+						onChange={this.handleChanges}
+						placeholder="What's todays focus?"
+						value={this.state.task}
+						name={this.state.todo.name}
+					/>
+				</form>
 				<button onClick={this.handleClick}>Add Task</button>
 			</div>
 		);
