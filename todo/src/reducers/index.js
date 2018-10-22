@@ -28,7 +28,6 @@ export default (state = initialState, action) => {
         todo: ""
       };
     case TOGGLE_COMPLETE:
-      console.log("reducer toggled");
       let completedTodos = state.todos.slice();
       completedTodos.splice(action.id, 1, {
         value: action.value,

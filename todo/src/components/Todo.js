@@ -10,6 +10,7 @@ const Todo = props => {
         onClick={() =>
           props.toggleComplete(props.todo.value, props.todo.completed, props.id)
         }
+        className={props.todo.completed ? "completedTodo" : null}
       >
         {props.todo.value}{" "}
         <i

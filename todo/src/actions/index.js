@@ -19,7 +19,6 @@ export const addTodo = (e, todo) => {
 };
 
 export const toggleComplete = (value, completed, id) => {
-  console.log("action toggled");
   return {
     type: TOGGLE_COMPLETE,
     payload: completed,
