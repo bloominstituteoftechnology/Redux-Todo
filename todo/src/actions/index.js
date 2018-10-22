@@ -18,7 +18,7 @@ export const toggleTodo = id => ({
   id
 })
 
-export const deleteTodo = todo => ({
+export const deleteTodo = id => ({
   type: DELETE,
-  todo
+  id
 })

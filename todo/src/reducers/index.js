@@ -38,8 +38,10 @@ export default (state = initialState, action) => {
         ]
       }
     case DELETE:
-      // do stuff
-      return state
+      return {
+        ...state,
+        todos: [...state.todos.filter(({ id }) => id !== action.id)]
+      }
     default:
       return state
   }

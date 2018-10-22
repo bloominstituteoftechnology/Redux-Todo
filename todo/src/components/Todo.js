@@ -1,9 +1,13 @@
 import React from 'react'
-import { Item } from '../styles/Todo'
+import { Item, ItemText, Close } from '../styles/Todo'
+import closeIcon from '../icons/close.png'
 
-const Todo = ({ id, value, completed, toggleTodo }) => (
-  <Item completed={completed} onClick={() => toggleTodo(id)}>
-    {value}
+const Todo = ({ id, value, completed, toggleTodo, deleteTodo }) => (
+  <Item>
+    <ItemText completed={completed} onClick={() => toggleTodo(id)}>
+      {value}
+    </ItemText>
+    <Close src={closeIcon} alt="close" onClick={() => deleteTodo(id)} />
   </Item>
 )
 
