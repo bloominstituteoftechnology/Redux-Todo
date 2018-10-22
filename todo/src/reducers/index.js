@@ -11,5 +11,6 @@ const addNewTodo = (state = initialState, action) => {
     }
 }
 
+export default addNewTodo;
 // reducers use switch statements
 //take in action.type

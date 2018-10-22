@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import { addNewTodo } from '../actions';
 
 class TodoForm extends React.Component{
     constructor(){
@@ -19,10 +21,11 @@ class TodoForm extends React.Component{
     onSubmit = e => {
         e.preventDefault();
         //Put a function in here to change the state of the application through props, make sure to have a value that passes in
-        
+        this.props.addNewTodo(this.state.inputText);
     }
 
     render(){
+        console.log(this.props.addNewTodo)
         return(
             <div className="todo-form">
                 <form onSubmit={this.onChangeHandler}>
