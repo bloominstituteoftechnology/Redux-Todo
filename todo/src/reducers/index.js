@@ -7,7 +7,19 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
-            return 'Hello';
+            {
+                if (state.listArray.length) {
+                    return {
+                        listArray: [...state.listArray, action.payload]
+                    };
+                } else {
+                    console.log('here');
+                    return {
+                        listArray: [action.payload]
+                    }
+                }
+
+            }
         default:
             return state;
     }

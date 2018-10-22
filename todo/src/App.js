@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoForm />
+        <TodoForm addTask={this.props.addTask} />
       </div>
     );
   }
