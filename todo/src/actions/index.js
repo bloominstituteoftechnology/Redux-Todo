@@ -1,15 +1,21 @@
+import uuid from 'uuid'
+
 export const ADD = 'ADD'
 export const TOGGLE = 'TOGGLE'
 export const DELETE = 'DELETE'
 
 export const addTodo = todo => ({
   type: ADD,
-  todo
+  todo: {
+    id: uuid(),
+    value: todo,
+    completed: false
+  }
 })
 
-export const toggleTodo = todo => ({
+export const toggleTodo = id => ({
   type: TOGGLE,
-  todo
+  id
 })
 
 export const deleteTodo = todo => ({
