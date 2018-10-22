@@ -1,6 +1,6 @@
 const initialState = {
     todoList : [
-    {id : new Date(),
+    {id : 1,
     todoText : "1st To Do"}
     ]
 };

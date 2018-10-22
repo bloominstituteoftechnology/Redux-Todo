@@ -7,18 +7,41 @@ class App extends Component {
     super();
     this.state = {
       newTodo: {
-        id : null,
         todoText : ''
       },
     };
+  }
+  handleChanges = ev => {
+    this.setState({ newTodo: { todoText : ev.target.value }});
+  };
+
+  addNewTodo = ev =>{
+    ev.preventDefault();
+    this.setState(
+      { newTodo: { id : new Date()},}
+    );
+    this.props.addTodo(this.state.newTodo);
+    
+    this.setState(
+      { newTodo: { id : null, todoText : '' }}
+    )
   }
 
   render() {
 
     return (
      <div>
+        <input
+          type="text"
+          name="inputText"
+          onChange={this.handleChanges}
+          placeholder="New title"
+          value={this.state.inputText}
+        />
+        <button onClick={this.addNewTodo}>add</button>
+
        {this.props.todos.map( (todo) => (
-         <p>{todo.todoText}</p>
+         <p key={todo.id}>  {todo.todoText}</p>
        ))}
        
       </div>
