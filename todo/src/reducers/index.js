@@ -6,7 +6,9 @@ import {
 } from "../actions";
 
 const initialState = {
-  todos: [],
+  todos: localStorage.getItem("todos")
+    ? JSON.parse(localStorage.getItem("todos"))
+    : [],
   todo: ""
 };
 
@@ -15,16 +17,20 @@ export default (state = initialState, action) => {
     case HANDLE_INPUT:
       return { ...state, todo: action.payload };
     case ADD_TODO:
+      let newTodos = [
+        ...state.todos,
+        { value: action.payload, completed: false }
+      ];
+      localStorage.setItem("todos", JSON.stringify(newTodos));
       return {
         ...state,
-        todos: [...state.todos, { value: action.payload, completed: false }],
+        todos: newTodos,
         todo: ""
       };
     case TOGGLE_COMPLETE:
       console.log("reducer toggled");
-      console.log(action.payload, action.value, action.id);
-      let newTodos = state.todos.slice();
-      newTodos.splice(action.id, 1, {
+      let completedTodos = state.todos.slice();
+      completedTodos.splice(action.id, 1, {
         value: action.value,
         completed: !action.payload
       });
@@ -33,6 +39,7 @@ export default (state = initialState, action) => {
       let deleteTodos = state.todos
         .slice()
         .filter((todo, i) => i !== action.payload);
+      localStorage.setItem("todos", JSON.stringify(deleteTodos));
       return { ...state, todos: deleteTodos };
     default:
       return state;
