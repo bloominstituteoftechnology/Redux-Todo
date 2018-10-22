@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Task = () => {
+const Task = props => {
+  const { task, id, completed } = props.task;
   return (
-    <div>
-      <i className="far fa-circle" /> Placeholder Task
+    <div id={id}>
+      <i className="far fa-circle" /> {task}
     </div>
   );
 };
