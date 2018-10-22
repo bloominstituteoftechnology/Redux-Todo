@@ -3,7 +3,6 @@ import Todo from "./Todo";
 
 const List = props => (
   <section className="list">
-    <h1>Todo List</h1>
     <ul>
       {props.toDo.map(item => (
         <Todo

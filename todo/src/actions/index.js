@@ -2,7 +2,7 @@ export const ADD = "ADD";
 export const COMPLETE = "COMPLETE";
 
 export const addNewTodo = newTodo => ({
-  type: TODO,
+  type: ADD,
   payload: newTodo
 });
 

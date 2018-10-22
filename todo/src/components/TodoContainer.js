@@ -1,26 +1,26 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Todo from "./Todo"
-import TodoForm from "./TodoForm"
-import TodoList from "./TodoList"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addNewTodo, completeTodo } from "../actions/";
+import TodoForm from "./TodoForm";
+import TodoList from "./TodoList";
 
 export class TodoContainer extends Component {
-
-  render() {
+       
+    render() {
     return (
-      <div>
-        
+      <div className="container todo">
+        <TodoList toDo={this.props.todos}/>
+        <TodoForm handleNewTodo={this.props.addNewTodo}/>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
-  
-})
+const mapStateToProps = state => ({
+    todos: state.todos
+});
 
-const mapDispatchToProps = {
-  
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer)
+export default connect(
+  mapStateToProps,
+  { addNewTodo, completeTodo }
+)(TodoContainer);
