@@ -1,3 +1,5 @@
+import { TOGGLE_COMPLETE } from '../actions';
+
 const initialState = {
   tasks: [
     {
@@ -29,7 +31,22 @@ const initialState = {
 };
 
 const taskReducer = (state = initialState, action) => {
+  console.log('inside reducer', action, state);
   switch (action.type) {
+    case TOGGLE_COMPLETE:
+      return {
+        ...state,
+        tasks: state.tasks.map(task => {
+          if (task.id === action.payload) {
+            return {
+              ...task,
+              completed: !task.completed
+            };
+          }
+          return task;
+        })
+      };
+
     default:
       return state;
   }
