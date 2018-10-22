@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Todo = () => <p>todo to go here</p>
+const Todo = ({ value, completed }) => <p>{value}</p>
 
 export default Todo

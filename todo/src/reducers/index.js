@@ -1,9 +1,26 @@
-import { ADD, TOGGLE, DELETE  } from '../actions'
+import { ADD, TOGGLE, DELETE } from '../actions'
 
-export default (state = [], action) => {
+const initialState = {
+  todos: [
+    {
+      value: 'Walk the dog.',
+      completed: false
+    },
+    {
+      value: 'Walk the dog.',
+      completed: false
+    },
+    {
+      value: 'Walk the dog.',
+      completed: true
+    }
+  ]
+}
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case ADD:
-      return [ ...state, action.todo ]
+      return { ...state, todos: [...state.todos, action.todo] }
     case TOGGLE:
       // do stuff
       return state

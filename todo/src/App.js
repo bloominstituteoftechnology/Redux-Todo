@@ -1,18 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { addTodo, toggleTodo, deleteTodo } from './actions'
 import Input from './components/Input'
 import Todo from './components/Todo'
 import { Container } from './styles/Global'
 
-class App extends Component {
-  render() {
-    return (
-      <Container>
-        <p>hello world</p>
-        <Input />
-        <Todo />
-      </Container>
-    )
-  }
-}
+const mapStateToProps = ({ todos }) => ({
+  todos
+})
 
-export default App
+const App = ({ todos }) => (
+  <Container>
+    <h1>hello world</h1>
+    <Input />
+    {todos.map((todo, i) => <Todo key={i} {...todo} />)}
+  </Container>
+)
+
+export default connect(
+  mapStateToProps,
+  { addTodo, toggleTodo, deleteTodo }
+)(App)
