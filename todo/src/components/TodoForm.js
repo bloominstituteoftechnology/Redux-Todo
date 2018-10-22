@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
+
 class TodoForm extends Component {
   constructor(props) {
     super(props);
@@ -13,14 +16,28 @@ class TodoForm extends Component {
     });
   };
 
+  handleClick = e => {
+    e.preventDefault();
+    this.props.addTodo(this.state.newTodo);
+  };
+
   render() {
     return (
       <form>
         <input type="text" name="newTodo" onChange={this.changeHandler} />
-        <button>Add</button>
+        <button onClick={this.handleClick}>Add</button>
       </form>
     );
   }
 }
 
-export default TodoForm;
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addTodo }
+)(TodoForm);
