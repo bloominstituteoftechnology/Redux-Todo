@@ -1,4 +1,4 @@
-import { TOGGLE_COMPLETE } from '../actions';
+import { TOGGLE_COMPLETE, ADD_TASK } from '../actions';
 
 const initialState = {
   tasks: [
@@ -45,6 +45,11 @@ const taskReducer = (state = initialState, action) => {
           }
           return task;
         })
+      };
+    case ADD_TASK:
+      return {
+        ...state,
+        tasks: [...state.tasks, action.payload]
       };
 
     default:

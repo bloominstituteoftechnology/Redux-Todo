@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTask } from '../../actions';
 
 class Form extends Component {
   state = {
@@ -9,10 +11,21 @@ class Form extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleFormSubmit = e => {
+    e.preventDefault();
+    const task = {
+      id: Date.now(),
+      task: this.state.formInput,
+      completed: false
+    };
+    this.props.addTask(task);
+    this.setState({ formInput: '' });
+  };
+
   render() {
     const { formInput } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleFormSubmit}>
         <input
           type="text"
           placeholder="Add a new task..."
@@ -28,4 +41,7 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default connect(
+  null,
+  { addTask }
+)(Form);

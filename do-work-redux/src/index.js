@@ -10,7 +10,10 @@ import taskReducer from './reducers';
 import './index.css';
 
 // Create store
-const store = createStore(taskReducer);
+const store = createStore(
+  taskReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>
