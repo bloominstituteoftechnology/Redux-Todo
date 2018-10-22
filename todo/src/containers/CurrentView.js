@@ -12,7 +12,7 @@ const currentView = (todos, filter) => {
     case Filters.SHOW_ACTIVE:
       return todos.filter(task => !task.completed);
     default:
-      throw new Error("Unknown filter: " + filter);
+      return todos;
   }
 };
 
