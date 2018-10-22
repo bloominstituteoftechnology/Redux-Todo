@@ -44,7 +44,7 @@ class AddTodo extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        todo: state.todo
+        todos: state.todos
     };
   };
 
