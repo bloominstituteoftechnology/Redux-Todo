@@ -9,10 +9,10 @@ const mapStateToProps = ({ todos }) => ({
   todos
 })
 
-const App = ({ todos }) => (
+const App = ({ todos, addTodo, toggleTodo, deleteTodo }) => (
   <Container>
-    <h1>hello world</h1>
-    <Input />
+    <h1>Redux Todo App</h1>
+    <Input addTodo={addTodo} />
     {todos.map((todo, i) => <Todo key={i} {...todo} />)}
   </Container>
 )
