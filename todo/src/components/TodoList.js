@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Todo from './Todo';
+import { addTodo, toggleCompleted } from '../actions';
 
 import '../App.css';
 
@@ -13,15 +14,33 @@ class TodoList extends React.Component {
     };
   }
 
+  onChange = event => {
+    this.setState({ inputValue: event.target.value });
+  };
+
   render() {
     return (
       <div>
         <h1>Todo List</h1>
         <form>
-          <input />
-          <button>Add</button>
+          <input value={this.state.inputValue} onChange={this.onChange} />
+          <button
+            type="submit"
+            onClick={event => {
+              event.preventDefault();
+              this.props.addTodo(this.state.inputValue);
+              this.setState({ inputValue: '' });
+            }}
+          >
+            Add
+          </button>
         </form>
-        <ul />
+        <ul>
+          <Todo
+            todos={this.props.todos}
+            toggleCompleted={this.props.toggleCompleted}
+          />
+        </ul>
       </div>
     );
   }
