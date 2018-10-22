@@ -26,3 +26,12 @@ class TodoList extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  todos: state.todos
+});
+
+export default connect(
+  mapStateToProps,
+  { addTodo, toggleCompleted }
+)(TodoList);
