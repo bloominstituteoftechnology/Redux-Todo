@@ -8,7 +8,7 @@ const Todo = props => {
     <div>
       <p
         onClick={() =>
-          toggleComplete(props.todo.value, props.todo.completed, props.id)
+          props.toggleComplete(props.todo.value, props.todo.completed, props.id)
         }
       >
         {props.todo.value}{" "}

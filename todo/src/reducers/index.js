@@ -34,7 +34,8 @@ export default (state = initialState, action) => {
         value: action.value,
         completed: !action.payload
       });
-      return { ...state, todos: newTodos };
+      localStorage.setItem("todos", JSON.stringify(completedTodos));
+      return { ...state, todos: completedTodos };
     case DELETE_TODO:
       let deleteTodos = state.todos
         .slice()
