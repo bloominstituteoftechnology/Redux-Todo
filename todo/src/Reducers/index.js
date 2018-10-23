@@ -13,10 +13,10 @@ const initialState = {
 
 const todoReducer = (state = initialState, action) => {
     switch(action.type){
-      case HANDLE_CHANGE:
+        case HANDLE_CHANGE:
         return {...state, todo: action.payload }
         
-      default:  
+        default:  
             return state;
     }
 }
