@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTodo, clearCompleted } from '../actions';
 
 import { ReactComponent as TrashCan } from '../assets/svgs/trash-2.svg';
 
@@ -8,16 +10,21 @@ class TodoForm extends Component {
     this.state = { input: '' };
   }
 
-  handleSubmit = e => {
+  submitTodo = e => {
     e.preventDefault();
+    this.props.dispatch(addTodo(this.state.input));
     this.setState({ input: '' });
   };
 
   handleChange = e => this.setState({ input: e.target.value });
 
+  filterTodos = () => {
+    this.props.dispatch(clearCompleted());
+  };
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.submitTodo}>
         <input
           type="text"
           placeholder="...todo"
@@ -26,7 +33,7 @@ class TodoForm extends Component {
           required
         />
         <button type="submit">Add Todo</button>
-        <div>
+        <div onClick={this.filterTodos}>
           <TrashCan />
         </div>
       </form>
@@ -34,4 +41,4 @@ class TodoForm extends Component {
   }
 }
 
-export default TodoForm;
+export default connect()(TodoForm);

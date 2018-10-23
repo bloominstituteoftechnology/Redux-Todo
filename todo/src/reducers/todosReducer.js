@@ -1,13 +1,15 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/types';
+import { ADD_TODO, TOGGLE_TODO, CLEAR_COMPLETED } from '../actions/types';
 
 const todos = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [...state, action.payload];
+      return [...state, { id: action.id, value: action.input, completed: false }];
     case TOGGLE_TODO:
       return state.map(
         todo => (todo.id === action.id ? { ...todo, completed: !todo.completed } : todo)
       );
+    case CLEAR_COMPLETED:
+      return state.filter(todo => todo.completed === false);
     default:
       return state;
   }
