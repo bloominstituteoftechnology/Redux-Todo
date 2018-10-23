@@ -1,5 +1,7 @@
 import React from 'react';
+// React Redux imports
 import { connect } from 'react-redux';
+// Actions Imports
 import { selectTodo } from '../actions';
 
 function Todos(props) {
@@ -11,12 +13,14 @@ function Todos(props) {
   );
 }
 
+// Puts state in props
 const mapStateToProps = state => {
   return {
     todos: state.todos
   };
 };
 
+// Connects to Redux store
 export default connect(
   mapStateToProps,
   { selectTodo }
