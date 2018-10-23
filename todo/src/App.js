@@ -8,7 +8,7 @@ const App =()=> {
   
     return (
       <div className="todo-list-container">
-        <h3>Todo List</h3>
+        <h3>To-do List</h3>
         <Form />
         <TodoList />
       </div>
