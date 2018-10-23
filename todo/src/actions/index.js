@@ -1,4 +1,5 @@
 export const ADD_ITEM = 'ADD_ITEM'
+export const CHECK_BOX = 'CHECK_BOX'
 
 export const addItem = todo =>{
     return {
@@ -6,6 +7,16 @@ export const addItem = todo =>{
         payload: {
             value: todo,
             completed: false
+        }
+    }
+}
+
+export const checkBox = todo =>{
+    return {
+        type: CHECK_BOX,
+        payload: {
+            value: todo,
+            completed: true
         }
     }
 }
