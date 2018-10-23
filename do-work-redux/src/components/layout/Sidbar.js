@@ -55,7 +55,7 @@ class Sidebar extends Component {
           <p>Loading stats</p>
         ) : (
           <div className="stats">
-            <span>{tasks.length}</span> Tasks
+            <span>{tasks.length}</span> {tasks.length === 1 ? 'Task' : 'Tasks'}
           </div>
         )}
         <button onClick={this.handleClick} className="clear-btn">
