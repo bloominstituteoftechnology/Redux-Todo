@@ -1,4 +1,5 @@
 export const UPDATE_TODOS = 'UPDATE_TODOS';
+export const TOGGLE_COMPLETE="TOGGLE_COMPLETE";
 
 export const updateTodos = todo => ({
     
@@ -6,3 +7,10 @@ export const updateTodos = todo => ({
         payload: todo
     
 })
+
+export const toggleComplete = index => {
+    return {
+        type: TOGGLE_COMPLETE,
+        payload: index
+    }
+}

@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.complete, .incomplete {
+  cursor: pointer;
+}
+
+.complete {
+  text-decoration: line-through;
+}

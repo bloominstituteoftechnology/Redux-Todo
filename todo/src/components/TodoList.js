@@ -1,17 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {updateTodos} from "../actions"
+import {updateTodos, toggleComplete} from "../actions"
 const TodoList = props => {
     
-    console.log(props.todos)
+    
     return (
 <div className="todo-list">
-{props.todos.map(todo=>{
+{props.todos.map((todo, index)=>{
     return (
-    <div key={todo.value} className="todo">
-    <h4>{todo.value}</h4>
-<h5>{todo.completed ? "Complete" :"Incomplete"}</h5>
+    <div key={index} className="todo">
+    <h4 
+    className={todo.completed? "complete" : "incomplete"}
+    onClick={()=>props.toggleComplete(index)}>{todo.value}</h4>
+<h5 >{todo.completed ? "Complete!" :"Incomplete"}</h5>
     </div>
 )
     })}
@@ -27,5 +29,5 @@ const mapStateToProps=state=>{
 
 export default connect(
     mapStateToProps,
-    {updateTodos}
+    {updateTodos, toggleComplete}
 )(TodoList);

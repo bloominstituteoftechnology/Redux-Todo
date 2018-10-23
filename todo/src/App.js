@@ -12,8 +12,8 @@ class App extends Component {
       <div className="App">
       <h1>Todo List</h1>
       <div className="app-wrapper">
-      <TodoList />
       <TodoForm />
+      <TodoList />
       </div>
       </div>
     );
