@@ -1,7 +1,7 @@
 import {
     CREATE_TODO,
     UPDATE_TODO,
-    DELETE_TODO,
+    CLEAR_COMPLETED,
     COMPLETE_TOGGLE
 } from '../actions';
 
@@ -33,10 +33,10 @@ export default (state = initialState, action) => {
                 )
             };
         
-        case DELETE_TODO :
+        case CLEAR_COMPLETED :
             return {
                 ...state, 
-                todos: state.todos.filter((todo, i) => i !== action.payload)
+                todos: state.todos.filter(todo => todo.completed !== true)
             };
         
         case UPDATE_TODO :

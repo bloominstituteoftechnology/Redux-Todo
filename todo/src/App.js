@@ -7,7 +7,7 @@ import Search from './components/Search';
 import {
   createTodo,
   completeToggle,
-  deleteTodo,
+  clearCompleted,
   updateTodo
 } from './actions';
 
@@ -35,12 +35,12 @@ class App extends React.Component {
   }
 
   toggleComplete = index => {
-
+    this.props.completeToggle(index);
   }
 
   clearCompleted = event => {
     event.preventDefault();
-
+    this.props.clearCompleted();
   }
 
   searchClicked = () => {
@@ -96,6 +96,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   createTodo,
   completeToggle,
-  deleteTodo,
+  clearCompleted,
   updateTodo
 })(App);

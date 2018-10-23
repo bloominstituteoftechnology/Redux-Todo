@@ -1,7 +1,7 @@
 export const CREATE_TODO = 'create_todo';
 export const COMPLETE_TOGGLE = 'complete_toggle';
 export const UPDATE_TODO = 'update_todo';
-export const DELETE_TODO = 'delete_todo';
+export const CLEAR_COMPLETED = 'clear_completed';
 
 export const createTodo = (value) => {
     return {
@@ -17,10 +17,9 @@ export const completeToggle = (index) => {
     }
 };
 
-export const deleteTodo = (index) => {
+export const clearCompleted = () => {
     return {
-        type: DELETE_TODO,
-        payload: index
+        type: CLEAR_COMPLETED
     }
 };
 
