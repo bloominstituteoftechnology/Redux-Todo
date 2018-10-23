@@ -30,7 +30,7 @@ class Item extends React.Component {
             <div>
                 {this.props.todos.map((todo, index) => (
                     <div key={index}>
-                        <h3 onClick={() => this.props.toggleTodo(index)}>{todo.value}</h3>
+                        <h3 onClick={() => this.props.toggleTodo(index)} className={todo.completed ? 'completed' : null}>{todo.value}</h3>
                     </div>
                 ))}
                 <input
