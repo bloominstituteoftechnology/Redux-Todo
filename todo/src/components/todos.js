@@ -30,7 +30,7 @@ class TODOS extends React.Component {
       <div>
         {this.props.todos.map((todo, index) => (
           <div key={index}>
-            <h3 onClick={() => this.props.setCompleted(index)}>
+            <h3 style={todo.completed ? {textDecoration: 'line-through'} :null}onClick={() => this.props.setCompleted(index)}>
               {todo.todo}
             </h3>
           </div>
