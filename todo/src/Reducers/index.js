@@ -24,7 +24,7 @@ const todoReducer = (state = initialState, action) => {
             }else{
                 return {
                 ...state,
-                todos: [...state.todos, {value: action.payload, completed: false}] 
+                todos: [...state.todos, {value: action.payload, completed: false}], todo:'' 
                 }
             }    
         case TOGGLE_COMPLETED:

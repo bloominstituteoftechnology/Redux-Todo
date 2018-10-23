@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const Todo = props => {
     const markAsCompleted = () =>{
-    props.toggleCompleted(props.id);
+        props.toggleCompleted(props.id);
     }
     return (
         <li 
@@ -19,9 +19,4 @@ const Todo = props => {
 }
 
 
-const mapStateToProps = state => {
-    return {
-        todos: state.todos
-    };
-};
-export default connect(mapStateToProps, {toggleCompleted})(Todo);
+export default connect(null, {toggleCompleted})(Todo);
