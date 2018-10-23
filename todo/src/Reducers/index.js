@@ -1,4 +1,4 @@
-import { HANDLE_CHANGE, ADD_TODO, REMOVE_COMPLETED } from '../Actions/';
+import { HANDLE_CHANGE, ADD_TODO, TOGGLE_COMPLETED } from '../Actions/';
 
 
 
@@ -23,11 +23,11 @@ const todoReducer = (state = initialState, action) => {
                 ...state,
                 todos: [...state.todos, {value: action.payload, completed: false}] 
             }
-        case REMOVE_COMPLETED:
+        case TOGGLE_COMPLETED:
             return {
                 ...state,
                 todos: state.todos.map((item, id) => {
-                    console.log('Looped')
+                    console.log(item, id)
                     if (id === action.payload){
                         return {...item,  completed: !item.completed}
                     }else{

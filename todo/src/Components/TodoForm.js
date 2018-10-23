@@ -4,6 +4,7 @@ import { onChange, addTodo } from '../Actions/';
 
 const TodoForm = props => {
     const clickHandler = event => {
+        console.log(props.todo)
         event.preventDefault();
         props.addTodo(props.todo);
     };

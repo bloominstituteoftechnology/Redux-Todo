@@ -1,6 +1,6 @@
 export const HANDLE_CHANGE = 'HANDLE_CHANGE';
 export const ADD_TODO = 'ADD_TODO';
-export const REMOVE_COMPLETED = 'REMOVE_COMPLETED';
+export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
 
 
 export const onChange = event => { 
@@ -19,9 +19,8 @@ export const addTodo = todo => {
 };
 
 export const toggleCompleted = id => {
-    console.log(id);
     return {
-        type: REMOVE_COMPLETED,
+        type: TOGGLE_COMPLETED,
         payload: id
     }
 }

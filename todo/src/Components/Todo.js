@@ -1,12 +1,21 @@
 import React from 'react';
-import { toggleCompleted } from '../Actions/'
+import { toggleCompleted } from '../Actions/';
+import { connect } from 'react-redux';
 
 
 const Todo = props => {
+    const markAsCompleted = () =>{
+    props.toggleCompleted(props.id);
+    }
     return (
-        <li onClick={() => toggleCompleted(props.id)}>{props.todo.value}</li>
+        <li style={props.todo.completed ? { textDecoration: 'line-through', textDecorationColor: 'red' } : null} onClick={markAsCompleted}>{props.todo.value}</li>
     );
 }
 
 
-export default Todo;
+const mapStateToProps = state => {
+    return {
+        todos: state.todos
+    };
+};
+export default connect(mapStateToProps, {toggleCompleted})(Todo);
