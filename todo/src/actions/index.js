@@ -6,27 +6,27 @@ export const DELETE_TODO = 'delete_todo';
 export const createTodo = (value) => {
     return {
         type: CREATE_TODO,
-        action: value
+        payload: value
     }
 };
 
 export const completeToggle = (index) => {
     return {
         type: COMPLETE_TOGGLE,
-        action: index
+        payload: index
     }
 };
 
 export const deleteTodo = (index) => {
     return {
         type: DELETE_TODO,
-        action: index
+        payload: index
     }
 };
 
 export const updateTodo = (index, value) => {
     return {
         type: UPDATE_TODO,
-        action: {index, value}
+        payload: {index, value}
     }
 };

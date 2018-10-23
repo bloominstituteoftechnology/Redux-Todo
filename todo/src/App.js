@@ -1,14 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import Search from './components/Search';
+import {
+  createTodo,
+  completeToggle,
+  deleteTodo,
+  updateTodo
+} from './actions';
 
 class App extends React.Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      todoList: [],
       task: '',
       search: '',
       showSearch: false,
@@ -24,7 +31,7 @@ class App extends React.Component {
 
   addTask = event => {
     event.preventDefault();
-    
+    this.props.createTodo(this.state.task);
   }
 
   toggleComplete = index => {
@@ -43,8 +50,8 @@ class App extends React.Component {
   }
   
   filteredList = () => {
-    let todoList = this.state.todoList.filter(todo => 
-      todo.task.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+    let todoList = this.props.todoList.filter(todo => 
+      todo.value.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
     )
     return todoList;
   }
@@ -80,4 +87,15 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    todoList: state.todos
+  }
+}
+
+export default connect(mapStateToProps, {
+  createTodo,
+  completeToggle,
+  deleteTodo,
+  updateTodo
+})(App);

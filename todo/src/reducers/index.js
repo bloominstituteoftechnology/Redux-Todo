@@ -6,7 +6,10 @@ import {
 } from '../actions';
 
 const initialState = {
-    todos: [],
+    todos: [
+        {value: 'Bake Cookies', completed: false},
+        {value: 'Do Laundry', completed: false}
+    ],
 }
 
 export default (state = initialState, action) => {
