@@ -16,19 +16,29 @@ code {
 }
 
 .app {
-  border: 1px solid blue;
-  width: 100%;
+  width: 80%;
+  display: inline;
+  border: 1px solid black;
+  position: relative;
 }
 
 .list {
   display: flex;
-  border: 1px solid red;
+  padding: 1px;
+  float: left;
+  width: 30%;
+  border: 1px solid lightgrey;
+  margin: 10px;
 }
 
 .app-box {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .form-box {
-  position: fixed;
+  display: flex;
+  flex-direction: column;
+  right: 5%;
 }
