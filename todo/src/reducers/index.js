@@ -2,20 +2,37 @@
 
 
 const initialState = {
-    item: '',
+    newItem: {
+        item: '',
+        completed: false
+    },
     todolist: [
-        'take out papers',
-        'take out trash',
-        'dishes',
-        'sweep the floors',
-        'clean the bathroom',
-        'write letter to everyone',
-        'end it all'
+        {
+            item: 'take out papers',
+            completed: false
+        },
+        {
+            item: 'take out trash',
+            completed: false
+        },
+        {
+            item: 'dishes',
+            completed: false
+        },
+        {
+            item: 'sweep the floors',
+            completed: false
+        }
     ]
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case 'ADD_TO_LIST':
+            return {
+                
+
+            }
         default:
             return state;
     }

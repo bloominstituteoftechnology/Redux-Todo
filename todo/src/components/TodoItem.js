@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const TodoItem = props => {
     return (
@@ -8,5 +9,6 @@ const TodoItem = props => {
         </form>
     );
 }
- 
-export default TodoItem;
+
+
+export default connect(null)(TodoItem);
