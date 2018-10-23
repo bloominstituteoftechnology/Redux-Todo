@@ -10,8 +10,7 @@ const List = props => (
           id={item.id}
           task={item.task}
           handleCompleted={props.handleCompleted}
-          style={props.style}
-          strikethrough={item.completed ? props.strikethrough : null}
+          completed={item.completed}
         />
       ))}
     </ul>

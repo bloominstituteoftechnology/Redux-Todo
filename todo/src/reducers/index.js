@@ -17,12 +17,13 @@ const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD":
       return {
-        todo: [
-          ...state.todo,
+        todos: [
+          ...state.todos,
           {
-            value: action.payload,
+            task: action.payload,
+            id: Date.now(),
             completed: false,
-            id: Date.now()
+           
           }
         ]
       };
