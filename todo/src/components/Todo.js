@@ -7,6 +7,7 @@ const Todo = props => (
     style={props.completed ? { textDecoration: "line-through" } : null}
   >
     {props.task}
+    <span className="delete-todo" onClick={props.deleteTodo}>X</span>
   </li>
 );
 

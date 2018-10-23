@@ -11,6 +11,7 @@ const List = props => (
           task={item.task}
           completed={item.completed}
           onClick={() => props.completeTodo(item.id)}
+          deleteTodo={() => props.deleteTodo(item.id)}
         />
       ))}
     </ul>

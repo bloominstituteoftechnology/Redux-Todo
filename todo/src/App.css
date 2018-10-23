@@ -16,6 +16,16 @@ li {
   margin: 20px 0;
   font-size: 20px;
 }
+
+.delete-todo {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.delete-todo:hover {
+  text-decoration: underline;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -25,7 +35,7 @@ input {
   border-radius: 5px;
   padding-left: 10px;
   height: 25px;
-  margin-bottom: 20px;
+  width: 200px;
 }
 
 .buttons {
