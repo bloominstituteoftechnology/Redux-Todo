@@ -1,7 +1,6 @@
 import {ADD_NEW_TODO} from '../actions/index';
 
 const initialState = {
-    input : '',
     todoList : [{
         value : 'add new todo item',
         completed : false,
@@ -10,12 +9,16 @@ const initialState = {
 
 const addNewTodo = (state = initialState, action) => {
     switch(action.type){
+
         case ADD_NEW_TODO : 
         console.log("reducers", action.payload);
+        console.log(state)
         return{
-            ...state, 
-            todo : {value : action.payload}
+            // ...state.todoList, 
+            // This did not work but I think I understand why the below works
+            todoList : [...state.todoList,{value : action.payload, completed : false}]
         };
+
         default : return state;
     }
 }
