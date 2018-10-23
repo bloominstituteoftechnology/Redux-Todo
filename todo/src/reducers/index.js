@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO } from '../actions';
 
 
  const initialState = 
@@ -6,6 +6,7 @@ import { ADD_TODO } from '../actions';
     todos: 
     [
         {
+            id: 0,
             value: '',
             completed: false
         }
@@ -16,13 +17,18 @@ import { ADD_TODO } from '../actions';
         case ADD_TODO:
             return {
                 ...state,
-                todos: [
-                    ...state.todos,
-                    {value: action.payload,
-                    completed: false
-                    }
-                ]
+                todos: [...state.todos, {
+                            id: state.id + 1, 
+                            value: action.payload, 
+                            completed: false
+                        }]
             }
+
+        case TOGGLE_TODO:
+            return state.map(todo => 
+                (todo.completed === true)
+                    ? [...todo, { completed: !todo.completed} ] : todo
+                )
             
         default:
             return state;

@@ -1,14 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Todo from './Todo';
+import { toggleTodo } from '../actions';
 
  const TodoList = ({ todos }) => (
-    <ul>
+    <div>
       {todos.map(todo =>
-        <div key={todo.value}>
-            {todo.value}
-        </div>
+        <Todo   
+            key={todo.value}
+            value={todo.value}
+            completed={todo.completed}
+            onClick={() => toggleTodo(todo.id)}
+        />
       )}
-    </ul>
+    </div>
   )
    const mapStateToProps = state => ({
     todos: state.todos
