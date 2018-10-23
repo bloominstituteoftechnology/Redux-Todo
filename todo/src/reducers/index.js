@@ -28,17 +28,12 @@ export function todoReducers(state = initialState, action) {
       return { todos: newTodos };
 
     case DELETE_TODO:
-      const updatedTodos = state.todos.filter(todo => {
-        if (todo.id === action.payload) {
-          return {
-            ...todo,
-            completed: !todo.completed
-          };
-        } else {
-          return { ...todo };
-        }
-      });
-      return { todos: updatedTodos };
+      return {
+        ...state,
+        todos: state.todos.filter(todo => {
+          return todo.id !== action.payload;
+        })
+      };
 
     default:
       return state;
