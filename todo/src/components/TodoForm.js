@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addTodo, clearCompleted } from '../actions';
 
 import { ReactComponent as TrashCan } from '../assets/svgs/trash-2.svg';
+import styles from './todoForm.module.css';
 
 class TodoForm extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class TodoForm extends Component {
           required
         />
         <button type="submit">Add Todo</button>
-        <div onClick={this.filterTodos}>
+        <div className={styles.trash} onClick={this.filterTodos}>
           <TrashCan />
         </div>
       </form>

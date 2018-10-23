@@ -1,0 +1,13 @@
+.incomplete {
+	cursor: pointer;
+	font-size: 1.8rem;
+	margin: 0 0 10px 30px;
+	text-decoration: none;
+}
+
+.completed {
+	cursor: pointer;
+	font-size: 1.8rem;
+	margin: 0 0 10px 30px;
+  text-decoration: line-through;
+}

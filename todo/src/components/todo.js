@@ -10,6 +10,9 @@ const Todo = ({ dispatch, todo, id }) => (
     onClick={() => dispatch(toggleTodo(id))}
   >
     {todo.value}
+		<div className={styles.trash}>
+
+		</div>
   </li>
 );
 

@@ -2,7 +2,6 @@ import React from 'react';
 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/todoList';
-import './App.css';
 
 const App = () => (
   <div className="App">
