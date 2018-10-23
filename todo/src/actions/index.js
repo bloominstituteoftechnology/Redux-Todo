@@ -1,5 +1,5 @@
 export const ADDTASK = 'ADDTASK';
-export const TOGGLESTATE = 'TOGGLESTATE';
+export const COMPLETE = 'COMPLETE';
 export const DELETETASK = 'DELETETASK';
 
 
@@ -11,18 +11,28 @@ export const DELETETASK = 'DELETETASK';
 // logic of updating the central Redux store. That
 // is left to the reducer(s).
 
+
+//To add task in todoList
 export const addTask = (task) => {
-    // Fill in this function
     return {
-        type : ADDTASK,
+        type : "ADDTASK",
         payload : task
 
     };
 };
 
-export const decrement = (count) => {
-    // Fill in this function
+//To toggle task completed
+export const complete = (index) => {
     return {
-      type : DECREMENT,
+        type : "COMPLETE",
+        payload : index    
+    };
+};
+
+//To delete task from todoList
+export const deleteTask = (index) => {
+    return {
+        type : "DELETETASK",
+        payload : index
     };
 };

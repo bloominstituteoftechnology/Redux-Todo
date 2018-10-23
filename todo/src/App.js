@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addTask, complete, deleteTask } from './actions';
+import './index.css';
 
 
 import './App.css';
@@ -8,7 +10,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          toDoList : ''
+          todos: [],
         }
     } //constructor end....
     
@@ -17,14 +19,37 @@ class App extends Component {
       this.setState({ [event.target.name]  : event.target.value })
   }
   
-  addTaskToList = (event) => {
-      
+  addTaskToList = (task) => {
+      this.props.addTask(task);
+      this.setState({ todos : ""})
   };
 
+  deleteCompletedTask = (index) => {
+      this.props.deleteTask(index);
+  }
+
   render() {
+    console.log("App : ",this.props);
     return (
       <div className="App">
-          <h1>Hello Todo</h1>
+          <h1>Todo List </h1>
+          {this.props.todos.map((item, index) => {
+                                                  return <div key = {index}>
+                                                  <li> {item.todos} </li> } </div>)}
+
+	                 
+          {/*<TodoList
+              handleToggleComplete = {this.toggleTodoComplete}
+              toDoList = {this.state.toDoList}
+          />
+        
+         <TodoForm
+              value = {this.state.todo}
+              handleTodoChange = {this.changeTodo}
+              addTodo = {this.addTaskTodoList}
+              clearTodos = {this.clearCompletedTodos}
+          /> */}  
+          
       </div>
     );
   }
@@ -32,9 +57,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-      toDoList : state.toDoList,
+    todos : state,
   };
 };
 
 
-export default connect(mapStateToProps, { })(App);
+export default connect(mapStateToProps, { addTask, complete, deleteTask})(App);
