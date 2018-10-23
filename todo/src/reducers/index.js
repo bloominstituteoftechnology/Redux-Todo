@@ -1,4 +1,4 @@
-import {ADD_TASK} from '../actions'
+import {ADD_TASK, TOGGLE_COMPLETE, DELETE_TASK} from '../actions'
 
 const initialState = {
     todos: [
@@ -20,6 +20,28 @@ const todoReducer = (state = initialState, action) => {
             ...state,
             todos: [...state.todos, {task: action.payload, completed: false}]
         }
+        case TOGGLE_COMPLETE:
+        return {
+            ...state,
+            todos: state.todos.map((task, index) => {
+                if(index === action.payload) {
+                    return {...task, completed: !task.completed}
+                } else {
+                    return task
+                }
+            })
+        }
+        case DELETE_TASK:
+        return {
+            ...state,
+            todos: state.todos.filter((task, index) => {
+                if(index === action.payload) {
+                } else {
+                    return task
+                }
+            })
+        }
+
         default:
         return state;
     }
