@@ -7,17 +7,23 @@ import Todo from './Todo';
 
 import './Todos.css';
 
+
 class Todos extends React.Component {
 
+  handleClick = (ev) => {
+    ev.preventDefault();
+    console.log(ev.target);
+    toggleCompleted(ev.target.index);
+  }
 
   render() {
     return (
       <div>
         <h1>Redux Todos</h1>
         <TodoForm />
-        {this.props.todos.map((todo, index) => (
+        {this.props.todos.map((todoText, index) => (
           // <Todo key={index} todoText={todo} />
-          <Todo key={index} todoText={todo} />
+          <Todo key={index} todo={todoText} toggleCompleted={this.handleClick}/>
         ))}
       </div>
     );
@@ -32,5 +38,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleCompleted }
+  { addTodo }
 )(Todos);

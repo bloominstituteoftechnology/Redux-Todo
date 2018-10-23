@@ -24,7 +24,6 @@ class TodoForm extends React.Component {
   render() {
     return (
       <div className='todo-form'>
-        <form action='submit'>
           <input
             type='text'
             name='inputText'
@@ -33,7 +32,6 @@ class TodoForm extends React.Component {
             value={this.state.inputText}
           />
           <input onClick={this.handleClick} type="button" value="Add Todo" />
-        </form>
       </div>
     );
   }
