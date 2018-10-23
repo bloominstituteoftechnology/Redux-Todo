@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import "./App.css";
 import { connect } from "react-redux";
-import { addTodo } from "./actions/index";
+import { addTodo, deleteTodo, toggleCompleted } from "./actions/index";
 
 class App extends Component {
   constructor() {
@@ -24,8 +25,19 @@ class App extends Component {
     this.setState({ todoText: "" });
   };
 
+  deleteTodo = (ev, index) => {
+    ev.preventDefault();
+    this.props.deleteTodo(index);
+  }
+
+  toggleCompleted = (ev, index) => {
+    ev.preventDefault();
+    this.props.toggleCompleted(index);
+  }
+
+
   render() {
-    console.log(this.props.todos);
+   
     return (
       <div>
         
@@ -39,8 +51,15 @@ class App extends Component {
         <button onClick={this.addNewTodo}>add</button>
         <ul>
         {this.props.todos.map((todo, index) => (
-          <li key={index}> {index} : {todo.todoText}  </li>
-        ))}
+
+         
+            <li key={index} className = "todo"> 
+              <p className={`completed${todo.isCompleted}`}
+                  onClick={(ev) => this.toggleCompleted(ev, index)}>{todo.todoText}</p>
+              <span onClick={(ev) => this.deleteTodo(ev, index)}>  x  </span> 
+            </li>
+         
+          ))}
 
         </ul>
       </div>
@@ -49,7 +68,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+ console.log("mapState", state.todoList);
   return {
     todos: state.todoList,
    };
@@ -57,5 +76,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, deleteTodo, toggleCompleted }
 )(App);

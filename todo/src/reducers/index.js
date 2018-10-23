@@ -1,25 +1,30 @@
 const initialState = {
-  todoList: [
-    // {
-    //   isCompleted: false,
-    //   todoText: "1st To Do"
-    // }
-  ]
+  todoList: []
 };
 
 const todoReducers = (state = initialState, action) => {
-
   switch (action.type) {
-   
     case "ADDTODO":
-      // let todos = state.todoList;
-      // todos.push(action.payload);
-      return {todoList : [...state.todoList, {...action.payload, isCompleted : false}]}  ;
+      return {
+        todoList: [...state.todoList, { ...action.payload, isCompleted: false }]
+      };
 
-      // return {
-      //   todoList: todos,
-      //   idCount: state.idCount + 1
-      // };
+    case "DELETETODO":
+
+      return { todoList: [...state.todoList].filter( (todo, index) =>  index !== action.payload) };
+
+      // return { todoList: [...state.todoList].splice(0, 1) };
+
+      case "TOGGLECOMPLETED":
+
+      return { todoList: [...state.todoList].map( (todo, index) => {
+          if (index === action.payload){
+            return {...todo, isCompleted : !todo.isCompleted }
+          }
+          else
+            return todo;
+          })
+        };
 
     default:
       return state;

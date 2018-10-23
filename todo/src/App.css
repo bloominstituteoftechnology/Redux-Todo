@@ -30,3 +30,16 @@
     transform: rotate(360deg);
   }
 }
+
+.todo{
+  display : flex;
+  align-items : center;
+}
+
+.todo span{
+  margin-left : 15px;
+}
+
+.completedtrue{
+  text-decoration: line-through;
+}

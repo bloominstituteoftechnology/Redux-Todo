@@ -5,3 +5,22 @@ export const addTodo = todo => {
     payload: todo
   };
 };
+
+
+export const deleteTodo = index => {
+  console.log("in Action deleteTodo ", index);
+  return {
+    type: "DELETETODO",
+    payload: index,
+  };
+};
+
+
+
+export const toggleCompleted = index => {
+  console.log("in Action TOGGLECOMPLETED ", index);
+  return {
+    type: "TOGGLECOMPLETED",
+    payload: index,
+  };
+};
