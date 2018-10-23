@@ -1,4 +1,7 @@
-export const AddTodo = (payload) => { 
-    return {type: 'ADDTODO',
-            payload: payload}
+// ACTIONS
+
+export const AddTodo = todo => { 
+    console.log('inside AddTodo action');
+    return {type: 'ADD-TODO',
+            payload: todo}
 } 

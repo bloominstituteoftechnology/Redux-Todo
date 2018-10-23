@@ -1,3 +1,5 @@
+//  REDUCER
+
 const initialState = { todos: [
     {value: 'testing'},
     {value: 'testing2'},
@@ -9,14 +11,12 @@ const initialState = { todos: [
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'ADDTODO':
+        case 'ADD-TODO':
             return {
-                // alter this after actions are created
-                ...state, todos: state.todos.push(action.payload)
+                ...state, 
+                todos: [...state.todos, action.payload]
             }; 
         default: 
-        return state;
-    }; 
-
-
+            return state;
+    } 
 }; 
