@@ -1,4 +1,4 @@
-import {UPDATE_TODOS, TOGGLE_COMPLETE} from '../actions';
+import {UPDATE_TODOS, TOGGLE_COMPLETE, DELETE_TODO} from '../actions';
 
 
 const initialState= {
@@ -25,6 +25,15 @@ const todoReducer = (state=initialState, action) => {
                     return todo;
                 }
             })
+        }
+        case DELETE_TODO:
+        return {
+         ...state,
+         todos : state.todos.filter((todo, index) => {
+             if (index!== action.payload) {
+                 return todo;
+             }
+         })   
         }
         default:
         return state;

@@ -17,13 +17,14 @@ changeHandler= (key, value) => {
 
 clickHandler = event => {
     event.preventDefault();
-    this.props.updateTodos(this.state.inputText)
+    this.props.updateTodos(this.state.inputText);
+    this.setState({inputText: ''})
 }
 
 render () {
     return (
         <form className="todo-form">
-<h2>Add New Todo</h2>
+
 <input type="text" name="inputText" onChange={event=>this.changeHandler(event.target.name, event.target.value)} placeholder="New Todo" value={this.state.inputText}></input>
         <button onClick={this.clickHandler}>Add to List</button>
         </form>

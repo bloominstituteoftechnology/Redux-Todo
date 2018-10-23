@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {updateTodos, toggleComplete} from "../actions"
+import {toggleComplete, deleteTodo} from "../actions"
 const TodoList = props => {
     
     
@@ -10,6 +10,7 @@ const TodoList = props => {
 {props.todos.map((todo, index)=>{
     return (
     <div key={index} className="todo">
+    <div className="delete-button" onClick={()=>props.deleteTodo(index)}>X</div>
     <h4 
     className={todo.completed? "complete" : "incomplete"}
     onClick={()=>props.toggleComplete(index)}>{todo.value}</h4>
@@ -29,5 +30,5 @@ const mapStateToProps=state=>{
 
 export default connect(
     mapStateToProps,
-    {updateTodos, toggleComplete}
+    {toggleComplete, deleteTodo}
 )(TodoList);
