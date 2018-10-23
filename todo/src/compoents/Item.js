@@ -12,12 +12,16 @@ class Item extends React.Component {
     }
 
     handleChanges = ev => {
-        this.setState({ [ev.target.name]: ev.target.value })
+        this.setState( {[ev.target.name]: ev.target.value})
+
     }
 
     handleNewTodo = ev => {
         ev.preventDefault();
         this.props.addTodo(this.state.todoText)
+        this.setState({
+            todoText: ''
+        })
     }
 
 
