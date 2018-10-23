@@ -4,7 +4,7 @@ import './App.css';
 import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import {toDoReducer} from './reducers';
-import {addTodo, toggleTodo} from './actions';
+import {addTodo, toggleTodo, deleteTodo} from './actions';
 import Todo from './components/Todo';
 
 
@@ -36,7 +36,7 @@ class App extends Component {
       
       <div className="App">
       
-      {this.props.todos.map(todo => <Todo toggle={this.props.toggleTodo}id={todo.id} todo={todo}/>) }
+      {this.props.todos.map(todo => <Todo delete={this.props.deleteTodo}toggle={this.props.toggleTodo}id={todo.id} todo={todo}/>) }
        
 
       <form onSubmit={this.addTodo}>
@@ -55,4 +55,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {addTodo, toggleTodo})(App);
+export default connect(mapStateToProps, {addTodo, toggleTodo, deleteTodo})(App);

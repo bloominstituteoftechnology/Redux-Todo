@@ -1,8 +1,8 @@
-import {ADD_TODO, TOGGLE_COMPLETE} from '../actions/index';
+import {ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO} from '../actions/index';
 
 
 const initialState = {
-    todos: [{value: 'd', completed: false}]
+    todos: []
 }
 
 export const toDoReducer = (state = initialState, action) => {
@@ -13,16 +13,19 @@ export const toDoReducer = (state = initialState, action) => {
         let todos = state.todos.map(todo =>{ 
             if(todo.id === action.payload){
                 todo.completed = !todo.completed
-                console.log(todo)
                 return todo
             }
             else{
                 return todo
             }
         });
-        console.log(todos)
         
         return {...state, todos: todos};
+
+        case DELETE_TODO: 
+        let newlist = state.todos.filter(todo => todo.id !== action.payload);
+        return {...state, todos: newlist}
+
         default: 
         return state;
     }
