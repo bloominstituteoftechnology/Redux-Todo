@@ -12,3 +12,179 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: linear-gradient(210deg, rgba(247, 150, 64, 1), rgba(247, 150, 64, 0.9));
+  height: 100vh;
+  color: rgb(247, 150, 64);
+}
+
+.app-container {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 50px auto;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10px auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(25,25,25,.25);
+  padding: 15px;
+  padding-bottom: 50px;
+  position: relative;
+}
+
+
+.clear-btn { 
+  width: 320px;
+  height: 35px;
+  font-size: 14px;
+  border: solid 1px rgb(247, 150, 64);
+  border-radius: 20px;
+  padding: 0px 10px;
+  outline: none;
+  position: absolute;
+  bottom: 10px;
+  color: rgb(247, 150, 64);
+  background: white;
+}
+
+.clear-btn:active {
+  transition: all 100ms ease-in-out;
+  transform: scale(0.95);
+}
+
+
+.todo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+  padding: 0px 10px;
+  height: 40px;
+  user-select: none;
+}
+
+/* .todo:hover {
+  cursor: pointer;
+} */
+
+.list-container {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.add-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.add-form input {
+  width: 210px;
+  height: 35px;
+  font-size: 18px;
+  border: solid 1px rgb(247, 150, 64);
+  border-radius: 20px;
+  padding: 0px 20px;
+  outline: none;
+  color: rgb(247, 150, 64);
+}
+
+.add-form button {
+  width: 100px;
+  height: 35px;
+  font-size: 14px;
+  border: solid 1px rgb(247, 150, 64);
+  border-radius: 20px;
+  padding: 0px 10px;
+  outline: none;
+  color: rgb(247, 150, 64);
+  background: white;
+}
+
+.add-form button:active {
+  transition: all 100ms ease-in-out;
+  transform: scale(0.95);
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.search-input {
+  transition: all 300ms ease-in-out;
+  width: 40px;
+  height: 35px;
+  font-size: 18px;
+  border: none;
+  /* border: solid 1px red; */
+  outline: none;
+  background: rgb(247, 150, 64);
+  visibility: hidden;
+}
+
+.search-input::placeholder {
+  font-size: 18px;
+}
+
+.show-input {
+  width: 100%;
+  border-radius: 20px;
+  padding: 0px 20px;
+  color: rgb(247, 150, 64);
+  background: white;
+  visibility: visible;
+}
+
+.search-input::placeholder {
+  color: transparent;
+}
+
+.show-input::placeholder {
+  color: initial;
+}
+
+.search-btn {
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  right: 15px;
+  bottom: 6px;
+  z-index: 1;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+}
+
+
+.color-orange {
+  color: rgb(247, 150, 64);
+}
