@@ -12,7 +12,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch(action.type){
+
     case ADD_TODO:
+    //adds the new todo from the form to the state todos array. 
       let newList = [
         ...state.todos,
           {
@@ -28,22 +30,24 @@ export default (state = initialState, action) => {
         todos: newList,
         todo: '' };
 
-//update the store's todo field on change in input form;
+
     case HANDLE_INPUT:
+    //update the store's todo field on change in input form;
       return {...state, todo: action.payload};
 
-//toggleComplete does not work!
+
     case TOGGLE_COMPLETE:
-    let completedList = state.todos.map((item, index) => (index === action.payload) ? {...item, completed: !item.completed} : item);
-    localStorage.setItem('todos', JSON.stringify(completedList));
-    return {
-      ...state,
-      todos: completedList
-    }
+    //maps through the current todos list, finds the item with the index passed by the action, toggles the value in the completed property for that item.
+      let completedList = state.todos.map((item, index) => (index === action.payload) ? {...item, completed: !item.completed} : item);
+      localStorage.setItem('todos', JSON.stringify(completedList));
+      return {
+        ...state,
+        todos: completedList
+      }
 
 
     case DELETE_TODO:
-//filter the list of todos on state so that only those that do not match the ID that was passed by the action remain
+    //filters the list of todos on state so that only those that do not match the ID that was passed by the action remain
       let deletingList = state.todos.filter((item, index) =>
        index !== action.payload);
        localStorage.setItem('todos', JSON.stringify(deletingList));

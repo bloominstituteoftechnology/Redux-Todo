@@ -8,11 +8,11 @@ const Form = props => {
         <input
           name='todo'
           type='text'
-          placeholder='Add todo'
+          placeholder='add todo'
           onChange={props.handleInput}
           value={props.todo}
         />
-        <button type='submit'>Add</button>
+        {/* <button type='submit'>Add</button> */}
       </form>
     )
   }

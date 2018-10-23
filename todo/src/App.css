@@ -80,14 +80,19 @@ html {
 
 
 form {
-  min-height: 20vh;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 10vh;
+  /* border: 1px solid white; */
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 form input {
-  width: 30%;
+  width: 70%;
   margin: 3%;
   text-align: center;
   background: transparent;
@@ -97,7 +102,10 @@ form input {
   font-family: 'Poppins', sans-serif;
   font-size: 1.8rem;
   border-bottom: 2px solid lightgray;
+
 }
+
+
 
 form input::placeholder{
   color: lightgray;
@@ -128,20 +136,23 @@ form button:focus {
 }
 
 .todo-list {
+  max-width: 500px;
+  width: 100%;
   margin: 0 auto;
-  width: 50%;
 }
 .todo {
   font-size: 1.8rem;
   color: white;
+  color: lightgray;
   background-color: #070809;
   background-color: #121417;
-  margin: 10px;
+  margin: 10px auto;
   padding: 15px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80%;
   /* border: 1px solid white; */
 }
 
