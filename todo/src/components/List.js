@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { addItem } from '../actions/index';
+import { addItem, toggleCompleted } from '../actions/index';
 
 class List extends React.Component {
     constructor() {
@@ -25,7 +25,7 @@ render() {
             <h1>To-Do List</h1>
             {this.props.items.map((item, index) => (
                 <div key={index}>
-                <h4>{item.task}</h4>
+                <h4 onClick={() => this.props.toggleCompleted(index)}>{item.task}</h4>
         </div>
             ))}
             <input
@@ -48,5 +48,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {addItem}
+    { addItem, toggleCompleted }
 )(List);
