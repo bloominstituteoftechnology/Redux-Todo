@@ -1,4 +1,4 @@
-import { ADD_ITEM, CHECK_BOX } from "../actions";
+import { ADD_ITEM, CHECK_BOX, CLEAR_COMPLETED } from "../actions";
 
 const initialState = {
   todos: [
@@ -10,6 +10,9 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+    if (!state.todos){
+        return initialState
+    }
     let valueMap = state.todos.map(x => x.value);
   switch (action.type) {
     case ADD_ITEM:
@@ -23,7 +26,8 @@ export default (state = initialState, action) => {
       let altered = [...state.todos]
       altered.splice(clickedIDX, 1, action.payload)
       return { todos:  altered};
-
+        case CLEAR_COMPLETED:
+        return state.todos.filter(x => !x.completed)
     default:
       return state;
   }
