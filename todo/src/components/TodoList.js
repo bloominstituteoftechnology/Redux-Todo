@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleComplete } from '../actions';
+import { addTodo, toggleComplete, deleteTodo } from '../actions';
 
 import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
@@ -35,12 +35,19 @@ class TodoList extends Component {
     this.props.toggleComplete(id);
   }
 
+  deleteTodo = (e, id) => {
+    e.preventDefault();
+
+    this.props.deleteTodo(id);
+  }
+
   render() {
     const todoItem = this.props.todos.map(todo => (
       <TodoItem
         key={todo.id}
         todo={todo}
         toggleComplete={this.toggleComplete}
+        deleteTodo={this.deleteTodo}
       />
     ));
 
@@ -68,4 +75,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addTodo, toggleComplete })(TodoList);
+export default connect(mapStateToProps, { addTodo, toggleComplete, deleteTodo })(TodoList);
