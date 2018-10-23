@@ -1,10 +1,10 @@
 import React from 'react'
 
-function TodoItem() {
+function TodoItem(props) {
   return (
-    <div>
-      
-    </div>
+    <li onClick={() => props.clickHandler(props.todo)} >
+      {props.todo.item}
+    </li>
   )
 }
 
