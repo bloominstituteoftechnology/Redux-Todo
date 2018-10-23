@@ -1,7 +1,12 @@
 import { ADDTODO, TOGGLETODO, CLEARCOMPLETED, DELETETODO } from '../actions';
 
+const storage = localStorage.getItem('todos')
+
 const initialState = {
-    todos: [{inputText: 'click a todo to mark it complete', completed: false}, {inputText: 'delete completed todos with the "clear completed" button above', completed: false}]
+    todos: 
+        storage ? 
+        JSON.parse(storage) :
+        [{inputText: 'click a todo to mark it complete', completed: false}, {inputText: 'delete completed todos with the "clear completed" button above', completed: false}]
 }
 
 export default (state = initialState, action) => {
