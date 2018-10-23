@@ -1,26 +1,16 @@
-export const CHANGE_TITLE = "CHANGE_TITLE";
-export const ADD_FRIEND = "ADD_FRIEND";
-export const TOGGLE_BESTIES = "TOGGLE_BESTIES";
+export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
 
-export const changeTitle = title => {
-  console.log("inside action", title);
+export const addTodo = task => {
   return {
-    type: CHANGE_TITLE,
-    payload: title
+    type: ADD_TODO,
+    payload: task
   };
 };
 
-export const addFriend = friend => {
-  console.log("inside action", friend);
+export const toggleTodo = index => {
   return {
-    type: ADD_FRIEND,
-    payload: friend
-  };
-};
-
-export const toggleBesties = index => {
-  return {
-    type: TOGGLE_BESTIES,
+    type: TOGGLE_TODO,
     payload: index
   };
 };

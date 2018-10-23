@@ -1,39 +1,28 @@
-import { CHANGE_TITLE, ADD_FRIEND, TOGGLE_BESTIES } from "../actions";
+import { ADD_TODO, TOGGLE_TODO } from "../actions";
 
 const initialState = {
   title: {
     text: "Hello Redux World! (I am inside redux)"
   },
-  friends: [
-    { name: "Matt", besties: true },
-    { name: "Braeden", besties: false }
-  ]
+  todo: []
 };
 
 const titleReducer = (state = initialState, action) => {
   console.log("Inside reducer", action, state);
   switch (action.type) {
-    case CHANGE_TITLE:
+    case ADD_TODO:
       return {
         ...state,
-        title: {
-          ...state.title,
-          text: action.payload
-        }
+        todo: [...state.todo, { name: action.payload, completed: false }]
       };
-    case ADD_FRIEND:
+    case TOGGLE_TODO:
       return {
         ...state,
-        friends: [...state.friends, { name: action.payload, besties: false }]
-      };
-    case TOGGLE_BESTIES:
-      return {
-        ...state,
-        friends: state.friends.map((friend, index) => {
+        todo: state.todo.map((todo, index) => {
           if (index === action.payload) {
-            return { ...friend, besties: !friend.besties };
+            return { ...todo, completed: !todo.completed };
           } else {
-            return friend;
+            return todo;
           }
         })
       };

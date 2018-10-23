@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux"; // HOC!!!!
-import { changeTitle, addFriend, toggleBesties } from "../actions";
+import { addTodo, toggleTodo } from "../actions";
 
 class Title extends React.Component {
   constructor() {
     super();
     this.state = {
       inputText: "",
-      friendText: ""
+      todo: []
     };
   }
 
@@ -21,38 +21,27 @@ class Title extends React.Component {
     this.props.changeTitle(this.state.inputText);
   };
 
-  handleNewFriend = ev => {
+  handleNewTask = ev => {
     ev.preventDefault();
-    this.props.addFriend(this.state.friendText);
+    this.props.addTodo(this.state.todo);
   };
 
   render() {
     return (
       <div>
-        <h1>{this.props.title}</h1>
-        <input
-          type="text"
-          name="inputText"
-          onChange={this.handleChanges}
-          placeholder="New title"
-          value={this.state.inputText}
-        />
-        <button onClick={this.handleClick}>Update Title</button>
-        {this.props.friends.map((friend, index) => (
+        {this.props.todo.map((t, index) => (
           <div key={index}>
-            <h3 onClick={() => this.props.toggleBesties(index)}>
-              {friend.name}
-            </h3>
+            <h3 onClick={() => this.props.toggleTodo(index)}>{t.name}</h3>
           </div>
         ))}
         <input
           type="text"
-          name="friendText"
+          name="todo"
           onChange={this.handleChanges}
-          placeholder="New friend"
-          value={this.state.friendText}
+          placeholder="Add Todo"
+          value={this.state.todo}
         />
-        <button onClick={this.handleNewFriend}>Add Friend</button>
+        <button onClick={this.handleNewTask}>Add Todo</button>
       </div>
     );
   }
@@ -60,12 +49,11 @@ class Title extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    friends: state.friends,
-    title: state.title.text
+    todo: state.todo
   };
 };
 
 export default connect(
   mapStateToProps,
-  { changeTitle, addFriend, toggleBesties }
+  { addTodo, toggleTodo }
 )(Title);
