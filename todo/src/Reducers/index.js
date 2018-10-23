@@ -20,6 +20,7 @@ const todoReducer = (state = initialState, action) => {
             return {
                 todos: state.todos.map((todo, index) => {
                     if (index === action.payload) {
+                        todo.className === true ? todo.className = false: todo.className = true;
                         return { 
                             ...todo, 
                             completed: !todo.completed};
