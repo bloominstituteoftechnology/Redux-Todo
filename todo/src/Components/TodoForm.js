@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { onChange } from '../Actions/';
+import { onChange, addTodo } from '../Actions/';
 
 const TodoForm = props => {
+    const clickHandler = event => {
+        event.preventDefault();
+        props.addTodo(props.todo);
+    };
     return (
         <form>
             <input 
@@ -11,7 +15,7 @@ const TodoForm = props => {
                 value = {props.todo}
                 onChange = {props.onChange}
             />
-            <button>Submit</button>
+            <button onClick={clickHandler}>Submit</button>
         </form>
     );
 }
@@ -23,4 +27,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {onChange})(TodoForm);
+export default connect(mapStateToProps, {onChange, addTodo})(TodoForm);

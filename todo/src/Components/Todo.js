@@ -1,9 +1,10 @@
 import React from 'react';
+import { toggleCompleted } from '../Actions/'
 
 
 const Todo = props => {
     return (
-        <h2>{props.todo.value}</h2>
+        <li onClick={() => toggleCompleted(props.id)}>{props.todo.value}</li>
     );
 }
 
