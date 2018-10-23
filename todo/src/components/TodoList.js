@@ -1,4 +1,5 @@
 import React from 'react';
+import { TOGGLE_COMPLETED } from '../actions';
 
 const TodoList = (props) => {
     return(
@@ -7,7 +8,7 @@ const TodoList = (props) => {
             <ul>
                 {
                     props.todoList.map((item,index) => {
-                        return <li key={index} onClick={() => console.log("item clicked :",{index})}>{item.value}</li>
+                        return <li key={index} onClick={() => props.toggleCompleted(index)}>{item.value}</li>
                     })
                 }
             </ul>

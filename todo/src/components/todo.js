@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
-import { addNewTodo } from '../actions';
+import { addNewTodo,toggleCompleted } from '../actions';
 import {connect} from 'react-redux'
 
 
@@ -29,6 +29,12 @@ export class Todo extends React.Component{
         this.props.addNewTodo(this.state.inputText);
     }
 
+    onClick = e => {
+        // e.preventDefault();
+        console.log("onClick was invoked on : ", e.target)
+        this.props.toggleCompleted();
+    }
+
     render(){
         console.log(this.props.todoList)
         return(
@@ -38,7 +44,10 @@ export class Todo extends React.Component{
                 onSubmit = {this.onSubmit}
                 inputText = {this.state.inputText}
                 />
-                <TodoList todoList={this.props.todoList}/>
+                <TodoList
+                todoList={this.props.todoList}
+                toggleCompleted={this.onClick}
+                />
             </div>
         )
     }
@@ -52,7 +61,12 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { addNewTodo }
+    { addNewTodo,toggleCompleted }
 )(Todo);
+
+// export default connect(
+//     mapStateToProps,
+//     { toggleCompleted }
+// )(Todo);
 
 // export default Todo;

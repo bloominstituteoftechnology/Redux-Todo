@@ -9,9 +9,10 @@ export const addNewTodo = input => {
     }
 }
 
-export const toogleCompleted = () => {
+export const toggleCompleted = (index) => {
     return{
         type : TOGGLE_COMPLETED,
+        payload : index,
         //no payload necessary
     }
 }

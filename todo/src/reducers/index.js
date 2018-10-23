@@ -22,7 +22,13 @@ const addNewTodo = (state = initialState, action) => {
 
         case TOGGLE_COMPLETED :
         return{
-            todoList : [...state.todoList, {completed : true}]
+            todoList : state.todoList.map((item,index) => {
+                if(index === action.payload){
+                    return{...item,completed : !item.completed}
+                }else{
+                    return item;
+                }
+            })
         };
 
         default : return state;
