@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './Components/reducer/index'
+import reducer from './Components/reducer'
 
 const store = createStore(reducer)
 
