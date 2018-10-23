@@ -17,8 +17,8 @@ const Todo = props => {
   return (
     <div className='todo'>
       <div className={props.todo.urgent ?  'marker urgent' : 'marker'}
-        onClick={toggleUrgent}><i class="fas fa-exclamation"/></div>
-      <p className={props.todo.completed && 'done'} onClick={onClick}>
+        onClick={toggleUrgent}><i className="fas fa-exclamation"/></div>
+      <p className={props.todo.completed ? 'done' : null} onClick={onClick}>
         {props.todo.value}</p>
       <div className='delete-todo'
         onClick={deleteTodo}>

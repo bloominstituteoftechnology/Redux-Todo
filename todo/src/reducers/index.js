@@ -6,7 +6,23 @@ import { HANDLE_INPUT, ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO, TOGGLE_URGENT } f
 // }
 
 const initialState = {
-  todos: localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [],
+  todos: localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [{
+    value: 'add something by typing it above',
+    completed: false,
+    urgent: false,
+  }, {
+    value: 'click the text to mark something completed (or not)',
+    completed: false,
+    urgent: false,
+  }, {
+    value: 'use the x on the right to delete',
+    completed: false,
+    urgent: false,
+  }, {
+    value: 'mark something urgent by clicking the exclamation point on the left',
+    completed: false,
+    urgent: false,
+  }, ],
   todo: '',
 }
 

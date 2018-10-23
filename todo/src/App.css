@@ -150,7 +150,7 @@ form button:focus {
   padding: 15px;
   border-radius: 5px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 80%;
   /* border: 1px solid white; */
@@ -161,7 +161,7 @@ form button:focus {
 }
 
 .todo p {
-  width: 90%;
+  width: 80%;
 }
 
 .done {
@@ -170,6 +170,7 @@ form button:focus {
 
 .marker {
   color: #070809;
+  width: 18px;
 }
 
 .urgent {
