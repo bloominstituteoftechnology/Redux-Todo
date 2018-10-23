@@ -25,13 +25,13 @@ const todoReducer = (state = initialState, action) => {
           }
         })
       };
-    // case DELETETODO:
-    //   return {
-    //     ...state,
-    //     todos: state.todos.filter(() => {
-    //       return { ...(todo.completed = true) };
-    //     })
-    //   };
+    case DELETETODO:
+      return {
+        ...state,
+        todos: state.todos.filter((todo)=> {
+          return todo.completed==false
+        })
+      };
     //       case DELETE_TODO - Hint use index to find it, use filter to filter it out
     default:
       return state;

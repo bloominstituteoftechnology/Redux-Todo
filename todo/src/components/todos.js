@@ -20,6 +20,10 @@ class TODOS extends React.Component {
     this.props.addTodo(this.state.todoText);
     this.setState({todoText:''})
   };
+  deleteTodo=ev=>{
+      ev.preventDefault();
+      this.props.deleteTodo();
+  }
 
   render() {
     return (
@@ -39,6 +43,7 @@ class TODOS extends React.Component {
           value={this.state.todoText}
         />
         <button onClick={this.handleNewTodo}>Add Todo</button>
+        <button onClick={this.deleteTodo}>Delete Completed</button>
       </div>
     );
   }
