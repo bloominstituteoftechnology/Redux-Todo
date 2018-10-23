@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggletodo } from '../actions/index';
+import { toggletodo } from '../actions';
 
 const Todo = ({dispatch, todo, id}) => (
     <div className='todo'>

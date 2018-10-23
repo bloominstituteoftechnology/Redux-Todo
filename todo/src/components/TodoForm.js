@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addtodo } from '../actions/index';
+import { addtodo, clearcompleted } from '../actions';
 
 class TodoForm extends Component {
     constructor(props) {
@@ -19,6 +19,9 @@ class TodoForm extends Component {
     submitTodo = event => {
         event.preventDefault();
         this.props.dispatch(addtodo(this.state.inputText))
+        this.setState({
+            inputText: ''
+        })
     }
     
     render() {
@@ -35,6 +38,7 @@ class TodoForm extends Component {
                 />
                 <div className='btn-container'>
                     <button className='btn' type='submit'>add todo</button>
+                    <button className='btn' onClick={() => this.props.dispatch(clearcompleted())}>clear completed</button>
                 </div>
             </form>
         )
