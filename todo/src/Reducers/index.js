@@ -19,10 +19,14 @@ const todoReducer = (state = initialState, action) => {
                 todo: action.payload 
             }
         case ADD_TODO:
-            return {
+            if (state.todo === ''){
+                return;
+            }else{
+                return {
                 ...state,
                 todos: [...state.todos, {value: action.payload, completed: false}] 
-            }
+                }
+            }    
         case TOGGLE_COMPLETED:
             return {
                 ...state,

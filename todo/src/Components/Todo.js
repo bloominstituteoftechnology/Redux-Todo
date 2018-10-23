@@ -8,7 +8,13 @@ const Todo = props => {
     props.toggleCompleted(props.id);
     }
     return (
-        <li style={props.todo.completed ? { textDecoration: 'line-through', textDecorationColor: 'red' } : null} onClick={markAsCompleted}>{props.todo.value}</li>
+        <li 
+            style={props.todo.completed ? { 
+                textDecoration: 'line-through', 
+                textDecorationColor: 'red' 
+            } : null} 
+            onClick={markAsCompleted}>{props.todo.value}
+        </li>
     );
 }
 
