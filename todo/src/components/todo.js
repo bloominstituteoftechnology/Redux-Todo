@@ -2,10 +2,11 @@ import React from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import { addNewTodo } from '../actions';
+import {connect} from 'react-redux'
 
 console.log(addNewTodo)
 
-class Todo extends React.Component{
+export class Todo extends React.Component{
     constructor(){
         super();
         this.state = {
@@ -46,4 +47,15 @@ class Todo extends React.Component{
     }
 }
 
-export default Todo;
+const mapStateToProps = state => {
+    return {
+        todoList: state.todoList
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    { addNewTodo }
+)(Todo);
+
+// export default Todo;
