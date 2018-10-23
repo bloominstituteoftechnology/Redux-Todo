@@ -16,15 +16,17 @@ class TodoForm extends React.Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        console.log(this.props.addTask);
-        this.props.addTask(this.state.taskInput);
-        this.setState({
-            taskInput: ''
-        })
+        if (this.state.taskInput) {
+            console.log(this.props.addTask);
+            this.props.addTask(this.state.taskInput);
+            this.setState({
+                taskInput: ''
+            })
+        }
     }
 
     render() {
-        return(
+        return (
             <form onSubmit={(event) => this.submitHandler(event)} >
                 <input
                     type="text"

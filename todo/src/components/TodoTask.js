@@ -7,12 +7,12 @@ const TodoTask = (props) => {
     console.log(props.task.completed);
     return (
         props.task.completed ?
-            <CompletedTask onClick={props.clickHandler}>
-                <Close>X</Close>
+            <CompletedTask onClick={props.toggleHandler}>
+                <Close onClick={props.closeHandler}>X</Close>
                 <TaskText>{props.task.value}</TaskText>
             </CompletedTask> :
-            <Task onClick={props.clickHandler}>
-                <Close>X</Close>
+            <Task onClick={props.toggleHandler}>
+                <Close onClick={props.closeHandler}>X</Close>
                 <TaskText>{props.task.value}</TaskText>
             </Task>
     );

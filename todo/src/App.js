@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTask, toggleCompleted } from './actions/index';
+import { addTask, toggleCompleted, deleteTask } from './actions/index';
 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
@@ -14,7 +14,7 @@ class App extends Component {
         <HeaderContainer></HeaderContainer>
         <ListContainer>
           <TodoForm addTask={this.props.addTask} />
-          <TodoList listArray={this.props.store.listArray} toggleCompleted={this.props.toggleCompleted} />
+          <TodoList listArray={this.props.store.listArray} toggleCompleted={this.props.toggleCompleted} deleteTask={this.props.deleteTask} />
         </ListContainer>
       </AppContainer>
     );
@@ -25,4 +25,4 @@ const mapStateToProps = (state) => {
   return { store: state };
 };
 
-export default connect(mapStateToProps, { addTask, toggleCompleted })(App);
+export default connect(mapStateToProps, { addTask, toggleCompleted, deleteTask })(App);

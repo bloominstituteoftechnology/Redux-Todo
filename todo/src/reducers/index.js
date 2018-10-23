@@ -1,4 +1,4 @@
-import { ADD_TASK, TOGGLE_COMPLETED } from '../actions/index';
+import { ADD_TASK, TOGGLE_COMPLETED, DELETE_TASK } from '../actions/index';
 
 const initialState = {
     listArray: []
@@ -25,6 +25,12 @@ export default (state = initialState, action) => {
                         return task;
                     }
                 })
+            };
+
+        case DELETE_TASK:
+            return {
+                ...state,
+                listArray: state.listArray.filter((task, index) => index !== action.payload)
             };
 
         default:
