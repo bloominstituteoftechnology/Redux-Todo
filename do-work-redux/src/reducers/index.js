@@ -1,4 +1,4 @@
-import { TOGGLE_COMPLETE, ADD_TASK } from '../actions';
+import { TOGGLE_COMPLETE, ADD_TASK, DELETE_TASK } from '../actions';
 
 const initialState = {
   tasks: [
@@ -51,7 +51,11 @@ const taskReducer = (state = initialState, action) => {
         ...state,
         tasks: [...state.tasks, action.payload]
       };
-
+    case DELETE_TASK:
+      return {
+        ...state,
+        tasks: state.tasks.filter(task => task.id !== action.payload)
+      };
     default:
       return state;
   }

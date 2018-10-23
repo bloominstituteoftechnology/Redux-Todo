@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toggleComplete } from '../../actions';
+import { toggleComplete, deleteTask } from '../../actions';
 
 import Task from './Task';
 
 class Tasks extends Component {
   handleClick = (e, id) => {
     e.preventDefault();
-    this.props.toggleComplete(id);
+    if (e.target.classList.contains('fa-times')) {
+      console.log('deleted');
+      this.props.deleteTask(id);
+    } else {
+      this.props.toggleComplete(id);
+    }
   };
 
   render() {
     const { tasks } = this.props;
     return (
-      <React.Fragment>
+      <div>
         {tasks.map(task => (
           <Task task={task} key={task.id} handleClick={this.handleClick} />
         ))}
-      </React.Fragment>
+      </div>
     );
   }
 }
@@ -30,5 +35,5 @@ const mapPropToState = state => {
 
 export default connect(
   mapPropToState,
-  { toggleComplete }
+  { toggleComplete, deleteTask }
 )(Tasks);
