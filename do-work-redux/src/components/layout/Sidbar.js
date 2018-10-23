@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const StyledSidebar = styled.div`
-  width: 20%;
+  background: #f1f2f6;
+  width: 25%;
+  padding: 3rem;
 `;
 
 class Sidebar extends Component {

@@ -5,7 +5,9 @@ import Form from '../Form/Form';
 import Tasks from '../Tasks/Tasks';
 
 const StyledTaskContainer = styled.div`
-  width: 80%;
+  background: #dfe4ea;
+  width: 75%;
+  padding: 3rem 10rem;
 `;
 
 class TaskContainer extends Component {
