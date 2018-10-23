@@ -18,14 +18,15 @@ const rootReducer = (state = initialState, action) => {
         case 'ADD':
             return {
                 ...state,
-                todos: [...state.todos,
+                todos: [
+                    ...state.todos,
                     {
                         task: action.payload,
-                        id: Date.new(),
+                        id: Date.now(),
                         completed: false
                     }
                 ]
-            }
+            };
         case 'COMPLETE':
             return {
                 ...state,
@@ -35,7 +36,12 @@ const rootReducer = (state = initialState, action) => {
                             ? { ...todo, completed: !todo.completed}
                             : todo
                 )
-            }
+            };
+        case 'DELETE':
+            return {
+                ...state,
+                todos: state.todos.filter(todo => todo.id !== action.payload)
+            };
         default:
             return state;
     }
