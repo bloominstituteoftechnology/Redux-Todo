@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 function TodoList(props) {
     return (
         <div>
-            <ul>{props.todos}</ul>
+            <ul>{props.todos.map(todo => <li>todo.value</li>)}</ul>
         </div>
     )
 }
