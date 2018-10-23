@@ -18,7 +18,7 @@ class TodoList extends React.Component {
     render(){
         return(
             this.props.todos.map((todo, index) => {
-                return <p className={todo.completed.toString()} onClick={(e) => this.toggleHandler(e, index)}>{todo.task}</p>
+                return <p key={Math.random()} className={todo.completed.toString()} onClick={(e) => this.toggleHandler(e, index)}>{todo.task}</p>
             })
         )
     }

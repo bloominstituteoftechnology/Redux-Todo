@@ -10,6 +10,12 @@ const initialState = {
 const todoReducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_TODO:
+            state.todos.map(todo => {
+                if (action.payload === todo.task) {
+                    console.log("duplicate")
+                    return null;
+                }
+            })
             return {
                 todos: [
                     ...state.todos, 
@@ -32,8 +38,8 @@ const todoReducer = (state = initialState, action) => {
             };
         case DELETE_TODO:
             return {
-                todos: state.todos.filter((todo, index) => {
-                    if (index === action.payload) {
+                todos: state.todos.filter(todo => {
+                    if (todo.task === action.payload) {
                         return null;
                     }
                     else {

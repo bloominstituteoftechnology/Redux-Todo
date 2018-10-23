@@ -9,10 +9,10 @@ export const addTodo = todo => {
     }
 }
 
-export const deleteTodo = index => {
+export const deleteTodo = task => {
     return{
         type: DELETE_TODO,
-        payload: index
+        payload: task
     }
 }
 

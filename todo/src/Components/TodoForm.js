@@ -20,9 +20,9 @@ class TodoForm extends React.Component {
 
     deleteHandler = e => {
         e.preventDefault();
-        this.props.todos.filter((todo, index) => {
-            if (this.props.todo.completed === true) {
-                this.props.deleteTodo(index);
+        this.props.todos.filter(todo => {
+            if (todo.completed === true) {
+                this.props.deleteTodo(todo.task);
             }
         })
     };
@@ -40,7 +40,7 @@ class TodoForm extends React.Component {
                 </input>
                 <button onClick={this.addHandler}>Add Todo</button>
                 </form>
-                <button onClick={this.deleteHandler}>Clear Completed</button>
+                <button onClick={(e) => this.deleteHandler(e)}>Clear Completed</button>
             </div>
         )
     }
