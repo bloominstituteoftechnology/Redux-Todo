@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { addItem, toggleCompleted } from '../actions/index';
+import { addItem, toggleCompleted, deleteCompleted } from '../actions/index';
 
 class List extends React.Component {
     constructor() {
@@ -17,11 +17,19 @@ changeHandler = event => {
 addItemHandler = event => {
     event.preventDefault();
     this.props.addItem(this.state.itemText);
+    this.setState({
+        itemText: ''
+    })
+}
+
+deleteItemHandler = () => {
+    this.props.deleteCompleted();
 }
 
 render() {
     return (
         <div>
+        <form onSubmit={this.addItemHandler}>
             <h1>To-Do List</h1>
             {this.props.items.map((item, index) => (
                 <div key={index}>
@@ -38,7 +46,10 @@ render() {
             value = {this.state.itemText}
             />
             <button onClick = {this.addItemHandler}>Add Task</button>
+            <button onClick = {this.deleteItemHandler}>Delete Completed</button>
+            </form>
         </div>
+
     )
 }
 }
@@ -50,5 +61,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { addItem, toggleCompleted }
+    { addItem, toggleCompleted, deleteCompleted }
 )(List);

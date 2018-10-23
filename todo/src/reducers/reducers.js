@@ -1,4 +1,4 @@
-import { CREATETODO, TOGGLE_COMPLETE } from '../actions/index';
+import { CREATETODO, TOGGLE_COMPLETE, DELETE_COMPLETE } from '../actions/index';
 
 const initialState = {
     items: [
@@ -25,6 +25,14 @@ const todoListReducer = (state = initialState, action) => {
                 }
             })
         }
+        case DELETE_COMPLETE:
+        let filteredArr = state.items.filter(item => !item.completed);
+        return{
+            ...state,
+            filteredArr
+        }
+
+
         default: return state;
     }
 }
