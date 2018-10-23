@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodo, toggleTodo} from '../actions';
 
 
 class Item extends React.Component {
@@ -28,8 +28,10 @@ class Item extends React.Component {
     render() {
         return (
             <div>
-                {this.props.todos.map((todo) => (
-                    <h2>{todo.value}</h2>
+                {this.props.todos.map((todo, index) => (
+                    <div key={index}>
+                        <h3 onClick={() => this.props.toggleTodo(index)}>{todo.value}</h3>
+                    </div>
                 ))}
                 <input
                 type='text'
@@ -52,5 +54,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {addTodo}
+    {addTodo, toggleTodo}
 )(Item)
