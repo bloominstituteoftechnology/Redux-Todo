@@ -3,13 +3,15 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import { addNewTodo } from '../actions';
 
+console.log(addNewTodo)
+
 class Todo extends React.Component{
     constructor(){
         super();
         this.state = {
             inputText : '',
             todoList : [{
-                value : 'Make a todo Item',
+                value : 'Make a todo Item using above form',
                 completed : false,
             }]
         };
@@ -27,8 +29,7 @@ class Todo extends React.Component{
         e.preventDefault();
         //Put a function in here to change the state of the application 
         //through props, make sure to have a value that passes in
-        this.props.addNewTodo(this.state.inputText);
-        console.log(e.target);
+        addNewTodo(this.state.inputText);
     }
 
     render(){
@@ -39,7 +40,7 @@ class Todo extends React.Component{
                 onSubmit = {this.onSubmit}
                 inputText = {this.state.inputText}
                 />
-                <TodoList />
+                <TodoList todoList={this.state.todoList}/>
             </div>
         )
     }
