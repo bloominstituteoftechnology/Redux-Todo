@@ -35,7 +35,7 @@ class Todo extends React.Component {
             type="text"
             name="todo"
             onChange={this.handleChanges}
-            placeholder="Add Todo"
+            placeholder="Add Todo..."
             value={this.state.todo}
           />
           <button onClick={this.handleNewTask}>Add Todo</button>

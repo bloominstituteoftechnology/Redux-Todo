@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
+import Header from "./components/Header";
+
 import Todo from "./components/Todo";
 
 import todoReducer from "./reducers";
@@ -16,8 +18,11 @@ const store = createStore(
 
 function App() {
   return (
-    <div className="app">
-      <Todo />
+    <div>
+      <Header />
+      <div className="app">
+        <Todo />
+      </div>
     </div>
   );
 }
