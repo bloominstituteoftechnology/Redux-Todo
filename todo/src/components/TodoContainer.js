@@ -32,6 +32,7 @@ export class TodoContainer extends Component {
             <TodoList
                 todo={this.props.todos}
                 completeTodo={this.props.completeTodo}
+                deleteTodo={this.props.deleteTodo}
             />
             <TodoForm
             addNewTodo={this.addNewTodo}
@@ -47,5 +48,5 @@ const mapStateToProps = state => ({ todos: state.todos })
 
 export default connect(
     mapStateToProps,
-    { addNewTodo, completeTodo }
+    { addNewTodo, completeTodo, deleteTodo }
 )(TodoContainer);
