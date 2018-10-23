@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, todosArray: remainingTasks }
 
         case TOGGLE_COMPLETION:
-            let toggle = index => {
+            let toggle = (index) => {
                 state.todoListArray.map((item, idx) => {
                     if (index !== idx) {
                     return item

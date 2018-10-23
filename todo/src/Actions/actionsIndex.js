@@ -19,6 +19,7 @@ export const clearCompletedTasks = (clearCompletedTasksPayload) => {
 }
 
 export const toggleCompletion = (task, id, completed) => {
+    console.log("testing testing")
     return {
         type: TOGGLE_COMPLETION,
         payload: completed, // ========

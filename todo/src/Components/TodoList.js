@@ -1,25 +1,26 @@
 import React from 'react'
 import './Styling/TodoList.css'
+import { connect } from 'react-redux'
+import Todo from './Todo'
 
 const TodoList = props => {
     return (
         <div>
             <h1>To Do List:</h1>
-            {props.todosArray.map((eachTodo, index) => 
-                <h4
-                    onClick={props.toggleCompletion(index)}
-                    className= {
-                        eachTodo.completed
-                            ? "complete"
-                            : "incomplete"
-                    }
+            {props.todosArray.map((todo, index) => 
+                <Todo 
+                    todo={todo}
                     key={index}
-                >
-                    {eachTodo.todo}
-                </h4>
+                />
             )}
         </div>
     )
 }
 
-export default TodoList
+const mapStateToProps = (state) => {
+    return {
+        todosArray: state.todosArray
+    }
+}
+
+export default connect(mapStateToProps, {})(TodoList)
