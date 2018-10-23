@@ -1,4 +1,5 @@
 export const ADD_NEW_TODO = "ADD_NEW_TODO";
+export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED"
 
 export const addNewTodo = input => {
     console.log("addNewTodo from actions:",input)
@@ -7,6 +8,14 @@ export const addNewTodo = input => {
         payload : input,
     }
 }
+
+export const toogleCompleted = () => {
+    return{
+        type : TOGGLE_COMPLETED,
+        //no payload necessary
+    }
+}
+
 
 
 // actions always return an object with a type and sometimes a payload
