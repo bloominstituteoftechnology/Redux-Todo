@@ -10,7 +10,12 @@ export default class Todo extends React.Component {
 
         return (
             <div>
-            <h1>{this.props.todo.value}</h1>
+            <h1 className={this.props.todo.completed ? 'completed' : null}
+                onClick={() => this.props.toggle(this.props.todo.id)}>
+                    
+                    {this.props.todo.value}
+            
+            </h1>
             </div>
         )
 

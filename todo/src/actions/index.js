@@ -10,4 +10,7 @@ export const addTodo = (newTodo) => {
 
 export const toggleTodo = (id) => {
     
+    return {
+        type: TOGGLE_COMPLETE, payload: id
+    }
 }
