@@ -4,17 +4,12 @@ import TodoList from './TodoList';
 import { addNewTodo } from '../actions';
 import {connect} from 'react-redux'
 
-console.log(addNewTodo)
 
 export class Todo extends React.Component{
     constructor(){
         super();
         this.state = {
             inputText : '',
-            todoList : [{
-                value : 'Make a todo Item using above form',
-                completed : false,
-            }]
         };
     }
 
@@ -28,12 +23,14 @@ export class Todo extends React.Component{
 
     onSubmit = e => {
         e.preventDefault();
+        console.log("click handler has been invoked (todo.js)")
         //Put a function in here to change the state of the application 
         //through props, make sure to have a value that passes in
-        addNewTodo(this.state.inputText);
+        this.props.addNewTodo(this.state.inputText);
     }
 
     render(){
+        console.log(this.props.todoList)
         return(
             <div className="Todo">
                 <TodoForm 
@@ -41,7 +38,7 @@ export class Todo extends React.Component{
                 onSubmit = {this.onSubmit}
                 inputText = {this.state.inputText}
                 />
-                <TodoList todoList={this.state.todoList}/>
+                <TodoList todoList={this.props.todoList}/>
             </div>
         )
     }
