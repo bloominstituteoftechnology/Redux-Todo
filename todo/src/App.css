@@ -24,9 +24,13 @@ li {
   font-size: 20px;
 }
 
-.delete-todo {
+.icons {
   cursor: pointer;
-  align-self: flex-end;
+  margin-left: 10px;
+}
+
+.left {
+ margin-right: 10px;
 }
 
 form {
