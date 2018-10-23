@@ -1,11 +1,17 @@
 import React from 'react';
 
-const TodoItem = props => {
+const TodoItem = (props) => {
+  const { todo } = props;
   return (
-    <div>
-      <p onClick={(e) => props.toggleComplete(e, props.todo.id)}>{props.todo.value}</p>
-    </div>
-  );
+    <li
+      onClick={(e) => props.toggleComplete(e, todo.id)}
+      style={{
+        textDecoration: todo.completed ? 'line-through' : 'none',
+        cursor: "pointer"
+      }}
+    >
+      {todo.value}
+    </li>);
 }
 
 export default TodoItem;
