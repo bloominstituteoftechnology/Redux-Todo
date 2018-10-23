@@ -20,11 +20,14 @@ class App extends Component {
     this.setState({ newTodo: '' });
   };
 
+  clickHandler = (todo) => {
+    this.props.markComplete(todo.id)
+  } 
+
   render() {
     return (
       <div className="App">
-        <h1>Todo List</h1>
-        <TodoList />
+        <TodoList todos={this.props.todos} clickHandler={this.clickHandler} />
         <TodoForm
           changeHandler={this.changeHandler}
           submitHandler={this.submitHandler}
