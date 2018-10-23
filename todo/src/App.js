@@ -16,16 +16,16 @@ class App extends Component {
   state = {
     newTodo: {
       value: '',
-      completed: false,
-      id: Date.now()
+      completed: false
     },
     todos: this.props.todos
   }
 
   addTodo = (e) => {
     e.preventDefault();
-    this.props.addTodo(this.state.newTodo);
-    this.setState({newTodo: {value: '', completed: false}})
+    let newTodo = {...this.state.newTodo, id: Date.now() }
+    this.props.addTodo(newTodo);
+    this.setState({newTodo: {...this.state.newTodo, value: '', completed: false}})
   }
 
   handleInput = (e) =>{
