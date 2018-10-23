@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         todos: [
-          ...todos,
+          ...state.todos,
           {
             item: action.payload,
             id: state.id,
@@ -27,9 +27,11 @@ export default (state = initialState, action) => {
           if (todo.id === action.payload) {
             return { ...todo, completed: !todo.completed };
           } else {
-            return friend;
+            return todo;
           }
         }),
       };
+    default:
+      return state;
   }
 };
