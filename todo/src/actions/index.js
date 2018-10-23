@@ -1,4 +1,5 @@
 export const ADD_TODO = 'ADD_TODO';
+export const SELECT_TODO = 'SELECT_TODO';
 
 export const addTodo = newTodo => {
   return {
@@ -7,10 +8,9 @@ export const addTodo = newTodo => {
   };
 };
 
-export const selectTodo = todoIndex => {
-  return console.log('hello');
-  // return {
-  //   type: 'SELECT_TODO',
-  //   payload: todoIndex
-  // };
+export const selectTodo = index => {
+  return {
+    type: SELECT_TODO,
+    payload: index
+  };
 };

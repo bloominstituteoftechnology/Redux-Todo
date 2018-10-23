@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { selectTodo } from '../actions';
 
 function Todos(props) {
+  console.log(props.taskIndex);
   return (
-    <div>
-      <p onClick={() => props.selectTodo(props.taskIndex)}>
-        {props.todo.value}
-      </p>
-    </div>
+    <p onClick={() => props.selectTodo(props.taskIndex)} className="todo">
+      {props.todo.value}
+    </p>
   );
 }
 
