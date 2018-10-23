@@ -19,7 +19,7 @@ const todoListReducer = (state = initialState, action) => {
             ...state,
             items: state.items.map((item, index) => {
                 if (index === action.payload) {
-                    return {...item, completed: !item.completed };
+                    return {...item, completed: !item.completed};
                 } else {
                     return item;
                 }

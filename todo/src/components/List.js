@@ -25,7 +25,9 @@ render() {
             <h1>To-Do List</h1>
             {this.props.items.map((item, index) => (
                 <div key={index}>
-                <h4 onClick={() => this.props.toggleCompleted(index)}>{item.task}</h4>
+
+                <h4 style={{ textDecoration: item.completed ? 'line-through' : 'none' }}
+                onClick={() => this.props.toggleCompleted(index)}>{item.task}</h4>
         </div>
             ))}
             <input
