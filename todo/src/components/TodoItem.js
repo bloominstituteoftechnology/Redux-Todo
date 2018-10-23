@@ -2,7 +2,10 @@ import React from 'react';
 
 const TodoItem = props => {
     return (
-        <p>This is an item on your list</p>
+        <form>
+            <input type='text' placeholder='What to do?' />
+            <button>ADD</button>
+        </form>
     );
 }
  
