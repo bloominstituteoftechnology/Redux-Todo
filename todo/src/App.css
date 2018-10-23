@@ -124,7 +124,7 @@ form button:hover {
 }
 
 form button:focus {
-  outline: 1px solid white; 
+  outline: 1px solid white;
 }
 
 .todo-list {
@@ -154,5 +154,5 @@ form button:focus {
 }
 
 .done {
-  color: red;
+  text-decoration-line: line-through;
 }

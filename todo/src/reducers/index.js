@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
       let newList = [
         ...state.todos,
           {
-          id: Date.now(),
+          // id: Date.now(),
           value: action.payload,
           completed: false,
           }
@@ -22,15 +22,24 @@ export default (state = initialState, action) => {
         ...state,
         todos: newList,
         todo: '' };
+
+//update the store's todo field on change in input form;
     case HANDLE_INPUT:
       return {...state, todo: action.payload};
 
+//toggleComplete does not work!
     case TOGGLE_COMPLETE:
-    return state;
+    let completedList = state.todos.map((item, index) => (index === action.payload) ? {...item, completed: !item.completed} : item);
+    return {
+      ...state,
+      todos: completedList
+    }
 
 
     case DELETE_TODO:
-      let deletingList = state.todos.filter((item) => item.id !== action.payload);
+//filter the list of todos on state so that only those that do not match the ID that was passed by the action remain
+      let deletingList = state.todos.filter((item, index) =>
+       index !== action.payload);
       return {...state, todos: deletingList };
     default:
     return state;
