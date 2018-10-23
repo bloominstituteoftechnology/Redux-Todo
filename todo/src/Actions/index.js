@@ -8,3 +8,17 @@ export const addTodo = todo => {
         payload: todo
     }
 }
+
+export const deleteTodo = index => {
+    return{
+        type: DELETE_TODO,
+        payload: index
+    }
+}
+
+export const toggleCompleted = index => {
+    return {
+        type: TOGGLE_COMPLETED,
+        payload: index
+    }
+}
