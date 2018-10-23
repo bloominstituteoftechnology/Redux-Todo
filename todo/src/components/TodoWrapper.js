@@ -29,7 +29,8 @@ class TodoWrapper extends React.Component {
           <button
             onClick={ev => {
               ev.preventDefault();
-              this.props.addTask(this.state.inputText);
+              this.props.addTask(this.state.inputText)
+              this.setState({inputText: ''});
             }}
           >
             Add Task

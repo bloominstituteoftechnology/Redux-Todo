@@ -12,3 +12,12 @@ ul {
   display: flex;
   justify-content: space-between;
 }
+
+body {
+  background: black;
+}
+
+li {
+  color: white;
+  highlight: none;
+}
