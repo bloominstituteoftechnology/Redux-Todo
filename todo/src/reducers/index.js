@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_COMPLETED } from '../actions';
+import { ADD_TODO, TOGGLE_COMPLETED, DELETE_TODO } from '../actions';
 
 export const initialState = {
   todos: []
@@ -26,9 +26,13 @@ export function todoReducers(state = initialState, action) {
         }
       });
       return { todos: newTodos };
-    default:
-      return state;
 
     case DELETE_TODO:
+      return {
+        ...state
+      };
+
+    default:
+      return state;
   }
 }

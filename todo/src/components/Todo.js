@@ -13,7 +13,12 @@ function Todo(props) {
             onClick={() => props.toggleCompleted(todo.id)}
           >
             {todo.value}
-            <button className="delete-button">Delete</button>
+            <button
+              className="delete-button"
+              onClick={() => props.deleteTodo(todo.id)}
+            >
+              Delete
+            </button>
           </li>
         );
       })}

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Todo from './Todo';
-import { addTodo, toggleCompleted } from '../actions';
+import { addTodo, toggleCompleted, deleteTodo } from '../actions';
 
 import './StyledComponents.css';
 
