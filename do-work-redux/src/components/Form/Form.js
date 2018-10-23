@@ -58,11 +58,7 @@ class Form extends Component {
 
   handleFormSubmit = e => {
     e.preventDefault();
-    const task = {
-      id: Date.now(),
-      task: this.state.formInput,
-      completed: false
-    };
+    const task = this.state.formInput;
     this.props.addTask(task);
     this.setState({ formInput: '' });
   };
