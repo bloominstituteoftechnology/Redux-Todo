@@ -8,7 +8,6 @@ class Tasks extends Component {
   handleClick = (e, id) => {
     e.preventDefault();
     if (e.target.classList.contains('fa-times')) {
-      console.log('deleted');
       this.props.deleteTask(id);
     } else {
       this.props.toggleComplete(id);
@@ -19,9 +18,13 @@ class Tasks extends Component {
     const { tasks } = this.props;
     return (
       <div>
-        {tasks.map(task => (
-          <Task task={task} key={task.id} handleClick={this.handleClick} />
-        ))}
+        {!tasks ? (
+          <div>No tasks!</div>
+        ) : (
+          tasks.map(task => (
+            <Task task={task} key={task.id} handleClick={this.handleClick} />
+          ))
+        )}
       </div>
     );
   }

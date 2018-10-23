@@ -9,11 +9,24 @@ import taskReducer from './reducers';
 // Styles
 import './index.css';
 
+import { loadState, saveState } from './localStorage';
+
+// const persistedState = loadState();
+
+const persistedState = loadState();
+
 // Create store
 const store = createStore(
   taskReducer,
+  persistedState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
+
+console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

@@ -51,9 +51,13 @@ class Sidebar extends Component {
     return (
       <StyledSidebar>
         <h1>Do Work</h1>
-        <div className="stats">
-          <span>{tasks.length}</span> Tasks
-        </div>
+        {!tasks ? (
+          <p>Loading stats</p>
+        ) : (
+          <div className="stats">
+            <span>{tasks.length}</span> Tasks
+          </div>
+        )}
         <button onClick={this.handleClick} className="clear-btn">
           Clear Completed
         </button>
