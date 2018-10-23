@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Todo = props => {
+const Todo = ({ toggleTodo, completed, value }) => {
     return (
         <div
-        onClick={props.toggleTodo}
-        style={{ textDecoration: props.completed ? 'line-through' : 'none' }}
-        >{props.value}</div>
+        onClick={toggleTodo}
+        style={{ textDecoration: completed ? 'line-through' : 'none' }}
+        >{value}</div>
     );
 }
 
