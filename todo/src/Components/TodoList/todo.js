@@ -10,6 +10,5 @@ const Todo = ({ onClick, completed, text }) => (
       {text}
     </li>
   )
-  ​
-
+ 
 export default Todo;
