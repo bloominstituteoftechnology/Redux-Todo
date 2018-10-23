@@ -14,6 +14,6 @@ export const addTodo = todo => {
 export const toggleTodo = id => {
     return {
         type: 'TOGGLE_TODO',
-        payload: id
+        id
     };
 };
