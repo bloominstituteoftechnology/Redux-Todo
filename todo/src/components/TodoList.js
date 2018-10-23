@@ -8,8 +8,8 @@ import Todo from './Todo';
 const TodoList = props => {
   return (
     <div className='todo-list'>
-  {props.todos.map((todo, index) => (
-      <Todo id={index} todo={todo} key={index}  />
+  {props.todos.map((todo) => (
+      <Todo todo={todo} key={todo.id}  />
     ))}
   </div>
   )

@@ -92,11 +92,15 @@ form input {
   text-align: center;
   background: transparent;
   border: none;
-  color: lightgray;
+  color: white;
   padding: 5px;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem; 
+  font-size: 1.8rem;
   border-bottom: 2px solid lightgray;
+}
+
+form input::placeholder{
+  color: lightgray;
 }
 
 form input:focus {
