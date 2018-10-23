@@ -29,10 +29,9 @@ export class Todo extends React.Component{
         this.props.addNewTodo(this.state.inputText);
     }
 
-    onClick = e => {
-        // e.preventDefault();
-        console.log("onClick was invoked on : ", e.target)
-        this.props.toggleCompleted();
+    onClick = (index) => {
+        console.log("onClick was invoked on : ")
+        this.props.toggleCompleted(index);
     }
 
     render(){
