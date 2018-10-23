@@ -2,6 +2,7 @@ export const ADD_TASK = 'ADD_TASK'
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE'
 export const DELETE_TASK = 'DELETE_TASK'
 
+
 export const addTask = task => {
     return {
         type: ADD_TASK,
@@ -22,3 +23,4 @@ export const deleteTask = index => {
         payload: index
     }
 }
+

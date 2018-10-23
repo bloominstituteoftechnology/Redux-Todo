@@ -43,12 +43,13 @@ class TodoWrapper extends React.Component {
                 onClick={() => {
                   this.props.toggleComplete(index);
                 }}
+                style={{textDecoration: task.completed ? 'line-through' : null, cursor:'pointer'}}
               >
                 {task.task}
               </li>
               <button onClick={() => {
                   this.props.deleteTask(index)
-              }}>Delete Task</button>
+              }}>Clear Task</button>
               </div>
             );
           })}
@@ -57,6 +58,8 @@ class TodoWrapper extends React.Component {
     );
   }
 }
+
+
 
 const mapStateToProps = state => {
   return {
