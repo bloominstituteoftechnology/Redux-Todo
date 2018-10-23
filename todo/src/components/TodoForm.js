@@ -38,3 +38,4 @@ class TodoForm extends React.Component {
 }
 
 export default connect(null, { addTodo })(TodoForm);
+// export default TodoForm;
