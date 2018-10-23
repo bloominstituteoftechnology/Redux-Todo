@@ -32,7 +32,7 @@ import { addTodo } from "../actions";
                         placeholder="Enter new Todo"
                         value={this.state.todoText}
                         />
-                    <button onClick={this.handleClick}>Submit</button>
+                    <button onClick={this.handleClick}>New Todo</button>
                 </form>
             </div>
         );    

@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 
 const initialState = 
 {
@@ -18,8 +18,8 @@ const todos = (state = initialState, action) => {
             return { ...state,
                     todos: [...state.todos, {id: action.id, value: action.payload, completed: false}]
                    }
+                   
         case TOGGLE_TODO:
-        console.log("toggle");
             return {
                 ...state,
                 todos: state.todos.map((todo, index) => {
@@ -30,6 +30,12 @@ const todos = (state = initialState, action) => {
                     }
                 }
             )}
+
+        case DELETE_TODO:
+            return {
+                ...state,
+                todos: [ ...state.todos.filter(todo => todo.id !== action.payload)]
+            }           
         default:
             return state;
     }
