@@ -59,7 +59,7 @@ class TodoList extends Component {
           newTodo={this.state.newTodo}
         />
 
-        <ul>
+        <ul style={{ listStyle: 'none' }}>
           {todoItem}
         </ul>
       </div>
