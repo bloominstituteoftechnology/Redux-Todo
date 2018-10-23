@@ -31,5 +31,50 @@ class TodoContainer extends React.Component {
         });
       };
 
-      
+      render() {
+    const { todos } = this.props;
+    return (
+      <div>
+        <form onSubmit={this.addTodoHandler}>
+          <input
+            onChange={this.handleTodoInput}
+            name="text"
+            value={this.state.text}
+          />
+          <button type="submit" >
+            Add Todo
+          </button>
+        </form>
+        <ul>
+          {todos.map(todo => {
+            return (
+              <li
+                onClick={() => this.handleTodoComplete(todo.id)}
+                style={
+                  todo.completed
+                    ? { color: '#d3d3d3', textDecoration: 'line-through' }
+                    : null
+                }
+                key={todo.id}
+              >
+                {todo.inputText}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
 }
+
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
+};
+
+export default connect(mapStateToProps, {
+  addTodo,
+  toggleTodo,
+  getTodos
+})(TodoContainer);
