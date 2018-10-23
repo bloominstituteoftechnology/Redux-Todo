@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { todos, addTodo, completedTodo } from "../actions/index";
+import "./Todo.css";
 class Todo extends React.Component {
   constructor(props) {
     super(props);
@@ -22,19 +23,23 @@ class Todo extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="todo-container">
         {this.props.todos.map((todo, index) => (
-          <h3
-            key={index}
-            style={
-              todo.completed
-                ? { textDecoration: "line-through", color: "green" }
-                : { textDecoration: "none" }
-            }
-            onClick={() => this.props.completedTodo(index)}
-          >
-            {todo.task}
-          </h3>
+          <div>
+            <span className="delete-todo">&times;</span>
+            <span
+              className="todo"
+              key={index}
+              style={
+                todo.completed
+                  ? { textDecoration: "line-through", color: "green" }
+                  : { textDecoration: "none" }
+              }
+              onClick={() => this.props.completedTodo(index)}
+            >
+              {todo.task}
+            </span>
+          </div>
         ))}
         <form onSubmit={this.handleAddNewFriend}>
           <input
@@ -44,7 +49,7 @@ class Todo extends React.Component {
             name="newTodo"
             onChange={this.handleNewTodoInput}
           />
-          <input type="submit" value="Add new Todo" />
+          <input type="submit" id="todo-submit" value="Add new Todo" />
         </form>
       </div>
     );
