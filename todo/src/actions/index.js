@@ -1,23 +1,31 @@
 export const ADDTODO = 'ADDTODO';
 export const TOGGLETODO = 'TOGGLETODO';
 export const CLEARCOMPLETED = 'CLEARCOMPLETED';
+export const DELETETODO = 'DELETETODO';
 
 export const addtodo = inputText => {
     return {
-      type: ADDTODO,
-      inputText
+        type: ADDTODO,
+        inputText
     };
-  };
+};
   
-  export const toggletodo = id => {
+export const toggletodo = id => {
     return {
-      type: TOGGLETODO,
-      id
+        type: TOGGLETODO,
+        id
     };
-  };
+};
 
-  export const clearcompleted = () => {
+export const clearcompleted = () => {
     return {
-      type: CLEARCOMPLETED
+        type: CLEARCOMPLETED
     };
-  };
+};
+
+export const deletetodo = id => {
+    return {
+        type: DELETETODO,
+        id
+    };
+};

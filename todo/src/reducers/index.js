@@ -1,4 +1,4 @@
-import { ADDTODO, TOGGLETODO, CLEARCOMPLETED } from '../actions';
+import { ADDTODO, TOGGLETODO, CLEARCOMPLETED, DELETETODO } from '../actions';
 
 const initialState = {
     todos: [{inputText: 'click a todo to mark it complete', completed: false}, {inputText: 'delete completed todos with the "clear completed" button above', completed: false}]
@@ -13,9 +13,13 @@ export default (state = initialState, action) => {
                 ind === action.id ? {...todo, completed: !todo.completed} : todo
             ))} 
         case CLEARCOMPLETED:
-            return { todos: state.todos.map(todo => (
-                todo.completed === false ? todo : {}
+            return { todos: state.todos.filter(todo => (
+                todo.completed === false
             ))} 
+        case DELETETODO:
+        return { todos: state.todos.filter((todo, ind) => (
+            ind !== action.id
+        ))}
         default:
             return state;
     }

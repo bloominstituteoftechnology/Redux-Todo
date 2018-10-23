@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggletodo } from '../actions';
+import { toggletodo, deletetodo } from '../actions';
 
 const Todo = ({dispatch, todo, id}) => (
     <div className='todo'>
@@ -8,6 +8,7 @@ const Todo = ({dispatch, todo, id}) => (
         className={todo.completed ? 'complete' : 'incomplete'} 
         onClick={() => dispatch(toggletodo(id))}
         >{todo.inputText}</h3>
+        <div className='delete' onClick={() => dispatch(deletetodo(id))}>X</div>
     </div>
 );
 
