@@ -34,8 +34,8 @@ class AddTodo extends React.Component {
                         name="todoText"
                         placeholder="Enter new Todo"
                         value={this.state.todoText}
-                        />
-                    <button onClick={this.handleClick}>Submit</button>
+                    />
+                    <button onClick={this.handleClick}>Add New Todo</button>
                 </form>
             </div>
         );    
