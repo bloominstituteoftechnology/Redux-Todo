@@ -1,52 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodoItem } from '../actions';
+import { addTodoTask } from '../actions';
 
 class TodoList extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			list: [
-				{
-					task: 'Organize Garage',
-					id: 1528817077286,
-					done: true
-				},
-				{
-					task: 'Bake Cookies',
-					id: 1528817084358,
-					done: false
-				}
-			],
-			inputText: '',
-			newTask: '',
-			value: ''
+			taskText: ''
 		};
 	}
 
 	handleChanges = (e) => {
-		this.setState({ newTask: e.target.value });
+		this.setState({ taskText: e.target.value });
 	};
 
-	handleClick = (e) => {
+	handleNewTask = (e) => {
 		e.preventDefault();
-		this.props.addTodoItem(this.state.todo.task);
+		this.props.addTodoTask(this.state.taskText);
+		this.setState({
+			taskText: ''
+		});
 	};
 
 	render() {
 		return (
 			<div>
-				<p>imagine I wrote something here please</p>
-				<form action="submit">
-					<input
-						type="text"
-						onChange={this.handleChanges}
-						placeholder="What's todays focus?"
-						value={this.state.newTask}
-						inputText={this.state.inputText}
-					/>
-				</form>
-				<button onClick={this.handleClick}>Add Task</button>
+				{this.props.tasks.map((task, index) => (
+					<div key={index} complete={task.complete}>
+						<h3 onClick={() => this.props.toggleComplete(index)}>{task.task}</h3>
+					</div>
+				))}
+				<input
+					type="text"
+					name="taskInput"
+					onChange={this.handleChanges}
+					placeholder="What's todays focus..."
+					value={this.state.taskText}
+				/>
+				<button onClick={this.handleNewTask}>Add Task</button>
 			</div>
 		);
 	}
@@ -54,8 +45,8 @@ class TodoList extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		item: state.item
+		tasks: state.tasks
 	};
 };
 
-export default connect(mapStateToProps, { addTodoItem })(TodoList);
+export default connect(mapStateToProps, { addTodoTask })(TodoList);

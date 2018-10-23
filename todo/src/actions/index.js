@@ -1,8 +1,8 @@
-export const ADDTODO_ITEM = 'ADD_TODO';
+export const ADDTODO_TASK = 'ADD_TODO';
 
-export const addTodoItem = (item) => {
+export const addTodoTask = (task) => {
 	return {
-		type: ADDTODO_ITEM,
-		payload: item
+		type: ADDTODO_TASK,
+		payload: task
 	};
 };

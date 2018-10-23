@@ -1,42 +1,24 @@
-import { ADDTODO_ITEM } from '../actions';
+import { ADDTODO_TASK } from '../actions';
 
 const initialState = {
-	list: [
+	tasks: [
 		{
-			task: 'Organize Garage',
-			id: 1528817077286,
-			done: true
+			task: 'Learn about Redux',
+			complete: true
 		},
 		{
-			task: 'Bake Cookies',
-			id: 1528817084358,
-			done: false
+			task: 'Apply Redux to project',
+			complete: false
 		}
-	],
-	inputText: '',
-	newTask: '',
-	value: ''
+	]
 };
 
 const todoReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case ADDTODO_ITEM:
+		case ADDTODO_TASK:
 			return {
-				list: [
-					{
-						task: 'Organize Garage',
-						id: 1528817077286,
-						done: true
-					},
-					{
-						task: 'Bake Cookies',
-						id: 1528817084358,
-						done: false
-					}
-				],
-				inputText: '',
-				newTask: '',
-				value: ''
+				...state,
+				tasks: [ ...state.tasks, { task: action.payload, complete: false } ]
 			};
 		default:
 			return state;
