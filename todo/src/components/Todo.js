@@ -1,4 +1,5 @@
 import React from "react";
+import cancelX from "../x.svg"
 
 const Todo = props => (
   <li
@@ -7,7 +8,7 @@ const Todo = props => (
     style={props.completed ? { textDecoration: "line-through" } : null}
   >
     {props.task}
-    <span className="delete-todo" onClick={props.deleteTodo}>X</span>
+    <img src={cancelX} alt={"delete"} className="delete-todo" onClick={props.deleteTodo}/>
   </li>
 );
 

@@ -1,16 +1,18 @@
 export const initialState = {
-  todos: [
-    {
-      task: "Organize Garage",
-      id: 1528817077286,
-      completed: false
-    },
-    {
-      task: "Bake Cookies",
-      id: 1528817084358,
-      completed: false
-    }
-  ]
+  todos: !localStorage.getItem("todoList").length
+    ? [
+        {
+          task: "Organize Garage",
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: "Bake Cookies",
+          id: 1528817084358,
+          completed: false
+        }
+      ]
+    : JSON.parse(localStorage.getItem("todoList"))
 };
 
 const rootReducer = (state = initialState, action) => {
