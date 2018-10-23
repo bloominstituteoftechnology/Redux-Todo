@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { addToList, changeCompletedAction } from './actions';
+import { addToList, changeCompletedAction, deleteTask } from './actions';
 import AddToDo from './components/AddTodo';
 import TodoList from './components/TodoList';
 
@@ -38,6 +38,7 @@ class App extends Component {
           inputValue={this.state.inputText}
           addToList={this.addToListAction}
         />
+        <button onClick={this.props.deleteTask}>DELETE</button>
       </div>
     );
   }
@@ -49,4 +50,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addToList, changeCompletedAction })(App);
+export default connect(mapStateToProps, { addToList, changeCompletedAction, deleteTask })(App);

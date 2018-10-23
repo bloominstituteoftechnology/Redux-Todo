@@ -1,5 +1,6 @@
 export const ADD_TO_LIST = 'ADD TO LIST';
-export const CHANGE_COMPLETED = 'CHANGE COMPLETED'
+export const CHANGE_COMPLETED = 'CHANGE COMPLETED';
+export const DELETE_TASK = 'DELETE TASK';
 
 // Our action creators will return
 // an action packet that our reducer will
@@ -20,5 +21,11 @@ export const changeCompletedAction = (id) => {
   return {
     type: CHANGE_COMPLETED,
     payload: id,
+  }
+};
+
+export const deleteTask = () => {
+  return {
+    type: DELETE_TASK,
   }
 };

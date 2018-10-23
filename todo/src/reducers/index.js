@@ -1,4 +1,4 @@
-import { ADD_TO_LIST, CHANGE_COMPLETED } from '../actions';
+import { ADD_TO_LIST, CHANGE_COMPLETED, DELETE_TASK } from '../actions';
 
 const initialState = {
   todo: [
@@ -35,6 +35,10 @@ export default (state = initialState, action) => {
                 return task;
             }
         })
+    }
+    case DELETE_TASK:
+    return {
+        ...state, todo: state.todo.filter(task => task.completed != true)
     }
     default:
       return state;
