@@ -2,6 +2,7 @@ import ADD_NEW_TODO from '../actions/index';
 
 const initialState = {
     input : '',
+    todo : [],
 }
 
 const addNewTodo = (state = initialState, action) => {
