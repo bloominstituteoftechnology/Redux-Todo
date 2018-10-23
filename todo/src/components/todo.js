@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleTodo } from '../actions';
+import { toggleTodo, deleteTodo } from '../actions';
 
+import { ReactComponent as TrashCan } from '../assets/svgs/trash-2.svg';
 import styles from './todo.module.css';
 
 const Todo = ({ dispatch, todo, id }) => (
@@ -9,10 +10,10 @@ const Todo = ({ dispatch, todo, id }) => (
     className={todo.completed ? styles.completed : styles.incomplete}
     onClick={() => dispatch(toggleTodo(id))}
   >
-    {todo.value}
-		<div className={styles.trash}>
-
-		</div>
+    <div className={styles.text}>{todo.value}</div>
+    <div className={styles.trash} onClick={() => dispatch(deleteTodo(id))}>
+      <TrashCan />
+    </div>
   </li>
 );
 
