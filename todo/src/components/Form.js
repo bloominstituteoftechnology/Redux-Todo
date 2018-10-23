@@ -4,7 +4,6 @@ import { addTodo, handleInput } from '../actions';
 
 const Form = props => {
   const submit = (event) => {
-    console.log('adding...')
     event.preventDefault();
     props.addTodo(props.todo);
   }
