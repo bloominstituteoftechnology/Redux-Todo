@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
-import  { addTodo }  from './actions'
+import  { addTodo, toggleTodo, removeTodo }  from './actions'
 
 import './App.css';
 
@@ -20,24 +20,38 @@ class App extends Component {
 
   addTodoList = (e) => {
     e.preventDefault();
+    if(this.state.todoText === '') {
+      return;
+    }
     const { todoText } = this.state;
     const newTodo = { 
       text: todoText,
       completed: false,
-      id: this.props.text.length + 1
+      id: this.props.todos.length + 1
      };
      this.props.addTodo(newTodo);
      this.setState({ todoText:""})
   }
 
+  completedTodo = todoId => {
+    console.log("id inside app", todoId);
+    this.props.toggleTodo(todoId);
+  }
+
+  removeTodo = () => {
+    this.props.removeTodo();
+  }
+
   render() {
     return (
       <div className="App">
-        <TodoForm 
+        <h1 className="header">My To Do List</h1>
+        <TodoForm
+          removeTodo={this.removeTodo} 
           changeHandler={this.changeHandler} 
           todoText={this.state.todoText}
           addTodoList={this.addTodoList} />
-        <TodoList text={this.props.text} addTodoList={this.addTodoList} />
+        <TodoList removeTodo={this.removeTodo} handleComplete={this.completedTodo} todos={this.props.todos} addTodoList={this.addTodoList} />
       </div>
     );
   }
@@ -46,8 +60,12 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log("state", state)
   return {
-      text: state
+      todos: state.todos
   };
 };
 
-export default connect(mapStateToProps, { addTodo })(App);
+export default connect(mapStateToProps, { 
+    addTodo,
+    toggleTodo,
+    removeTodo
+   })(App);

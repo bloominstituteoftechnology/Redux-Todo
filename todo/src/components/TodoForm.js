@@ -1,11 +1,12 @@
 import React from 'react'
-
+import './Todo.css'
 
 const TodoForm = props => {
     return (
         <div>
-            <button onClick={props.addTodoList}>Add Todo</button>
-            <input 
+            <button className="addBtn" onClick={props.addTodoList}>Add Todo</button>
+            <input
+                placeholder="Add your todo.." 
                 type="text" 
                 name="todoText" 
                 value={props.todoText}

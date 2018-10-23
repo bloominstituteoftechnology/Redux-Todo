@@ -1,15 +1,8 @@
-import { ADD_TODO } from '../actions';
+import { combineReducers } from 'redux'
+import todosReducer from './todos'
 
-const initialState = [{ text: 'Study Redux', completed: false, id: 0}];
+const rootReducer = combineReducers({
+    todos: todosReducer
+});
 
-const todos = (state = initialState, action) => {
-    console.log('Reducer info', state, action.type, action.payload)
-    switch (action.type) {
-        case ADD_TODO: 
-            return [...state, action.payload]
-        default:
-            return state;
-    }
-}
-
-export default todos
+export default rootReducer;
