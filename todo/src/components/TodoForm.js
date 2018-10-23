@@ -19,12 +19,18 @@ class TodoForm extends Component {
   handleClick = e => {
     e.preventDefault();
     this.props.addTodo(this.state.newTodo);
+    this.setState({ newTodo: '' });
   };
 
   render() {
     return (
       <form>
-        <input type="text" name="newTodo" onChange={this.changeHandler} />
+        <input
+          type="text"
+          name="newTodo"
+          onChange={this.changeHandler}
+          value={this.state.newTodo}
+        />
         <button onClick={this.handleClick}>Add</button>
       </form>
     );

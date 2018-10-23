@@ -9,7 +9,10 @@ const todoReducer = (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos, { value: action.payload, completed: false }]
+        todos: [
+          ...state.todos,
+          { value: action.payload, completed: false, id: Date.now() }
+        ]
       };
     default:
       return state;

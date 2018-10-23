@@ -6,3 +6,11 @@ export const addTodo = newTodo => {
     payload: newTodo
   };
 };
+
+export const selectTodo = todoIndex => {
+  return console.log('hello');
+  // return {
+  //   type: 'SELECT_TODO',
+  //   payload: todoIndex
+  // };
+};
