@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {addTodo, toggleCompleted} from "../actions";
+import {addTodo, toggleCompleted, deleteTodo} from "../actions";
 import "../App.css";
 
 class TodoList extends React.Component {
@@ -20,6 +20,10 @@ class TodoList extends React.Component {
     this.props.addTodo(this.state.inputText);
     this.setState({inputText: ""});
   };
+
+  // handleDelete = e => {
+
+  // }
 
   render() {
     return (
@@ -41,7 +45,12 @@ class TodoList extends React.Component {
               onClick={() => this.props.toggleCompleted(index)}
               className={todo.completed ? `completed` : null}
             >
-              {todo.value}
+              {todo.value}{" "}
+              <span>
+                <button onClick={() => this.props.deleteTodo(index)}>
+                  Delete
+                </button>
+              </span>
             </li>
           ))}
         </ul>
@@ -58,5 +67,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {addTodo, toggleCompleted}
+  {addTodo, toggleCompleted, deleteTodo}
 )(TodoList);
