@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
   switch(action.type){
 
     case ADD_TODO:
-    //adds the new todo from the form to the state todos array. 
+    //adds the new todo from the form to the state todos array.
       let newList = [
         ...state.todos,
           {
@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
 
 
     case HANDLE_INPUT:
-    //update the store's todo field on change in input form;
+    //update the state's todo field on change in input form
       return {...state, todo: action.payload};
 
 
