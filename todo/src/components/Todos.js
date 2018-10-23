@@ -5,11 +5,15 @@ import { connect } from 'react-redux';
 import { selectTodo } from '../actions';
 
 function Todos(props) {
-  console.log(props.taskIndex);
   return (
-    <p onClick={() => props.selectTodo(props.taskIndex)} className="todo">
-      {props.todo.value}
-    </p>
+    <div className="todoCard" onClick={() => props.selectTodo(props.taskIndex)}>
+      {!props.todo.completed ? (
+        <i className="far fa-circle fa-2x fa-fw check" />
+      ) : (
+        <i className="far fa-check-circle fa-2x fa-fw check" />
+      )}
+      <p className="todo">{props.todo.value}</p>
+    </div>
   );
 }
 

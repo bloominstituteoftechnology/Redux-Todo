@@ -22,8 +22,12 @@ class TodoForm extends Component {
   // Click handler to add todos
   handleClick = e => {
     e.preventDefault();
-    this.props.addTodo(this.state.newTodo);
-    this.setState({ newTodo: '' });
+    if (this.state.newTodo) {
+      this.props.addTodo(this.state.newTodo);
+      this.setState({ newTodo: '' });
+    } else {
+      alert('Missing Information');
+    }
   };
 
   render() {
@@ -34,8 +38,12 @@ class TodoForm extends Component {
           name="newTodo"
           onChange={this.changeHandler}
           value={this.state.newTodo}
+          placeholder="Add Todo..."
+          className="addTodoInput"
         />
-        <button onClick={this.handleClick}>Add</button>
+        <button onClick={this.handleClick} className="addButton">
+          Add
+        </button>
       </form>
     );
   }

@@ -1,12 +1,6 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -18,19 +12,70 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.todo {
+/* Single todo */
+.todoCard {
+  border: 1px solid black;
+  max-width: 600px;
+  width: 100%;
+  margin: 25px auto;
+  border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/* 
+.todoCard p {
+  margin-right: px;
+} */
+
+.check {
+  /* margin-right: 40px; */
+  position: absolute;
+  left: 20px;
+}
+
+/* Form */
+.addTodoInput {
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 5px;
+  max-width: 300px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid gray;
+  font-size: 30px;
+}
+
+.addTodoInput::placeholder {
+  font-size: 30px;
+  color: #000;
+}
+.addTodoInput:focus,
+form .addButton:focus {
+  outline: none;
+}
+
+form .addButton {
+  margin-top: 15px;
+  padding: 5px 25px;
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 300px;
+  width: 100%;
+  transition: all 0.2s linear;
+  font-size: 20px;
+}
+
+form .addButton:hover {
+  background: #327cdb;
+  color: #fff;
+}
+
+form .addButton:active {
+  transform: scale(0.99);
 }
