@@ -6,8 +6,6 @@ const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return [...state, { todo: action.payload, completed: false }];
-    // default:
-    //   return state;
 
     case TOGGLE_TODO:
       return state.map((todo, index) => {

@@ -36,7 +36,9 @@ class Form extends React.Component {
         <button onClick={this.handleClick}>Add Todo</button>
         {this.props.todos.map((todo, index) => (
           <div key={index}>
-            <h3 onClick={() => this.props.toggleTodo(index)}>{todo.todo}</h3>
+            <h3 onClick={() => this.props.toggleTodo(index)} className={todo.completed ? "line-through" : null}>
+              {todo.todo}
+            </h3>
           </div>
         ))}
       </div>
