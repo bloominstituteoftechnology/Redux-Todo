@@ -11,9 +11,9 @@ const todoReducers = (state = initialState, action) => {
 
     case "DELETETODO":
 
-      return { todoList: [...state.todoList].filter( (todo, index) =>  index !== action.payload) };
+      return { todoList: state.todoList.filter( (todo, index) =>  index !== action.payload) };
 
-      // return { todoList: [...state.todoList].splice(0, 1) };
+      // return { todoList: state.todoList.splice(action.payload, 1) };
 
       case "TOGGLECOMPLETED":
 

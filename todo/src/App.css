@@ -34,6 +34,11 @@
 .todo{
   display : flex;
   align-items : center;
+  height : 35px;
+}
+
+.todo:hover{
+  cursor : pointer;
 }
 
 .todo span{

@@ -50,16 +50,28 @@ class App extends Component {
         />
         <button onClick={this.addNewTodo}>add</button>
         <ul>
-        {this.props.todos.map((todo, index) => (
-
-         
-            <li key={index} className = "todo"> 
+        {this.props.todos.map((todo, index) => {
+          
+           if(todo.isCompleted){
+            return(<li key={index} className = "todo"> 
               <p className={`completed${todo.isCompleted}`}
                   onClick={(ev) => this.toggleCompleted(ev, index)}>{todo.todoText}</p>
-              <span onClick={(ev) => this.deleteTodo(ev, index)}>  x  </span> 
+                  <span onClick={(ev) => this.deleteTodo(ev, index)}>  x  </span> 
             </li>
+            )
+           }
+           else{
+             return(
+             <li key={index} className = "todo"> 
+             <p className={`completed${todo.isCompleted}`}
+                 onClick={(ev) => this.toggleCompleted(ev, index)}>{todo.todoText}</p>
          
-          ))}
+           </li>);
+            
+           }
+        
+          }
+          )}
 
         </ul>
       </div>
