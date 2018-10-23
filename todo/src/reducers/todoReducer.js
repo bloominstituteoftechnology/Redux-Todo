@@ -1,9 +1,9 @@
 
 
 const initialState = {
-    todo: [
+    todos: [
         {
-            text: "Learn Redux",
+            value: "Learn Redux",
             completed: false
         }
     ]
