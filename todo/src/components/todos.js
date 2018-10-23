@@ -18,6 +18,7 @@ class TODOS extends React.Component {
   handleNewTodo = ev => {
     ev.preventDefault();
     this.props.addTodo(this.state.todoText);
+    this.setState({todoText:''})
   };
 
   render() {

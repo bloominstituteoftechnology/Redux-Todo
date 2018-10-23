@@ -14,22 +14,22 @@ const todoReducer = (state = initialState, action) => {
         ...state,
         todos: [...state.todos, { todo: action.payload, completed: false }]
       };
-    // case SETCOMPLETED:
-    //   return {
-    //     ...state,
-    //     todos: state.todos.map((todo, index) => {
-    //       if (index === action.payload) {
-    //         return { ...todo, completed: !todos.completed };
-    //       } else {
-    //         return todo;
-    //       }
-    //     })
-    //   };
+    case SETCOMPLETED:
+      return {
+        ...state,
+        todos: state.todos.map((todo, index) => {
+          if (index === action.payload) {
+            return { ...todo, completed: !todo.completed };
+          } else {
+            return todo;
+          }
+        })
+      };
     // case DELETETODO:
     //   return {
     //     ...state,
     //     todos: state.todos.filter(() => {
-    //       return { ...(todos.completed = true) };
+    //       return { ...(todo.completed = true) };
     //     })
     //   };
     //       case DELETE_TODO - Hint use index to find it, use filter to filter it out
