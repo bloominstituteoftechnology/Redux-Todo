@@ -6,13 +6,13 @@ import { toggleComplete, deleteTodo } from '../actions';
 const Todo = props => {
   return (
     <div className='todo'>
-      <p className={props.todo.completed ? 'done' : 'todo'} onClick={() => props.toggleComplete(props.todo.value, props.todo.completed, props.id)}>
+      <p className={props.todo.completed ? 'done' : null} onClick={() => props.toggleComplete(props.id)}>
         {props.todo.value}</p>
       <div className='delete-todo'
         onClick={(event) => {
           props.deleteTodo(event, props.id)
         }}>
-        Delete
+        <i className="far fa-times-circle"/>
       </div>
     </div>
   )
@@ -21,7 +21,7 @@ const Todo = props => {
 
 const mapStateToProps = state => {
   return {
-
+    // completed: state.completed
   }
 }
 

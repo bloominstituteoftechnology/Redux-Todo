@@ -21,17 +21,16 @@ export const handleInput = event => {
   }
 }
 
-export const toggleComplete = (value, completed, id) => {
+  export const toggleComplete = (id) => {
   return {
     type: TOGGLE_COMPLETE,
-    payload: completed,
-    value: value,
-    id: id
+    payload: id,
+
   }
 }
 
 export const deleteTodo = (event, id) => {
-  event.stopPropagation(); 
+  event.stopPropagation();
   return {
     type: DELETE_TODO,
     payload: id,

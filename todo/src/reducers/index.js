@@ -13,6 +13,11 @@ const initialState = {
     todo: ''
 }
 
+const toggleDone = (object, property) => ({
+  ...object,
+  property: !(object[property])
+})
+
 export default (state = initialState, action) => {
   switch(action.type){
     case ADD_TODO:
@@ -30,7 +35,12 @@ export default (state = initialState, action) => {
     case HANDLE_INPUT:
       return {...state, todo: action.payload};
     case TOGGLE_COMPLETE:
-      return state;
+      const { id } = action.payload;
+      return {
+        ...state,
+        id: toggleDone(state[id], 'completed')
+      }
+
     case DELETE_TODO:
       let deletingList = [
         ...state.todos,
