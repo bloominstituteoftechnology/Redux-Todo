@@ -1,5 +1,4 @@
 import React from 'react';
-import { TOGGLE_COMPLETED } from '../actions';
 
 const TodoList = (props) => {
     return(

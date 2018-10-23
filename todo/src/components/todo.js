@@ -23,19 +23,16 @@ export class Todo extends React.Component{
 
     onSubmit = e => {
         e.preventDefault();
-        console.log("click handler has been invoked (todo.js)")
         //Put a function in here to change the state of the application 
         //through props, make sure to have a value that passes in
         this.props.addNewTodo(this.state.inputText);
     }
 
     onClick = (index) => {
-        console.log("onClick was invoked on : ")
         this.props.toggleCompleted(index);
     }
 
     render(){
-        console.log(this.props.todoList)
         return(
             <div className="Todo">
                 <TodoForm 
