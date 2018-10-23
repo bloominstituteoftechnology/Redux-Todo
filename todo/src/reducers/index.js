@@ -14,7 +14,7 @@ const todoReducer = (state=initialState, action) => {
     switch(action.type) {
         case UPDATE_TODOS:
         return {...state, 
-            value:action.payload,
+            todos : [...state.todos, {value: action.payload, completed:false}]
             
         }
         
