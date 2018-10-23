@@ -6,10 +6,17 @@ class TodoList extends Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        
+        // console.log(this.props.todos.map(todo => {
+        //     return todo
+        // }))
+    }
+
     render() {
         return (
             <div className='todo-list'>
-                {this.props.todos.map(todo, i => {
+                {this.props.todos.map((todo, i) => {
                     return (
                         <Todo 
                             todo={todo} 

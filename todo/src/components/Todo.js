@@ -7,8 +7,8 @@ const Todo = ({todo, id}) => (
         <h3 
         className={todo.completed ? 'complete' : 'incomplete'} 
         onClick={() => toggletodo(id)}
-        >{todo.value}</h3>
+        >{todo.inputText}</h3>
     </div>
 );
 
-export default connect({ toggletodo })(Todo);
+export default connect()(Todo);

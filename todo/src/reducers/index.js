@@ -1,15 +1,17 @@
 import { ADDTODO, TOGGLETODO } from '../actions';
 
 const initialState = {
-    todos: []
+    todos: [{inputText: 'feed kitten', completed: false}, {inputText: 'finish todo app', completed: false}]
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADDTODO:
-            return { ...state, todos: [...initialState.todos, {value: action.payload, complete: false}]}
+        return { todos: [ ...state.todos, {id: action.id, inputText: action.inputText, completed: false}]}
         case TOGGLETODO:
-            return { ...state, todos: [...initialState.todos, {complete: action.payload}]}
+            return state.map(todo => (
+                todo.id === action.id ? {...todo, complete: !todo.completed} : todo
+            ))
         default:
             return state;
     }

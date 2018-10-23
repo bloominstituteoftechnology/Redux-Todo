@@ -1,14 +1,16 @@
 export const ADDTODO = 'ADDTODO';
 export const TOGGLETODO = 'TOGGLETODO';
 
-export const addtodo = () => {
+export const addtodo = inputText => {
     return {
-      type: ADDTODO
+      type: ADDTODO,
+      inputText
     };
   };
   
-  export const toggletodo = () => {
+  export const toggletodo = id => {
     return {
-      type: TOGGLETODO
+      type: TOGGLETODO,
+      id
     };
   };

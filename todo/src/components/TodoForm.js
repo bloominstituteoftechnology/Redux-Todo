@@ -6,7 +6,6 @@ class TodoForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todo: {},
             inputText: ''
         }
     }
@@ -17,9 +16,14 @@ class TodoForm extends Component {
         })
     }
 
+    submitTodo = event => {
+        event.preventDefault();
+        this.props.dispatch(addtodo(this.state.inputText))
+    }
+    
     render() {
         return (
-            <form className='form' onSubmit={this.props.addtodo(this.state.todo)}>
+            <form className='form' onSubmit={this.submitTodo}>
                 <input 
                     className='input'
                     type='text'
@@ -30,11 +34,11 @@ class TodoForm extends Component {
                     required
                 />
                 <div className='btn-container'>
-                    <button className='btn' onClick={() => this.props.addtodo(this.state.todo)}>add todo</button>
+                    <button className='btn' type='submit'>add todo</button>
                 </div>
             </form>
         )
     }
 }
 
-export default connect({ addtodo })(TodoForm);
+export default connect()(TodoForm);
