@@ -9,7 +9,7 @@ export const Task = styled.div`
     background: #ffffff;
     color: #07070A;
     position: relative;
-    margin: 5px 0;
+    margin: 0 auto 5px;
     overflow: hidden;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.34);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.34);
@@ -44,7 +44,7 @@ export const CompletedTask = styled.div`
     background: #ffffff;
     color: #07070A;
     position: relative;
-    margin: 5px 0;
+    margin: 0 auto 5px;
     overflow: hidden;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.34);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.34);

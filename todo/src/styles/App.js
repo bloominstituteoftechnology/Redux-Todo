@@ -35,7 +35,7 @@ export const HeaderContainer = styled.div`
 export const ListContainer = styled.div`
     width: 500px;
     background: #ffffff;
-    padding: 2%;
+    padding: 20px;
     border-radius: 0 0 10px 10px;
 
     @media(max-width: 600) {
