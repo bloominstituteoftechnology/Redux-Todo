@@ -55,13 +55,15 @@
   max-width: 300px;
   width: 100%;
   border: none;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid black;
   font-size: 30px;
+  text-align: center;
 }
 
 .addTodoInput::placeholder {
   font-size: 30px;
-  color: #000;
+  color: gray;
+  text-align: center;
 }
 .addTodoInput:focus,
 form .addButton:focus {
