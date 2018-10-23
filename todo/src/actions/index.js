@@ -1,8 +1,8 @@
 export const ADD_TODO = 'ADD_TODO';
 
-export const addTodo = text => {
+export const addTodo = todo => {
   return {
     type: ADD_TODO,
-    text
+    payload: todo
   }
 }

@@ -1,7 +1,13 @@
 import { ADD_TODO } from '../actions';
 
 const initialState = {
-  todos: []
+  todos: [
+    {
+      id: 0,
+      value: 'Do something',
+      completed: false
+    }
+  ]
 }
 
 const todoReducer = (state = initialState, action) => {
@@ -9,7 +15,7 @@ const todoReducer = (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos, { text: action.text, completed: false }]
+        todos: [...state.todos, action.payload]
       };
     default:
       return state;

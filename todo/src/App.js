@@ -1,13 +1,13 @@
 import React from 'react';
 
-import TodoListContainer from './components/TodoListContainer';
+import TodoList from './components/TodoList';
 
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      <TodoListContainer />
+      <TodoList />
     </div>
   );
 }
