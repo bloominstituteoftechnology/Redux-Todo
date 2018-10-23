@@ -58,5 +58,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleCompleted }
+  { addTodo, toggleCompleted, deleteTodo }
 )(TodoList);

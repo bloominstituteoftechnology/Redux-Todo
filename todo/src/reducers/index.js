@@ -28,5 +28,7 @@ export function todoReducers(state = initialState, action) {
       return { todos: newTodos };
     default:
       return state;
+
+    case DELETE_TODO:
   }
 }
