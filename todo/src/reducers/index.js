@@ -10,8 +10,14 @@ const initialState = {
 
 
 const todo = (state = initialState, action) => {
-  return state;
-  console.log('inside the reducer');
+  switch(action.type) {
+    case 'ADD_ITEM':
+      return {...state, todos: [...state.todos, {value: action.payload, completed: false}]}
+
+    default:
+      return state;
+
+  }
 }
 
 

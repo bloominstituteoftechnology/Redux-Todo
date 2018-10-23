@@ -9,21 +9,31 @@ class Todo extends React.Component {
       }
   }
 // I need the list of todo items.
+  changeHandler = (e) => {
+    this.setState({inputText: e.target.value})
+  }
+
+  handleNewItem = (e) => {
+    e.preventDefault()
+    console.log('button clicked')
+    this.props.addTodo(this.state.inputText)
+  }
 
   render() {
     return (
       <div>
-        {console.log(this.props)}
         <form>
           <p>Add New Item</p>
           <input
             type='text'
             name='inputText'
             placeholder="new list item"
+            onChange={this.changeHandler}
+            value={this.state.inputText}
             ></input>
-          <button>Submit</button>
+          <button onClick={this.handleNewItem}>Submit</button>
         </form>
-        {this.props.todos.map(item => <p>{item.value}</p>)}
+        {this.props.todos.map((item, idx) => <p key={idx}>{item.value}</p>)}
       </div>
       );
   }
