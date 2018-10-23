@@ -1,0 +1,15 @@
+.complete {
+    text-decoration: line-through;
+    color: green;
+    font-size: 30px;
+}
+
+.incomplete {
+    text-decoration: none;
+    color: red;
+    font-size: 40px;
+}
+
+body {
+    text-align: center;
+}
