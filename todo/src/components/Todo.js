@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+import { deleteTodo } from '../actions';
+
 import './StyledComponents.css';
 
 function Todo(props) {
@@ -26,4 +29,11 @@ function Todo(props) {
   );
 }
 
-export default Todo;
+const mapStateToProps = state => ({
+  todos: state.todos
+});
+
+export default connect(
+  mapStateToProps,
+  { deleteTodo }
+)(Todo);

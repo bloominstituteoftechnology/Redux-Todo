@@ -16,7 +16,7 @@ export function todoReducers(state = initialState, action) {
 
     case TOGGLE_COMPLETED:
       const newTodos = state.todos.map(todo => {
-        if (todo.id === action.paylaod) {
+        if (todo.id === action.payload) {
           return {
             ...todo,
             completed: !todo.completed
@@ -28,9 +28,17 @@ export function todoReducers(state = initialState, action) {
       return { todos: newTodos };
 
     case DELETE_TODO:
-      return {
-        ...state
-      };
+      const updatedTodos = state.todos.filter(todo => {
+        if (todo.id === action.payload) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        } else {
+          return { ...todo };
+        }
+      });
+      return { todos: updatedTodos };
 
     default:
       return state;
