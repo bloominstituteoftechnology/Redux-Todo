@@ -1,4 +1,4 @@
-import { ADD_TASK } from '../actions/index';
+import { ADD_TASK, TOGGLE_COMPLETED } from '../actions/index';
 
 const initialState = {
     listArray: []
@@ -7,19 +7,26 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
-            {
-                if (state.listArray.length) {
-                    return {
-                        listArray: [...state.listArray, action.payload]
-                    };
-                } else {
-                    console.log('here');
-                    return {
-                        listArray: [action.payload]
-                    }
-                }
+            return {
+                ...state,
+                listArray: [...state.listArray, { value: action.payload, completed: false }]
+            };
 
-            }
+        case TOGGLE_COMPLETED:
+            return {
+                ...state,
+                listArray: state.listArray.map((task, index) => {
+                    if(index === action.payload) {
+                        return {
+                            ...task,
+                            completed: !task.completed
+                        };
+                    } else {
+                        return task;
+                    }
+                })
+            };
+
         default:
             return state;
     }
