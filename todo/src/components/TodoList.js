@@ -5,12 +5,12 @@ import { toggleTodo } from "../actions";
 
 const TodoList = ({ todos, toggleTodo }) => (
     <div>
-      {todos.map(todo =>
+      {todos.map((todo, index) =>
         <Todo
-          key={todo.id}
+          key={index}
           value={todo.value}
           completed={todo.completed}
-          toggleTodo={() => toggleTodo(todo.id)}
+          toggleTodo={() => toggleTodo(index)}
         />
       )}
     </div>
