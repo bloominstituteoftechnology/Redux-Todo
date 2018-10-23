@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
         case 'ADD-TODO':
             return {
                 ...state, 
-                todos: [...state.todos, action.payload]
+                todos: [...state.todos, { value: action.payload }]
             }; 
         default: 
             return state;

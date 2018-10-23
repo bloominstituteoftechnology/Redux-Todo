@@ -1,5 +1,6 @@
 import React from 'react';
-import { AddTodo } from '../actions';
+import { addTodo } from '../actions';
+import { connect } from 'react-redux';
 
 class AddTodoForm extends React.Component {
     constructor(props) {
@@ -13,22 +14,26 @@ class AddTodoForm extends React.Component {
         this.setState({ addTodoText: event.target.value});
     }
 
+    handleClick = event => {
+        event.preventDefault();
+        this.props.addTodo(this.state.addTodoText);
+    }
 
     render() {
         return (
             <div>
-                <form onSubmit={AddTodo}>
+                <form onSubmit={this.handleClick}>
                     <input placeholder='This is a placeholder.'
                             type='text'
                             name='addTodoText'
                             value={this.state.addTodoText}
                             onChange={this.handleChanges} />
-                    <button onClick={AddTodo}>Add Todo</button>
+                    <button onClick={this.handleClick}>Add Todo</button>
                 </form>
             </div>
         )
     }
 }
+    
 
-
-export default AddTodoForm;
+export default connect(null, { addTodo })(AddTodoForm);
