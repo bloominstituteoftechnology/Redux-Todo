@@ -26,7 +26,11 @@ class TodoList extends React.Component {
 		return (
 			<div>
 				{this.props.tasks.map((task, index) => (
-					<div key={index}>
+					<div
+						key={index}
+						className={task.className}
+						style={{ textDecoration: task.complete ? 'line-through' : 'none' }}
+					>
 						<h3 onClick={() => this.props.toggleComplete(index)}>{task.task}</h3>
 					</div>
 				))}

@@ -11,6 +11,6 @@ export const addTodoTask = (task) => {
 export const toggleComplete = (index) => {
 	return {
 		type: TOGGLE_COMPLETE,
-		playload: index
+		payload: index
 	};
 };
