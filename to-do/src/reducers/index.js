@@ -7,7 +7,7 @@ const initialState = {
   todo: []
 };
 
-const titleReducer = (state = initialState, action) => {
+const todoReducer = (state = initialState, action) => {
   console.log("Inside reducer", action, state);
   switch (action.type) {
     case ADD_TODO:
@@ -32,4 +32,4 @@ const titleReducer = (state = initialState, action) => {
   }
 };
 
-export default titleReducer;
+export default todoReducer;

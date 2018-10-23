@@ -5,17 +5,19 @@ import { Provider } from "react-redux";
 
 import Todo from "./components/Todo";
 
-import titleReducer from "./reducers";
+import todoReducer from "./reducers";
+
+import "./index.css";
 
 const store = createStore(
-  titleReducer,
+  todoReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 function App() {
   return (
-    <div className="App">
-      <Todo otherProp="hi" />
+    <div className="app">
+      <Todo />
     </div>
   );
 }
