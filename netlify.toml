@@ -2,3 +2,4 @@
 [build]
   base    = "./todo"
   command = "yarn build"
+  
