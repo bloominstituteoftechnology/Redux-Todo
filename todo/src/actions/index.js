@@ -6,7 +6,7 @@ export const addNewTodo = newTodo => ({
   payload: newTodo
 });
 
-export const completeTodo = completedTodo => ({
-    type: COMPLETE,
-    payload: completedTodo
+export const completeTodo = id => ({
+  type: COMPLETE,
+  payload: id
 });

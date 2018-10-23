@@ -9,12 +9,14 @@ const TodoForm = props => (
       name="inputText"
       onChange={props.handleInputChange}
     />
-    <button className="add" type="submit" onClick={props.handleNewToDo}>
-      Add
-    </button>
-    <button className="clear" onClick={props.removeCompleted}>
-      Clear
-    </button>
+    <div className="buttons">
+      <button className="add" type="submit" onClick={props.handleNewTodo}>
+        Add
+      </button>
+      <button className="clear" onClick={props.removeCompleted}>
+        Clear
+      </button>
+    </div>
   </form>
 );
 

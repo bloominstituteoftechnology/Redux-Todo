@@ -28,9 +28,12 @@ export class TodoContainer extends Component {
   render() {
     return (
       <div className="container todo">
-        <TodoList toDo={this.props.todos} />
+        <TodoList
+          todo={this.props.todos}
+          completeTodo={this.props.completeTodo}
+        />
         <TodoForm
-          handleNewToDo={this.addNewTodo}
+          handleNewTodo={this.addNewTodo}
           handleInputChange={this.handleInputChange}
           inputText={this.state.inputText}
         />

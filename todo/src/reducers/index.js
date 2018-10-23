@@ -22,19 +22,19 @@ const rootReducer = (state = initialState, action) => {
           {
             task: action.payload,
             id: Date.now(),
-            completed: false,
-           
+            completed: false
           }
         ]
       };
     case "COMPLETE":
-      return state.todos.map(
-        todo =>
-          todo.id === action.payload
-            ? { ...todo, completed: !todo.completed }
-            : todo
-      );
-
+      return {
+        todos: state.todos.map(
+          todo =>
+            todo.id === action.payload
+              ? { ...todo, completed: !todo.completed }
+              : todo
+        )
+      };
     default:
       return state;
   }
