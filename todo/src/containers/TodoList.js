@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo, toggleCompleted } from "../actions";
+import { addTodo, toggleCompleted, deleteTodo } from "../actions";
+import './styles.css';
 
 import Todo from "./Todo";
 
@@ -26,7 +27,7 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="todoList">
         <h1>TODOs</h1>
         <form onSubmit={this.handleNewTodo}>
           <input
@@ -39,7 +40,7 @@ class TodoList extends React.Component {
           <button onClick={this.handleNewTodo}>Add Todo</button>
         </form>
         {this.props.todos.map((todo, index) => {
-          return <Todo todo={todo} index={index} toggleCompleted={this.props.toggleCompleted}/>;
+          return <Todo todo={todo} index={index} toggleCompleted={this.props.toggleCompleted} deleteTodo={this.props.deleteTodo}/>;
         })}
       </div>
     );
@@ -54,5 +55,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleCompleted }
+  { addTodo, toggleCompleted, deleteTodo }
 )(TodoList);
