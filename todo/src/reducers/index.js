@@ -1,11 +1,14 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actions"
+import { ADD_TODO, TOGGLE_TODO, HANDLE_CHANGE } from "../actions"
 
 const initialState = {
-    todos: []
+    todos: [],
+    todo: ''
 }
 
 const todoReducer = (state = initialState, action) => {
     switch(action.type){
+        case HANDLE_CHANGE:
+            return { ...state, todo: action.payload }
         case ADD_TODO:
             return {
                 ...state, 
