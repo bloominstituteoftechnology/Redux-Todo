@@ -111,7 +111,20 @@ form button {
   border-radius: 3px;
   font-family: 'Poppins', sans-serif;
   padding: 5px 10px;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
+  background: #121417;
+  color: lightgray;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: lightgray;
+  color: #121417;
+}
+
+form button:focus {
+  outline: 1px solid white; 
 }
 
 .todo-list {

@@ -4,6 +4,7 @@ import { toggleComplete, deleteTodo } from '../actions';
 
 
 const Todo = props => {
+  console.log(props.todo.completed);
   return (
     <div className='todo'>
       <p className={props.todo.completed ? 'done' : null} onClick={() => props.toggleComplete(props.todo.id)}>
