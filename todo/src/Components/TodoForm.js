@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import {addTodo} from '../Actions';
+import {addTodo, deleteTodo} from '../Actions';
 
 class TodoForm extends React.Component {
     constructor() {
@@ -12,16 +12,25 @@ class TodoForm extends React.Component {
 
     changeHandler = e => this.setState({ [e.target.name]: e.target.value });
 
-    clickHandler = e => {
+    addHandler = e => {
         e.preventDefault();
         this.props.addTodo(this.state.todoText);
         this.setState({todoText: ""})
       };
 
+    deleteHandler = e => {
+        e.preventDefault();
+        this.props.todos.filter((todo, index) => {
+            if (this.props.todo.completed === true) {
+                this.props.deleteTodo(index);
+            }
+        })
+    };
+
     render() {
         return(
             <div>
-                <form onSubmit={this.clickHandler}>
+                <form onSubmit={this.addHandler}>
                 <input 
                     type="text" 
                     name="todoText" 
@@ -29,8 +38,9 @@ class TodoForm extends React.Component {
                     value={this.state.todoText} 
                     onChange={this.changeHandler}>
                 </input>
-                <button onClick={this.clickHandler}>Add Todo</button>
+                <button onClick={this.addHandler}>Add Todo</button>
                 </form>
+                <button onClick={this.deleteHandler}>Clear Completed</button>
             </div>
         )
     }
@@ -44,5 +54,5 @@ const mapStateToProps = state => {
   
   export default connect(
     mapStateToProps,
-    { addTodo }
+    { addTodo, deleteTodo }
   )(TodoForm);
