@@ -25,6 +25,8 @@ export class TodoContainer extends Component {
     this.setState({ inputText: "" });
   };
 
+  
+
   render() {
     return (
       <div className="container todo">
@@ -44,7 +46,7 @@ export class TodoContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  todos: state.todos
+  todos: state.todos,
 });
 
 export default connect(

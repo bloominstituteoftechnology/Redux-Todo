@@ -1,5 +1,5 @@
 export const initialState = {
-  todos: !localStorage.getItem("todoList").length
+  todos: localStorage.getItem("todoList") === null
     ? [
         {
           task: "Organize Garage",
