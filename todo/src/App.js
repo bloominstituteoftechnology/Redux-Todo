@@ -6,7 +6,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      // idCount : null,
       todoText: ""
     };
   }
@@ -19,31 +18,31 @@ class App extends Component {
     ev.preventDefault();
 
     this.props.addTodo({
-      id: this.props.idCount,
-      todoText: this.state.todoText
+       todoText: this.state.todoText
     });
 
     this.setState({ todoText: "" });
   };
 
   render() {
+    console.log(this.props.todos);
     return (
       <div>
+        
         <input
           type="text"
           name="inputText"
           onChange={this.handleChanges}
-          placeholder="New title"
+          placeholder="New Todo"
           value={this.state.todoText}
         />
         <button onClick={this.addNewTodo}>add</button>
-
-        {this.props.todos.map(todo => (
-          <p key={todo.id}>
-            {" "}
-            {todo.id} : {todo.todoText}
-          </p>
+        <ul>
+        {this.props.todos.map((todo, index) => (
+          <li key={index}> {index} : {todo.todoText}  </li>
         ))}
+
+        </ul>
       </div>
     );
   }
@@ -53,8 +52,7 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     todos: state.todoList,
-    idCount: state.idCount
-  };
+   };
 };
 
 export default connect(
