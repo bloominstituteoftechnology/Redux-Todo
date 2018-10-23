@@ -2,14 +2,12 @@ import {
     CREATE_TODO,
     UPDATE_TODO,
     CLEAR_COMPLETED,
-    COMPLETE_TOGGLE
+    COMPLETE_TOGGLE,
+    SET_LIST
 } from '../actions';
 
 const initialState = {
-    todos: [
-        {value: 'Bake Cookies', completed: false},
-        {value: 'Do Laundry', completed: false}
-    ],
+    todos: sessionStorage.getItem('myToDoList') ? JSON.parse(sessionStorage.getItem('myToDoList')) : [],
 }
 
 export default (state = initialState, action) => {
@@ -47,6 +45,12 @@ export default (state = initialState, action) => {
                     ? {...todo, value: action.payload.value }
                     : todo
                 )
+            };
+        
+        case SET_LIST :
+            return {
+                ...state,
+                todos: action.payload
             };
         
         default: return {...state}

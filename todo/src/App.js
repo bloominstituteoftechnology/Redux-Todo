@@ -8,7 +8,8 @@ import {
   createTodo,
   completeToggle,
   clearCompleted,
-  updateTodo
+  updateTodo,
+  setList
 } from './actions';
 
 class App extends React.Component {
@@ -20,9 +21,6 @@ class App extends React.Component {
       search: '',
       showSearch: false,
     }
-  }
-
-  componentWillMount() {
   }
 
   changeHandler = event => {
@@ -50,10 +48,9 @@ class App extends React.Component {
   }
   
   filteredList = () => {
-    let todoList = this.props.todoList.filter(todo => 
+    return this.props.todoList.filter(todo => 
       todo.value.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
     )
-    return todoList;
   }
 
   clearSearch = () => {
@@ -88,8 +85,12 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
+  const { todos } = state;
+
+  sessionStorage.setItem('myToDoList', JSON.stringify(todos))
+
   return {
-    todoList: state.todos
+    todoList: todos
   }
 }
 
@@ -97,5 +98,6 @@ export default connect(mapStateToProps, {
   createTodo,
   completeToggle,
   clearCompleted,
-  updateTodo
+  updateTodo,
+  setList
 })(App);

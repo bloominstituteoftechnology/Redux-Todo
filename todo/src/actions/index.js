@@ -2,6 +2,7 @@ export const CREATE_TODO = 'create_todo';
 export const COMPLETE_TOGGLE = 'complete_toggle';
 export const UPDATE_TODO = 'update_todo';
 export const CLEAR_COMPLETED = 'clear_completed';
+export const SET_LIST = 'set_list';
 
 export const createTodo = (value) => {
     return {
@@ -27,5 +28,13 @@ export const updateTodo = (index, value) => {
     return {
         type: UPDATE_TODO,
         payload: {index, value}
+    }
+};
+
+export const setList = (todoList) => {
+    console.log('called', todoList);
+    return {
+        type: SET_LIST,
+        payload: todoList
     }
 };
