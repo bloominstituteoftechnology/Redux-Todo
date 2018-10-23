@@ -1,4 +1,5 @@
 export const ADD_ITEM = 'ADD_ITEM';
+export const CROSS_OUT = 'CROSS_OUT';
 
 export const addTodo = item => {
   console.log('inside the action', item)
@@ -9,6 +10,9 @@ export const addTodo = item => {
 
 }
 
-export const crossOut = id => {
-  return {}
+export const crossOut = index => {
+  return {
+    type: 'CROSS_OUT',
+    payload: index
+  }
 }

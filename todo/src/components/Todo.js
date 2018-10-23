@@ -17,6 +17,13 @@ class Todo extends React.Component {
     e.preventDefault()
     console.log('button clicked')
     this.props.addTodo(this.state.inputText)
+    this.setState({inputText: ''})
+  }
+
+  crossOut = (e, id) => {
+    e.preventDefault();
+    this.props.crossOut(id)
+
   }
 
   render() {
@@ -33,7 +40,9 @@ class Todo extends React.Component {
             ></input>
           <button onClick={this.handleNewItem}>Submit</button>
         </form>
-        {this.props.todos.map((item, idx) => <p key={idx}>{item.value}</p>)}
+        {this.props.todos.map((item, idx) => (<p 
+              onClick={(event)=> this.crossOut(event, idx)} className={ item.completed ? 'crossed-out' : 'normal'} key={idx}>{item.value}</p>))}
+        
       </div>
       );
   }
