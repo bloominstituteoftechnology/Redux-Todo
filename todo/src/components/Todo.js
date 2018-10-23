@@ -24,7 +24,17 @@ class Todo extends React.Component {
     return (
       <div>
         {this.props.todos.map((todo, index) => (
-          <h3 onClick={() => this.props.completedTodo(index)}>{todo.task}</h3>
+          <h3
+            key={index}
+            style={
+              todo.completed
+                ? { textDecoration: "line-through", color: "green" }
+                : { textDecoration: "none" }
+            }
+            onClick={() => this.props.completedTodo(index)}
+          >
+            {todo.task}
+          </h3>
         ))}
         <form onSubmit={this.handleAddNewFriend}>
           <input
