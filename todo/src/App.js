@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { addTodoItem, markComplete } from './actions';
+import { connect } from 'react-redux';
 import './App.css';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
+        <h1>Todo List</h1>
+        <TodoList />
+        <TodoForm
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
+          text={this.state.newTodo}
+        />
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -25,4 +28,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+    id: state.id,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addTodoItem, markComplete }
+)(App);
