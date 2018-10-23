@@ -15,7 +15,7 @@ export const addTodo = todo => {
 export const toggleCompleted = id => {
   return {
     type: TOGGLE_COMPLETED,
-    id: id
+    payload: id
   };
 };
 
