@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import todo from "./Reducers"; 
+import todoReducer from "./Reducers"; 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(todo);
+const store = createStore(todoReducer);
 
 ReactDOM.render(
     <Provider store={store}>
