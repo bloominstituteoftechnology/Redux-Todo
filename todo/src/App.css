@@ -82,18 +82,19 @@ html {
 form {
   max-width: 500px;
   width: 100%;
-  margin: 0 auto;
+  padding-top: 30px;
   min-height: 10vh;
   /* border: 1px solid white; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto; 
 
 }
 
 form input {
   width: 70%;
-  margin: 3%;
+  margin: 3% auto;
   text-align: center;
   background: transparent;
   border: none;
