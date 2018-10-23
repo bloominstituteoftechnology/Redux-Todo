@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // React redux imports
 import { connect } from 'react-redux';
 // Action imports
-import { addTodo } from '../actions';
+import { addTodo, deleteCompleted } from '../actions';
 
 class TodoForm extends Component {
   constructor(props) {
@@ -40,9 +40,15 @@ class TodoForm extends Component {
           value={this.state.newTodo}
           placeholder="Add Todo..."
           className="addTodoInput"
+          autoComplete="off"
         />
-        <button onClick={this.handleClick} className="addButton">
+        <button onClick={this.handleClick} className="formButton">
           Add
+        </button>
+        <button
+          className="formButton red"
+          onClick={() => this.props.deleteCompleted()}>
+          Delete Checked
         </button>
       </form>
     );
@@ -59,5 +65,5 @@ const mapStateToProps = state => {
 // Connects to redux store and brings in action creators
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, deleteCompleted }
 )(TodoForm);

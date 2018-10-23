@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -19,23 +24,28 @@
   width: 100%;
   margin: 25px auto;
   border-radius: 5px;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-/* 
-.todoCard p {
-  margin-right: px;
-} */
-
 .check {
-  /* margin-right: 40px; */
   position: absolute;
   left: 20px;
+  cursor: pointer;
 }
 
+.complete {
+  color: #2cd34d;
+}
+
+.deleteIcon {
+  cursor: pointer;
+  color: #dd0a0a;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 /* Form */
 .addTodoInput {
   display: block;
@@ -58,7 +68,8 @@ form .addButton:focus {
   outline: none;
 }
 
-form .addButton {
+form .formButton {
+  margin: 0 auto;
   margin-top: 15px;
   padding: 5px 25px;
   background: #fff;
@@ -69,13 +80,19 @@ form .addButton {
   width: 100%;
   transition: all 0.2s linear;
   font-size: 20px;
+  display: block;
 }
 
-form .addButton:hover {
+form .formButton:hover {
   background: #327cdb;
   color: #fff;
 }
 
-form .addButton:active {
+form .red:hover {
+  color: #fff;
+  background: #dd0a0a;
+}
+
+form .formButton:active {
   transform: scale(0.99);
 }

@@ -1,5 +1,10 @@
 // Action imports
-import { ADD_TODO, SELECT_TODO } from '../actions';
+import {
+  ADD_TODO,
+  SELECT_TODO,
+  DELETE_TODO,
+  DELETE_COMPLETED
+} from '../actions';
 
 const initialState = {
   // Sets initial state for Redux
@@ -24,6 +29,20 @@ const todoReducer = (state = initialState, action) => {
           } else {
             return todo;
           }
+        })
+      };
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter((todo, index) => {
+          return index !== action.payload;
+        })
+      };
+    case DELETE_COMPLETED:
+      return {
+        ...state,
+        todos: state.todos.filter(todo => {
+          return todo.completed === false;
         })
       };
     default:
