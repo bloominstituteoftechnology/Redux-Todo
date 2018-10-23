@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {addTodo} from "../actions";
+import {addTodo, toggleCompleted} from "../actions";
 import "../App.css";
 
 class TodoList extends React.Component {
@@ -18,12 +18,13 @@ class TodoList extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.addTodo(this.state.inputText);
+    this.setState({inputText: ""});
   };
 
   render() {
     return (
       <div>
-        <form action="">
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.inputText}
@@ -34,8 +35,14 @@ class TodoList extends React.Component {
           <button>Submit</button>
         </form>
         <ul>
-          {this.props.todos.map(todo => (
-            <li>{todo.value}</li>
+          {this.props.todos.map((todo, index) => (
+            <li
+              key={index}
+              onClick={() => this.props.toggleCompleted(index)}
+              className={todo.completed ? `completed` : null}
+            >
+              {todo.value}
+            </li>
           ))}
         </ul>
       </div>
@@ -51,5 +58,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {addTodo}
+  {addTodo, toggleCompleted}
 )(TodoList);
