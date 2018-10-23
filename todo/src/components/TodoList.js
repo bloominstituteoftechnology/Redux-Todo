@@ -6,6 +6,9 @@ import { checkBox, clearCompleted, addItem } from "../actions/index";
 class TodoList extends React.Component {
   clickHandler = e => {
     let item = e.target.id;
+    if (!item){
+        item = e.target.parentNode.id;
+    }
     this.props.checkBox(item);
   };
   clearCompleted = e => {
@@ -14,11 +17,12 @@ class TodoList extends React.Component {
   };
   render() {
     let todos = this.props.todos;
-    if (!todos) {
-      return <h3>You did it</h3>
-    }
-
-    let anyCompleted = todos.map(x => x.completed).includes(true);
+  
+    let anyCompleted = false
+    if (todos && todos.map(x => x.completed).includes(true)){
+        anyCompleted = true;
+    };
+    if (!todos) {return <div></div>}
 
     return (
       <div className="todo-list-items">
@@ -30,10 +34,10 @@ class TodoList extends React.Component {
             onClick={this.clickHandler}
           >
             <div id={todo.value} className={todo.completed ? "none" : ""}>
-              <Box />
+              <Box id={todo.value}/>
             </div>
             <div id={todo.value} className={todo.completed ? "" : "none"}>
-              <CheckedBox />
+              <CheckedBox id={todo.value}/>
             </div>
             <h5 id={todo.value}>{todo.value}</h5>
           </div>

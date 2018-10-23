@@ -1,7 +1,8 @@
 import React from "react";
 
-export const CheckedBox = () => (
+export const CheckedBox = props => (
   <svg
+    id={props.id}
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
@@ -18,8 +19,9 @@ export const CheckedBox = () => (
   </svg>
 );
 
-export const Box = () => (
+export const Box = props => (
   <svg
+    id={props.id}
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"

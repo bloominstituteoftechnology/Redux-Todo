@@ -10,9 +10,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    if (!state.todos){
-        return initialState
-    }
     let valueMap = state.todos.map(x => x.value);
   switch (action.type) {
     case ADD_ITEM:
@@ -27,7 +24,10 @@ export default (state = initialState, action) => {
       altered.splice(clickedIDX, 1, action.payload)
       return { todos:  altered};
         case CLEAR_COMPLETED:
-        return state.todos.filter(x => !x.completed)
+        console.log(state.todos.completed)
+        let filtered = state.todos.filter(x => x.completed === false)
+        console.log(filtered)
+        return {todos:filtered}
     default:
       return state;
   }
