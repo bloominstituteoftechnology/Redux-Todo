@@ -2,9 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Todo = props => {
-  const onClick= (event) => props.toggleComplete(props.id);
+  const onClick= (event) => {
+    props.toggleComplete(props.id);
+  }
 
-  const deleteTodo = (event) => props.delete(event, props.id)
+  const deleteTodo = (event) => {
+    event.stopPropagation();
+    props.delete(props.id)
+  }
 
   return (
     <div className='todo'>

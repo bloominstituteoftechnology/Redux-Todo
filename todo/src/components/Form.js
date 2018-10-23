@@ -3,8 +3,14 @@ import { connect } from 'react-redux';
 import { addTodo, handleInput } from '../actions';
 
 const Form = props => {
+  const submit = (event) => {
+    console.log('adding...')
+    event.preventDefault();
+    props.addTodo(props.todo);
+  }
+
     return (
-      <form onSubmit={(event) => props.addTodo(event, props.todo)}>
+      <form onSubmit={submit}>
         <input
           name='todo'
           type='text'
