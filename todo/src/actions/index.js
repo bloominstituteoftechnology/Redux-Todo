@@ -4,8 +4,6 @@ export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 export const DELETE_TODO = 'DELETE_TODO';
 
 
-
-
 export const addTodo = (event, todo) => {
   event.preventDefault();
   return {
@@ -29,7 +27,7 @@ export const handleInput = event => {
 }
 
 export const deleteTodo = (event, id) => {
-  event.stopPropagation(); 
+  event.stopPropagation();
   return {
     type: DELETE_TODO,
     payload: id,

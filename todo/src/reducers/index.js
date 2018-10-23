@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { HANDLE_INPUT, ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions';
 
 // const initialState = {
@@ -17,7 +16,6 @@ export default (state = initialState, action) => {
       let newList = [
         ...state.todos,
           {
-          // id: Date.now(),
           value: action.payload,
           completed: false,
           }
@@ -48,7 +46,7 @@ export default (state = initialState, action) => {
 //filter the list of todos on state so that only those that do not match the ID that was passed by the action remain
       let deletingList = state.todos.filter((item, index) =>
        index !== action.payload);
-       localStorage.setItem('todos', JSON.stringify(deletingList)); 
+       localStorage.setItem('todos', JSON.stringify(deletingList));
       return {...state, todos: deletingList };
     default:
     return state;
