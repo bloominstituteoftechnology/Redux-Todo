@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Todo from './Todo';
 import { addTodo, toggleCompleted } from '../actions';
 
-import '../App.css';
+import './StyledComponents.css';
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -20,11 +20,17 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Todo List</h1>
-        <form>
-          <input value={this.state.inputValue} onChange={this.onChange} />
+      <div className="todo">
+        <h1 className="todo-title">Todo List</h1>
+        <form className="todo-form">
+          <input
+            className="todo-input"
+            placeholder="What do you need to do?"
+            value={this.state.inputValue}
+            onChange={this.onChange}
+          />
           <button
+            className="todo-button"
             type="submit"
             onClick={event => {
               event.preventDefault();
@@ -35,7 +41,7 @@ class TodoList extends React.Component {
             Add
           </button>
         </form>
-        <ul>
+        <ul className="todo-list">
           <Todo
             todos={this.props.todos}
             toggleCompleted={this.props.toggleCompleted}
