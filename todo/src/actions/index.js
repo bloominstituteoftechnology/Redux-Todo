@@ -2,6 +2,7 @@ export const ADD_TODO = 'ADD_TODO';
 export const HANDLE_INPUT = 'HANDLE_INPUT';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 export const DELETE_TODO = 'DELETE_TODO';
+export const TOGGLE_URGENT = 'TOGGLE_URGENT'; 
 
 
 export const addTodo = todo => {
@@ -28,6 +29,13 @@ export const handleInput = event => {
 export const deleteTodo = id => {
   return {
     type: DELETE_TODO,
+    payload: id,
+  }
+}
+
+export const toggleUrgent = id => {
+  return {
+    type: TOGGLE_URGENT,
     payload: id,
   }
 }

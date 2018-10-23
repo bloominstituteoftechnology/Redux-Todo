@@ -10,9 +10,15 @@ const Todo = props => {
     props.delete(props.id)
   }
 
+  const toggleUrgent = (event) => {
+    props.urgent(props.id);
+  }
+
   return (
     <div className='todo'>
-      <p className={props.todo.completed ? 'done' : null} onClick={onClick}>
+      <div className={props.todo.urgent ?  'marker urgent' : 'marker'}
+        onClick={toggleUrgent}><i class="fas fa-exclamation"/></div>
+      <p className={props.todo.completed && 'done'} onClick={onClick}>
         {props.todo.value}</p>
       <div className='delete-todo'
         onClick={deleteTodo}>

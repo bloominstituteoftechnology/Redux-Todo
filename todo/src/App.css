@@ -167,3 +167,11 @@ form button:focus {
 .done {
   text-decoration-line: line-through;
 }
+
+.marker {
+  color: #070809;
+}
+
+.urgent {
+  color: firebrick;
+}

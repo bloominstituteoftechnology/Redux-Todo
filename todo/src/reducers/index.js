@@ -1,4 +1,4 @@
-import { HANDLE_INPUT, ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions';
+import { HANDLE_INPUT, ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO, TOGGLE_URGENT } from '../actions';
 
 // const initialState = {
 //   todos: [],
@@ -20,6 +20,7 @@ export default (state = initialState, action) => {
           {
           value: action.payload,
           completed: false,
+          urgent: false,
           }
       ]
 
@@ -52,6 +53,14 @@ export default (state = initialState, action) => {
        index !== action.payload);
        localStorage.setItem('todos', JSON.stringify(deletingList));
       return {...state, todos: deletingList };
+
+      case TOGGLE_URGENT:
+        let urgentList = state.todos.map((item, index) => (index === action.payload) ? {...item, urgent: !item.urgent} : item);
+        localStorage.setItem('todos', JSON.stringify(urgentList));
+        return {
+          ...state,
+          todos: urgentList
+        }
     default:
     return state;
   }
