@@ -6,23 +6,30 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
 class App extends Component {
+  state = {
+    newTodo: '',
+  };
+
+  changeHandler = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  submitHandler = (event) => {
+    event.preventDefault();
+    this.props.addTodoItem(this.state.newTodo);
+    this.setState({ newTodo: '' });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Todo List</h1>
         <TodoList />
         <TodoForm
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
+          changeHandler={this.changeHandler}
+          submitHandler={this.submitHandler}
           text={this.state.newTodo}
         />
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
       </div>
     );
   }
