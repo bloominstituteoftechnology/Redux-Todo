@@ -9,7 +9,7 @@ export const addToDo= (value, toDoArray) => {
     };
   };
 
-  export const updateToDoItem= (value, completed) => {
+  export const updateToDoItem= (completed) => {
     return {
       type: UPDATE_TODOITEM,
       value,
