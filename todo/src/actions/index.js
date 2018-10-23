@@ -14,3 +14,10 @@ export const addTodo = todo => {
     payload: todo
   };
 };
+
+export const completedTodo = index => {
+  return {
+    type: COMPLETED_TODO,
+    payload: index
+  };
+};

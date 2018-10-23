@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { todos, addTodo } from "../actions/index";
+import { todos, addTodo, completedTodo } from "../actions/index";
 class Todo extends React.Component {
   constructor(props) {
     super(props);
@@ -23,8 +23,8 @@ class Todo extends React.Component {
     console.log(this.props);
     return (
       <div>
-        {this.props.todos.map(todo => (
-          <h3>{todo.task}</h3>
+        {this.props.todos.map((todo, index) => (
+          <h3 onClick={() => this.props.completedTodo(index)}>{todo.task}</h3>
         ))}
         <form onSubmit={this.handleAddNewFriend}>
           <input
@@ -49,5 +49,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { ...todos, addTodo }
+  { ...todos, addTodo, completedTodo }
 )(Todo);

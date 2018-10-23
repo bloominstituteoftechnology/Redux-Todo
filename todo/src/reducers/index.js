@@ -20,6 +20,18 @@ const todosReducer = (state = initialState, action) => {
         ...state,
         todos: [...state.todos, { task: action.payload, completed: false }]
       };
+
+    case COMPLETED_TODO:
+      return {
+        ...state,
+        todos: state.todos.map((todo, index) => {
+          if (index === action.payload) {
+            return { ...todo, completed: !todo.completed };
+          } else {
+            return todo;
+          }
+        })
+      };
     default:
       return state;
   }
