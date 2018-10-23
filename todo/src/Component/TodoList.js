@@ -49,4 +49,7 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { addTodoTask, toggleComplete })(TodoList);
+export default connect(mapStateToProps, {
+	addTodoTask,
+	toggleComplete
+})(TodoList);

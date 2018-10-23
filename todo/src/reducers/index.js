@@ -23,13 +23,9 @@ const todoReducer = (state = initialState, action) => {
 		case TOGGLE_COMPLETE:
 			return {
 				...state,
-				tasks: state.tasks.map((task, index) => {
-					if (index === action.payload) {
-						return { ...task, complete: !task.complete };
-					} else {
-						return task;
-					}
-				})
+				tasks: state.tasks.map(
+					(task, index) => (index === action.payload ? { ...task, complete: !task.complete } : task)
+				)
 			};
 		default:
 			return state;
