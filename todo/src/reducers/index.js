@@ -9,9 +9,9 @@ export default (state = initialState, action) => {
         case ADDTODO:
         return { todos: [ ...state.todos, {id: action.id, inputText: action.inputText, completed: false}]}
         case TOGGLETODO:
-            return state.map(todo => (
-                todo.id === action.id ? {...todo, complete: !todo.completed} : todo
-            ))
+            return { todos: state.todos.map((todo, ind) => (
+                ind === action.id ? {...todo, completed: !todo.completed} : todo
+            ))} 
         default:
             return state;
     }

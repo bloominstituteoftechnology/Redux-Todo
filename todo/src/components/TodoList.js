@@ -1,34 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
 
-class TodoList extends Component {
-    constructor(props) {
-        super(props);
-    }
-    componentDidMount() {
-        
-        // console.log(this.props.todos.map(todo => {
-        //     return todo
-        // }))
-    }
-
-    render() {
-        return (
-            <div className='todo-list'>
-                {this.props.todos.map((todo, i) => {
-                    return (
-                        <Todo 
-                            todo={todo} 
-                            id={i}
-                            className={todo.completed ? 'completed' : 'incomplete'} 
-                        />
-                    )
-                })}
-            </div>
-        )
-    }
-}
+const TodoList = ({todos}) => (
+    <div className='todo-list'>
+        {todos.map((todo, i) => {
+            return (
+                <Todo 
+                    todo={todo} 
+                    id={i}
+                    key={i}
+                    className={todo.completed ? 'completed' : 'incomplete'} 
+                />
+            )
+        })}
+    </div>
+)
     
 const mapStateToProps = (state) => {
     return {
