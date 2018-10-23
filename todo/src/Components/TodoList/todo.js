@@ -1,14 +1,15 @@
 import React from 'react';
 
-class TodoList extends React.Component {
-    render() {
-        return(
-            <form>
-                <input type ='text' />
-                <input type = 'submit'/>
-            </form>
-        )
-    }
-}
+const Todo = ({ onClick, completed, text }) => (
+    <li
+      onClick={onClick}
+      style={{
+        textDecoration: completed ? 'line-through' : 'none'
+      }}
+    >
+      {text}
+    </li>
+  )
+  ​
 
-export default TodoList;
+export default Todo;
