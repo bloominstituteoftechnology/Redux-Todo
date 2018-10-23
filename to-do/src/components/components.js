@@ -10,13 +10,20 @@ export const ToDo = props => {
 };
 
 export const TodoList = props => {
-  const { todos } = props;
+  const { todos, toggleTodo, addTodo } = props;
+
+  const toggleClick = id => event => toggleTodo(id);
+
+  const changeHandler = event => {
+    todos.event.target.value;
+  };
+
   return (
     <div className="todo">
       <input type="text" placeholder="Add todo" />
       <ul className="todo-list">
         {todos.map(t => (
-          <li key={t.id} className="todo-item">
+          <li key={t.id} className="todo-item" onClick={toggleClick(t.get(id))}>
             <Todo todo={t} />
           </li>
         ))}
