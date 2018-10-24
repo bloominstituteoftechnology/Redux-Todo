@@ -1,33 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addtolist } from '../actions';
 
 class TodoItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            newItem: props.newItem
+            newItem: ''
         }
     }
 
+    addTodo = event => {
+        event.preventDefault();
+        this.props.addtolist(this.state.newItem)
+        this.setState({
+            newItem: ''
+        })
+    }
+
     changeHandler = event => {
-        console.log(event.target.value)
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     render() {
         return (
             <form>
-                <input onChange={this.changeHandler} type='text' placeholder='What to do?' value={this.state.newItem} />
-                <button>ADD</button>
+                <input name='newItem' onChange={this.changeHandler} type='text' placeholder='What to do?' value={this.state.newItem} />
+                <button onClick={this.addTodo}>ADD</button>
             </form>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        items: state.items
-    }
-}
-
-
-export default connect(mapStateToProps)(TodoItem);
+export default connect(null, { addtolist })(TodoItem);

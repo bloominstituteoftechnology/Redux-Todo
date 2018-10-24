@@ -1,11 +1,8 @@
 //import actions
+import { ADD_TO_LIST } from '../actions';
 
 
 const initialState = {
-    newItem: {
-        item: '',
-        completed: false
-    },
     todolist: [
         {
             item: 'take out papers',
@@ -28,10 +25,13 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_TO_LIST':
+        case ADD_TO_LIST:
             return {
-                
-
+                ...state,
+                todolist: [
+                    ...state.todolist,
+                    { item: action.payload, completed: false }
+                ]
             }
         default:
             return state;
