@@ -23,7 +23,7 @@ class TodoList extends Component {
       id: (this.props.todos.length - 1) + 1,
       value: this.state.newTodo,
       completed: false
-    }
+    };
 
     this.props.addTodo(newTodo);
     this.setState({ newTodo: '' })
@@ -33,7 +33,7 @@ class TodoList extends Component {
     e.preventDefault();
 
     this.props.toggleComplete(id);
-  }
+  };
 
   render() {
     const todoItem = this.props.todos.map(todo => (
