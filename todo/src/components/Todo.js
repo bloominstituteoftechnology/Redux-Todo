@@ -10,12 +10,7 @@ const Todo = props => {
       className={props.todo.completed ? "completed" : ""}
     >
       {props.todo.value}
-      <button
-        className={props.todo.completed ? "close" : "close"}
-        onClick={() => props.deleteTodo(props.todo.id)}
-      >
-        Delete
-      </button>
+      <button onClick={() => props.deleteTodo(props.todo.id)}>X</button>
     </li>
   );
 };
