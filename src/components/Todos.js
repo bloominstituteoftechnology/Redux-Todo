@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { COMPLETE_TODO } from '../actions';
+import { completeTodo, deleteTodo } from '../actions';
+import Todo from './Todo';
 
 class Todos extends Component {
+
+  todoClick = (event) => {
+    this.props.completeTodo(event.target.value);
+  }
   render() {
     return (
       <ul className="todos">
-        {this.props.todos.map( todo => {
-          return (<li>
-            {todo.value}
-            {todo.completed ? 'done' : 'not done'}
-          </li>)
+        {this.props.todos.map( (todo, i) => {
+          return <Todo 
+                  key={i}
+                  value={todo.value} 
+                  completed={todo.completed} 
+                  onClick={this.todoClick}
+                 />
         })}
       </ul>
     )
@@ -23,4 +30,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { COMPLETE_TODO })(Todos);
+export default connect(mapStateToProps, { 
+  completeTodo,
+  deleteTodo 
+})(Todos);

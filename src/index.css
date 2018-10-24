@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+li {
+  margin: 10px;
+}
+
+.completed {
+  color: red;
+  text-decoration: line-through;
+}
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid black;
+}
