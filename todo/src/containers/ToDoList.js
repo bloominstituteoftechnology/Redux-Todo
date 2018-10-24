@@ -1,20 +1,14 @@
 import React from 'react';
-import Todo from "./Todo.js";
+import Todo from '../components/Todo';
+import { updateToDoItem } from '../actions'
+​
+const ToDoList = ({ todos, updateToDoItem }) => (
+  <ul>
+   let todoArray = {todos.map(todo => (
+      <Todo key={todo.id} {...todo} onClick={() => updateToDoItem(todo.id)} />
+    ))}
+  </ul>
+)
 
 
-const ToDoList = props => {
-
- let todoItemArray = props.toDoArray.map(item => {
-    return <Todo completed = {item.completed} key={item.id} id={item.id} task={item.value}/>; 
-   }   
-);
-
-return <div>
-    <h1> ToDo List </h1>
-    {todoItemArray}
-    </div> 
- };
-
-  
-  export default ToDoList;
-  
+export default ToDoList

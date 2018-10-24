@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { addToDo, updateToDoItem } from '../actions';
-import ToDoForm from './components/ToDoForm.js'
+import AddTodo from './components/AddTodo.js'
 import ToDoList from './containers/ToDoList.js'
 import './App.css';
 
@@ -10,20 +8,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <ToDoForm/>
+      <AddTodo/>
       <ToDoList/>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-      toDoArray: state.toDoArray,
-      value:'',
-      completed:''
-  };
-};
 
-
-export default connect(mapStateToProps, { addToDo, updateToDoItem})(App);
+​ ​const mapStateToProps = state => ({
+  todos: {todoArray}
+})
+​
+const mapDispatchToProps = dispatch => ({
+  toggleTodo: id => dispatch(toggleTodo(id))
+})
+​
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

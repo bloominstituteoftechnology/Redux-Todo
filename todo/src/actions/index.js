@@ -1,18 +1,18 @@
 export const ADD_TODO = 'ADD_TODO'
 export const UPDATE_TODOITEM = 'UPDATE_TODOITEM'
 
-export const addToDo= (value, toDoArray) => {
+export const addTodo= (id,index) => {
     return {
       type: ADD_TODO,
-      value,
-      toDoArray
+      payload: index,
+     id
     };
   };
 
-  export const updateToDoItem= (completed) => {
+  export const updateToDoItem= (index, id) => {
     return {
       type: UPDATE_TODOITEM,
-      value,
-      completed
+      payload: index,
+     id
     };
   };
