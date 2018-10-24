@@ -8,7 +8,7 @@ const todos = (state = [], action) => {
         ...state,
         {
           id: Date.now(),
-          text: action.value,
+          text: action.payload,
           completed: false
         }
       ]
