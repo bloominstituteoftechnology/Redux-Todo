@@ -16,3 +16,10 @@ export function toDoComplete(id) {
         id: id
     };
 };
+
+export function toDoDestroy(id) {
+    return {
+        type: TO_DO_DESTROY,
+        id: id
+    };
+};

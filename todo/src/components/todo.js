@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // Redux
 import { connect } from 'react-redux';
 // Dependencies
-import {toDoCreate, toDoComplete} from '../actions';
+import {toDoCreate, toDoComplete, toDoDestroy} from '../actions';
 
 
 //==============================================================================
@@ -86,5 +86,6 @@ export default connect(
     {
         toDoCreate,
         toDoComplete,
+        toDoDestroy,
     }
 )(ToDo);

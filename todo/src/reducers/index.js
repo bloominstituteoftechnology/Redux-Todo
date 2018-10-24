@@ -11,6 +11,8 @@ export default (state = initialState, action) => {
       return taskCreate(state, action);
     case TO_DO_COMPLETE:
       return taskToggle(state, action);
+    case TO_DO_DESTROY:
+      return taskDestroy(state, action);
     default:
       return state;
   }
@@ -37,5 +39,11 @@ function taskToggle(state, action) {
       }
       return task;
     })
+  }
+}
+
+function taskDestroy(state, action) {
+  return {
+    toDos: state.toDos.filter(task => (false && task.id !== action.id))
   }
 }
