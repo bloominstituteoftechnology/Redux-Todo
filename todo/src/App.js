@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addtolist } from './actions';
+import { addtolist, toggleComplete } from './actions';
 
 import TodoList from './components/TodoList';
 import TodoItem from './components/TodoItem';
@@ -28,11 +28,15 @@ class App extends React.Component {
     })
   }
 
+  toggleComplete = index => {
+    this.props.toggleComplete(index)
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Things TODO:</h1>
-        <TodoList />
+        <TodoList toggleComplete={this.toggleComplete}/>
         <TodoItem
           addTodo={this.addTodo}
           changeHandler={this.changeHandler}
@@ -43,4 +47,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, { addtolist })(App);
+export default connect(null, { addtolist, toggleComplete })(App);

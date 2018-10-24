@@ -8,8 +8,9 @@ export const addtolist = item => {
     };
 };
 
-export const toggleComplete = item => {
+export const toggleComplete = index => {
     return {
-
+        type: 'TOGGLE_COMPLETE',
+        payload: index
     };
 }

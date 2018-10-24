@@ -9,8 +9,13 @@ const TodoList = props => {
         );
     } else {
         return (
-            props.todolist.map((item, index) => <p key={index}>{item.item}</p>)
-        );
+            props.todolist.map((item, index) => (
+                <div key={index}>
+                    <p onClick={() => props.toggleComplete(index)}>{item.item}</p>
+                </div>
+                )
+            )
+        )
     }
 }
 
