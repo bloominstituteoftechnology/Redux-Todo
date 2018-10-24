@@ -27,6 +27,8 @@ code {
   text-align: center;
   font-size: 3rem;
   font-family: "Cinzel Decorative", cursive;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .header input {
@@ -34,7 +36,7 @@ code {
   border-radius: 1rem;
   border: none;
   font-size: 2rem;
-  font-family: "Cinzel Decorative", cursive;
+  font-family: "Delius", cursive;
 }
 
 .header button {
@@ -44,7 +46,7 @@ code {
   font-size: 2rem;
   background: white;
   margin-left: 1rem;
-  font-family: "Cinzel Decorative", cursive;
+  font-family: "Delius", cursive;
 }
 
 .task {
@@ -53,10 +55,12 @@ code {
 
 .todo-list {
   font-size: 2rem;
-  margin-top: 2rem;
+
   text-align: center;
   list-style: none;
   font-family: "Dancing Script", cursive;
+  width: 75%;
+  margin: 2rem auto;
 }
 
 .todo-list li {
@@ -68,7 +72,7 @@ code {
   border: none;
   font-size: 1.5rem;
   background: rgba(255, 255, 255, 0.37);
-  margin-left: 1.5rem;
+  margin-left: 5rem;
   padding: 0.75rem;
   font-family: "Dancing Script", cursive;
 }
