@@ -5,7 +5,7 @@ import { handleInput, addTodo } from "../actions";
 class TodoForm extends React.Component {
   handleChange = e => {
     this.props.handleInput(e.target.value);
-  };
+  }; //check
   handleSubmit = e => {
     e.preventDefault();
     this.props.addTodo();
