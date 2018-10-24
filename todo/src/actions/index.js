@@ -1,23 +1,26 @@
-let nextTodoId = 0;
+export const handleInput = input => {
+  return {
+    type: "HANDLE_INPUT",
+    payload: input
+  };
+};
 
-export const addTodo = text => ({
-  type: "ADD_TODO",
-  id: nextTodoId++,
-  text
-});
+export const addTodo = () => {
+  return {
+    type: "ADD_TODO"
+  };
+};
 
-export const setFilter = filter => ({
-  type: "SET_FILTER",
-  filter
-});
+export const toggleTodo = id => {
+  return {
+    type: "TOGGLE_TODO",
+    payload: id
+  };
+};
 
-export const toggleTodo = id => ({
-  type: "TOGGLE_TODO",
-  id
-});
-
-export const Filters = {
-  SHOW_ALL: "SHOW_ALL",
-  SHOW_COMPLETED: "SHOW_COMPLETED",
-  SHOW_ACTIVE: "SHOW_ACTIVE"
+export const deleteTodo = id => {
+  return {
+    type: "DELETE_TODO",
+    payload: id
+  };
 };
