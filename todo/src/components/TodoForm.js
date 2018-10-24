@@ -30,6 +30,10 @@ class TodoForm extends Component {
     }
   };
 
+  deleteCompletedHelp = e => {
+    e.preventDefault();
+    this.props.deleteCompleted();
+  };
   render() {
     return (
       <form>
@@ -45,9 +49,7 @@ class TodoForm extends Component {
         <button onClick={this.handleClick} className="formButton">
           Add
         </button>
-        <button
-          className="formButton red"
-          onClick={() => this.props.deleteCompleted()}>
+        <button className="formButton red" onClick={this.deleteCompletedHelp}>
           Delete Checked
         </button>
       </form>
