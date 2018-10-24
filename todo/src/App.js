@@ -19,7 +19,7 @@ class App extends Component {
     ev.preventDefault();
 
     this.props.addTodo({
-       todoText: this.state.todoText
+      todoText: this.state.todoText
     });
 
     this.setState({ todoText: "" });
@@ -28,19 +28,16 @@ class App extends Component {
   deleteTodo = (ev, index) => {
     ev.preventDefault();
     this.props.deleteTodo(index);
-  }
+  };
 
   toggleCompleted = (ev, index) => {
     ev.preventDefault();
     this.props.toggleCompleted(index);
-  }
-
+  };
 
   render() {
-   
     return (
-      <div>
-        
+      <div className="container">
         <input
           type="text"
           name="inputText"
@@ -49,30 +46,34 @@ class App extends Component {
           value={this.state.todoText}
         />
         <button onClick={this.addNewTodo}>add</button>
-        <ul>
-        {this.props.todos.map((todo, index) => {
-          
-           if(todo.isCompleted){
-            return(<li key={index} className = "todo"> 
-              <p className={`completed${todo.isCompleted}`}
-                  onClick={(ev) => this.toggleCompleted(ev, index)}>{todo.todoText}</p>
-                  <span onClick={(ev) => this.deleteTodo(ev, index)}>  x  </span> 
-            </li>
-            )
-           }
-           else{
-             return(
-             <li key={index} className = "todo"> 
-             <p className={`completed${todo.isCompleted}`}
-                 onClick={(ev) => this.toggleCompleted(ev, index)}>{todo.todoText}</p>
-         
-           </li>);
-            
-           }
-        
-          }
-          )}
 
+        <ul>
+          {this.props.todos.map((todo, index) => {
+            if (todo.isCompleted) {
+              return (
+                <li key={index} className="todo">
+                  <p
+                    className={` completed${todo.isCompleted}`}
+                    onClick={ev => this.toggleCompleted(ev, index)}
+                  >
+                    {todo.todoText}
+                  </p>
+                  <span onClick={ev => this.deleteTodo(ev, index)}> x </span>
+                </li>
+              );
+            } else {
+              return (
+                <li key={index} className="todo">
+                  <p
+                    className={`completed${todo.isCompleted}`}
+                    onClick={ev => this.toggleCompleted(ev, index)}
+                  >
+                    {todo.todoText}
+                  </p>
+                </li>
+              );
+            }
+          })}
         </ul>
       </div>
     );
@@ -80,10 +81,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
- console.log("mapState", state.todoList);
+  console.log("mapState", state.todoList);
   return {
-    todos: state.todoList,
-   };
+    todos: state.todoList
+  };
 };
 
 export default connect(

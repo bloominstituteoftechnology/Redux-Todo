@@ -30,17 +30,32 @@
     transform: rotate(360deg);
   }
 }
+ul{
+  margin : 0;
+  padding : 0 10px;;
+}
 
+.container{
+  width : 500px;
+  margin : 0 auto;
+  margin-top : 30px;
+}
 .todo{
   display : flex;
   align-items : center;
   height : 35px;
+  margin : 5px 0;
+ 
 }
 
 .todo:hover{
   cursor : pointer;
 }
 
+.todo p{
+  width : 130px;
+  background : lightgray;
+}
 .todo span{
   margin-left : 15px;
 }
