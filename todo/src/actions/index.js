@@ -9,10 +9,9 @@ export const addTodo= (id,index) => {
     };
   };
 
-  export const updateToDoItem= (index, id) => {
+  export const updateToDoItem= (id) => {
     return {
       type: UPDATE_TODOITEM,
-      payload: index,
-     id
+      payload: id
     };
   };

@@ -1,12 +1,13 @@
+import { ADD_TODO, UPDATE_TODOITEM } from '../actions'
 
 const todos = (state = [], action) => {
-    console.log('hi');
+
     switch (action.type) {
       case ADD_TODO:
       return [
         ...state,
         {
-          id: action.index,
+          id: Date.now(),
           text: action.value,
           completed: false
         }
@@ -15,7 +16,7 @@ const todos = (state = [], action) => {
       case UPDATE_TODOITEM :
       return state.map(
         todo =>
-          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+          todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo
       )
         default:
         return state
