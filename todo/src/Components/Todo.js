@@ -1,24 +1,53 @@
 import React from 'react'
-import TodoForm from './TodoForm'
 import { connect } from 'react-redux'
-import { toggleCompletion } from '../Actions/actionsIndex'
+import TodoList from './TodoList'
+import { addTask, toggleCompletion } from '../Actions/actionsIndex'
 
-const Todo = props => {
-    return (
-        <div>
-            <ul>
-                <li onClick={() => props.toggleCompletion(props.todo.task)}>
-                    {props.todo.task}
-                </li>
-            </ul>
-        </div>
-    )
+class Todo extends React.Component {
+    // original method:
+
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         inputText: ""
+    //     }
+    // }
+
+    state = {
+        input: ""
+    }
+
+    handleChangeEvent = event => this.setState({ input: event.target.value})
+
+    addTask = event => {
+        event.preventDefault()
+        this.props.addTask(this.state.input)
+    }
+
+    toggleCompletion = index => {
+        this.props.toggleCompletion(index)
+    }
+
+    render() {
+        return (
+            <div>
+                <TodoList 
+                    input={this.state.input}
+                    handleChangeEvent={this.handleChangeEvent}
+                    todos={this.props.todos}
+                    addTask={this.addTask}
+                    toggleCompletion={this.toggleCompletion}
+                />
+            </div>
+        )
+    }
 }
 
-const mapStateToProps = state => {
-    return {}
-}
+const mapStateToProps = state => ({
+    todos: state.todos
+})
 
 export default connect(
-    mapStateToProps, { toggleCompletion }
+    mapStateToProps, 
+    { addTask, toggleCompletion }
 )(Todo)

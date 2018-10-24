@@ -1,57 +1,34 @@
-import { ADD_TASK, CLEAR_COMPLETED_TASKS, TOGGLE_COMPLETION, HANDLE_CHANGE_EVENT } from '../Actions/actionsIndex';
-
-
+import { ADD_TASK, CLEAR_COMPLETED_TASKS, TOGGLE_COMPLETION } from '../Actions/actionsIndex';
 
 const initialState = {
-    todosArray: [
+    todos: [
         {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
+            task: "Walk the dog",
+            completed: false
         }
-    ],
-    todo: ''
+    ]
 }
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
-            return { ...state, todosArray: [
-                ...state.todosArray, {
-                    task: action.payload,
-                    id: Math.floor(Math.random()*1000000),
-                    completed: false
-                }
-            ]  }
-
-        case CLEAR_COMPLETED_TASKS:
-            let remainingTasks = [...this.state.todoList]
-            remainingTasks = remainingTasks.filter(item => !item.completed)
-            return { ...state, todosArray: remainingTasks }
+            return { ...state, todos: [...state.todos, action.payload] }
 
         case TOGGLE_COMPLETION:
-            let toggle = (index) => {
-                state.todoListArray.map((item, idx) => {
-                    if (index !== idx) {
-                    return item
-                    } else {
-                    return { ...item, completed: !item.completed }
-                    }
-                })
-            } 
-            return { ...state, todo: toggle } // ========
+            console.log(state)
+            return { ...state, todos: state.todos.map((todo, index) => {
+                if (index === action.payload) {
+                    return {...todo, completed: !todo.completed}
+                } else {
+                    return todo
+                }
+            }) }
 
-        case HANDLE_CHANGE_EVENT:
-            return { ...state, todo: action.payload }
+        // case CLEAR_COMPLETED_TASKS:
+        //     let incomplete = state.todos.filter(todo => todo.id !== action.payload)
+        //     return {...state, todos: incomplete}
 
         default:
             return state
     }
 }
-
-export default reducer
