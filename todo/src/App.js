@@ -17,7 +17,6 @@ const App = props => {
 
 const mapStateToProps = (state) => {
   return {
-    newItem: state.newItem,
     todolist: state.todolist
   }
 }
