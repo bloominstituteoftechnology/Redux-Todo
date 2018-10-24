@@ -26,6 +26,7 @@ code {
 .header {
   text-align: center;
   font-size: 3rem;
+  font-family: "Cinzel Decorative", cursive;
 }
 
 .header input {
@@ -33,4 +34,41 @@ code {
   border-radius: 1rem;
   border: none;
   font-size: 2rem;
+  font-family: "Cinzel Decorative", cursive;
+}
+
+.header button {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-size: 2rem;
+  background: white;
+  margin-left: 1rem;
+  font-family: "Cinzel Decorative", cursive;
+}
+
+.task {
+  font-size: 2rem;
+}
+
+.todo-list {
+  font-size: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  list-style: none;
+  font-family: "Dancing Script", cursive;
+}
+
+.todo-list li {
+  margin: 1rem;
+}
+
+.todo-list button {
+  border-radius: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.37);
+  margin-left: 1.5rem;
+  padding: 0.75rem;
+  font-family: "Dancing Script", cursive;
 }
