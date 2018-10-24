@@ -14,12 +14,13 @@ const todoReducer = (state = initialState, action) => {
         }
         return todo;
       });
-    // case DELETE_TODO:
-    //   return {
-    //     ...state,
-    //     todos: state.todos.filter((todo, index) => {
-    //     })
-    //   };
+    case DELETE_TODO:
+      return state.filter((todo, index) => {
+        if (index !== action.payload) {
+          console.log("delete fired");
+          return todo;
+        }
+      });
     default:
       return state;
   }

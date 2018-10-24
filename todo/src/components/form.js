@@ -34,6 +34,8 @@ class Form extends React.Component {
           value={this.state.inputText}
         />
         <button onClick={this.handleClick}>Add Todo</button>
+        <button onClick={() => this.props.deleteTodo()}>Delete</button>
+
         {this.props.todos.map((todo, index) => (
           <div key={index}>
             <h3 onClick={() => this.props.toggleTodo(index)} className={todo.completed ? "line-through" : null}>
@@ -47,7 +49,6 @@ class Form extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     todos: state
   };
