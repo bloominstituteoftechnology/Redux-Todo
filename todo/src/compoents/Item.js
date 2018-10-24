@@ -24,6 +24,11 @@ class Item extends React.Component {
         })
     }
 
+    handleDelete = ev => {
+        ev.preventDefault();
+        this.props.deleteTodo()
+    }
+
     
 
 
@@ -33,7 +38,6 @@ class Item extends React.Component {
                 {this.props.todos.map((todo, index) => (
                     <div key={index}>
                         <h3 onClick={() => this.props.toggleTodo(index)} className={todo.completed ? 'completed' : null}>{todo.value}</h3>
-                        <button onClick={() => this.props.deleteTodo(index)} >delete</button>
                     </div>
                 ))}
                 <input
@@ -44,6 +48,7 @@ class Item extends React.Component {
                 value={this.state.todoText} 
                 />
                 <button onClick={this.handleNewTodo}>Add Todo</button>
+                <button onClick={this.handleDelete} >delete</button>
                 
             </div>
         )
