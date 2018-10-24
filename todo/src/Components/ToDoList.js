@@ -10,13 +10,18 @@ class ToDoList extends React.Component{
             data:[]
         }
     }
+    handleDeleteClick = event =>{
+        event.preventDefault();
+        
+        this.props.deleteToDo(event.target.id)
+    }
     render(){
         console.log('this.props.data - todolist', this.props.data)
         console.log('todolist = this?? ', this )
         return(
             <div>
                 {
-                    this.props.data.map((element,id)=>{return <ToDo key={id} item={element}/>})
+                    this.props.data.map((element,id)=>{return <ToDo key={id} handleDeleteClick={this.handleDeleteClick} item={element}/>})
                 }
             </div>
         )

@@ -17,10 +17,16 @@ export default (state = initialState, action) => {
           ...state,
           toDoList:[...state.toDoList,{id:(state.toDoList.length+1),desc:action.payload,status:false}]
         }
-
-        
       case DELETETODO:
-        return state;
+        let x = state.toDoList.filter(el=>{
+          return el.id !== action.payload
+        })
+        return {
+          ...state,
+          toDoList:state.toDoList.filter(el=>{
+            return el.id != action.payload
+          })
+        }
       default:
         return state;
     }
