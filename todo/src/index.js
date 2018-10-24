@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers';        // todoReducer
+import todo from './reducers';        // todoReducer
 import App from './App';
 
 import './index.css';
 
 // const store = createStore(rootReducer);
 const store = createStore(
-  rootReducer, /* preloadedState, */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  todo, /* preloadedState, */
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
  );
 // import * as serviceWorker from './serviceWorker';
 
