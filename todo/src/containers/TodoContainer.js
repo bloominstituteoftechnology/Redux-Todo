@@ -1,6 +1,7 @@
 import React from 'react';
 import { addTodo, toggleTodo, getTodos } from '../actions';
 import { connect } from 'react-redux';
+import '../App.css';
 
 class TodoContainer extends React.Component {
     constructor() {
@@ -45,14 +46,14 @@ class TodoContainer extends React.Component {
               Add Todo
             </button>
           </form>
-          <ul>
+          <ul className="todo-list">
             {this.props.todos.map(todo => {
               return (
                 <ul
                   onClick={() => this.handleTodoComplete(todo.id)}
                   style={
                     todo.completed
-                      ? { color: '#d3d3d3', textDecoration: 'line-through' }
+                      ? { textDecoration: 'line-through' }
                       : null
                   }
                   key={todo.id}
@@ -66,8 +67,7 @@ class TodoContainer extends React.Component {
       );
     }
   }
-  // Hey Redux?! Whatever is state in the store, could throw it on Props inside
-  // this react component?
+
   const mapStateToProps = state => {
     return {
       todos: state.todos
