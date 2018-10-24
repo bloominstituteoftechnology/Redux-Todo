@@ -1,21 +1,16 @@
-export const ADD_TODO = 'ADD_TODO'
-export const TOGGLE_TODO = 'TOGGLE_TODO'
-export const HANDLE_CHANGE = 'HANDLE_CHANGE'
+export const ADD_TODO = 'ADD_TODO';
+export const TOGGLE_TODOS = 'TOGGLE_TODOS';
 
-export const addTodo = todo => ({
-    type: ADD_TODO,
-    payload: todo 
-});
-
-
-export const toggleTodo= index => ({
-    type: TOGGLE_TODO,
-    payload: index
-});
-
-export const handleChange = e => {
+export const addTodo = todo => {
     return {
-        type: HANDLE_CHANGE,
-        payload: e.target.value
+        type: ADD_TODO,
+        payload: todo
+    };
+};
+
+export const toggleTodos = index => {
+    return {
+        type: TOGGLE_TODOS,
+        payload: index
     };
 };

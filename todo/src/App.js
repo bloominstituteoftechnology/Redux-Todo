@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import TodoForm from './components/TodoForm';
+import Todo from './components/Todo';
 
 class App extends Component {
   render() {
     return ( 
       <div className="App">
-       <TodoForm />
+       <Todo />
       </div>
     );
   }
