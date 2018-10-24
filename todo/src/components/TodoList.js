@@ -11,7 +11,7 @@ const TodoList = props => {
         return (
             props.todolist.map((item, index) => (
                 <div key={index}>
-                    <p onClick={() => props.toggleComplete(index)}>{item.item}</p>
+                    <p className={item.completed ? 'allDone' : 'notDone'}onClick={() => props.toggleComplete(index)}>{item.item}</p>
                 </div>
                 )
             )
