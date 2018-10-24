@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // Redux
 import { connect } from 'react-redux';
 // Dependencies
-import {toDoCreate, toDoComplete, toDoDestroy} from '../actions';
+import {toDoCreate, toDoComplete, toDoDestroy, toDoClear} from '../actions';
 
 
 //==============================================================================
@@ -34,11 +34,15 @@ class ToDo extends Component {
     render() {
         return (
             <div className="to-do">
+                <h1>To Do:</h1>
                 <form onSubmit={this.submitHandler}>
                     <input
                         value={this.state.inputText}
                         onChange={this.changeHandler}
+                        placeholder="fill out standup report"
                     />
+                    <button>Add Task</button>
+                    <button onClick={this.clearHandler}>Clear Tasks</button>
                 </form>
                 <ul className="to-do-list">
                     {this.props.toDos.map(task => (
@@ -72,6 +76,10 @@ class ToDo extends Component {
             Number(eventClick.target.dataset.id)
         );
     }
+    clearHandler = eventClick => {
+        eventClick.preventDefault();
+        this.props.toDoClear()
+    }
 }
 
 
@@ -87,5 +95,6 @@ export default connect(
         toDoCreate,
         toDoComplete,
         toDoDestroy,
+        toDoClear,
     }
 )(ToDo);

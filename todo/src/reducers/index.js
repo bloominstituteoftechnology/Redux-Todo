@@ -1,5 +1,5 @@
 
-import { TO_DO_CREATE, TO_DO_DESTROY, TO_DO_COMPLETE } from '../actions';
+import { TO_DO_CREATE, TO_DO_DESTROY, TO_DO_COMPLETE, TO_DO_CLEAR } from '../actions';
 
 const initialState = {
   toDos: []
@@ -13,6 +13,8 @@ export default (state = initialState, action) => {
       return taskToggle(state, action);
     case TO_DO_DESTROY:
       return taskDestroy(state, action);
+    case TO_DO_CLEAR:
+      return taskClear(state, action);
     default:
       return state;
   }
@@ -44,6 +46,12 @@ function taskToggle(state, action) {
 
 function taskDestroy(state, action) {
   return {
-    toDos: state.toDos.filter(task => (false && task.id !== action.id))
+    toDos: state.toDos.filter(task => (task.id !== action.id))
+  }
+}
+
+function taskClear(state, action) {
+  return {
+    toDos: state.toDos.filter(task => !task.complete)
   }
 }
