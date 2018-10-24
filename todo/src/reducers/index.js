@@ -1,36 +1,8 @@
-var shortid = require('shortid');
+import { combineReducers } from 'redux';
+import todosReducer from './todosReducer';
 
-const initialState = {
-  todos: [
-    {
-      value: 'Walk the dog',
-      completed: false,
-      id: shortid.generate()
-    },
-    {
-      value: 'Finish Redux Todo App',
-      completed: false,
-      id: shortid.generate()
-    }
-  ]
-};
+const rootReducer = combineReducers({
+  todos: todosReducer
+});
 
-const todoReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return [
-        ...state,
-        {
-          value: action.value,
-          completed: false,
-          id: shortid.generate()
-        }
-      ];
-    case 'TOGGLE_TODO':
-      return state.map(todo => (todo.id === action.id ? { ...todo, completed: !todo.completed } : todo));
-    default:
-      return state;
-  }
-};
-
-export default todoReducer;
+export default rootReducer;

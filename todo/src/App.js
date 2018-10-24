@@ -1,19 +1,55 @@
 import React, { Component } from 'react';
 import './App.css';
-import ListofTodos from './components/ListofTodos';
-// import { connect } from 'react-redux'; // HOC!!!!
+import { connect } from 'react-redux';
+import { addTodo } from './actions';
+import TodoList from './components/TodoList';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newTodo: ''
+    };
+    this.addTodo = this.addTodo.bind(this);
+    this.updateNewTodo = this.updateNewTodo.bind(this);
+  }
+
+  addTodo(event) {
+    event.preventDefault();
+    this.props.addTodo({
+      value: this.state.newTodo,
+      complete: false
+    });
+    this.setState({
+      newTodo: ''
+    });
+  }
+
+  updateNewTodo(event) {
+    this.setState({
+      newTodo: event.target.value
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>Welcome to the To-Do Redux App</p>
-          <ListofTodos />
-        </header>
+        <form onSubmit={this.addTodo}>
+          <input onChange={this.updateNewTodo} placeholder="new todo" value={this.state.newTodo} />
+        </form>
+        <TodoList todos={this.props.todos} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addTodo }
+)(App);

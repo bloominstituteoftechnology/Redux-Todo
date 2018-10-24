@@ -1,18 +1,16 @@
-export const ADD_TODO = 'ADD_TODO';
-export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const NEW_TODO = 'NEW_TODO';
+export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
 export const addTodo = todo => {
-  console.log('inside action', todo);
   return {
-    type: ADD_TODO,
+    type: NEW_TODO,
     payload: todo
   };
 };
 
-export const toggleTodo = id => {
-  var shortid = require('shortid');
+export const toggleComplete = index => {
   return {
-    type: TOGGLE_TODO,
-    payload: shortid.generate()
+    type: TOGGLE_COMPLETE,
+    payload: index
   };
 };
