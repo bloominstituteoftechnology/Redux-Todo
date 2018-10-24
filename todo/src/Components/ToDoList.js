@@ -1,7 +1,7 @@
 import React from 'react';
 import ToDo from './ToDo';
 import { connect } from 'react-redux';
-import {deleteToDo} from '../Actions'
+import {deleteToDo, toggleToDo} from '../Actions'
 
 class ToDoList extends React.Component{
     constructor(props){
@@ -12,16 +12,18 @@ class ToDoList extends React.Component{
     }
     handleDeleteClick = event =>{
         event.preventDefault();
-        
         this.props.deleteToDo(event.target.id)
     }
+    handleToggleClick = (event,id) => {
+        event.preventDefault();
+        this.props.toggleToDo(id);
+    }
     render(){
-        console.log('this.props.data - todolist', this.props.data)
-        console.log('todolist = this?? ', this )
+        console.log('i received...',this.props.data)
         return(
             <div>
                 {
-                    this.props.data.map((element,id)=>{return <ToDo key={id} handleDeleteClick={this.handleDeleteClick} item={element}/>})
+                    this.props.data.map((element,id)=>{return <ToDo key={id} handleToggleClick={this.handleToggleClick} handleDeleteClick={this.handleDeleteClick} item={element}/>})
                 }
             </div>
         )
@@ -32,4 +34,4 @@ const mapStateToProps = (state) => {
         data: state.toDoList
     };
 };
-export default connect(mapStateToProps, { deleteToDo })(ToDoList);
+export default connect(mapStateToProps, { deleteToDo, toggleToDo })(ToDoList);

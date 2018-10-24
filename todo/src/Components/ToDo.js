@@ -10,7 +10,7 @@ const WrapperDiv = styled.div`
 
 const ToDo = props => {
     return(
-        <WrapperDiv><Item>{props.item.desc}</Item><button id={props.item.id} onClick={props.handleDeleteClick}>Delete</button></WrapperDiv>
+        <WrapperDiv><Item onClick={(event)=>{props.handleToggleClick(event, props.item.id)}}>{props.item.desc} - {props.item.status.toString()}</Item><button id={props.item.id} onClick={props.handleDeleteClick}>Delete</button></WrapperDiv>
     )
 }
 

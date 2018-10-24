@@ -1,4 +1,4 @@
-import {DELETETODO,ADDTODO} from '../Actions'
+import {DELETETODO,ADDTODO, TOGGLETODO} from '../Actions'
 
 const initialState = {
   toDoList:[{
@@ -27,6 +27,25 @@ export default (state = initialState, action) => {
             return el.id != action.payload
           })
         }
+      case TOGGLETODO:
+        
+        return {
+          ...state,
+          toDoList:state.toDoList.map(el=>{
+            if(el.id == action.payload){
+                console.log('topeka! ive found it',el)
+               return(
+                   {
+                     ...el,status:true
+                   }
+               )
+            } else 
+            {
+              console.log('not it.. returning el',el)
+              return el
+            }
+          })
+        }  
       default:
         return state;
     }
