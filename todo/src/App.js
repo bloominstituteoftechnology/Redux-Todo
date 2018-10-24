@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTask, complete, deleteTask } from './actions';
+import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
 import './index.css';
 
 
@@ -20,35 +22,39 @@ class App extends Component {
   }
   
   addTaskToList = (task) => {
+     
       this.props.addTask(task);
-      this.setState({ todos : ""})
+     // this.setState({ todos : ""})
   };
 
   deleteCompletedTask = (index) => {
       this.props.deleteTask(index);
   }
 
-  render() {
-    console.log("App : ",this.props);
-    return (
-      <div className="App">
-          <h1>Todo List </h1>
-          {this.props.todos.map((item, index) => {
-                                                  return <div key = {index}>
-                                                  <li> {item.todos} </li> } </div>)}
+  handleToggleComplete = (index) => {
+    this.props.complete(index);
+  }
 
-	                 
-          {/*<TodoList
-              handleToggleComplete = {this.toggleTodoComplete}
-              toDoList = {this.state.toDoList}
-          />
+  render() {
+    console.log("App : ",this.props.todos);
+    return (
+      <div className = "App">
+          <h1 className = "list-heading"> Update Todo List.. </h1>
+             {/*this.props.todos.map((item, index) => {
+                                                  return <div key = {index}>
+                                                  <li> {item.task} </li>  </div>
+                                                })*/}
+          <TodoList
+              handleToggleComplete = {this.handleToggleComplete}
+              toDoList = {this.props.todos}
+          />  
         
          <TodoForm
-              value = {this.state.todo}
-              handleTodoChange = {this.changeTodo}
-              addTodo = {this.addTaskTodoList}
-              clearTodos = {this.clearCompletedTodos}
-          /> */}  
+              value = {this.todos}
+              handleTodoChange = {this.changeHandler}
+              addTodo = {this.addTaskToList}
+              clearTodos = {this.deleteCompletedTask}
+          /> 
           
       </div>
     );
@@ -62,4 +68,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, { addTask, complete, deleteTask})(App);
+export default connect(mapStateToProps, { addTask, complete, deleteTask }) (App);
