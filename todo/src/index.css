@@ -62,7 +62,9 @@ code {
   width: 75%;
   margin: 2rem auto;
 }
-
+.todo-list .completed {
+  text-decoration-line: line-through;
+}
 .todo-list li {
   margin: 1rem;
 }
