@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { addTodoItem, markComplete } from './actions';
 import { connect } from 'react-redux';
-import './App.css';
-import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
+import { Container } from './styles'
+import TodoList from './components/list/TodoList';
+import TodoForm from './components/form/TodoForm';
 
 class App extends Component {
   state = {
@@ -26,14 +26,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <TodoList todos={this.props.todos} clickHandler={this.clickHandler} />
+      <Container>
+        <TodoList
+          todos={this.props.todos}
+          clickHandler={this.clickHandler}
+        />
         <TodoForm
           changeHandler={this.changeHandler}
           submitHandler={this.submitHandler}
           text={this.state.newTodo}
         />
-      </div>
+      </Container>
     );
   }
 }
