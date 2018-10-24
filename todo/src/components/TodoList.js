@@ -1,14 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { markCompleted } from '../actions';
 
 
+class TodoList extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-function TodoList(props) {
-    return (
-        <div>
-            <ul>{props.todos.map(todo => <li key={todo.value}>{todo.value}</li>)}</ul>
-        </div>
-    )
+
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.props.todos.map((todo, index) => <li onClick={() => this.props.markCompleted(index)} key={todo.value}>{todo.value}</li>)}
+                </ul>
+            </div>
+        )
+    }
 }
 
 function mapStateToProps(state) {
@@ -16,4 +25,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, {markCompleted})(TodoList);

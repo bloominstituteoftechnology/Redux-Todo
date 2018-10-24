@@ -1,10 +1,8 @@
 //  REDUCER
 
 const initialState = { todos: [
-    {value: 'testing'},
-    {value: 'testing2'},
-    {value: 'testing3'},
-    {value: 'testing4'}
+    {value: 'testing',
+     completed: false}
 ] };
 
 
@@ -16,6 +14,17 @@ export default (state = initialState, action) => {
                 ...state, 
                 todos: [...state.todos, { value: action.payload }]
             }; 
+        case 'MARK-COMPLETED':
+            return {
+                ...state,
+                todos: state.todos.map((todo, index) => {
+                    if (action.payload === index) {
+                        return { ...todo, completed: !todo.completed };
+                    } else {
+                        return todo;
+                    }
+                })
+            };
         default: 
             return state;
     } 
