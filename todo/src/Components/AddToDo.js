@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import {addToDo} from '../Actions'
+
 
 
 const WrapperDiv = styled.div`
@@ -21,16 +24,38 @@ const Button = styled.button`
     width:75px;
     height:30px;
 `
-const AddToDo = props =>{
-    return (
-        <WrapperDiv>
-            <form onSubmit={props.AddToDo}>
-                <Header>To Do</Header>
-                <MedInput placeholder="...todo" type='text'/> 
-                <Button>Submit</Button>
-            </form>
-        </WrapperDiv>
-    )
+class AddToDo extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            todoText: ''
+        }
+    }
+
+    handleTextChange = event => {
+        this.setState({todoText:event.target.value})
+    }
+
+    addToDoItem =event =>{
+        event.preventDefault();
+        this.props.addToDo(this.state.todoText);
+    }
+    render(){
+        return (
+            <WrapperDiv>
+                <form onSubmit={this.addToDoItem}>
+                    <Header>To Do</Header>
+                    <MedInput onChange={this.handleTextChange} value={this.state.todoText} placeholder="...todo" type='text'/> 
+                    <button type='submit'>save</button>
+                </form>
+            </WrapperDiv>
+        )
+    }
 }
 
-export default AddToDo
+const mapStateToProps = (state) => {
+    return {
+        data: state.toDoList
+    };
+};
+export default connect(mapStateToProps, { addToDo })(AddToDo);

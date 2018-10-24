@@ -1,7 +1,7 @@
 import React from 'react';
 import ToDo from './ToDo';
 import { connect } from 'react-redux';
-import {addToDo,deleteToDo,getToDos} from '../Actions'
+import {deleteToDo} from '../Actions'
 
 class ToDoList extends React.Component{
     constructor(props){
@@ -11,7 +11,8 @@ class ToDoList extends React.Component{
         }
     }
     render(){
-        console.log('this.props.data', this.props.data)
+        console.log('this.props.data - todolist', this.props.data)
+        console.log('todolist = this?? ', this )
         return(
             <div>
                 {
@@ -26,4 +27,4 @@ const mapStateToProps = (state) => {
         data: state.toDoList
     };
 };
-export default connect(mapStateToProps, { addToDo, deleteToDo, getToDos })(ToDoList);
+export default connect(mapStateToProps, { deleteToDo })(ToDoList);

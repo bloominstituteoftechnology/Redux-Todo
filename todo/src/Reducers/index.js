@@ -1,4 +1,4 @@
-import {DELETETODO,ADDTODO,GETTODOS} from '../Actions'
+import {DELETETODO,ADDTODO} from '../Actions'
 
 const initialState = {
   toDoList:[{
@@ -11,9 +11,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
     console.log('actions...',action)
-    switch (action) {
+    switch (action.type) {
       case ADDTODO:
-        return state;
+        return {
+          ...state,
+          toDoList:[...state.toDoList,{id:(state.toDoList.length+1),desc:action.payload,status:false}]
+        }
+
+        
       case DELETETODO:
         return state;
       default:
