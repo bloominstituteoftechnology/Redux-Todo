@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTask } from '../../actions';
+import FormMessage from './FormMessage';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
   width: 100%;
   margin-bottom: 5rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
@@ -49,22 +51,31 @@ const StyledForm = styled.form`
 
 class Form extends Component {
   state = {
-    formInput: ''
+    formInput: '',
+    displayMessage: false
   };
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    if (this.state.displayMessage) {
+      this.setState({ [e.target.name]: e.target.value, displayMessage: false });
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
   };
 
   handleFormSubmit = e => {
     e.preventDefault();
     const task = this.state.formInput;
-    this.props.addTask(task);
-    this.setState({ formInput: '' });
+    if (!task) {
+      this.setState({ displayMessage: true });
+    } else {
+      this.props.addTask(task);
+      this.setState({ formInput: '' });
+    }
   };
 
   render() {
-    const { formInput } = this.state;
+    const { formInput, displayMessage } = this.state;
     return (
       <StyledForm onSubmit={this.handleFormSubmit}>
         <input
@@ -77,6 +88,7 @@ class Form extends Component {
         <button type="submit">
           <i className="fas fa-plus" />
         </button>
+        {displayMessage && <FormMessage />}
       </StyledForm>
     );
   }
