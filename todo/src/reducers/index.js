@@ -11,10 +11,10 @@ const initialState = {
 
 const todo = (state = initialState, action) => {
   switch(action.type) {
-    case 'ADD_ITEM':
+    case ADD_ITEM:
       return {...state, todos: [...state.todos, {value: action.payload, completed: false}]}
 
-    case 'CROSS_OUT':
+    case CROSS_OUT:
       console.log('this is from the reducer', action.payload)
       return {
 

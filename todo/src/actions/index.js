@@ -12,7 +12,7 @@ export const addTodo = item => {
 
 export const crossOut = index => {
   return {
-    type: 'CROSS_OUT',
+    type: CROSS_OUT,
     payload: index
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { addTodo, crossOut } from '../actions'
+import TodoForm from './TodoForm'
 class Todo extends React.Component {
   constructor(props) {
     super(props)
@@ -8,7 +9,7 @@ class Todo extends React.Component {
         inputText: '',
       }
   }
-// I need the list of todo items.
+
   changeHandler = (e) => {
     this.setState({inputText: e.target.value})
   }
@@ -23,12 +24,16 @@ class Todo extends React.Component {
   crossOut = (e, id) => {
     e.preventDefault();
     this.props.crossOut(id)
-
   }
 
   render() {
     return (
       <div>
+      <TodoForm
+        changeHandler={this.changeHandler}
+        addTodo={this.addTodo}
+        inputText={this.state.inputText}
+      />
         <form>
           <p>Add New Item</p>
           <input
@@ -42,7 +47,6 @@ class Todo extends React.Component {
         </form>
         {this.props.todos.map((item, idx) => (<p 
               onClick={(event)=> this.crossOut(event, idx)} className={ item.completed ? 'crossed-out' : 'normal'} key={idx}>{item.value}</p>))}
-        
       </div>
       );
   }
