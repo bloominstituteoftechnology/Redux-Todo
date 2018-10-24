@@ -1,53 +1,20 @@
-import React, { Component } from "react";
-import PropTypes from 'prop-types';
-// import { connect } from "react-redux";
-// import { FUNC1, FUNC2 } from "../actions"
+import React, { Component } from 'react';
+import { toggleComplete } from '../actions';
+import { connect } from 'react-redux';
 
-const Todo = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={ {
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
-  >
-    {text}
-  </li>
-)
+class TodoItem extends Component {
 
-Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  // completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+  toggleComplete = (event) => {
+    this.props.toggleComplete(this.props.index);
+  }
+
+  render() {
+    return (
+      <li>
+        {this.props.todo.value}
+      </li>
+    );
+  }
 }
 
-export default Todo;
-
-// class Todo extends Component {
-//   Method1 = () => {
-//       return this.props.SOMETHING()
-//   }
-
-  // Method 2
-
-
-//   render() {
-//     return (
-//       <li
-//         onClick={onClick}
-//         style= { { textDecoration: completed ? 'line-through': 'none' } }
-//       >
-//       {text}
-//       </li>
-//     )
-//   }
-// }
-
-
-// const mapStateToProps = (state) => {
-//   console.log("State:", state)
-//   return {
-//     key: value
-//   }
-// }
-
-// export default connect(mapStateToProps, { FUNC1, FUNC2 })(TODO);
+export default connect(null, { toggleComplete })(TodoItem);

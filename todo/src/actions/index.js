@@ -1,20 +1,25 @@
 export const ADD_TODO = 'ADD_TODO';
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
+
+
+export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
+
 export const VISIBILITY_FILTERS = 'VISIBILITY_FILTERS';
 export const SHOW_ALL = 'SHOW_ALL';
 export const SHOW_COMPLETED = 'SHOW_COMPLETED';
 export const SHOW_ACTIVE = 'SHOW_ACTIVE';
 
-// export const VisibilityFilters = 'VisibilityFilters';
+export const VISIBILITYFILTERS = 'VISIBILITYFILTERS';
 
-let nextTodoId = 0;
+export const NEW_TODO = 'NEW_TODO';
+export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
-export const addTodo = text => {
+let nextTodoId = 1;
+
+export const addTodo = (todo) => {
   return {
-    type: ADD_TODO,
-    id: nextTodoId++,
-    text: text
+    type: NEW_TODO,
+    payload: todo
   };
 };
 
@@ -25,10 +30,10 @@ export const setVisibilityFilter = filter => {
   };
 };
 
-export const toggleTodo = id => {
+export const toggleComplete = index => {
   return {
-    type: TOGGLE_TODO,
-    id: id
+    type: TOGGLE_COMPLETE,
+    payload: index
   };
 };
 

@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import AddTodo from '../src/containers/AddTodo';
-import VisibleTodoList from '../src/containers/VisibileTodoList';
-// import Todo from './components/Todo';
-import todo from './reducers';
-import Footer from '../src/components/Footer';
+import './index.css';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers';        // todoReducer
 import App from './App';
 
 import './index.css';
 
-const store = createStore(todo);
-
+// const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer, /* preloadedState, */
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+ );
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

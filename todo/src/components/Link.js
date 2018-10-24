@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Link = ({ active, children, onClick }) => (
+const Link = props => (
   <button
-     onClick={onClick}
-     disabled={active}
+     onClick={props.onClick}
+     disabled={props.active}
      style={{
          marginLeft: '4px',
      }}
   >
-    {children}
+    {props.children}
   </button>
 );
 
