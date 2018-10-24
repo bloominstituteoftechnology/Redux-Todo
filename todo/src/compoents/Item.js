@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo} from '../actions';
+import { addTodo, toggleTodo, deleteTodo} from '../actions';
 
 
 class Item extends React.Component {
@@ -24,6 +24,8 @@ class Item extends React.Component {
         })
     }
 
+    
+
 
     render() {
         return (
@@ -31,6 +33,7 @@ class Item extends React.Component {
                 {this.props.todos.map((todo, index) => (
                     <div key={index}>
                         <h3 onClick={() => this.props.toggleTodo(index)} className={todo.completed ? 'completed' : null}>{todo.value}</h3>
+                        <button onClick={() => this.props.deleteTodo(index)} >delete</button>
                     </div>
                 ))}
                 <input
@@ -41,6 +44,7 @@ class Item extends React.Component {
                 value={this.state.todoText} 
                 />
                 <button onClick={this.handleNewTodo}>Add Todo</button>
+                
             </div>
         )
     }
@@ -54,5 +58,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {addTodo, toggleTodo}
+    {addTodo, toggleTodo, deleteTodo}
 )(Item)
