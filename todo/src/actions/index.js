@@ -9,3 +9,10 @@ export function toDoCreate(toDoTask) {
         task: toDoTask
     };
 };
+
+export function toDoComplete(id) {
+    return {
+        type: TO_DO_COMPLETE,
+        id: id
+    };
+};
