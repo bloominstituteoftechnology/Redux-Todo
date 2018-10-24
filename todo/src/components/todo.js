@@ -2,9 +2,21 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-import { toDoCreate } from "../actions";
+import { toDoCreate, toDoComplete } from "../actions";
+
 function Task(props) {
-  return <li>{props.description}</li>;
+  let classText = "to-do-task";
+  if (props.status) {
+    classText += " to-do-task_complete";
+  }
+  return (
+    <li
+      className={classText}
+      onClick={props.onClick}
+      children={props.description}
+      data-id={props.id}
+    />
+  );
 }
 
 class ToDo extends Component {
@@ -22,7 +34,13 @@ class ToDo extends Component {
         </form>
         <ul className="to-do-list">
           {this.props.toDos.map(task => (
-            <Task key={task.id} description={task.description} />
+            <Task
+              key={task.id}
+              status={task.complete}
+              description={task.description}
+              id={task.id}
+              onClick={this.clickHandler}
+            />
           ))}
         </ul>
       </div>
@@ -40,6 +58,10 @@ class ToDo extends Component {
       inputText: eventChange.target.value
     });
   };
+
+  clickHandler = eventClick => {
+    this.props.toDoComplete(Number(eventClick.target.dataset.id));
+  };
 }
 
 function mapStateToProps(state) {
@@ -48,6 +70,7 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   {
-    toDoCreate
+    toDoCreate,
+    toDoComplete
   }
 )(ToDo);
