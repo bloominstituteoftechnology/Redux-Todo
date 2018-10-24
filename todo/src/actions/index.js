@@ -14,3 +14,5 @@ export const toggleComplete = index => {
     payload: index
   };
 };
+
+//Added from solution
