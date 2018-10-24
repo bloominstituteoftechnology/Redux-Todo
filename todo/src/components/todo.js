@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-import { toDoCreate, toDoComplete } from "../actions";
+import { toDoCreate, toDoComplete, toDoDelete } from "../actions";
 
 function Task(props) {
   let classText = "to-do-task";
@@ -71,6 +71,7 @@ export default connect(
   mapStateToProps,
   {
     toDoCreate,
-    toDoComplete
+    toDoComplete,
+    toDoDelete
   }
 )(ToDo);
