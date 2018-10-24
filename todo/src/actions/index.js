@@ -1,6 +1,7 @@
 export const TO_DO_CREATE = "TO_DO_CREATE";
 export const TO_DO_DELETE = "TO_DO_DELETE";
 export const TO_DO_COMPLETE = "TO_DO_COMPLETE";
+export const TO_DO_CLEAR = "TO_DO_CLEAR";
 
 export function toDoCreate(toDoTask) {
   return {
@@ -20,5 +21,11 @@ export function toDoDelete(id) {
   return {
     type: TO_DO_DELETE,
     id: id
+  };
+}
+
+export function toDoClear(id) {
+  return {
+    type: TO_DO_CLEAR
   };
 }

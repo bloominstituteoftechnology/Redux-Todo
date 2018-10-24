@@ -1,4 +1,9 @@
-import { TO_DO_CREATE, TO_DO_COMPLETE, TO_DO_DELETE } from "../actions";
+import {
+  TO_DO_CREATE,
+  TO_DO_COMPLETE,
+  TO_DO_DELETE,
+  TO_DO_CLEAR
+} from "../actions";
 
 const initialState = {
   toDos: []
@@ -11,6 +16,8 @@ export default (state = initialState, action) => {
       return taskToggle(state, action);
     case TO_DO_DELETE:
       return taskDelete(state, action);
+    case TO_DO_CLEAR:
+      return taskClear(state, action);
     default:
       return state;
   }
@@ -42,5 +49,11 @@ function taskToggle(state, action) {
 function taskDelete(state, action) {
   return {
     toDos: state.toDos.filter(task => task.id !== action.id)
+  };
+}
+
+function taskClear(state, action) {
+  return {
+    toDos: state.toDos.filter(task => !task.complete)
   };
 }
