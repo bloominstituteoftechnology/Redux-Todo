@@ -1,23 +1,21 @@
 import React from 'react';
 import TodoItem from '../item/TodoItem';
+import { ListSpace } from './styles';
 
 function TodoList(props) {
   return (
-    <div>
-      <h1>Todo List</h1>
-      <div>
+      <ListSpace>
         {props.todos.map((todo) => {
           return (
             <TodoItem 
               key={todo.id} 
               todo={todo} 
-              completed={todo.completed}
+              completed={todo.completed.toString()}
               clickHandler={props.clickHandler}
             />
           );
         })}
-      </div>
-    </div>
+      </ListSpace>
   );
 }
 

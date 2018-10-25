@@ -1,17 +1,20 @@
 import React from 'react';
 
+import { StyledInput, StyledForm, StyledButton } from './styles';
+
 function TodoForm(props) {
   return (
-    <form onSubmit={props.submitHandler}>
-      <input
+    <StyledForm onSubmit={props.submitHandler}>
+      <StyledInput
         type="text"
         name="newTodo"
         placeholder="What to do?"
+        autoComplete="off"
         value={props.text}
         onChange={props.changeHandler}
       />
-      <button type="submit">Add Todo</button>
-    </form>
+      <StyledButton type="submit">Add Todo</StyledButton>
+    </StyledForm>
   );
 }
 
