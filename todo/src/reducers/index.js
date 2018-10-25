@@ -1,4 +1,9 @@
-import { ADD_TODO_ITEM, MARK_COMPLETE, CLEAR_COMPLETED } from '../actions';
+import {
+  ADD_TODO_ITEM,
+  MARK_COMPLETE,
+  MARK_IMPORTANT,
+  CLEAR_COMPLETED,
+} from '../actions';
 
 const initialState = {
   todos: [],
@@ -16,6 +21,7 @@ export default (state = initialState, action) => {
             item: action.payload,
             id: state.id,
             completed: false,
+            important: false,
           },
         ],
         id: state.id + 1,
@@ -25,13 +31,31 @@ export default (state = initialState, action) => {
         ...state,
         todos: state.todos.map((todo) => {
           if (todo.id === action.payload) {
-            return { ...todo, completed: !todo.completed };
+            if (todo.important == true) {
+              return {
+                ...todo,
+                important: !todo.important,
+                completed: !todo.completed,
+              };
+            } else {
+              return { ...todo, completed: !todo.completed };
+            }
           } else {
             return todo;
           }
         }),
       };
-    // case MARK_IMPORTANT:
+    case MARK_IMPORTANT:
+      return {
+        ...state,
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.payload && todo.completed == false) {
+            return { ...todo, important: !todo.important };
+          } else {
+            return todo;
+          }
+        }),
+      };
     case CLEAR_COMPLETED:
       return {
         ...state,

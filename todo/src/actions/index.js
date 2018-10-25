@@ -1,5 +1,6 @@
 export const ADD_TODO_ITEM = 'ADD_TODO_ITEM';
 export const MARK_COMPLETE = 'MARK_COMPLETE';
+export const MARK_IMPORTANT = 'MARK_IMPORTANT';
 export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 
 export const addTodoItem = (todo) => {
@@ -16,8 +17,15 @@ export const markComplete = (id) => {
   };
 };
 
-export const clearCompleted = (id) => {
+export const markImportant = (id) => {
   return {
+    type: MARK_IMPORTANT,
+    payload: id,
+  };
+};
+
+export const clearCompleted = (id) => {
+return {
     type: CLEAR_COMPLETED,
   };
 };

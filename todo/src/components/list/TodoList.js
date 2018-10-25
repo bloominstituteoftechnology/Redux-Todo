@@ -12,6 +12,8 @@ function TodoList(props) {
               todo={todo} 
               completed={todo.completed.toString()}
               clickHandler={props.clickHandler}
+              important={todo.important.toString()}
+              importantHandler={props.importantHandler}
             />
           );
         })}
