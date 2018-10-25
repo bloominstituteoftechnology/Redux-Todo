@@ -12,7 +12,7 @@ export const Container = styled.div`
   height: 90vh;
   min-height: 300px;
   padding: 20px 20px;
-  margin: 20px auto;
+  margin: 5vh auto;
   border-radius: 10px;
   box-shadow: 2px 2px 10px 0px;
   @media (max-width: 610px) {
