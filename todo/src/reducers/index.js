@@ -13,16 +13,10 @@ const todos = [
 ];
 
 const itemReducer = (
-  todos = [
-    {
-      value: "",
-      completed: false,
-      id: idNum++
-    }
-  ],
+  todos = [],
   action
 ) => {
-  console.log("inreducer", action, state);
+  console.log("inreducer", action, todos);
   switch (action.type) {
     case "ADD_TODO":
       return [
@@ -30,14 +24,14 @@ const itemReducer = (
         { value: action.payload, completed: false, id: idNum++ }
       ];
     case "TOGGLE_TODO":
-      return state.map(todo => {
+      return todos.map(todo => {
         if (todo.id === action.payload) {
           return { ...todo, completed: !todo.completed };
         }
         return todo;
       });
     default:
-      return state;
+      return todos;
   }
 };
 
