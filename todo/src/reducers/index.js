@@ -1,4 +1,4 @@
-import { ADD_TODO_ITEM, MARK_COMPLETE } from '../actions';
+import { ADD_TODO_ITEM, MARK_COMPLETE, CLEAR_COMPLETED } from '../actions';
 
 const initialState = {
   todos: [],
@@ -29,6 +29,14 @@ export default (state = initialState, action) => {
           } else {
             return todo;
           }
+        }),
+      };
+    // case MARK_IMPORTANT:
+    case CLEAR_COMPLETED:
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => {
+          return todo.completed === false;
         }),
       };
     default:

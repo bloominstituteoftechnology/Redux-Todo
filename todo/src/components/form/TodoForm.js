@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledInput, StyledForm, StyledButton } from './styles';
+import { StyledInput, StyledForm, StyledButton, ClearButton } from './styles';
 
 function TodoForm(props) {
   return (
@@ -14,6 +14,7 @@ function TodoForm(props) {
         onChange={props.changeHandler}
       />
       <StyledButton type="submit">Add Todo</StyledButton>
+      <ClearButton onClick={props.clearHandler}>Clear Completed</ClearButton>
     </StyledForm>
   );
 }

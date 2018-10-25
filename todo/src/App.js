@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addTodoItem, markComplete } from './actions';
+import { addTodoItem, markComplete, clearCompleted } from './actions';
 import { connect } from 'react-redux';
 import { Container, StyledHeader } from './styles';
 import TodoList from './components/list/TodoList';
@@ -35,6 +35,11 @@ class App extends Component {
     this.props.markComplete(todo.id);
   };
 
+  clearHandler = (event) => {
+    event.preventDefault();
+    this.props.clearCompleted();
+  }
+
   render() {
     return (
       <Container>
@@ -43,6 +48,7 @@ class App extends Component {
         <TodoForm
           changeHandler={this.changeHandler}
           submitHandler={this.submitHandler}
+          clearHandler={this.clearHandler}
           text={this.state.newTodo}
         />
       </Container>
@@ -59,5 +65,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { addTodoItem, markComplete }
+  { addTodoItem, markComplete, clearCompleted }
 )(App);
