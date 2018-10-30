@@ -1,0 +1,183 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background: #070809;
+}
+
+.App {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #121417;
+  background-color: #070809;
+}
+
+/*
+.app-header {
+  background-color: #282c34;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+} */
+
+
+form {
+  max-width: 500px;
+  width: 100%;
+  padding-top: 30px;
+  min-height: 10vh;
+  /* border: 1px solid white; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+}
+
+form input {
+  width: 70%;
+  margin: 3% auto;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  border-bottom: 2px solid lightgray;
+
+}
+
+
+
+form input::placeholder{
+  color: lightgray;
+}
+
+form input:focus {
+  outline: none;
+}
+
+form button {
+  border-radius: 3px;
+  font-family: 'Poppins', sans-serif;
+  padding: 5px 10px;
+  border: 1px solid lightgray;
+  background: #121417;
+  color: lightgray;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: lightgray;
+  color: #121417;
+}
+
+form button:focus {
+  outline: 1px solid white;
+}
+
+.todo-list {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+.todo {
+  font-size: 1.8rem;
+  color: white;
+  color: lightgray;
+  background-color: #070809;
+  background-color: #121417;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  /* border: 1px solid white; */
+}
+
+.todo i {
+  cursor: pointer;
+}
+
+.todo p {
+  width: 80%;
+}
+
+.done {
+  text-decoration-line: line-through;
+}
+
+.marker {
+  color: #070809;
+  width: 18px;
+}
+
+.urgent {
+  color: firebrick;
+}
