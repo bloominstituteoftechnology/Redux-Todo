@@ -14,7 +14,7 @@ class TodoList extends React.Component {
 
 
   hydrateStateWithLocalStorage = e => {
-    for (let key in this.state) {
+    for (let key in this.state) { // key is text
       if (localStorage.hasOwnProperty(key)) {
         let value = localStorage.getItem(key);
         try {
@@ -31,6 +31,12 @@ class TodoList extends React.Component {
     this.hydrateStateWithLocalStorage();
   }
 
+  
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.todos !== this.props.todos) {
+      localStorage.setItem('todos', JSON.stringify(nextProps.todos));
+    }
+  }
 
   handleTodoComplete = todoId => {
     this.props.toggleTodo(todoId);
