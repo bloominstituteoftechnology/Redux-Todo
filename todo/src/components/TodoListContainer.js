@@ -5,8 +5,8 @@ import { addTodo, toggleTodo, removeTodos, getTodos } from '../actions'
 let nextTodoId = 0;
 
 class TodoList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       text: ''
     }
@@ -32,7 +32,7 @@ class TodoList extends React.Component {
   }
 
   
-  static getDerivedStateFromProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.todos !== this.props.todos) {
       localStorage.setItem('todos', JSON.stringify(nextProps.todos));
     }
