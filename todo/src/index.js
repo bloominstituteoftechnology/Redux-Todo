@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-// The general flow of steps will be to create your store, create your reducers, create your containers, and then create the action creators.
+// 1. The general flow of steps will be to create your store, 2. create your reducers, create your containers, and then create the action creators.
 
 import { createStore } from 'redux';
 
