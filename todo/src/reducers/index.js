@@ -1,4 +1,4 @@
-// import { ADD_TODO, FETCH_TODOS, DELETE_TODO } from '../actions';
+import { ADD_TODO, FETCH_TODOS, DELETE_TODO } from '../actions';
 
 // 1. The general flow of steps will be to create your store, 2. create your reducers, create your containers, and then create the action creators.
 
