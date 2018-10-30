@@ -4,7 +4,17 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// The general flow of steps will be to create your store, create your reducers, create your containers, and then create the action creators.
+
+import { createStore } from 'redux';
+
+// const store = createStore()
+
+
+ReactDOM.render(
+    <Provider store = {store}>
+        <App />
+    </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
