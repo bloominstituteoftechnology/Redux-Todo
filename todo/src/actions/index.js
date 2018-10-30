@@ -1,32 +1,23 @@
-export const ADD_TODO = 'ADD_TODO';
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
-export const TOGGLE_TODO = 'TOGGLE_TODO';
-export const VISIBILITY_FILTERS = 'VISIBILITY_FILTERS';
-export const SHOW_ALL = 'SHOW_ALL';
-export const SHOW_COMPLETED = 'SHOW_COMPLETED';
-export const SHOW_ACTIVE = 'SHOW_ACTIVE';
-export const VISIBILITYFILTERS = 'VISIBILITYFILTERS';
+export const ADD_TODO = 'ADD_TODO'; // create
+export const TOGGLE_TODO = 'TOGGLE_TODO'; 
+export const REMOVE_TODOS = 'REMOVE_TODOS'; // delete
+export const GET_TODOS = 'GET_TODOS'; //read/fetch
 
-let nextTodoId = 1;
- 
- export const addTodo = text => ({
+export const addTodo = todo => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
-})
-
-export const setVisibilityFilter = filter => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
+  payload: todo
 })
 
 export const toggleTodo = id => ({
   type: 'TOGGLE_TODO',
-  id
+  payload: id
 })
 
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
+export const removeTodos = () => ({
+  type: 'REMOVE_TODOS'
+})
+
+export const getTodos = todos => ({
+  type: 'TOGGLE_TODO',
+  payload: todos
+})
