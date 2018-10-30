@@ -12,6 +12,26 @@ class TodoList extends React.Component {
     }
   }
 
+
+  hydrateStateWithLocalStorage = e => {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)) {
+        let value = localStorage.getItem(key);
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
+  }
+
+
   handleTodoComplete = todoId => {
     this.props.toggleTodo(todoId);
   };
