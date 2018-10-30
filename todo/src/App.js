@@ -5,7 +5,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoArray: [{
+      todos: [{
           value: 'import redux library',
           completed: false
         },
