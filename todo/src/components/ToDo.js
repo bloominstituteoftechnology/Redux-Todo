@@ -58,11 +58,14 @@ class ToDo extends React.Component {
             border: '2px solid red',
             boxShadow: '0px 1px 6px #3904C2',
         }
+        let hrStyle = {
+            width: '80%',
+          }
         
         return (
             <div style={divStyle}>
                 <h1 style={h1Style}>Lambda Redux ToDo</h1>
-                <hr/>
+                <hr style = {hrStyle}/>
                 {todos.map((item, index) => {
                  return <div key={index}>
                  <h3 onClick={() => this.props.toggleToDo(index)}
