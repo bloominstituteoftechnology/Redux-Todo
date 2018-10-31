@@ -3,7 +3,8 @@ import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, GET_TODOS } from '../actions';
 
 const initialToDoState = {
     todos: [
-        {value: 'Walk The Cat', completed: false}
+        {value: 'Walk The Cat', completed: false},
+        {value: 'Duel Leroy Jenkins', completed: false}
     ]
 }
 
