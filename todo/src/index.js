@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {todoReducer} from './reducers'
+import { todoReducer } from './reducers'
+import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 // 1. The general flow of steps will be to create your store, 2. create your reducers, create your containers, and then create the action creators.
 
 import { createStore } from 'redux';
-import { Provider } from 'redux'
-// const store = createStore()
+
+const store = createStore(
+    todoReducer
+)
 
 
 ReactDOM.render(

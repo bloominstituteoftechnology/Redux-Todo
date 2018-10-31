@@ -5,7 +5,6 @@ import { ADD_TODO, FETCH_TODOS, DELETE_TODO } from '../actions';
 export const todoReducer = (state = [], action) => {
     switch (action.type) {
         case ADD_TODO: 
-        // The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
             return state.concat(action.payload);
         case FETCH_TODOS:
             return state.concat(action.payload);
