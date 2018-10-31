@@ -10,6 +10,15 @@ class AddTodo extends Component {
         }
     }
 
+    handleTodoChange = event => {
+        this.setState({ todo: event.target.value });
+    }
+
+    plusTodo = () => {
+        this.props.addTodo(this.state.todo);
+        this.setState({ todo: '' });
+    }
+
     render() {
         return(
             <div>
@@ -17,8 +26,12 @@ class AddTodo extends Component {
                     placeholder='Enter Todo Please'
                     type='text'
                     value={this.state.todo}
+                    onChange = { this.handleTodoChange}
                 />
-                <button>Add To List</button>
+                <button
+                onClick = {this.plusTodo}
+                >Add To List
+                </button>
             </div>
         )
     }
