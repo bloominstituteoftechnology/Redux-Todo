@@ -1,4 +1,62 @@
+h1 {
+  text-align: center;
+  padding-top: 50px;
+  margin-top: 0;
+}
 
-.App {
+input {
+  margin-right: 50px;
+  border-radius: 4px;
+  height: 18px;
+}
+
+.TodoForm button {
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(37, 131, 238, 0.8);
+  background-color: rgba(37, 131, 238, 0.6);
+  font-weight: bolder;
+  border-radius: 10%;
+  width: 50px;
+  height: 50px;
+}
+
+.TodoForm button:hover {
+  background-color: rgba(37, 131, 238, 0.8);
+  border: 1px solid rgba(37, 131, 238, 1);
+  color: rgba(255, 255, 255, 1);
+  font-weight: bolder;
+  border: .5px solid white;
+}
+
+.TodoList button {
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(37, 131, 238, 0.8);
+  background-color: rgba(37, 131, 238, 0.6);
+  font-weight: bolder;
+  border-radius: 10%;
+  width: 50px;
+  height: 50px;
+}
+
+.TodoList button:hover {
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(37, 131, 238, 0.4);
+  background-color: rgba(37, 131, 238, 0.2);
+  font-weight: bolder;
+  width: 50px;
+  height: 50px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+  /* font-style: oblique; */
+}
+
+li {
+  font-style: italic;
+}
+
+.TodoListContainer {
   text-align: center;
 }
