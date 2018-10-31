@@ -53,7 +53,7 @@ class ToDo extends React.Component {
             justifyContent: 'center',
             alignItems: 'center',
             margin: '10px auto',
-            backgroundColor: '#F2CAA1',
+            backgroundColor: '#A1ADF2',
             padding: '0 0 20px 0',
             border: '2px solid red',
             boxShadow: '0px 1px 6px #3904C2',
