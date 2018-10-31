@@ -18,17 +18,20 @@ class AddTodo extends React.Component{
         })
     }
 
-    handleButtonClick = (event)=>{
+    handleSubmit = (event)=>{
         event.preventDefault();
         this.props.addTodo(this.state.value);
+        this.setState({
+            value: ''
+        })
     }
 
     render(){
         return(
-            <div>
-            <input type="text" onChange={this.handleTextInput} placeholder="Enter todo item..." value={this.state.value}></input>
-            <div onClick={this.handleButtonClick}>Add Todo</div>
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" onChange={this.handleTextInput} placeholder="Enter todo item..." value={this.state.value}></input>
+                <input type="submit" value="Submit"></input>
+            </form>
         )
     }
 }
