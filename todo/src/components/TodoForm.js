@@ -23,7 +23,7 @@ class TodoForm extends React.Component {
       completed: false,
       id: nextTodoId++
     };
-    console.log(newTodo)
+    // console.log(newTodo)
     this.props.addTodo(newTodo);
     this.setState({
       text: ''
@@ -32,7 +32,6 @@ class TodoForm extends React.Component {
 
 
   render() {
-    const { todos } = this.props;
     return (
         <form className='TodoForm'>
           <input
@@ -53,7 +52,6 @@ class TodoForm extends React.Component {
 const mapStateToProps = state => {
   return {
     todos: state.todos,
-    name: 'Kat'
   };
 };
 
