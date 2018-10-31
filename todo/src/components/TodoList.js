@@ -15,6 +15,7 @@ class TodoList extends Component {
                     {this.props.todos.map(todo => 
                     <div>
                         <li key={todo} >{todo}</li>
+                        <button onClick={() => {this.props.deleteTodo(todo)}}>X</button>
                     </div>
                     )}
                 </ul>
