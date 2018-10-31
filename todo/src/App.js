@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <input type='text' placeholder='Your item to do'></input>
+        <button type='submit'>Submit</button>
+        <div className="Todo-List">The to do list will appear here</div>
       </div>
     );
   }
 }
 
 export default App;
+
+//input handler will set the state with the input setting to state for value
+// on submit, will create object in todos array {...todos} that has the value and completed set to false
+//todo container will map over todos array to create items
+//on click, completed value will be set to opposite.
+// on click, the clear completed will remove completed items from todos array
