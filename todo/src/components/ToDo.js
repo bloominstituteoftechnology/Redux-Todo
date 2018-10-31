@@ -52,9 +52,9 @@ class ToDo extends React.Component {
             width: '40%',
             justifyContent: 'center',
             alignItems: 'center',
-            margin: '10px auto',
+            margin: '5px auto',
             backgroundColor: '#A1ADF2',
-            padding: '0 0 20px 0',
+            padding: '0 0 15px 0',
             border: '2px solid red',
             boxShadow: '0px 1px 6px #3904C2',
         }
@@ -68,7 +68,7 @@ class ToDo extends React.Component {
                  <h3 onClick={() => this.props.toggleToDo(index)}
                  style={
                     item.completed
-                      ? { color: '#3904C2', textDecoration: 'line-through' }
+                      ? { color: '#3904C2', textDecoration: 'line-through', transition: '1s' }
                       : null
                   }
                  >
