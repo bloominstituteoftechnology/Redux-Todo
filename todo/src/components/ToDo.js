@@ -76,13 +76,15 @@ class ToDo extends React.Component {
                  </h3>
                </div>   
                 })}
-                <input 
-                    type='text'
-                    name='todoText'
-                    onChange={ this.handleChanges }
-                    placeholder='Task To Do'
-                    value={this.state.todoText}
-                />
+                <form onSubmit={this.handleNewToDo }>
+                  <input 
+                      type='text'
+                      name='todoText'
+                      onChange={ this.handleChanges }
+                      placeholder='Task To Do'
+                      value={this.state.todoText}
+                  />
+                </form>
                 <button onClick={ this.handleNewToDo } >Add ToDo Here!</button>
                 <button onClick={() => this.removeToDo()}>Clear Completed</button>
             </div>
