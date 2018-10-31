@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
-import { fetchTodos } from "../actions";
+import { fetchTodos, deleteTodo } from "../actions";
 
 class TodoList extends Component {
 
@@ -28,4 +28,4 @@ const mapStateToProps = state => {
     return {todos: state};
 };
 
-export default connect(mapStateToProps, { fetchTodos })(TodoList);
+export default connect(mapStateToProps, { fetchTodos, deleteTodo })(TodoList);
