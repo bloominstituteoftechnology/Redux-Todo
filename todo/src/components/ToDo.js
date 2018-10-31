@@ -49,7 +49,7 @@ class ToDo extends React.Component {
         let divStyle = {
             display: 'flex',
             flexDirection: 'column',
-            width: '40%',
+            width: '45%',
             justifyContent: 'center',
             alignItems: 'center',
             margin: '5px auto',
@@ -61,6 +61,19 @@ class ToDo extends React.Component {
         let hrStyle = {
             width: '80%',
           }
+        let buttonStyle = {
+          width: '100px',
+          height: '50px',
+          backgroundColor: 'black',
+          color: 'white',
+          cursor: 'pointer',
+         margin: '5px 0',
+        }
+        let formStyle = {
+          width: '100%',
+          height: '40px',
+         backgroundColor: 'lightgrey'
+        }
         
         return (
             <div style={divStyle}>
@@ -79,8 +92,10 @@ class ToDo extends React.Component {
                  </h3>
                </div>   
                 })}
-                <form onSubmit={this.handleNewToDo }>
-                  <input 
+            <button style={buttonStyle} onClick={ this.handleNewToDo } >Add ToDo Here!</button>
+            <button style={buttonStyle} onClick={() => this.removeToDo()}>Clear Completed</button>                
+            <form onSubmit={this.handleNewToDo }>
+              <input style={formStyle}
                       type='text'
                       name='todoText'
                       onChange={ this.handleChanges }
@@ -88,8 +103,7 @@ class ToDo extends React.Component {
                       value={this.state.todoText}
                   />
                 </form>
-                <button onClick={ this.handleNewToDo } >Add ToDo Here!</button>
-                <button onClick={() => this.removeToDo()}>Clear Completed</button>
+
             </div>
         )
     }
