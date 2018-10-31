@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToDo, toggleToDo } from '../actions';
+import { addToDo, toggleToDo, removeToDo, getTodos } from '../actions';
 
 class ToDo extends React.Component {
     constructor() {
@@ -11,6 +11,23 @@ class ToDo extends React.Component {
         };
     };
 
+    componentDidMount(){
+        const myTodos = JSON.parse(localStorage.getItem('todoReducer'));
+        if (myTodos !== null) {
+            this.props.getTodos(myTodos);
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.todoReducer !== this.props.todoReducer) {
+          localStorage.setItem('todoReducer', JSON.stringify(nextProps.todoReducer));
+        }
+      }
+
+      removeToDo = () => {
+        this.props.removeToDo();
+      };
+
     handleChanges = event => {
         this.setState({ [event.target.name]: event.target.value })
     };
@@ -19,16 +36,42 @@ class ToDo extends React.Component {
         event.preventDefault();
         console.log('I have been clickied');
         this.props.addToDo(this.state.todoText);
+        this.setState({ todoText: '' });
     };
 
     render() {
+        const { todos } = this.props;
+        let h1Style = {
+            color: '#741414',
+            textDecoration: 'underline',
+            textAlign: 'center',
+        }
+        let divStyle = {
+            display: 'flex',
+            flexDirection: 'column',
+            width: '40%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '10px auto',
+            backgroundColor: '#F2CAA1',
+            padding: '0 0 20px 0',
+            border: '2px solid red',
+            boxShadow: '0px 1px 6px #3904C2',
+        }
+        
         return (
-            <div>
-                <h1>Lambda Redux ToDo</h1>
-                <hr />
-                {this.props.todos.map((item, index) => {
+            <div style={divStyle}>
+                <h1 style={h1Style}>Lambda Redux ToDo</h1>
+                <hr/>
+                {todos.map((item, index) => {
                  return <div key={index}>
-                 <h3 onClick={() => this.props.toggleToDo(index)}>
+                 <h3 onClick={() => this.props.toggleToDo(index)}
+                 style={
+                    item.completed
+                      ? { color: '#3904C2', textDecoration: 'line-through' }
+                      : null
+                  }
+                 >
                    {item.value}
                  </h3>
                </div>   
@@ -41,8 +84,9 @@ class ToDo extends React.Component {
                     value={this.state.todoText}
                 />
                 <button onClick={ this.handleNewToDo } >Add ToDo Here!</button>
+                <button onClick={() => this.removeToDo()}>Clear Completed</button>
             </div>
-        );
+        )
     }
 
 
@@ -58,5 +102,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { addToDo, toggleToDo }
+    { addToDo, toggleToDo, removeToDo, getTodos }
   )(ToDo);

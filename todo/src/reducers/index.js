@@ -1,5 +1,5 @@
 // import { combineReducers } from 'redux';
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, GET_TODOS } from '../actions';
 
 const initialToDoState = {
     todos: [
@@ -24,6 +24,10 @@ const todoReducer = ( state = initialToDoState, action ) => {
                     } else { return item };
                 })
             };
+            case REMOVE_TODO:
+                return {todos: state.todos.filter(item => !item.completed)}
+            case GET_TODOS:
+                return action.payload;
 
 
             default: return state;
