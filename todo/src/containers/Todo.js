@@ -8,15 +8,22 @@ const List = styled.div`
 `;
 
 class Todo extends React.Component{
-    handleClick = (event)=>{
+    handleMarkComplete = (event)=>{
         event.preventDefault();
         this.props.completeTodo(this.props.todo.id);
     }
 
+    handleDeleteTodo = (event)=>{
+        event.preventDefault();
+        event.stopPropagation();
+        this.props.deleteTodo(this.props.todo.id);
+    }
+
     render(){
         return(
-            <div onClick={this.handleClick}>
+            <div onClick={this.handleMarkComplete}>
             <List completed={this.props.todo.completed}>{this.props.todo.value}</List>
+            <div onClick={this.handleDeleteTodo}>X</div>
             </div>
         )
     }
