@@ -2,10 +2,22 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      value: ''
+    }
+  }
+
+  inputHandler = (e) => {
+    console.log(this.state.value);
+    this.setState({ value: e.target.value })
+  }
+
   render() {
     return (
       <div className="App">
-        <input type='text' placeholder='Your item to do'></input>
+        <input type='text' placeholder='Your item to do' onChange={this.inputHandler}></input>
         <button type='submit'>Submit</button>
         <div className="Todo-List">The to do list will appear here</div>
       </div>
