@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
+import Todo from './Todo';
+
 class TodoList extends Component {
 
   render () {
     return (
-      <div>Todo List</div>
+      <div className='todoList'>
+        {this.props.todos.map( (todo, index) => {
+          return (
+            <Todo id={index} value={todo.value} completed={todo.completed} />
+          );
+        })}
+      </div>
     );
   }
 };
