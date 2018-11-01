@@ -1,6 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './App';
+import todos from './reducers'
+
+// Instantiate the central Redux store
+const store = createStore(todos);
+
+// Wrap component inside of Provider tags so that React knows where to pass 
+// state to.
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, 
+  document.getElementById('root')
+);
 
