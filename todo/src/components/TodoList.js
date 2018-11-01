@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { toggleTodo } from '../actions';
 
 import Todo from './Todo';
+import TodoForm from './TodoForm';
 
 class TodoList extends Component {
 
@@ -10,9 +12,10 @@ class TodoList extends Component {
       <div className='todoList'>
         {this.props.todos.map( (todo, index) => {
           return (
-            <Todo id={index} value={todo.value} completed={todo.completed} />
+            <Todo id={index} value={todo.value} completed={todo.completed} click={() => this.props.toggleTodo} />
           );
         })}
+        <TodoForm />
       </div>
     );
   }
@@ -25,4 +28,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(TodoList);
+export default connect(mapStateToProps, { toggleTodo })(TodoList);
