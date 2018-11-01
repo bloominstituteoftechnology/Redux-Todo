@@ -12,6 +12,14 @@ class AddTodo extends React.Component{
         }
     }
 
+    componentDidMount(){
+        if(this.props.todos.length > 0){
+            this.setState({
+                currentId: this.props.todos[this.props.todos.length - 1].id + 1
+            })
+        }
+    }
+
     handleTextInput = (event)=>{
         event.preventDefault();
         this.setState({
@@ -38,4 +46,10 @@ class AddTodo extends React.Component{
     }
 }
 
-export default connect(()=>({}), {addTodo})(AddTodo);
+const mapStateToProps = (state)=>{
+    return{
+        todos: state.todos
+    }
+}
+
+export default connect(mapStateToProps, {addTodo})(AddTodo);

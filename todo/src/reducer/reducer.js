@@ -14,7 +14,7 @@ export const reducer = (state = initialState, action)=>{
             const index = state.todos.findIndex(todo=>todo.id===action.payload.id);
             
             const completedTodo = state.todos[index];
-            completedTodo.completed = true;
+            completedTodo.completed = !completedTodo.completed;
 
             return{
                 todos: [...state.todos.slice(0, index), completedTodo, ...state.todos.slice(index + 1)]

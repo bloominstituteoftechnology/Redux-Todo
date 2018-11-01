@@ -1,10 +1,9 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import styled from 'styled-components';
 
-import {completeTodo} from '../actions/actions';
-
-const List = styled.li`
+const List = styled.div`
+    width: 30%;
+    border: 1px solid black;
     ${props=>props.completed ? 'text-decoration: line-through' : null}
 `;
 
@@ -13,6 +12,7 @@ class Todo extends React.Component{
         event.preventDefault();
         this.props.completeTodo(this.props.todo.id);
     }
+
     render(){
         return(
             <div onClick={this.handleClick}>
@@ -22,4 +22,4 @@ class Todo extends React.Component{
     }
 }
 
-export default connect(()=>({}), {completeTodo})(Todo);
+export default Todo;

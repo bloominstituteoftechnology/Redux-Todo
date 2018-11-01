@@ -16,8 +16,7 @@ export const completeTodo = (id)=>{
     return {
         type: COMPLETE_TODO,
         payload: {
-            id: id,
-            completed: true
+            id: id
         }
     }
 }
