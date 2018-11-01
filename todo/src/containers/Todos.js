@@ -6,7 +6,7 @@ import Todo from './Todo';
 const Todos = (props)=>{
     return(
         <ul>
-            {props.todos.map(item=><Todo key={item.value} todo={item.value}/>)}
+            {props.todos.map(item=><Todo key={item.id} todo={item}/>)}
         </ul>
     )
 }

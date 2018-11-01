@@ -7,6 +7,7 @@ class AddTodo extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            currentID: 0,
             value: ''
         }
     }
@@ -20,8 +21,9 @@ class AddTodo extends React.Component{
 
     handleSubmit = (event)=>{
         event.preventDefault();
-        this.props.addTodo(this.state.value);
+        this.props.addTodo(this.state.currentID, this.state.value);
         this.setState({
+            currentID: this.state.currentID + 1,
             value: ''
         })
     }
