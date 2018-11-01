@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-//import ToDo from "./ToDo"
+import React from 'react'
 import '../App.css';
 
-class ToDo extends Component {
-  render() {
-    return (
-      <div className="todo">
-       
-      </div>
-    );
-  }
-}
-
-export default ToDo;
+const ToDo = props => {
+    return props.list.map((item, id) => (
+      <li
+        onClick={() => props.toggleComplete(item.id)}
+        key={id}
+        id={id}
+        style={{
+          textDecoration: item.completed ? 'line-through' : 'none'
+        }}
+      >
+        {item.task}
+      </li>
+    ));
+  };
+  
+  export default ToDo;
