@@ -3,8 +3,8 @@ import { connect } from "react-redux"
 
 
 const Todo = props => {
-
-    return <ul><li>{props.todo}</li></ul>
+ console.log(props)
+    return <ul>{props.todo}</ul>
 }
 
 

@@ -7,7 +7,7 @@ class AddTodo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            todo: [],
+            todo: '',
             completed:false
         }
     }

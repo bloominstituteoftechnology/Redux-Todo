@@ -1,7 +1,9 @@
+import { ADD_TODO } from "../actions/actions";
 
 
 const initialState = {
-    todo: []
+    todo:'',
+    completed: false
 
 }
 
@@ -9,8 +11,9 @@ const initialState = {
 export default (state = initialState, action) => {
 
     switch (action.type) {
-        //case //Fill In:
-         //   return //Fill In
-
+        case ADD_TODO:
+            return { ...state, ...action.payload }
+        default:
+            return state
     }
 }
