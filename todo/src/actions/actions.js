@@ -11,3 +11,10 @@ export const addTodoAction = text => {
   }
 }
 
+export const toggleTodoAction = id => {
+  return {
+    type: TOGGLE_TODO,
+    id: id
+  }
+}
+
