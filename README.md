@@ -1,4 +1,5 @@
 # Redux & React
+reviewing dans lecture then starting this
 
 Topics:
 
