@@ -22,11 +22,11 @@ export default ( state = initialState, action ) => {
   // let oldState = state.todos;
 
   switch( action.type ) {
-    // case ADD_TODO:
-    //   // Payload contains array 
-    //   return Object.assign({}, state, {
-    //     todos: [...state.todos, action.payload]
-    //   });
+    case ADD_TODO:
+      // Payload contains array 
+      return Object.assign({}, state, {
+        todos: [...state.todos, action.payload]
+      });
 
     case TOGGLE:
       // Map the change needed. payload contains ID

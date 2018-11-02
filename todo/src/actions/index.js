@@ -1,8 +1,8 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE = 'TOGGLE';
 
-export const addTodo = () => {
-  return { type: ADD_TODO }
+export const addTodo = (todo) => {
+  return { type: ADD_TODO, payload: todo }
 };
 
 export const toggleTodo = (id) => {
