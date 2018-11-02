@@ -1,4 +1,4 @@
-import { DELETE_TODO, ADD_TODO } from "../actions/action";
+import { DELETE_TODO, ADD_TODO, COMPLETE } from "../actions/action";
 
 const initialState = {
   todos: []
@@ -14,8 +14,16 @@ export default (state = initialState, action) => {
           { todo: action.payload, id: id, complete: false }
         ]
       });
+    case COMPLETE:
+      const newStateTodos = state.todos.map(item => {
+        if (item.id === action.payload) {
+          return { todo: item.todo, id: item.id, complete: !item.complete };
+        } else return item;
+      });
+      return Object.assign({}, state, { todos: newStateTodos });
     case DELETE_TODO:
-      return state;
+      const deletedStateTodos = state.todos.filter(item => item.id !== action.payload)
+      return Object.assign({}, state, { todos: deletedStateTodos });
     default:
       return state;
   }
