@@ -1,11 +1,30 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {removeTodo} from '../actions/actions.js'
 
-const TodoList = () =>{
-  return (
-    <div>
-      Here reside my todo list
-    </div>
-  )
+const TodoList = (props) =>{
+    if(!props.todos.length){
+        return null
+    }else {
+
+        return (
+          <ul>
+              {props.todos.map(todo =>{
+                  return <li key={todo.id}>
+                      {todo.todoText}
+                  </li>
+              })}
+          </ul>
+        )
+    }
 }
 
-export default TodoList
+const mapStateToProps = state => {
+    return {
+        todos: state.todos
+
+    }
+}
+
+
+export default connect(mapStateToProps, {removeTodo})(TodoList)
