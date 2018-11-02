@@ -1,6 +1,6 @@
 
 const initialState = {
-    todos: [ { value: 'Make a reducer', completed: false }, { value: 'Make actions', completed: false} ]
+    todos: [ ]
 }
 
 const reducer = (state = initialState, action) => {
@@ -18,6 +18,12 @@ const reducer = (state = initialState, action) => {
                     ]
                 }
             )
+        case "TOGGLE_STATUS":
+            return
+                Object.assign(
+                    {}, state, state.todos.map(
+                        todo => (todo.id === action.id) ? {...todo, completed: !todo.completed} : todo)
+                    )
         default:
             return state
     }

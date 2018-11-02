@@ -1,13 +1,13 @@
 import React from 'react';
 import ToDoItem from './ToDoItem';
 import { connect } from 'react-redux';
+import { toggle } from '../actions/actions';
 
 const ToDoList = (props) => {
-    console.log(props)
     return(
         <div>
             {props.todos.map( item => (
-                <ToDoItem item={item} value={item.value} completed={item.completed} key={item.value} />
+                <ToDoItem item={item} onClick={() => props.toggle(item.id)} id={item.id} value={item.value} completed={item.completed} key={item.value} />
             ))}
         </div>
     )
@@ -19,4 +19,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(ToDoList);
+export default connect(mapStateToProps, {toggle} )(ToDoList);

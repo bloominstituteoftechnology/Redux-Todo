@@ -18,7 +18,10 @@ class Form extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault();
-        console.log(this.props.addItem(this.state.item));
+        this.props.addItem(this.state.item);
+        this.setState({
+            item: ''
+        })
     }
 
     render(){
@@ -29,10 +32,6 @@ class Form extends React.Component{
             </form>
         )
     }
-}
-
-const mapStateToProps = () => {
-    return {}
 }
 
 export default connect( () => ({}), {addItem} )(Form);
