@@ -13,7 +13,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      todoArray: [
+      todos: [
         { value: "1st item one ", completed: false },
         { value: "2nd item two ", completed: false },
         { value: "3rd item three ", completed: false },
@@ -33,14 +33,26 @@ class App extends Component {
           </p>
           <div>
               <ul>
-                {this.state.todoArray.map((todo) => {
+                {this.state.todos.map((todo) => {
                   return <li>{todo.value}</li>
                 })}
               </ul>
           </div>
+          
+          <form>
+                <input placeholder="some text"/>
+                <button>submit</button>
+          </form>
+
+
           <div>
               <Todosarraydisplay />
           </div>
+
+          <form>
+                <input placeholder="some text"/>
+                <button>submit</button>
+          </form>
 
         </header>
 
