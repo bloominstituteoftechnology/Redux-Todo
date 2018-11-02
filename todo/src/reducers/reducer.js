@@ -22,7 +22,9 @@ export default (state = initialState, action) => {
       });
       return Object.assign({}, state, { todos: newStateTodos });
     case DELETE_TODO:
-      const deletedStateTodos = state.todos.filter(item => item.id !== action.payload)
+      const deletedStateTodos = state.todos.filter(
+        item => item.id !== action.payload
+      );
       return Object.assign({}, state, { todos: deletedStateTodos });
     default:
       return state;

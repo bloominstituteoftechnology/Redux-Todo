@@ -1,11 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { ListGroup, ListGroupItem } from "reactstrap";
-import { completeTodo } from "../actions/action";
+import { completeTodo, deleteTodo } from "../actions/action";
 
 class TodoList extends React.Component {
   completeHandler = id => {
     this.props.completeTodo(id);
+  };
+
+  deleteHandler = id => {
+    this.props.deleteTodo(id);
   };
 
   render() {
@@ -20,7 +24,10 @@ class TodoList extends React.Component {
               action
               onClick={() => this.completeHandler(item.id)}
             >
-              {item.todo}
+              <p>{item.todo}</p>
+              <button onClick={() => this.deleteHandler(item.id)}>
+                X-Delete
+              </button>
             </ListGroupItem>
           ))}
         </ListGroup>
@@ -37,5 +44,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { completeTodo }
+  { completeTodo, deleteTodo }
 )(TodoList);
