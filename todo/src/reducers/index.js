@@ -2,8 +2,10 @@ import { ADD_TODO } from "../actions/actions";
 
 
 const initialState = {
-    todo:'',
-    completed: false
+    todos:[
+        { todo: "Get Milk", completed: false},
+        { todo: "Pick up dog food", completed: false }
+    ]
 
 }
 
@@ -12,7 +14,7 @@ export default (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_TODO:
-            return { ...state, ...action.payload }
+            return [...state, { todo: action.payload, completed: false }]
         default:
             return state
     }

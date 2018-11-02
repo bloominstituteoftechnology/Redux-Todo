@@ -7,7 +7,7 @@ class AddTodo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            todo: '',
+            todos: '',
             completed:false
         }
     }
@@ -17,14 +17,14 @@ class AddTodo extends React.Component {
 
     formSubmitHandler = e => {
         e.preventDefault()
-        this.props.addTodo(this.state.todo)
+        this.props.addTodo(this.state.todos)
 
     }
     render() {
         return (
 
                 <form onSubmit={this.formSubmitHandler}>
-                    <input type='text' name='todo' value={this.state.todo} onChange={this.inputHandler} />
+                    <input type='text' name='todos' value={this.state.todos} onChange={this.inputHandler} />
                     <button type="submit">Add Todo </button>
                 </form>
 
