@@ -13,7 +13,12 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      text: 'Generic Todo Item'
+      todoArray: [
+        { value: "1st item one ", completed: false },
+        { value: "2nd item two ", completed: false },
+        { value: "3rd item three ", completed: false },
+        { value: "4th item four ", completed: false },
+      ]
     }
   }
 
@@ -27,7 +32,14 @@ class App extends Component {
             Redux Todo App:
           </p>
           <div>
-              {this.state.text}
+              <ul>
+                {this.state.todoArray.map((todo) => {
+                  return <li>{todo.value}</li>
+                })}
+              </ul>
+          </div>
+          <div>
+              <Todosarraydisplay />
           </div>
 
         </header>

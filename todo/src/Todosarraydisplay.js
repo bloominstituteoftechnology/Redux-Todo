@@ -1,14 +1,32 @@
-// import React from 'react';
-// import Todosarray from './Todosarray';
+import React from 'react';
+import Todosarray from './Todosarray';
 
-// const Todosarray = './Todosarray';
 
-// const Todosarraydisplay = props => {
-//     // return (
-//     //     {Todosarray.map((todo) => {
-//     //         todo.text;
-//     //     })}
-//     // )
-// }
+class Todosarraydisplay extends React.Component {
+    constructor(props){
+        super(props);
+        // this.state = {
+        //     todosarray: [
+        //         { text: "Cat " },
+        //         { text: "Fish " },
+        //         { text: "Dog " },
+        //         { text: "Bird " },
+        //     ]
+        // }
+    }
 
-// export default Todosarraydisplay
+    
+    render(){
+        return (
+            <div>
+                <ul>
+                    {Todosarray.map((todo) => {
+                        return <li>{todo.text}</li>;
+                    })}
+                </ul>
+            </div>
+        )
+    }
+}
+
+export default Todosarraydisplay;

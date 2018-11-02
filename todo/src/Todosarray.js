@@ -1,13 +1,11 @@
 /* TodosArray */
-import React from 'react';
 
-const Todosarray = () => {
-    return [
-        { text: "todo item 1" },
-        { text: "todo item 2" },
-        { text: "todo item 3" },
-        { text: "todo item 4" },
-    ]
-}
+const Todosarray = [
+        { text: "Kobe Bryant " },
+        { text: "Michael Jordan " },
+        { text: "Shaq " },
+        { text: "Lebron " },
+]
+
 
 export default Todosarray;
