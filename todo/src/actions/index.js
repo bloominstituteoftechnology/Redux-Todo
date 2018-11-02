@@ -10,14 +10,20 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 // logic of updating the central Redux store. That
 // is left to the reducer(s).
 
-export const addToDo = () => {
-    return { type: ADD_TODO }
-};
-
-export const completeToDo = () => {
-    return { type: COMPLETE_TODO }
-};
 
 export const removeToDo = () => {
     return { type: REMOVE_TODO }
+};
+
+
+
+export const addToDo = todo => {
+  return {
+    type: ADD_TODO,
+    payload: todo
+  };
+};
+
+export const completeToDo = todoId => {
+  return { type: COMPLETE_TODO, payload: todoId };
 };

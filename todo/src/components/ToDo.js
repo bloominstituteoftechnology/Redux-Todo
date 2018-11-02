@@ -2,7 +2,7 @@ import React from 'react'
 import '../App.css';
 
 const ToDo = props => {
-    return props.list.map((item, id) => (
+    return props.todos.map((item, id) => (
       <li
         onClick={() => props.toggleComplete(item.id)}
         key={id}
