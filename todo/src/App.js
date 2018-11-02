@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import ToDoList from './components/ToDoList';
+import ToDoForm from './components/ToDoForm';
 
 class App extends Component {
   constructor(){
@@ -17,9 +19,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <input type='text' placeholder='Your item to do' onChange={this.inputHandler}></input>
-        <button type='submit'>Submit</button>
+        <ToDoForm />
         <div className="Todo-List">The to do list will appear here</div>
+        <ToDoList />
       </div>
     );
   }
