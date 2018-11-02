@@ -7,7 +7,10 @@ import App from './App';
 import todos from './reducers'
 
 // Instantiate the central Redux store
-const store = createStore(todos);
+const store = createStore(
+  todos,
+  /*window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()*/
+);
 
 // Wrap component inside of Provider tags so that React knows where to pass 
 // state to.

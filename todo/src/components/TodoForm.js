@@ -2,7 +2,10 @@ import React from 'react';
 
 const TodoForm = (props) => {
   return (
-    <div>Todo Form</div>
+    <div className="todoForm">
+      <input type='text' placeholder='...todo' onKeyUp={props.updateEntry} />
+      <button onClick={() => {}}>Add ToDo</button>
+    </div>
   );
 };
 

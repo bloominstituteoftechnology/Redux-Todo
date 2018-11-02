@@ -15,8 +15,19 @@ export default ( state = initialState, action ) => {
   // let oldState = state.todos;
 
   switch( action.type ) {
-    case ADD_TODO:
+    //case ADD_TODO:
     case TOGGLE:
+      const newState = state.todos.map( (todo) => {
+        if( action.payload === todo.id ){
+          todo.completed = !todo.completed;
+          return todo;
+        }
+        else{
+          return todo;
+        }
+      });
+      return Object.assign({}, state, { todos: newState });
+
     default:
       return state;
   }

@@ -12,7 +12,13 @@ class TodoList extends Component {
       <div className='todoList'>
         {this.props.todos.map( (todo, index) => {
           return (
-            <Todo id={index} value={todo.value} completed={todo.completed} click={() => this.props.toggleTodo} />
+            <Todo 
+              key={index} 
+              id={index} 
+              value={todo.value} 
+              completed={todo.completed} 
+              click={() => this.props.toggleTodo({index})} 
+            />
           );
         })}
         <TodoForm />
