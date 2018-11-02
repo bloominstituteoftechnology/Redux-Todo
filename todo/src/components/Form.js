@@ -1,21 +1,68 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
 import TodoList from './TodoList'
+import {addTodo} from '../actions/actions.js'
 
-const Form = () =>{
 
-    return (
-        <div>
-            <form onSubmit={()=>{}}>
-                <input type="text" placeholder="Add todo"/>
-                <button type="submit">Add Todo</button>
-            </form>
+class Form extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            todoText:''
+        }
+    }
 
+    changeHandler = (e) =>{
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+
+
+    clickHandler = (e) =>{
+        e.preventDefault()
+        if(this.state.todoText !== ''){
+            this.props.addTodo(this.state.todoText)
+        }
+        this.setState({todoText: ''})
+
+    }
+
+    render(){
+
+        return (
             <div>
-                <TodoList />
+                <form onSubmit={this.clickHandler}>
+                    <input type="text" 
+                        placeholder="Add todo" 
+                        onChange={this.changeHandler}
+                        name="todoText"
+                        value={this.state.todoText}/>
+                    <button type="submit">Add Todo</button>
+                </form>
+    
+                <div>
+                    <TodoList />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 
 }
 
-export default Form
+    const mapStateToProps = state => {
+        return {}
+    }
+
+
+export default connect(mapStateToProps, {addTodo})(Form)
+
+// const addTodo = (todo) => {
+//     return {type: ADD_TODO, payload: todo}
+// }
+
+// const removeTodo = (id) => {
+//     return {type: REMOVE_TODO, payload: id}
+// }
