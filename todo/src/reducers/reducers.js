@@ -6,7 +6,13 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case "ADD_ITEM":
-            return { value: action.value, completed: false }
+            return Object.assign( 
+                {}, state, state.todos.concat([{
+                    id: action.id,
+                    value: action.value,
+                    completed: false }
+                ])
+            )
         default:
             return state
     }

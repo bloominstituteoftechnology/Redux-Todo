@@ -18,7 +18,7 @@ class Form extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault();
-        this.props.addItem(this.state.item);
+        console.log(this.props.addItem(this.state.item));
     }
 
     render(){

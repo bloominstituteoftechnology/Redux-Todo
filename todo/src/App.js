@@ -4,23 +4,11 @@ import ToDoList from './components/ToDoList';
 import ToDoForm from './components/ToDoForm';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      value: ''
-    }
-  }
-
-  inputHandler = (e) => {
-    console.log(this.state.value);
-    this.setState({ value: e.target.value })
-  }
-
   render() {
     return (
       <div className="App">
         <ToDoForm />
-        <div className="Todo-List">The to do list will appear here</div>
+        <div>The to do list will appear here</div>
         <ToDoList />
       </div>
     );
