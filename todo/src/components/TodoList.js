@@ -1,8 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {removeTodo} from '../actions/actions.js'
+import {toggleComplete} from '../actions/actions.js'
 
 const TodoList = (props) =>{
+
+ 
+
     if(!props.todos.length){
         return null
     }else {
@@ -10,7 +13,11 @@ const TodoList = (props) =>{
         return (
           <ul>
               {props.todos.map(todo =>{
-                  return <li key={todo.id}>
+                  {console.log(todo)}
+                  return <li 
+                    style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
+                    key={todo.id} 
+                    onClick={() => {props.toggleComplete(todo.id)}}>
                       {todo.value}
                   </li>
               })}
@@ -27,4 +34,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {removeTodo})(TodoList)
+export default connect(mapStateToProps, {toggleComplete})(TodoList)

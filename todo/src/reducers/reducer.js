@@ -1,4 +1,4 @@
-import {ADD_TODO, REMOVE_TODO} from '../actions/actions.js'
+import {ADD_TODO, TOGGLE_COMPLETED} from '../actions/actions.js'
 
 const initialState = {todos: []}
 
@@ -11,8 +11,15 @@ export const reducer = (state = initialState, action) =>{
                 {todos: state.todos.concat([action.payload])})
 
             
-        case REMOVE_TODO:
-            break;
+        case TOGGLE_COMPLETED:
+            return Object.assign({}, 
+                state,
+                {todos: state.todos.map(todo => {
+                    if(todo.id === action.payload){
+                        return Object.assign({}, todo, {completed: !todo.completed})
+                    }
+                })})
+
         default:
             return state;
     }
