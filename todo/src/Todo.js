@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import './App.css';
 
 class Todo extends Component {
+
     render() {
         return (
-            <div>
-                {this.props.todo}
+            <div 
+                className={this.props.todo.completed ? 'todo-completed' : 'todo'}
+                onClick={this.props.onClick}
+            >
+                {this.props.todo.name}
             </div>
         );
     }

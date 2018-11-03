@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Todo from './Todo.js'
 import { connect } from 'react-redux'
+import { toggleCompletedAction } from './actions'
 
 class TodoList extends Component {
-    constructor(props) {
-        super(props);
+    clickHandler = (e, payload) => {
+        e.preventDefault();
+        this.props.toggleCompletedAction(payload);
     }
 
     render() {
@@ -13,7 +15,9 @@ class TodoList extends Component {
                 {this.props.todos.map(todo =>
                     <Todo 
                         todo={todo}
-                        key={todo}
+                        key={Math.random()}
+                        onClick={(e) => this.clickHandler(e, todo)}
+                        id={todo.id}
                     />
                 )}
             </div>
@@ -27,4 +31,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, {toggleCompletedAction})(TodoList);
