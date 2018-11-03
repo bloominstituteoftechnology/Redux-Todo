@@ -2,18 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { AddTodoAction } from '../redux/actions';
 
-const AddTodo = ({dispatch}) => {
+const AddTodo = (props) => {
     let input;
 
     return (
         <div>
             <form onSubmit={e => {
                 e.preventDefault();
-                if (!input.value.trim()) {
+
+                if (!input.value) {
                     return;
                 }
-                dispatch(AddTodoAction(input.value))
-                    input.value = '';
+
+                props.AddTodoAction(input.value)
+
+                input.value = '';
             }}>
                 <input ref={node => input = node} />
                 <button type='submit'>
@@ -24,4 +27,7 @@ const AddTodo = ({dispatch}) => {
     )
 }
 
-export default connect()(AddTodo);
+const mapStateToProps = () => {
+    return {};
+}
+export default connect(mapStateToProps, {AddTodoAction})(AddTodo);

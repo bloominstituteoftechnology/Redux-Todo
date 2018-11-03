@@ -1,31 +1,37 @@
 import { ADD_TODO, UPDATE_TODO, DELETE_TODO } from './actions';
 
-const intialState = {
-    newTitle: '',
-    todoCards: [{
+const intialState = [
+    {
         id: 0,
         title: 'Clean kitchen',
         complete: false,
-    }]
-};
+    },
+    {   
+        id: 1,
+        title: 'Clean kitchen',
+        complete: true,
+    }
+];
 
 // TODO = {id: 0, title: 'Clean garage', }
 export const reducer = (state = intialState, action) => {
+    
     switch(action.type) {
         case ADD_TODO: 
-            return [...state, { id: state.todoCards.length + 1, title: action.title, complete: false }]
+            return [...state, {id: state.length + 1, title: action.title, complete: false}]
 
         case UPDATE_TODO:
-            console.log(action);
-            return state.todoCards.map(todo =>{
+            return state = state.map(todo =>{
                 if (todo.id === action.id) {
-                    return {...todo, complete: !todo.complete};
+                    return {id: todo.id, title: todo.title, complete: !todo.complete};
                 }
                 return todo;
             })
+            
         case DELETE_TODO:
             return
 
-        default: return state;
+        default: 
+            return state;
     }
 }

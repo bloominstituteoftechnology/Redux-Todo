@@ -8,21 +8,21 @@ const TodoList = (props) => {
     return (
         <div className='todo-list'>
             {props.todoCards.map(card => {
-                console.log(card.complete)
                 if (card.complete) {
                     return (
-                        <p className='todo-card complete' onClick={() => alert('boo')}>{card.title}</p>
+                        <p key={card.id} className='todo-card complete' onClick={() => props.UpdateTodoAction(card.id)}>{card.title}</p>
                     )
                 }
-                return <p className='todo-card' onClick={() => UpdateTodoAction(card.id)}>{card.title}</p>
+                return <p key={card.id} className='todo-card' onClick={() => props.UpdateTodoAction(card.id)}>{card.title}</p>
             })}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        todoCards: state.todoCards,
+        todoCards: state,
     }
 }
 
