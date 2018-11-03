@@ -1,7 +1,7 @@
 
 
 const initialState = {
-    todos: []
+    todos: ["something", "nice"]
 }
 
 export default (state = initialState, action) => {
