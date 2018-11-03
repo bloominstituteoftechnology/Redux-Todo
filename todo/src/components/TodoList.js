@@ -13,7 +13,8 @@ const TodoList = (props) =>{
         return (
           <ul>
               {props.todos.map(todo =>{
-                  {console.log(todo)}
+                  {console.log('props.todos', props.todos)}
+                  {console.log('todo', todo)}
                   return <li 
                     style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
                     key={todo.id} 
