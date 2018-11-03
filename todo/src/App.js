@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import TodoContainer from './components/TodoContainer';
+import TodoInput from './components/TodoInput';
 import './App.css';
 
 class App extends Component {
