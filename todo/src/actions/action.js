@@ -18,3 +18,10 @@ export const deleteTodo = id => {
         payload: id,
     }
 }
+
+export const pullingLocalStorage = todos => {
+    return {
+        type: 'PULLING_STORAGE',
+        payload: todos,
+    }
+}

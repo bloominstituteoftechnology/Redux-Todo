@@ -16,6 +16,11 @@ export default (state=initialState, action) => {
         return {todos: [...copy]};
         case 'DELETE_TODO':
         return {todos: state.todos.filter(todo => todo.id !== action.payload)}
+        case 'PULLING_STORAGE':
+        if(action.payload) {
+            return {todos: action.payload}
+        }
+        break;
         default:
         return state;
     }
