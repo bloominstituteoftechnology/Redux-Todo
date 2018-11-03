@@ -16,6 +16,7 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+//First, create store, wrap around App (take state off React, put in Redux)
 ReactDOM.render(
     <Provider store={store} >
         <App /> 

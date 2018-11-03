@@ -5,6 +5,7 @@ const Headline = props => {
     return <h1> Headline: {props.nombre} </h1>
 }
 
+// change state.name -> state.name.value - not working
 const mapStateToProps = state => {
     return { nombre: state.name }
 }

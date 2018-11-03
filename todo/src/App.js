@@ -16,8 +16,6 @@ import Todosarraydisplay from './Todosarraydisplay';
 
 
 
-
-
 class App extends Component {
   constructor(props){
     super(props);
@@ -28,16 +26,20 @@ class App extends Component {
         { value: "3rd item three ", completed: false },
         { value: "4th item four ", completed: false },
       ],
-      name: "",
+      name: '', //[{value: ""}],
     };
   }
 
+  //change name -> name.value
   inputHandler = event => {
+    // this.setState({ [event.target.name.value]: event.target.value });
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  //change name -> name.value; doesn't break when click submit (but command does not go thru)
   formSubmitHandler = event => {
     event.preventDefault();
+    // this.props.updateTodoAction(this.state.name.value);
     this.props.updateTodoAction(this.state.name);
   }
 
@@ -60,7 +62,12 @@ class App extends Component {
           </div>
 
           <div>
-            <Headline />
+            <Headline /> 
+            {/* <ul>
+                {this.state.name.map((item) => {
+                  return <li> {item.value} </li>   //change name -> name.value to accomodate
+                })}
+            </ul> */}
           </div>
           
           <form onSubmit={this.formSubmitHandler}>
@@ -68,6 +75,7 @@ class App extends Component {
                   placeholder="some text"
                   type="text"
                   name="name"
+                  // value={this.state.name.value}   //change name -> name.value; doesn't break when type
                   value={this.state.name}
                   onChange={this.inputHandler}
                 />
@@ -91,19 +99,14 @@ class App extends Component {
 
         </header>
 
-
-
-        {/* <h1><TodoDetail /></h1>
-        <TodosList /> */}
-        
       </div>
     );
   }
 }
 
-const mapStateToProps = () => {
-  return {};
-}
+// const mapStateToProps = () => {
+//   return {};
+// }
 
 export default connect(
   () => ({}), 
@@ -115,3 +118,6 @@ export default connect(
 // create a basic todo app WITHOUT Redux first,
 // then go through steps that Dan went through in creating sandbox to ADD Redux files
 // initially, ignore what you did last night, THEN merge
+
+
+// 
