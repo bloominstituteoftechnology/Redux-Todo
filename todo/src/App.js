@@ -1,28 +1,59 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import {connect} from 'react-redux';
+import {handleSubmit, handleClear, handleCompleted} from './actions';
+
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      todo: ''
+    };
+  }
+
+  handleChange = (event) => {
+    this.setState({todo: event.target.value});
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if(this.state.todo !== '') {
+      this.props.handleSubmit(this.state.todo);
+      this.setState({todo: ''});      
+    }
+  };
+
+  handleCompleted = (event) => {
+    this.props.handleCompleted(event);
+  };
+
+  handleClear = (event) => {
+    this.props.handleClear(event);
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="todo">
+          <h1>Todo List:</h1>
+          <TodoList todos={this.props.todos} handleCompleted={this.handleCompleted} handleClear={this.handleClear} />
+          <TodoForm todos={this.props.todos} handleChange={this.handleChange} handleSubmit={this.handleSubmit} value={this.state.todo} />
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+// tells component what props will be added
+const mapStateToProps = state => {
+  console.log('state', state);
+  return {
+    todos: state
+  };
+};
+
+export default connect(mapStateToProps, {handleSubmit, handleClear, handleCompleted})(App);
+// new connected class
