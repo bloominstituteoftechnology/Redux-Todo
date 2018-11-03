@@ -17,12 +17,12 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {todos: [...state.todos , {todo: action.payload, completed:false}]});
         case TOGGLE_TODO:
             return {
-                ...state, todos: state.todos.map((todo, id) => {
-                if (id === action.payload) {
+                ...state, todos: state.todos.map((todo, index) => {
+                if (index === action.payload) {
                     return { ...todo, completed: !todo.completed }
                 }
                 else {
-                    return id;
+                    return todo;
                 }
                 }
                 )}

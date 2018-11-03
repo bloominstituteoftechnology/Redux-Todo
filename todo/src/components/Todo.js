@@ -10,7 +10,7 @@ const Todo = props => {
     return <ul>{props.todos.map((todo, index) => (
         <div key={index}>
             <h4 style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-            onClick={()=> this.props.toggleTodo(index)}>
+            onClick={()=> props.toggleTodo(index)}>
                 {todo.todo}
             </h4>
         </div>
