@@ -10,7 +10,7 @@ import todoList from './reducers';
 const store = createStore(todoList)
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <App />
     </Provider>, document.getElementById('root'));
 
