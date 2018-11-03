@@ -8,12 +8,13 @@ const ToDoForm = props => {
 			<div>
 				<input
 					name="todoText"
+					className="inputField"
 					value={props.todoText}
 					type="text"
 					onChange={props.handleInputChange}
 					placeholder="Add todo"
 				/>
-				<button onClick={props.addToDo}>Add Todo</button>
+				<button className="inputButton" onClick={props.addToDo}>Add Todo</button>
 				<button className="clearButton" onClick={props.clearComplete}>Clear Completed</button>
 
 			</div>

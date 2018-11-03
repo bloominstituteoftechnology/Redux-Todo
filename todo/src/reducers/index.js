@@ -22,6 +22,7 @@ export const todosReducer = (state = initialState, action) => {
     case COMPLETE_TODO:
       const id = action.payload;
       const todos = state.todos.map(todo => {
+        console.log("todoid", todo.id, id)
         if (todo.id === id) {
           todo.completed = !todo.completed;
           return todo;
@@ -31,7 +32,11 @@ export const todosReducer = (state = initialState, action) => {
       });
       return Object.assign({}, state, { todos: todos });
     
-     default:
+     case REMOVE_TODO:
+      console.log("in the remove todo")
+      return 
+     
+      default:
       return state;
   }
 };

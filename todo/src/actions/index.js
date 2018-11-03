@@ -11,8 +11,10 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 // is left to the reducer(s).
 
 
-export const removeToDo = () => {
-    return { type: REMOVE_TODO }
+export const removeToDo = todoId => {
+    return { 
+      type: REMOVE_TODO, 
+      payload: todoId }
 };
 
 
@@ -24,6 +26,6 @@ export const addToDo = todo => {
   };
 };
 
-export const completeToDo = todoId => {
+export const completeTodo = todoId => {
   return { type: COMPLETE_TODO, payload: todoId };
 };

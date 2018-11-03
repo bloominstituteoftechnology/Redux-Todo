@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { completeToDo } from '../actions';
+import { completeTodo } from '../actions';
 
 const style = { textDecoration: 'line-through' };
 
@@ -9,8 +9,8 @@ const Todos = props => {
     <div>
       {props.todos.map(todo => (
         <li
-          //style={todo.completed ? style : null}
-          onClick={() => props.completeToDo(todo.id)}
+          style={todo.completed ? style : null}
+          onClick={() => props.completeTodo(todo.id)}
           key={todo.id}
         >
           {todo.text}
@@ -20,20 +20,5 @@ const Todos = props => {
   );
 };
 
-export default connect(null, { completeToDo })(Todos);
+export default connect(null, { completeTodo })(Todos);
 
-/* const ToDoList = props => {
-	return (
-		<div>
-			<ul className="ul">
-				<ToDo
-					todos={props.todos}
-					id={props.id}
-					toggleComplete={props.toggleComplete}
-				/>
-			</ul>
-		</div>
-	);
-};
-
-export default ToDoList; */

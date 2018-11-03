@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.state = {
       todoText: '',
-      todoList: [],
+     /*  todoList: [], */
+      todos: [],
       inputText: ''
     };
   }
@@ -27,6 +28,7 @@ class App extends Component {
       e.preventDefault();
       const { todoText } = this.state;
       const newTodo = {
+        
         id: this.props.todos.length + 1,
         completed: false,
         text: todoText
@@ -35,30 +37,13 @@ class App extends Component {
       this.setState({ todoText: '' });
     };
 
-
-
-  /********* Add Todo Items to Array *****/
-  /* addToList = event => {
-    event.preventDefault();
-    //grab the current state
-    let newArr = this.state.todoList;
-    let newTodo = {
-      task: this.state.inputText,
-      id: Date.now(),
-      completed: false
-    };
-    newArr.push(newTodo);
-    //refresh the state
-    this.setState({
-      todoList: newArr,
-      inputText: ''
-    });
-  }; */
-
   /******** Remove Completed Items *********/
   clearComplete = event => {
     event.preventDefault();
-    let newTodos = this.state.todos.slice();
+   console.log(this.state)
+   
+    let newTodos = this.props.todos.slice();
+    console.log(newTodos)
     newTodos = newTodos.filter(item => {
       return item.completed === false;
     });
@@ -72,7 +57,12 @@ class App extends Component {
   toggleComplete = id => {
     let tempToDos = this.state.todos.slice();
     tempToDos.map(todo => {
-    //  todo.id === id ? todo.completed = !todo.completed : null;
+      console.log("togglecomplete", todo.id)
+      if (todo.id === id) {
+        todo.completed = !todo.completed
+      }
+     /*  todo.id === id ? todo.completed = !todo.completed : null; */
+         
       return todo;
     });
     //refresh the state
@@ -89,11 +79,11 @@ class App extends Component {
   render() {
     return (
       <div>""
-     <div className="h1Container"> <h1>To Do List</h1></div>
+     <div className="h1Container"> <h1>Redux To Do List</h1></div>
         <div className="todoContainer">
         <Todos todos={this.props.todos} 
            /*  list={this.props.todoList} */
-            id={this.state.id}
+            id={this.props.id}
             toggleComplete={this.toggleComplete}
           />
           <ToDoForm
@@ -112,26 +102,6 @@ class App extends Component {
     );
   }
 }
-
-/* render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome {this.props.name}</h1>
-        </header>
-        <TodoForm
-          handleInputChange={this.handleInputChange}
-          todoText={this.state.todoText}
-          addTodo={this.addTodo}
-        />
-        <div className="App-intro">
-          <ToDoList todos={this.props.todos} />
-        </div>
-      </div>
-    );
-  }
-} */
 
 const mapStateToProps = state => {
   return {
