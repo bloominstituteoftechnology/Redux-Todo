@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import connect from 'react-redux';
+import { connect } from 'react-redux';
+import { addTodo, toggleTodo } from '../actions/index';
+import TodoItem from './TodoItem';
 
 class TodoList extends Component {
     constructor(props) {
@@ -8,11 +10,23 @@ class TodoList extends Component {
 
     render() {
         return (
-            <div>
-                Hello World!
-            </div>
+            <>
+                <form>
+                    <input />
+                    <button onClick={this.props.addTodo}>Add Todo</button>
+                </form>    
+                {this.props.todos.map(funtcion => (
+                    <TodoItem />
+                ))}
+            </>
         )
     }
 }
 
-export default TodoList;
+const mapStateToProps = (state) => {
+    return {
+        todos: state.todos
+    }
+}
+
+export default connect(mapStateToProps, { addTodo, toggleTodo })(TodoList);
