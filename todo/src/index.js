@@ -11,7 +11,7 @@ import { Provider } from 'react-redux'; // Wrap around App component. Access to 
 // Testing with Redux Chrome extension
 const store = createStore(todosReducer, 
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    ); 
+    ); Created metProvider for access to 
 
  ReactDOM.render(
 <Provider store={store}>
