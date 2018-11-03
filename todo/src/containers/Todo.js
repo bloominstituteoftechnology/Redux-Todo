@@ -43,7 +43,9 @@ class Todo extends React.Component{
     handleDeleteTodo = (event)=>{
         event.preventDefault();
         event.stopPropagation();
-        this.props.deleteTodo(this.props.todo.id);
+        if(this.props.todo.completed){
+            this.props.deleteTodo(this.props.todo.id);
+        }
     }
 
     render(){
