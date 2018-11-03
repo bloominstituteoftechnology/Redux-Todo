@@ -5,7 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 // import { BrowserRouter as Router } from 'react-router-dom';
 import {Provider} from '../node_modules/react-redux';
+import {createStore} from 'redux';
+// import todoList from './components/TodoList';
+import {connect} from '../node_modules/react-redux';
 
+// const store = createStore(todoList)
 
 ReactDOM.render(
     <Provider>
