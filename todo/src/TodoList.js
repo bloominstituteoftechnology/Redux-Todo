@@ -17,7 +17,6 @@ class TodoList extends Component {
                         todo={todo}
                         key={Math.random()}
                         onClick={(e) => this.clickHandler(e, todo)}
-                        id={todo.id}
                     />
                 )}
             </div>
