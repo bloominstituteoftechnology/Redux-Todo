@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updateTodoAction } from './action';
+import Headline from './Headline';
+
 import logo from './logo.svg';
 import './App.css';
-import Todosarray from './Todosarray';
+
 import Todosarraydisplay from './Todosarraydisplay';
 
-import TodosList from './containers/TodosList';
-import TodoDetail from './containers/TodoDetail';
+// import TodosList from './containers/TodosList';
+// import TodoDetail from './containers/TodoDetail';
+
+
+// import { connect } from '../node_modules/react-redux';
+
+
 
 
 
@@ -18,9 +27,20 @@ class App extends Component {
         { value: "2nd item two ", completed: false },
         { value: "3rd item three ", completed: false },
         { value: "4th item four ", completed: false },
-      ]
-    }
+      ],
+      name: "",
+    };
   }
+
+  inputHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  formSubmitHandler = event => {
+    event.preventDefault();
+    this.props.updateTodoAction(this.state.name);
+  }
+
 
 
   render() {
@@ -38,12 +58,27 @@ class App extends Component {
                 })}
               </ul>
           </div>
+
+          <div>
+            <Headline />
+          </div>
           
-          <form>
-                <input placeholder="some text"/>
-                <button>submit</button>
+          <form onSubmit={this.formSubmitHandler}>
+                <input 
+                  placeholder="some text"
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.inputHandler}
+                />
+                <button type="submit">submit</button>
           </form>
 
+
+
+          <p>
+            Redux Todo App Version TWO:
+          </p>
 
           <div>
               <Todosarraydisplay />
@@ -58,15 +93,24 @@ class App extends Component {
 
 
 
-        <h1><TodoDetail /></h1>
-        <TodosList />
+        {/* <h1><TodoDetail /></h1>
+        <TodosList /> */}
         
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = () => {
+  return {};
+}
+
+export default connect(
+  () => ({}), 
+  {updateTodoAction: updateTodoAction} 
+)(App);
+
+// export default App;
 
 // create a basic todo app WITHOUT Redux first,
 // then go through steps that Dan went through in creating sandbox to ADD Redux files
