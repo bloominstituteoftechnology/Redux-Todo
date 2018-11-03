@@ -3,10 +3,12 @@
 import React from 'react'
 import Todo from './Todo';
 import { connect } from "react-redux";
+import { ListGroup } from 'reactstrap';
+import './index'
 const TodoList = (props) => {
     
     return (
-        <ul>
+        <ListGroup className="listgroup">
             {props.tasks.map(todo => {
                 return (
                 
@@ -14,7 +16,7 @@ const TodoList = (props) => {
                 
                 );
             })}
-        </ul>
+        </ListGroup>
     )
 }
 const mapStateToProps = state => {
