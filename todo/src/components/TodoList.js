@@ -2,6 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo, removeTodos, toggleTodo } from '../actions'
 
+import styled from 'styled-components';
+
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+`;
+
+const Button = styled.button`
+    width: 45%;
+    background-color: lightcoral;
+`;
+
+const Title = styled.h1`
+    display: flex;
+    justify-content: center;
+`;
+
 class TodoList extends Component {
     constructor() {
         super();
@@ -42,18 +61,22 @@ class TodoList extends Component {
     render() {
         return (
             <div>
+                <Title>Colin's Todo List</Title>
                 <form>
                     <input
                         name="text"
                         value={this.state.text}
                         onChange={this.inputHandler}
                     />
-                    <button 
-                        type="button"
-                        onClick={this.addHandler}
-                    >
-                        Add
-                    </button>
+                    <ButtonContainer>
+                        <Button 
+                            type="button"
+                            onClick={this.addHandler}
+                        >
+                            Add
+                        </Button>
+                        <Button onClick={() => this.removeHandler()}>Clear</Button>
+                    </ButtonContainer>
                 </form>
                 <ul>
                     {this.props.todos.map( todo => {
@@ -72,7 +95,6 @@ class TodoList extends Component {
                         )
                     })}
                 </ul>
-                <button onClick={() => this.removeHandler()}>Clear</button>
             </div>
         )
     }
