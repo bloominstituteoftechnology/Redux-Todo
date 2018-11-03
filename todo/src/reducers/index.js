@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO } from '../actions';
 
 
 const defaultTODOS = {
@@ -13,6 +13,15 @@ export default (todos = defaultTODOS, action) => {
   switch (action.type) {
     case ADD_TODO:
       return Object.assign({}, todos, {todos: todos.todos.concat(action.payload)});
+    case TOGGLE_TODO:
+        todos.todos.filter(todo => {
+          if (todo.value === action.payload) {
+            todo.completed = !todo.completed
+          }
+        })
+        console.log(todos);
+        return Object.assign({}, todos)
+      break;
     default:
       return todos;
   }

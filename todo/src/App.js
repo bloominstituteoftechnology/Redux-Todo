@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { store } from './index';
 import { connect } from 'react-redux';
 
 
@@ -11,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>TO DO List</h1>
-        <TodoContainer todos={store.getState().todos}/>
+      <TodoContainer todos={this.props.todos.todos}/>
       </div>
     );
   }
@@ -19,7 +18,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    state: state
+    todos: state
   }
 }
 
