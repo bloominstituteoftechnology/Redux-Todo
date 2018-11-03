@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className="header-img" />
-        {/* <TodoList tasks={this.state.tasks} clickHandler={this.clickHandler} /> */}
+        <TodoList />
         <TodoForm />
       </div>
     );

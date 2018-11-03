@@ -1,4 +1,5 @@
 export const ADD_TODO = "ADD_TODO";
+export const COMPLETED = "COMPLETED";
 
 export const addTodo = todo => {
     return {
@@ -8,3 +9,10 @@ export const addTodo = todo => {
         }
     }
 };
+
+export const completeTodo = id => {
+    return {
+        type: COMPLETED,
+        payload: id
+    }
+}
