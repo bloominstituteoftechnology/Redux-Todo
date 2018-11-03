@@ -23,13 +23,13 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      todos: [
-        { value: "1st item one ", completed: false },
-        { value: "2nd item two ", completed: false },
-        { value: "3rd item three ", completed: false },
-        { value: "4th item four ", completed: false },
-      ],
-      name: '', //[{value: ""}],
+      // todos: [
+      //   { value: "1st item one ", completed: false },
+      //   { value: "2nd item two ", completed: false },
+      //   { value: "3rd item three ", completed: false },
+      //   { value: "4th item four ", completed: false },
+      // ],
+      // name: '', //[{value: ""}],
     };
   }
 
@@ -57,11 +57,11 @@ class App extends Component {
             Redux Todo App:
           </p>
           <div>
-              <ul>
+              {/* <ul>
                 {this.state.todos.map((todo) => {
                   return <li>{todo.value}</li>
                 })}
-              </ul>
+              </ul> */}
           </div>
 
           <div>
@@ -109,12 +109,12 @@ class App extends Component {
 //   return {};
 // }
 
-export default connect(
-  () => ({}), 
-  {updateTodoAction: updateTodoAction} 
-)(App);
+// export default connect(
+//   () => ({}), 
+//   {updateTodoAction: updateTodoAction} 
+// )(App);
 
-// export default App;
+export default App;
 
 // create a basic todo app WITHOUT Redux first,
 // then go through steps that Dan went through in creating sandbox to ADD Redux files
