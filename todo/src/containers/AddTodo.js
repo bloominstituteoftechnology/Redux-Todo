@@ -18,8 +18,11 @@ class AddTodo extends React.Component {
         e.preventDefault()
         this.props.addTodo(this.state.todo)
         this.setState({todo:''})
-   
+
     }
+
+
+
     render() {
         return (
 

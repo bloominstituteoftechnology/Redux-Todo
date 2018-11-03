@@ -12,9 +12,10 @@ export const addTodo = todo =>
 }
 
 
-export const toggleTodo = () => {
+export const toggleTodo = id => {
     return {
-        type: TOGGLE_TODO
+        type: TOGGLE_TODO,
+        payload: id
 
     }
 }
