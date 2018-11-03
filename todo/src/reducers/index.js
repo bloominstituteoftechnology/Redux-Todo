@@ -12,7 +12,6 @@ const defaultTODOS = {
 export default (todos = defaultTODOS, action) => {
   switch (action.type) {
     case ADD_TODO:
-    console.log(todos)
       return Object.assign({}, todos, {todos: todos.todos.concat(action.payload)});
     default:
       return todos;

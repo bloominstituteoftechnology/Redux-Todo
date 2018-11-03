@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { store } from './index';
+import { connect } from 'react-redux';
 
 
 import TodoContainer from './components/TodoContainer';
@@ -16,4 +17,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    state: state
+  }
+}
+
+export default connect(mapStateToProps)(App);
