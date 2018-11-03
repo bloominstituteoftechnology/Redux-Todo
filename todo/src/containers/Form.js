@@ -31,8 +31,7 @@ class TodoForm extends React.Component {
         <div className="input">
           <input
             type="text"
-            value={this.input}
-            placeHolder={this.input}
+            value={this.state.input}
             onChange={this.changeHandler}
           />
         </div>
@@ -51,6 +50,6 @@ const mapStateToProps = () => {
 };
 
 export default connect(
-  () => ({}),
-  { addTodo: addTodo }
+  mapStateToProps,
+  { addTodo }
 )(TodoForm);

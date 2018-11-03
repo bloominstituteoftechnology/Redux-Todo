@@ -8,8 +8,14 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return Object.assign({}, state, {
-        todo: action.payload.task,
-        completed: false
+        todos: [
+          ...state.todos,
+          {
+            todo: action.payload.task,
+            id: Date.now(),
+            completed: false
+          }
+        ]
       });
     default:
       return state;
