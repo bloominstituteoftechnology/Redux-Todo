@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {connect} from '../node_modules/react-redux';
+import Todo from "../Todo/Todo";
 // import { increment, decrement } from '../actions';
 
 class TodoList extends Component {
@@ -21,6 +22,15 @@ class TodoList extends Component {
             <div>
                 <p>foo</p>
                 <p>bar</p>
+                {props.TodoList.map(newTodo => {
+                    return (
+                        <Todo
+                        key={newTodo.id}
+                        value={newTodo}
+                        handleClick={props.handleClick}
+                        />
+                    )
+                })}
                 <button onClick={}>Add to-do</button>
             </div>
         )
