@@ -1,3 +1,6 @@
-.todo-card .complete {
-    font-weight: bold;
+.todo-card {
+    cursor: pointer;
+}
+.complete {
+    text-decoration: line-through;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { UpdateTodoAction } from '../redux/actions';
+import { UpdateTodoAction, DeleteTodoAction } from '../redux/actions';
 import './todo.css'
 
 const TodoList = (props) => {
@@ -10,7 +10,10 @@ const TodoList = (props) => {
             {props.todoCards.map(card => {
                 if (card.complete) {
                     return (
-                        <p key={card.id} className='todo-card complete' onClick={() => props.UpdateTodoAction(card.id)}>{card.title}</p>
+                        <>
+                            <p key={card.id} className='todo-card complete' onClick={() => props.UpdateTodoAction(card.id)}>{card.title}</p>
+                            <button onClick={() => props.DeleteTodoAction(card.id)}>Delete</button>
+                        </>
                     )
                 }
                 return <p key={card.id} className='todo-card' onClick={() => props.UpdateTodoAction(card.id)}>{card.title}</p>
@@ -20,10 +23,9 @@ const TodoList = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         todoCards: state,
     }
 }
 
-export default connect(mapStateToProps, { UpdateTodoAction })(TodoList);
+export default connect(mapStateToProps, { UpdateTodoAction, DeleteTodoAction})(TodoList);

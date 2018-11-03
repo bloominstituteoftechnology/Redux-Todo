@@ -29,7 +29,7 @@ export const reducer = (state = intialState, action) => {
             })
             
         case DELETE_TODO:
-            return
+            return state = state.splice(action.id, 1);
 
         default: 
             return state;
