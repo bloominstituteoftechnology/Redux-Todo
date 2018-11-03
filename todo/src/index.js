@@ -4,5 +4,11 @@ import './index.css';
 import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-ReactDOM.render(<App />, document.getElementById('root'));
+import { reducer } from './redux/reducer';
+
+ReactDOM.render(
+    <Provider store={createStore(reducer)}>
+        <App />
+    </Provider>
+    , document.getElementById('root'));
 
