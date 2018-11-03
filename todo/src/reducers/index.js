@@ -9,11 +9,12 @@ const defaultTODOS = {
 }
 
 
-export default (state = defaultTODOS, action) => {
+export default (todos = defaultTODOS, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return console.log('add todo');
+    console.log(todos)
+      return Object.assign({}, todos, {todos: todos.todos.concat(action.payload)});
     default:
-      return state;
+      return todos;
   }
 };

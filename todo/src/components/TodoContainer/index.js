@@ -1,11 +1,15 @@
 import React from 'react';
+import TodoForm from '../TodoForm';
 
 export default (props) => {
   return (
-    <ul>
-      {
-        props.todos.map(todo => <li key={todo.value}>{todo.value}</li>)
-      }
-    </ul>
+    <div className='container'>
+      <ul>
+        {
+          props.todos.map(todo => <li key={todo.value}>{todo.value}</li>)
+        }
+      </ul>
+      <TodoForm/>
+    </div>
   );
 }
