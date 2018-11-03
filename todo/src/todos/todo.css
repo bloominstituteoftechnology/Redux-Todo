@@ -1,0 +1,6 @@
+.todo-card {
+    cursor: pointer;
+}
+.complete {
+    text-decoration: line-through;
+}
