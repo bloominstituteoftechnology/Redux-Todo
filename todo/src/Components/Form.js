@@ -17,6 +17,7 @@ class Form extends React.Component{
     submitHandler = (e) => {
         e.preventDefault();
         this.props.addCommentAction(this.state.comment);
+        this.setState({comment: ''})
     }
     
 

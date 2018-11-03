@@ -10,7 +10,7 @@ class TodoList extends React.Component{
             <div>
               {this.props.todos.map(todo => {
                   return (
-                      <Todo comment={todo.value} complete={todo.complete} />
+                      <Todo comment={todo.value} complete={todo.complete} Id={todo.Id} />
                   )
               })}
             </div>
