@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
+import { markDone } from '../actions';
 
 class App extends Component {
   render() {
@@ -8,8 +9,9 @@ class App extends Component {
       <div>
         <ul>
           {this.props.todos.map((todo, i) => (
-            <li key={i}>
-              {todo}
+            <li key={i} onClick={() => this.props.markDone(todo.id) }>
+              {todo.value}
+              {todo.completed}
             </li>
           ))}
         </ul>
@@ -24,4 +26,4 @@ const mapStateToProps = (state) => (
   }
 )
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { markDone })(App);
