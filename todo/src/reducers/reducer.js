@@ -1,4 +1,4 @@
-import {ADD_TODO, TOGGLE_COMPLETED} from '../actions/actions.js'
+import {ADD_TODO, REMOVE_TODO, TOGGLE_COMPLETED} from '../actions/actions.js'
 
 const initialState = {todos: []}
 
@@ -9,6 +9,15 @@ export const reducer = (state = initialState, action) =>{
             return Object.assign({}, 
                 state, 
                 {todos: state.todos.concat([action.payload])})
+
+        case REMOVE_TODO:
+            console.log('in removetodo');
+            return Object.assign({},
+                state,
+                {todos: state.todos.filter(todo =>{
+                    return (todo.completed === false)
+                })}
+            )
 
             
         case TOGGLE_COMPLETED:
