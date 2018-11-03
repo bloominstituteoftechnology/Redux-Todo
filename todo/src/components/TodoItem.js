@@ -1,0 +1,25 @@
+import React from 'react';
+import {toggleCompleted} from "../actions/index";
+import {connect} from 'react-redux';
+
+class todoItem extends React.Component {
+  toggleCompleted = (event) => {
+    this.props.toggleCompleted(this.props.item)
+  }
+
+  render () {
+    return (
+      <li>
+        <input type = 'checkbox' onChange={this.toggleCompleted}/>
+        {this.props.todo.value}
+
+      </li>
+    )
+
+
+  }
+
+
+}
+
+export default connect ({toggleCompleted})(todoItem);
