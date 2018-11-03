@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
     case UPDATE_COMPLETE:
       const update = state.map(item => {
         if(item.id === action.id) {
-          return {...item, completed: true}
+          return {...item, completed: !item.completed}
         }
         return item
       })
