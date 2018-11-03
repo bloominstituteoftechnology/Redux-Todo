@@ -1,12 +1,20 @@
 import React from 'react'; 
+import {connect} from 'react-redux'; 
+import {bindActionCreators} from 'redux'; 
+import addTask from './actions.js'; 
 
-export default class Taskbar extends React.Component{
+class Taskbar extends React.Component{
     render(){
         return(
             <div>
                 <input type="text" />
-                <button>Add Task</button>
+                <button onClick={ () => this.props.addTask(this.refs.task.value)}> Add Task</button>
             </div>
         )
     }
 }
+
+ function mapDispatchToProps(dispatch){
+    return bindActionCreators({addTask}, dispatch) 
+}
+export default connect( () => {}, mapDispatchToProps)(Taskbar); 

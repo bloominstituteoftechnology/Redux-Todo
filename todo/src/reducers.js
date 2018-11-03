@@ -13,7 +13,7 @@ const tasksReducer = (state=[], action) => {
     return state; 
 }
 
-reducers = combineReducers({
+let reducers = combineReducers({
     tasks: tasksReducer
 })
 
