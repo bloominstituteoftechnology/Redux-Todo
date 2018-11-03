@@ -1,4 +1,4 @@
-
+import { ADD_COMMENT } from '../Actions/actions';
 
 const initialState = {
     todos: [
@@ -10,5 +10,10 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-    return state
+    switch (action.type) {
+        case ADD_COMMENT:
+            return { ...state, ...action.payload };
+        default:
+            return state;
+    }
 }
