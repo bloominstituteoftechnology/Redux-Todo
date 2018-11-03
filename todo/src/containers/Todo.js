@@ -4,9 +4,7 @@ import "./Todo.css";
 const Todo = props => {
   return (
     <li
-      onClick={event => {
-        props.clickHandler(event, props.item);
-      }}
+      onClick={event => props.clickHandler(event, props.id)}
       className="list-item"
     >
       {props.item}
