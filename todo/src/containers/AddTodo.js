@@ -10,6 +10,7 @@ const FormContainer = styled.div`
     width: 100%;
     margin-bottom: 20px;
 
+
     form{
         display: flex;
         justify-content: space-between;
@@ -17,7 +18,8 @@ const FormContainer = styled.div`
     
         .todo-input{
             width: 80%;
-            height: 25px;
+            height: 30px;
+            font-size: 1.8rem;
             margin-right: 10px;
             outline: none;
             border: 1px solid black;
@@ -27,6 +29,7 @@ const FormContainer = styled.div`
         .submit-button{
             width: 20%;
             color: black;
+            font-size: 1.8rem;
             background-color: white;
             border: 2px solid black;
             border-radius: 5px;
@@ -46,18 +49,7 @@ class AddTodo extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            currentID: 0,
             value: ''
-        }
-    }
-
-    componentDidMount(){
-        console.log(this.props.todos);
-        if(this.props.todos.length > 0){
-            console.log(this.props.todos);
-            this.setState({
-                currentID: this.props.todos[this.props.todos.length - 1].id + 1
-            })
         }
     }
 
@@ -73,15 +65,14 @@ class AddTodo extends React.Component{
         if(this.state.value === ''){
             return;
         }
-        this.props.addTodo(this.state.currentID, this.state.value);
+        const id = this.props.todos.length ? this.props.todos[this.props.todos.length - 1].id + 1 : 0;
+        this.props.addTodo(id, this.state.value);
         this.setState({
-            currentID: this.state.currentID + 1,
             value: ''
         })
     }
 
     render(){
-        console.log(this.props.todos);
         return(
             <FormContainer>
                 <form onSubmit={this.handleSubmit}>

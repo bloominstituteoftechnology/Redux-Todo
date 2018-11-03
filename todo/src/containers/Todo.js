@@ -7,7 +7,7 @@ const TodoContainer = styled.div`
     align-items: center;
     width: 100%;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px;
     box-shadow: 1px 1px 2px #999999;
     border: 1px solid black;
     border-radius: 5px;
@@ -16,6 +16,7 @@ const TodoContainer = styled.div`
 const TodoItem = styled.p`
     margin-right: 5px;
     word-break: break-all;
+    cursor: pointer;
     ${props=>props.completed ? 'text-decoration: line-through' : null}
 `;
 

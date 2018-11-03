@@ -8,6 +8,7 @@ import {loadSavedTodos, completeTodo, deleteTodo} from '../actions/actions';
 const TodosContainer = styled.ul`
     dipslay: flex;
     flex-direction: column;
+    font-size: 1.8rem;
     width 50%;
 `;
 
