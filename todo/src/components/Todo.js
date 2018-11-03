@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { toggleTodo } from "../actions/actions";
+import { toggleTodo , deleteTodo} from "../actions/actions";
 
 
 
@@ -23,4 +23,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {toggleTodo})(Todo);
+export default connect(mapStateToProps, {toggleTodo, deleteTodo})(Todo);
