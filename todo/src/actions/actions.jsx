@@ -5,7 +5,7 @@ export const inputChange = input => {
   }
 }
 
-export const addTodo = () => {
+export const addToDo = () => {
   return {
     type: "ADD_TODO"
   }
