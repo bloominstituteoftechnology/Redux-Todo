@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateTodoAction } from './action';
-import Headline from './Headline';
+import AddTodo from '../containers/AddTodo';
+import VisibleTodoList from '../containers/VisibleTodoList';
 
-import logo from './logo.svg';
+
+import { updateTodoAction } from '../action';
+import Headline from '../Headline';
+
+import logo from '../logo.svg';
 import './App.css';
 
-import Todosarraydisplay from './Todosarraydisplay';
+import Todosarraydisplay from '../Todosarraydisplay';
 
-// import TodosList from './containers/TodosList';
-// import TodoDetail from './containers/TodoDetail';
+
 
 
 // import { connect } from '../node_modules/react-redux';
@@ -36,12 +39,12 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  //change name -> name.value; doesn't break when click submit (but command does not go thru)
-  formSubmitHandler = event => {
-    event.preventDefault();
-    // this.props.updateTodoAction(this.state.name.value);
-    this.props.updateTodoAction(this.state.name);
-  }
+  //move to AddTodo.js
+  // formSubmitHandler = event => {
+  //   event.preventDefault();
+  //   // this.props.updateTodoAction(this.state.name.value);
+  //   this.props.updateTodoAction(this.state.name);
+  // }
 
 
 
@@ -63,14 +66,12 @@ class App extends Component {
 
           <div>
             <Headline /> 
-            {/* <ul>
-                {this.state.name.map((item) => {
-                  return <li> {item.value} </li>   //change name -> name.value to accomodate
-                })}
-            </ul> */}
           </div>
-          
-          <form onSubmit={this.formSubmitHandler}>
+            
+          <AddTodo />
+          <VisibleTodoList />
+
+          {/* <form onSubmit={this.formSubmitHandler}>
                 <input 
                   placeholder="some text"
                   type="text"
@@ -80,7 +81,7 @@ class App extends Component {
                   onChange={this.inputHandler}
                 />
                 <button type="submit">submit</button>
-          </form>
+          </form> */}
 
 
 
