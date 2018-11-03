@@ -1,20 +1,20 @@
-import { GRAB_TODOS, ADD_TODO, REMOVE_TODOS, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, REMOVE_TODOS, TOGGLE_TODO } from '../actions';
 
-export default (todos = [], action) => {
+const initialState = {
+    todos: []
+  }
+
+export default (state=initialState, action) => {
     switch (action.type) {
-        case GRAB_TODOS:
-            return action.payload;
         case ADD_TODO:
-            return [...todos, action.payload];
+            return {...state, todos: [...state.todos, action.payload]}
         case REMOVE_TODOS:
-            return todos.filter( todo => !todo.completed)
+            return {...state, todos: state.todos.filter(todo => !todo.completed)};
         case TOGGLE_TODO:
-            return todos.map( todo => {
-                if (todo.id === action.payload) {
-                    return Object.assign({}, todo, { completed: !todo.completed })
-                }
-            })
+            let toggleTodos = [...state.todos]
+            toggleTodos[action.payload-1].completed=!toggleTodos[action.payload-1].completed
+            return ({...state, todos:toggleTodos})
         default:
-            return todos;
+            return state;
     }
 }

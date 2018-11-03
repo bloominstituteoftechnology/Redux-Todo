@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { grabTodos, addTodo, removeTodos, toggleTodo } from '../actions'
+import { addTodo, removeTodos, toggleTodo } from '../actions'
 
 class TodoList extends Component {
     constructor() {
         super();
         this.state = {
-            input: '',
+            text: '',
         }
     };
 
@@ -23,12 +23,14 @@ class TodoList extends Component {
     }
 
     addHandler = (event) => {
-        const { input } = this.state;
+        event.preventDefault();
+
+        const { text } = this.state;
         
         const newTodo = {
-            input,
+            text,
             completed: false,
-            id: this.props.todo ? this.props.todo.length + input : 0 + input
+            id: this.props.todos.length + 1
         }
         
         this.props.addTodo(newTodo);
@@ -42,8 +44,8 @@ class TodoList extends Component {
             <div>
                 <form>
                     <input
-                        name="input"
-                        value={this.state.input}
+                        name="text"
+                        value={this.state.text}
                         onChange={this.inputHandler}
                     />
                     <button 
@@ -65,7 +67,7 @@ class TodoList extends Component {
                                     null
                                 }
                             >
-                                {todo.input}
+                                {todo.text}
                             </li>
                         )
                     })}
@@ -83,7 +85,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-    grabTodos,
     addTodo,
     removeTodos,
     toggleTodo
