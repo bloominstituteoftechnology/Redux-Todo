@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
         case DELETE_TODO:
 
             return {
-                ...state, todos: state.todos.map((todo, index) => (index === action.payload) ? { ...todo, completed: !todo.completed } : index)
+                ...state, todos: state.todos.filter(todo =>  !todo.completed)
             }
         default:
             return state
