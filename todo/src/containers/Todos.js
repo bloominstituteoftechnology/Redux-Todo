@@ -1,8 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import styled from 'styled-components'
 
 import Todo from './Todo';
 import {loadSavedTodos, completeTodo, deleteTodo} from '../actions/actions';
+
+const TodosContainer = styled.ul`
+    dipslay: flex;
+    flex-direction: column;
+    width 50%;
+`;
 
 class Todos extends React.Component{
     constructor(props){
@@ -24,9 +31,9 @@ class Todos extends React.Component{
 
     render(){
         return(
-            <ul>
+            <TodosContainer>
                 {this.props.todos.map(item=><Todo key={item.id} todo={item} completeTodo={this.props.completeTodo} deleteTodo={this.props.deleteTodo}/>)}
-            </ul>
+            </TodosContainer>
         )
     }
 }

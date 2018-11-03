@@ -12,7 +12,7 @@ const FormContainer = styled.div`
 
     form{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         width: 50%
     
         .todo-input{
@@ -52,9 +52,11 @@ class AddTodo extends React.Component{
     }
 
     componentDidMount(){
+        console.log(this.props.todos);
         if(this.props.todos.length > 0){
+            console.log(this.props.todos);
             this.setState({
-                currentId: this.props.todos[this.props.todos.length - 1].id + 1
+                currentID: this.props.todos[this.props.todos.length - 1].id + 1
             })
         }
     }
@@ -79,6 +81,7 @@ class AddTodo extends React.Component{
     }
 
     render(){
+        console.log(this.props.todos);
         return(
             <FormContainer>
                 <form onSubmit={this.handleSubmit}>
