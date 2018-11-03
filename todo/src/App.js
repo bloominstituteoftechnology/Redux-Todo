@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
 
         <AddTodo />
-        Todo List
+        <h4 style={{ marginLeft: '40px'}}>Todo List</h4>
        <Todo />
 
       </div>
