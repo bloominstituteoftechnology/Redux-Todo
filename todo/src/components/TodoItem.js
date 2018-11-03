@@ -2,10 +2,10 @@ import React from 'react';
 import {toggleCompleted} from "../actions/index";
 import {connect} from 'react-redux';
 
-class todoItem extends React.Component {
+class TodoItem extends React.Component {
   toggleCompleted = (event) => {
     this.props.toggleCompleted(this.props.item)
-  }
+  };
 
   render () {
     return (
@@ -22,4 +22,4 @@ class todoItem extends React.Component {
 
 }
 
-export default connect ({toggleCompleted})(todoItem);
+export default connect({toggleCompleted})(TodoItem);

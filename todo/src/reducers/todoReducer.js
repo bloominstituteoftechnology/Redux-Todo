@@ -6,7 +6,7 @@ export default ( todos = [], action) => {
       return todos.concat(action.payload);          // build list
 
     case TOGGLE_COMPLETED:
-      todos [action.payload].complete = !todos[action.payload].complete;    // toggle complete todo
+      todos [action.payload].complete = !todos[action.payload].complete;    // toggle complete
       return todos;
 
     default:
