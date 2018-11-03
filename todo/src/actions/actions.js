@@ -15,6 +15,6 @@ export const addItem = (value) => {
 export const toggle = (id) => {
     return{
         type: TOGGLE_STATUS,
-        id
+        payload: id
     }
 }

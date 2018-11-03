@@ -19,11 +19,12 @@ const reducer = (state = initialState, action) => {
                 }
             )
         case "TOGGLE_STATUS":
-            return
-                Object.assign(
-                    {}, state, state.todos.map(
-                        todo => (todo.id === action.id) ? {...todo, completed: !todo.completed} : todo)
-                    )
+
+        const newMap = state.todos.map(
+            todo => (todo.id === action.payload) ? {...todo, completed: !todo.completed} : todo)
+
+            return { todos: newMap };
+
         default:
             return state
     }
