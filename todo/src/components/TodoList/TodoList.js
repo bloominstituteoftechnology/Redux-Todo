@@ -1,17 +1,25 @@
 import React, { Component } from "react";
 import {connect} from '../node_modules/react-redux';
 // import { increment, decrement } from '../actions';
-// what actions will I need? 
 
 class TodoList extends Component {
+    constructor() {
+        super();
+        this.state = {
+            input = '',
+            }
+        }
+
     // functions go here
 
-
-
-    // render goes here
+     // render goes here
     render() {
         return(
-            <p>foo</p>
+            <div>
+                <p>foo</p>
+                <p>bar</p>
+                <button onClick={}>Add to-do</button>
+            </div>
         )
+        }
     }
-}
