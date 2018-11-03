@@ -12,7 +12,7 @@ export default (state=initialState, action) => {
             return {...state, todos: state.todos.filter(todo => !todo.completed)};
         case TOGGLE_TODO:
             let toggleTodos = [...state.todos]
-            toggleTodos[action.payload-1].completed=!toggleTodos[action.payload-1].completed
+            toggleTodos[action.payload - 1].completed=!toggleTodos[action.payload - 1].completed
             return ({...state, todos:toggleTodos})
         default:
             return state;

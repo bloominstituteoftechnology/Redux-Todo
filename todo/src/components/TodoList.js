@@ -21,6 +21,23 @@ const Title = styled.h1`
     justify-content: center;
 `;
 
+const TodoPaper = styled.div`
+  background: #fff;
+  box-shadow:
+    /* The top layer shadow */
+    0 1px 1px rgba(0,0,0,0.15),
+    /* The second layer */
+    0 10px 0 -5px #eee,
+    /* The second layer shadow */
+    0 10px 1px -4px rgba(0,0,0,0.15),
+     /* The third layer */
+    0 20px 0 -10px #eee,
+    /* The third layer shadow */
+    0 20px 1px -9px rgba(0,0,0,0.15);
+    /* Padding for demo purposes */
+    padding: 30px;
+`;
+
 class TodoList extends Component {
     constructor() {
         super();
@@ -56,17 +73,19 @@ class TodoList extends Component {
         this.setState({
             input: ''
         })
+
     }
 
     render() {
         return (
-            <div>
+            <TodoPaper>
                 <Title>Colin's Todo List</Title>
                 <form>
                     <input
                         name="text"
                         value={this.state.text}
                         onChange={this.inputHandler}
+                        autoComplete='off'
                     />
                     <ButtonContainer>
                         <Button 
@@ -95,7 +114,7 @@ class TodoList extends Component {
                         )
                     })}
                 </ul>
-            </div>
+            </TodoPaper>
         )
     }
 }
