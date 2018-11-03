@@ -2,6 +2,7 @@ import { bindActionCreators } from "../../../../../../../Library/Caches/typescri
 
 export const ADD_ITEM = "ADD_ITEM";
 export const TOGGLE_STATUS = "TOGGLE_STATUS";
+export const DELETE_ITEM = "DELETE_ITEM";
 
 let toDoID = 0;
 
@@ -15,6 +16,13 @@ export const addItem = (value) => {
 export const toggle = (id) => {
     return{
         type: TOGGLE_STATUS,
+        payload: id
+    }
+};
+
+export const deleter = (id) => {
+    return{
+        type: DELETE_ITEM,
         payload: id
     }
 }

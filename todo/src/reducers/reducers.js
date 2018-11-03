@@ -25,6 +25,14 @@ const reducer = (state = initialState, action) => {
 
             return { todos: newMap };
 
+        case "DELETE_ITEM":
+        
+        const deletedMap = state.todos.filter(
+            item => (item.id !== action.payload)
+        )
+            return { todos: deletedMap }
+
+
         default:
             return state
     }

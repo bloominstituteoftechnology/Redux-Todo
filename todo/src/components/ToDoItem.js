@@ -1,19 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {toggle} from '../actions/actions';
+import { ItemStyle, ItemBlock, DeleteButton } from './StyledComponents';
 
 const ToDoItem = (props) => {
     console.log(props)
     return(
-        <button onClick={props.onClick}
+        <ItemStyle>
+            <ItemBlock onClick={props.onClick}
             style={{
                 textDecoration: props.completed ? 'line-through' : 'none'
             }}
-        >
-            <h3>{props.value}</h3>
-            <h4>The id is {props.id}</h4>
-            {props.completed === false ? <h4>FALSE</h4> : <h3>True!</h3>}
-        </button>
+            >
+                <h3> - {props.value}</h3>
+            </ItemBlock>
+            <DeleteButton onClick={props.delete}>Delete me</DeleteButton>
+        </ItemStyle>
     )
 }
 

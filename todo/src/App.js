@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AppBox, Header, SubHeading } from './components/StyledComponents';
 import './App.css';
 import ToDoList from './components/ToDoList';
 import ToDoForm from './components/ToDoForm';
@@ -6,19 +7,14 @@ import ToDoForm from './components/ToDoForm';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <AppBox>
+        <Header>Welcome to Your To Do List App</Header>
+        <SubHeading>Add new to do items. <br></br> Click on them to cross it off your list or simply delete.</SubHeading>
         <ToDoForm />
-        <div>The to do list will appear here</div>
         <ToDoList />
-      </div>
+      </AppBox>
     );
   }
 }
 
 export default App;
-
-//input handler will set the state with the input setting to state for value
-// on submit, will create object in todos array {...todos} that has the value and completed set to false
-//todo container will map over todos array to create items
-//on click, completed value will be set to opposite.
-// on click, the clear completed will remove completed items from todos array
