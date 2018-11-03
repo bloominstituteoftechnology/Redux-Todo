@@ -23,7 +23,7 @@ class Form extends React.Component{
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.submitHandler}>
                     <input placeholder="comment" value={this.state.comment} onChange={this.inputHandler} />
                     <button type = "submit">Add Comment</button>
                 </form>
