@@ -13,7 +13,7 @@ const TodoHeader = props => {
 };
 
 const mapStateToProps = state => {
-  const uncompleted = state.todos.filter(item => !item.complete)
+  const uncompleted = state.todos.filter(item => !item.complete);
   return {
     length: uncompleted.length
   };

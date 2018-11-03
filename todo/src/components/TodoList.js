@@ -20,8 +20,8 @@ class TodoList extends React.Component {
           {this.props.todos.map(item => (
             <ListGroupItem
               color={!item.complete ? `success` : `danger`}
-              key={item.id}
               action
+              key={item.id}
               onClick={() => this.completeHandler(item.id)}
             >
               <p>{item.todo}</p>

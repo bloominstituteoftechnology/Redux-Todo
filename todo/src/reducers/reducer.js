@@ -1,4 +1,4 @@
-import { DELETE_TODO, ADD_TODO, COMPLETE } from "../actions/action";
+import { DELETE_TODO, ADD_TODO, COMPLETE, DELETE_ALL } from "../actions/action";
 
 const initialState = {
   todos: []
@@ -26,6 +26,9 @@ export default (state = initialState, action) => {
         item => item.id !== action.payload
       );
       return Object.assign({}, state, { todos: deletedStateTodos });
+    case DELETE_ALL:
+      const deleteAllTodos = state.todos.filter(item => !item.complete);
+      return Object.assign({}, state, { todos: deleteAllTodos });
     default:
       return state;
   }
