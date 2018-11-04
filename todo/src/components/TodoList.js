@@ -7,7 +7,7 @@ const TodoList = props => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  console.log('test',state)
   return {todoName: state.name }
 }
 

@@ -1,41 +1,46 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import TodoList from './TodoList';
+import {add, complete} from '../actions';
 
 class TodoForm extends Component {
   constructor(props) {
     super(props);
-
   }
-
   inputHandler = e => {
     this.setState({
-      [e.target.todo]: e.target.value
+      [e.target.name]: e.target.value
     });
 
   };
 
+  submitHandler = (e) => {
+  e.preventDefault()
+  this.props.add(this.state.name)
+
+  };
+
   render() {
-    return (
-      <div>
+    return (<div>
       <h1>
         DüStuf
       </h1>
-
-        <TodoList />
-
-      <form onSubmit={() => {
-          return
-        }}>
-        <input onChange={this.inputHandler} placeholder="todo" name="todo" />
+      <TodoList/>
+      <form onSubmit={this.submitHandler}>
+        <input type="text" onChange={this.inputHandler} value={this.props.name} placeholder="add a tüdü" name="name"/>
         <button type="submit">Add</button>
       </form>
     </div>);
   }
 
-
-
-
 }
 
-export default TodoForm;
+const mapStateToProps = () => {
+    return {}
+}
+
+
+export default connect(mapStateToProps, {
+  add,
+  complete
+})(TodoForm);
