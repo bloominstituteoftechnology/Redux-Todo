@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
 import { connect } from 'react-redux';
-import { markDone } from '../actions';
+import { markDone } from './actions';
+
+const style = { textDecoration: 'line-through' };
 
 class App extends Component {
   render() {
     return (
       <div>
         <ul>
-          {this.props.todos.map((todo, i) => (
-            <li key={i} onClick={() => this.props.markDone(todo.id) }>
+          {this.props.todos.map((todo) => (
+            <li
+              style={todo.completed ? style : null} 
+              key={todo.id} 
+              onClick={() => this.props.markDone(todo.id) }
+            >
               {todo.value}
-              {todo.completed}
             </li>
           ))}
         </ul>
