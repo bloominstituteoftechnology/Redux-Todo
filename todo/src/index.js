@@ -8,11 +8,12 @@ import {Provider} from '../node_modules/react-redux';
 import {createStore} from 'redux';
 // import todoList from './components/TodoList';
 import {connect} from '../node_modules/react-redux';
+import reducer from './components/reducers/reducers';
 
 // const store = createStore(todoList)
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={createStore(reducer)}>
         <App />
     </Provider>
 , document.getElementById('root'));
