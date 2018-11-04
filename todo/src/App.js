@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { markDone } from './actions';
+import { markDone, addTodo } from './actions';
 
 const style = { textDecoration: 'line-through' };
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      userInput: ''
+    }
+  }
+
+  handleSubmit = event => {
+    this.setState({
+      userInput: event.target.value
+    });
+  }
+
   render() {
     return (
       <div>
@@ -19,6 +32,10 @@ class App extends Component {
             </li>
           ))}
         </ul>
+        <div>
+            <input value={this.state.userInput} type='text' placeholder='add a todo' onChange={this.handleSubmit} />
+            <button onClick={() => this.props.addTodo(this.state.userInput, false)}>Add todo</button>
+        </div>
       </div>
     );
   }
@@ -30,4 +47,4 @@ const mapStateToProps = (state) => (
   }
 )
 
-export default connect(mapStateToProps, { markDone })(App);
+export default connect(mapStateToProps, { markDone, addTodo })(App);
