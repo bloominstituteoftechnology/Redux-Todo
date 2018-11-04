@@ -1,59 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import styled from 'styled-components';
+
 import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
-import {connect} from 'react-redux';
-import {handleSubmit, handleClear, handleCompleted} from './actions';
 
-import './App.css';
+const Container = styled.div`
+  max-width: 400px;
+  width: 100%;
+  height: 715px;
+  margin: 20px auto;
+  border-radius: 5px;
+  padding-bottom: 50px;
+  background-color:#008CBA;
+  box-shadow: #fefbd8;
+`;
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todo: ''
-    };
-  }
-
-  handleChange = (event) => {
-    this.setState({todo: event.target.value});
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    if(this.state.todo !== '') {
-      this.props.handleSubmit(this.state.todo);
-      this.setState({todo: ''});      
-    }
-  };
-
-  handleCompleted = (event) => {
-    this.props.handleCompleted(event);
-  };
-
-  handleClear = (event) => {
-    this.props.handleClear(event);
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <div className="todo">
-          <h1>Todo List:</h1>
-          <TodoList todos={this.props.todos} handleCompleted={this.handleCompleted} handleClear={this.handleClear} />
-          <TodoForm todos={this.props.todos} handleChange={this.handleChange} handleSubmit={this.handleSubmit} value={this.state.todo} />
-        </div>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <Container>
+      <TodoList />
+    </Container>
+  );
 }
 
-// tells component what props will be added
-const mapStateToProps = state => {
-  console.log('state', state);
-  return {
-    todos: state
-  };
-};
-
-export default connect(mapStateToProps, {handleSubmit, handleClear, handleCompleted})(App);
-// new connected class
+export default App;
