@@ -1,7 +1,7 @@
 import React from 'react';
 import {UPDATE_NAME} from '../actions'
 
-const initialState = {name: '' };
+const initialState = {name: 'Tommy' };
 export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_NAME:

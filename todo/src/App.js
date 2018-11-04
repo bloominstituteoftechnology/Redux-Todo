@@ -12,7 +12,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'Tommy',
       setName: '',
       }
     }
@@ -39,7 +38,7 @@ class App extends Component {
             Redux Todo.
           </p>
           <div>
-            <h2>Hello, {this.state.name}!</h2>
+            <h2>Hello, {this.props.name}!</h2>
             <form onSubmit={this.formSubmitHandler} >
             <input type="text" name="setName" value={this.state.setName} onChange={this.inputHandler}/>
             <button type="submit">Submit!</button>
@@ -51,7 +50,10 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {name: state.name}
+}
 
 export default connect(
-  null, {updateName}
+  mapStateToProps, {updateName}
 )(App);
