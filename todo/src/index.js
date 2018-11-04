@@ -8,7 +8,8 @@ import {Provider} from '../node_modules/react-redux';
 import {createStore} from 'redux';
 // import todoList from './components/TodoList';
 import {connect} from '../node_modules/react-redux';
-import reducer from './components/reducers/reducers';
+import reducer from './reducers/reducers';
+import { UPDATE_NAME } from './actions'
 
 // const store = createStore(todoList)
 
@@ -17,6 +18,7 @@ ReactDOM.render(
         <App />
     </Provider>
 , document.getElementById('root'));
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

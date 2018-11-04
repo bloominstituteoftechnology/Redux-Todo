@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Redux from 'react';
-import reducers from './components/reducers/reducers';
-import Headline from './components/test'
-import { updateName } from './actions'
-
+import reducers from './reducers/reducers';
+import Headline from './components/test';
+import { updateName } from './actions';
+import {connect} from 'react-redux';
 
 class App extends Component {
   // bringing it back to basics, doing a walkthrough from lecture/Julie's notes.
@@ -19,14 +19,16 @@ class App extends Component {
 
     inputHandler = (e) => {
       this.setState({
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
       })
     }
 
     formSubmitHandler = (e) => {
       e.preventDefault();
-      this.props.updateName(this.state.name);
+      this.props.updateName(this.state.setName);
     }
+
+
 
 
   render() {
@@ -38,8 +40,8 @@ class App extends Component {
           </p>
           <div>
             <h2>Hello, {this.state.name}!</h2>
-            <form onSubmit={() =>{return} } >
-            <input type="text" name="name" value={this.state.name} onChange={this.inputHandler} />
+            <form onSubmit={this.formSubmitHandler} >
+            <input type="text" name="setName" value={this.state.setName} onChange={this.inputHandler}/>
             <button type="submit">Submit!</button>
             </form>
           </div>
@@ -49,4 +51,7 @@ class App extends Component {
   }
 }
 
-export default App;
+
+export default connect(
+  null, {updateName}
+)(App);
