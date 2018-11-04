@@ -17,34 +17,38 @@ class AddTodo extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    return (addTodoAction(this.state.input));
+    (this.props.addTodoAction(this.state.input));
   };
   render() {
     return (
       <div>
-        <form>
+        {console.log(this.props.state)}
+        <form onSubmit={this.submitHandler}>
           <input
             onChange={this.inputChangeHandler}
             value={this.state.input}
             placeholder={"Add Todo..."}
-          />
+            />
           <button>Add To-Do</button>
-          <ul>{this.props.state.todoList.map(todo => {
-            return (
-            <Todo todoList={todo}/>
+          
+          <ul>
+        {this.props.state.map((todo,index) => <Todo key={index}todo={todo}/>)}
 
           
-            )
-          })}</ul>
+        </ul>
         </form>
       </div>
     );
   }
 }
 
- const mapStateToProps = state => ({
-   todos: addTodoAction(state.todoList)
+ const mapStateToProps = state => {
+   return(
+  {
+   state,todoList: state.todoList
 
- })
+ }
+  )
+}
  
-export default connect(mapStateToProps)(AddTodo);
+export default connect(mapStateToProps,{addTodoAction})(AddTodo);

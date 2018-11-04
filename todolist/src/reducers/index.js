@@ -1,13 +1,12 @@
 import {ADD_TODO_ACTION} from "../actions/index"
 
-const initialState = {
-todoList: []
-}
+const initialState = {todoList: []}
 
-export default (state = initialState, action) => {
+
+export default (state = [], action) => {
   switch (action.type) {
     case ADD_TODO_ACTION:
-    return {...state, state: action.text }
+    return [...state, action.payload]
 
 
     default:
