@@ -1,7 +1,8 @@
+export const ADD_TODO_ACTION = 'ADD_TODO_ACTION'
 
 let todoId=0;
-export const addTodo = text => ({
-  type: 'ADD_TODO',
+export const addTodoAction = text => ({
+  type: 'ADD_TODO_ACTION',
   id: todoId++,
-  text
+  payload: {text:text}
 })
