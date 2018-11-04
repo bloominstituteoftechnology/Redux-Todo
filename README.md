@@ -64,6 +64,8 @@ Topics:
 * Actions creators should be passed inside an object as the second argument to the `connect` function inside components that need access to the Redux store.
 * http://redux.js.org/ has a todo list as an example project in their documentation. Feel free to use this as a reference as well.
 
+- [x] MVP is done
+
 ## Stretch Problem
 
 * Implement the ability to delete todo list items. You can create a button next to each todo list item and when it is pressed it will call an action creator that will dispatch an action that removes the specified todo list item from the `todos` array.
