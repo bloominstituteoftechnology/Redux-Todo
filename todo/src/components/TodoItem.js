@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default (props) => {
+const TodoItem = (props) => {
     return (
         <div className="todo-item">
-            Todo Item
+            {props.todo.value}
         </div>
     )
 }
+  
+export default TodoItem;
