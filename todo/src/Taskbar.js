@@ -1,20 +1,38 @@
-import React from 'react'; 
-import {connect} from 'react-redux'; 
-import {bindActionCreators} from 'redux'; 
-import addTask from './actions.js'; 
+import React from "react";
+import { connect } from "react-redux";
+ import { newTodo } from "./actions";
 
-class Taskbar extends React.Component{
-    render(){
-        return(
-            <div>
-                <input type="text" />
-                <button onClick={ () => this.props.addTask(this.refs.task.value)}> Add Task</button>
-            </div>
+
+export class TodoForm extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            name: ''
+        }
+    }
+     inputHandler = (e) => {
+        this.setState({
+            name: e.target.value
+        })
+    }
+    submitHandler = (e) => {
+        e.preventDefault();
+        this.props.newTodo(this.state.name)
+        this.setState({name: ''})
+    }
+    render() {
+        return (
+            <form onSubmit={this.submitHandler}>
+                <input type="text" value={this.state.name} placeholder='Todo' onChange={this.inputHandler} />
+                <button type="submit">Add Todo</button>
+            </form>
         )
     }
 }
-
- function mapDispatchToProps(dispatch){
-    return bindActionCreators({addTask}, dispatch) 
-}
-export default connect( () => {}, mapDispatchToProps)(Taskbar); 
+ const mapStateToProps = state => {
+  return { todos: state.todos };
+};
+ export default connect(
+  mapStateToProps,
+  { newTodo }
+)(TodoForm)

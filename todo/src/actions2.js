@@ -1,8 +1,8 @@
-const deleteTask = (taskID) => {
+ const DeleteTask = (taskId) => {
     return{
         type: 'DELETE_TASK',
-        payload: taskID
+        payload: taskId
     }
 }
 
-export default deleteTask
+export default DeleteTask; 

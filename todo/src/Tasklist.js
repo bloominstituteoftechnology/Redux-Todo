@@ -1,21 +1,21 @@
-import React from 'react'; 
-import {connect} from 'react-redux'; 
-import Task from './task.js'; 
-
-class Tasklist extends React.Component{
-    render(){
-        return(
-            <div>
-              {this.props.tasks.map((task, index) => <Task key={index} task={task} />)}
-            </div> 
-        )
-    }
-}
-
-function mapStateToProps(state){
-    return{
-        tasks:state.tasks
-    }
-}
-
-export default(mapStateToProps)(Tasklist);
+import React from "react";
+import { connect } from "react-redux";
+ import Todo from './task.js';
+ export const Todos = (props) => {
+    return (
+      <div>
+        <ul>
+          {props.todos.map(todo => {
+           return <Todo key={todo.id} todo={todo}/>
+            
+          })}
+        </ul>
+      </div>
+    );
+  }
+ const mapStateToProps = state => {
+  console.log(state)
+  return  { todos: state};
+  
+};
+ export default connect(mapStateToProps)(Todos);

@@ -1,20 +1,24 @@
-import {combineReducers} from 'redux'; 
-
-const tasksReducer = (state=[], action) => {
-    switch(action.type){
-        case 'ADD_TASK':
-          state = state.concat(action.payload); 
-          break; 
-        case 'DELETE_TASK': 
-          state = state.slice(); 
-          state.splice(action.payload, 1); 
-          break; 
+import { NEW_TODO, COMPLETE_TODO } from "./actions";
+ const initialState = [
+     {
+      value: "example todo",
+      completed: false,
+      id: 0
     }
-    return state; 
-}
-
-let reducers = combineReducers({
-    tasks: tasksReducer
-})
-
-export default reducers; 
+ ];
+ export default (state = initialState, action) => {
+  switch (action.type) {
+    case NEW_TODO:
+      return [
+        ...state,
+        { value: action.text, completed: false, id: action.id }
+      ];
+     case COMPLETE_TODO:
+      return state.map(
+        todo =>
+          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      );
+     default:
+      return state;
+  }
+};

@@ -1,22 +1,22 @@
 import React from 'react'; 
-import {deleteTask} from './actions2.js'; 
-import {bindActionCreators} from 'redux'; 
+import { completeTodo } from './actions'; 
 import {connect} from 'react-redux'; 
 
-class Task extends React.Component{
-    render(){
+export const Todo = (props) => {
+    if(props.todo.completed) {
         return (
-            <div>
-                {this.props.task}
-                <button onClick={()=>{this.props.deleteTask(this.props.id)}}>Delete</button>
-            </div> 
+            <li style={{textDecoration: "line-through"}}>{props.todo.value}</li>
+        )
+    } else {
+        return (
+            <li onClick={() => props.completeTodo(props.todo.id)}>{props.todo.value}</li>
              
         )
     }
 }
 
-function mapDispatchToProps(dispatch){
-      return bindActionCreators({deleteTask}, dispatch); 
+const mapStateToProps = state => {
+      return {todos: state };  
 }
 
-export default connect(() => {}, mapDispatchToProps)(Task)
+export default connect(mapStateToProps, { completeTodo })(Todo);
