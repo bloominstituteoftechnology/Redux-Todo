@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import TodoList from './components/todoList';
 import TodoForm from './components/todoForm'
+import TodoHeader from './components/todoHeader'
 
 
 
@@ -10,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div><h1 >Lets Get it DONE</h1></div>
+        <TodoHeader />
         <TodoForm />
         <TodoList />
       </div>

@@ -1,10 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import HeaderDivTodo from '../styled-components/styles';
+
 
 const TodoHeader = () =>{
     return(
-        <div>
-            <h1>Lets knock out somee </h1>
-        </div>
+        <HeaderDivTodo>
+            <h1>Lets knock it out!!!</h1>
+        </HeaderDivTodo>
     )
 }
+export default TodoHeader;

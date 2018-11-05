@@ -8,13 +8,17 @@ const TodoDiv = styled.div `
         color: red;
         text-decoration: line-through;
     }
+    font-family: 'Acme', sans-serif;
+    font-size:1.8rem
+    color:#0250d1;
+    display: flex;
+    flex-direction:column;
 `
 
 const Todo = props => {
     return(
         <TodoDiv>
-            <h1 className={props.item.completed?'completed':''} onClick={()=>props.toggleCompletedAction(props.item.id)}>{props.item.name}</h1>
-            <button onClick={()=>props.deleteItem(props.item.id)} >x</button>
+            <span><h1 className={props.item.completed?'completed':''} onClick={()=>props.toggleCompletedAction(props.item.id)}>{props.item.name}</h1>            <button onClick={()=>props.deleteItem(props.item.id)} >x</button></span>
         </TodoDiv>
     )
 }
