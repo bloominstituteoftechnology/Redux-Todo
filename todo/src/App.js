@@ -1,30 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import store from './store/configureStore'
-import List from './List';
+import List from "./components/List"
 
 
-class App extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state =  {
-      todos: [{
-        task: 'Walk Dog',
-        completed: false
-      }]
-    }
-  }
-
-
+class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>To Do</h1>
-        <List items = {this.state.todos} />
+        <List />
       </div>
     );
   }
 }
-
-export default App;
+ export default App;
