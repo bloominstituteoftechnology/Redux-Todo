@@ -1,4 +1,4 @@
-import { ADD_TASK, TOGGLE_COMPLETED  } from '../action/actions';
+import { ADD_TASK, TOGGLE_COMPLETED, DELETE_COMPLETED, DELETE_ITEM  } from '../action/actions';
 
 const initialState = {
   todo: [{
@@ -26,11 +26,26 @@ export default (state = initialState, action) => {
       };
 
     case TOGGLE_COMPLETED:
+    console.log('clicked');
       const NewState = state.todo.map(item => (
         item.id === action.payload) ? { ...item,completed: !item.completed} : item)
       return {
-        todo: NewState
+        todo: NewState,
       };
+
+      case DELETE_COMPLETED:
+      const noIncomplete = state.todo.filter(item =>(
+        !item.completed))
+        return {
+          todo: noIncomplete
+        }
+      
+      case DELETE_ITEM:
+      const singleDelete = state.todo.filter(item=>
+        item.id !== action.payload)
+     return {
+       todo: singleDelete
+     }
 
     default:
       return state
