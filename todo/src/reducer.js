@@ -1,7 +1,7 @@
-import { ADD_TODO } from './actions';
+import { ADD_TODO, TOGGLE_TODO } from './actions';
 
 const initialState = {
-    todos: [{}]
+    todos: []
 }
 
 export default (state = initialState, action) => {
@@ -22,10 +22,23 @@ export default (state = initialState, action) => {
             return {
                 todos: state.todos.concat([
                     {
+                        id: action.index,
                         value: action.payload,
                         completed: false,
                     }
                 ])
+            }
+        case TOGGLE_TODO:
+            return {
+                todos: state.todos.map(x => {
+                    if(x.value === action.payload){
+                        return Object.assign({}, x, {
+                            completed: !x.completed
+                        })
+                    } else {
+                        return x;
+                    }
+                })
             }
         default:
             return state;

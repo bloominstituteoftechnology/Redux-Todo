@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { addTodoAction } from './actions';
+import { addTodoAction, toggleTodoAction } from './actions';
 
 class App extends React.Component {
   // constructor(props){
@@ -12,13 +12,23 @@ class App extends React.Component {
   //   }
   // }
   inputHandler = (e) => {
-    // console.log(e.target.parentNode.children[0].value);
+    // console.log(e.target.parentNode.children[0]);
     e.preventDefault();
     if(e.target.parentNode.children[0].value !== ''){
-      this.props.addTodoAction(e.target.parentNode.children[0].value)
+      this.props.addTodoAction(e.target.parentNode.children[0].value, this.props.todoList.length + 1)
       e.target.parentNode.children[0].value = '';
     }
   }
+  toggleCompletedHandler = (e) => {
+    console.log(e.target.innerHTML);
+    this.props.toggleTodoAction(e.target.innerHTML)
+    if(e.target.style.textDecoration === ""){
+      e.target.style.textDecoration = 'line-through'
+    } else {
+      e.target.style.textDecoration = ""
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -28,15 +38,15 @@ class App extends React.Component {
           <button onClick={this.inputHandler}>Add To-do</button>
           <button>Clear Completed</button>
         </form>
-        <div>
+        <ul>
           {this.props.todoList.map((x, index) => {
             return (
-              <ul key={index}>
+              <li key={index} onClick={this.toggleCompletedHandler}>
                 {x.value}
-              </ul>
+              </li>
             )
           })}
-        </div>
+        </ul>
         {/* <div>
           {this.state.todos.map(x => {
             return (
@@ -55,6 +65,6 @@ const mapStateToProps = (state) => {
   // console.log(state); 
   return { todoList: state.todos}
 }
-export default connect(mapStateToProps, {addTodoAction})(App);
+export default connect(mapStateToProps, {addTodoAction, toggleTodoAction})(App);
 
 // export default App;
