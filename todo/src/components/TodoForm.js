@@ -30,6 +30,7 @@ class TodoForm extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
+            required
             onChange={this.handleChange}
             value={this.state.input}
             type="text"
