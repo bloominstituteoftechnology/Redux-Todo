@@ -1,4 +1,5 @@
 import { ADD_TODO } from '../actions/actions'
+import { TOGGLE_TODO } from '../actions/actions'
 
 const initState = {
   todos: [{ todo: "Take out the dog", completed: false, id: 0 }]
@@ -14,6 +15,14 @@ export function myReducer(state = initState, action) {
         ...state,
         todos: newTodos
       }
+
+    case TOGGLE_TODO:
+      let filteredTodos = state.todos.filter(todo => todo.id !== action.id)
+      return {
+        ...state,
+        todos: filteredTodos
+      }
+
     default:
       return state
   }

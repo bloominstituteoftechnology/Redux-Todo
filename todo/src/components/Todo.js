@@ -2,11 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { addTodo } from '../actions/actions'
-
+import { toggleTodo } from '../actions/actions'
 
 
 const Todo = props => {
-  return <li>{props.todo}</li>
+  return <li onClick={() => props.toggleTodo(props.id)}>{props.todo}</li>
 }
 
 const mapStateToProps = state => {
@@ -17,5 +17,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleTodo }
 )(Todo)
