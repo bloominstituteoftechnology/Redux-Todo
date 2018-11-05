@@ -31,7 +31,7 @@ class App extends React.Component {
         <div>
           {this.props.todoList.map(x => {
             return (
-              <ul key={x}>
+              <ul key={x.value}>
                 {x.value}
               </ul>
             )

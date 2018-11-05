@@ -1,25 +1,32 @@
 import { ADD_TODO } from './actions';
 
 const initialState = {
-    todos: [
-        {
-            value: 'Walk Dog',
-            completed: false,
-        }
-    ]
+    todos: [{}]
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        // i dont yet get the point of Object.assign() when it works fine with just .concat
+
+        // case ADD_TODO:
+        //     return Object.assign({}, { 
+        //         todos: state.todos.concat([
+        //         {
+        //             value: action.payload,
+        //             completed: false,
+        //         }
+        //     ])
+        // })
+
         case ADD_TODO:
-            return Object.assign({}, state, { 
+            return {
                 todos: state.todos.concat([
-                {
-                    value: action.payload,
-                    completed: false,
-                }
-            ])
-        })
+                    {
+                        value: action.payload,
+                        completed: false,
+                    }
+                ])
+            }
         default:
             return state;
     }
