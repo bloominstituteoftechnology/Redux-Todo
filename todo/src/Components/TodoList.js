@@ -1,13 +1,30 @@
 import React from "react"
-import TodoForm from "./TodoForm"
+import {connect} from "react-redux";
+import {toggle, clear} from "./action"
+import Todo from "./Todo";
 
-const TodoList = () => {
+//renders the list of todo items
+const TodoList = (props) => {
    return(
       <div>
-         <h1>Todo List: MVP</h1>
-         <TodoForm />
+         {props.todos.map(todo =>
+            <Todo 
+               key={todo.id}
+               todo={todo}
+               id={todo.id}
+               task={todo.task}
+               completed={props.completed}
+               clear={() => props.clear(todo.id)}
+               onClick={() => props.toggle(todo.id)}
+            />
+            )}
       </div>
    )
 }
 
-export default TodoList
+//maps state to props
+const mapStateToProps = (state) => {
+   return {todos: state.todos}
+}
+
+export default connect(mapStateToProps, {toggle, clear})(TodoList)

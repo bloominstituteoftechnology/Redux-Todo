@@ -10,9 +10,15 @@ import {Provider} from "react-redux";
 import reducer from "./Components/reducer"
 
 //create store
-const store = createStore(reducer)
-
-ReactDOM.render(<Provider><App /></Provider>, document.getElementById('root'));
+//pass the store to the provider
+ReactDOM.render(
+   // <Provider store={createStore(reducer)}>
+   <Provider store={createStore(reducer, /* preloadedState, */
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+      <App />
+   </Provider>, 
+   document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
