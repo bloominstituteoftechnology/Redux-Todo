@@ -1,20 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { addTodo } from '../actions/actions'
 import { toggleTodo } from '../actions/actions'
 import { deleteTodo } from '../actions/actions'
-
 
 const Todo = props => {
   let complete = props.completed ? "complete" : null
   return (
-    <div>
-      <li className={complete} onClick={() => props.toggleTodo(props.id)}>
-        {props.todo}{" "}
+    <ul className="collection">
+      <li className={`collection-item center-align`}>
+        <span
+          onClick={() => props.toggleTodo(props.id)}
+          className={`${complete} center-align`}
+        >
+          {props.todo}
+        </span>{" "}
+        <i
+          onClick={() => props.deleteTodo(props.id)}
+          className="material-icons center-align"
+        >
+          clear
+        </i>
       </li>
-      <button onClick={() => props.deleteTodo(props.id)}>Delete Todo</button>
-    </div>
+    </ul>
   )
 }
 

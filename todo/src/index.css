@@ -16,3 +16,39 @@ code {
 .complete {
   text-decoration: line-through;
 }
+
+.container {
+  padding: 20px;
+}
+
+.collection {
+  margin: 0;
+  outline: 1px solid #1a1f1f;
+}
+
+li {
+  list-style: none;
+}
+
+li.collection-item.center-align {
+  position: relative;
+  width: 100%;
+  background-color: rgb(232, 225, 225);
+}
+
+.collection-item span {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.collection-item .material-icons {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 67%;
+  transform: translate(-50%, -50%);
+  color: rgb(39, 147, 61);
+}

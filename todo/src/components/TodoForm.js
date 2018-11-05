@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import { addTodo } from '../actions/actions'
 
-
 class TodoForm extends Component {
   constructor() {
     super()
@@ -28,7 +27,7 @@ class TodoForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="container" onSubmit={this.handleSubmit}>
           <input
             required
             onChange={this.handleChange}
@@ -36,7 +35,9 @@ class TodoForm extends Component {
             type="text"
             placeholder="New Todo"
           />
-          <button type="submit">Add Todo</button>
+          <button className="btn waves-effect waves-light" type="submit">
+            Add Todo
+          </button>
         </form>
       </div>
     )
