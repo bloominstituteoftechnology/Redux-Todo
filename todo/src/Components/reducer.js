@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
                ...state.todos,
                {
                   id: state.todos.length + 1,
-                  task: action.text,
+                  value: action.text,
                   completed: false,
                }
             ]})

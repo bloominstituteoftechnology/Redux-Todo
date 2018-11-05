@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components";
 
 //style component adds a line through if the todo.complete is true
-const Task = styled.span`
+const Task = styled.ul`
    ${props => props.complete ? `text-decoration: line-through` : null}
 `;
 
@@ -10,7 +10,7 @@ const Task = styled.span`
 const Todo = (props) => {
    return(
       <div>
-         <Task onClick={props.toggle} complete={props.completed}>{props.todo.task}</Task>
+         <Task onClick={props.toggle} complete={props.completed}>{props.todo.value}</Task>
       </div>
    )
 }
