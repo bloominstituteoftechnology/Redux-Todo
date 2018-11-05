@@ -2,23 +2,34 @@ import React from 'react';
 import './App.css';
 
 import { connect } from 'react-redux';
+import { addTodoAction } from './actions';
 
-const App = (props) => {
+class App extends React.Component {
   // constructor(props){
   //   super(props);
   //   this.state = {
-  //     todos: ['wash dishes','clean room'],
+  //     todos: [],
   //   }
   // }
-  // render() {
+  inputHandler = (e) => {
+    // console.log(e.target.parentNode.children[0].value);
+    e.preventDefault();
+    if(e.target.parentNode.children[0].value !== ''){
+      this.props.addTodoAction(e.target.parentNode.children[0].value)
+      e.target.parentNode.children[0].value = '';
+    }
+  }
+  render() {
     return (
       <div className="App">
         <h1>Todo List:</h1>
-        <input placeholder='... to-do'></input>
-        <button>Add To-do</button>
-        <button>Clear Completed</button>
+        <form>
+          <input placeholder='... to-do' name='todo'></input>
+          <button onClick={this.inputHandler}>Add To-do</button>
+          <button>Clear Completed</button>
+        </form>
         <div>
-          {props.todoList.map(x => {
+          {this.props.todoList.map(x => {
             return (
               <ul key={x}>
                 {x.value}
@@ -37,13 +48,13 @@ const App = (props) => {
         </div> */}
       </div>
     );
-  // }
+  }
 }
 
 const mapStateToProps = (state) => {
   // console.log(state); 
   return { todoList: state.todos}
 }
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {addTodoAction})(App);
 
 // export default App;

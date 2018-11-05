@@ -1,3 +1,5 @@
+import { ADD_TODO } from './actions';
+
 const initialState = {
     todos: [
         {
@@ -8,5 +10,17 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-    return state;
+    switch (action.type) {
+        case ADD_TODO:
+            return Object.assign({}, state, { 
+                todos: state.todos.concat([
+                {
+                    value: action.payload,
+                    completed: false,
+                }
+            ])
+        })
+        default:
+            return state;
+    }
 };
