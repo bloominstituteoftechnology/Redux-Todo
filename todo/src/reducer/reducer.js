@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions/actions'
+import { ADD_TODO, DELETE_TODO } from '../actions/actions'
 import { TOGGLE_TODO } from '../actions/actions'
 
 const initState = {
@@ -16,11 +16,26 @@ export function myReducer(state = initState, action) {
         todos: newTodos
       }
 
-    case TOGGLE_TODO:
+    case DELETE_TODO:
       let filteredTodos = state.todos.filter(todo => todo.id !== action.id)
       return {
         ...state,
         todos: filteredTodos
+      }
+
+    case TOGGLE_TODO:
+      const toggleTodos = state.todos.map(todo => {
+        if (todo.id === action.id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        } else return todo
+      })
+
+      return {
+        ...state,
+        todos: toggleTodos
       }
 
     default:

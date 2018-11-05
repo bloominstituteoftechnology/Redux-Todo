@@ -3,10 +3,19 @@ import { connect } from 'react-redux'
 
 import { addTodo } from '../actions/actions'
 import { toggleTodo } from '../actions/actions'
+import { deleteTodo } from '../actions/actions'
 
 
 const Todo = props => {
-  return <li onClick={() => props.toggleTodo(props.id)}>{props.todo}</li>
+  let complete = props.completed ? "complete" : null
+  return (
+    <div>
+      <li className={complete} onClick={() => props.toggleTodo(props.id)}>
+        {props.todo}{" "}
+      </li>
+      <button onClick={() => props.deleteTodo(props.id)}>Delete Todo</button>
+    </div>
+  )
 }
 
 const mapStateToProps = state => {
@@ -17,5 +26,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo }
+  { toggleTodo, deleteTodo }
 )(Todo)
