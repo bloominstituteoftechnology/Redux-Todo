@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux";
-import {toggle, clear} from "./action"
+import {toggle} from "./action"
 import Todo from "./Todo";
 
 //renders the list of todo items
@@ -13,8 +13,7 @@ const TodoList = (props) => {
                todo={todo}
                id={todo.id}
                task={todo.task}
-               completed={props.completed}
-               clear={() => props.clear(todo.id)}
+               completed={todo.completed}
                toggle={() => props.toggle(todo.id)}
             />
             )}
@@ -24,8 +23,7 @@ const TodoList = (props) => {
 
 //maps state to props
 const mapStateToProps = (state) => {
-      console.log(state)
    return {todos: state.todos}
 }
 
-export default connect(mapStateToProps, {toggle, clear})(TodoList)
+export default connect(mapStateToProps, {toggle})(TodoList)

@@ -31,6 +31,7 @@ class TodoForm extends React.Component {
    clearCompleted = () => {
       this.props.clear()
    }
+
    render(){
       return(
          <div>
@@ -55,10 +56,4 @@ class TodoForm extends React.Component {
 }
 
 //map to state is null because it's not needed, add and clear are imported for the buttons
-
-const mapStateToProps = (state) => {
-   console.log(state)
-   return {todos: state.todos}
-}
-
-export default connect(mapStateToProps, {add, clear} )(TodoForm)
+export default connect(null, {add, clear})(TodoForm)
