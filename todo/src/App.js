@@ -29,9 +29,9 @@ class App extends React.Component {
           <button>Clear Completed</button>
         </form>
         <div>
-          {this.props.todoList.map(x => {
+          {this.props.todoList.map((x, index) => {
             return (
-              <ul key={x.value}>
+              <ul key={index}>
                 {x.value}
               </ul>
             )
