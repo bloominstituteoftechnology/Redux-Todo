@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import {connect} from '../node_modules/react-redux';
 import Todo from "../Todo/Todo";
 // import { increment, decrement } from '../actions';
-import TodoForm from '../ToDoForm'
+import TodoForm from '../ToDoForm/TodoForm'
+import {connect} from 'react-redux';
 
-const TodoList = () => {
-    return (
-        <div>
-            <h1>Oh god it's another todo app</h1>
-            <TodoForm />
-        </div>
-    )
+const TodoList = (props) => {
+    {props.todos.map(todo =>
+        <Todo
+        id={todo.id}
+        todo={todo}
+        />
+        )}
 }
 
-export default TodoList;
+const mapStateToProps = (state) => {
+    return {todos: state.todos};
+} 
+
+
+
+export default connect(mapStateToProps)(TodoList);

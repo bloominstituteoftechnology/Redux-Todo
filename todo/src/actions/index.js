@@ -19,8 +19,9 @@
 //     }
 // }
 
-export const ADD = () => {
+export const ADD = (text) => {
     return {
-        type: ADD
+        type: ADD,
+        text: text
     }
 }

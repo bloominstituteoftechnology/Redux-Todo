@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import {connect} from '../node_modules/react-redux';
 import Todo from "../Todo/Todo";
+import Redux from 'react';
+import {connect} from 'react-redux';
 
 
 const TodoForm = () => {

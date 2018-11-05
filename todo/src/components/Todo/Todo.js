@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 
-const Todo = ({onClick, completed, text}) => {
-    <li onClick={onClick} style ={{textDecoration: completed ? 'line-through' : null}}>
-        {text}
-    </li>
+const Todo = (props) => {
+    return (
+        <div>
+            {props.todo.task}
+        </div>
+    )
 }
 
 

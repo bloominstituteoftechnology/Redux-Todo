@@ -4,29 +4,37 @@ import './App.css';
 import Redux from 'react';
 import reducers from './reducers/reducers';
 import Headline from './components/test';
-import { updateName } from './actions';
+// import { updateName } from './actions';
 import {connect} from 'react-redux';
-import TodoForm from './components/ToDoForm';
-import TodoList from './components/TodoList';
+import TodoForm from './components/ToDoForm/TodoForm';
+import TodoList from './components/TodoList/TodoList';
+import {add} from './actions/'
 
 class App extends Component {
-  // bringing it back to basics, doing a walkthrough from lecture/Julie's notes.
   constructor() {
     super();
     this.state = {
-      setName: '',
+      input: '',
       }
     }
 
     inputHandler = (e) => {
       this.setState({
-        [e.target.name]: e.target.value,
+        [e.target.input]: e.target.value,
       })
     }
 
-    formSubmitHandler = (e) => {
-      e.preventDefault();
-      this.props.updateName(this.state.setName);
+    // formSubmitHandler = (e) => {
+    //   e.preventDefault();
+    //   this.props.updateName(this.state.setName);
+    // }
+
+    addHandler = () => {
+      this.setState.add(this.state.input);
+      this.setState({
+        input: '',
+      })
+
     }
 
 
@@ -37,6 +45,16 @@ class App extends Component {
       <div className="App">
       <TodoList />
       <TodoForm />
+      <form onSubmit={(event) => event.preventDefault()}>
+        <input
+          value={this.state.input}
+          placeholder="enter todo"
+          onChange={this.inputHandler}
+        />
+        <button onClick={() => this.addHandler()}>Add</button>
+
+        
+      </form>
 
 
 
@@ -57,10 +75,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {name: state.name}
-}
+export default App;
 
-export default connect(
-  mapStateToProps, {updateName}
-)(App);
+// const mapStateToProps = state => {
+//   return {name: state.name}
+// }
+
+// export default connect(
+//   mapStateToProps, {updateName}
+// )(App);

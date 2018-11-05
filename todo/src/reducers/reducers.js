@@ -1,5 +1,6 @@
 import React from 'react';
 import {UPDATE_NAME} from '../actions'
+import {ADD} from '../actions'
 
 // const initialState = {name: 'Tommy' };
 // export default (state = initialState, action) => {
@@ -12,10 +13,23 @@ import {UPDATE_NAME} from '../actions'
 //     }
 // }
 
-const initialState = {todo: []}
+const initialState = {todos: []}
 
 export default (state = initialState, action) => {
-    switch (action.type) { 
-        default: return state;
+    switch (action.type) {
+        case ADD: 
+        return Object.assign({}, state, {
+            todos: [
+                ...state.todos,
+            {
+                id: state.todos.length +1,
+                task: action.text,
+                completed: false,
+            }]
+        })
     }
+
+
+
+
 }
