@@ -15,7 +15,7 @@ const TodoList = (props) => {
                task={todo.task}
                completed={props.completed}
                clear={() => props.clear(todo.id)}
-               onClick={() => props.toggle(todo.id)}
+               toggle={() => props.toggle(todo.id)}
             />
             )}
       </div>
@@ -24,6 +24,7 @@ const TodoList = (props) => {
 
 //maps state to props
 const mapStateToProps = (state) => {
+      console.log(state)
    return {todos: state.todos}
 }
 

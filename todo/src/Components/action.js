@@ -14,13 +14,13 @@ export const add = (text) => {
 export const clear = (id) => {
    return {
       type: CLEAR,
-      // payload: id
+      id: id
    }
 }
 
 export const toggle = (id) => {
    return {
       type: TOGGLE,
-      // payload, id
+      id: id
    }
 }
