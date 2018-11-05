@@ -1,5 +1,10 @@
 const initialState = {
-    todos: ['wash dishes']
+    todos: [
+        {
+            value: 'Walk Dog',
+            completed: false,
+        }
+    ]
 }
 
 export default (state = initialState, action) => {

@@ -21,7 +21,7 @@ const App = (props) => {
           {props.todoList.map(x => {
             return (
               <ul key={x}>
-                {x}
+                {x.value}
               </ul>
             )
           })}
@@ -41,7 +41,7 @@ const App = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state);
+  // console.log(state); 
   return { todoList: state.todos}
 }
 export default connect(mapStateToProps)(App);
