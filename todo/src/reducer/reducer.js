@@ -8,7 +8,7 @@ export function myReducer(state = initState, action) {
   switch (action.type) {
     case ADD_TODO:
       let newTodos = state.todos.map(todo => todo)
-      let newTodo = { value: action.todo, completed: false, id: action.id }
+      let newTodo = { todo: action.todo, completed: false, id: action.id }
       newTodos.push(newTodo)
       return {
         ...state,

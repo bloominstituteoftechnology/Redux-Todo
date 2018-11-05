@@ -6,12 +6,7 @@ import { addTodo } from '../actions/actions'
 
 
 const Todo = props => {
-  return (
-    <span>
-      <input onChange={() => props.addTodo(props.id)} type="text" />
-      {props.todo}
-    </span>
-  )
+  return <li>{props.todo}</li>
 }
 
 const mapStateToProps = state => {
