@@ -6,6 +6,8 @@ import reducers from './reducers/reducers';
 import Headline from './components/test';
 import { updateName } from './actions';
 import {connect} from 'react-redux';
+import TodoForm from './components/ToDoForm';
+import TodoList from './components/TodoList';
 
 class App extends Component {
   // bringing it back to basics, doing a walkthrough from lecture/Julie's notes.
@@ -33,7 +35,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+      <TodoList />
+      <TodoForm />
+
+
+
+        {/* <header className="App-header">
           <p>
             Redux Todo.
           </p>
@@ -44,7 +51,7 @@ class App extends Component {
             <button type="submit">Submit!</button>
             </form>
           </div>
-        </header>
+        </header> */}
       </div>
     );
   }
