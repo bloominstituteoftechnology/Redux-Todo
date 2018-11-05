@@ -27,6 +27,7 @@ handleSubmit = event => {
                     <label>Add a todo:</label>
                     <input type="text" onChange={this.handleChange} value={this.state.content} /> 
                 </form>
+                <a onClick={this.handleSubmit}class="waves-effect waves-light btn">Add Todo</a>
             </div>
         )
     }
