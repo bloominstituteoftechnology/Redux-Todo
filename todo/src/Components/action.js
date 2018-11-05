@@ -11,10 +11,10 @@ export const add = (text) => {
    }
 }
 
-export const clear = (id) => {
+export const clear = (completed) => {
    return {
       type: CLEAR,
-      id: id
+      completed: completed
    }
 }
 

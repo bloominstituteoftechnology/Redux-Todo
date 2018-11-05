@@ -44,7 +44,13 @@ export default (state = initialState, action) => {
          })
          return {todos: toggleTodoMap}
       case CLEAR:
-         return {}
+         const filteredTodos = state.todos.filter(todo => {
+            if(todo.completed !== true){
+               return todo
+            }
+            return ""
+         })
+         return {todos: filteredTodos}
       default: 
          return state
    }
