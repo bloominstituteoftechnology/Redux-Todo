@@ -82,3 +82,14 @@ h2 {
     width: 100%;
     text-align: center;
 }
+
+.todo {
+    display: flex;
+    align-items: center;
+}
+
+.delete {
+    font-weight: bold;
+    padding-right: 10px;
+    cursor: pointer;
+}

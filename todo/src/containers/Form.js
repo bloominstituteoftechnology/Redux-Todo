@@ -1,7 +1,7 @@
 import React from "react";
 import "./Todo.css";
 import { connect } from "react-redux";
-import { addTodo } from "../actions/action";
+import { addTodo, clearAll } from "../actions/action";
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -25,6 +25,11 @@ class TodoForm extends React.Component {
     });
   };
 
+  clearHandler = e => {
+    e.preventDefault();
+    this.props.clearAll();
+  };
+
   render() {
     return (
       <div className="todo-form">
@@ -39,6 +44,9 @@ class TodoForm extends React.Component {
           <button type="submit" className="button" onClick={this.submitHandler}>
             Add Task
           </button>
+          <button type="submit" className="button" onClick={this.clearHandler}>
+            Clear All
+          </button>
         </div>
       </div>
     );
@@ -51,5 +59,5 @@ const mapStateToProps = () => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, clearAll }
 )(TodoForm);

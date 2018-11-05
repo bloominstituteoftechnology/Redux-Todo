@@ -2,7 +2,7 @@ import React from "react";
 import Todo from "./Todo";
 import "./Todo.css";
 import { connect } from "react-redux";
-import { completeTodo } from "../actions/action";
+import { completeTodo, deleteCompleted } from "../actions/action";
 
 class TodoList extends React.Component {
   clickHandler = (event, id) => {
@@ -14,6 +14,11 @@ class TodoList extends React.Component {
       event.target.classList.add("strikethrough");
     }
   };
+
+  deleteHandler = (e, id) => {
+    e.preventDefault();
+    this.props.deleteCompleted(id);
+  };
   render() {
     return (
       <div className="list">
@@ -23,6 +28,7 @@ class TodoList extends React.Component {
               clickHandler={this.clickHandler}
               item={task.todo}
               id={task.id}
+              deleteHandler={this.deleteHandler}
             />
           );
         })}
@@ -35,5 +41,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { completeTodo }
+  { completeTodo, deleteCompleted }
 )(TodoList);
