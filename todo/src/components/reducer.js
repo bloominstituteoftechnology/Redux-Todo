@@ -1,4 +1,4 @@
-import { ADD_TODO } from './action';
+import { ADD_TODO, COMPLETED, DELETED} from './action';
 
 const initialState = {
   todos:[
@@ -24,6 +24,27 @@ export default ( state = initialState, action) => {
         }
       ]
     });
+    case COMPLETED:
+    const newState = state.todos.map(item =>{
+      if (item.id === action.payload){
+        return{ 
+          id:item.id , 
+          todo:item.todo,
+          completed:!item.completed
+        }
+      }
+      else{
+        return item
+      }
+    });
+    return Object.assign({}, state, { todos: newState });
+
+    case DELETED:
+    const incompleteState = state.todos.filter(item =>{
+      return item.id !== action.payload
+    });
+    return Object.assign({}, state, { todos: incompleteState });
+
     default:
     return state;
   }

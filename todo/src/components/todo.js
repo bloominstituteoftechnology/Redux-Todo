@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 class Todo extends Component {
   render() { 
-    const { todo } = this.props.todo
+    console.log(this.props)
+    const { todo, id } = this.props.todo
     return ( 
-      <>
-      <p>{todo}</p>
-      </>
+      <div className="item">
+      <p onClick={event => this.props.complete(event,id)}>{todo}
+      <span onClick={event=>this.props.delete(event, id)}> [x]</span>
+      </p>
+      </div>
     );
   }
 }
