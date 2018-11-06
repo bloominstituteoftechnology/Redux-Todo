@@ -8,7 +8,7 @@ import Headline from './components/test';
 import {connect} from 'react-redux';
 import TodoForm from './components/ToDoForm/TodoForm';
 import TodoList from './components/TodoList/TodoList';
-import {add} from './actions/'
+import { addText } from './actions/'
 
 class App extends Component {
   constructor() {
@@ -24,63 +24,19 @@ class App extends Component {
       })
     }
 
-    // formSubmitHandler = (e) => {
-    //   e.preventDefault();
-    //   this.props.updateName(this.state.setName);
-    // }
-
-    addHandler = () => {
-      this.setState.add(this.state.input);
-      this.setState({
-        input: '',
-      })
-
+    addHandler = (e) => {
+      e.preventDefault();
+      this.props.addText(this.state.input);
     }
-
-
-
 
   render() {
     return (
       <div className="App">
       <TodoList />
       <TodoForm />
-      <form onSubmit={(event) => event.preventDefault()}>
-        <input
-          value={this.state.input}
-          placeholder="enter todo"
-          onChange={this.inputHandler}
-        />
-        <button onClick={() => this.addHandler()}>Add</button>
-
-        
-      </form>
-
-
-
-        {/* <header className="App-header">
-          <p>
-            Redux Todo.
-          </p>
-          <div>
-            <h2>Hello, {this.props.name}!</h2>
-            <form onSubmit={this.formSubmitHandler} >
-            <input type="text" name="setName" value={this.state.setName} onChange={this.inputHandler}/>
-            <button type="submit">Submit!</button>
-            </form>
-          </div>
-        </header> */}
       </div>
     );
   }
 }
 
-export default App;
-
-// const mapStateToProps = state => {
-//   return {name: state.name}
-// }
-
-// export default connect(
-//   mapStateToProps, {updateName}
-// )(App);
+export default connect(()=>({}), {addText})(App)
