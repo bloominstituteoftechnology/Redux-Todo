@@ -18,8 +18,8 @@ class TodoForm extends React.Component {
   submitHandler = e => {
     e.preventDefault();
     if (this.state.todoEntry) {
-      this.setState({ todoEntry: "" });
       this.props.addTodo(this.state.todoEntry);
+      this.setState({ todoEntry: "" });
     }
   };
 
@@ -27,12 +27,13 @@ class TodoForm extends React.Component {
     return (
       <div>
         <Form>
-          <Label>What's Left To Do, Friend</Label>
+          <Label for="task">What's Left To Do, Friend</Label>
           <Input
             type="text"
             name="todo"
             value={this.state.todoEntry}
             onChange={this.changeHandler}
+            id="task"
           />
           <Button type="submit" color="success" onClick={this.submitHandler}>
             Submit
