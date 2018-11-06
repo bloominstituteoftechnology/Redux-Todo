@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { addTodo } from '../actions'; 
+import { connect } from 'react-redux';       //dispatch communicates with the store in redux
+import { addTodo } from '../actions';        //addTodo function is an action-creators
 
 // what is dispatch doing here
 const AddTodo = ({ dispatch }) => {
@@ -24,24 +24,24 @@ const AddTodo = ({ dispatch }) => {
         // <form onSubmit={formSubmitHandler}>
         <form onSubmit={event => {
             event.preventDefault();
-            if (!input.value.trim()) {
-                return
-            }
-            dispatch(addTodo(input.value))
-            input.value = ''
+            // if (!input.value.trim()) {    // not sure what this does
+            //     return
+            // }
+            dispatch(addTodo(input.value))      //text input does not get added to addTodo without this line
+            input.value = ''                    // clear input field after submit
         }}>
-            <input ref={node => input = node} />
+            <input placeholder="some text" ref={node => input = node} />   {/* dispatch function above does not work without this line */}
                 {/* <input 
-                  placeholder="some text"
-                  type="text"
-                  name="name"
-                  // value={this.state.name.value}   //change name -> name.value; doesn't break when type
-                  value={input.value}
-                  onChange={inputHandler}
+                placeholder="some text"
+                type="text"
+                name="name"
+                // value={this.state.name.value}   //change name -> name.value; doesn't break when type
+                value={input.value}
+                onChange={inputHandler}
                 /> */}
-                <button type="submit">submit</button>
+                <button type="submit">submit</button>     {/* does not need type="submit" */}
         </form>
     )
 }
 
-export default connect()(AddTodo)
+export default connect()(AddTodo)     // dispatch function above only works with 'connect()'; dispatch(addTodo) is the KEY here

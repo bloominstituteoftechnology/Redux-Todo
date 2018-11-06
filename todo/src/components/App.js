@@ -4,18 +4,14 @@ import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 
 
-import { updateTodoAction } from '../action';
-import Headline from '../Headline';
+// import { updateTodoAction } from '../action';
+// import Headline from '../Headline';       //App breaks if remove Headline.js file
 
 import logo from '../logo.svg';
 import './App.css';
 
 import Todosarraydisplay from '../Todosarraydisplay';
 
-
-
-
-// import { connect } from '../node_modules/react-redux';
 
 
 
@@ -34,10 +30,10 @@ class App extends Component {
   }
 
   //change name -> name.value
-  inputHandler = event => {
-    // this.setState({ [event.target.name.value]: event.target.value });
-    this.setState({ [event.target.name]: event.target.value });
-  }
+  // inputHandler = event => {
+  //   // this.setState({ [event.target.name.value]: event.target.value });
+  //   this.setState({ [event.target.name]: event.target.value });
+  // }
 
   //move to AddTodo.js
   // formSubmitHandler = event => {
@@ -56,17 +52,6 @@ class App extends Component {
           <p>
             Redux Todo App:
           </p>
-          <div>
-              {/* <ul>
-                {this.state.todos.map((todo) => {
-                  return <li>{todo.value}</li>
-                })}
-              </ul> */}
-          </div>
-
-          <div>
-            <Headline /> 
-          </div>
             
           <AddTodo />
           <VisibleTodoList />
