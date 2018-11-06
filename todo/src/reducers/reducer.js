@@ -1,59 +1,46 @@
 import * as todoActionTypes from '../actionTypes';
 
-const initialState = [
-     
-                    {
-                        value: 'venkateshwarlu you are awesome.',
-                        id:0,
-                        completed: false
-                    }
-                ]
-export default (state=initialState, action) => {
-      return state;
-}
+const initialState =  [ 
+            { value: 'Item 1 needs to be done', completed: false }, 
+            { value: 'Item 2 needs to be done', completed: false} 
+                      ]
+
 
 export let todoLength = initialState.length;
 
-// export default function Reducer( state=initialState, action) {
-//     switch(action.type) {
-//         case todoActionTypes.ADD_TODO:
-//         return [
-//             ...state,
-//             {
-//                 id: action.id,
-//                 text: action.text,
-//                 completed: false
-//               }
-//         ]
+export default function Reducer( state=initialState, action) {
+    switch(action.type) {
+        case todoActionTypes.ADD_TODO:
+            return [...state, {...action.payload, id: state.length + 1}];
 
-//         case todoActionTypes.TOGGLE_TODO:
-//         return state.map( todo => {
-//              if(todo.id === action.id) {
-//                  return {
-//                      ...todo, 
-//                      completed:!todo.completed
-//                  }
-//              }
-//         })
+        case todoActionTypes.UPDATE_TODO:
+            const update = state.map(item => {
+                if(item.id === action.id) {
+                  return {...item, completed: !item.completed}
+                }
+                return item
+              })
+            return update
 
-//         case todoActionTypes.DELETE_TODO:
-//         return [
-//             ...state.slice(0, action.id),
-//             ...state.slice(action.id + 1)
-//         ];
 
-//         case todoActionTypes.UPDATE_TODO:
-//         return state.map( (todo, index) => {
-//             if(index === action.id) {
-//                 return {
-//                     ...todo,
-//                     value: action.value
-//                 }
-//             }
-//             return todo;
-//         });
+        case todoActionTypes.TOGGLE_TODO:
+        return state.map( todo => {
+             if(todo.id === action.id) {
+                 return {
+                     ...todo, 
+                     completed:!todo.completed
+                 }
+             }
+        })
 
-//         default:
-//          return state;
-//     }
-// }
+        case todoActionTypes.DELETE_TODO:
+        return [
+            ...state.slice(0, action.id),
+            ...state.slice(action.id + 1)
+        ];
+
+       
+        default:
+         return state;
+    }
+}

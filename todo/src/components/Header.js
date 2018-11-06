@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import Card from './styled-component/Card';
 import { connect } from 'react-redux';
-
+import { updateTodo } from '../actions/action';
 
 
 class Header extends Component {
     constructor(props) {
         super(props);
     }
+    updateComplete = (id) => {
+        this.props.updateTodo(id);
+    }
     render() {
+        console.log(this.props.items)
         return (
             <div>
               <Card>
-                  <h1>Todos List</h1>
-                  <ul>
-                    <li>{this.props.ideal}</li>  
-                  </ul>
+                  <h1>Complete List</h1>
+                   {this.props.items.map( item => {
+                         return(
+                             <h3>{item.value}</h3>
+                         )
+                   })}
               </Card>  
             </div>
         );
@@ -26,7 +32,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
      return {
-         ideal: state[0].value
+         items: state
      }
 }
 
