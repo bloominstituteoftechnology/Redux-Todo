@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from './styled-component/Card';
 import { connect } from 'react-redux';
-import { updateTodo, deleteTodo } from '../actions/action';
+import { updateTodo, deleteTodo, toggleTodo } from '../actions/action';
 import Button from './styled-component/Button';
 
 
@@ -10,24 +10,28 @@ class Header extends Component {
         super(props);
     }
     updateComplete = (id) => {
-        this.props.updateTodo(id);
+        this.props.toggleTodo(id);
         console.log("working");
     }
+    
     render() {
         console.log(this.props)
         return (
             <div>
               <Card>
                   <h1>Complete List</h1>
-                   {this.props.items.map( item => {
+                   {this.props.items.map( (item,index) => {
                          return(
                              <div className='header' key={item.value}>
                                 <h3 
-                                 onClick={ () => this.props.updateTodo(item.id)}
+                                 onClick={ () => this.props.toggleTodo(item.id)}
                                  className={`item-${item.completed}`}
                                  
                                  >{item.value}</h3>
-                                <input type='button' value="Delete" />
+                                <input 
+                                 type='button' 
+                                 value="Delete"
+                                 onClick={ () => this.props.deleteTodo(index)} />
                                 <input type='button' value="Edit" />
                              </div>
                          )
@@ -51,4 +55,4 @@ const mapStateToProps = (state) => {
      }
 }
 
-export default connect(mapStateToProps, {updateTodo})(Header);
+export default connect(mapStateToProps, {toggleTodo, deleteTodo})(Header);

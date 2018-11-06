@@ -11,12 +11,12 @@ export let todoLength = initialState.length;
 export default function Reducer( state=initialState, action) {
     switch(action.type) {
         case todoActionTypes.ADD_TODO:
-            return [...state, {...action.payload, id: state.length + 1}];
+            return [...state, {...action.payload, id: todoLength + 1}];
 
         case todoActionTypes.UPDATE_TODO:
             const update = state.map(item => {
                 if(item.id === action.id) {
-                  return {...item, completed: !item.completed}
+                  return {...item, value: action.value}
                 }
                 return item
               })
@@ -26,11 +26,9 @@ export default function Reducer( state=initialState, action) {
         case todoActionTypes.TOGGLE_TODO:
         return state.map( todo => {
              if(todo.id === action.id) {
-                 return {
-                     ...todo, 
-                     completed:!todo.completed
-                 }
+                 return {...todo,  completed:!todo.completed }
              }
+             return todo;
         })
 
         case todoActionTypes.DELETE_TODO:
