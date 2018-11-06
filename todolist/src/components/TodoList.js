@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
+import {newValue} from './actions';
 
 class TodoList extends Component {
-
-
 
   render() {
     return (
@@ -11,9 +10,9 @@ class TodoList extends Component {
        {this.props.todos.map((todo) => {
            return (
                     <div>
-                        {todo.value}
+                        {todo.todo}
                     </div>
-           )
+                )
        })}
       </div>
     )
@@ -26,4 +25,4 @@ const mapStateToProps = (state) => {
         }
 }
 
-export default connect(mapStateToProps)(TodoList)
+export default connect(mapStateToProps, {newValue})(TodoList)
