@@ -5,6 +5,8 @@ import {newValue} from './actions';
 class TodoList extends Component {
 
   render() {
+
+    console.log(this.props)
     return (
       <div>
        {this.props.todos.map((todo) => {
@@ -20,8 +22,9 @@ class TodoList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
     return {
-        todos: state.todos,
+        todos: state,
         }
 }
 

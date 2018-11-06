@@ -1,21 +1,26 @@
 import {NEW_TODO} from "../actions/index";
 
 
-const initialState = {
-    todos: [{
-    id: 0,
-    todo: "",
-    }]
-}
+const initialState = [
+     {
+         id: 0,
+         todo: '',
+         completed: false
+     }
+]
 
 
 export const todosReducer = ( previousState = initialState, action) => {
         switch(action.type){
             case NEW_TODO: 
-                return  Object.assign(previousState, {
-                    todo: action.payload,
-                })
-
+                return [
+                    ...previousState,
+                    {
+                        id: action.id,
+                        todo: action.payload,
+                        completed: false
+                    }
+                ]
             default: return previousState;
         }
 }
