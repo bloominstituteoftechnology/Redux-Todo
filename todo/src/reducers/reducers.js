@@ -1,6 +1,6 @@
 import React from 'react';
 
-const initialState = {todos: []}
+const initialState = {todos: ["Oakland", "SF"]}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -13,6 +13,7 @@ const reducer = (state = initialState, action) => {
                 completed: false,
             }]
         })
+        default: return state
     }
 }
 
