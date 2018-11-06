@@ -4,11 +4,10 @@ import styled from "styled-components";
 const Task = styled.ul`
    ${props => props.complete ? `text-decoration: line-through` : null}
 `;
-
 const Item = (props) => {
    return(
       <div>
-         <Task complete={props.completed}>{props.task}</Task>
+         <Task onClick={props.toggle} complete={props.completed}>{props.todo.task}</Task>
       </div>
    )
 }
