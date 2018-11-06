@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Input from './styled-component/Input';
 import Button from  './styled-component/Button';
 import { connect } from 'react-redux';
-import {addTodo, deleteTodo, updateTodo, toggleTodo } from '../actions/action';
+import {addTodo} from '../actions/action';
 
 class Form extends Component {
     constructor(props){

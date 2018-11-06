@@ -1,8 +1,8 @@
 import * as todoActionTypes from '../actionTypes';
 
 const initialState =  [ 
-            { value: 'Item 1 needs to be done', completed: false }, 
-            { value: 'Item 2 needs to be done', completed: false} 
+            { value: 'Item 1 needs to be done', id:0, completed: false }, 
+            { value: 'Item 2 needs to be done', id:1,  completed: false} 
                       ]
 
 
