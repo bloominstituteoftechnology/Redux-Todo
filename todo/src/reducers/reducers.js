@@ -25,6 +25,7 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-// event handlers go here?
+
+
 
 export default reducer

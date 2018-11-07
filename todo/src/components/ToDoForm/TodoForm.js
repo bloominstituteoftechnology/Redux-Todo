@@ -11,23 +11,24 @@ class TodoForm extends React.Component {
         this.state={
             inputValue: ''
         }
-
-        inputHandler = (e) => {
-            this.setState({
-                inputValue: e.target.value
-            })
-        }
-
-        addHandler = (e) => {
-            e.preventDefault();
-            this.props.addText(this.state.inputValue);
-        }
     }
+
+    inputHandler = (e) => {
+        this.setState({
+            inputValue: e.target.value
+        })
+    }
+
+    addHandler = (e) => {
+        e.preventDefault();
+        this.props.addText(this.state.inputValue);
+    }
+
     render(){
     return (
         <div>
             <input placeholder="enter todo" value={this.state.inputValue} onChange={this.inputHandler}/>
-            <button>Add Todo</button>
+            <button onClick={this.addHandler}>Add Todo</button>
             <button>Clear Todo</button>
         </div>
     )
