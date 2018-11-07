@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  border: 1px solid red;
+  border-top: 1px solid#333;
   /* width: 80%; */
   margin: 0 auto;
 }
@@ -45,5 +45,5 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(224, 224, 224);
 }

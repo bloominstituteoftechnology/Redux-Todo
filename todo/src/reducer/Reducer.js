@@ -1,5 +1,5 @@
 //import actions
-import { ADD_TODO, DELETE_TODO } from '../actions/Action';
+import { ADD_TODO, TOGGLE_COMPLETE, DELETE_TODOS } from '../actions/Action';
 
 //set initial state
 const initialState = { todoList: [] };
@@ -12,8 +12,23 @@ export default (state = initialState, action) => {
       //   console.log(state.todoList, action.payload);
       //   console.log({ todoList: [...state.todoList, action.payload] });
       return { todoList: [...state.todoList, action.payload] };
-    case DELETE_TODO:
-      return {};
+    case TOGGLE_COMPLETE:
+      console.log(state, action);
+      return {
+        todoList: state.todoList.map(item => {
+          if (item.id === action.payload) {
+            console.log(item);
+            return Object.assign({}, item, { completed: !item.completed });
+          }
+          return item;
+        })
+      };
+    case DELETE_TODOS:
+      return {
+        todoList: state.todoList.filter(item => {
+          return !item.completed;
+        })
+      };
     default:
       return state;
   }

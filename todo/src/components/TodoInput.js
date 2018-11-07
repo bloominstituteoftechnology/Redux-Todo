@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions/Action';
+import { addTodo, deleteItems } from '../actions/Action';
 
 class TodoInput extends React.Component {
   state = { value: '', completed: false, id: null };
@@ -13,10 +13,14 @@ class TodoInput extends React.Component {
   addTodoItem = e => {
     e.preventDefault();
     // console.log(this.state.value);
-    // this.setState({ id: newId });
     console.log(this.state);
     this.props.addTodo(this.state);
     this.setState({ value: '', id: null });
+  };
+
+  deleteCompleted = e => {
+    e.preventDefault();
+    this.props.deleteItems(this.state);
   };
 
   render() {
@@ -28,6 +32,7 @@ class TodoInput extends React.Component {
           onChange={this.handleInput}
         />
         <button onClick={this.addTodoItem}>Add Todo</button>
+        <button onClick={this.deleteCompleted}>Delete Completed</button>
       </form>
     );
   }
@@ -39,5 +44,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, deleteItems }
 )(TodoInput);

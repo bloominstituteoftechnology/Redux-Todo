@@ -1,5 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
-export const DELETE_TODO = 'DELETE_TODO';
+export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const DELETE_TODOS = 'DELETE_TODOS';
 
 export const addTodo = item => {
   return {
@@ -8,8 +9,15 @@ export const addTodo = item => {
   };
 };
 
-export const deleteTodo = item => {
+export const toggleComplete = item => {
   return {
-    type: DELETE_TODO
+    type: TOGGLE_COMPLETE,
+    payload: item
+  };
+};
+
+export const deleteItems = item => {
+  return {
+    type: DELETE_TODOS
   };
 };
