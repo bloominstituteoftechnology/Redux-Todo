@@ -7,14 +7,15 @@ class TodoList extends Component {
   render() {
 
     console.log(this.props)
+
     return (
       <div>
        {this.props.todos.map((todo) => {
            return (
-                    <div>
+                    <div key={todo.id}>
                         {todo.todo}
                     </div>
-                )
+                  )
        })}
       </div>
     )
@@ -24,8 +25,8 @@ class TodoList extends Component {
 const mapStateToProps = (state) => {
   console.log(state)
     return {
-        todos: state,
-        }
+      todos: state,
+    }
 }
 
 export default connect(mapStateToProps, {newValue})(TodoList)

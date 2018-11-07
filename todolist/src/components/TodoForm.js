@@ -6,16 +6,15 @@ class TodoForm extends Component {
 
 addHandler = (e) => {
     this.setState({
-       todos: [{
-         id: 0,
         todo: e.target.value,
-       }]
+        complete: false,
+
     })
  }
 
 submitHandler = (e) => {
   e.preventDefault();
- return this.props.newValue(this.state.todos);
+ return this.props.newValue(this.state.todo);
 }
 
 
