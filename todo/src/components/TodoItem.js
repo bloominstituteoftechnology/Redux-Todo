@@ -4,8 +4,14 @@ class TodoItem extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
-    return <p>{this.props.text}</p>;
+    return (
+      <div className="todo-item">
+        <p>{this.props.text}</p>
+        {/* <p className="delete-btn">X</p> */}
+      </div>
+    );
   }
 }
 
