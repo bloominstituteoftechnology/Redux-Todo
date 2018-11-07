@@ -9,7 +9,7 @@ const TodoList = (props) => {
                 return (
                 <Todo
                 todo={todo}
-                key={todo.text}
+                key={todo.id}
                 />)
             })}
         </div>
