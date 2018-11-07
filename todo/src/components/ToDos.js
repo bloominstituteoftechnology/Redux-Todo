@@ -7,8 +7,8 @@ const ToDos = (props) => {
         <div>
             {props.toDos.map( todo => {
                 return (
-                    <h3 onClick={() => props.updateComplete(todo.id)} style={todo.completed ? {textDecoration:'line-through'}: null} key={todo.id}>
-                        {todo.value}
+                        <h3 onClick={() => props.updateComplete(todo.id)} style={todo.completed ? {textDecoration:'line-through'}: {textDecoration:'none'}} key={todo.id}>
+                        {todo.text}
                     </h3>
                 )
             })}

@@ -18,7 +18,7 @@ class App extends Component {
 		this.setState({ [event.target.name]: event.target.value });
 	}
 
-	addTodo = () => {
+	addToDo = () => {
 		const { toDoText } = this.state;
 		const newToDo = {
 			id: this.props.toDos.length + 1,
