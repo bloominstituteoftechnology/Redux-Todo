@@ -1,12 +1,12 @@
 import React from 'react';
+import TodoCard from './TodoCard'
 
 
-const TodoContainer = () => {
+export default () => {
  return(
   <div>
-
+   <TodoCard/>
   </div>
  )
 }
 
-export default TodoContainer
