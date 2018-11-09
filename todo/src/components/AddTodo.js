@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-class TodoList extends Component {
-    render() {
-        return (
-            <div>
-                <input type='text'>...Add Todo</input>
-                <button>submit</button>
-               
-            </div>
-        )
-    }
+class AddTodo extends Component {
+  render() {
+    return (
+      <div>
+        <form>
+          <input type="text">...Add Todo</input>
+          <button>submit</button>
+        </form>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-    return {
-        todos: state.todos
-    }
-}
+  return {
+    todos: state.todos
+  };
+};
 
-export default connect(
-    mapStateToProps,
-)(TodoList);
+export default connect(mapStateToProps)(AddTodo);
