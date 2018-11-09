@@ -25,7 +25,7 @@ class TodoContainer extends React.Component {
  render(){
   return(
   <div>
-  <form>
+  <form onSubmit={this.submitHandler}>
    <input
     type="text"
     name="todo"
