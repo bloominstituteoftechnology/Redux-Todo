@@ -2,7 +2,7 @@ import { ADDTODO, REMOVETODO, TOGGLETODO } from '../actions/actions';
 
 const initState = {
  todos: [{
-  task: '',
+  task: 'Study Redux',
   completed: false 
  }]
 }

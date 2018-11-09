@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import { addTodo, removeTodo, toggleTodo} from '../actions/actions'
 
 
-const Todo = () => {
+const Todo = props => {
   return (
    <div>
-   
+   {props.todos.map(todo => <div>
+    {todo.task}
+   </div>)}
    </div>
   )
 }

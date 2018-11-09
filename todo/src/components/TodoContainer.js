@@ -1,9 +1,10 @@
 import React from 'react';
 import TodoCard from './TodoCard'
+import { connect } from 'react-redux'
 import { addTodo, removeTodo, toggleTodo } from '../actions/actions'
 
 
-class TodoCard extends React.Component {
+class TodoContainer extends React.Component {
  constructor(){
   super()
 
@@ -37,3 +38,4 @@ class TodoCard extends React.Component {
  
 }
 
+export default connect(() => ({}), {addTodo, removeTodo, toggleTodo})(TodoContainer)
