@@ -3,12 +3,12 @@ export const REMOVETODO = 'REMOVETODO';
 export const TOGGLETODO = 'TOGGLETODO';
 
 
-export const addTodo = () => {
- return {type: ADDTODO}
+export const addTodo = (todo) => {
+ return {type: ADDTODO, payload: {todo: todo}}
 }
 
-export const removeTodo = () => {
- return {type: REMOVETODO}
+export const removeTodo = (todo) => {
+ return {type: REMOVETODO, payload: {todo: todo}}
 }
 
 export const toggleTodo = () => {

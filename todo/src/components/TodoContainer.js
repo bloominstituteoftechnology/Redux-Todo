@@ -9,7 +9,7 @@ class TodoContainer extends React.Component {
   super()
 
   this.state = {
-   todo: ''
+   task: ''
   }
  }
 
@@ -17,6 +17,10 @@ class TodoContainer extends React.Component {
   this.setState({
    [event.target.name]: event.target.value
   })
+ }
+
+ submitHandler = () => {
+  this.props.addTodo({task: this.state.task, completed: false})
  }
  render(){
   return(
@@ -29,6 +33,12 @@ class TodoContainer extends React.Component {
    />
    <button type="submit">
    Add Todo
+   </button>
+   <button type="submit">
+    Remove Todo
+   </button>
+   <button type="submit">
+    Toggle Todo
    </button>
   </form>
    <TodoCard/>

@@ -6,7 +6,7 @@ import { addTodo, removeTodo, toggleTodo} from '../actions/actions'
 const Todo = props => {
   return (
    <div>
-   {props.todos.map(todo => <div>
+   {props.todos.map((todo, index) => <div key={index}>
     {todo.task}
    </div>)}
    </div>
