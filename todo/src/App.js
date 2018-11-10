@@ -42,6 +42,7 @@ class App extends Component {
       </form>
       <button onClick={this.addTodo}>Add todo</button>
       <button onClick={this.updateNewTodo}>Update Todo</button>
+      <button onClick={this.deleteTodo}>Delete Todo</button>
       <TodoList todos={this.props.todos} />
       </div>
     );
