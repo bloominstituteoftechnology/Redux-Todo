@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { addTodo } from './actions';
 import TodoList from './components/TodoList';
+import { addTodo } from './actions/index';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +40,8 @@ class App extends Component {
         value={this.state.newTodo}
         />
       </form>
-      <button onSubmit={this.addTodo}>Add todo</button>
+      <button onClick={this.addTodo}>Add todo</button>
+      <button onClick={this.updateNewTodo}>Update Todo</button>
       <TodoList todos={this.props.todos} />
       </div>
     );
