@@ -1,5 +1,6 @@
 //import actions
-import{ADD_TODO, CHANGE_COMPLETED} from '../actions/index.js'
+import React from 'react';
+import{ADD_TODO, CHANGE_COMPLETED} from '../actions/index.js';
 
 const initialState={
     todos:[
@@ -19,10 +20,15 @@ const initialState={
 export default (state=initialState,action)=>{
     switch(action.type){
         case ADD_TODO:
-        console.log("ADD_TODO CLICKED")
+        console.log("ADD_TODO CLICKED");
+        return(<div>returned something</div>)
 
         case CHANGE_COMPLETED:
-        console.log("CHANGE_COMPLETED CLICKED")
+        console.log("CHANGE_COMPLETED CLICKED");
+        return(<div>returned something</div>)
+
+        default:
+        return state;
 
     }
 }

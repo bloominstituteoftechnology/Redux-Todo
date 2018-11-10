@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import{todoreducer} from './reducers/index.js';
+import todoreducer from './reducers/index.js';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
