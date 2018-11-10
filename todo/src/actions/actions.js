@@ -4,7 +4,7 @@ export const TOGGLETODO = 'TOGGLETODO';
 
 
 export const addTodo = (todo) => {
- return {type: ADDTODO, payload: {todo: todo}}
+ return {type: ADDTODO, payload: todo}
 }
 
 export const removeTodo = (todo) => {

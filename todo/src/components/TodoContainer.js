@@ -9,7 +9,7 @@ class TodoContainer extends React.Component {
   super()
 
   this.state = {
-   task: ''
+   todo: ''
   }
  }
 
@@ -27,11 +27,12 @@ class TodoContainer extends React.Component {
   <div>
   <form onSubmit={this.submitHandler}>
    <input
+   onChange={this.inputHandler}
     type="text"
     name="todo"
     value={this.state.todo}
    />
-   <button type="submit">
+   <button onClick={() => addTodo} type="submit">
    Add Todo
    </button>
    <button type="submit">

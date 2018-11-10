@@ -11,11 +11,11 @@ export default (state = initState, action) => {
 
  switch (action.type) {
   case ADDTODO: 
-  return {}
+  return Object.assign({}, state, {task: action.todo, completed: false})
   case REMOVETODO: 
-  return {}
+  return {todos: action.payload}
   case TOGGLETODO:
-  return {}
+  return {todos: action.payload}
   default:
   return state 
  }
