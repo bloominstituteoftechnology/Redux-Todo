@@ -4,6 +4,8 @@ import { addTodo, removeTodo, toggleTodo} from '../actions/actions'
 
 
 const Todo = props => {
+ console.log('props.todos is: ',props.todos)
+ //obj should be arr
   return (
    <div>
    {props.todos.map((todo, index) => <div key={index}>
@@ -14,7 +16,8 @@ const Todo = props => {
 }
 
 const mapStateToProps = (state) => {
- return {todos: state.todos}
+ console.log("State is: ",state)
+ return {todos: state}
 }
 
 

@@ -9,7 +9,7 @@ class TodoContainer extends React.Component {
   super()
 
   this.state = {
-   todo: ''
+   task: ''
   }
  }
 
@@ -19,8 +19,12 @@ class TodoContainer extends React.Component {
   })
  }
 
- submitHandler = () => {
+ submitHandler = (event) => {
+  event.preventDefault()
   this.props.addTodo({task: this.state.task, completed: false})
+  this.setState({
+   task: ''
+  })
  }
  render(){
   return(
@@ -29,15 +33,15 @@ class TodoContainer extends React.Component {
    <input
    onChange={this.inputHandler}
     type="text"
-    name="todo"
-    value={this.state.todo}
+    name="task"
+    value={this.state.task}
    />
-   <button onClick={() => addTodo} type="submit">
+   <button type="submit">
    Add Todo
    </button>
-   <button type="submit">
+   {/* <button type="submit">
     Remove Todo
-   </button>
+   </button> */}
    <button type="submit">
     Toggle Todo
    </button>
@@ -49,4 +53,6 @@ class TodoContainer extends React.Component {
  
 }
 
-export default connect(() => ({}), {addTodo, removeTodo, toggleTodo})(TodoContainer)
+
+
+export default connect("",{addTodo, removeTodo, toggleTodo})(TodoContainer)

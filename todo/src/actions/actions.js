@@ -7,8 +7,8 @@ export const addTodo = (todo) => {
  return {type: ADDTODO, payload: todo}
 }
 
-export const removeTodo = (todo) => {
- return {type: REMOVETODO, payload: {todo: todo}}
+export const removeTodo = (id) => {
+ return {type: REMOVETODO, payload: id }
 }
 
 export const toggleTodo = () => {

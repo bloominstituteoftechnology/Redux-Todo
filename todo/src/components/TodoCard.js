@@ -5,6 +5,7 @@ export default () => {
   return (
     <div>
       <Todo />
+      {/* add delete button here */}
     </div>
   )
 }
