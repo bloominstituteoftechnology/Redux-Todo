@@ -19,9 +19,10 @@ export const toggleComplete = (index) => {
     };
 };
 
-export const deleteTodos = () => {
+export const deleteTodos = (todo) => {
     return {
-        type: DELETE_TODOS
+        type: DELETE_TODOS,
+        payload: todo
     };
 };
 
