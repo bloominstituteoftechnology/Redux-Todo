@@ -3,11 +3,13 @@ import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
 
 
-const App = () => (
+const TodoApp = () => {
+  return (
  <div>
    <AddTodo />
    <TodoList />
    </div>
-)
+  )
+}
 
-export default App;
+export default TodoApp;
