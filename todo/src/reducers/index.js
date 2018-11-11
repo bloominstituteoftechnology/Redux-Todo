@@ -12,20 +12,21 @@ const initialState={
             completed:false
         },{
             value:'third sample todo',
-            completed:false
+            completed:true
         }
     ]
 }
 
 export default (state=initialState,action)=>{
+    console.log('got to the reducer at least?')
     switch(action.type){
         case ADD_TODO:
         console.log("ADD_TODO CLICKED");
-        return(<div>returned something</div>)
+        
 
         case CHANGE_COMPLETED:
         console.log("CHANGE_COMPLETED CLICKED");
-        return(<div>returned something</div>)
+        
 
         default:
         return state;
