@@ -11,6 +11,6 @@ export const removeTodo = (id) => {
  return {type: REMOVETODO, payload: id }
 }
 
-export const toggleTodo = () => {
- return {type: TOGGLETODO}
+export const toggleTodo = (id) => {
+ return {type: TOGGLETODO, payload: id}
 }

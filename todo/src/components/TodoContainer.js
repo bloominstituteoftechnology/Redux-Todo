@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoCard from './TodoCard'
 import { connect } from 'react-redux'
-import { addTodo, removeTodo, toggleTodo } from '../actions/actions'
+import { addTodo, removeTodo, toggleTodo, REMOVETODO } from '../actions/actions'
 
 
 class TodoContainer extends React.Component {
@@ -30,6 +30,10 @@ class TodoContainer extends React.Component {
  deleteTodo = (id) => {
   this.props.removeTodo(id)
  }
+
+ toggleTodo = (id) => {
+  this.props.toggleTodo(id)
+ }
  render(){
   return(
   <div>
@@ -43,9 +47,6 @@ class TodoContainer extends React.Component {
    <button type="submit">
    Add Todo
    </button>
-   {/* <button type="submit">
-    Remove Todo
-   </button> */}
    <button type="submit">
     Toggle Todo
    </button>
