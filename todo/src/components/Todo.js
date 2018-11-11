@@ -6,6 +6,7 @@ const Todo = props => {
   return (
    <div>
    <h1>{props.todo}</h1>
+   <button onClick={() => props.deleteTodo(props.index)} >Remove Todo</button>
    </div>
   )
 }

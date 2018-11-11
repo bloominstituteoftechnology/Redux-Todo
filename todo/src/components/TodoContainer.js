@@ -27,8 +27,7 @@ class TodoContainer extends React.Component {
   })
  }
 
- deleteTodo = (id, event) => {
-  event.preventDefault()
+ deleteTodo = (id) => {
   this.props.removeTodo(id)
  }
  render(){
@@ -51,7 +50,7 @@ class TodoContainer extends React.Component {
     Toggle Todo
    </button>
   </form>
-   <TodoCard removeTodo={this.removeTodo}/>
+   <TodoCard deleteTodo={this.deleteTodo}/>
   </div>
  )
  }
