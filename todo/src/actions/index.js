@@ -2,12 +2,16 @@ export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
 export const DELETE_TODO = "DELETE_TODO";
 
-let nextTodoId = 0
-export const addTodo = todo => {
+
+//referred to redux todo example 
+let todoId = 0
+
+export const addTodo = text => {
   return {
     type: ADD_TODO,
-    id: nextTodoId++,
-    todo
+    text,
+    id: ++todoId
+
   };
 };
 

@@ -1,14 +1,10 @@
-import React, {Component } from 'react';
+import React from "react";
+import AddTodo from '../components/AddTodo';
 
-
-class App extends Component {
-  render () {
-    return (
-      <div>
-        <TodoForm />
-        </div>
-    )
-  }
-}
+const App = () => (
+  <div>
+    <AddTodo />
+  </div>
+);
 
 export default App;
