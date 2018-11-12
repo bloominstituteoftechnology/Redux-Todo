@@ -19,12 +19,16 @@ export default (state = initState, action) => {
   // return Object.assign([], state).filter((item, index) => {
   //  return state.indexOf(item) !== index
   // })
-  return Object.assign([], state).filter((item, index) => {
+  return Object.assign([], state.filter((item, index) => {
    console.log(item, state, index)
    return state.indexOf(item) !== index
-  })
+  }))
   case TOGGLETODO:
-  return {task: action.task, completed: !action.payload.completed}
+  return Object.assign([], state.map((item, index) => {
+   return item.index === action.id ?
+   Object.assign([], item, {task: item.task, completed: !item.completed}) :
+   item 
+  }))
   default:
   return state
  }

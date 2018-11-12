@@ -9,7 +9,7 @@ const TodoCard = (props) => {
     {props.todos.map((todo, index) => <Todo key={index} 
     todo={todo.task}
     completed={todo.completed}
-    index={todo.index}
+    index={index}
     deleteTodo={props.deleteTodo}
     toggleTodo={props.toggleTodo}
     />)}
