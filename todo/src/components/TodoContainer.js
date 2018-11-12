@@ -46,10 +46,6 @@ class TodoContainer extends React.Component {
    <button type="submit">
    Add Todo
    </button>
-   {' '}
-   <button type="submit">
-    Toggle Todo
-   </button>
   </form>
    <TodoCard deleteTodo={this.deleteTodo}
     toggleTodo={this.toggleTodo}
