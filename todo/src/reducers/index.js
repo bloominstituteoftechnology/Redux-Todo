@@ -18,7 +18,6 @@ const initialState={
 }
 
 export default (state=initialState,action)=>{
-    console.log('got to the reducer at least?')
     switch(action.type){
         case ADD_TODO:
         console.log("ADD_TODO CLICKED");
@@ -26,6 +25,7 @@ export default (state=initialState,action)=>{
 
         case CHANGE_COMPLETED:
         console.log("CHANGE_COMPLETED CLICKED");
+        return Object.assign({},state,action.payload);
         
 
         default:

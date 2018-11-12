@@ -15,7 +15,7 @@ const ToDos=(props)=>{
         props.todos.map(
             (todo)=>{
                 return(
-                    <Toggle key={todo.value} type={(todo.completed).toString()} onClick={()=>props.changecompleted(todo.value)}>
+                    <Toggle key={todo.value} type={(todo.completed).toString()} onClick={()=>props.changecompleted(todos)}>
                         {todo.value}
                     </Toggle>
                 )
