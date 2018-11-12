@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoCard from './TodoCard'
 import { connect } from 'react-redux'
-import { addTodo, removeTodo, toggleTodo, REMOVETODO } from '../actions/actions'
+import { addTodo, removeTodo, toggleTodo, } from '../actions/actions'
 
 
 class TodoContainer extends React.Component {
@@ -51,7 +51,9 @@ class TodoContainer extends React.Component {
     Toggle Todo
    </button>
   </form>
-   <TodoCard deleteTodo={this.deleteTodo}/>
+   <TodoCard deleteTodo={this.deleteTodo}
+    toggleTodo={this.toggleTodo}
+   />
   </div>
  )
  }

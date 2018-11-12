@@ -11,6 +11,7 @@ const TodoCard = (props) => {
     completed={todo.completed}
     index={todo.index}
     deleteTodo={props.deleteTodo}
+    toggleTodo={props.toggleTodo}
     />)}
     </div>
   )

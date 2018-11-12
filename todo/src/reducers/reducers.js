@@ -17,14 +17,11 @@ export default (state = initState, action) => {
   return Object.assign([], state).concat({task: action.payload.task, completed: action.payload.completed})
   case REMOVETODO: 
   return Object.assign([], state).filter((item, index) => {
-   if (item.index === index) {
-     state.splice(index)
-     return state 
-   }
+   return state.indexOf(item) !== index
 
   })
   case TOGGLETODO:
-  return {todos: action.payload}
+  return {task: action.task, completed: !action.payload.completed}
   default:
   return state
  }
