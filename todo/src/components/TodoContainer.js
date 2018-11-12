@@ -3,7 +3,6 @@ import TodoCard from './TodoCard'
 import { connect } from 'react-redux'
 import { addTodo, removeTodo, toggleTodo, } from '../actions/actions'
 
-
 class TodoContainer extends React.Component {
  constructor(){
   super()
@@ -47,6 +46,7 @@ class TodoContainer extends React.Component {
    <button type="submit">
    Add Todo
    </button>
+   {' '}
    <button type="submit">
     Toggle Todo
    </button>
@@ -59,7 +59,5 @@ class TodoContainer extends React.Component {
  }
  
 }
-
-
 
 export default connect("",{addTodo, removeTodo, toggleTodo})(TodoContainer)
