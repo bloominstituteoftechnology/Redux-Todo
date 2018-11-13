@@ -19,6 +19,7 @@ class TodoContainer extends React.Component {
  }
 
  submitHandler = (event) => {
+  console.log(this.props.id)
   event.preventDefault()
   this.props.addTodo({task: this.state.task, completed: false})
   this.setState({

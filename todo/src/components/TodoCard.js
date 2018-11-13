@@ -12,6 +12,7 @@ const TodoCard = (props) => {
       index={index}
       deleteTodo={props.deleteTodo}
       toggleTodo={props.toggleTodo}
+      id={todo.id}
      />)}
     </div>
   )
