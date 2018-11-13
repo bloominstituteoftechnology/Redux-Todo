@@ -31,9 +31,8 @@ class App extends Component {
     });
   }
 
-  deleteTodos(e) {
+  deleteTodos = () => {
     this.props.deleteTodos({
-      newTodo: e.target.value
     });
   }
 
