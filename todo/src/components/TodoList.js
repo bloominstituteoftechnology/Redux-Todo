@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Todo from '../components/Todo';
-import {toggleTodo} from '../actions';
+import {toggleTodo, deleteTodo} from '../actions';
 
 class TodoList extends React.Component {
 
@@ -9,6 +9,10 @@ class TodoList extends React.Component {
     this.props.toggleTodo(id);
   }
   
+  deleteItemHandler = id => {
+    this.props.deleteTodo(id);
+  }
+
   render() {
     return (
       <div className="todo-list">
@@ -19,7 +23,8 @@ class TodoList extends React.Component {
             key={item.id}
             id={item.id}
             text={item.text}
-            click={() => {this.toggleHandler(item.id)}}
+            itemClick={() => {this.toggleHandler(item.id)}}
+            deleteClick={() => {this.deleteItemHandler(item.id)}}
             style={{textDecoration: item.completed ? "line-through" : null}} />
           )
         })}
@@ -32,4 +37,4 @@ const mapStateToProps = state => {
   return {todos: state.todos};
 }
 
-export default connect(mapStateToProps, {toggleTodo})(TodoList);
+export default connect(mapStateToProps, {toggleTodo, deleteTodo})(TodoList);
