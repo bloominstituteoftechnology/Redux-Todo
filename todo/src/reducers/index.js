@@ -25,7 +25,21 @@ export default (state=initialState,action)=>{
 
         case CHANGE_COMPLETED:
         console.log("CHANGE_COMPLETED CLICKED");
-        return Object.assign({},state,action.payload);
+
+        let newTodos=state.todos.slice();
+
+        newTodos.map((todo)=>{
+            if(todo.value===action.payload.value){
+                todo.completed = !todo.completed;
+                return(todo);
+            }
+            return(todo);
+        })
+        
+
+        return Object.assign({}, state, {
+            todos:newTodos
+        });
         
 
         default:
