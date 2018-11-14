@@ -16,9 +16,9 @@ export const addTodo = () => {
     type: ADD_TODO,
   }
 };
-export const toggleTodo = index => {
+export const toggleTodo = id => {
   return {
     type: TOGGLE_TODO,
-    payload: index,
+    payload: id,
   }
 };

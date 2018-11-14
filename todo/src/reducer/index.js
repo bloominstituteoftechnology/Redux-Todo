@@ -15,7 +15,6 @@ export default (state = initialState, action) => {
     case HANDLE_INPUT:
       return Object.assign({}, state, {text: action.payload})
     case ADD_TODO:
-      console.log(action.payload)
       if (state.text === ''){
         return Object.assign({}, state, {todos: state.todos, text: ''})
       } 
@@ -29,8 +28,15 @@ export default (state = initialState, action) => {
       addTodos.push(newTodo);
       return Object.assign({}, state, {todos: addTodos, text: ''});
     case TOGGLE_TODO:
-    //Fill case return 
-      return {}
+      console.log(state.todos, action.payload)
+      return {
+        todos: state.todos.map(item => {
+          if (item.id === action.payload) {
+            return {...item, completed: !item.completed}
+          }
+          return {item}
+        })
+      }
     default:
       return state;
   }
