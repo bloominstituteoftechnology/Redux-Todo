@@ -12,6 +12,11 @@ class TodoForm extends React.Component {
     this.props.addTodo()
   }
 
+  deleteTodoHandler = e => {
+    e.preventDefault();
+    
+  }
+
   render() { 
     return (
       <div className="form-container">
@@ -22,6 +27,7 @@ class TodoForm extends React.Component {
           value={this.props.text}
           onChange={this.inputHandler}  />
           <button type='submit' className="add-button">Add Todo</button>
+          <button onClick={this.deleteTodoHandler} className="delete-button">DeleteCompleted</button>
         </form>
       </div>
     );
