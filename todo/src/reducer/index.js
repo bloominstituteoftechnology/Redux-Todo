@@ -3,7 +3,7 @@ import {ADD_TODO, TOGGLE_TODO} from '../actions'
 const initialState = {
   todos: [
     {
-      value: 'Sample To Do',
+      text: 'Sample To Do',
       id: 4321432143,
       completed: false,
     }

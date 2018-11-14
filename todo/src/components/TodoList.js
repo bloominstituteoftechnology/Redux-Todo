@@ -11,7 +11,7 @@ const TodoList = props => {
           <Todo 
           key={item.id}
           id={item.id}
-          value={item.value}
+          text={item.text}
           onClick={props.complete} />
         )
       })}
