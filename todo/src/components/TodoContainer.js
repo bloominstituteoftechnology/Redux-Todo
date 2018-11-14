@@ -27,12 +27,12 @@ class TodoContainer extends React.Component {
   })
  }
 
- deleteTodo = (id) => {
-  this.props.removeTodo(id)
+ deleteTodo = (index) => {
+  this.props.removeTodo(index)
  }
 
- toggleTodo = (id) => {
-  this.props.toggleTodo(id)
+ toggleTodo = (index) => {
+  this.props.toggleTodo(index)
  }
  render(){
   return(

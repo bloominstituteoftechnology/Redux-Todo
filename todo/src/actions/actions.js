@@ -6,10 +6,10 @@ export const addTodo = (todo, id) => {
  return {type: ADDTODO, payload: todo, id: id}
 }
 
-export const removeTodo = (id) => {
- return {type: REMOVETODO, payload: id}
+export const removeTodo = (index) => {
+ return {type: REMOVETODO, payload: index}
 }
 
-export const toggleTodo = (id) => {
- return {type: TOGGLETODO, payload: id}
+export const toggleTodo = (index) => {
+ return {type: TOGGLETODO, payload: index}
 }

@@ -8,24 +8,16 @@ const initState =
  }]
 
 export default (state = initState, action) => {
+ const newObj = Object.assign([], state)
  switch (action.type) {
   case ADDTODO: 
-  console.log(action.payload.task.id)
   return Object.assign([], state).concat({task: action.payload.task, completed: action.payload.completed})
-
   case REMOVETODO: 
-  return Object.assign([], state).filter((item, index) => {
-   // console.log(item.index, index)
-   return item.id !== index
-  })
-
-  case TOGGLETODO:
-  return Object.assign([], state.map((item) => {
-   console.log(`"State.indexOf(item) is: ${state.indexOf(item)}, item.id is: ${item.id}`)
-   return item.index === action.id ?
-   Object.assign([], state, {task: item.task, completed: !item.completed, id: item.id}) : item
-  }))
-
+   newObj.splice(action.payload, 1)
+   return newObj 
+  case TOGGLETODO: 
+   newObj[action.payload].completed = !newObj[action.payload].completed
+   return newObj
   default:
   return state
  }
