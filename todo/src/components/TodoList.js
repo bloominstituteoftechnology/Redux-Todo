@@ -19,7 +19,8 @@ class TodoList extends React.Component {
             key={item.id}
             id={item.id}
             text={item.text}
-            click={() => {this.toggleHandler(item.id)}} />
+            click={() => {this.toggleHandler(item.id)}}
+            style={{textDecoration: item.completed ? "line-through" : null}} />
           )
         })}
       </div>
