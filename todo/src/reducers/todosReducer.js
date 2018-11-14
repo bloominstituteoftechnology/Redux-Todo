@@ -1,4 +1,4 @@
-import { NEW_TODO, TOGGLE_COMPLETE, DELETE_TODOS } from '../actions';
+import { NEW_TODO, TOGGLE_COMPLETE } from '../actions';
 
 export default (todos = [], actions) => {
     switch (actions.type) {
@@ -9,7 +9,7 @@ export default (todos = [], actions) => {
          return todos;
          default:
          return todos;
-        case DELETE_TODOS:
-          return {todos: actions.payload}
+       /*  case DELETE_TODOS:
+          return {todos: actions.payload} */
     }
 };

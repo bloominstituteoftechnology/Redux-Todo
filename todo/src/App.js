@@ -3,7 +3,8 @@ import './App.css';
 import { connect } from 'react-redux';
 import TodoList from './components/TodoList';
 import { addTodo } from './actions/index';
-import { deleteTodos } from './actions/index';
+/* import { deleteTodos } from './actions/index'; */
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -31,10 +32,10 @@ class App extends Component {
     });
   }
 
-  deleteTodos = () => {
+  /* deleteTodos = () => {
     this.props.deleteTodos({
     });
-  }
+  } */
 
   render() {
     return (
@@ -47,7 +48,7 @@ class App extends Component {
         />
       </form>
       <button onClick={this.addTodo}>Add todo</button>
-      <button onClick={this.deleteTodos}>Delete Todo</button>
+ {/*      <button onClick={this.deleteTodos}>Delete Todo</button> */}
       <TodoList todos={this.props.todos} />
       </div>
     );
