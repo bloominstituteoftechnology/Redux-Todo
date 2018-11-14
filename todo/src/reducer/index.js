@@ -4,6 +4,7 @@ const initialState = {
   todos: [
     {
       value: 'Sample To Do',
+      id: 4321432143,
       completed: false,
     }
   ]

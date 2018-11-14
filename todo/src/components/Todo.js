@@ -1,7 +1,9 @@
 import React from 'react';
 
-export const Todo = props => {
+const Todo = props => {
   return (
-    <p className="todo-item" id={props.id}>{props.value}</p>
+    <p className="todo-item"  id={props.id}>{props.value}</p>
   )
 }
+
+export default Todo;
