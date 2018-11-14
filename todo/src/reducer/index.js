@@ -1,4 +1,4 @@
-import {ADD_TODO, TOGGLE_TODO, HANDLE_INPUT} from '../actions'
+import {ADD_TODO, TOGGLE_TODO, HANDLE_INPUT, DELETE_COMPLETED} from '../actions'
 
 const initialState = {
   todos: [
@@ -34,7 +34,13 @@ export default (state = initialState, action) => {
           if (item.id === action.payload) {
             return {...item, completed: !item.completed}
           }
-          return {item}
+          return {...item}
+        })
+      }
+    case DELETE_COMPLETED:
+      return {
+        todos: state.todos.filter(item => {
+          return !item.completed
         })
       }
     default:
