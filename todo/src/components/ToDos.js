@@ -21,7 +21,6 @@ const ToDos=(props)=>{
                 )
             }
     )
-       
     )
 }
 const mapStateToProps=(state)=>{

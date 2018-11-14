@@ -19,12 +19,16 @@ const initialState={
 
 export default (state=initialState,action)=>{
     switch(action.type){
+
         case ADD_TODO:
-        console.log("ADD_TODO CLICKED");
+        let newState=state.todos.slice();
+        newState.push(action.payload);
+
+        console.log(action.payload)
+        return Object.assign({}, state, {todos:newState});
         
 
         case CHANGE_COMPLETED:
-        console.log("CHANGE_COMPLETED CLICKED");
 
         let newTodos=state.todos.slice();
 

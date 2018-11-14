@@ -8,7 +8,6 @@ export const addtodo = (props) => {
       payload:props
   }
       
-    
 }
 
 export const changecompleted = (props)=>{
