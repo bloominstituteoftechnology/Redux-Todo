@@ -10,10 +10,11 @@ const todos = [
 export default (state = todos, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [
-        ...state,
-        { value: action.text, completed: false, id: action.id }
-      ];
+      return {
+        ...todos, todos: [...todos, action.payload]
+      }
+        
+
     case TOGGLE_TODO:
       return state.map(
         todo =>

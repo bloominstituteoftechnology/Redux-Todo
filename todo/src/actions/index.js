@@ -2,16 +2,17 @@ export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
 export const DELETE_TODO = "DELETE_TODO";
 
-
-//referred to redux todo example 
-let todoId = 0
+//referred to redux todo example
+let todoId = 0;
 
 export const addTodo = text => {
   return {
     type: ADD_TODO,
-    text,
-    id: ++todoId
-
+    payload: {
+      value: text,
+      completed: false,
+      id: ++todoId
+    }
   };
 };
 
