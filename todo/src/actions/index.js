@@ -1,30 +1,19 @@
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
-export const DELETE_TODO = "DELETE_TODO";
 
-//referred to redux todo example
-let todoId = 0;
-
-export const addTodo = text => {
+export const addTodo = todo => {
   return {
     type: ADD_TODO,
     payload: {
-      value: text,
+      value: todo,
       completed: false,
-      id: ++todoId
     }
   };
 };
 
-export const toggleTodo = id => {
+export const toggleTodo = index => {
   return {
     type: TOGGLE_TODO,
-    id
-  };
-};
-
-export const deleteTodo = () => {
-  return {
-    type: DELETE_TODO
+    payload: index,
   };
 };

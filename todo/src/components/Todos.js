@@ -1,20 +1,28 @@
 import React from "react";
-import { connect } from "react-redux";
-import Todo from "./Todo";
-// import { toggleTodo } from "../actions";
 
-const Todos = ({todos, toggleTodo }) => (
-  <ul>
-    {todos.map(todo => (
-      <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
-    ))}
-  </ul>
-);
 
-const mapStateToProps = state => {
-  return { todos: state.todos };
+
+
+
+const Todos = props => {
+  return (
+    <div>
+      <input type="text" value={props.data} onChange={props.inputHandler} />
+      <button onClick={props.addHandler}>add todo</button>
+      <ul>
+        {props.todos.map((todo, index) => (
+          <li onClick={() => props.toggleTodo(index)} key={index}>
+            {todo.value}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
+export default Todos;
 
-export default connect(mapStateToProps)(Todos);
+// const mapStateToProps = state => ({ todos: state.todos });
 
-
+// export default connect(
+//   mapStateToProps
+// )(Todos);
