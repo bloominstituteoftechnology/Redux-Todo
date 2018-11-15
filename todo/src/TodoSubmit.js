@@ -33,4 +33,4 @@ class TodoSubmit extends Component {
   }
 }
 
-export default TodoSubmit;
+export default TodoSubmit
