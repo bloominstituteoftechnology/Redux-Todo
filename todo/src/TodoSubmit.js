@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { addTodoAction } from './actions'
 
 class TodoSubmit extends Component {
     constructor(props){
@@ -13,24 +15,30 @@ class TodoSubmit extends Component {
         console.log(this.state.todoInput)
     }
 
+    formSubmitHandler = e => {
+        e.preventDefault();
+        this.props.addTodoAction(this.state.todoInput);
+        this.setState({
+            todoInput: ''
+        })
+    }
+
     render() {
     return (
-      <form>
+      <form onSubmit={this.formSubmitHandler}>
         <input 
             name='todoInput'
             type='text'
-            placeholder='Type to-do item here'
+            placeholder='Todo Items'
             onChange={this.inputHandler}
             value={this.state.todoInput}
         />
-        <button
-            type='submit'
-        >
-            Submit to-do item
+        <button type='submit'>
+            Submit
         </button>
       </form>
     );
   }
 }
 
-export default TodoSubmit
+export default connect(() => ({}), {addTodoAction})(TodoSubmit);
