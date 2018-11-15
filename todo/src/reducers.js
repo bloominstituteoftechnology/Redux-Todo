@@ -1,13 +1,24 @@
-import { ADD_TODO } from './actions.js'
+import { ADD_TODO, TOGGLE_COMPLETED } from './actions.js'
 
 const initialState = {
-    todos: ['TEST']
+    todos: [{name: 'Todo 1', id: '1'}, {name: 'Todo 2', id: '2'}]
 }
 
 export default (state = initialState, action) => {
     switch(action.type) {
         case ADD_TODO:
-            return {...state, todos: [...state.todos, action.payload]}
+            return {todos: [...state.todos, {
+                name: action.payload,
+                completed: false,
+                className: 'todo',
+                id: Date.now()
+            }]}
+        case TOGGLE_COMPLETED: 
+            return {todos: state.todos.map(todo => 
+                (todo.id === action.payload.id)
+                    ? {...todo, completed: !todo.completed}
+                    : todo
+            )}
         default:
             return state;
     }
