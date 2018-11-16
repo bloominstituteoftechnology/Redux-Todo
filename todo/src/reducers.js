@@ -1,7 +1,7 @@
 import { ADD_TODO, TOGGLE_COMPLETED } from './actions.js'
 
 const initialState = {
-    todos: [{name: 'Todo 1', id: '1'}, {name: 'Todo 2', id: '2'}]
+    todos: []
 }
 
 export default (state = initialState, action) => {
