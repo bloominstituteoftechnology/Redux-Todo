@@ -1,6 +1,8 @@
 import ADD_TODO from '../actions';
 
-const initialState = [{task: 'Learn Redux', completed: false, id: Date.now()}];
+const initialState = [
+	{ task: 'Learn Redux', completed: false, id: Date.now() }
+];
 
 export default todoReducer = (state = initialState, action) => {
 	switch(action.type) {
