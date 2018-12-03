@@ -4,11 +4,12 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import { createGlobalStyle } from "styled-components";
-import VisibleTodo from "./containers/VisibleTodo";
+import TodoList from "./containers/TodoList";
 
 const GlobalStyles = createGlobalStyle`
 body {
   text-align: center;
+  background: #fef
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -26,7 +27,7 @@ class App extends Component {
       <>
         <GlobalStyles />
         <div className="App">
-          <VisibleTodo />
+          <TodoList />
         </div>
       </>
     );
