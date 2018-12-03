@@ -1,11 +1,11 @@
-export const ADD = 'ADD';
+import { ADD } from '../reducers';
 
 export function addTodoItem(item) {
 
   return {
 
     type: ADD,
-    payload: item
+    payload: { value: item, completed: false }
 
   }
 
