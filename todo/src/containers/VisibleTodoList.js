@@ -3,31 +3,29 @@ import { toggleTodo, deleteTodo } from '../actions';
 import { filters } from '../actions';
 import TodoList from '../components/TodoList';
 
+const { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } = filters;
+
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case filters.SHOW_ALL:
+    case SHOW_ALL:
       return todos;
-    case filters.SHOW_COMPLETED:
-      return todos.filter(todo => todo.completed);
-    case filters.SHOW_ACTIVE:
-      return todos.filter(todo => !todo.completed);
+    case SHOW_COMPLETED:
+      return todos.filter(({ completed }) => completed);
+    case SHOW_ACTIVE:
+      return todos.filter(({ completed }) => !completed);
     default:
       throw new Error('Unknown filter: ' + filter);
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    todos: getVisibleTodos(state.todos, state.filter)
-  };
-};
+const mapStateToProps = ({ todos, filter }) => ({
+  todos: getVisibleTodos(todos, filter)
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    toggleTodo: id => dispatch(toggleTodo(id)),
-    deleteTodo: id => dispatch(deleteTodo(id))
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  toggleTodo: id => dispatch(toggleTodo(id)),
+  deleteTodo: id => dispatch(deleteTodo(id))
+});
 
 export default connect(
   mapStateToProps,

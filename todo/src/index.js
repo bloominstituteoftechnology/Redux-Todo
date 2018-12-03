@@ -6,15 +6,15 @@ import todos from './reducers';
 import './index.css';
 import App from './App';
 
-const persistedState = localStorage.getItem('todos') 
-  ? JSON.parse(localStorage.getItem('todos')) 
+const persistedState = localStorage.getItem('todos')
+  ? JSON.parse(localStorage.getItem('todos'))
   : {};
 
 const store = createStore(todos, persistedState);
 
 store.subscribe(() => {
-  localStorage.setItem('todos', JSON.stringify(store.getState()))
-})
+  localStorage.setItem('todos', JSON.stringify(store.getState()));
+});
 
 ReactDOM.render(
   <Provider store={store}>

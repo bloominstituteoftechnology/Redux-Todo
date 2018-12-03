@@ -5,7 +5,7 @@ const Todo = ({ completeTodo, deleteTodo, completed, text }) => {
     <div className="todo-item">
       <li
         onClick={completeTodo}
-        style={{ textDecoration: completed ? "line-through" : "none" }}
+        style={{ textDecoration: completed ? 'line-through' : 'none' }}
       >
         {text}
       </li>
