@@ -1,10 +1,10 @@
 const initialState = {
 
-  todos: []
+  todos: [{value: 'abcdefg'}]
 
 };
 
-export default export default (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
 
     default:
