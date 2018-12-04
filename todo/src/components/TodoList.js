@@ -6,11 +6,10 @@ import {toggleCompleted} from '../actions';
 
 const DivTodoList = styled.div`
   margin: 10px auto;
-  width: 60%;
+  width: 40%;
   border: 1px solid black;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
+  border-radius: 100px;
+  background-color: #2b2d81;
   display: flex;
   flex-direction: column;
   justify-content: center;
