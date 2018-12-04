@@ -30,6 +30,9 @@
     transform: rotate(360deg);
   }
 }
+h1 {
+  cursor: pointer;
+}
 
 .true {
   text-decoration: line-through;

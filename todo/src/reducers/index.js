@@ -1,4 +1,5 @@
 export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 
 const initialState = {
   todos: [
@@ -15,6 +16,17 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         todos: [...state.todos, { value: action.payload, completed: false }]
+      };
+    case TOGGLE_COMPLETED:
+      return {
+        ...state,
+        todos: state.todos.map((todo, index) => {
+          if (index === action.payload) {
+            return { ...todo, completed: !todo.completed };
+          } else {
+            return todo;
+          }
+        })
       };
     default:
       return state;

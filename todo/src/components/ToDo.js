@@ -1,8 +1,6 @@
 import React from "react";
-import { addToDo } from "../actions"
+import { addToDo, toggleCompleted } from "../actions";
 import { connect } from "react-redux";
-
-
 
 class Todo extends React.Component {
   constructor() {
@@ -13,25 +11,34 @@ class Todo extends React.Component {
   }
 
   handleChanges = event => {
-      this.setState({
-          [event.target.name]: event.target.value
-      })
-  }
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
 
   handleAddItem = event => {
     event.preventDefault();
     this.props.addToDo(this.state.todo);
     this.setState({
-        todo: ""
-    })
-  }
+      todo: ""
+    });
+  };
 
+  toggleCompleted = index => {
+      this.props.toggleCompleted(index);
+  };
 
   render() {
     return (
       <div>
         {this.props.todos.map((todo, index) => (
-        <h1 className={`${todo.completed}`} key={index}>{todo.value}</h1>
+          <h1
+            onClick={() => this.toggleCompleted(index)}
+            className={`${todo.completed}`}
+            key={index}
+          >
+            {todo.value}
+          </h1>
         ))}
         <input
           type="text"
@@ -54,5 +61,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addToDo, }
+  { addToDo, toggleCompleted }
 )(Todo);
