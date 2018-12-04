@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
-import { addTask, toggleComplete } from '../actions';
+import { addTask, toggleComplete, clearCompleted } from '../actions';
 
 const GlobalStyle = createGlobalStyle`
 ${reset}
@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   padding: 25%;
-  background: lightcoral;
+  background: #000000;
 }
 `;
 
@@ -28,17 +28,26 @@ class TodoApp extends Component {
 
 	handleChange = (event) => {
 		this.setState({ 
-      [event.target.name]: event.target.value 
+      [event.target.name]: event.target.value, 
     });
+
 	};
 
 	handleAddTask = (event) => {
 		event.preventDefault();
-		this.props.addTask(this.state.inputText);
+    this.props.addTask(this.state.inputText);
+    this.setState({
+      inputText: ''
+    })
   };
   
   toggleComplete = index => {
     this.props.toggleComplete(index)
+  }
+
+  clearCompleted = event => {
+    event.preventDefault();
+    this.props.clearCompleted()
   }
 
 	render() {
@@ -53,7 +62,8 @@ class TodoApp extends Component {
 				<TodoForm
 					addTask={this.handleAddTask}
 					inputText={this.state.inputText}
-					handleChange={this.handleChange}
+          handleChange={this.handleChange}
+          clearCompleted={this.clearCompleted}
 				/>
 			</React.Fragment>
 		);
@@ -66,5 +76,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
 	mapStateToProps,
-	{ addTask, toggleComplete }
+	{ addTask, toggleComplete, clearCompleted }
 )(TodoApp);

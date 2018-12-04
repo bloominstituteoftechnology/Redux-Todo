@@ -1,4 +1,4 @@
-import { ADD_TASK, TOGGLE_COMPLETE } from '../reducers';
+import { ADD_TASK, TOGGLE_COMPLETE, CLEAR_COMPLETED } from '../reducers';
 
 export const addTask = (task) => {
 	return {
@@ -13,3 +13,9 @@ export const toggleComplete  = index => {
         payload: index
     };
 };
+
+export const clearCompleted = () => {
+    return {
+        type: CLEAR_COMPLETED
+    }
+}
