@@ -3,13 +3,16 @@ import './App.css';
 import TodoList from './components/TodoList';
 import { connect } from 'react-redux'
 import { addTask, removeTask, completeTask } from './actions'
+import TodoForm from './components/TodoForm';
+
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
         <TodoList tasks={this.props.tasks} />
-        <TodoForm />
+        <TodoForm addTask={this.props.addTask} />
       </div>
     );
   }
