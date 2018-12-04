@@ -9,12 +9,12 @@ import "./index.css";
 import App from "./App";
 
 // createStore requires a reducer.
-const store = createStore(reducer); 
+const store = createStore(reducer);
 
 
 ReactDOM.render(
-   <Provider store={store}>
+  <Provider store={store}>
     <App />
-   </Provider>,
+  </Provider>,
   document.getElementById("root")
 );
