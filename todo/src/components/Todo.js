@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo, completed } from '../actions';
+import './Todo.css';
 
 class Todo extends React.Component {
     state = {
@@ -38,9 +39,25 @@ class Todo extends React.Component {
                     </form>
                 </div>
                 <ul>
-                    {this.props.todo.map( item => {
+                    {this.props.todo.map( (item, index) => {
                         return (
-                            <div key={item.value}>{item.value.toUpperCase()}</div>
+                            <div 
+                                className='taskBtn-container' 
+                                key={index}
+                                location={index}
+                            >
+                                <div className='taskBtn'>
+                                    <div className='taskNumber'>
+                                        Task: {index}
+                                    </div>
+                                    <div 
+                                    className={item.completed === true ? 'task-content-complete' : 'task-content'} 
+                                    onClick={() => this.props.completedItem(index)}>
+                                        {item.value.toUpperCase()}
+                                    </div>
+                                </div>
+                            </div>
+                            
                         );
                     })}
                 </ul>

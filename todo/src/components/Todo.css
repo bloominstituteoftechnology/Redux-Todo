@@ -1,0 +1,32 @@
+.taskBtn-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    /* align-content: center; */
+    /* min-height: 50px; */
+    padding: 20px 0;
+}
+
+.taskBtn {
+    width: 400px;
+    cursor: pointer;
+    background-color: lightgray;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskNumber {
+    width: 20%;
+    /* border: 1px solid red; */
+}
+
+.task-content {
+    width: 70%;
+    /* border: 1px solid green; */
+}
+
+.task-content-complete {
+    width: 70%;
+    text-decoration: line-through;
+}
