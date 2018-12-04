@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo, completeTask } from '../actions';
+import { addTodo, completeTask, removeCompleted } from '../actions';
 
 class TodoList extends Component {
     constructor() {
@@ -42,6 +42,8 @@ class TodoList extends Component {
                 />
                 <button onClick={this.handleAddTodo}>Add Todo</button>
 
+                <button onClick={this.props.removeCompleted}>Remove Completed Todos</button>
+
                 {this.props.todos.map((todo, index) => (
                     <h4 onClick={() => this.handleCompleteClick(index)} key={index}>
                         {todo.value}
@@ -59,4 +61,4 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, {addTodo, completeTask})(TodoList);
+export default connect(mapStateToProps, {addTodo, completeTask, removeCompleted})(TodoList);

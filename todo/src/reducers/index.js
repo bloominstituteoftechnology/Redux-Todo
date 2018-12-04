@@ -1,5 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
+export const REMOVE_COMPLETED = 'REMOVE_COMPLETED';
 
 const initializeState = {
     todos: [{ value: 'Task 1', completed: false }]
@@ -26,6 +27,13 @@ export default (state = initializeState, action) => {
                     return todo;
                     }
                 })
+            };
+
+        case REMOVE_COMPLETED:
+            console.log('remove completed clicked')
+            return {
+                ...state,
+                todos: state.todos.filter(todo => todo.completed === false )
             };
 
         default:
