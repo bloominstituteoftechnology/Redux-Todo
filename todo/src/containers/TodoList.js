@@ -45,9 +45,10 @@ class TodoList extends Component {
     });
   };
 
-  removeTodos = () => {
+  removeTodo = () => {
     this.props.removeTodos();
   };
+
   render() {
     const { todos } = this.props;
     return (
@@ -58,9 +59,7 @@ class TodoList extends Component {
             name="text"
             value={this.state.text}
           />
-          <button type="button" onClick={this.addTodoHandler}>
-            Add Todo
-          </button>
+          <button type="submit">Add Todo</button>
         </form>
         <ul>
           {todos.map(todo => {
@@ -79,7 +78,7 @@ class TodoList extends Component {
             );
           })}
         </ul>
-        <button onClick={this.removeTodos}>Clear Completed</button>
+        <button onClick={this.removeTodo}>Clear Completed</button>
       </div>
     );
   }
