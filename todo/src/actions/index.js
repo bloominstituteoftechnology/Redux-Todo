@@ -1,6 +1,7 @@
 export const ADD = "ADD";
 export const TOGGLE = "TOGGLE";
-export const DELETE = "DELETE";
+export const DELETETASK = "DELETETASK";
+export const DELETEALL = "DELETEALL";
 
 export const add = text => {
     return {
@@ -18,7 +19,13 @@ export const toggleCompleted = id => {
 
 export const deleteTask = id => {
     return {
-        type: DELETE,
+        type: DELETETASK,
         data: id
+    }
+}
+
+export const deleteAll = () => {
+    return {
+        type: DELETEALL
     }
 }

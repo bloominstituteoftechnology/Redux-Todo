@@ -1,4 +1,4 @@
-import { ADD, TOGGLE, DELETE } from '../actions';
+import { ADD, TOGGLE, DELETETASK, DELETEALL } from '../actions';
 
 const initialState = {
 	tasks: [
@@ -28,21 +28,22 @@ const reducer = (state = initialState, action) => {
                         value: task.value,
                         completed: !task.completed,
                     } :
-                    {
-                        value: task.value,
-                        completed: task.completed
-                    }
+                    task
             });
             return {
                 tasks: [...newTasks]
             };
-        case DELETE:
-            let deletedState = [
+        case DELETETASK:
+            let taskDeleted = [
                 ...state.tasks.slice(0, action.data), 
                 ...state.tasks.slice(action.data + 1)
             ];
             return {
-                tasks: deletedState
+                tasks: taskDeleted
+            };
+        case DELETEALL:
+            return {
+                tasks: []
             };
 		default:
 			return { ...state };

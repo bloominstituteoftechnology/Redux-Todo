@@ -16,6 +16,7 @@ export default class Form extends Component {
 
     submitHandler = e => {
         e.preventDefault();
+        (this.state.input !== '') &&
         this.props.add(this.state.input);
         this.setState({
             input: ''
@@ -32,6 +33,7 @@ export default class Form extends Component {
                     onChange={this.changeHandler}
                 />
                 <button type="submit">Add Task</button>
+                <button onClick={this.props.deleteAll}>Delete All</button>
             </form>
         );
     }

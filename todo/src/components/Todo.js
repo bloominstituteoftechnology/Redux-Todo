@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TodoList from './TodoList';
 import Form from './Form';
 import { connect } from 'react-redux';
-import { add, toggleCompleted, deleteTask } from '../actions';
+import { add, toggleCompleted, deleteTask, deleteAll } from '../actions';
 
 class Todo extends Component {
 	constructor(props) {
@@ -11,10 +11,9 @@ class Todo extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<div className="container">
-				<Form add={this.props.addTask} />
+				<Form add={this.props.addTask} deleteAll={this.props.deleteAll} />
 				<TodoList
 					toggleCompleted={this.props.toggleCompleted}
 					deleteTask={this.props.deleteTask}
@@ -26,7 +25,6 @@ class Todo extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log('working', state);
 	return {
 		tasks: state.tasks,
 	};
@@ -37,6 +35,7 @@ function mapDispatchToProps(dispatch) {
 		addTask: text => dispatch(add(text)),
 		toggleCompleted: id => dispatch(toggleCompleted(id)),
 		deleteTask: id => dispatch(deleteTask(id)),
+		deleteAll: () => dispatch(deleteAll())
 	};
 }
 
