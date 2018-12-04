@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {addTodo} from '../actions';
-import {store} from '../index'; // can i avoid this? is this bad?
 
 const StyledForm = styled.form`
   width: 50%;
@@ -25,7 +24,7 @@ class TodoForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    store.dispatch(addTodo(this.state.inputText));
+    this.props.addTodo(this.state.inputText);
     this.setState({inputText: ''});
   };
 
@@ -49,13 +48,23 @@ class TodoForm extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+//const mapStateToProps = state => {
+//return {
+//todos: state.todos,
+//};
+//};
+
+// this isn't working. why?
+const mapDispatchToProps = dispatch => {
   return {
-    todos: state.todos,
+    addTodo: todo => dispatch(addTodo(todo)),
   };
 };
 
-export default connect(mapStateToProps)(TodoForm);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(TodoForm);
 
 //export default connect(
 //{},
