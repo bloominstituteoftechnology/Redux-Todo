@@ -1,15 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { toggleTodoItem } from '../actions';
 
-export default function TodoItem({item}) {
+function TodoItem(props) {
+
+  const {item} = props;
 
   return (
 
-    <div className='todo-item'>
+    <div className='todo-item' onClick={() => props.toggleTodoItem(item.value)}>
 
-      <p>{item.value}</p>
+      <p style={{textDecoration: item.completed && 'line-through'}}>{item.value}</p>
 
     </div>
 
   );
 
 }
+
+export default connect(null, {toggleTodoItem: toggleTodoItem})(TodoItem);
