@@ -1,19 +1,16 @@
-export const ADD_TODO = "ADD_TODO";
-export const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
-export const REMOVE_COMPLETED = "REMOVE_COMPLETED";
+import { ADD_TODO, TOGGLE_COMPLETE, REMOVE_COMPLETED } from "../reducers";
 
-export const addTodo = todo => ({
+export const addTodo = text => ({
   type: ADD_TODO,
-  id: todo.id,
-  value: todo.value
+  payload: text
 });
 
-export const toggleComplete = todo => ({
+export const toggleComplete = id => ({
   type: TOGGLE_COMPLETE,
-  id: todo.id
+  payload: id
 });
 
-export const removeCompleted = todo => ({
+export const removeCompleted = arr => ({
   type: REMOVE_COMPLETED,
-  id: todo.id
+  payload: arr
 });

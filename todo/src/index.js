@@ -5,13 +5,13 @@ import { Provider } from "react-redux";
 import todos from "./reducers";
 
 import "./index.css";
-import TodoList from "./TodoList";
+import App from "./App";
 
 const store = createStore(todos);
 
 ReactDOM.render(
   <Provider store={store}>
-    <TodoList />
+    <App />
   </Provider>,
   document.getElementById("root")
 );

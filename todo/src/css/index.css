@@ -3,16 +3,22 @@
   margin: 0 auto;
   padding: 40px 0;
   text-align: center;
-  border: 5px solid black;
+  border: 2px solid black;
   border-radius: 5px;
   box-shadow: -2px 2px 5px black;
-  text-shadow: -1px 1px 1px black;
+  text-shadow: -1px 1px 0px black;
+  background: rgba(255, 255, 0, 0.308);
 }
 .App h1 {
-  font-size: 5.5rem;
-}
-.App h3 {
-  font-size: 3rem;
+  font-size: 5rem;
+  background: rgba(0, 0, 0, 0.808);
+  color: white;
+  border: 3px solid white;
+  box-shadow: -2px 2px 5px black;
+  border-radius: 10px;
+  width: 40%;
+  margin: 0 auto;
+  padding: 10px 0;
 }
 .form {
   text-align: center;
@@ -22,18 +28,47 @@
   align-items: center;
 }
 .form input {
-  width: 50%;
-  margin-right: 30px;
+  width: 60%;
+  margin-right: 10px;
   height: 45px;
   border: 1px solid black;
   border-radius: 3px;
+  box-shadow: -2px 2px 5px black;
   font-size: 2rem;
   text-align: right;
   padding-right: 15px;
 }
 .form .btn {
   font-size: 2rem;
-  padding: 10px 20px;
+  margin-left: 10px;
+  padding: 10px;
+  width: 100px;
   border: 1px solid black;
   border-radius: 3px;
+  box-shadow: -2px 2px 5px black;
+  text-shadow: -0.5px 0.5px 0px black;
+  background: rgba(42, 154, 240, 0.767);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.form .clear-btn {
+  background: rgba(255, 0, 0, 0.651);
+}
+.list-container {
+  padding: 10px 60px;
+}
+.list-container ul {
+  text-align: left;
+}
+.list-container ul li {
+  font-size: 3rem;
+  color: black;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: -2px 2px 5px black;
+  background: white;
+  padding: 10px;
+  cursor: pointer;
 }
