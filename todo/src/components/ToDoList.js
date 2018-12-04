@@ -38,7 +38,7 @@ const ToDoList = props => {
       {props.todoList.map(item => (
         <DivToDo onClick={() => props.toggleComplete(item.id)}>
           <h3>{item.name}</h3>
-          <p>completed: {item.completed ? 'incomplete' : 'complete'}</p>
+          <p>completed: {item.completed ? 'complete' : 'incomplete'}</p>
         </DivToDo>
       ))}
     </DivWrapper>
