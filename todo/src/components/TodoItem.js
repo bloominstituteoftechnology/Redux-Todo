@@ -4,7 +4,12 @@ import "./TodoItem.css";
 const TodoItem = props => {
 	return (
 		<div className = "todo-item">
-			<div
+			<button
+				className='red'
+				onClick={() => props.removeTodo(props.todo.id)}>
+				(x)
+			</button>
+            <div
 				className={
 					props.todo.completed ? "completed todo-list" : "todo-list"
 				}
@@ -13,11 +18,7 @@ const TodoItem = props => {
 			>
 				{props.todo.value}{" "}
 			</div>
-			<span
-				className='red'
-				onClick={() => props.removeTodo(props.todo.id)}>
-				(x)
-			</span>
+			
 		</div>
 	);
 };
