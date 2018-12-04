@@ -1,8 +1,8 @@
 import { ADD_TODO } from '../reducers'
 
-export const addToDo = item => {
+export const addToDo = value => {
     return {
         type: ADD_TODO,
-        payload: item
+        payload: value
     }
 }
