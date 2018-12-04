@@ -15,10 +15,11 @@ class TodoList extends Component {
         this.setState({ [ev.target.name]: ev.target.value });
     };
 
-    handleTodo = ev => {
-        event.preventDefault();
+    handleAddTodo = ev => {
+        ev.preventDefault();
+        console.log('Button clicked');
         this.props.addTodo(this.state.name);
-    }
+      };
 
     render() {
         return (
@@ -51,4 +52,4 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, {})(TodoList);
+export default connect(mapStateToProps, {addTodo})(TodoList);

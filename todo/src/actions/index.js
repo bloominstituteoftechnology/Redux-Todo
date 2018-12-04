@@ -1,8 +1,16 @@
+import { ADD_TODO } from '../reducers';
 
+// export const addTodo = name => {
+//     return {
+//         type: ADD_TODO,
+//         payload: name
+//     };
+// };
 
-export const addFriend = name => {
+export const addTodo = name => {
+    console.log(name);
     return {
-        type: ADD_TODO,
-        payload: name
+      type: ADD_TODO,
+      payload: name
     };
-};
+  };
