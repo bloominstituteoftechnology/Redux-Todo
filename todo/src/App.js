@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoList tasks={this.props.tasks} />
+        <TodoList tasks={this.props.tasks} completeTask={this.props.completeTask} />
         <TodoForm addTask={this.props.addTask} />
       </div>
     );
