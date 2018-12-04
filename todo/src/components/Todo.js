@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {toggleCompleted} from '../actions';
+import {toggleCompleted, deleteItem} from '../actions';
 import {connect} from 'react-redux';
 
 const DivWrapper = styled.div`
@@ -11,8 +11,14 @@ const DivWrapper = styled.div`
 const DeleteButton = styled.button`
   padding: 20px;
   border-radius: 50%;
-  background-color: red;
+  background-color: black;
   border: 1px solid black;
+  color: red;
+
+  &:hover {
+    background-color: red;
+    color: black;
+  }
 `;
 
 const DivTodo = styled.div`
@@ -35,7 +41,9 @@ const Todo = props => {
         complete={props.todo.complete}>
         {props.todo.task}
       </DivTodo>
-      <DeleteButton>X</DeleteButton>
+      <DeleteButton onClick={() => props.deleteItem(props.todo.id)}>
+        X
+      </DeleteButton>
     </DivWrapper>
   );
 };
@@ -48,5 +56,5 @@ const Todo = props => {
 
 export default connect(
   null,
-  {toggleCompleted},
+  {toggleCompleted, deleteItem},
 )(Todo);
