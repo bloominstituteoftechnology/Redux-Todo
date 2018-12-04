@@ -8,6 +8,7 @@ import reducer from './reducers';
 export const store = createStore(reducer);
 store.subscribe(() => {
   console.log('store:', store.getState());
+  localStorage.setItem('state', JSON.stringify(store.getState()));
 });
 
 ReactDOM.render(

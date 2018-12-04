@@ -1,19 +1,24 @@
 import {ADD_TODO, TOGGLE_COMPLETED, DELETE_ITEM} from '../actions';
 
-const initialState = {
-  todos: [
-    {
-      task: 'walk the dog',
-      complete: false,
-      id: 0,
-    },
-    {
-      task: 'do something else',
-      complete: false,
-      id: 1,
-    },
-  ],
-};
+let initialState;
+if (localStorage.getItem('state')) {
+  initialState = JSON.parse(localStorage.getItem('state'));
+} else {
+  initialState = {
+    todos: [
+      {
+        task: 'walk the dog',
+        complete: false,
+        id: 0,
+      },
+      {
+        task: 'do something else',
+        complete: false,
+        id: 1,
+      },
+    ],
+  };
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {
