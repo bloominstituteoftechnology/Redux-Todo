@@ -1,5 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const DELETE_TODOS = 'DELETE_TODOS';
 
 const initialState = {
     todos: [],
@@ -18,6 +19,11 @@ const todoHandler = (state = initialState, action) => {
                 todos: state.todos.map((todo, index) => {
                     return index === action.payload ? {...todo, isComplete: !todo.isComplete} : todo;
                 })
+            }
+        case DELETE_TODOS:
+            return {
+                ...state,
+                todos: state.todos.filter(todo => !todo.isComplete)
             }
         default:
             return state;

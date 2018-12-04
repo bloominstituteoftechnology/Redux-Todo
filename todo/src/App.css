@@ -120,8 +120,9 @@ body {
 }
 
 .todo-container .todo-form .todo-form-button {
-  border: 1px solid black;
   padding: 0.5rem 1rem;
+  border: 1px solid black;
+  margin: 0 0.5rem;
   background-color: white;
 }
 

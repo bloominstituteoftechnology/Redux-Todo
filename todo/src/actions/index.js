@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../reducers';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODOS } from '../reducers';
 
 export const addTodo = text => {
     return {
@@ -10,6 +10,12 @@ export const addTodo = text => {
 export const toggleTodo = index => {
     return {
         type: TOGGLE_TODO,
-        payload: index
+        payload: index,
+    }
+}
+
+export const deleteTodos = () => {
+    return {
+        type: DELETE_TODOS,
     }
 }

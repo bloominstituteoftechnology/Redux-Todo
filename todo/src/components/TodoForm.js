@@ -1,5 +1,5 @@
 import React from 'react';
-import { addTodo } from '../actions';
+import { addTodo, deleteTodos } from '../actions';
 import { connect} from 'react-redux';
 
 class TodoForm extends React.Component {
@@ -18,6 +18,11 @@ class TodoForm extends React.Component {
         event.preventDefault();
         this.props.addTodo(this.state.formText);
         this.setState({ formText: '' });
+    }
+
+    deleteTodosHandler = event => {
+        event.preventDefault();
+        this.props.deleteTodos();
     }
 
     render() {
@@ -39,6 +44,12 @@ class TodoForm extends React.Component {
                     <button className='todo-form-button'>
                         <i className="fas fa-plus"></i>
                     </button>
+                    <button 
+                        className='todo-form-button'
+                        onClick={this.deleteTodosHandler}
+                    >
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                 </form>
             </div>
         );
@@ -51,4 +62,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addTodo })(TodoForm);
+export default connect(mapStateToProps, { addTodo, deleteTodos })(TodoForm);
