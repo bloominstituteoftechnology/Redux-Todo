@@ -30,3 +30,27 @@
     transform: rotate(360deg);
   }
 }
+.list{
+  display: flex;
+  margin: 0 auto;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.todo{
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-items: baseline;
+}
+.todo p{
+  width: 80%;
+  text-align: center;
+}
+.todo h3{
+  width: 20%;
+  margin: 0;
+}
