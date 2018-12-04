@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo } from '../actions';
+import { addTodo, completeTask } from '../actions';
 
 class TodoList extends Component {
     constructor() {
         super();
         this.state ={
-            name: ''
+            value: ''
         };
     }
 
@@ -18,8 +18,13 @@ class TodoList extends Component {
     handleAddTodo = ev => {
         ev.preventDefault();
         console.log('Button clicked');
-        this.props.addTodo(this.state.name);
+        this.props.addTodo(this.state.value);
       };
+
+    handleCompleteClick = index => {
+        console.log('Item was clicked');
+        this.props.completeTask(index)
+    }
 
     render() {
         return (
@@ -29,16 +34,18 @@ class TodoList extends Component {
                 
                 <input
                     type="text"
-                    name="name"
+                    name="value"
                     onChange={this.handleChanges}
                     placeholder="Add a todo"
-                    value={this.state.name}
+                    value={this.state.value}
                     autoComplete="off"
                 />
                 <button onClick={this.handleAddTodo}>Add Todo</button>
 
                 {this.props.todos.map((todo, index) => (
-                    <h4>{todo.name}</h4>
+                    <h4 onClick={() => this.handleCompleteClick(index)} key={index}>
+                        {todo.value}
+                    </h4>
                 ))}
 
             </div>
@@ -52,4 +59,4 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, {addTodo})(TodoList);
+export default connect(mapStateToProps, {addTodo, completeTask})(TodoList);

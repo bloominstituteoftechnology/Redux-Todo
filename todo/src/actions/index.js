@@ -1,16 +1,16 @@
-import { ADD_TODO } from '../reducers';
+import { ADD_TODO, TOGGLE_COMPLETED } from '../reducers';
 
-// export const addTodo = name => {
-//     return {
-//         type: ADD_TODO,
-//         payload: name
-//     };
-// };
-
-export const addTodo = name => {
-    console.log(name);
+export const addTodo = value => {
+    console.log(value);
     return {
       type: ADD_TODO,
-      payload: name
+      payload: value
     };
   };
+
+export const completeTask = index => {
+    return {
+        type: TOGGLE_COMPLETED,
+        payload: index
+    }
+}
