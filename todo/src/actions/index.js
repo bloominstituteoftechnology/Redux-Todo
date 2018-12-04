@@ -1,22 +1,27 @@
-let nextTodoId = 0;
+export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
+export const REMOVE_TODOS = "REMOVE_TODOS";
+export const GET_TODOS = "GET_TODOS";
 
-export const addTodo = text => ({
-  type: "ADD_TODO",
-  id: nextTodoId++,
-  text
+export const addTodo = todo => ({
+  type: ADD_TODO,
+  payload: todo
 });
 
 export const toggleTodo = id => ({
-  type: "TOGGLE_TODO",
-  id
+  type: TOGGLE_TODO,
+  payload: id
 });
 
-export const setVisibilityFilter = filter => ({
-  type: "SET_VISIBILITY_FILTER",
-  filter
-});
+export const removeTodos = () => {
+  return {
+    type: REMOVE_TODOS
+  };
+};
 
-export const VisibilityFilters = {
-  SHOW_ALL: "SHOW_ALL",
-  SHOW_ACTIVE: "SHOW_ACTIVE"
+export const getTodos = todos => {
+  return {
+    type: GET_TODOS,
+    payload: todos
+  };
 };
