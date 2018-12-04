@@ -10,3 +10,10 @@ export const addToList = text => {
         payload: text
     }
 }
+
+export const toggleComplete = index => {
+    return {
+        type: TOGGLE_COMPLETE,
+        payload: index
+    }
+}
