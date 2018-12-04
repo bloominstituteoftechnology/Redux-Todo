@@ -1,8 +1,13 @@
 import React, { Component } from "react";
-import { addTodo, toggleTodo, removeTodo } from "./actions";
+import {
+	addTodo,
+	toggleTodo,
+	removeTodo,
+	clearCompletedTodos
+} from "./actions";
 import "./App.css";
-import { connect } from 'react-redux';
-import TodoItem from './components/TodoItem'
+import { connect } from "react-redux";
+import TodoItem from "./components/TodoItem";
 
 class App extends Component {
 	constructor() {
@@ -25,11 +30,13 @@ class App extends Component {
 					<h1>Todo List</h1>
 
 					<form
-						onSubmit={(ev) => {
-              ev.preventDefault();
-              this.props.addTodo(Math.random(), this.state.inputText);
-              this.setState({inputText: ''});
-              
+						onSubmit={ev => {
+							ev.preventDefault();
+							this.props.addTodo(
+								Math.random(),
+								this.state.inputText
+							);
+							this.setState({ inputText: "" });
 						}}>
 						<input
 							onChange={this.handleChange}
@@ -40,18 +47,19 @@ class App extends Component {
 						/>
 						<button type='submit'>Add</button>
 					</form>
-
-            <div className="list">
-            {this.props.todos.map(todo => (
-                <TodoItem 
-                    key={todo.id} 
-                    todo={todo}
-                    toggleCompleted={this.props.toggleTodo}
-                    removeTodo={this.props.removeTodo}
-                />
-            ))}
-        </div>
-
+					<button onClick={this.props.clearCompletedTodos}>
+						Clear Completed
+					</button>
+					<div className='list'>
+						{this.props.todos.map(todo => (
+							<TodoItem
+								key={todo.id}
+								todo={todo}
+								toggleCompleted={this.props.toggleTodo}
+								removeTodo={this.props.removeTodo}
+							/>
+						))}
+					</div>
 				</header>
 			</div>
 		);
@@ -59,19 +67,19 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  };
+	return {
+		todos: state.todos
+	};
 }
 
 const withState = connect(
-  mapStateToProps,
-  {
-    toggleTodo,
-    addTodo, 
-    removeTodo
-    
-  }
+	mapStateToProps,
+	{
+		toggleTodo,
+		addTodo,
+		removeTodo,
+		clearCompletedTodos
+	}
 );
 
 const EnhancedApp = withState(App);
