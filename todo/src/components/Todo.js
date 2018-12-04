@@ -3,8 +3,20 @@ import styled from 'styled-components';
 import {toggleCompleted} from '../actions';
 import {connect} from 'react-redux';
 
+const DivWrapper = styled.div`
+  display: flex;
+  padding: 10px;
+`;
+
+const DeleteButton = styled.button`
+  padding: 20px;
+  border-radius: 50%;
+  background-color: red;
+  border: 1px solid black;
+`;
+
 const DivTodo = styled.div`
-  margin: 10px;
+  margin-right: 10px;
   padding: 15px;
   font-size: 20px;
   border-radius: 5px;
@@ -17,11 +29,14 @@ const DivTodo = styled.div`
 const Todo = props => {
   console.log('todo:', props);
   return (
-    <DivTodo
-      onClick={() => props.toggleCompleted(props.todo.id)}
-      complete={props.todo.complete}>
-      {props.todo.task}
-    </DivTodo>
+    <DivWrapper>
+      <DivTodo
+        onClick={() => props.toggleCompleted(props.todo.id)}
+        complete={props.todo.complete}>
+        {props.todo.task}
+      </DivTodo>
+      <DeleteButton>X</DeleteButton>
+    </DivWrapper>
   );
 };
 
