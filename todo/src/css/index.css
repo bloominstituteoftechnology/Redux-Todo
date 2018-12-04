@@ -1,0 +1,39 @@
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 5px;
+  box-shadow: -2px 2px 5px black;
+  text-shadow: -2px -2px 1px black;
+}
+.App h1 {
+  font-size: 5.5rem;
+}
+.App h3 {
+  font-size: 3rem;
+}
+.form {
+  text-align: center;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form input {
+  width: 50%;
+  margin-right: 30px;
+  height: 45px;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 2rem;
+  text-align: right;
+  padding-right: 15px;
+}
+.form .btn {
+  font-size: 2rem;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
