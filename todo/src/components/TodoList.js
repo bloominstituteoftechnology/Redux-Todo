@@ -3,7 +3,7 @@ import Task from './Task';
 
 export default function TodoList(props) {
     return (
-        <div className="todo-list">
+        <div className="todolist">
             {props.tasks.map((task, index) =>
                 <Task 
                     task={task.value} 

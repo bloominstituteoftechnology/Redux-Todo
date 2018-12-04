@@ -25,15 +25,18 @@ export default class Form extends Component {
 
     render() {
         return (
-            <form onSubmit={this.submitHandler}>
+            <form className="taskform" onSubmit={this.submitHandler}>
+                <h3>Add a Task:</h3>
                 <input
                     type="text" 
                     placeholder="Task" 
                     value={this.state.input} 
                     onChange={this.changeHandler}
                 />
-                <button type="submit">Add Task</button>
-                <button onClick={this.props.deleteAll}>Delete All</button>
+                <div className="formbutton-container">
+                    <button type="submit">Add</button>
+                    <button onClick={this.props.deleteAll}>Delete All</button>
+                </div>
             </form>
         );
     }

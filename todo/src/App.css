@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -33,4 +39,68 @@
 
 .strikethrough {
   text-decoration: line-through;
+}
+
+.taskform {
+  padding: .5rem;
+  border-radius: 4px;
+  margin: 1rem;
+  width: 300px;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.taskform input {
+  padding: .5rem;
+  width: 200px;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  margin: 0 1rem;
+}
+
+.taskform input:focus {
+  outline: none;
+}
+
+.formbutton-container button, .todocard button {
+  padding: .5rem;
+  width: 100px;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  margin: .5rem .5rem;
+}
+
+.taskform button:focus {
+  outline: none;
+}
+
+.todolist {
+  padding: 1rem .5rem;
+  height: 580px;
+  width: 300px;
+  margin: 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #eae4ab;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.todocard {
+  padding: 1rem;
+  margin: .75rem 1rem;
+  width: 75%;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  background-color: #fffde8;
+}
+
+.todocard p {
+  margin: 1rem 1rem;
 }
