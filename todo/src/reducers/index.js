@@ -1,6 +1,6 @@
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
-export const CLEAR_TODO = 'CLEAR_TODO';
+export const CLEAR_TODO = "CLEAR_TODO";
 
 const initialState = {
   todos: []
@@ -11,7 +11,10 @@ const reducer = (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos, {task: action.payload, complete: false, id: Date.now()}]
+        todos: [
+          ...state.todos,
+          { task: action.payload, complete: false, id: Date.now() }
+        ]
       };
     case TOGGLE_COMPLETE:
       return {
@@ -27,8 +30,8 @@ const reducer = (state = initialState, action) => {
     case CLEAR_TODO:
       return {
         ...state,
-        todos: [...state.todos.filter(todo => todo.complete === false )]
-      }
+        todos: [...state.todos.filter(todo => todo.complete === false)]
+      };
     default:
       return state;
   }

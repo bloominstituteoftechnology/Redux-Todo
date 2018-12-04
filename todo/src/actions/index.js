@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TODO } from '../reducers';
+import { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TODO } from "../reducers";
 
 export const addTodo = todo => {
   return {
@@ -11,11 +11,11 @@ export const toggleComplete = index => {
   return {
     type: TOGGLE_COMPLETE,
     payload: index
-  }
-}
+  };
+};
 
 export const clearTodo = () => {
   return {
     type: CLEAR_TODO
-  }
-}
+  };
+};
