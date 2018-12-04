@@ -2,7 +2,8 @@ export const ADD_TODO = 'ADD-TODO';
 export const TOGGLE_COMPLETE='TOGGLE_COMPLETE';
 
 const initialState = {
-    todos: [{name: 'Nick', complete:true},{name: 'nich', complete:false}]
+    todos: [{value: 'Walk the cat', complete:true},
+    {value: 'dishes', complete:false}]
 }
 
 const reducer = (state=initialState, action) => {
@@ -10,22 +11,28 @@ const reducer = (state=initialState, action) => {
     
         case ADD_TODO:
             return {
-            ...state,
-            todos: [...state.todo, { name: action.payload, complete: false }]
-            };
+                ...state,
+                todos: [...state.todos,
+                    { 
+                        value: action.payload, 
+                        complete: false
+                    }] 
+            }
         case TOGGLE_COMPLETE:
             return {
-            ...state,
-            todos: state.todos.map((todo, index) => {
-                if (index === action.payload) {
-                return { ...todo, complete: !todo.complete };
-                } else {
-                return todo;
-                }
-            })
-        };
-    default:
-        return state;
+                ...state,
+                todos: state.todo.map((todo,index) => {
+                    if(index === action.payload){
+                        return {
+                            ...todo, 
+                            complete: !todo.complete};
+                    }else{
+                        return todo;
+                    }
+                })
+            }
+        default:
+            return state;
     }
 };
 
