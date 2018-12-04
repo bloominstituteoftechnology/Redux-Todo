@@ -5,15 +5,13 @@ import { Provider } from 'react-redux';
 
 import reducers from './reducers';
 
-const App = () => (
-  <div>React App</div>
-)
+import TodoList from './components/TodoList';
 
 const store = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <TodoList />
   </Provider>,
   document.querySelector('#root')
 );
