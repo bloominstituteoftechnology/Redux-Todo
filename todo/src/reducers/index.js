@@ -2,7 +2,7 @@ export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 const initialState = {
-  todos: [{todo: test, completed: false}]
+  todos: [{todo: "test", completed: false}]
 };
 
 export default (state = initialState, action) => {
