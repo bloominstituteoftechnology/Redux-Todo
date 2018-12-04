@@ -5,10 +5,17 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import todo from './reducers';
+import { loadState, saveData } from './components/loadData';
 
-const store = createStore(todo);
+const persistData = loadState();
 
-// store.subscribe(() => console.log(store.getState()));
+const store = createStore(todo, persistData);
+
+store.subscribe(() => {
+    saveData({
+        todo: store.getState().todo
+    });
+});
 
 ReactDOM.render(
 <Provider store={store}>
