@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styled from 'styled-components';
 
-class App extends Component {
-  render() {
+import TodoList from './Components/TodoList';
+
+const Container = styled.div`
+  max-width: 400px;
+  width: 100%;
+  height: 600px;
+  margin: 50px auto;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+`;
+
+const App = () => {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Container>
+            <TodoList/>
+        </Container>
     );
-  }
 }
 
 export default App;
