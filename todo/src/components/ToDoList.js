@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { toggleComplete } from '../actions';
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -35,9 +36,9 @@ const ToDoList = props => {
   return (
     <DivWrapper>
       {props.todoList.map(item => (
-        <DivToDo>
+        <DivToDo onClick={() => props.toggleComplete(item.id)}>
           <h3>{item.name}</h3>
-          <p>completed: checked/unchecked</p>
+          <p>completed: {item.completed ? 'incomplete' : 'complete'}</p>
         </DivToDo>
       ))}
     </DivWrapper>
@@ -50,7 +51,10 @@ const mapStateToProps = state => {
   };
 };
 
-const withStateConnect = connect(mapStateToProps);
+const withStateConnect = connect(
+  mapStateToProps,
+  { toggleComplete }
+);
 const HOC = withStateConnect(ToDoList);
 
 export default HOC;

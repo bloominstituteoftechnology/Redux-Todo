@@ -1,4 +1,5 @@
 export const ADD_ITEM = 'ADD_ITEM';
+export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
 const initialState = {
   todoList: [
@@ -27,6 +28,15 @@ export default (state = initialState, action) => {
         ...state,
         todoList: [...state.todoList, action.payload]
       });
+    case TOGGLE_COMPLETE:
+      const updatedToDoList = state.todoList.map(item => {
+        if (item.id === action.payload) {
+          item.completed = !item.completed;
+          return item;
+        }
+        return item;
+      });
+      return Object.assign({ ...state, todoList: updatedToDoList });
     default:
       return state;
   }

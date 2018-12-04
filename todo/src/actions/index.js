@@ -1,4 +1,4 @@
-import { ADD_ITEM } from '../reducers';
+import { ADD_ITEM, TOGGLE_COMPLETE } from '../reducers';
 
 // action creator
 // it creates an action - a plain JS object with
@@ -7,5 +7,12 @@ export const addItem = item => {
   return {
     type: ADD_ITEM,
     payload: item
+  };
+};
+
+export const toggleComplete = itemId => {
+  return {
+    type: TOGGLE_COMPLETE,
+    payload: itemId
   };
 };
