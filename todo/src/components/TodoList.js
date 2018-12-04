@@ -40,11 +40,10 @@ class TodoList extends React.Component {
         Todo App
         {
           this.props.todos.map((todo,id) => (
-            <div className="todo">
+            <div key={id} className="todo">
               <div className="button" onClick={() => this.props.deleteTodo(id)}>x</div>
               <div
                 className="todo--value"
-                key={id}
                 onClick={() => this.props.toggleStatus(id)}
                 style={{
                   textDecoration: todo.completed ? 'line-through' : 'none',
