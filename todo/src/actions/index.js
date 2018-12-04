@@ -1,6 +1,6 @@
 export const ADD_TASK = 'ADD_TASK';
 export const REMOVE_TASK = 'REMOVE_TASK';
-export const COMPLETE_TASK = 'COMPLETE_TASK';
+export const TOGGLE_TASK = 'TOGGLE_TASK';
 
 export const addTask = (payload) => {
     return {
@@ -16,9 +16,9 @@ export const removeTask = (task) => {
     }
 }
 
-export const completeTask = (task) => {
+export const toggleTask = (id) => {
     return {
-        type: COMPLETE_TASK,
-        payload: task
+        type: TOGGLE_TASK,
+        payload: id
     }
 }

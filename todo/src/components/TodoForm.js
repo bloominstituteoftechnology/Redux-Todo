@@ -5,7 +5,6 @@ class TodoForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event.target.input.value)
         this.props.addTask({ text: event.target.input.value, id: shortid.generate() })
     }
 

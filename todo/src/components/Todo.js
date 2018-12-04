@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Todo = props => {
-    return (
-        <>
-            <li><input type="checkbox" onClick={() => props.markComplete()} />{props.text}</li>
-        </>
-    );
+class Todo extends Component {
+
+    markComplete(event) {
+        console.log(event.target.id)
+        this.props.toggleTask(event.target.id)
+    }
+
+    render() {
+        return (
+            <li><input checked={this.props.complete} name="taskCheck" type="checkbox" onChange={(event) => this.markComplete(event)} id={this.props.id} />{this.props.text}</li>
+        )
+    }
 };
 
 export default Todo;
