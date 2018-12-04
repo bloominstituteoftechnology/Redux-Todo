@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { addTodo } from "./actions";
+import { addTodo, toggleTodo } from "./actions";
 import "./App.css";
 import { connect } from 'react-redux';
+import TodoItem from './components/TodoItem'
 
 class App extends Component {
 	constructor() {
@@ -26,7 +27,7 @@ class App extends Component {
 					<form
 						onSubmit={(ev) => {
               ev.preventDefault();
-              this.props.addTodo(Math.random(), this.state.inputText);
+              this.props.addTodo(this.props.todos.length, this.state.inputText);
               this.setState({inputText: ''});
               
 						}}>
@@ -39,6 +40,17 @@ class App extends Component {
 						/>
 						<button type='submit'>Add</button>
 					</form>
+
+            <div className="list">
+            {this.props.todos.map(todo => (
+                <TodoItem 
+                    key={todo.id} 
+                    todo={todo}
+                    toggleCompleted={this.props.toggleTodo}
+                />
+            ))}
+        </div>
+
 				</header>
 			</div>
 		);
@@ -54,7 +66,7 @@ function mapStateToProps(state) {
 const withState = connect(
   mapStateToProps,
   {
-    
+    toggleTodo,
     addTodo // same as addFriend: addFriend
     
   }
