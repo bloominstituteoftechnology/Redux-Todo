@@ -21,7 +21,7 @@ const reducer = (state=initialState, action) => {
         case TOGGLE_COMPLETE:
             return {
                 ...state,
-                todos: state.todo.map((todo,index) => {
+                todos: state.todos.map((todo,index) => {
                     if(index === action.payload){
                         return {
                             ...todo, 

@@ -15,9 +15,15 @@ class App extends Component {
   handleSubmit = ev => {
     ev.preventDefault();
     console.log('clicked');
-   
+    this.props.addTodo(this.state.inputText);
+    this.setState({
+      inputText: ''
+    })
   }
 
+  toggleTodo = index => {
+    this.props.toggleComplete(index);
+  }
 
   render() {
     return (
@@ -35,7 +41,7 @@ class App extends Component {
         </form>
         <div className="list">
           {this.props.todos.map((todo,index) => {
-            return (<div className="todo">
+            return (<div className="todo" onClick={() => this.toggleTodo(index)}>
               <p key={index}>{todo.value}</p>
               {todo.complete ? <h3>X</h3> : null}
             </div>)
