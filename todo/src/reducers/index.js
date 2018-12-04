@@ -1,6 +1,6 @@
 // ActionType Exports
-const ADD_TO_LIST = 'ADD_TO_LIST';
-const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const ADD_TO_LIST = 'ADD_TO_LIST';
+export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
 // Initial State 
 const initialState = {
@@ -11,6 +11,16 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_TO_LIST:
+            return {
+                ...state,
+                todoList: [
+                    ...state.todoList, 
+                    {
+                        todo: action.payload, 
+                        complete: false
+                    }
+                ]
+            }
 
         case TOGGLE_COMPLETE:
 
