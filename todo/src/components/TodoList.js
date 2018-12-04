@@ -8,6 +8,8 @@ import {
   toggleStatus,
 } from '../actions';
 
+import TodoForm from './TodoForm';
+
 class TodoList extends React.Component {
   render() { 
     return (
@@ -18,10 +20,11 @@ class TodoList extends React.Component {
             <div
               key={id}
             >
-              Todo
+              {todo.value}
             </div>
           ))
         }
+        <TodoForm handleSubmit={this.props.addTodo}/>
       </div>
     );
   }
