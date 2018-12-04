@@ -1,4 +1,4 @@
-import { Hello,  } from '../actions';
+//import { HELLO,  } from '../actions';
 
 const initialState = {
   word: 'bye'
@@ -6,10 +6,10 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case Hello:
+    case 'HELLO':
     return {
       ...state,
-      word: 'hello',
+      word: action.payload,
     }
     default:
       return state;
