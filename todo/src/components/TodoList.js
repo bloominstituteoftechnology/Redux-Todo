@@ -1,11 +1,12 @@
 import React from 'react';
 import Todo from './Todo';
+import shortid from 'shortid'
 
 const TodoList = props => {
     return (
-        <>
-            {props.tasks.map(task => <Todo text={task.text} complete={task.complete} id={task.id} />)}
-        </>
+        <ul>
+            {props.tasks.map(task => <Todo key={shortid.generate()} text={task.text} complete={task.complete} id={task.id} />)}
+        </ul>
     );
 };
 
