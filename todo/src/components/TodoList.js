@@ -19,6 +19,11 @@ class TodoList extends React.Component {
           this.props.todos.map((todo,id) => (
             <div
               key={id}
+              onClick={() => this.props.toggleStatus(id)}
+              style={{
+                textDecoration: todo.completed ? 'line-through' : 'none',
+                fontStyle: todo.completed ? 'italic' : 'normal'
+              }}
             >
               {todo.value}
             </div>
