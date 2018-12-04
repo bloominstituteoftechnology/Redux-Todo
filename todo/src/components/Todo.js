@@ -5,7 +5,8 @@ import './Todo.css';
 
 class Todo extends React.Component {
     state = {
-        inputText: ''
+        inputText: '',
+        folderName: 'School'
     }
 
     handleChange = e => {
@@ -16,9 +17,17 @@ class Todo extends React.Component {
 
     addNewTask = e => {
         e.preventDefault();
-        this.props.addTodoItem(this.state.inputText);
+        if(this.state.inputText !== ''){
+            this.props.addTodoItem(this.state.inputText);
+            this.setState({
+                inputText: ''
+            });
+        }
+    }
+
+    changeFolder = name => {
         this.setState({
-            inputText: ''
+            folderName: name,
         });
     }
 
@@ -26,48 +35,72 @@ class Todo extends React.Component {
         return (
             <div>
                 <div>
-                    <form onSubmit={this.addNewTask} >
+                    <form className='form-content' onSubmit={this.addNewTask} >
                         <input 
+                            className='input-field'
                             type="text"
                             name='inputText'
                             value={this.state.inputText}
                             onChange={this.handleChange}
-                            placeholder='New Todo Task'
+                            placeholder='New Task'
                             autoComplete='off'
                         />
-                        <button>Add Task</button>
+                        <button className='formBtn'>Add Task</button>
                     </form>
                 </div>
-                <ul>
-                    {this.props.todo.map( (item, index) => {
-                        return (
-                            <div 
-                                className='taskBtn-container' 
-                                key={index}
-                                location={index}
-                            >
-                                <div className='taskBtn'>
-                                    <div className='taskNumber'>
-                                        <div>
+                <div className='task-organizer'>
+                    <div className='task-folder-container'>
+                        <h3 className='folder-holder-title'>Task Folders</h3>
+                        <form className='folder-input-form'>
+                            <input 
+                                className='folder-input-field'
+                                type="text"
+                                name='newFolder'
+                                value=''
+                                onChange={this.handleChange}
+                                placeholder='New Folder'
+                                autoComplete='off'
+                            />
+                            <button>Add</button>
+                        </form>
+                        <button className='folderBtn' onClick={() => this.changeFolder('School')}>School</button>
+                        <button className='folderBtn' onClick={() => this.changeFolder('Trip')}>Trip</button>
+                        <button className='folderBtn' onClick={() => this.changeFolder('Work')}>Work</button>
+                        <button className='folderBtn' onClick={() => this.changeFolder('Project')}>Project</button>
+                    </div>
+                    <div className='postIt-container'>
+                        <h3>{this.state.folderName} Tasks</h3>
+                        <ul>
+                        {this.props.todo.map( (item, index) => {
+                            return (
+                                <div 
+                                    className='taskBtn-container' 
+                                    key={index}
+                                    location={index}
+                                >
+                                    <div className='taskBtn'>
+                                        <div className='taskNumber'>
                                             <div>
-                                                Task: {index}
+                                                <div>
+                                                    Task: {index + 1}
+                                                </div>
+                                                <button className='deleteBtn' onClick={() => this.props.deleteTodoItem(index)}>
+                                                    Delete
+                                                </button>
                                             </div>
-                                            <button className='deleteBtn' onClick={() => this.props.deleteTodoItem(index)}>
-                                                Delete
-                                            </button>
+                                        </div>
+                                        <div 
+                                        className={item.completed === true ? 'task-content-complete' : 'task-content'} 
+                                        onClick={() => this.props.completedItem(index)}>
+                                            <p>{item.value.toUpperCase()}</p> 
                                         </div>
                                     </div>
-                                    <div 
-                                    className={item.completed === true ? 'task-content-complete' : 'task-content'} 
-                                    onClick={() => this.props.completedItem(index)}>
-                                        {item.value.toUpperCase()}
-                                    </div>
                                 </div>
-                            </div>
-                            
-                        );
-                    })}
-                </ul>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                </div>
             </div>
         );
     }
