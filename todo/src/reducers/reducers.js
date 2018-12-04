@@ -2,10 +2,19 @@ export const ADD_TODO = 'ADD-TODO';
 export const TOGGLE_COMPLETE='TOGGLE_COMPLETE';
 export const DELETE_TODO='DELETE_TODO';
 
+
 const initialState = {
-    todos: [{value: 'Walk the cat', complete:true},
-    {value: 'dishes', complete:false}]
+    todos: isStored()
 }
+function isStored(){
+    if(localStorage.getItem('todos') || localStorage.getItem('todos') === undefined){
+        return JSON.parse(localStorage.getItem('todos'));
+    }else{
+        return [{value: 'Walk the cat', complete:true},
+                {value: 'dishes', complete:false}]
+    }   
+}
+console.log(initialState);
 
 const reducer = (state=initialState, action) => {
     switch (action.type) {

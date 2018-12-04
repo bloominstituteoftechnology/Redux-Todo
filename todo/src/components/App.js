@@ -30,6 +30,7 @@ class App extends Component {
   }
 
   render() {
+    localStorage.setItem('todos', JSON.stringify(this.props.todos));
     return (
       <div className="App">
       <form onSubmit={this.handleSubmit}>
