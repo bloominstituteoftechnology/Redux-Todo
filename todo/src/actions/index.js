@@ -17,7 +17,10 @@ export const deleteTodo = (id) => ({
 
 export const updateTodo = (updatedTodo, id) => ({
   type: UPDATE_TODO,
-  payload: id,
+  payload: {
+    id,
+    todo: updatedTodo,
+  },
 })
 
 export const toggleStatus = (id) => ({
