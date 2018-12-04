@@ -37,3 +37,12 @@ h1 {
 .true {
   text-decoration: line-through;
 }
+
+.todo-item {
+  display: flex;
+  border: 1px solid #efefef;
+  justify-content: space-around;
+  align-items: center;
+  width: 400px;
+  margin: 20px auto;
+}

@@ -4,7 +4,7 @@ export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 const initialState = {
   todos: [
     {
-      value: "Walk the dog.",
+      value: "Walk the dog",
       completed: false
     }
   ]
