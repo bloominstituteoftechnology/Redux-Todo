@@ -1,4 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledInput = styled.input`
+  min-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+`;
 
 class TodoForm extends React.Component {
   state = {
@@ -29,7 +36,11 @@ class TodoForm extends React.Component {
     return (
       <div>
         <form action="submit" onSubmit={this.onSubmit}>
-          <input value={this.state.text} onChange={this.onChange} type="text"/>
+          <StyledInput
+            value={this.state.text}
+            onChange={this.onChange} type="text"
+            placeholder="Add new todo ..."
+          />
         </form>
       </div>
     );
