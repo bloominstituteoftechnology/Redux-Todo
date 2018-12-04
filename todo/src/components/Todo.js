@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo, completed } from '../actions';
+import { addTodo, completed, deleteTodo } from '../actions';
 import './Todo.css';
 
 class Todo extends React.Component {
@@ -48,7 +48,14 @@ class Todo extends React.Component {
                             >
                                 <div className='taskBtn'>
                                     <div className='taskNumber'>
-                                        Task: {index}
+                                        <div>
+                                            <div>
+                                                Task: {index}
+                                            </div>
+                                            <button className='deleteBtn' onClick={() => this.props.deleteTodoItem(index)}>
+                                                Delete
+                                            </button>
+                                        </div>
                                     </div>
                                     <div 
                                     className={item.completed === true ? 'task-content-complete' : 'task-content'} 
@@ -74,7 +81,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     addTodoItem: text => dispatch(addTodo(text)),
-    completedItem: id => dispatch(completed(id))
+    completedItem: id => dispatch(completed(id)),
+    deleteTodoItem: id => dispatch(deleteTodo(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps) (Todo);

@@ -1,5 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
 export const COMPLETED = 'COMPLETED';
+export const DELETE_ITEM = 'DELETE_ITEM';
 
 export const addTodo = text => {
     return {
@@ -15,3 +16,9 @@ export const completed = id => {
     };
 };
 
+export const deleteTodo = id => {
+    return {
+        type: DELETE_ITEM,
+        id: id
+    };
+};
