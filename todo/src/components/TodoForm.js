@@ -5,9 +5,14 @@ import {addTodo} from '../actions';
 import {store} from '../index'; // can i avoid this? is this bad?
 
 const StyledForm = styled.form`
-  width: 80%;
-  border: 1px solid black;
+  width: 50%;
   margin: 0 auto;
+`;
+
+const StyledInput = styled.input`
+  padding: 10px 5px;
+  width: 100%;
+  border-radius: 5px;
 `;
 
 class TodoForm extends React.Component {
@@ -32,7 +37,7 @@ class TodoForm extends React.Component {
     //console.log('form', this.props);
     return (
       <StyledForm onSubmit={this.handleSubmit}>
-        <input
+        <StyledInput
           type="text"
           placeholder="add a todo"
           onChange={this.handleChange}
