@@ -10,14 +10,23 @@ const DivTodoList = styled.div`
   border-radius: 5px;
   background-color: black;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1:hover {
+    filter: invert(30%);
+  }
 `;
 
 const TodoList = props => {
-  console.log(props.todos);
+  //console.log(props.todos); //yay! it's working!
   return (
     <DivTodoList>
-      <h1>todolist</h1>
-      <Todo todo="test!" />
+      {props.todos.map(t => (
+        <Todo key={t.id} todo={t} />
+      ))}
     </DivTodoList>
   );
 };

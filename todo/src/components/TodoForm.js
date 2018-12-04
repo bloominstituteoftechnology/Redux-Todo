@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {addTodo} from '../actions';
+import {store} from '../index'; // can i avoid this? is this bad?
 
 const StyledForm = styled.form`
   width: 80%;
@@ -8,8 +11,8 @@ const StyledForm = styled.form`
 `;
 
 class TodoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       inputText: '',
     };
@@ -17,7 +20,7 @@ class TodoForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log('submit');
+    store.dispatch(addTodo(this.state.inputText));
     this.setState({inputText: ''});
   };
 
@@ -26,6 +29,7 @@ class TodoForm extends React.Component {
   };
 
   render() {
+    //console.log('form', this.props);
     return (
       <StyledForm onSubmit={this.handleSubmit}>
         <input
@@ -40,4 +44,15 @@ class TodoForm extends React.Component {
   }
 }
 
-export default TodoForm;
+const mapStateToProps = state => {
+  return {
+    todos: state.todos,
+  };
+};
+
+export default connect(mapStateToProps)(TodoForm);
+
+//export default connect(
+//{},
+//{addTodo},
+//)(TodoForm);
