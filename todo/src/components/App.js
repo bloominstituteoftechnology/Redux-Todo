@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { addTodo, toggleComplete } from '../actions/actions';
+import { addTodo, toggleComplete, actionDeleteTodo } from '../actions/actions';
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -25,6 +25,10 @@ class App extends Component {
     this.props.toggleComplete(index);
   }
 
+  deleteTodo = index =>{
+    this.props.actionDeleteTodo(index);
+  }
+
   render() {
     return (
       <div className="App">
@@ -41,9 +45,23 @@ class App extends Component {
         </form>
         <div className="list">
           {this.props.todos.map((todo,index) => {
-            return (<div className="todo" onClick={() => this.toggleTodo(index)}>
-              <p key={index}>{todo.value}</p>
+            return (
+            <div 
+              className="todo" 
+              onClick={() => this.toggleTodo(index)} 
+              id={index}
+            >
               {todo.complete ? <h3>X</h3> : null}
+
+              <p key={index}>{todo.value}</p>
+
+              {todo.complete ? 
+                <button 
+                  onClick={()=>this.deleteTodo(index)}
+                >
+                Delete
+                </button> : null 
+              }
             </div>)
           })}
         </div>
@@ -58,11 +76,11 @@ function mapStateToProps(state) {
   };
 }
 
-const withState = connect(
+export default connect(
   mapStateToProps, 
   {
     addTodo, 
-    toggleComplete
-  });
-
-export default withState(App);
+    toggleComplete,
+    actionDeleteTodo
+  })
+  (App);

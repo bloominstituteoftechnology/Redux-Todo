@@ -1,4 +1,4 @@
-import {ADD_TODO, TOGGLE_COMPLETE} from '../reducers/reducers';
+import {ADD_TODO, TOGGLE_COMPLETE, DELETE_TODO} from '../reducers/reducers';
 
 export const addTodo = value => {
     console.log(value);
@@ -14,3 +14,10 @@ export const toggleComplete = index => {
         payload: index
     };
 };
+
+export const actionDeleteTodo = index => {
+    return {
+        type: DELETE_TODO,
+        payload: index
+    }
+}

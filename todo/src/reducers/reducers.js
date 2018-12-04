@@ -1,5 +1,6 @@
 export const ADD_TODO = 'ADD-TODO';
 export const TOGGLE_COMPLETE='TOGGLE_COMPLETE';
+export const DELETE_TODO='DELETE_TODO';
 
 const initialState = {
     todos: [{value: 'Walk the cat', complete:true},
@@ -29,6 +30,13 @@ const reducer = (state=initialState, action) => {
                     }else{
                         return todo;
                     }
+                })
+            }
+        case DELETE_TODO:
+            return {
+                ...state,
+                todos: state.todos.filter((todo,index) => {
+                    return index !== action.payload;
                 })
             }
         default:
