@@ -1,4 +1,9 @@
-import { ADD_TODO, TOGGLE_COMPLETE, REMOVE_COMPLETED } from "../reducers";
+import {
+  ADD_TODO,
+  TOGGLE_COMPLETE,
+  REMOVE_COMPLETED,
+  DELETE_TODO
+} from "../reducers";
 
 export const addTodo = text => ({
   type: ADD_TODO,
@@ -13,4 +18,9 @@ export const toggleComplete = id => ({
 export const removeCompleted = arr => ({
   type: REMOVE_COMPLETED,
   payload: arr
+});
+
+export const deleteTodo = id => ({
+  type: DELETE_TODO,
+  payload: id
 });

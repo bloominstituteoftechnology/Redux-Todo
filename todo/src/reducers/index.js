@@ -1,6 +1,7 @@
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
 export const REMOVE_COMPLETED = "REMOVE_COMPLETED";
+export const DELETE_TODO = "DELETE_TODO";
 
 const initialState = {
   todos: [
@@ -42,6 +43,11 @@ export default (state = initialState, action) => {
     case REMOVE_COMPLETED:
       return {
         todos: state.todos.filter(todo => !todo.completed)
+      };
+
+    case DELETE_TODO:
+      return {
+        todos: state.todos.filter(todo => todo.id !== action.payload)
       };
 
     default:

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo, toggleComplete, removeCompleted } from "./actions";
+import {
+  addTodo,
+  toggleComplete,
+  removeCompleted,
+  deleteTodo
+} from "./actions";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 
@@ -8,7 +13,14 @@ import "./css/index.css";
 
 class App extends Component {
   toggleComplete = id => {
-    this.toggleComplete(id);
+    this.props.toggleComplete(id);
+  };
+
+  handleDelete = (ev, id) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    this.props.deleteTodo(id);
   };
 
   render() {
@@ -25,6 +37,7 @@ class App extends Component {
         <TodoList
           todos={this.props.todos}
           toggleComplete={this.props.toggleComplete}
+          handleDelete={this.handleDelete}
         />
       </div>
     );
@@ -39,7 +52,8 @@ const mapDispatchToProps = dispatch => {
   return {
     addTodo: text => dispatch(addTodo(text)),
     toggleComplete: id => dispatch(toggleComplete(id)),
-    removeCompleted: arr => dispatch(removeCompleted(arr))
+    removeCompleted: arr => dispatch(removeCompleted(arr)),
+    deleteTodo: id => dispatch(deleteTodo(id))
   };
 };
 

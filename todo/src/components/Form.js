@@ -20,6 +20,7 @@ class Form extends React.Component {
     ev.preventDefault();
 
     this.props.addTodo(this.state.text);
+    this.setState({ text: "" });
   };
 
   render() {
