@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo, toggleTodo } from "../actions";
-
+import { addTodo, toggleTodo, deleteTodo } from "../actions";
+import './Todo.css';
 class Todo extends Component {
   constructor() {
     super();
@@ -23,12 +23,17 @@ class Todo extends Component {
     this.props.toggleTodo(index);
   };
 
+  handleDelete = event => {
+    event.preventDefault();
+    this.props.deleteTodo();
+  };
+
   render() {
     return (
       <div className="todoContainer">
         <div className="list">
           {this.props.todos.map((item, index) => (
-            <h4 onClick={() => this.handleToggleTodo(index)} key={item.todo}>
+            <h4 className={`todo ${item.completed}`} onClick={() => this.handleToggleTodo(index)} key={item.todo}>
               {item.todo}
             </h4>
           ))}
@@ -43,6 +48,7 @@ class Todo extends Component {
           autoComplete="off"
         />
         <button onClick={this.handleAddTodo}>Add Todo</button>
+        <button onClick={this.handleDelete}>Delete Completed</button>
       </div>
     );
   }
@@ -67,7 +73,7 @@ const mapStateToProps = state => {
 // makes itself known to this component.
 export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo }
+  { addTodo, toggleTodo, deleteTodo }
 )(Todo);
 
 // const mapDispatchToProps = dispatch => ({

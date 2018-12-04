@@ -1,8 +1,9 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
 
 const initialState = {
-  todos: [{todo: "test", completed: false}]
+  todos: [{todo: "Initial Test", completed: false}]
 };
 
 export default (state = initialState, action) => {
@@ -22,6 +23,13 @@ export default (state = initialState, action) => {
                 return item;
             }
         })
+      };
+    case DELETE_TODO:
+      return {
+          ...state,
+          todos: state.todos.filter(item => {
+              return item.completed === false;
+          })
       };
     default:
       return state;
