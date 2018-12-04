@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <TodoList tasks={this.props.tasks} />
+        <TodoForm />
       </div>
     );
   }
