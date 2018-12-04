@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
+import { connect } from 'react-redux'
+import { addTask, removeTask, completeTask } from './actions'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoList />
+        <TodoList tasks={this.props.tasks} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    tasks: state.tasks
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addTask: (text, id) => dispatch(addTask(text, id)),
+    removeTask: (task) => dispatch(removeTask(task)),
+    completeTask: (task) => dispatch(completeTask(task))
+  }
+}
+
+const withState = connect(
+  mapStateToProps,
+  {
+    addTask: addTask,
+    removeTask: removeTask,
+    completeTask: completeTask
+  }
+)
+
+const Enhanced = withState(App)
+
+export default Enhanced;
