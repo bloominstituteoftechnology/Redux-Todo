@@ -17,7 +17,7 @@ class App extends Component {
         <div className="list-container">
           {this.props.todos.map(todo => (
             <div className="todo-task">
-              <h3>{this.todo}</h3>
+              <h3>{todo.value}</h3>
             </div>
           ))}
         </div>

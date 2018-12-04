@@ -2,17 +2,18 @@ export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
 export const REMOVE_COMPLETED = "REMOVE_COMPLETED";
 
-export const addTodo = () => ({
+export const addTodo = todo => ({
   type: ADD_TODO,
-  payload: addTodo
+  id: todo.id,
+  value: todo.value
 });
 
-export const toggleComplete = () => ({
+export const toggleComplete = todo => ({
   type: TOGGLE_COMPLETE,
-  payload: toggleComplete
+  id: todo.id
 });
 
-export const removeCompleted = () => ({
+export const removeCompleted = todo => ({
   type: REMOVE_COMPLETED,
-  payload: removeCompleted
+  id: todo.id
 });
