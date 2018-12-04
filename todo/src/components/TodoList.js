@@ -1,15 +1,29 @@
 import React from 'react';
+import { toggleTodo } from '../actions';
 import { connect } from 'react-redux';
-import Todo from './Todo';
 
-const TodoList = props => {
-    return(
-        <div>
-            {props.todos.map((individualTodo, index) => (
-                <Todo data={individualTodo} key={index} />
-            ))}
-        </div>
-    );
+class TodoList extends React.Component {
+
+    toggleTodoHandler = index => {
+        this.props.toggleTodo(index);
+    }
+
+    render() {
+        return(
+            <div>
+                {this.props.todos.map((individualTodo, index) => (
+                    <h2 
+                        className={individualTodo.isComplete ? 'individual-todo completed' : 'individual-todo'}
+                        onClick={() => this.toggleTodoHandler(index)} 
+                        key={index}
+                    >
+                        {individualTodo.text}
+                    </h2>
+
+                ))}
+            </div>
+        );
+    }
 }
 
 function mapStateToProps(state) {
@@ -18,4 +32,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, { toggleTodo })(TodoList);
