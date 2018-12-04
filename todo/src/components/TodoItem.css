@@ -1,3 +1,14 @@
 .completed {
     text-decoration: line-through;
+
+}
+
+.red{
+    margin-left: 5px;
+    color: darkred;
+}
+
+.todo-item {
+    display: flex;
+    flex-direction: row;
 }

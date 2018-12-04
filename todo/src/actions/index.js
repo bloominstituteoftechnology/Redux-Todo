@@ -14,7 +14,7 @@ export const addTodo = (id, text) => {
 	};
 };
 
-export const revomeTodo = id => {
+export const removeTodo = id => {
 	return {
 		type: REMOVE_TODO,
 		payload: id

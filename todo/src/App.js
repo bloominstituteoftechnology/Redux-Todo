@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { addTodo, toggleTodo } from "./actions";
+import { addTodo, toggleTodo, removeTodo } from "./actions";
 import "./App.css";
 import { connect } from 'react-redux';
 import TodoItem from './components/TodoItem'
@@ -27,7 +27,7 @@ class App extends Component {
 					<form
 						onSubmit={(ev) => {
               ev.preventDefault();
-              this.props.addTodo(this.props.todos.length, this.state.inputText);
+              this.props.addTodo(Math.random(), this.state.inputText);
               this.setState({inputText: ''});
               
 						}}>
@@ -47,6 +47,7 @@ class App extends Component {
                     key={todo.id} 
                     todo={todo}
                     toggleCompleted={this.props.toggleTodo}
+                    removeTodo={this.props.removeTodo}
                 />
             ))}
         </div>
@@ -67,7 +68,8 @@ const withState = connect(
   mapStateToProps,
   {
     toggleTodo,
-    addTodo // same as addFriend: addFriend
+    addTodo, 
+    removeTodo
     
   }
 );
