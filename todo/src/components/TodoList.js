@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Todo from './Todo';
 import {connect} from 'react-redux';
+import {toggleCompleted} from '../actions';
 
 const DivTodoList = styled.div`
   margin: 10px auto;
@@ -22,6 +23,7 @@ const DivTodoList = styled.div`
 
 const TodoList = props => {
   //console.log(props.todos); //yay! it's working!
+  console.log(props);
   return (
     <DivTodoList>
       {props.todos.map(t => (
@@ -37,4 +39,13 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TodoList);
+//const mapDispatchToProps = dispatch => {
+//return {
+//toggleCompleted: id => dispatch(toggleCompleted(id)),
+//};
+//};
+
+export default connect(
+  mapStateToProps,
+  //mapDispatchToProps,
+)(TodoList);

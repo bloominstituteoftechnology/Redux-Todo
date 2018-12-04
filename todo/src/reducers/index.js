@@ -1,4 +1,4 @@
-import {ADD_TODO} from '../actions';
+import {ADD_TODO, TOGGLE_COMPLETED} from '../actions';
 
 const initialState = {
   todos: [
@@ -26,6 +26,20 @@ export default (state = initialState, action) => {
           task: action.payload,
           complete: false,
           id: newId,
+        }),
+      };
+    case TOGGLE_COMPLETED:
+      console.log('reducer');
+      return {
+        ...state,
+        todos: state.todos.map(t => {
+          if (t.id == action.payload) {
+            //console.log('found!');
+            return {...t, complete: !t.complete};
+          } else {
+            //console.log('nooo');
+            return t;
+          }
         }),
       };
     default:
