@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 const store = createStore(reducers);
+
 store.subscribe(() => console.log(store.getState()))
 
 ReactDOM.render(
