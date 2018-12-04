@@ -31,7 +31,7 @@ class Todo extends React.Component {
     return (
       <div>
         {this.props.todos.map((todo, index) => (
-        <h1>{todo.value}</h1>
+        <h1 className={`${todo.completed}`} key={index}>{todo.value}</h1>
         ))}
         <input
           type="text"
