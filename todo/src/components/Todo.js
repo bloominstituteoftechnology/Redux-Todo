@@ -10,10 +10,12 @@ const Li = styled.li`
   margin: auto;
 `;
 
-const Todo = ({ toggleCompleted, completed, text }) => {
+const Todo = ({ toggleCompleted, completed, text, id }) => {
   return (
     <Li
-      onClick={toggleCompleted}
+      id={id}
+      onClick={() => toggleCompleted({ id })}
+      // completed={completed}
       style={{ textDecoration: completed ? "line-through" : "none" }}
     >
       {text}

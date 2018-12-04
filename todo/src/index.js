@@ -9,7 +9,7 @@ import TodoList from "./containers/TodoList";
 const GlobalStyles = createGlobalStyle`
 body {
   text-align: center;
-  background: #fef
+  background: #fef;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -34,8 +34,12 @@ class App extends Component {
   }
 }
 
+const store = createStore(reducer);
+
+store.subscribe(() => console.log(store.getState()));
+
 ReactDOM.render(
-  <Provider store={createStore(reducer)}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById("root")

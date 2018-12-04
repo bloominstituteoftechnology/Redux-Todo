@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Form from "../components/Form";
-import Todo from "../components/Todo";
+// import Todo from "../components/Todo";
 import styled from "styled-components";
+import { toggleCompleted } from "../actions";
+import { connect } from "react-redux";
 
 const Div = styled.div`
   max-width: 700px;
@@ -17,17 +19,74 @@ const Ul = styled.ul`
   padding: 0;
 `;
 
+const Li = styled.li`
+  padding: 10px 0;
+  background: pink;
+  color: white;
+  width: 90%;
+  color: #939;
+  margin: auto;
+`;
+
 class TodoList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: this.props.todos
+    };
+  }
+
+  // componentDidMount() {
+  //   if (this.props.todos)
+  //     return this.setState({
+  //       todos: [...this.props.todos]
+  //     });
+  //   return null;
+  // }
+
+  handleClick = id => {
+    this.props.toggleCompleted(id);
+  };
+
   render() {
     return (
       <Div>
         <Form />
         <Ul>
-          <Todo />
+          {this.state.todos.map((todo, index) => (
+            // <Todo
+            //   key={index}
+            //   id={index}
+            //   text={this.props.todos.text}
+            //   toggleCompleted={this.props.toggleCompleted}
+            // />
+            <Li
+              key={index}
+              onClick={this.handleClick}
+              completed={todo.completed}
+              style={{
+                textDecoration:
+                  todo.completed === true ? "line-through" : "none"
+              }}
+            >
+              {todo.text}
+            </Li>
+          ))}
         </Ul>
       </Div>
     );
   }
 }
 
-export default TodoList;
+function mapStateToProps(state) {
+  return { todos: state.todos };
+}
+
+const mapDispatchToProps = dispatch => ({
+  toggleCompleted: id => dispatch(toggleCompleted(id))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);

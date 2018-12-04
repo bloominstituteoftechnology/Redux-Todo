@@ -1,28 +1,47 @@
-export const ADD_TODO = "ADD_TODO";
-export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
-export const DELETE_TODO = "DELETE_TODO";
+import {
+  ADD_TODO,
+  TOGGLE_COMPLETED,
+  DELETE_TODO,
+  REMOVE_COMPLETED
+} from "../actions";
 
 const initialState = {
-  todos: []
+  todos: [
+    {
+      id: 0,
+      text: "First Todo",
+      completed: false
+    }
+  ]
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [
+      return {
         ...state,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false
-        }
-      ];
+        todos: [
+          ...state.todos,
+          { id: action.id, text: action.payload, completed: false }
+        ]
+      };
     case TOGGLE_COMPLETED:
-      return state.map(todo =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-      );
+      return {
+        ...state,
+        todos: state.todos.map((todo, id) =>
+          todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        )
+      };
     case DELETE_TODO:
-      return state.filter(todo => todo.id !== action.id);
+      return {
+        ...state,
+        todos: state.todos.filter(todo => todo.id !== action.id)
+      };
+    case REMOVE_COMPLETED:
+      return {
+        ...state,
+        todos: state.todos.filter(todo => todo.completed)
+      };
     default:
       return state;
   }

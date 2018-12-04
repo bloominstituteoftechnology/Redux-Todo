@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../actions";
 import styled from "styled-components";
@@ -10,35 +10,12 @@ const Input = styled.input`
   font-size: 18px;
   width: 70%;
   border: none;
+  color: #909;
   border-bottom: 2px solid #909;
   outline: none;
   margin-bottom: 30px;
 
-  &::-webkit-input-placeholder {
-    /* WebKit, Blink, Edge */
-    color: #909;
-  }
-  &:-moz-placeholder {
-    /* Mozilla Firefox 4 to 18 */
-    color: #909;
-    opacity: 1;
-  }
-  &::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
-    color: #909;
-    opacity: 1;
-  }
-  &:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #909;
-  }
-  &::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #909;
-  }
-
   &::placeholder {
-    /* Most modern browsers support this now. */
     color: #909;
   }
 `;
@@ -56,27 +33,64 @@ const Button = styled.button`
   outline: none;
 `;
 
-const Form = ({ dispatch, handleChange }) => {
-  let input;
+class Form extends Component {
+  constructor() {
+    super();
+    this.state = {
+      inputText: ""
+    };
+  }
 
-  return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        if (!input.value.trim()) return;
-        dispatch(addTodo(input.value));
-        input.value = "";
-      }}
-    >
-      <Input
-        type="text"
-        value=""
-        placeholder="Enter Your Todo Here..."
-        onChange={handleChange}
-      />
-      <Button type="submit">Add A Todo</Button>
-    </form>
-  );
-};
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
-export default connect()(Form);
+  render() {
+    return (
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          // if (this.state.inputText !== "")
+          this.props.addTodo(this.state.inputText);
+          // return null;
+        }}
+      >
+        <Input
+          type="text"
+          name="inputText"
+          value={this.state.inputText}
+          placeholder="Enter Your Todo Here..."
+          onChange={this.handleChange}
+        />
+        <Button type="submit">Add&nbsp;A&nbsp;Todo</Button>
+      </form>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    todos: state.todos
+  };
+}
+
+const mapDispatchToProps = dispatch => ({
+  addTodo: text => dispatch(addTodo(text))
+});
+
+// const withState = connect(
+//   mapStateToProps,
+//   {
+//     addTodo: addTodo
+//   }
+// );
+
+// const EnhancedForm = withState(Form);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Form);
+// export default EnhancedForm;
