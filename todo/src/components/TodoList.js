@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Todo from './Todo';
 import {connect} from 'react-redux';
-import {toggleCompleted} from '../actions';
 
 const DivTodoList = styled.div`
   margin: 10px auto;
+  padding: 20px;
   width: 40%;
   border: 1px solid black;
   border-radius: 100px;

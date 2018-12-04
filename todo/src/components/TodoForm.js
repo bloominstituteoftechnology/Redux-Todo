@@ -4,14 +4,17 @@ import {connect} from 'react-redux';
 import {addTodo} from '../actions';
 
 const StyledForm = styled.form`
-  width: 50%;
+  width: 33%;
   margin: 0 auto;
 `;
 
 const StyledInput = styled.input`
   padding: 10px 5px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 11px;
+  font-size: 25px;
+  color: #2b2d81;
+  background-color: #8a8274;
 `;
 
 class TodoForm extends React.Component {

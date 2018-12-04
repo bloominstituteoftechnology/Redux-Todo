@@ -5,7 +5,13 @@ import TodoForm from './components/TodoForm';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div
+        className="App"
+        style={{
+          backgroundColor: '#212521',
+          height: '100vh',
+          paddingTop: '20px',
+        }}>
         <TodoList />
         <TodoForm />
       </div>

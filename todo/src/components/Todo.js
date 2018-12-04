@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 const DivTodo = styled.div`
   margin: 10px;
-  padding: 10px;
+  padding: 15px;
   font-size: 20px;
   border-radius: 5px;
   background-color: #3c963c;
