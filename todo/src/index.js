@@ -7,8 +7,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
+const store = createStore(reducers);
+store.subscribe(() => console.log(store.getState()))
+
 ReactDOM.render(
-    <Provider store={createStore(reducers)}>
+    <Provider store={store}>
         <App />
     </Provider>
     , document.getElementById('root'));
