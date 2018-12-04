@@ -4,7 +4,7 @@ import Todo from './Todo';
 const TodoList = props => {
     return (
         <>
-            <Todo />
+            {props.tasks.map(task => <Todo text={task.text} complete={task.complete} id={task.id} />)}
         </>
     );
 };
