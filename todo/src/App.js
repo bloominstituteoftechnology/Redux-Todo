@@ -7,8 +7,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoForm />
-        <TodoList />
+        <div className='app-title'>
+          <h1 className='title-text'>TODO LIST</h1>
+          <i className="fas fa-caret-right"></i>
+        </div>
+        <div className='todo-container'>
+          <TodoForm />
+          <TodoList />
+        </div>
       </div>
     );
   }

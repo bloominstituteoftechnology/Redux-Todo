@@ -23,15 +23,22 @@ class TodoForm extends React.Component {
     render() {
         return(
             <div>
-                <form onSubmit={this.addTodoHandler}>
-                    <input 
+                <form 
+                    className='todo-form'
+                    onSubmit={this.addTodoHandler}
+                >
+                    <input
+                        className='todo-form-input' 
                         type='text' 
                         name='formText' 
                         onChange={this.handleChange} 
-                        placeholder='Add Todos Here' 
+                        placeholder='Add Todos Here...' 
                         value={this.state.formText}
+                        autoComplete='off'
                     />
-                    <button>Add Todo</button>
+                    <button className='todo-form-button'>
+                        <i className="fas fa-plus"></i>
+                    </button>
                 </form>
             </div>
         );
