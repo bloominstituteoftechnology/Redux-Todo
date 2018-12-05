@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo, completed, deleteTodo } from '../actions';
+import { addTodo, completed, deleteTodo, addFolder, deleteFolder, pickedFolder } from '../actions';
 import './Todo.css';
 
 class Todo extends React.Component {
     state = {
         inputText: '',
-        folderName: 'School'
+        folderName: ''
     }
 
     handleChange = e => {
@@ -25,10 +25,14 @@ class Todo extends React.Component {
         }
     }
 
-    changeFolder = name => {
-        this.setState({
-            folderName: name,
-        });
+    changeFolder = e => {
+        e.preventDefault();
+        if(this.state.folderName !== '') {
+            this.props.addNewFolder(this.state.folderName);
+            this.setState({
+                folderName: ''
+            });
+        }
     }
 
     render () {
@@ -51,51 +55,57 @@ class Todo extends React.Component {
                 <div className='task-organizer'>
                     <div className='task-folder-container'>
                         <h3 className='folder-holder-title'>Task Folders</h3>
-                        <form className='folder-input-form'>
+                        <form className='folder-input-form' onSubmit={this.changeFolder}>
                             <input 
                                 className='folder-input-field'
                                 type="text"
-                                name='newFolder'
-                                value=''
+                                name='folderName'
+                                value={this.state.folderName}
                                 onChange={this.handleChange}
                                 placeholder='New Folder'
                                 autoComplete='off'
                             />
-                            <button>Add</button>
+                            <button className='formAddBtn'>Add</button>
                         </form>
-                        <button className='folderBtn' onClick={() => this.changeFolder('School')}>School</button>
-                        <button className='folderBtn' onClick={() => this.changeFolder('Trip')}>Trip</button>
-                        <button className='folderBtn' onClick={() => this.changeFolder('Work')}>Work</button>
-                        <button className='folderBtn' onClick={() => this.changeFolder('Project')}>Project</button>
+                        {/* {place for button map to show all the folder buttons} */}
+                        {this.props.folder.map((btn, index) => {
+                            return (
+                                <div key={index}>
+                                    <button className={btn.selected ? 'folderBtn-selected' : 'folderBtn'} onClick={() => this.props.folderSelected(index)}>{btn.value}</button>
+                                    {index === 0 ? null : <button className='deleteFolderBtn' onClick={() => this.props.deleteSelectedFolder(index)}>X</button>}
+                                </div>
+                            );
+                        })}
                     </div>
                     <div className='postIt-container'>
-                        <h3>{this.state.folderName} Tasks</h3>
+                        <h3>{this.props.folder[this.props.picked].value} Tasks</h3>
                         <ul>
-                        {this.props.todo.map( (item, index) => {
-                            return (
-                                <div 
-                                    className='taskBtn-container' 
-                                    key={index}
-                                    location={index}
-                                >
-                                    <div className='taskBtn'>
-                                        <div className='taskNumber'>
-                                            <div>
+                            {this.props.todo.map( (item, index) => {
+                                if(this.props.picked === item.picked)
+                                return (
+                                    <div 
+                                        className='taskBtn-container' 
+                                        key={index}
+                                        location={index}
+                                    >
+                                        <div className='taskBtn'>
+                                            <div className='taskNumber'>
                                                 <div>
-                                                    Task: {index + 1}
+                                                    <div>
+                                                        Task: {index + 1}
+                                                    </div>
+                                                    <button className='deleteBtn' onClick={() => this.props.deleteTodoItem(index)}>
+                                                        Delete
+                                                    </button>
                                                 </div>
-                                                <button className='deleteBtn' onClick={() => this.props.deleteTodoItem(index)}>
-                                                    Delete
-                                                </button>
+                                            </div>
+                                            <div 
+                                            className={item.completed === true ? 'task-content-complete' : 'task-content'} 
+                                            onClick={() => this.props.completedItem(index)}>
+                                                <p>{item.value.toUpperCase()}</p> 
                                             </div>
                                         </div>
-                                        <div 
-                                        className={item.completed === true ? 'task-content-complete' : 'task-content'} 
-                                        onClick={() => this.props.completedItem(index)}>
-                                            <p>{item.value.toUpperCase()}</p> 
-                                        </div>
                                     </div>
-                                </div>
                                 );
                             })}
                         </ul>
@@ -108,14 +118,19 @@ class Todo extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        todo: state.todo
+        folder: state.folders,
+        todo: state.todo,
+        picked: state.picked,
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     addTodoItem: text => dispatch(addTodo(text)),
     completedItem: id => dispatch(completed(id)),
-    deleteTodoItem: id => dispatch(deleteTodo(id))
+    deleteTodoItem: id => dispatch(deleteTodo(id)),
+    addNewFolder: text => dispatch(addFolder(text)),
+    deleteSelectedFolder: id => dispatch(deleteFolder(id)),
+    folderSelected: id => dispatch(pickedFolder(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps) (Todo);

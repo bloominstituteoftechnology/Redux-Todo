@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='app-title'>
-          <h2>Redux Todo</h2>
+          <h2>Redux Todo Application</h2>
         </div>
         <div className='todolist-container'>
           <Todo />

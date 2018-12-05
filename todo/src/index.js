@@ -9,13 +9,16 @@ import { loadState, saveData } from './components/loadData';
 
 const persistData = loadState();
 
-const store = createStore(todo, persistData);
+const store = createStore(
+    todo, 
+    // persistData
+    );
 
-store.subscribe(() => {
-    saveData({
-        todo: store.getState().todo
-    });
-});
+// store.subscribe(() => {
+//     saveData({
+//         todo: store.getState(),
+//     });
+// });
 
 ReactDOM.render(
 <Provider store={store}>

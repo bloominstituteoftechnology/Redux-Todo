@@ -1,6 +1,7 @@
 
 .task-organizer {
     width: 800px;
+    min-height: 300px;
     display: flex;
     justify-content: space-evenly;
     background-color: rgb(244, 246, 247);
@@ -46,11 +47,41 @@
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
+    margin-right: 5px;
+}
+
+.folderBtn-selected {
+    width: 150px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: rgb(219, 186, 38);
+    cursor: pointer;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.deleteFolderBtn {
+    border-radius: 10px;
+    background-color: rgb(190, 62, 62);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.generalFolder-spacer {
+    width: 30px;
+    border: 1px solid red;
 }
 
 .postIt-container {
     /* border: 1px solid red; */
     /* background-color: #fff; */
+    min-width: 70%;
+}
+
+.formAddBtn {
+    cursor: pointer;
 }
 
 .taskBtn-container {
