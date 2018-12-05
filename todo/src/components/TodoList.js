@@ -14,12 +14,9 @@ const TodoList = props => {
 
         return(
             <div className='todo-list-container'>
-                <h1>Todo List:</h1>
-                <div className='todo-items-container'>
-                    {props.todoList.map((t, i) => {
-                        return <TodoItem key={i} todo={t} id={i} toggle={props.toggleComplete}/>
-                    })}
-                </div>
+                {props.todoList.map((t, i) => {
+                    return <TodoItem key={i} todo={t} id={i} toggle={props.toggleComplete}/>
+                })}
             </div>
         )
 }
