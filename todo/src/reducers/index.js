@@ -1,5 +1,8 @@
 export const ADD_TODOS = 'ADD_TODOS'
 export const COMPLETED = 'COMPLETED'
+export const DELETE_TODO ='DELETE_TODO'
+
+
 const intitialState = {
     todos: [
         {
@@ -25,7 +28,14 @@ export default (state = intitialState, actions) => {
                     } else {
                         return todo;
                     }
-                })}
+                })};
+
+        // case DELETE_TODO:
+        //         return {...state, todos: state.todos.filter( index => {
+        //             if(index !== actions.payload) {
+        //                 return {todo: index}
+        //             }
+        //         })}
         default:
             return state;
     }

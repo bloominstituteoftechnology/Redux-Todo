@@ -10,6 +10,13 @@ class TodoForm extends React.Component {
         }
     }
 
+    componentDidMount(){
+        const storedItems = JSON.parse(localStorage.getItem('todo'));
+        if (storedItems){
+          this.setState({[this.props.items]: storedItems})
+        } 
+      }
+
     handleChange = event => {
         event.preventDefault();
         this.setState({
