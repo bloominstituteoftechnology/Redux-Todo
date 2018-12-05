@@ -32,7 +32,9 @@ class ToDoList extends React.Component {
                 <h1>To-Do List</h1>
                 {this.props.items.map(item => (
                     <h2 onClick={item => this.toggleCompleted(item)} 
-                    key={item.value}>{item.value}</h2>
+                    key={item.value}
+                    style={{textDecoration: this.props.items.completed ? 'line-through' : 'none'}}
+                    >{item.value}</h2>
                 ))}
                 <form onSubmit={this.handleAddTask}>
                     <input type="text" 
