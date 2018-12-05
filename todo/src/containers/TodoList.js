@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from "../components/Form";
-import Todo from "../components/Todo";
+// import Todo from "../components/Todo";
 import styled from "styled-components";
 import { toggleCompleted } from "../actions";
 import { connect } from "react-redux";
@@ -19,14 +19,14 @@ const Ul = styled.ul`
   padding: 0;
 `;
 
-// const Li = styled.li`
-//   padding: 10px 0;
-//   background: pink;
-//   color: white;
-//   width: 90%;
-//   color: #939;
-//   margin: auto;
-// `;
+const Li = styled.li`
+  padding: 10px 0;
+  background: pink;
+  color: white;
+  width: 90%;
+  color: #939;
+  margin: 0 auto 20px;
+`;
 
 class TodoList extends Component {
   constructor(props) {
@@ -54,28 +54,24 @@ class TodoList extends Component {
         <Form />
         <Ul>
           {this.props.todos.map((todo, index) => (
-            <Todo
+            // <Todo
+            //   key={index}
+            //   // id={index}
+            //   text={todo.text}
+            //   completed={todo.completed}
+            //   toggleCompleted={this.handleClick}
+            // />
+            <Li
               key={index}
-              // id={index}
-              text={todo.text}
+              onClick={() => this.handleClick(index)}
               completed={todo.completed}
-              toggleCompleted={this.handleClick}
               style={{
                 textDecoration:
                   todo.completed === true ? "line-through" : "none"
               }}
-            />
-            // <Li
-            //   key={index}
-            //   onClick={() => this.handleClick(index)}
-            //   completed={todo.completed}
-            //   style={{
-            //     textDecoration:
-            //       todo.completed === true ? "line-through" : "none"
-            //   }}
-            // >
-            //   {todo.text}
-            // </Li>
+            >
+              {todo.text}
+            </Li>
           ))}
         </Ul>
       </Div>
