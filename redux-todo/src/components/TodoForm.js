@@ -49,4 +49,8 @@ class TodoForm extends React.Component {
 
 }
 
-export default connect(null, {addTodoItem: addTodoItem})(TodoForm);
+const withState = connect(null, {addTodoItem: addTodoItem});
+
+const superComponent = withState(TodoForm);
+
+export default superComponent;
