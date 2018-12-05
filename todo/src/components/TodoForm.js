@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class TodoForm extends Component { 
     render(){
@@ -11,5 +12,18 @@ class TodoForm extends Component {
     }
 }
 
+// Connect Store
 
-export default TodoForm;
+const mapStateToProps = state => {  
+    return {
+        todoList: state.todoList
+    }
+}
+
+const connectState = connect( 
+    mapStateToProps
+)
+
+const EnhancedTodoForm = connectState(TodoForm);
+
+export default EnhancedTodoForm;
