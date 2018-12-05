@@ -6,36 +6,44 @@ const initialState = {
             completed: false
         }
     ]
-}
+};
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TASK':
             return Object.assign({}, state, {
                 tasks: [
-                    ...state.tasks, {
+                    ...state.tasks,
+                    {
                         id: action.payload.id,
                         text: action.payload.text,
                         completed: false
-                    }]
-            })
+                    }
+                ]
+            });
         case 'TOGGLE_TASK':
             return Object.assign({}, state, {
-                ...state,
                 tasks: state.tasks.map(task => {
-                    console.log(task.id, action.payload)
+                    console.log(task.id, action.payload);
                     if (task.id === action.payload) {
-                        return { ...task, completed: !task.completed }
+                        return { ...task, completed: !task.completed };
                     } else {
-                        return task
+                        return task;
                     }
                 })
-            })
+            });
         case 'REMOVE_TASK':
             return Object.assign({}, state, {
                 tasks: state.tasks.filter(task => task.id !== action.payload)
-            })
+            });
+        case 'LOAD_STORE':
+            return Object.assign({}, state, {
+                tasks: localStorage.getItem('tasks')
+                    ? { tasks: JSON.parse(localStorage.getItem('tasks')) }
+                    : initialState
+            });
+
         default:
-            return state
+            return state;
     }
-}
+};
