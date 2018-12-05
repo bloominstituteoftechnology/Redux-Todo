@@ -9,6 +9,8 @@ const Li = styled.li`
     padding: 10px;
     display: flex;
     overflow: hidden;
+    height: 20px;
+    margin-bottom: 10px;
 `
 const Button = styled.button`
     border: none;
