@@ -1,6 +1,8 @@
 // ActionType Exports
 export const ADD_TO_LIST = 'ADD_TO_LIST';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const DELETE_ITEM = 'DELETE_ITEM';
+export const CLEAR_COMPLETE = 'CLEAR_COMPLETE';
 
 // Initial State 
 const initialState = {
@@ -33,9 +35,21 @@ const reducer = (state = initialState, action) => {
             }
 
         // Stretch
-        // case DELETE_ITEM:
+        case DELETE_ITEM:
+            return {
+                ...state,
+                todoList: state.todoList.filter((t, i) => {
+                    return i !== action.payload
+                })
+            }
 
-        // case CLEAR_COMPLETE:
+        case CLEAR_COMPLETE:
+            return {
+                ...state,
+                todoList: state.todoList.filter(t => {
+                    return t.complete === false
+                })
+            }
 
         default: 
             return state;

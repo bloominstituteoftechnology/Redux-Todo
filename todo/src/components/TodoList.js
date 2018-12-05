@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import {
     addToList,
-    toggleComplete
+    toggleComplete,
+    deleteItem
 } from '../actions';
 
 import TodoItem from './TodoItem';
@@ -15,7 +16,7 @@ const TodoList = props => {
         return(
             <div className='todo-list-container'>
                 {props.todoList.map((t, i) => {
-                    return <TodoItem key={i} todo={t} id={i} toggle={props.toggleComplete}/>
+                    return <TodoItem key={i} todo={t} id={i} toggle={props.toggleComplete} delete={props.deleteItem}/>
                 })}
             </div>
         )
@@ -32,7 +33,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addToList: text => dispatch(addToList(text)),
-        toggleComplete: index => dispatch(toggleComplete(index))
+        toggleComplete: index => dispatch(toggleComplete(index)),
+        deleteItem: index => dispatch(deleteItem(index))
     };
 }
 
