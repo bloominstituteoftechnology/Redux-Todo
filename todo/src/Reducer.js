@@ -1,4 +1,6 @@
-import { ADD, DELETE } from './Actions';
+export const ADD = 'ADD';
+export const DELETE = 'DELETE';
+
 
 const initialState = {
   items: ["test"]
@@ -7,15 +9,14 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD:
-    
-        let addObj = {...state}
-        addObj.items.push(action.placeholder)
-        return(addObj);
+        return {
+            ...state,
+            items: [...state.items, action.payload]
+          };
 
     case DELETE:
-        let delObj = {...state}
-        delObj.items.splice(action.placeholder,1)
-        return(delObj);
+        const newArray = state.items.filter((e,index) => (index!==action.payload))
+        return({items:newArray})
 
 
     default:

@@ -3,29 +3,29 @@ import {deletes} from "./Actions";
 import { connect } from 'react-redux';
 
 class ToDoList extends Component {
+    deleteHandler = (index) => {
+        this.props.deletes(index);
+    }
     render(){
-        console.log(this.props)
         return(
             <>
                 {
-                    this.props.items.map((item,index) => (
-                        <p onClick={(event,num=index) => this.props.deletes(event,num)} name={index} key={index}>{item}</p>)
+                    this.props.items.map((item,index) => {
+                        return( <p onClick={() => this.deleteHandler(index)} key={index}>{item}</p>)
+                        }
                     )
                 }
-    
             </>
         );
     }
 }
 
 
-// export default ToDoList;
-
 const mapStateToProps = (state) => {
     return {
         items: state.items
     };
-  };
+};
   
-  export default connect(mapStateToProps)(ToDoList);
+export default connect(mapStateToProps,{deletes})(ToDoList)
   
