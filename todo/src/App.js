@@ -7,11 +7,12 @@ import TodoForm from './components/TodoForm';
 import styled from 'styled-components';
 
 const Div = styled.div`
-  width: 90%;
+  width: 30vw;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
 `
+
 
 class App extends Component {
 
@@ -19,7 +20,10 @@ class App extends Component {
     return (
       <Div className="App">
         <TodoForm addTask={this.props.addTask} />
-        <TodoList tasks={this.props.tasks} toggleTask={this.props.toggleTask} />
+        <TodoList
+          tasks={this.props.tasks}
+          toggleTask={this.props.toggleTask}
+          removeTask={this.props.removeTask} />
       </Div>
     );
   }
@@ -41,11 +45,7 @@ function mapDispatchToProps(dispatch) {
 
 const withState = connect(
   mapStateToProps,
-  {
-    addTask: addTask,
-    removeTask: removeTask,
-    toggleTask: toggleTask
-  }
+  mapDispatchToProps
 )
 
 const Enhanced = withState(App)
