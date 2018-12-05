@@ -11,14 +11,12 @@ const persistData = loadState();
 
 const store = createStore(
     todo, 
-    // persistData
+    persistData
     );
 
-// store.subscribe(() => {
-//     saveData({
-//         todo: store.getState(),
-//     });
-// });
+store.subscribe(() => {
+    saveData(store.getState());
+});
 
 ReactDOM.render(
 <Provider store={store}>
