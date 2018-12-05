@@ -15,12 +15,18 @@ const DivWrapper = styled.div`
 const DivToDo = styled.div`
   margin: 10px;
   padding: 0 20px;
-  background: rgba(0, 0, 0, 0.1);
+  background: ${props =>
+    props.completed === 'false' ? `rgba(0, 0, 0, 0.2)` : `rgba(0, 0, 0, 0.8)`};
   border-radius: 10px;
   cursor: pointer;
+  user-select: none;
+  color: ${props => (props.completed === 'false' ? `black` : `white`)};
 
   &:hover {
-    background: rgba(0, 0, 0, 0.06);
+    background: ${props =>
+      props.completed === 'false'
+        ? `rgba(0, 0, 0, 0.06)`
+        : `rgba(0, 0, 0, 0.65)`};
   }
 
   h3 {
@@ -36,7 +42,10 @@ const ToDoList = props => {
   return (
     <DivWrapper>
       {props.todoList.map(item => (
-        <DivToDo onClick={() => props.toggleComplete(item.id)}>
+        <DivToDo
+          completed={`${item.completed}`}
+          onClick={() => props.toggleComplete(item.id)}
+        >
           <h3>{item.name}</h3>
           <p>completed: {item.completed ? 'complete' : 'incomplete'}</p>
         </DivToDo>
