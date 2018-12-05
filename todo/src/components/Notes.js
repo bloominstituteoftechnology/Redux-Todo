@@ -2,12 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Notes = props => {
-  return <h1>testing</h1>
+  
+  return <h1>{props.word}</h1>
 }
 
-export default Notes;
-
-const toMapStateToProps = state => {
-  return 'something'
+const mapStateToProps = state => {
+  return {
+    word: state.word
+  };
 }
 
+export default connect(mapStateToProps, {})(Notes);

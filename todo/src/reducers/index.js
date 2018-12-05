@@ -1,7 +1,7 @@
 //import { HELLO,  } from '../actions';
 
 const initialState = {
-  word: 'bye'
+  word: 'FIGHTING!'
 }
 
 export default (state = initialState, action) => {
