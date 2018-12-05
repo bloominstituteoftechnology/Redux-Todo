@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo, toggleTodo, removeTodos, getTodos } from "../actions";
+import {
+  addTodo,
+  toggleTodo,
+  removeTodos,
+  getTodos,
+  deleteTodo
+} from "../actions";
 
 class TodoList extends Component {
   constructor() {
@@ -45,10 +51,6 @@ class TodoList extends Component {
     });
   };
 
-  removeTodo = () => {
-    this.props.removeTodos();
-  };
-
   render() {
     const { todos } = this.props;
     return (
@@ -74,11 +76,16 @@ class TodoList extends Component {
                 key={todo.id}
               >
                 {todo.text}
+                <button onClick={() => this.props.deleteTodo(todo.id)}>
+                  X
+                </button>
               </li>
             );
           })}
         </ul>
-        <button onClick={this.removeTodo}>Clear Completed</button>
+        <button onClick={() => this.props.removeTodos()}>
+          Clear Completed
+        </button>
       </div>
     );
   }
@@ -96,6 +103,7 @@ export default connect(
     addTodo,
     toggleTodo,
     removeTodos,
-    getTodos
+    getTodos,
+    deleteTodo
   }
 )(TodoList);
