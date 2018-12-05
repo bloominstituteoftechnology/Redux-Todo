@@ -1,14 +1,16 @@
 export const ADDITEM = 'ADDITEM';
-export const DELETEITEM = 'DELETEITEM';
+export const TOGGLE_ITEM = 'TOGGLE_ITEM';
 
-export const addItem = () =>{
+export const addItem = (text) =>{
     return {
         type: ADDITEM,
+        payload: text,
     }
 }
 
-export const deleteItem = () =>{
+export const toggleItem = (id = 0) =>{
     return{
-        type: DELETEITEM,
+        type: TOGGLE_ITEM,
+        payload: id
     }
 }
