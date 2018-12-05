@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import {
+    addToList,
+    toggleComplete
+} from '../actions';
+
 const TodoList = props => {
     
 
@@ -20,8 +25,16 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        addToList: text => dispatch(addToList(text)),
+        toggleComplete: index => dispatch(toggleComplete(index))
+    };
+}
+
 const connectState = connect( 
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )
 
 const EnhancedTodoList = connectState(TodoList);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addToList } from '../actions';
 
 class TodoForm extends Component { 
     render(){
@@ -20,8 +21,15 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        addToList: text => dispatch(addToList(text)),
+    };
+}
+
 const connectState = connect( 
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )
 
 const EnhancedTodoForm = connectState(TodoForm);

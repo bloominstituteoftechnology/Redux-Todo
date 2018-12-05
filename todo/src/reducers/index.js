@@ -4,7 +4,9 @@ export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
 // Initial State 
 const initialState = {
-    todoList: []
+    todoList: [
+        {todo: 'Make Todo List', complete: false}
+    ]
 }
 
 // Reducer
