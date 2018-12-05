@@ -9,10 +9,10 @@ export const addTask = (payload) => {
     }
 }
 
-export const removeTask = (task) => {
+export const removeTask = (id) => {
     return {
         type: REMOVE_TASK,
-        payload: task
+        payload: id
     }
 }
 
