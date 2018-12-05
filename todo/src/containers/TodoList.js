@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from "../components/Form";
 // import Todo from "../components/Todo";
 import styled from "styled-components";
-import { toggleCompleted } from "../actions";
+import { toggleCompleted, deleteTodo } from "../actions";
 import { connect } from "react-redux";
 
 // ============================
@@ -25,12 +25,30 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
+  position: relative;
   padding: 10px 0;
   background: pink;
   color: white;
   width: 90%;
   color: #939;
   margin: 0 auto 20px;
+`;
+
+const Delete = styled.p`
+  position: absolute;
+  top: -16px;
+  right: -20px;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  background: white;
+  color: red;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    color: white;
+    background: red;
+  }
 `;
 
 // ============================
@@ -46,6 +64,10 @@ class TodoList extends Component {
 
   handleClick = id => {
     this.props.toggleCompleted(id);
+  };
+
+  handleDelete = id => {
+    this.props.deleteTodo(id);
   };
 
   render() {
@@ -64,6 +86,7 @@ class TodoList extends Component {
               }}
             >
               {todo.text}
+              <Delete onClick={() => this.handleDelete(todo.id)}>X</Delete>
             </Li>
           ))}
         </Ul>
@@ -77,7 +100,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  toggleCompleted: id => dispatch(toggleCompleted(id))
+  toggleCompleted: id => dispatch(toggleCompleted(id)),
+  deleteTodo: id => dispatch(deleteTodo(id))
 });
 
 export default connect(
