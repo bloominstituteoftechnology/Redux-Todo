@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo, completeTask, removeCompleted } from '../actions';
+import { addTodo, completeTask, removeCompleted, deleteTodo } from '../actions';
 
 class TodoList extends Component {
     constructor() {
@@ -9,6 +9,10 @@ class TodoList extends Component {
         this.state ={
             value: ''
         };
+    }
+
+    componentDidMount() {
+
     }
 
     handleChanges = ev => {
@@ -23,8 +27,14 @@ class TodoList extends Component {
 
     handleCompleteClick = index => {
         console.log('Item was clicked');
-        this.props.completeTask(index)
+        this.props.completeTask(index);
     }
+
+    handleDeleteTodo = (index) => {
+        // event.stopPropagation();
+        console.log(index);
+        this.props.deleteTodo(index);
+      };
 
     render() {
         return (
@@ -45,9 +55,14 @@ class TodoList extends Component {
                 <button onClick={this.props.removeCompleted}>Remove Completed Todos</button>
 
                 {this.props.todos.map((todo, index) => (
-                    <h4 onClick={() => this.handleCompleteClick(index)} key={index}>
+                    <div onClick={() => this.handleCompleteClick(index)} key={index}>
                         {todo.value}
-                    </h4>
+                        <div>
+                            <button onClick={() => this.handleDeleteTodo(index)}>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
                 ))}
 
             </div>
@@ -61,4 +76,4 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, {addTodo, completeTask, removeCompleted})(TodoList);
+export default connect(mapStateToProps, {addTodo, completeTask, removeCompleted, deleteTodo})(TodoList);

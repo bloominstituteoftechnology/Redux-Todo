@@ -1,6 +1,7 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
 export const REMOVE_COMPLETED = 'REMOVE_COMPLETED';
+export const DELETE_TODO = 'DELETE_TODO';
 
 const initializeState = {
     todos: [{ value: 'Task 1', completed: false }]
@@ -17,7 +18,6 @@ export default (state = initializeState, action) => {
             // loop through todos
             // find the one we clicked on
             // toggle only that todo's completed status
-            console.log('hello from reducer');
             return {
                 ...state,
                 todos: state.todos.map((todo, index) => {
@@ -30,11 +30,25 @@ export default (state = initializeState, action) => {
             };
 
         case REMOVE_COMPLETED:
-            console.log('remove completed clicked')
             return {
                 ...state,
                 todos: state.todos.filter(todo => todo.completed === false )
             };
+
+        case DELETE_TODO:
+            return {
+                // ...state,
+                // todos: state.todos.map((todo, index) => {
+                //     if (index !== action.payload) {
+                //         return todo;
+                    // }
+                    // return index === action.payload ? null : todo
+                // })
+                ...state,
+                todos: state.todos.filter((todo, index) => index !== action.payload)
+                
+            }
+            
 
         default:
             return state
