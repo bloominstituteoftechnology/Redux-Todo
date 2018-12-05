@@ -13,13 +13,13 @@ const TodoList = props => {
     
 
         return(
-            <div>
+            <div className='todo-list-container'>
                 <h1>Todo List:</h1>
-                <ol>
+                <div className='todo-items-container'>
                     {props.todoList.map((t, i) => {
                         return <TodoItem key={i} todo={t} id={i} toggle={props.toggleComplete}/>
                     })}
-                </ol>
+                </div>
             </div>
         )
 }
