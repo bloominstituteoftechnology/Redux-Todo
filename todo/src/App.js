@@ -16,38 +16,32 @@ const Div = styled.div`
 
 class App extends Component {
 
-  render() {
-    return (
-      <Div className="App">
-        <TodoForm addTask={this.props.addTask} />
-        <TodoList
-          tasks={this.props.tasks}
-          toggleTask={this.props.toggleTask}
-          removeTask={this.props.removeTask} />
-      </Div>
-    );
-  }
+  render = () => <Div className="App">
+    <TodoForm addTask={this.props.addTask}/>
+    <TodoList
+        tasks={this.props.tasks}
+        toggleTask={this.props.toggleTask}
+        removeTask={this.props.removeTask}/>
+  </Div>;
 }
 
 const mapStateToProps = state => {
   return {
     tasks: state.tasks
   }
-}
+};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addTask: (id) => dispatch(addTask(id)),
-    removeTask: (task) => dispatch(removeTask(task)),
-    toggleTask: (task) => dispatch(toggleTask(task))
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  addTask: (id) => dispatch(addTask(id)),
+  removeTask: (task) => dispatch(removeTask(task)),
+  toggleTask: (task) => dispatch(toggleTask(task))
+});
 
 const withState = connect(
   mapStateToProps,
   mapDispatchToProps
-)
+);
 
-const Enhanced = withState(App)
+const Enhanced = withState(App);
 
 export default Enhanced;
