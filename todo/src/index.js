@@ -7,7 +7,13 @@ import reducers from './reducers';
 
 import TodoList from './components/TodoList';
 
-const store = createStore(reducers);
+const persistedData = JSON.parse(window.localStorage.getItem('redux-todo')) || [];
+
+const store = createStore(reducers, persistedData);
+
+store.subscribe(() => {
+  localStorage.setItem('redux-todo', JSON.stringify(store.getState()));
+})
 
 ReactDOM.render(
   <Provider store={store}>
