@@ -4,16 +4,23 @@ import TodoList from './components/TodoList';
 import { connect } from 'react-redux'
 import { addTask, removeTask, toggleTask } from './actions'
 import TodoForm from './components/TodoForm';
+import styled from 'styled-components';
 
+const Div = styled.div`
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+`
 
 class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <TodoList tasks={this.props.tasks} toggleTask={this.props.toggleTask} />
+      <Div className="App">
         <TodoForm addTask={this.props.addTask} />
-      </div>
+        <TodoList tasks={this.props.tasks} toggleTask={this.props.toggleTask} />
+      </Div>
     );
   }
 }
@@ -26,7 +33,7 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addTask: (text, id) => dispatch(addTask(text, id)),
+    addTask: (id) => dispatch(addTask(id)),
     removeTask: (task) => dispatch(removeTask(task)),
     toggleTask: (task) => dispatch(toggleTask(task))
   }
