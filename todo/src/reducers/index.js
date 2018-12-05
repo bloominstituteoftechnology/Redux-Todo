@@ -2,8 +2,10 @@ export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const DELETE_TODOS = 'DELETE_TODOS';
 
+const storedTodos = JSON.parse(localStorage.getItem('todos'));
+
 const initialState = {
-    todos: [],
+    todos: storedTodos ? storedTodos : [],
 }
 
 const todoHandler = (state = initialState, action) => {

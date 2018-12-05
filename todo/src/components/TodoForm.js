@@ -16,7 +16,9 @@ class TodoForm extends React.Component {
 
     addTodoHandler = event => {
         event.preventDefault();
-        this.props.addTodo(this.state.formText);
+        if (this.state.formText !== '' && this.state.formText.trim() !== ''){
+            this.props.addTodo(this.state.formText);
+        }
         this.setState({ formText: '' });
     }
 
@@ -48,7 +50,7 @@ class TodoForm extends React.Component {
                         className='todo-form-button'
                         onClick={this.deleteTodosHandler}
                     >
-                        <i class="fas fa-trash-alt"></i>
+                        <i className="fas fa-trash-alt"></i>
                     </button>
                 </form>
             </div>

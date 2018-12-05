@@ -126,9 +126,14 @@ body {
   background-color: white;
 }
 
+.todo-container .todo-form .todo-form-button:focus {
+  outline: none;
+}
+
 .todo-list-container {
   height: 70vh;
   margin: 1rem;
+  overflow: auto;
 }
 
 .todo-list-container .individual-todo {
@@ -138,4 +143,5 @@ body {
 
 .todo-list-container .completed {
   text-decoration: line-through;
+  opacity: 0.4;
 }
