@@ -22,9 +22,10 @@ const taskReducer = (state=initialState, action) => {
                 }]
             }
         case TOGGLE_COMPLETED:
+        console.log('action', action)
             return {...state,
                 items: state.items.map(task => 
-                    task.completed === false ? {...task, completed: true } : {...task, completed: false}
+                    task.value === action.payload ? {...task, completed: !task.completed } : task
                 )}
 
                

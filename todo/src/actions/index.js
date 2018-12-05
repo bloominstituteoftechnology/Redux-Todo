@@ -14,6 +14,6 @@ export const toggleCompleted = task => {
     console.log('toggle')
     return {
         type: TOGGLE_COMPLETED,
-        task
+        payload: task
     }
 }
