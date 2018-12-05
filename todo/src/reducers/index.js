@@ -41,7 +41,7 @@ const reducer = (state = initialState, action) => {
     case REMOVE_COMPLETED:
       return {
         ...state,
-        todos: state.todos.filter(todo => todo.completed)
+        todos: state.todos.filter(todo => !todo.completed)
       };
     default:
       return state;
