@@ -32,7 +32,9 @@ export default (state = initialState, action) => {
                 })
             })
         case 'REMOVE_TASK':
-            return action.payload
+            return Object.assign({}, state, {
+                tasks: state.tasks.filter(task => task.id !== action.payload)
+            })
         default:
             return state
     }
