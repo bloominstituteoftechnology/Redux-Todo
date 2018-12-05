@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { addTodo } from "../actions";
 import styled from "styled-components";
 
+// ============================
+// =======   STYLES  ==========
+// ============================
+
 const Input = styled.input`
   padding: 10px;
   background: lightpink;
@@ -33,6 +37,9 @@ const Button = styled.button`
   outline: none;
 `;
 
+// ============================
+// =======  COMPONENT =========
+// ============================
 class Form extends Component {
   constructor() {
     super();
@@ -66,6 +73,7 @@ class Form extends Component {
           value={this.state.inputText}
           placeholder="Enter Your Todo Here..."
           onChange={this.handleChange}
+          autoComplete="off"
         />
         <Button type="submit">Add&nbsp;A&nbsp;Todo</Button>
       </form>
@@ -83,17 +91,7 @@ const mapDispatchToProps = dispatch => ({
   addTodo: text => dispatch(addTodo(text))
 });
 
-// const withState = connect(
-//   mapStateToProps,
-//   {
-//     addTodo: addTodo
-//   }
-// );
-
-// const EnhancedForm = withState(Form);
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Form);
-// export default EnhancedForm;

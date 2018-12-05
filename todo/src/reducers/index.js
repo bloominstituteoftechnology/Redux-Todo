@@ -18,13 +18,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      // return {
-      //   ...state,
-      //   todos: [
-      //     ...state.todos,
-      //     { id: action.id, text: action.payload, completed: false }
-      //   ]
-      // };
       return (state = {
         todos: [
           ...state.todos,
@@ -35,7 +28,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map(todo =>
-          // console.log("action", action)
           todo.id === action.payload
             ? { ...todo, completed: !todo.completed }
             : todo

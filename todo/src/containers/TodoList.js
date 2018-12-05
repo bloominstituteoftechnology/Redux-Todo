@@ -5,6 +5,10 @@ import styled from "styled-components";
 import { toggleCompleted } from "../actions";
 import { connect } from "react-redux";
 
+// ============================
+// =======   STYLES  ==========
+// ============================
+
 const Div = styled.div`
   max-width: 700px;
   margin: 30px auto;
@@ -13,6 +17,7 @@ const Div = styled.div`
   border-radius: 5px;
   box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.3);
 `;
+
 const Ul = styled.ul`
   list-style: none;
   margin: 0 auto;
@@ -28,6 +33,9 @@ const Li = styled.li`
   margin: 0 auto 20px;
 `;
 
+// ============================
+// =======  COMPONENT =========
+// ============================
 class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -35,14 +43,6 @@ class TodoList extends Component {
       todos: this.props.todos
     };
   }
-
-  // componentDidMount() {
-  //   if (this.props.todos)
-  //     return this.setState({
-  //       todos: [...this.props.todos]
-  //     });
-  //   return null;
-  // }
 
   handleClick = id => {
     this.props.toggleCompleted(id);
@@ -54,13 +54,6 @@ class TodoList extends Component {
         <Form />
         <Ul>
           {this.props.todos.map((todo, index) => (
-            // <Todo
-            //   key={index}
-            //   // id={index}
-            //   text={todo.text}
-            //   completed={todo.completed}
-            //   toggleCompleted={this.handleClick}
-            // />
             <Li
               key={index}
               onClick={() => this.handleClick(index)}
