@@ -38,13 +38,13 @@ const DivToDo = styled.div`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const ToDoList = props => {
-  console.log(props);
   return (
     <DivWrapper>
       {props.todoList.map(item => (
         <DivToDo
           completed={`${item.completed}`}
           onClick={() => props.toggleComplete(item.id)}
+          key={item.id}
         >
           <h3>{item.name}</h3>
           <p>completed: {item.completed ? 'complete' : 'incomplete'}</p>

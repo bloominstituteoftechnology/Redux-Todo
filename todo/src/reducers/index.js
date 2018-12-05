@@ -1,5 +1,6 @@
 export const ADD_ITEM = 'ADD_ITEM';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const REMOVE_COMPLETED = 'REMOVE_COMPLETED';
 
 const initialState = {
   todoList: [
@@ -22,6 +23,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  let updatedToDoList;
   switch (action.type) {
     case ADD_ITEM:
       return Object.assign({
@@ -29,13 +31,16 @@ export default (state = initialState, action) => {
         todoList: [...state.todoList, action.payload]
       });
     case TOGGLE_COMPLETE:
-      const updatedToDoList = state.todoList.map(item => {
+      updatedToDoList = state.todoList.map(item => {
         if (item.id === action.payload) {
           item.completed = !item.completed;
           return item;
         }
         return item;
       });
+      return Object.assign({ ...state, todoList: updatedToDoList });
+    case REMOVE_COMPLETED:
+      updatedToDoList = state.todoList.filter(item => !item.completed);
       return Object.assign({ ...state, todoList: updatedToDoList });
     default:
       return state;

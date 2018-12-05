@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ToDoForm from './components/ToDoForm';
 import ToDoList from './components/ToDoList';
-import { addItem } from './actions';
+import { addItem, removeCompleted } from './actions';
 
 class App extends Component {
   render() {
     return (
       <div className='App'>
-        <ToDoForm {...this.props} addItem={addItem} />
+        <ToDoForm
+          {...this.props}
+          addItem={addItem}
+          removeCompleted={removeCompleted}
+        />
         <ToDoList todoList={this.props.todoList} />
       </div>
     );

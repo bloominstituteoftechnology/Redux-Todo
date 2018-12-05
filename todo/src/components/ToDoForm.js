@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { addItem as actionAddItem } from '../actions';
+import { removeCompleted as actionRemoveCompleted } from '../actions';
 import { connect } from 'react-redux';
 
 /***************************************************************************************************
@@ -35,6 +36,14 @@ const InputTodoButton = styled.input`
   outline: none;
 `;
 
+const ButtonRemoveCompleted = styled.button`
+  margin-bottom: 25px;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+`;
+
 /***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
@@ -62,7 +71,6 @@ class ToDoForm extends Component {
 
   submitHandler = ev => {
     ev.preventDefault();
-    console.log(this.props);
     const newItem = {
       id: this.props.todoList[this.props.todoList.length - 1].id + 1,
       name: this.state.title,
@@ -86,6 +94,12 @@ class ToDoForm extends Component {
             autoComplete='off'
           />
           <InputTodoButton type='submit' value='Add Item' />
+          <ButtonRemoveCompleted
+            type='button'
+            onClick={this.props.removeCompleted}
+          >
+            Remove Completed
+          </ButtonRemoveCompleted>
         </FormAddItem>
       </DivWrapper>
     );
@@ -99,7 +113,7 @@ const mapStateToProps = state => {
 
 const withStateConnect = connect(
   mapStateToProps,
-  { addItem: actionAddItem }
+  { addItem: actionAddItem, removeCompleted: actionRemoveCompleted }
 );
 const HOC = withStateConnect(ToDoForm);
 
