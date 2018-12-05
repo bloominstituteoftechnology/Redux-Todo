@@ -13,9 +13,9 @@ const Li = styled.li`
 const Todo = ({ toggleCompleted, completed, text, id }) => {
   return (
     <Li
-      id={id}
-      onClick={() => toggleCompleted({ id })}
-      // completed={completed}
+      // id={id}
+      onClick={toggleCompleted}
+      completed={completed}
       style={{ textDecoration: completed ? "line-through" : "none" }}
     >
       {text}

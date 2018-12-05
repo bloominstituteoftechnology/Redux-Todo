@@ -47,16 +47,19 @@ class Form extends Component {
     });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.state.inputText !== "") {
+      this.props.addTodo(this.state.inputText);
+      this.setState({
+        inputText: ""
+      });
+    }
+  };
+
   render() {
     return (
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          // if (this.state.inputText !== "")
-          this.props.addTodo(this.state.inputText);
-          // return null;
-        }}
-      >
+      <form onSubmit={this.handleSubmit}>
         <Input
           type="text"
           name="inputText"
