@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "shortid": "^2.2.14",
-    "styled-components": "^4.1.2"
-  }
-}
