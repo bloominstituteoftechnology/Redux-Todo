@@ -8,18 +8,21 @@ const Ul = styled.ul`
     width: 30vw;
     display: flex;
     flex-direction: column;
-`
+`;
 
 const TodoList = props => {
     return (
         <Ul>
-            {props.tasks.map(task => <Todo
-                key={shortid.generate()}
-                text={task.text}
-                complete={task.completed}
-                id={task.id}
-                toggleTask={props.toggleTask}
-                removeTask={props.removeTask} />)}
+            {props.tasks.map(task => (
+                <Todo
+                    key={shortid.generate()}
+                    text={task.text}
+                    complete={task.completed}
+                    id={task.id}
+                    toggleTask={props.toggleTask}
+                    removeTask={props.removeTask}
+                />
+            ))}
         </Ul>
     );
 };
