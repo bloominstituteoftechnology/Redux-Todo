@@ -53,6 +53,23 @@ export default (state = initialState, action) => {
         };
 
         case DELETE_FOLDER:
+        const newFolderArr = state.folders.map((item, index) => {
+            item.selected = false;
+            if(index === 0) {
+                item.selected = true;
+                // console.log(state.folders);
+            } 
+        })
+        const clearedUselessTaskArr = state.todo.filter((task) => {
+            if(task.picked !== action.id) {
+                if(task.picked  === 0) {
+                    return task;
+                } else {
+                    task.picked = task.picked - 1;
+                    return task;
+                }                
+            } 
+        })
         const folderArrFiltered = state.folders.filter((folder, index) => {
             if(index !== action.id) {
                 return folder;
@@ -60,7 +77,9 @@ export default (state = initialState, action) => {
         })
         return {
             ...state,
-            folders: folderArrFiltered
+            folders: folderArrFiltered,
+            todo: clearedUselessTaskArr,
+            picked: 0
         };
 
         case PICKED_FOLDER:
