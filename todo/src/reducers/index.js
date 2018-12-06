@@ -11,16 +11,20 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TASK':
-            return Object.assign({}, state, {
-                tasks: [
-                    ...state.tasks,
-                    {
-                        id: action.payload.id,
-                        text: action.payload.text,
-                        completed: false
-                    }
-                ]
-            });
+            if (action.payload.text === '') {
+                return state;
+            } else {
+                return Object.assign({}, state, {
+                    tasks: [
+                        ...state.tasks,
+                        {
+                            id: action.payload.id,
+                            text: action.payload.text,
+                            completed: false
+                        }
+                    ]
+                });
+            }
         case 'TOGGLE_TASK':
             return Object.assign({}, state, {
                 tasks: state.tasks.map(task => {
