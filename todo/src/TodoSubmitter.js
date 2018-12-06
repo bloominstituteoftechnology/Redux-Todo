@@ -22,7 +22,7 @@ import TodoMapper from './TodoMapper'
           this.props.addTodoAction(this.state);
           this.setState({text:''})
       };
-
+      
       render() {
           return (
               <div>
@@ -30,12 +30,13 @@ import TodoMapper from './TodoMapper'
                     <input 
                         type='text'
                         name='text'
+                        required minlength='1'
                         value={this.state.todo}
-                        onChange={this.inputHandler} 
+                        onChange={this.inputHandler}
                     />
-                    <button type='submit'>Add a ToDo!</button>
-              </form>
-              <TodoMapper todos={this.props.todos} />
+                    <button type='submit'>Add a ToDo!</button>                   
+                </form>
+                <TodoMapper todos={this.props.todos} />
               </div>
           );
       } 
