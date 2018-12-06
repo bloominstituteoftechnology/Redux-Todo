@@ -5,9 +5,11 @@
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-feather": "^1.1.4",
     "react-redux": "^5.1.1",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
+    "shortid": "^2.2.14",
     "styled-components": "^4.1.2"
   },
   "scripts": {
