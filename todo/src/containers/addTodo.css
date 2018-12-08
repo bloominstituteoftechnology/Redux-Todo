@@ -4,20 +4,20 @@
 
 li {
     font-family: 'Shadows Into Light', cursive;
-    font-size: 35px;
+    font-size: 20px;
     /* justify-content: center; */
     /* align-content: center; */
     /* text-align: center; */
 }
 
 .todo:first-child { 
-    padding-top: 200px;
+    padding-top: 20px;
 }
 
 .todo {
-    max-width: 400px;
-    width: 200px;
-    margin: 0px auto 0px 590px;
+    max-width: 600px;
+    width: 300px;
+    margin: 0px auto 0px 300px;
     /* justify-content: center; */
     /* text-align: center; */ 
 }
@@ -25,7 +25,7 @@ li {
 .taskbar {
     text-align: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .button {
