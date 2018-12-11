@@ -9,15 +9,21 @@ class Goal extends React.Component {
             goals: []
         };
     }
-
+    
     handleChanges = e => {
         this.setState({ [e.target.goal]: e.target.value });
     };
 
+    handleClick = e => {
+        e.preventDefault();
+        console.log('handle click');
+        this.props.addGoal(this.state.goals)
+    }
+
     handleAddGoal = e => {
         e.preventDefault();
         console.log('Button Clicked');
-        this.props.addGoal(this.state.goal);
+        this.props.addGoal(this.state.goals);
     };
 
     toggleCompleted = index => {

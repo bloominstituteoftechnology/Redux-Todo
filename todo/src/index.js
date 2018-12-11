@@ -19,7 +19,7 @@ class App extends React.Component {
 
 const store = createStore(reducer);
 
-// store.subscribe(() => console.log(store.getState()));
+store.subscribe(() => console.log(store.getState()));
  
 const rootElement = document.getElementById('root');
 ReactDOM.render(
