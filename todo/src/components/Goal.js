@@ -1,29 +1,30 @@
 import React from "react";
-import { addGoal as actionAddGoal, toggleCompleted } from "../actions";
+import { changeTitle as actionChangeTitle, addFriend, toggleCompleted } from "../actions/index";
 import { connect } from "react-redux";
 
-class Goal extends React.Component {
+class Title extends React.Component {
     constructor () {
         super ();
         this.state = {
-            goals: []
+            inputText: '',
+            name: ''
         };
     }
     
     handleChanges = e => {
-        this.setState({ [e.target.goal]: e.target.value });
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     handleClick = e => {
         e.preventDefault();
         console.log('handle click');
-        this.props.addGoal(this.state.goals)
+        this.props.changeTitle(this.state.inputText)
     }
 
-    handleAddGoal = e => {
+    handleAddFriend = e => {
         e.preventDefault();
         console.log('Button Clicked');
-        this.props.addGoal(this.state.goals);
+        this.props.addFriend(this.state.name);
     };
 
     toggleCompleted = index => {
@@ -33,22 +34,32 @@ class Goal extends React.Component {
     render() {
         return (
             <div>
-                <h1>Your steps to World Domination</h1>
-                {this.props.goals.map((goals, index) => (
-                    <h2 onClick={() => this.toggleCompleted(index)} key={goals.goal} >
-                    {goals.goal}
+                <h1>{this.props.title}</h1>
+                <input 
+                    type='text'
+                    name='inputText'
+                    onChange={this.handleChanges}
+                    placeholder='Update Goal Title'
+                    value={this.state.inputText}
+                    autoComplete='off'
+                />
+                <button onClick={this.handleClick}>Update Goal Title</button>
+
+                {this.props.friends.map((friend, index) => (
+                    <h2 onClick={() => this.toggleCompleted(index)} key={friend.name} >
+                    {friend.name}
                     </h2>
                 ))}
 
                 <input 
                 type='text'
-                goal='goal'
+                name='name'
                 onChange={this.handleChanges}
                 placeholder='Add Goal'
-                value={this.state.goal}
+                value={this.state.name}
                 autoComplete='off'
                 />
-                <button onClick={this.handleAddGoal}>Add Goal</button>
+                <button onClick={this.handleAddFriend}>Add Goal</button>
             </div>
         );
     }
@@ -57,24 +68,26 @@ class Goal extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        goals: state.goals
+        title: state.title,
+        friends: state.friends
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        addGoal: text => dispatch(actionAddGoal(text))
+        changeTitle: text => dispatch(actionChangeTitle(text))
     };
 }
 
 const withState = connect(
     mapStateToProps,
     {
-        addGoal: actionAddGoal,
+        changeTitle: actionChangeTitle,
+        addFriend,
         toggleCompleted
     }
 );
 
-const EnhancedGoal = withState(Goal);
+const EnhancedTitle = withState(Title);
 
-export default EnhancedGoal;
+export default EnhancedTitle;

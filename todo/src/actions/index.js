@@ -1,10 +1,17 @@
-import { ADD_GOAL, TOGGLE_COMPLETED  } from "../reducers";
+import { CHANGE_TITLE, ADD_FRIEND, TOGGLE_COMPLETED  } from "../reducers";
 
-export const addGoal = goal => {
-    console.log(goal);
+export const changeTitle = text => {
     return {
-        type: ADD_GOAL,
-        payload: goal
+        type: CHANGE_TITLE,
+        payload: text
+    };
+};
+
+export const addFriend = name => {
+    console.log(name);
+    return {
+        type: ADD_FRIEND,
+        payload: name
     };
 };
 

@@ -1,26 +1,32 @@
-export const ADD_GOAL = 'ADD_GOAL';
+export const CHANGE_TITLE = 'CHANGE_TITLE';
+export const ADD_FRIEND = 'ADD_FRIEND';
 export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
 
 const initState = {
     title: 'Goals',
-    goals: [{ goal: 'World Domination', completed: false}]
+    friends: [{ name: 'World Domination', completed: false}]
 };
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
-        case ADD_GOAL:
+        case CHANGE_TITLE:
+            return{
+                ...state,
+                title: action.payload
+            };
+        case ADD_FRIEND:
         return {
             ...state,
-            goals: [...state.goals, {goal: action.payload, completed: false }]
+            friends: [...state.friends, {name: action.payload, completed: false }]
         };
         case TOGGLE_COMPLETED:
             return {
                 ...state,
-                goals: state.goals.map((goal, index) => {
+                friends: state.friends.map((friend, index) => {
                     if (index === action.payload) {
-                        return { ...goal, completed: !goal.completed };
+                        return { ...friend, completed: !friend.completed };
                     } else {
-                        return goal;
+                        return friend;
                     }
                 })
             };
