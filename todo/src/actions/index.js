@@ -1,9 +1,11 @@
 import { ADD_TODO } from './../reducers/index';
 
-export const addTodo = text => {
-    console.log(text);
+export const addTodo = todo => {
+    console.log(todo);
     return {
         type: ADD_TODO,
-        payload: text
+        payload: todo
     }
 }
+
+export default addTodo;

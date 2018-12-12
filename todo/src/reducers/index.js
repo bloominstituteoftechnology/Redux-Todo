@@ -3,7 +3,7 @@ export const ADD_TODO = 'ADD_TODO';
 const initState = {
     todos: [
         { 
-        todo: 'Walk the dog.',
+         todo: 'Walk the dog.',
          completed: false 
         }
     ]
@@ -16,6 +16,8 @@ const reducer = (state = initState, action) => {
            ...state,
            todos: [...state.todos, { todo: action.payload, completed: false }]
        }
+       default:
+       return state;
     }
 }
 
