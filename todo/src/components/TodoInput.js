@@ -6,7 +6,7 @@ class TodoInput extends React.Component {
     }
 
     handleChange = e => {
-        this.setState({ todoInput: e.target.value });
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     handleAddTodo = e => {
@@ -19,7 +19,13 @@ class TodoInput extends React.Component {
     render(){
         return (
             <form onSubmit={this.handleAddTodo}>
-                <input type="text" placeholder="Todo" onChange={this.handleChange} value={this.state.todoInput} />
+                <input 
+                    type="text" 
+                    placeholder="Todo" 
+                    onChange={this.handleChange} 
+                    name="todoInput"
+                    value={this.state.todoInput} 
+                />
                 <button type="submit">Add Todo</button>
             </form>
         );
