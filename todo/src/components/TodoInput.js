@@ -3,9 +3,9 @@ import React from 'react';
 class TodoInput extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            todoInput: '',
-        }
+        this.state = { 
+            todoInput: '', // Controlled input, the React way.  Could likely use higher order component through Redux to avoid keeping state on component itself.
+        } 
     }
     handleChange = e => {
         this.setState({ todoInput: e.target.value });
