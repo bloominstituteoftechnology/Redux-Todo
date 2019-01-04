@@ -1,8 +1,8 @@
 import { ADD_TODO, MARK_FINISHED, DELETE_TODO } from '../actions';
 
-const initialState = {
-    todos: [],
-};
+const initialState = localStorage.getItem('todos') === null ? 
+    { todos: [] } :
+    { todos: JSON.parse(localStorage.getItem('todos'))};
 
 export default (state = initialState, action) => {
     switch(action.type){

@@ -6,7 +6,13 @@ import TodoInput from './TodoInput';
 
 class App extends Component {
   componentDidMount(){
-    console.log(this.props);
+    window.addEventListener('beforeunload', this.handleLocalStorage);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('beforeunload', this.handleLocalStorage);
+  }
+  handleLocalStorage = () => {
+    localStorage.setItem('todos', JSON.stringify(this.props.todos));
   }
   render() {
     return (
