@@ -1,21 +1,21 @@
 import React from 'react';
 
 class TodoInput extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = { 
-            todoInput: '', // Controlled input, the React way.  Could likely use higher order component through Redux to avoid keeping state on component itself.
-        } 
+    state = {
+        todoInput: '',
     }
+
     handleChange = e => {
         this.setState({ todoInput: e.target.value });
     }
+
     handleAddTodo = e => {
         e.preventDefault();
-        if (!this.state.todoInput) return alert('Please enter a todo');
+        if (!this.state.todoInput.trim()) return alert('Please enter a todo');
         this.props.addTodo(this.state.todoInput);
         this.setState({ todoInput: '' });
     }
+    
     render(){
         return (
             <form onSubmit={this.handleAddTodo}>
