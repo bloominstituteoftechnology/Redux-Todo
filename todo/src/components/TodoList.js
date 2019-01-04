@@ -20,7 +20,7 @@ const TodoList = props => (
     <div>
         <ul>
             {props.todos.map(todo => (
-                <li style={ todo.completed ? null : { listStyleType: 'circle'} }>
+                <li key={todo.id} style={ todo.completed ? null : { listStyleType: 'circle'} }>
                     <Item>
                         <p>{todo.value}</p>
                         <span className="fas fa-times-circle" onClick={() => props.deleteTodo(todo.id)}></span>
