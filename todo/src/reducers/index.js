@@ -1,4 +1,4 @@
-import { ADD_TODO, MARK_FINISHED, DELETE_TODO } from '../actions';
+import { ADD_TODO, MARK_FINISHED, DELETE_TODO, DELETE_FINISHED } from '../actions';
 
 const initialState = localStorage.getItem('todos') === null ? 
     { todos: [] } :
@@ -12,7 +12,9 @@ export default (state = initialState, action) => {
             return { todos: state.todos.map(todo => { return todo.id === action.id ? 
                 {...todo, completed: !todo.completed } : todo } )};
         case DELETE_TODO:
-            return { todos: state.todos.filter(todo => todo.id !== action.id) }; // ???
+            return { todos: state.todos.filter(todo => todo.id !== action.id) };
+        case DELETE_FINISHED:
+            return { todos: state.todos.filter(todo => !todo.completed) };
         default:
             return state;
     }

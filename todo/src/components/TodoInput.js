@@ -25,8 +25,10 @@ class TodoInput extends React.Component {
                     onChange={this.handleChange} 
                     name="todoInput"
                     value={this.state.todoInput} 
+                    autoComplete="off"
                 />
                 <button type="submit">Add Todo</button>
+                <button type="button" onClick={this.props.deleteFinished}>Delete Finished</button>
             </form>
         );
     }
