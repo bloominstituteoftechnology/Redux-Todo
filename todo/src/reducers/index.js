@@ -1,3 +1,5 @@
+import { ADD_TODO } from "../actions/";
+
 const initialState = {
   todos: [
     {
@@ -8,7 +10,16 @@ const initialState = {
 };
 
 export const rootReducer = (state = initialState, action) => {
-  return {
-    ...state
-  };
+  switch (action.type) {
+    case ADD_TODO:
+      return {
+        todos: [
+          ...state.todos,
+          { value: action.payload.value, completed: action.payload.completed }
+        ]
+      };
+
+    default:
+      return state;
+  }
 };

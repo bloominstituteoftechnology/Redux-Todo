@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { addTodo } from "../actions";
+
 class TodoListContainer extends React.Component {
   state = {
     todoInput: {
@@ -20,7 +22,17 @@ class TodoListContainer extends React.Component {
       };
     });
   };
+
+  handleAddTodo = (event, todo) => {
+    event.preventDefault();
+    this.props.addTodo(todo);
+  };
+
   render() {
+    const todo = {
+      value: this.state.todoInput.value,
+      completed: false
+    };
     return (
       <div className="todo-list-container">
         <input
@@ -31,7 +43,9 @@ class TodoListContainer extends React.Component {
           name="value"
           value={this.state.todoInput.value}
         />
-        <button>Add todo</button>
+        <button onClick={event => this.handleAddTodo(event, todo)}>
+          Add todo
+        </button>
         {this.props.todos.map(todo => (
           <ul style={{ textDecoration: todo.completed && "line-through" }}>
             {todo.value}
@@ -50,7 +64,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { addTodo }
 )(TodoListContainer);
 
 // mapStateToProps, {actions}
