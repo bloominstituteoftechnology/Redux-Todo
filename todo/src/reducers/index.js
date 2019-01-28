@@ -1,5 +1,14 @@
-export const rootReducer = () => {
+const initialState = {
+  todos: [
+    {
+      value: "Walk dog",
+      completed: true
+    }
+  ]
+};
+
+export const rootReducer = (state = initialState, action) => {
   return {
-    test: "test"
+    ...state
   };
 };
