@@ -8,22 +8,28 @@ class TodoList extends React.Component{
     constructor(props){
         super(props)
     }
-    handleInput= ev =>{
-        this.setState({ [ev.target.name]: ev.target.value });
-    }
+    
     render(props){
+        let input
         console.log(this.props)
         return(
             <div>
                 {this.props.todos.map(todo => {
                     return <TodoItem toggleTodo={this.props.toggleTodo} todo={todo} key={todo.value}/>
                 })}
-                
-                <input 
-                type="text"
-                name="newTodo"
-                />
-                <button>Submit</button>
+                <form onSubmit={e =>{e.preventDefault()
+                    if(!input.value.trim()){
+                        return
+                    } this.props.addNewTodo(input.value)
+                    input.value =''
+                }}> 
+                    <input 
+                    ref={node =>(input = node)}
+                    type="text"
+                    name="newTodo"
+                    />
+                    <button>Submit</button>
+                </form>    
             </div>
         )
     }

@@ -19,13 +19,15 @@ const reducer = (state = initialState, action) =>{
     switch(action.type){
         case ADD_NEW_TODO:
         return{
-            todos:[
-                ...state,
+              ...state,
+              todos:[
+                ...state.todos,
                 {
-                    value: action.payload.value,
+                    value: action.payload,
                     completed: false
                 }
-            ]
+              ]
+            
         }
         case TOGGLE_TODO:{
             return {
