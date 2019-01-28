@@ -5,7 +5,7 @@ class TodoItem extends React.Component{
     render(props){
         console.log(this.props)
         return(
-            <li onClick={()=>this.props.toggleTodo(this.props.todo)}>{this.props.todo.value}</li>
+            <li className={this.props.todo.completed ? 'strike': ''} onClick={()=>this.props.toggleTodo(this.props.todo)}>{this.props.todo.value}</li>
         )
     }
 }
