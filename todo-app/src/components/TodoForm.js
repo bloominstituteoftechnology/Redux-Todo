@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import { addTodo } from '../actions'
+import { addTodo, clearCompleted } from '../actions'
 
 class TodoForm extends Component {
   state = {
@@ -14,13 +14,17 @@ class TodoForm extends Component {
 
   handleSubmit = (e, todo) => {
       e.preventDefault();
-      if(!todo){
-          alert('add a todo pleeeeeese')
+      if(e.target.textContent.includes('Delete')){
+         this.props.clearCompleted()
       } else {
-        this.props.addTodo(todo)
-        this.setState({
-            todo: ''
-        })
+        if(!todo){
+            alert('add a todo pleeeeeese')
+        } else {
+          this.props.addTodo(todo)
+          this.setState({
+              todo: ''
+          })
+        }
       }
   }
 
@@ -34,9 +38,10 @@ class TodoForm extends Component {
           onChange={e => this.handleChange(e)}
         />
         <button onClick={e => this.handleSubmit(e, this.state.todo)}>Add Todo</button>
+        <button onClick={e => this.handleSubmit(e)}>Delete Completed Todos</button>
       </>
     );
   }
 }
 
-export default connect(null, {addTodo})(TodoForm);
+export default connect(null, {addTodo, clearCompleted})(TodoForm);
