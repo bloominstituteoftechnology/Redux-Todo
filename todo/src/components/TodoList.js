@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const TodoList = props => {
     return(
@@ -8,4 +9,16 @@ const TodoList = props => {
     )
 }
 
-export default TodoList;
+const mapStateToProps = state => {
+    return {
+        todoList: state.todoList
+    }
+}
+
+const connectState = connect(
+    mapStateToProps 
+)
+
+const TodoListEnhanced = connectState(TodoList);
+
+export default TodoListEnhanced;
