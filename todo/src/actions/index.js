@@ -1,4 +1,5 @@
-export const ADD_TODO = "ADD_TODO"
+export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
 
 export function addTodo(newTodo) {
   return {
@@ -6,3 +7,11 @@ export function addTodo(newTodo) {
     payload: newTodo
   }
 }
+
+export function toggleTodo(index) {
+  return {
+    type: TOGGLE_TODO,
+    payload: index,
+  }
+}
+
