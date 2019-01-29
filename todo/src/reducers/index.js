@@ -22,6 +22,12 @@ const reducer = (state, action) => {
             }
 
         case TOGGLE_COMPLETE:
+            return {
+                ...state,
+                todoList: state.todoList.map((t, i) => {
+                    return i === action.payload ? {...t, complete: !t.complete} : t;
+                })
+            }
 
 
         default:
