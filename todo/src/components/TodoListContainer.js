@@ -1,13 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addTodo } from "../actions";
+import { addTodo, toggleCompleted } from "../actions";
 
 class TodoListContainer extends React.Component {
   state = {
     todoInput: {
-      value: "",
-      completed: null
+      value: ""
     }
   };
 
@@ -26,6 +25,10 @@ class TodoListContainer extends React.Component {
   handleAddTodo = (event, todo) => {
     event.preventDefault();
     this.props.addTodo(todo);
+  };
+
+  handleCompleteTodo = value => {
+    this.props.toggleCompleted(value);
   };
 
   render() {
@@ -47,7 +50,11 @@ class TodoListContainer extends React.Component {
           Add todo
         </button>
         {this.props.todos.map(todo => (
-          <ul style={{ textDecoration: todo.completed && "line-through" }}>
+          <ul
+            onClick={() => this.handleCompleteTodo(todo.value)}
+            key={Math.random()}
+            style={{ textDecoration: todo.completed && "line-through" }}
+          >
             {todo.value}
           </ul>
         ))}
@@ -64,7 +71,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleCompleted }
 )(TodoListContainer);
 
 // mapStateToProps, {actions}
