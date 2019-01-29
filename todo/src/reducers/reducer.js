@@ -1,6 +1,5 @@
 const initialState = {
-  title: "Title from Redux store",
-  list: ["one", "two", "three"]
+  todos: ["My Todo", "Another Todo"]
 };
 
 function reducer(state = initialState, action) {
