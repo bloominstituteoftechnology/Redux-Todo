@@ -4,10 +4,12 @@ export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE'
 
 
 const initialState = {
-    todoList: []
+    todoList: [
+        {todo: 'Make Todo List', complete: false}
+    ]
 }
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TO_LIST:
             return {
