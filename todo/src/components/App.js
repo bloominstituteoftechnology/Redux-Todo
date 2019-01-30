@@ -6,7 +6,6 @@ import TodoInput from './TodoInput';
 
 class App extends Component {
   componentDidMount(){
-    console.log(this.props);
     window.addEventListener('beforeunload', this.handleLocalStorage);
   }
   componentWillUnmount(){
