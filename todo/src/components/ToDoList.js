@@ -4,10 +4,8 @@ import { toggleActive } from '../actions';
 
 const ToDoList = props => {
   const toggleHandler = e => {
-    const id = e.target.id;
     const listArr = props.todos.slice();
-
-    const resultArr = listArr.filter(item => item.id === Number(id));
+    const resultArr = listArr.filter(item => item.id === Number(e.target.id));
 
     resultArr[0].completed = !resultArr[0].completed;
 
