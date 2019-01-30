@@ -23,6 +23,7 @@ class ToDoForm extends React.Component {
     }
 
     this.props.addToDo(this.state.input, id)
+    this.setState({ input: '' });
   }
 
   handleChange = e => {

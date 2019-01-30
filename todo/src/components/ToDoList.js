@@ -17,7 +17,10 @@ const ToDoList = props => {
   return(
     <div>
       {props.todos.map(item => {
-        return <h2 className={item.completed === true ? 'show' : 'hide'} onClick={toggleHandler} key={item.id} id={item.id}> {item.text} </h2>
+        return <h2 className={item.completed === true ? 'show' : 'hide'}
+                   onClick={toggleHandler}
+                   key={item.id}
+                   id={item.id}> {item.text} </h2>
       })}
     </div>
   );
