@@ -5,7 +5,7 @@ const initialState = {
   ]
 };
 
-const reducer = (state = initialState, action) => {
+const rootReducer  = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
      //if the passed in action has type "ADD_TODO" execute this code
@@ -17,4 +17,4 @@ const reducer = (state = initialState, action) => {
     return state;
   }
 }
-export default reducer;
+export default rootReducer;
