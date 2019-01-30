@@ -13,14 +13,8 @@ class ToDoForm extends React.Component {
 
   handleClick = e => {
     e.preventDefault();
-    const index = this.props.todos.length-1;
-    let id;
 
-    if(!this.props.todos[index]) {
-      id = 0;
-    } else {
-      id = this.props.todos[index].id+1
-    }
+    const id = this.generateID();
 
     this.props.addToDo(this.state.input, id)
     this.setState({ input: '' });
@@ -28,6 +22,12 @@ class ToDoForm extends React.Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  generateID = () => {
+    const index = this.props.todos.length-1;
+
+    return !this.props.todos[index] ? 0 : this.props.todos[index].id+1
   }
 
   render() {
