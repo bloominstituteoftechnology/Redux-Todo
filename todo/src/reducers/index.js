@@ -5,10 +5,18 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-  console.log(state)
+  console.log('REDUCER STATE: ', state)
+  console.log('REDUCER ACTION: ', action)
   switch(action.type) {
     case ADD_ITEM:
-          console.log('Reducer: ',  [ ...state.todos, { text: action.payload, completed: false} ]  )
+          const newItem = [ {
+            text: action.payload,
+            completed: false
+          } ];
+
+          const newList = state.todos;
+          console.log('NEWLIST: ', newList)
+          return { todos: newList.concat(newItem) }
       break;
     default:
       return state;

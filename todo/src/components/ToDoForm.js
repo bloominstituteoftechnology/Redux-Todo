@@ -13,7 +13,8 @@ class ToDoForm extends React.Component {
 
   handleClick = e => {
     e.preventDefault();
-    this.props.addToDo('test')
+    console.log('INPUT: ', this.state.input)
+    this.props.addToDo(this.state.input)
   }
 
   handleChange = e => {
@@ -30,7 +31,6 @@ class ToDoForm extends React.Component {
                onChange={this.handleChange}
                />
 
-
         <button onClick={this.handleClick}>Add Item</button>
       </form>
     );
@@ -38,7 +38,7 @@ class ToDoForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('State: ',state)
+  console.log('State: ', state)
   return { todos: state.todos }
 }
 
