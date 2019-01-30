@@ -1,5 +1,7 @@
 export const ADD_TO_LIST = 'ADD_TO_LIST';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE'
+export const DELETE_ITEM = 'DELETE_ITEM'
+export const CLEAR_COMPLETE = 'CLEAR_COMPLETE'
 
 
 
@@ -28,6 +30,22 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 todoList: state.todoList.map((t, i) => {
                     return i === action.payload ? {...t, complete: !t.complete} : t;
+                })
+            }
+
+        case DELETE_ITEM:
+            return {
+                ...state,
+                todoList: state.todoList.filter((t, i) => {
+                    return i !== action.payload
+                })
+            }
+
+        case CLEAR_COMPLETE:
+            return {
+                ...state,
+                todoList: state.todoList.filter(t => {
+                    return t.complete === false
                 })
             }
 

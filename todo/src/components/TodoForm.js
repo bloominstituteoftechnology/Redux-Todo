@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addToList } from '../actions';
+import { addToList, clearComplete } from '../actions';
 
 class TodoForm extends Component { 
     constructor(){
@@ -25,6 +25,11 @@ class TodoForm extends Component {
         });
     }
 
+    handleClear = e => {
+        e.preventDefault();
+        this.props.clearComplete()
+    }
+
     render(){
         return(
             <form>
@@ -37,6 +42,7 @@ class TodoForm extends Component {
                     autoComplete='off'
                 />
                 <button onClick={this.handleClick}>Add</button>
+                <button onClick={this.handleClear}>Clear Complete</button>
             </form>
         )
         
@@ -52,6 +58,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addToList: text => dispatch(addToList(text)),
+        clearComplete: () => dispatch(clearComplete())
     };
 }
 
