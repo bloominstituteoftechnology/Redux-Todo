@@ -11,11 +11,6 @@ const ToDoList = props => {
 
     resultArr[0].completed = !resultArr[0].completed;
 
-    console.log(listArr.splice(id, 1, resultArr[0]))
-    console.log(listArr)
-
-
-
     props.toggleActive(listArr)
   }
 

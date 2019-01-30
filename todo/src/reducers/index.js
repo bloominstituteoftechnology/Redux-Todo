@@ -5,8 +5,6 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-  console.log('REDUCER STATE: ', state)
-  console.log('REDUCER ACTION: ', action)
   switch(action.type) {
     case ADD_ITEM:
         const newItem = [ {
