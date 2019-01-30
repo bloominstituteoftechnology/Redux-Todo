@@ -1,7 +1,7 @@
-import { ADD_ITEM } from '../actions';
+import { ADD_ITEM, TOGGLE_ACTIVE } from '../actions';
 
 const initialState = {
-  todos: [ { text: 'text here', completed: false } ],
+  todos: [ ],
 }
 
 export default (state = initialState, action) => {
@@ -9,15 +9,19 @@ export default (state = initialState, action) => {
   console.log('REDUCER ACTION: ', action)
   switch(action.type) {
     case ADD_ITEM:
-          const newItem = [ {
-            text: action.payload,
-            completed: false
-          } ];
+        const newItem = [ {
+          text: action.payload.text,
+          completed: false,
+          id: action.payload.id
+        } ];
 
-          const newList = state.todos;
-          console.log('NEWLIST: ', newList)
-          return { todos: newList.concat(newItem) }
-      break;
+        const newList = state.todos;
+        return { todos: newList.concat(newItem) }
+
+    case TOGGLE_ACTIVE:
+        return { todos: action.payload}
+
+
     default:
       return state;
   }

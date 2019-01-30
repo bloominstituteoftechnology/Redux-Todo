@@ -13,8 +13,16 @@ class ToDoForm extends React.Component {
 
   handleClick = e => {
     e.preventDefault();
-    console.log('INPUT: ', this.state.input)
-    this.props.addToDo(this.state.input)
+    const index = this.props.todos.length-1;
+    let id;
+
+    if(!this.props.todos[index]) {
+      id = 0;
+    } else {
+      id = this.props.todos[index].id+1
+    }
+
+    this.props.addToDo(this.state.input, id)
   }
 
   handleChange = e => {
