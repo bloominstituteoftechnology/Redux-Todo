@@ -8,9 +8,9 @@ export function addTodo(newTodo) {
   };
 }
 
-export function toggleComplete(index) {
+export function toggleComplete(id) {
   return {
     type: TOGGLE_COMPLETE,
-    payload: index
+    payload: id
   };
 }

@@ -7,7 +7,8 @@ class TodoForm extends Component {
   state = {
     newTodo: {
       todo: "",
-      completed: false
+      completed: false,
+      id: ""
     }
   };
 
@@ -15,7 +16,8 @@ class TodoForm extends Component {
     this.setState({
       newTodo: {
         ...this.state.newTodo,
-        todo: e.target.value
+        todo: e.target.value,
+        id: Date.now()
       }
     });
   };
@@ -32,8 +34,8 @@ class TodoForm extends Component {
     });
   };
 
-  toggleComplete = index => {
-    this.props.toggleComplete(index);
+  toggleComplete = id => {
+    this.props.toggleComplete(id);
   };
 
   render() {
@@ -52,7 +54,6 @@ class TodoForm extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     todoList: state.todoList
   };

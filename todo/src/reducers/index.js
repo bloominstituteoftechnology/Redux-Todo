@@ -5,7 +5,7 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  console.log("reducer", action.type);
+  console.log("reducer", action.type, action.payload);
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -16,14 +16,15 @@ function reducer(state = initialState, action) {
     case TOGGLE_COMPLETE:
       return {
         ...state,
-        todoList: state.todoList.map((todo, index) => {
-          if (index === action.payload) {
+        todoList: state.todoList.map(todo => {
+          console.log(todo.newTodo.id === action.payload);
+          if (todo.newTodo.id === action.payload) {
             return {
-              ...todo,
-              complete: !todo.complete
+              ...todo.newTodo,
+              completed: !todo.newTodo.completed
             };
           }
-          return todo;
+          console.log(todo);
         })
       };
     default:

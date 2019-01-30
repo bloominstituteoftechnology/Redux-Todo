@@ -1,5 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
+import { toggleComplete } from "../actions";
 
-const Todo = props => <li>{props.todo}</li>;
+const Todo = props => (
+  <li onClick={_ => props.toggleComplete(props.id)}> {props.todo} </li>
+);
 
-export default Todo;
+const mapStateToProps = state => {
+  return {
+    todoList: state.todoList
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { toggleComplete }
+)(Todo);
