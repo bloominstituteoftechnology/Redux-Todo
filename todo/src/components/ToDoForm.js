@@ -38,7 +38,6 @@ class ToDoForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('State: ', state)
   return { todos: state.todos }
 }
 
