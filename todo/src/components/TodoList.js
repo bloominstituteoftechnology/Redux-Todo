@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { addTodo, toggleTodo } from '../actions'
+import { addTodo, toggleTodo, clearCompleted } from '../actions'
 
 class TodoList extends React.Component {
   state = {
@@ -22,17 +22,23 @@ class TodoList extends React.Component {
     this.props.toggleTodo(index);
   }
 
+  clearCompleted = e => {
+    e.preventDefault();
+    this.props.clearCompleted(this.props.todos)
+  }
+
   render() {
     return (
       <>
         <h2>Todo List!</h2>
         <div>
           {this.props.todos.map((todo, index) => (
-            <h4 onClick={e => this.toggleTodo(e, index)} key={index}>{todo.todo}</h4>
+            <h4 style={todo.completed ? { textDecoration: 'line-through'} : null } onClick={e => this.toggleTodo(e, index)} key={index}>{todo.todo}</h4>
           ))}
         </div>
         <input type="text" value={this.state.newTodo} onChange={this.handleChanges} />
         <button onClick={this.addTodo}>Add todo</button>
+        <button onClick={this.clearCompleted}>Clear Completed</button>
       </>
     )
   }
@@ -42,4 +48,4 @@ const mapStateToProps = state => ({
   todos: state.todos,
 })
 
-export default connect(mapStateToProps, { addTodo, toggleTodo })(TodoList);
+export default connect(mapStateToProps, { addTodo, toggleTodo, clearCompleted })(TodoList);
