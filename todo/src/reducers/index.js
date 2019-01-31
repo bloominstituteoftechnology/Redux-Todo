@@ -1,4 +1,4 @@
-import { ADD_ITEM, TOGGLE_ACTIVE } from '../actions';
+import { ADD_ITEM, TOGGLE_ACTIVE, DELETE_ITEM } from '../actions';
 
 const initialState = {
   todos: [ ],
@@ -19,6 +19,8 @@ export default (state = initialState, action) => {
     case TOGGLE_ACTIVE:
         return { todos: action.payload}
 
+    case DELETE_ITEM:
+      return { todos: action.payload }
 
     default:
       return state;

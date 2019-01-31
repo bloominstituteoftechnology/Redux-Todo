@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleActive } from '../actions';
+import { toggleActive, deleteItem } from '../actions';
 
 const ToDoList = props => {
   const toggleHandler = e => {
@@ -12,13 +12,27 @@ const ToDoList = props => {
     props.toggleActive(listArr)
   }
 
+  const deleteItem = e => {
+    const listArr = props.todos.slice();
+    const searchItem = listArr.filter(item => item.id === Number(e.target.id))
+
+    listArr.splice(listArr.indexOf(searchItem[0]), 1)
+
+    props.deleteItem(listArr);
+  }
+
   return(
     <div>
       {props.todos.map(item => {
-        return <h2 className={item.completed === true ? 'show' : 'hide'}
+        return <div className='list-container'>
+                <h2 className={`list-container__${item.completed === true ? 'show' : 'hide'}`}
                    onClick={toggleHandler}
                    key={item.id}
                    id={item.id}> {item.text} </h2>
+
+                <p id={item.id}
+                   onClick={deleteItem}>&times;</p>
+               </div>
       })}
     </div>
   );
@@ -28,4 +42,4 @@ const mapStateToProps = state => {
   return { todos: state.todos }
 }
 
-export default connect(mapStateToProps, { toggleActive })(ToDoList);
+export default connect(mapStateToProps, { toggleActive, deleteItem })(ToDoList);

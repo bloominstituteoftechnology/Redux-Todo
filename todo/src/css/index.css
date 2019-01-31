@@ -129,6 +129,11 @@ table {
 .App {
   text-align: center;
 }
-.show {
+.list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-container .list-container__show {
   text-decoration: line-through;
 }
