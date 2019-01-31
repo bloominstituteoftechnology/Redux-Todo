@@ -37,12 +37,14 @@ class TodoForm extends React.Component {
           placeholder="Input Task..."
         />
         <button
+          className="submit"
           onSubmit={e => this.createNewTodo(e)}
           onClick={e => this.createNewTodo(e)}
         >
           Submit
         </button>
         <button
+          className="delete"
           onSubmit={e => this.deleteCompleteTodo(e)}
           onClick={e => this.deleteCompleteTodo(e)}
         >

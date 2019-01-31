@@ -16,9 +16,13 @@ let defaultState = {
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      action.payload.id = state.todos[state.todos.length - 1].id + 1;
-      let newTodos = [...state.todos, action.payload];
-      return { ...state, todos: newTodos };
+      if (action.payload) {
+        action.payload.id = state.todos[state.todos.length - 1].id + 1;
+        let newTodos = [...state.todos, action.payload];
+        return { ...state, todos: newTodos };
+      } else {
+        return { ...state };
+      }
     case STRIKE_TODO:
       return {
         ...state,

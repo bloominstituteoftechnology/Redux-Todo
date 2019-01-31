@@ -7,6 +7,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <h1 className="title">Redux Todo List</h1>
         <TodoForm />
         <TodoList />
       </>
