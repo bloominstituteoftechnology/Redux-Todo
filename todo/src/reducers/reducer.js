@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions/actions';
+import { ADD_TODO, DELETE_TODO } from '../actions/actions';
 
 let defaultState = {
   todos: [
@@ -16,8 +16,11 @@ let defaultState = {
 export default function reducer(state = defaultState, action){
   switch(action.type){
     case ADD_TODO:
-    let newTodos = [ ...state.todos, action.payload]
+      let newTodos = [ ...state.todos, action.payload]
       return Object.assign({}, state, {todos: newTodos });
+    case DELETE_TODO:
+      let updatedTodo = state.todos.filter(todo => todo.name !== action.name);
+      return Object.assign({}, state, {todos: updatedTodo})
     default:
      return state;
   }
