@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-import { addTodo, toggleTodo } from "../store/actions"
-import { TodoWrapper } from "../styles/todoStyles"
+import { addTodo, toggleTodo, deleteTodo } from "../store/actions"
+import { TodosWrapper, TodoWrapper } from "../styles/todoStyles"
 
 class TodoList extends Component {
   state = {
@@ -19,9 +19,14 @@ class TodoList extends Component {
     this.setState({ todoText: "" })
   }
 
+  deleteTodoHandler = (event, id) => {
+    event.stopPropagation()
+    this.props.deleteTodo(id)
+  }
+
   render() {
     return (
-      <div>
+      <TodosWrapper>
         <ul>
           {this.props.todos.map(todo => (
             <TodoWrapper
@@ -30,6 +35,10 @@ class TodoList extends Component {
               completed={todo.completed}
             >
               {todo.value}
+              <i
+                onClick={event => this.deleteTodoHandler(event, todo.id)}
+                className="far fa-minus-square"
+              />
             </TodoWrapper>
           ))}
         </ul>
@@ -42,7 +51,7 @@ class TodoList extends Component {
           />
           <button type="submit">Add Todo</button>
         </form>
-      </div>
+      </TodosWrapper>
     )
   }
 }
@@ -55,5 +64,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo }
+  { addTodo, toggleTodo, deleteTodo }
 )(TodoList)
