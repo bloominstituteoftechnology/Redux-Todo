@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { toggleActive, deleteItem } from '../actions';
 
@@ -34,6 +36,8 @@ const ToDoList = props => {
                      onClick={deleteItem}> &times; </p>
                  </div>
         })}
+
+        <Link to='/'><button>Back</button></Link>
       </div>
     </div>
   );
