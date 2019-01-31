@@ -4,6 +4,10 @@ import { addTodo, toggleTodo } from '../store/actions';
 
 class TodoListContainer extends React.Component {
 
+	state = {
+		todoInputText: ''
+	};
+
 	render() {
 		return(
 			<div>
