@@ -10,6 +10,18 @@ class TodoListContainer extends React.Component {
 		todoInputText: ''
 	};
 
+	onChange = e => {
+		e.preventDefault();
+		this.setState({
+			todoInputText: e.target.value
+		});
+	};
+
+	addNewTodo = () => {
+		this.props.addTodoOnProps(this.state.todoInputText);
+		this.setState({ todoInputText: '' });
+	};
+
 	toggleCompleted = index => {
 		this.props.toggleTodo(index);
 	};
@@ -17,7 +29,11 @@ class TodoListContainer extends React.Component {
 	render() {
 		return(
 			<div>
-				<TodoInput />
+				<TodoInput 
+					addTodo={this.addNewTodo}
+					inputText={this.state.todoInputText}
+					onInputChange={this.onChange}
+				/>
 				<TodoList todos={this.props.todosOnProps} toggleCompleted={this.toggleCompleted} />
 			</div>
 		)
