@@ -1,6 +1,6 @@
 export const ADD_TODO = "ADD_TODO";
 
-const addTodo = text => {
+export const addTodo = text => {
   let newTodo = {
     task: text,
     complete: false
