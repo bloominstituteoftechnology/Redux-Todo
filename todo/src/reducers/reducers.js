@@ -9,7 +9,8 @@ export default (state = initialState, action) => {
     case ADD_TODO:
       return {todo: [...state.todo, action.payload]}
     case COMPLETED:
-      return
+      console.log('completed');
+      return {todo: state.todo.map(item => item.id === action.payload ? { ...item, completed: !item.completed } : item)}
     default:
       return state;
   };

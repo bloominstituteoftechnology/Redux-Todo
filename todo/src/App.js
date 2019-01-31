@@ -24,7 +24,6 @@ class App extends Component {
     this.props.addTodo(this.state);
     e.preventDefault();
     let newID = this.state.id + 1;
-    console.log(newID);
     this.setState({
       newTodo: '',
       id: newID
@@ -39,7 +38,7 @@ class App extends Component {
           <button type='submit'>Add To Do</button>
         </form>
         <div>
-          {this.props.todo.map(item => <div>{item.newTodo}</div>)}
+          {this.props.todo.map(item => <div style={{textDecoration: item.completed ? 'line-through' : 'none'}} onClick={() => this.props.completed(item.id)} key={item.id}>{item.newTodo}</div>)}
         </div>
       </div>
     );

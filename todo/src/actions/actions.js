@@ -8,8 +8,9 @@ export const addTodo = (newTodo) => {
   };
 };
 
-export const completed = () => {
+export const completed = (id) => {
   return {
-    type: COMPLETED
+    type: COMPLETED,
+    payload: id
   };
 };
