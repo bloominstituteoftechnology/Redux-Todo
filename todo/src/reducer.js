@@ -1,9 +1,10 @@
+import React from "react";
 import { ADD_TODO } from "./actions";
 import { STRIKE_TODO } from "./actions";
 import { DELETE_TODO } from "./actions";
 
 let defaultState = {
-  title: "REDUX TODOS",
+  errsucc: null,
   todos: [
     {
       task: "Does it work?",
@@ -19,9 +20,16 @@ const reducer = (state = defaultState, action) => {
       if (action.payload) {
         action.payload.id = state.todos[state.todos.length - 1].id + 1;
         let newTodos = [...state.todos, action.payload];
-        return { ...state, todos: newTodos };
+        return {
+          ...state,
+          errsucc: <div className="success">Added task successfully!</div>,
+          todos: newTodos
+        };
       } else {
-        return { ...state };
+        return {
+          ...state,
+          errsucc: <div className="error">Input field is empty</div>
+        };
       }
     case STRIKE_TODO:
       return {
@@ -39,6 +47,7 @@ const reducer = (state = defaultState, action) => {
     case DELETE_TODO:
       return {
         ...state,
+        errsucc: <div className="success">Removed task(s) successfully!</div>,
         todos: state.todos.filter(todo => todo.complete !== true)
       };
     default:

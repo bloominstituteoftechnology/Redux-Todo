@@ -16,6 +16,34 @@ body {
   text-align: center;
 }
 
+
+.error {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 3px;
+  padding: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  background: rgb(216, 110, 110);
+  border-bottom: 2px solid rgb(187, 84, 84);
+  transition: background 250ms ease-in-out, border 250ms ease-in-out;
+}
+
+.success {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 3px;
+  padding: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  background: #78dd80;
+  border-bottom: 2px solid #65c96d;
+  transition: background 250ms ease-in-out,
+    border 250ms ease-in-out;
+}
+
 form {
   width: 50%;
   display: flex;
