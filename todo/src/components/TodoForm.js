@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { addTodo } from "../actions";
+import { deleteTodo } from "../actions";
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class TodoForm extends React.Component {
       inputValue: ""
     });
   };
+  deleteCompleteTodo = e => {
+    e.preventDefault();
+    this.props.deleteTodo();
+  };
   render() {
     return (
       <form>
@@ -37,6 +42,12 @@ class TodoForm extends React.Component {
         >
           Submit
         </button>
+        <button
+          onSubmit={e => this.deleteCompleteTodo(e)}
+          onClick={e => this.deleteCompleteTodo(e)}
+        >
+          Delete
+        </button>
       </form>
     );
   }
@@ -48,5 +59,5 @@ const mstp = state => {
 
 export default connect(
   mstp,
-  { addTodo: addTodo }
+  { addTodo: addTodo, deleteTodo: deleteTodo }
 )(TodoForm);

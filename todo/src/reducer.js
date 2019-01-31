@@ -1,5 +1,6 @@
 import { ADD_TODO } from "./actions";
 import { STRIKE_TODO } from "./actions";
+import { DELETE_TODO } from "./actions";
 
 let defaultState = {
   title: "REDUX TODOS",
@@ -30,6 +31,11 @@ const reducer = (state = defaultState, action) => {
             };
           } else return todo;
         })
+      };
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter(todo => todo.complete !== true)
       };
     default:
       return state;
