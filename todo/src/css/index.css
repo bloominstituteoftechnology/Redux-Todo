@@ -137,6 +137,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
 }
 .item-container {
   display: flex;
@@ -153,8 +154,9 @@ html {
 }
 .form-container {
   height: 100vh;
-  width: 90%;
-  margin-left: 375px;
+  width: 80%;
+  padding: none;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,8 +166,11 @@ html {
 .form-container .form-container__form {
   height: 75%;
   width: 30%;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-30%);
   background-color: rgba(56, 11, 80, 0.6);
-  padding: 50px;
+  padding: 30px;
   margin-bottom: 10px;
   box-sizing: border-box;
 }
@@ -175,6 +180,7 @@ html {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  right: 20%;
 }
 .form-container .form-container__text h1 {
   font-size: 2.4rem;
@@ -190,6 +196,7 @@ html {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  right: -130px;
 }
 .form-container .form-container__form .input--wrapper {
   position: relative;
@@ -228,9 +235,16 @@ html {
   width: 90%;
   margin-top: 50px;
 }
+.form-container .form-container__form a {
+  width: auto;
+}
+.form-container .form-container__form a button {
+  background-color: #27b2ed;
+  color: #380b50;
+}
 .form-container .form-container__form button {
   height: 35px;
-  width: 40%;
+  width: 125px;
   background-color: transparent;
   border: 2px solid #27b2ed;
   border-radius: 5px;
@@ -240,8 +254,7 @@ html {
   letter-spacing: 1.5px;
   transition: background-color 0.5s, color 0.5s;
 }
-.form-container .form-container__form button:hover,
-.form-container .form-container__form button:last-of-type {
+.form-container .form-container__form button:hover {
   background-color: #27b2ed;
   color: #380b50;
 }

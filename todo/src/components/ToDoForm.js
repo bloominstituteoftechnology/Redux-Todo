@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { addToDo } from '../actions';
 
@@ -51,7 +53,7 @@ class ToDoForm extends React.Component {
 
           <div>
             <button onClick={this.handleClick}>Add Item</button>
-            <button>View List</button>
+            <Link to='/list'><button>View List</button></Link>
           </div>
         </form>
       </div>
