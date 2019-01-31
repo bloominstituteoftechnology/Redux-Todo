@@ -1,7 +1,12 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-import { addTodo, toggleTodo, deleteTodo } from "../store/actions"
+import {
+  addTodo,
+  toggleTodo,
+  deleteTodo,
+  removeCompleted
+} from "../store/actions"
 import { TodosWrapper, TodoWrapper } from "../styles/todoStyles"
 
 class TodoList extends Component {
@@ -50,6 +55,7 @@ class TodoList extends Component {
             onChange={this.saveInputHandler}
           />
           <button type="submit">Add Todo</button>
+          <button onClick={this.props.removeCompleted}>Remove Completed</button>
         </form>
       </TodosWrapper>
     )
@@ -64,5 +70,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo, deleteTodo }
+  { addTodo, toggleTodo, deleteTodo, removeCompleted }
 )(TodoList)

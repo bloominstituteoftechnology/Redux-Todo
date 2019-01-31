@@ -1,4 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "../actions"
+import {
+  ADD_TODO,
+  TOGGLE_TODO,
+  DELETE_TODO,
+  REMOVE_COMPLETED
+} from "../actions"
 
 let initialState = JSON.parse(window.localStorage.getItem("state"))
 if (!initialState) initialState = { todos: [] }
@@ -23,6 +28,10 @@ export default (state = initialState, action) => {
 
     case DELETE_TODO:
       newTodos = state.todos.filter(todo => todo.id !== action.id)
+      break
+
+    case REMOVE_COMPLETED:
+      newTodos = state.todos.filter(todo => todo.completed === false)
       break
 
     default:

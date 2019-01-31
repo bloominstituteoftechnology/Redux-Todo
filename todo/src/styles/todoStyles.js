@@ -20,9 +20,11 @@ export const TodosWrapper = styled.div`
 
   form {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
     input {
-      width: 60%;
+      width: 70%;
       margin: 10px auto;
       padding: 10px;
       border: 2px solid #548d;
@@ -43,7 +45,9 @@ export const TodosWrapper = styled.div`
 
 export const TodoWrapper = styled.li`
   ${props =>
-    props.completed ? `text-decoration: line-through` : `text-decoration: none`}
+    props.completed
+      ? `text-decoration: line-through; color:#ccc;`
+      : `text-decoration: none`}
 
   display: flex;
   align-items: center;
