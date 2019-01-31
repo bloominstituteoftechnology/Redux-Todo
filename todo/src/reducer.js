@@ -1,6 +1,6 @@
 
 const initialState = {
-  todos: "sample todo"
+  todos: []
 }
 
 export default reducer;
