@@ -5,7 +5,7 @@ class extends React {
   state = {
     newTodo: {
       value: "",
-      completed: false;
+      completed: false
     }
   }
 }

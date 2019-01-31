@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
 import './App.css';
 
 class App extends Component {
@@ -7,10 +7,20 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Todo List:</h1>
+        <form>
+          <input type="text" placeholder="Add todo"/>
+        </form>
         <div>{this.props.todos}</div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps)(App);
