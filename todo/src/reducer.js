@@ -1,5 +1,5 @@
 import { ADD_TODO } from "./actions";
-import { DELETE_TODO } from "./actions";
+import { STRIKE_TODO } from "./actions";
 
 let defaultState = {
   title: "REDUX TODOS",
@@ -18,7 +18,7 @@ const reducer = (state = defaultState, action) => {
       action.payload.id = state.todos[state.todos.length - 1].id + 1;
       let newTodos = [...state.todos, action.payload];
       return { ...state, todos: newTodos };
-    case DELETE_TODO:
+    case STRIKE_TODO:
       return {
         ...state,
         todos: state.todos.map(todo => {
