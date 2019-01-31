@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-import Todo from "../components/Todo"
-import { addTodo } from "../store/actions"
+import { addTodo, toggleTodo } from "../store/actions"
+import { TodoWrapper } from "../styles/todoStyles"
 
 class TodoList extends Component {
   state = {
@@ -24,7 +24,13 @@ class TodoList extends Component {
       <div>
         <ul>
           {this.props.todos.map(todo => (
-            <Todo todo={todo} key={todo.value} />
+            <TodoWrapper
+              key={todo.id}
+              onClick={() => this.props.toggleTodo(todo.id)}
+              completed={todo.completed}
+            >
+              {todo.value}
+            </TodoWrapper>
           ))}
         </ul>
         <form onSubmit={this.addTodoHandler}>
@@ -49,5 +55,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleTodo }
 )(TodoList)
