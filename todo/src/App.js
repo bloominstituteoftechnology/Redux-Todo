@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 
-import 
+import Todos from './components/Todos';
 
-class App extends Component {
+export default class App extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      todos: []
+    }
+  }
   render() {
     return (
       <div className="App">
-        
+        {!(this.state.todos) ? 
+          <div>No todos - add some </div>
+        :
+          <Todos todos={this.state.todos} />
+        }
       </div>
     );
   }
 }
 
-export default App;
+// export default App;

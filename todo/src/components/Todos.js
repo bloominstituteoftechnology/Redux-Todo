@@ -1,13 +1,16 @@
 import React from 'react';
+import Todo from './Todo';
 
 export default function Todos(props) {
-
     return (
-
-        <ul>
-            {props.todos.map((todo, i) => {
-                <li><Todo key={i} todo={todo}/></li>
-            })};
-        </ul>
+        <div>
+            <ul>
+                {props.todos.map((todo, index) => {
+                    return (
+                        <li><Todo key={index}/>{todo.todo}</li>
+                    )
+                })};
+            </ul>
+        </div>
     )
 }
