@@ -16,8 +16,9 @@ let defaultState = {
 export default function reducer(state = defaultState, action){
   switch(action.type){
     case ADD_TODO:
-    let newTodos = [ ...state.todos, action.newTodo]
+    let newTodos = [ ...state.todos, action.payload]
       return Object.assign({}, state, {todos: newTodos });
-    default: return state;
+    default:
+     return state;
   }
 }

@@ -2,9 +2,9 @@ export const ADD_TODO = 'ADD_TODO';
 
 export function addTodo(text){
   let newTodo = {
-    todo: text,
+    name: text,
     complete: false
-  }
+  };
 
 
   return { type: ADD_TODO, payload: newTodo };
