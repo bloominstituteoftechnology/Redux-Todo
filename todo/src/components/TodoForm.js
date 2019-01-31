@@ -42,7 +42,9 @@ class TodoForm extends React.Component {
   }
 }
 
-const mstp = state => {};
+const mstp = state => {
+  return {};
+};
 
 export default connect(
   mstp,

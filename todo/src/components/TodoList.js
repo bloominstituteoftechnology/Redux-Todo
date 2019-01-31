@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import Todo from "./Todo";
 
 const TodoList = props => {
   return (
     <div className="todos">
-      {props.todos.map((todo, id) => {
-        return <Todo task={todo.task} key={id} />;
+      {props.todos.map(todo => {
+        return <Todo task={todo.task} id={todo.id} key={todo.id} />;
       })}
     </div>
   );
