@@ -1,4 +1,8 @@
-.cross {
+.todos_item {
   cursor: pointer;
   user-select: none;
+}
+
+.complete {
+  text-decoration: line-through;
 }

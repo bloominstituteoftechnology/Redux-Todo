@@ -9,11 +9,11 @@ class Todo extends React.Component {
   };
   render() {
     return (
-      <div className="todos_item">
+      <div
+        onClick={this.deleteTaskById}
+        className={`todos_item${this.props.complete ? " complete" : ""}`}
+      >
         {this.props.task}
-        <span onClick={this.deleteTaskById} className="cross">
-          &times;
-        </span>
       </div>
     );
   }

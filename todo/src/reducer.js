@@ -21,8 +21,14 @@ const reducer = (state = defaultState, action) => {
     case DELETE_TODO:
       return {
         ...state,
-        todos: state.todos.filter(todo => {
-          return todo.id !== action.payload;
+        todos: state.todos.map(todo => {
+          if (todo.id === action.payload) {
+            return {
+              task: todo.task,
+              complete: !todo.complete,
+              id: todo.id
+            };
+          } else return todo;
         })
       };
     default:
