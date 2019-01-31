@@ -2,7 +2,7 @@ import React from 'react';
 
 const Todo = props => {
   return (
-    <li>
+    <li onClick={() => props.toggleCompleted(props.index)}>
       {props.todo.value}
     </li>
   );
