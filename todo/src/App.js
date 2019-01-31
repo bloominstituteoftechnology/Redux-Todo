@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+import TodoInput from './containers/TodoInput'
+import TodoList from './containers/TodoList'
+
+
 import './App.css';
 
 class App extends Component {
@@ -11,9 +15,9 @@ class App extends Component {
     }
   }
 
-  addTodo = test => {
+  addTodo = text => {
     let newTodo = {
-      todo: test,
+      todo: text,
       complete: false
     }
     this.setState(prev => {
@@ -25,14 +29,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>{this.props.myTitle}</h1>
+        <h1>{this.props.myTodo}</h1>
+        <TodoInput addTodo={this.addTodo} />
+        <TodoList />
       </div>
     );
   }
 }
 
-function mapStateToProp(state) {
-  return { myTitle: state.title }
+function mapStateToProps(state) {
+  return { myTodo: state.title }
 }
 
-export default connect(mapStateToProp, {})(App);
+export default connect(mapStateToProps, {})(App);
