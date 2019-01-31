@@ -16,7 +16,6 @@ body {
   text-align: center;
 }
 
-
 .error {
   margin: auto;
   width: 50%;
@@ -43,6 +42,17 @@ body {
   transition: background 250ms ease-in-out,
     border 250ms ease-in-out;
 }
+
+/* .error,
+.success {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: cssAnimation 1s ease-in 3s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+} */
 
 form {
   width: 50%;
@@ -109,3 +119,20 @@ button:active {
   background: #73758a;
   border-bottom: 2px solid #616375;
 }
+
+/* @keyframes cssAnimation {
+  from {
+    opacity: 1;
+    overflow: inherit;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  to {
+    display: none;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transform: scale(0);
+  }
+} */
