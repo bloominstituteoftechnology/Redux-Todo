@@ -24,14 +24,13 @@ const ToDoList = props => {
   return(
     <div>
       {props.todos.map(item => {
-        return <div className='list-container'>
-                <h2 className={`list-container__${item.completed === true ? 'show' : 'hide'}`}
-                   onClick={toggleHandler}
-                   key={item.id}
-                   id={item.id}> {item.text} </h2>
+        return <div key={item.id} className='item-container'>
+                <h2 className={`item-container__${item.completed === true ? 'show' : 'hide'}`}
+                    onClick={toggleHandler}
+                    id={item.id}> {item.text} </h2>
 
                 <p id={item.id}
-                   onClick={deleteItem}>&times;</p>
+                   onClick={deleteItem}> &times; </p>
                </div>
       })}
     </div>

@@ -33,15 +33,26 @@ class ToDoForm extends React.Component {
   render() {
     return(
       <div className='form-container'>
-        <form className='form-container__form'>
-          <input type='text'
-                 name='input'
-                 placehoder='Add To Do Item'
-                 value={this.state.input}
-                 onChange={this.handleChange}
-                 />
+        <div className='form-container__text'>
+          <h1>What Do You Need To Do Today?</h1>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+              deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+        </div>
 
-          <button onClick={this.handleClick}>Add Item</button>
+        <form className='form-container__form'>
+          <p className='input--wrapper'>
+            <input type='text'
+                   name='input'
+                   placeholder='Add To Do Item'
+                   value={this.state.input}
+                   onChange={this.handleChange}
+                   />
+          </p>
+
+          <div>
+            <button onClick={this.handleClick}>Add Item</button>
+            <button>View List</button>
+          </div>
         </form>
       </div>
     );

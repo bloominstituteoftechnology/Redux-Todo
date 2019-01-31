@@ -1,0 +1,120 @@
+.form-container {
+  height: 100vh;
+  width: 90%;
+  margin-left: 375px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #f8bc1e;
+
+
+  .form-container__text, .form-container__form {
+    height: 75%;
+    width: 30%;
+
+    background-color: rgba(56, 11, 80, .6);
+
+
+    padding: 50px;
+    margin-bottom: 10px;
+
+    box-sizing: border-box;
+  }
+
+  .form-container__text {
+    border-radius: 5% 0 0 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    h1 {
+      font-size:2.4rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+      line-height: 35px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .form-container__form {
+    border-radius: 0 5% 5% 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .input--wrapper {
+      position: relative;
+    }
+
+    .input--wrapper:after {
+      content:"";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      height: 0.5em;
+      width: 0;
+      border-top: 2px solid #27b2ed;
+      z-index: 500;
+      transition: width 550ms cubic-bezier(.71,-0.01,.49,1.01);
+    }
+
+    .input--wrapper:hover:after {
+      width: 100%;
+    }
+
+    input {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: none;
+
+      color: #27b2ed;
+      font-size: 2rem;
+
+      padding: 10px 20px 10px 5px;
+      border-radius: 10px 0 10px 0;
+    }
+
+    input:focus {
+      outline: none;
+      background-color: transparent;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      width: 90%;
+      margin-top: 50px;
+    }
+
+    button {
+      height: 35px;
+      width: 40%;
+      background-color: transparent;
+
+      border: 2px solid #27b2ed;
+      border-radius: 5px;
+
+      font-size: 1.6rem;
+      color: #27b2ed;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+
+      transition: background-color .5s, color .5s;
+    }
+
+    button:hover, button:last-of-type {
+      background-color: #27b2ed;
+      color: rgba(56, 11, 80, 1);
+    }
+  }
+}
