@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, completed} from './actions/actions'
+import { addTodo, completed, deleteTodo} from './actions/actions'
 
 import './App.css';
 
@@ -38,7 +38,13 @@ class App extends Component {
           <button type='submit'>Add To Do</button>
         </form>
         <div>
-          {this.props.todo.map(item => <div style={{textDecoration: item.completed ? 'line-through' : 'none'}} onClick={() => this.props.completed(item.id)} key={item.id}>{item.newTodo}</div>)}
+          {this.props.todo.map(item =>
+            <div
+              style={{textDecoration: item.completed ? 'line-through' : 'none'}}
+              onClick={() => this.props.completed(item.id)}
+              key={item.id}>{item.newTodo}<button onClick={() => this.props.deleteTodo(item.id)}>Delete</button>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -51,4 +57,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {addTodo, completed})(App);
+export default connect(mapStateToProps, {addTodo, completed, deleteTodo})(App);
