@@ -45,7 +45,10 @@ const reducer = (state = defaultState, action) => {
         })
       };
     case DELETE_TODO:
-      if (state.todos === state.todos.filter(todo => todo.complete !== true)) {
+      if (
+        state.todos.length !==
+        state.todos.filter(todo => todo.complete !== true).length
+      ) {
         return {
           ...state,
           errsucc: <div className="success">Removed task(s) successfully!</div>,
