@@ -139,19 +139,6 @@ html {
   background-size: cover;
   box-sizing: border-box;
 }
-.item-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.item-container .item-container__show {
-  text-decoration: line-through;
-}
-.item-container .item-container__show,
-.item-container .item-container__hide,
-.item-container p {
-  cursor: pointer;
-}
 .form-container {
   height: 100vh;
   width: 80%;
@@ -253,8 +240,55 @@ html {
   font-weight: 600;
   letter-spacing: 1.5px;
   transition: background-color 0.5s, color 0.5s;
+  cursor: pointer;
 }
 .form-container .form-container__form button:hover {
   background-color: #27b2ed;
   color: #380b50;
+}
+.list-items {
+  padding-top: 100px;
+}
+.list-container {
+  background-color: rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(39, 178, 237, 0.75);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(39, 178, 237, 0.75);
+  box-shadow: 0px 0px 15px 5px rgba(39, 178, 237, 0.75);
+  height: 500px;
+  width: 100%;
+  max-width: 800px;
+  padding: 25px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+.list-container::-webkit-scrollbar {
+  width: 1em;
+}
+.list-container::-webkit-scrollbar-track {
+  background-color: rgba(39, 178, 237, 0.25);
+  border-radius: 5px 0;
+}
+.list-container::-webkit-scrollbar-thumb {
+  background-color: rgba(39, 178, 237, 0.65);
+  border-radius: 8px 0 0 8px;
+}
+.item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.item-container .item-container__show {
+  text-decoration: line-through;
+}
+.item-container .item-container__show,
+.item-container .item-container__hide,
+.item-container p {
+  cursor: pointer;
+  color: #B200B2;
+  font-size: 3rem;
+}
+.item-container p {
+  margin: 0 0 5px 20px;
+  font-size: 2rem;
 }
