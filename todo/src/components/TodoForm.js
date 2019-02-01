@@ -13,7 +13,7 @@ class TodoForm extends Component {
 
   onItemAdd = (event) => {
     event.preventDefault();
-    addTodo(this.state.newTodo);
+    this.props.addTodo(this.state.newTodo);
     this.setState({ newTodo: ''})
   }
 
@@ -32,4 +32,8 @@ class TodoForm extends Component {
   }
 }
 
-export default TodoForm;
+const mapStateToProps = state => {
+  return { todos: state.todos }
+}
+
+export default connect(mapStateToProps, { addTodo })(TodoForm);

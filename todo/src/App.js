@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addTodo } from './actions';
 
 import './App.css';
 import TodoForm from './components/TodoForm';
@@ -11,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Todo List:</h1>
-        <TodoForm />
+        <TodoForm addTodo={this.props.addTodo} />
         <ul>
           {this.props.todos.map(todo => <div>{todo.value}</div>)}
         </ul>
@@ -26,4 +27,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { addTodo })(App);
