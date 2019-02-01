@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { toggleActive, deleteItem } from '../actions';
+import { toggleActive,
+         deleteItem,
+         deleteAll } from '../actions';
 
 const ToDoList = props => {
   const toggleHandler = e => {
@@ -23,6 +25,10 @@ const ToDoList = props => {
     props.deleteItem(listArr);
   }
 
+  const deleteAllHandler = () => {
+    props.deleteAll();
+  }
+
   return(
     <div className='list-items'>
       <div className='list-container'>
@@ -38,6 +44,7 @@ const ToDoList = props => {
         })}
 
         <Link to='/'><button>Back</button></Link>
+        <button onClick={deleteAllHandler}>Remove All</button>
       </div>
     </div>
   );
@@ -47,4 +54,6 @@ const mapStateToProps = state => {
   return { todos: state.todos }
 }
 
-export default connect(mapStateToProps, { toggleActive, deleteItem })(ToDoList);
+export default connect(mapStateToProps, { toggleActive,
+                                          deleteItem,
+                                          deleteAll } )(ToDoList);

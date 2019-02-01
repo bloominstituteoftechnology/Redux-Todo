@@ -279,7 +279,7 @@ html {
   width: 125px;
   background-color: transparent;
   position: absolute;
-  top: 25px;
+  top: 75px;
   left: 25px;
   border: 2px solid #27b2ed;
   border-radius: 5px;
@@ -293,6 +293,9 @@ html {
 .list-container button:hover {
   background-color: #27b2ed;
   color: #380b50;
+}
+.list-container a button {
+  top: 25px;
 }
 .item-container {
   display: flex;

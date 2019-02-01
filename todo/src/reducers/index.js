@@ -1,4 +1,7 @@
-import { ADD_ITEM, TOGGLE_ACTIVE, DELETE_ITEM } from '../actions';
+import { ADD_ITEM,
+         TOGGLE_ACTIVE,
+         DELETE_ITEM,
+         DELETE_ALL } from '../actions';
 
 const initialState = {
   todos: [ ],
@@ -17,9 +20,12 @@ export default (state = initialState, action) => {
         return { todos: newList.concat(newItem) }
 
     case TOGGLE_ACTIVE:
-        return { todos: action.payload}
+      return { todos: action.payload}
 
     case DELETE_ITEM:
+      return { todos: action.payload }
+
+    case DELETE_ALL:
       return { todos: action.payload }
 
     default:
