@@ -1,32 +1,23 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import logo from "./logo.svg";
 import ListContainer from "./Components/ListContainer";
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [
-        {
-          todo: "Take out the trash",
-          complete: false
-        },
-        {
-          todo: "Walk the dog",
-          complete: false
-        }
-      ]
-    };
-  }
-
   render() {
     return (
       <div className="App">
-        <ListContainer list={this.state.todos} />
+        <ListContainer list={this.props.todos} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
+};
+
+export default connect(mapStateToProps)(App);
