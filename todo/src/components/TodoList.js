@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import { toggleTodo } from '../actions'
+import { toggleTodo, deleteTodo } from '../actions'
 import { connect } from 'react-redux';
 
 class TodoList extends Component {
 
   toggleComplete = (id) => {
-    // console.log(id)
     this.props.toggleTodo(id);
+  }
+
+  deleteComplete = (id) => {
+    this.props.deleteTodo(id);
   }
 
   render(){
     return (
-      <ul>
+      <div>
         {this.props.todos.map((todo) => { 
           return (
-          <li 
-            key={todo.id} 
-            id={todo.id} 
-            onClick={() => this.toggleComplete(todo.id)}>
-            {todo.value}
-          </li>)})}
-      </ul>
+            <div className='list-item'>
+              <div 
+                className={`${todo.completed.toString()} list-item-text`}
+                key={todo.id} 
+                id={todo.id} 
+                onClick={() => this.toggleComplete(todo.id)}>
+                {todo.value}
+              </div>
+              <button onClick={() => this.deleteComplete(todo.id)}>Delete</button>
+            </div>)})}
+      </div>
     )
   }
 }
@@ -31,4 +38,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { toggleTodo })(TodoList);
+export default connect(mapStateToProps, { toggleTodo, deleteTodo })(TodoList);

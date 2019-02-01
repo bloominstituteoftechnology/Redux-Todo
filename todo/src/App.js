@@ -9,7 +9,6 @@ import TodoList from './components/TodoList';
 class App extends Component {
   
   render() {
-    // console.log(this.props.todos);
     return (
       <div className="App">
         <h1>Todo List:</h1>
