@@ -21,10 +21,8 @@ const ToDoList = props => {
     })
 
     let numArr;
-    let result;
 
     for(let i = 0; i < sortedArr.length; i++) {
-      console.log(isNaN(Number(sortedArr[i].text)))
 
       if(isNaN(Number(sortedArr[i].text))) {
         numArr = sortedArr.splice(0, i)
