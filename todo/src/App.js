@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import './App.css';
-import TodoForm from './components/TodoForm'
+import TodoForm from './components/TodoForm';
 
 class App extends Component {
-
   
   render() {
     console.log(this.props.todos);
@@ -12,9 +12,9 @@ class App extends Component {
       <div className="App">
         <h1>Todo List:</h1>
         <TodoForm />
-      <ul>
-        {this.props.todos.map(todo => <div>{todo.value}</div>)}
-      </ul>
+        <ul>
+          {this.props.todos.map(todo => <div>{todo.value}</div>)}
+        </ul>
       </div>
     );
   }
@@ -22,8 +22,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    todos: state.todos,
-    newTodo: state.newTodo
+    todos: state.todos
   }
 }
 

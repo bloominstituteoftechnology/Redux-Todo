@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { addTodo } from '../actions'
+import { connect } from 'react-redux';
 
-
-export default class TodoForm extends Component {
+class TodoForm extends Component {
   state = {
     newTodo: ''
   }
@@ -25,9 +25,11 @@ export default class TodoForm extends Component {
           placeholder="Add todo" 
           onChange={this.onInputChange}
           value={this.state.newTodo}
-        />
-        <button type="submit" >Add Task</button>
+          name="newTodo" />
+        <button type="submit">Add Task</button>
       </form>
     )
   }
 }
+
+export default TodoForm;
