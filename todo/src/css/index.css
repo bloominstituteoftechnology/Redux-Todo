@@ -294,6 +294,15 @@ html {
   background-color: #27b2ed;
   color: #380b50;
 }
+.list-container button:nth-of-type(2) {
+  top: 125px;
+}
+.list-container button:nth-of-type(3) {
+  top: 175px;
+}
+.list-container button span {
+  font-size: 2.2rem;
+}
 .list-container a button {
   top: 25px;
 }

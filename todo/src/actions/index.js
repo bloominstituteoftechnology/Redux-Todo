@@ -2,6 +2,7 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const DELETE_ALL = 'DELETE_ALL';
+export const SORT_UP = 'SORT_UP';
 
 export const addToDo = (text, id) => {
   return {
@@ -13,17 +14,17 @@ export const addToDo = (text, id) => {
   }
 }
 
-export const toggleActive = update => {
+export const toggleActive = updateArr => {
   return {
     type: TOGGLE_ACTIVE,
-    payload: update
+    payload: updateArr
   }
 }
 
-export const deleteItem = update => {
+export const deleteItem = updateArr => {
   return {
     type: DELETE_ITEM,
-    payload: update
+    payload: updateArr
   }
 }
 
@@ -31,5 +32,12 @@ export const deleteAll = () => {
   return {
     type: DELETE_ALL,
     payload: []
+  }
+}
+
+export const sortedArr = sorted => {
+  return {
+    type: SORT_UP,
+    payload: sorted
   }
 }
