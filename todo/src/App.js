@@ -19,6 +19,14 @@ this.setState({
   todos
 })
   }
+  AddTodo = (todo) => {
+todo.id = Date.now();
+let todos = [...this.state.todos, todo]
+this.setState({
+  todos
+})
+  }
+
   render() 
   {
     return (
