@@ -18,13 +18,20 @@ const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_TODO:
       if (state.todos.length === 0) {
-        action.payload.id = 0;
-        let newTodos = [...state.todos, action.payload];
-        return {
-          ...state,
-          errsucc: <div className="success">Added task successfully!</div>,
-          todos: newTodos
-        };
+        if (action.payload) {
+          action.payload.id = 0;
+          let newTodos = [...state.todos, action.payload];
+          return {
+            ...state,
+            errsucc: <div className="success">Added task successfully!</div>,
+            todos: newTodos
+          };
+        } else {
+          return {
+            ...state,
+            errsucc: <div className="error">Input field is empty</div>
+          };
+        }
       } else if (action.payload) {
         action.payload.id = state.todos[state.todos.length - 1].id + 1;
         let newTodos = [...state.todos, action.payload];
