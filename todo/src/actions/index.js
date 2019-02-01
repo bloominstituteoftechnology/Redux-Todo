@@ -2,8 +2,10 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const DELETE_ALL = 'DELETE_ALL';
+export const DELETE_COMP = 'DELETE_COMP';
 export const SORT_UP = 'SORT_UP';
 export const SORT_COMP = 'SORT_COMP';
+
 
 export const addToDo = (text, id) => {
   return {
@@ -46,6 +48,13 @@ export const sortedArr = sorted => {
 export const sortComp = arr => {
   return {
     type: SORT_COMP,
+    payload: arr
+  }
+}
+
+export const deleteComp = arr => {
+  return {
+    type: DELETE_COMP,
     payload: arr
   }
 }

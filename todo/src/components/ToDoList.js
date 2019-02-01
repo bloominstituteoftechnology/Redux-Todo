@@ -6,7 +6,8 @@ import { toggleActive,
          deleteItem,
          deleteAll,
          sortedArr,
-         sortComp } from '../actions';
+         sortComp,
+         deleteComp } from '../actions';
 
 const ToDoList = props => {
 
@@ -96,6 +97,14 @@ const ToDoList = props => {
     props.sortComp(newList);
   }
 
+  const deleteCompHandler = () => {
+    const newList = [ ...props.todos ]
+
+    const result = newList.filter(item => item.completed === false);
+
+    props.deleteComp(result);
+  }
+
   return(
     <div className='list-items'>
       <div className='list-container'>
@@ -106,12 +115,13 @@ const ToDoList = props => {
                       id={item.id}> {item.text} </h2>
 
                   <p id={item.id}
-                     onClick={deleteItem}> &times; </p>
+                     onClick={deleteItem}> &#x2612; </p>
                  </div>
         })}
 
         <Link to='/'><button>Back</button></Link>
         <button onClick={deleteAllHandler}>Remove All</button>
+        <button onClick={deleteCompHandler}>Remove &#x2714;</button>
         <button onClick={sortUpHandler}>Sort <span>&#x21e7;</span></button>
         <button onClick={sortDownHandler}>Sort <span>&#x21e9;</span></button>
         <button onClick={sortCompHandler}>Sort <span>&#x2714;</span></button>
@@ -129,4 +139,5 @@ export default connect(mapStateToProps, { toggleActive,
                                           deleteItem,
                                           deleteAll,
                                           sortedArr,
-                                          sortComp } )(ToDoList);
+                                          sortComp,
+                                          deleteComp } )(ToDoList);

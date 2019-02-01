@@ -3,7 +3,8 @@ import { ADD_ITEM,
          DELETE_ITEM,
          DELETE_ALL,
          SORT_UP,
-         SORT_COMP } from '../actions';
+         SORT_COMP,
+         DELETE_COMP } from '../actions';
 
 const initialState = {
   todos: [ ],
@@ -35,6 +36,9 @@ export default (state = initialState, action) => {
 
     case SORT_COMP:
       return { todos: action.payload }
+
+    case DELETE_COMP:
+      return { todos: action.payload } 
 
     default:
       return state;

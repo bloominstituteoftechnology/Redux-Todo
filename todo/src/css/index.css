@@ -306,6 +306,9 @@ html {
 .list-container button:nth-of-type(5) {
   top: 275px;
 }
+.list-container button:nth-of-type(6) {
+  top: 325px;
+}
 .list-container button span {
   font-size: 2rem;
 }
@@ -329,7 +332,7 @@ html {
   font-size: 3rem;
 }
 .item-container p {
-  margin: 0 0 5px 20px;
+  margin: 9px 0 0 20px;
   font-size: 2rem;
   transition: font-size 0.3s;
 }
