@@ -4,7 +4,7 @@ export const TOGGLE_TODO = "TOGGLE_TODO";
 export const addTodo = (todo) => {
   return {
     type: ADD_TODO,
-    newTodo: { value: todo, completed: false } 
+    newTodo: { id: Date.now(), value: todo, completed: false } 
   }
 }
 

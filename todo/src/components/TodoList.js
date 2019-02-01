@@ -4,14 +4,22 @@ import { connect } from 'react-redux';
 
 class TodoList extends Component {
 
-  toggleComplete = () => {
-    this.props.toggleTodo(this.id)
+  toggleComplete = (id) => {
+    // console.log(id)
+    this.props.toggleTodo(id);
   }
 
   render(){
     return (
       <ul>
-        {this.props.todos.map((todo, index) => <li key={index} id={index} onClick={this.toggleComplete}>{todo.value}</li>)}
+        {this.props.todos.map((todo) => { 
+          return (
+          <li 
+            key={todo.id} 
+            id={todo.id} 
+            onClick={() => this.toggleComplete(todo.id)}>
+            {todo.value}
+          </li>)})}
       </ul>
     )
   }
