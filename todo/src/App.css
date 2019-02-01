@@ -54,16 +54,11 @@ body {
     border 250ms ease-in-out;
 }
 
-/* .error,
+.error,
 .success {
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: cssAnimation 1s ease-in 3s forwards;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-} */
+  max-width: 600px;
+  min-width: 350px;
+}
 
 form {
   width: 50%;
