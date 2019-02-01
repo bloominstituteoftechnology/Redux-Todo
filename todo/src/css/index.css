@@ -165,12 +165,13 @@ html {
   border-radius: 5% 0 0 5%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   right: 20%;
 }
 .form-container .form-container__text h1 {
   font-size: 2.4rem;
+  margin: 40px 0 45px 0;
 }
 .form-container .form-container__text p {
   font-size: 1.8rem;
