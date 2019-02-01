@@ -4,6 +4,7 @@ import { addTodo } from './actions';
 
 import './App.css';
 import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 
 class App extends Component {
   
@@ -13,9 +14,7 @@ class App extends Component {
       <div className="App">
         <h1>Todo List:</h1>
         <TodoForm addTodo={this.props.addTodo} />
-        <ul>
-          {this.props.todos.map(todo => <div>{todo.value}</div>)}
-        </ul>
+        <TodoList todos={this.props.todos}/>
       </div>
     );
   }
