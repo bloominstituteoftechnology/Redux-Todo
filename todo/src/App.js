@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <>
         <h1 className="title">Redux Todo List</h1>
-        {this.props.errsucc}
+        <div className="alert_container">{this.props.errsucc}</div>
         <TodoForm />
         <TodoList />
       </>
