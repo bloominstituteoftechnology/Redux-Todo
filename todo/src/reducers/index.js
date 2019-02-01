@@ -2,7 +2,8 @@ import { ADD_ITEM,
          TOGGLE_ACTIVE,
          DELETE_ITEM,
          DELETE_ALL,
-         SORT_UP } from '../actions';
+         SORT_UP,
+         SORT_COMP } from '../actions';
 
 const initialState = {
   todos: [ ],
@@ -30,6 +31,9 @@ export default (state = initialState, action) => {
       return { todos: action.payload }
 
     case SORT_UP:
+      return { todos: action.payload }
+
+    case SORT_COMP:
       return { todos: action.payload }
 
     default:

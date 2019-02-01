@@ -3,6 +3,7 @@ export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const DELETE_ALL = 'DELETE_ALL';
 export const SORT_UP = 'SORT_UP';
+export const SORT_COMP = 'SORT_COMP';
 
 export const addToDo = (text, id) => {
   return {
@@ -39,5 +40,12 @@ export const sortedArr = sorted => {
   return {
     type: SORT_UP,
     payload: sorted
+  }
+}
+
+export const sortComp = arr => {
+  return {
+    type: SORT_COMP,
+    payload: arr
   }
 }

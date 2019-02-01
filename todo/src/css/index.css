@@ -300,8 +300,14 @@ html {
 .list-container button:nth-of-type(3) {
   top: 175px;
 }
+.list-container button:nth-of-type(4) {
+  top: 225px;
+}
+.list-container button:nth-of-type(5) {
+  top: 275px;
+}
 .list-container button span {
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 .list-container a button {
   top: 25px;

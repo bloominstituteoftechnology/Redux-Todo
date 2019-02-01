@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { toggleActive,
          deleteItem,
          deleteAll,
-         sortedArr } from '../actions';
+         sortedArr,
+         sortComp } from '../actions';
 
 const ToDoList = props => {
 
@@ -79,6 +80,22 @@ const ToDoList = props => {
     props.deleteAll();
   }
 
+  const sortCompHandler = () => {
+    const newList = [ ...props.todos ]
+
+    newList.sort((a,b) => a.completed && !b.completed ? -1 : 1)
+
+    props.sortComp(newList);
+  }
+
+  const sortNotCompHandler = () => {
+    const newList = [ ...props.todos ]
+
+    newList.sort((a,b) => a.completed && !b.completed ? -1 : 1).reverse();
+
+    props.sortComp(newList);
+  }
+
   return(
     <div className='list-items'>
       <div className='list-container'>
@@ -97,6 +114,8 @@ const ToDoList = props => {
         <button onClick={deleteAllHandler}>Remove All</button>
         <button onClick={sortUpHandler}>Sort <span>&#x21e7;</span></button>
         <button onClick={sortDownHandler}>Sort <span>&#x21e9;</span></button>
+        <button onClick={sortCompHandler}>Sort <span>&#x2714;</span></button>
+        <button onClick={sortNotCompHandler}>Sort <span>&#x2718;</span></button>
       </div>
     </div>
   );
@@ -109,4 +128,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { toggleActive,
                                           deleteItem,
                                           deleteAll,
-                                          sortedArr } )(ToDoList);
+                                          sortedArr,
+                                          sortComp } )(ToDoList);
