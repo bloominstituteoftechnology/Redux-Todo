@@ -9,12 +9,12 @@ import TodoForm from "./components/TodoForm";
 class App extends Component {
   render() {
     return (
-      <>
+      <div className="App">
         <h1 className="title">Redux Todo List</h1>
         <div className="alert_container">{this.props.errsucc}</div>
         <TodoForm />
         <TodoList />
-      </>
+      </div>
     );
   }
 }
