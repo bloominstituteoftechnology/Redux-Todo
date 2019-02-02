@@ -111,7 +111,7 @@ button:active {
   font-weight: 700;
   width: 50%;
   max-width: 600px;
-  min-width: 350px;
+  /* min-width: 350px; */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -149,22 +149,31 @@ button:active {
   .success {
     width: 70%;
   }
+
+  .todos {
+    width: 70%;
+  }
 }
 
 @media (max-width: 450px) {
 
   .alert_container {
     margin-bottom: 1.5rem;
-    padding: 0.4rem;
+    padding: 0.4rem 0;
   }
 
   .error,
   .success {
-    /* min-width: 350px; */
     font-size: 0.9rem;
     padding-left: 1rem;
     padding-right: 1rem;
     width: 90%;
+  }
+
+  .todos {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0 5%;
   }
 
   input {
