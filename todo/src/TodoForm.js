@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './TodoForm.css';
+
 import { addTodo } from './actions';
 import { clearCompleted } from './actions';
 

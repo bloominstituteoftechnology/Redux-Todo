@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './TodoList.css'
+
 import { connect } from 'react-redux';
 import { toggle } from './actions';
 import { removeTodo } from './actions';

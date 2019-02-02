@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './TodoList.css'
 import Todo from './Todo';
+
 
 const TodoList = (props) => {
 
