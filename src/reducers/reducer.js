@@ -13,7 +13,11 @@ const initialState = {
   ],
 };
 
-const thewindow = window.localStorage;
+let thewindow = window.localStorage;
+const todos = JSON.stringify({todos: []});
+if (thewindow === null) {
+  thewindow.setItem('todos', todos);
+}
 const local = JSON.parse(thewindow.getItem('todos'));
 
 export const reducer = (state = local, action) => {
