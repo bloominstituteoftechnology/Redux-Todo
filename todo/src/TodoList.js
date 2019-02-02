@@ -1,5 +1,7 @@
 import React from "react";
 import {connect}  from "react-redux";
+import Todo from "./Todo"
+import "./Todo.css"
 
 const Todolist =props=> {
 
@@ -8,7 +10,7 @@ const Todolist =props=> {
             {
                 props.todos.map((todo, index) => {
 
-                    return <li key={index} todo={todo}>{todo.todo}</li>
+                    return <Todo key={index} todo={todo}></Todo>
                 })
             }
 

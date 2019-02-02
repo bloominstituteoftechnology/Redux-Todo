@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {addTodo} from "./actions"
+import {addTodo,clearTodo} from "./actions"
 
 
 
@@ -9,7 +9,7 @@ class TodoInput extends React.Component{
     constructor(){
         super();
         this.state={
-        inputValue:""
+            inputValue:""
         }
 
 
@@ -21,21 +21,31 @@ class TodoInput extends React.Component{
 
     createNewTodo=e=>{
         e.preventDefault();
-        this.props.addTodo(this.state.inputValue)
+        //for deleting todos I need their id that I can pass while creating them
+        this.props.addTodo(this.state.inputValue,Date.now())
         this.setState({inputValue:""})
     }
+    clearClicked=(event) => {
+
+        event.preventDefault();
+        console.log("clearClicked");
+        this.props.clearTodo();
+    }
+
     render(){
         return (
+            <div>
             <form onSubmit={this.createNewTodo}>
-                TodoInput
+
                 <input  type="text" placeholder="Write your todo"
                    value={this.state.inputValue}     onChange={this.changeInputValue}/>
-                <button type="submit">AddTodo</button>
+                <button type="submit" className="add">AddTodo</button>
+
             </form>
+
+            <button onClick={this.clearClicked} className="clear">Delete Todo</button>
+            </div>//Delete button should be outside the form as the form could take one submit for add
         )
-
-
-
 
     }
 
@@ -46,4 +56,4 @@ function mapStateToProps(state){
 
 }
 
-export default connect(mapStateToProps,{addTodo:addTodo})(TodoInput)
+export default connect(mapStateToProps,{addTodo:addTodo, clearTodo:clearTodo})(TodoInput)
