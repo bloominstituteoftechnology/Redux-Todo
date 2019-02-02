@@ -19,9 +19,9 @@ class TodoList extends React.Component {
     return (
       <div className="todo-container">
         <div className="todo-tabs">
-          <h2 onClick={() => this.toggleShow('all')}>All</h2>
-          <h2 onClick={() => this.toggleShow(true)}>Completed</h2>
-          <h2 onClick={() => this.toggleShow(false)}>Unfinished</h2>
+          <h2 onClick={() => this.toggleShow('all')} className={this.state.show === 'all' ? 'selected' : null} >All</h2>
+          <h2 onClick={() => this.toggleShow(true)} className={this.state.show === true ? 'selected' : null} >Completed</h2>
+          <h2 onClick={() => this.toggleShow(false)} className={this.state.show === false ? 'selected' : null} >Unfinished</h2>
         </div>
         <div className="todo-list">
           {this.state.show === 'all' ? 
