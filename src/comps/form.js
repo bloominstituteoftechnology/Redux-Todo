@@ -70,11 +70,11 @@ class Form extends React.Component {
   }
 }
 
-const mapPropsToState = state => {
+const mapStateToProps = state => {
   return {};
 };
 
 export default connect(
-  mapPropsToState,
+  mapStateToProps,
   {addToDo, saveToDos},
 )(Form);

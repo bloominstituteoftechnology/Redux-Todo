@@ -18,11 +18,11 @@ const TheToDo = props => {
   );
 };
 
-const mapPropsToState = state => {
+const mapStateToProps = state => {
   return {};
 };
 
 export default connect(
-  mapPropsToState,
+  mapStateToProps,
   {completedToDo},
 )(TheToDo);
