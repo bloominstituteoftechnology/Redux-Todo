@@ -1,4 +1,4 @@
-import ADD_TODO from './actions'
+import { ADD_TODO } from './actions'
 
 let defaultState = {
     header: 'Todo List',
@@ -10,6 +10,7 @@ let defaultState = {
 export default function reducer(state = defaultState, action) {
     switch(action.type) {
         case ADD_TODO:
-        return { ...state, todos: state.todos }
+            return { ...state, todos: state.todos };
+        default: return state;
     }
 }
