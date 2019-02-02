@@ -1,22 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../App.css';
 
-import { deleteTodo } from '../actions/actions';
+import { deleteTodo, toggleTodo } from '../actions/actions';
 
 const Todo = (props) => {
-
-  const deleteTodo = (name) => {
-    props.deleteTodo(name)
-  }
-
   return (
     <div>
-      <h3> {props.todo.name}</h3>
+      <div className={`todo-list ${props.todo.completed ? "true" : ""}`}>
+        <h3 onClick={() => props.toggleTodo(props.todo.name)} > {props.todo.name}</h3>
+      </div>
       <button onClick={() => props.deleteTodo(props.todo.name)}> Delete Todo </button>
     </div>
   )
 }
-function mapStateToProps(){
+function mapStateToProps(state){
   return {}
 }
-export default connect(mapStateToProps, {deleteTodo: deleteTodo})(Todo);
+export default connect(mapStateToProps, {deleteTodo, toggleTodo})(Todo);
