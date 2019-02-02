@@ -6,3 +6,8 @@ ul {
   text-decoration: none;
   list-style: none;
 }
+
+.done {
+  text-decoration: line-through;
+  color: lightgray;
+}
