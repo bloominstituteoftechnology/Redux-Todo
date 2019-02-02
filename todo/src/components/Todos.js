@@ -1,16 +1,24 @@
 import React from 'react';
-import Todo from './Todo';
+import { connect } from 'react-redux';
 
-export default function Todos(props) {
+function Todos(props) {
     return (
         <div>
             <ul>
                 {props.todos.map((todo, index) => {
                     return (
-                        <li><Todo key={index}/>{todo.todo}</li>
+                        <li key={index}>{todo.todo}</li>
                     )
-                })};
+                })}
             </ul>
         </div>
     )
 }
+
+const mstp = state => {
+    return {
+        todos: state.todos
+    }
+}
+
+export default connect(mstp)(Todos);

@@ -2,25 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Todos from './components/Todos';
 
-export default class App extends Component {
+class App extends Component {
 
   constructor() {
     super();
 
     this.state = {
-      header: 'Todo List',
       todos: []
     }
   }
   render() {
     return (
       <div className="App">
-        {!(this.state.todos) ? 
+        {(this.state.todos.length === 0) ? 
           <div>No todos - add some </div>
         :
           <div>
-            <h1>{this.state.header}</h1>
-            <Todos todos={this.state.todos} />
+            <h1>REDUX - To Do List</h1>
+            <Todos />
           </div>
         }
       </div>
