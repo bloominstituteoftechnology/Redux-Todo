@@ -13,18 +13,21 @@ const reducer = (state = initialState, action) => {
     switch (action.type){
         case ADDTODO:
         console.log('todo added...')
-        let newTodos = [...state.todos, action.payloadTodo]
+        let newTodos = [...state.todos, action
+            .payloadTodo]
         return {...state, todos: newTodos};
-        case COMPLETE_TODO:
+
+        case COMPLETE_TODO:   
         console.log('todo completed/toggled...')
-        return {todos: state.todos.map(todo => {
-           return todo.id === action.id ? {...todo, completed: !todo.completed } : todo}) }
-        // let completedTodos = [...state.todos, action.completeTodo]
-        // return Object.assign({}, state, {todos: completeTodo})
+        let toggleTodos =  state.todos.slice();
+        toggleTodos = toggleTodos.map(todo => 
+            todo.id === action.id ? {...todo, completed: !todo.completed } : todo)
+        return {...state, todos: toggleTodos}
         case DELETE_TODO: 
-        return {todos: state.todos.filter(todo => todo.id !== action.id)}
         console.log('todo deleted..')
-        return 
+        let deleteTodos = state.todos.slice();
+        deleteTodos = deleteTodos.filter(todo => todo.completed !== true)
+        return {...state, todos: deleteTodos}
         default:
         return state;
     }

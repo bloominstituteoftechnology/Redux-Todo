@@ -5,9 +5,9 @@ export const DELETE_TODO = 'DELETE_TODO';
 export const addTodo = (text) => {
     let newTodo = {
         todo: text,
-        complete: false
+        deleteTask: false
     };
-    return {type: 'ADDTODO', payloadTodo: newTodo};
+    return {id: Date.now(), type: 'ADDTODO', payloadTodo: newTodo};
 }
 
 export const completeTodo = (id) => {
