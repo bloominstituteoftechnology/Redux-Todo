@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/actions'
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions/actions'
 
 
 let initialState = {
@@ -38,6 +38,17 @@ export default function reducer (state = initialState, action) {
                     ...todo,complete: !todo.complete
                 } : todo)
         }
+    
+        case DELETE_TODO:
+            return {
+                ...state,
+                todos: state.todos.filter((todo, index) => action.payload !== index)
+            }
+
+        // console.log("HI FROM DELETE FROM REDUCER")
+        // console.log(action)
+
+        default: 
+            return state;
     }
-    return state;
 }

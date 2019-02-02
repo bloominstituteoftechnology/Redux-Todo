@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo } from '../actions/actions'
+import { addTodo, toggleTodo, deleteTodo } from '../actions/actions'
 
 class ToDoList extends Component {
     constructor(props) {
@@ -30,6 +30,14 @@ class ToDoList extends Component {
         this.props.toggleTodo(index)
     }
 
+    deleteTodo = (e, index) => {
+        e.preventDefault();
+        // console.log("HI FROM DELETE TODO!")
+        // console.log("NOW SENDING TO ACTIONS")
+        this.props.deleteTodo(index);
+    }
+
+
     render() {
         // console.log(this.props)
         return (
@@ -40,21 +48,23 @@ class ToDoList extends Component {
                         value = {this.state.inputValue}
                         onChange = {this.changeInput}
                     />
+                    
                     <button type="submit">Add</button>
-                    <button>Delete Finished</button>
+                    
                 </form>
                 <div>
                     {this.props.todo.map((todoItem, index) => {
                         return (
                             <div>
-                                <li style = {{
-                                      textDecoration:todoItem.complete ? 'line-through' : 'none'
+                                <li style = {{textDecoration:todoItem.complete
+                                                 ? 'line-through' 
+                                                 : 'none'
                                     }}
-                                    onClick = {e => this.toggleItem(e, index)} 
-                                            key = {index}>
+                                    onClick = {e => this.toggleItem(e, index)} key = {index}>
                                             
                                             {todoItem.todo}
                                 </li>
+                                <button onClick = {e => this.deleteTodo(e, index)} key={index}>Delete</button>
                             </div>
                         )                        
                     })}
@@ -70,4 +80,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {addTodo, toggleTodo })(ToDoList);
+export default connect(mapStateToProps, {addTodo, toggleTodo, deleteTodo })(ToDoList);
