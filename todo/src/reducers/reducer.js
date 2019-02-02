@@ -1,4 +1,4 @@
-import React from 'react'
+import { INPUT_HANDLER, ADD_TODO } from '../actions/index'
 
 const initialState = {
   todos: [
@@ -27,7 +27,15 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-      return state;
+  console.log(action)
+  switch(action.type) {
+    case INPUT_HANDLER:
+      return { ...state, inputText: action.inputText}
+    case ADD_TODO:
+      return { ...state, state.todos:todos.push(action.payload)}
+    default:
+      return state
   }
+}
 
 export default reducer;

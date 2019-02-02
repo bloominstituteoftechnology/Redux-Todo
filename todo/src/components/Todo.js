@@ -5,7 +5,7 @@ const Todo = props => {
       <li style={props.todo.completed ? { textDecoration: 'line-through' } : null }
           // onClick={ () => props.toggleCompleted(props.todo.id) }>
           onClick={ () => console.log(props.todo.id) }>
-        {props.todo.task}
+        {props.todo.value}
       </li>
   ); 
 }
