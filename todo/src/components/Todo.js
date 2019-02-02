@@ -11,7 +11,7 @@ const Todo = props => {
          onClick={ () => props.completeTodo(props.todo.id)} 
  className={props.todo.completed ? 'taskComplete' : 'taskNotComplete' }>
             <h2>{props.todo.todo}</h2>
-            <div onClick={ () => props.deleteTodo(props.todo.id)}>x</div>
+            {/* <div onClick={ () => props.deleteTodo(props.todo.id)}>x</div> */}
     </div>
     )
 };

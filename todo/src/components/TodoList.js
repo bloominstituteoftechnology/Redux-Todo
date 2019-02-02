@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+ import {deleteTodo} from '../actions/indexAction';
 import Todo from './Todo';
+import './Todo.css';
 
 const TodoList = props => {
     console.log(props, "clicked!")
     return (
        <div> 
-        {props.todos.map((todo, index) =>( 
-                <Todo key={index} 
+        <div>
+        {props.todos.map((todo) =>( 
+                <Todo key={todo.id} 
                 todo={todo} 
-                toggleTask={props.handleToggleTask}
-                deletetodo={props.deleteTodo}
             />
             ))}
+        </div>
+
+ <button onClick={ () => props.deleteTodo()}>Delete Todo</button>
        </div>
     )
 }
@@ -22,4 +26,4 @@ function mapStateToProps(state){
         todos: state.todos
     }
 }
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, {deleteTodo})(TodoList);

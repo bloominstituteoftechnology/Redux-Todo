@@ -4,6 +4,7 @@ export const DELETE_TODO = 'DELETE_TODO';
 
 export const addTodo = (text) => {
     let newTodo = {
+        id: Date.now(),
         todo: text,
         deleteTask: false
     };
@@ -15,5 +16,5 @@ export const completeTodo = (id) => {
 }
 
 export const deleteTodo = (id) => {
-    return {type: 'DELETE_TODO', id};
+    return {type: 'DELETE_TODO'};
 }

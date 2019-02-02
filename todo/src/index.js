@@ -6,15 +6,6 @@ import  reducer  from './reducers/reducer';
 // import './index.css';
 import App from './App';
 
-// function reducer(){
-//     return {
-//         todoList: [
-//             { task: 'Learn Redux',
-//              id: 0, completed: false }
-//           ],
-//           title: 'Welcome to Jamar\'s redux app'
-//     }
-// }
 
 
 const store = createStore(reducer);
