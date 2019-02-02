@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { compose, createStore } from 'redux';
+import persistState from 'redux-localstorage';
 import { Provider } from 'react-redux';
 import  reducer  from './reducers/reducer';
-// import './index.css';
 import App from './App';
 
+const enchancer = compose(
+  persistState(/*paths, config*/),
+)
 
 
-const store = createStore(reducer);
+const store = createStore(reducer, enchancer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
