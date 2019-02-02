@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-function Todos(props) {
+const Todos = props => {
     return (
         <div>
             <ul>
