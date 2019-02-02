@@ -5,7 +5,7 @@ import Todo from "./Todo";
 
 function List(props) {
   return (
-    <div className="list">
+    <ul className="list">
       {props.todos.map(entry => (
         <Todo
           entry={entry.todo}
@@ -14,7 +14,7 @@ function List(props) {
           id={entry.id}
         />
       ))}
-    </div>
+    </ul>
   );
 }
 
