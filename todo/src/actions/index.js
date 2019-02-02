@@ -6,7 +6,7 @@ export const DELETE_FINISHED = 'DELETE_FINISHED';
 export const addTodo = (text) => {
     return {
         type: ADD_TODO,
-        entry: { id: Date.now(), value: text, completed: false},
+        payload: { id: Date.now(), value: text, completed: false},
     }
 }
 
