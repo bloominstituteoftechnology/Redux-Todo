@@ -27,12 +27,11 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  console.log(action)
   switch(action.type) {
     case INPUT_HANDLER:
       return { ...state, inputText: action.inputText}
     case ADD_TODO:
-      return { ...state, state.todos:todos.push(action.payload)}
+      return { ...state, todos: state.todos.concat(action.payload)}
     default:
       return state
   }
