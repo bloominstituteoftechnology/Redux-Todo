@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { addTodo, toggleCompleted, removeTodo } from "../../actions/actions";
+import "./TodoList.css";
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -38,7 +39,10 @@ class TodoList extends React.Component {
             return (
               <li key={i}>
                 <div>
-                  <span onClick={() => this.toggleCompleted(i)}>
+                  <span
+                    className={todo.completed ? "completed" : null}
+                    onClick={() => this.toggleCompleted(i)}
+                  >
                     {todo.value}
                   </span>
                   <button onClick={() => this.props.removeTodo(i)}>
