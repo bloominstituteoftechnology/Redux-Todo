@@ -1,0 +1,93 @@
+.cont {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .App {
+    margin-top: 15px;
+    width: 90%;
+    background-color: #e7f3ff;
+    padding: 15px;
+    border-radius: 5px;
+
+    .formCont {
+      margin-top: 15px;
+
+      .form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .inpCont {
+          width: 49%;
+          display: flex;
+          flex-wrap: wrap;
+          padding-bottom: 10px;
+
+          label {
+            padding-right: 7px;
+          }
+
+          input {
+            border-radius: 5px;
+          }
+        }
+
+        .dateCont {
+          width: 49%;
+          display: flex;
+          flex-wrap: wrap;
+          padding-bottom: 10px;
+
+          label {
+            padding-right: 7px;
+            width: 30%;
+          }
+
+          input {
+            border-radius: 5px;
+            width: 65%;
+          }
+        }
+      }
+    }
+    button {
+      width: 100%;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid black;
+      margin-bottom: 3px;
+    }
+
+    .add:hover {
+      background-color: #c9f09d;
+    }
+
+    .delete:hover {
+      background-color: red;
+    }
+
+    .save:hover {
+      background-color: #c9f09d;
+    }
+  }
+}
+
+.completed {
+  background-color: #c9f09d;
+}
+
+.listCont {
+  margin-top: 15px;
+  padding-bottom: 15px;
+
+  .todo {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+
+    .theTodo:hover {
+      cursor: pointer;
+    }
+  }
+}
