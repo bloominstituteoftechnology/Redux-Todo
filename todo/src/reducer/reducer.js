@@ -5,13 +5,11 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-    console.log(state)
+    console.log(action.todo)
     switch (action.type) {
         case 'ADD_TODO':
-            return [...state.todos, {value:action.todo, completed: false}]
+        return [{...state.todos}, {value: action.todo, completed:false} ]
         default:
             return state;
     }
-
-    console.log(state)
 }
