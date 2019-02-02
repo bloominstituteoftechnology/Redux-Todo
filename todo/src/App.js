@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 import "./App.css";
 
 class App extends Component {
@@ -7,13 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <TodoForm />
-        {/* todo list */}
-        <div className="todolist">
-          <ul>
-            <li>test</li>
-            <li>test</li>
-          </ul>
-        </div>
+        <TodoList />
       </div>
     );
   }

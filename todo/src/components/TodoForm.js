@@ -3,14 +3,20 @@ import { connect } from "react-redux";
 
 function TodoForm() {
   return (
-    <div className="todoform">
+    <div className="todo-form">
       <input type="text" placeholder="new todo here" />
       <button>Add Todo</button>
     </div>
   );
 }
 
+const mapStateToProps = state => {
+  return {
+    newTodo: state.newTodo
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   {}
 )(TodoForm);
