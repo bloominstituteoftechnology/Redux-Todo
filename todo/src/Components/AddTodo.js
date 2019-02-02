@@ -20,7 +20,6 @@ class AddTodo extends React.Component {
   submitHandler = e => {
     e.preventDefault();
     this.props.addItem(this.state.addon);
-    console.log("added");
     this.setState({ [e.target.name]: "" });
   };
 
