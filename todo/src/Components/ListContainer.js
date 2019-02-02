@@ -6,7 +6,7 @@ export default function Todo(props) {
     <div className="list-wrapper">
       <h1>ToDoList</h1>
       <AddTodo />
-      <List list={props.list} />
+      <List />
     </div>
   );
 }
