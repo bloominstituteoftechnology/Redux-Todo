@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addItem } from "../Actions";
 
-export default class AddTodo extends React.Component {
+class AddTodo extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -17,6 +19,7 @@ export default class AddTodo extends React.Component {
 
   submitHandler = e => {
     e.preventDefault();
+    this.props.addItem(this.state.addon);
     console.log("added");
     this.setState({ [e.target.name]: "" });
   };
@@ -30,7 +33,17 @@ export default class AddTodo extends React.Component {
           onChange={this.changeHandler}
           placeholder="Add item to list"
         />
+        <button type="submit">Add</button>
       </form>
     );
   }
 }
+
+function mapStateToProps() {
+  return {};
+}
+
+export default connect(
+  mapStateToProps,
+  { addItem }
+)(AddTodo);
