@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Todo from './Todo'
+import { toggle } from './../actions/actions'
+
 
 const TodoList = props => {
   return (
@@ -17,5 +19,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  {toggle}
 )(TodoList);
