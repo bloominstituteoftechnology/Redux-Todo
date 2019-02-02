@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { addTodo } from './../actions';
 
 class TodoForm extends React.Component {
@@ -17,15 +16,17 @@ class TodoForm extends React.Component {
     createNewTodo = e => {
         e.preventDefault();
         this.props.addTodo(this.state.inputValue);
+        this.setState({ inputValue: '' })
     }
     render() {
+        console.log(this.state.props);
         return(
 
             <div>
                 <form onSubmit={this.createNewTodo}>
                     <input 
                         type="text"
-                        value={this.state.value}
+                        value={this.state.inputValue}
                         onChange={this.changeInputValue}
                     />
                     <button type="submit">Submit</button>
@@ -39,4 +40,7 @@ const mstp = state => {
     return {}
 }
 
-export default connect(mstp, { addTodo: addTodo })(TodoForm)
+export default connect(
+    mstp, 
+    { addTodo: addTodo }
+)(TodoForm);
