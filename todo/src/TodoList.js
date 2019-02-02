@@ -1,27 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Todo from './Todo';
 
 const TodoList = (props) => {
-
-  const addTodo = () => {
-    console.log('hi')
-  }
-
+ console.log(props)
   return(
-    <div>
-      <ul>
-        {/* {this.props.state.map(todo => {
-          <Todo key={todo.id} todo={todo} />
-        })} */}
-      </ul>
-      <form> 
-        <imput type="text" value={this.props.state.newTodo} />
-        <button type="button">Add Todo</button> 
-      </form>
-    </div>
+    <ul>
+      {props.todos.map((task, index) => { return <Todo key ={index} todo ={task.value} toggleTodo = {props.toggleTodo} />})}
+    </ul>
   );
 
 }
+const mapStateToProps = state => {
+  return{
+    todos: state.todos
+  }
+}
 
-export default TodoList;
+export default connect(mapStateToProps)(TodoList);
+
