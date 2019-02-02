@@ -8,7 +8,10 @@ export default function reducer(state = initialState, action) {
     console.log(action.todo)
     switch (action.type) {
         case 'ADD_TODO':
-        return [{...state.todos}, {value: action.todo, completed:false} ]
+        return {
+            ...state,
+            todos: [...state.todos, { value: action.todo, completed: false }]
+          }
         default:
             return state;
     }

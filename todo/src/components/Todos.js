@@ -5,12 +5,15 @@ function Todos(props) {
     console.log(props)
     return(
         <div>
-           {}
+            <ul>
+                {props.todos.map( todo => <li key={todo.value}>{todo.value}</li>)}
+            </ul>
         </div>
     )
 }
 
 const mapStateToProps = state => {
+    console.log(state)
     return { todos: state.todos }
 }
 

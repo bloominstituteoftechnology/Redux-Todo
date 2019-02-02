@@ -12,6 +12,11 @@ class Form extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
       };
 
+    addAndReset = () => {
+        this.props.addTodo(this.state.newTodo)
+        this.setState({newTodo: ""})
+    }
+
     render() {
         return(
             <div>
@@ -21,7 +26,7 @@ class Form extends React.Component {
                     value={this.state.newTodo}
                     onChange={this.handleChanges}
                 />
-                <button onClick={() => this.props.addTodo(this.state.newTodo)}>Add</button>
+                <button onClick={this.addAndReset}>Add</button>
             </div>
         )
     }
