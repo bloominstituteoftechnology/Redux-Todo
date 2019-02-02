@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions/actions'
+import { ADD_TODO, TOGGLE_TODO } from '../actions/actions'
 
 
 let initialState = {
@@ -18,13 +18,25 @@ let initialState = {
 export default function reducer (state = initialState, action) {
     switch(action.type) {
         case ADD_TODO:
-        // console.log("HI FROM CASE", action "IS MY ACTION AND NOW CHANGING STATE WITH NEW DATA")
+        // console.log("HI FROM CASE", action)
+        // console.log("CHANGING STATE NOW")
         const newTodo = {
             todo: action.payload,
             complete: false
         }
         return {
             ...state, todos:[...state.todos, newTodo]
+        }
+
+        case TOGGLE_TODO:
+        // console.log("HI FROM TOGGLE CASE!")
+        // console.log(action.payload)
+        return {
+            ...state,
+            todos: state.todos.map((todo, index) => 
+                action.payload === index ? {
+                    ...todo,complete: !todo.complete
+                } : todo)
         }
     }
     return state;
