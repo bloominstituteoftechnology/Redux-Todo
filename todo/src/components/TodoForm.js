@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { inputHandler, addTodo } from "../actions/index";
+import { inputHandler, addTodo, clearInput } from "../actions/index";
 
 const TodoForm = props => {
 
   const addHandler = e => {
     e.preventDefault();
-    props.addTodo(props.inputText)
+    props.addTodo(props.inputText);
+    props.clearInput();
   }
 
   return (
@@ -38,5 +39,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { inputHandler, addTodo }
+  { inputHandler, addTodo, clearInput }
 )(TodoForm);
