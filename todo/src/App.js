@@ -4,8 +4,8 @@ import Todos from './components/Todos';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       todos: []
@@ -29,7 +29,6 @@ class App extends Component {
 
 const mstp = state => {
   return {
-    header: state.header,
     todos: state.todos
   }
 }
