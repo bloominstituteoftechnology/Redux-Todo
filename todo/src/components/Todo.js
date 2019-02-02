@@ -12,7 +12,7 @@ const Todo = props => {
     </div>
     );
 };
-function mapStateToProps(){
-        return {}
+function mapStateToProps(state){
+        return {todos: state.todos}
       }
       export default connect(mapStateToProps, {})(Todo);

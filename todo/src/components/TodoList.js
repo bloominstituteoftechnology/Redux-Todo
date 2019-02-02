@@ -2,18 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
 
-// const TodoList = props => {
-//     return (
-//         <div>
-//             <ul>
-//                 {props.todos.map((todo, i) =>{
-//                     return <li key={i}>{todo.todo}</li>
-//                 })}
-//             </ul>
-//         </div>
-//     );
-// }
-
 const TodoList = props => {
     console.log(props, "clicked!")
     return (

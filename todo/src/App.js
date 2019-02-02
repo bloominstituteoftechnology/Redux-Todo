@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <h1>{this.props.jamarsTitle}</h1>
+      <h1>{this.props.appTitle}</h1>
       <TodoList />
       <TodoInput />
       </div>
@@ -19,7 +19,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    jamarsTitle: state.title
+    appTitle: state.title,
+    todos: state.todos
   };
 }
 
