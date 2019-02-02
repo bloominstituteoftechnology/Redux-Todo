@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addTodo, toggleCompleted, removeTodo } from "../../actions/actions";
+import { addTodo } from "../../actions/actions";
 import "./TodoList.css";
+import Todo from "../Todo/Todo";
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -17,40 +18,23 @@ class TodoList extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  //Add todo
   addTodo = e => {
     e.preventDefault();
-    this.props.addTodo(this.props.todos, {
+    this.props.addTodo({
       value: this.state.todoText,
       completed: false
     });
     this.setState({ todoText: "" });
   };
 
-  toggleCompleted = i => {
-    console.log(i);
-    this.props.toggleCompleted(this.props.todos, i);
-  };
-
   render() {
+    console.log(this.props);
     return (
       <div>
         <ul>
           {this.props.todos.map((todo, i) => {
-            return (
-              <li key={i}>
-                <div>
-                  <span
-                    className={todo.completed ? "completed" : null}
-                    onClick={() => this.toggleCompleted(i)}
-                  >
-                    {todo.value}
-                  </span>
-                  <button onClick={() => this.props.removeTodo(i)}>
-                    Delete
-                  </button>
-                </div>
-              </li>
-            );
+            return <Todo key={i} index={i} {...todo} />;
           })}
         </ul>
         <input
@@ -74,5 +58,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleCompleted, removeTodo }
+  { addTodo }
 )(TodoList);

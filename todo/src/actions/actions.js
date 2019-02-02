@@ -1,29 +1,24 @@
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
-export const REMOVE_TODO = "TOGGLE_COMPLETED";
+export const REMOVE_TODO = "REMOVE_TODO";
 
-export function addTodo(todos, todo) {
+export function addTodo(todo) {
   return {
     type: ADD_TODO,
-    payload: [...todos, todo]
+    payload: todo
   };
 }
 
-export function toggleCompleted(todos, index) {
-  //get a copy
-  let modifed = todos.slice();
-  //toggle completed
-  modifed[index].completed = !modifed[index].completed;
-
+export function toggleCompleted(index) {
   return {
     type: TOGGLE_COMPLETED,
-    payload: modifed
+    payload: index
   };
 }
 
 export function removeTodo(index) {
   return {
-    type: TOGGLE_COMPLETED,
+    type: REMOVE_TODO,
     payload: index
   };
 }

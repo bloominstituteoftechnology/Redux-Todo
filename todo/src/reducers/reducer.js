@@ -12,9 +12,10 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
+      console.log(action.payload);
       return {
         ...state,
-        todos: action.payload
+        todos: [...state.todos, action.payload]
       };
     case REMOVE_TODO:
       console.log(action.payload);
@@ -27,10 +28,14 @@ function reducer(state = initialState, action) {
         ]
       };
     case TOGGLE_COMPLETED:
-      console.log(action.payload);
+      const index = action.payload;
+      //get a copy
+      let modifed = state.todos.slice();
+      //toggle completed
+      modifed[index].completed = !modifed[index].completed;
       return {
         ...state,
-        todos: action.payload
+        todos: modifed
       };
     default:
       return state;
