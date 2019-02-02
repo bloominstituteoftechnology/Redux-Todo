@@ -48,6 +48,7 @@ class TodoList extends React.Component {
           onChange={this.handleChanges}
         />
         <button onClick={this.addTodo}>Add Todo</button>
+        <button>Delete Completed</button>
       </div>
     );
   }

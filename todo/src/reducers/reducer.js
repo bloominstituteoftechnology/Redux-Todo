@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_COMPLETED } from "../actions/actions";
+import { ADD_TODO, TOGGLE_COMPLETED, REMOVE_TODO } from "../actions/actions";
 
 const initialState = {
   todos: [
@@ -21,6 +21,16 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         todos: action.payload
+      };
+    case REMOVE_TODO:
+      console.log(action.payload);
+      const todos = state.todos.slice();
+      return {
+        ...state,
+        todos: [
+          ...todos.slice(0, action.payload),
+          ...todos.slice(action.payload + 1)
+        ]
       };
     default:
       return state;

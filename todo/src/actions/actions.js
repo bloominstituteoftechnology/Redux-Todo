@@ -1,5 +1,6 @@
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
+export const REMOVE_TODO = "TOGGLE_COMPLETED";
 
 export function addTodo(todos, todo) {
   return {
@@ -17,5 +18,12 @@ export function toggleCompleted(todos, index) {
   return {
     type: TOGGLE_COMPLETED,
     payload: modifed
+  };
+}
+
+export function removeTodo(index) {
+  return {
+    type: TOGGLE_COMPLETED,
+    payload: index
   };
 }
