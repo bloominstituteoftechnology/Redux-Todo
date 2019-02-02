@@ -178,6 +178,28 @@ html {
   line-height: 35px;
   margin-bottom: 20px;
 }
+@media (max-width: 1116px) {
+  .form-container .form-container__text p {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 1116px) {
+  .form-container .form-container__text p {
+    overflow-x: hidden;
+    line-height: 25px;
+  }
+  .form-container .form-container__text p::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  .form-container .form-container__text p::-webkit-scrollbar-track {
+    background-color: rgba(39, 178, 237, 0.25);
+    border-radius: 5px 0;
+  }
+  .form-container .form-container__text p::-webkit-scrollbar-thumb {
+    background-color: rgba(39, 178, 237, 0.65);
+    border-radius: 8px 0 0 8px;
+  }
+}
 .form-container .form-container__form {
   border-radius: 0 5% 5% 0;
   display: flex;
@@ -216,12 +238,22 @@ html {
   outline: none;
   background-color: transparent;
 }
+@media (max-width: 1116px) {
+  .form-container .form-container__form input {
+    width: 93%;
+  }
+}
 .form-container .form-container__form div {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 90%;
   margin-top: 50px;
+}
+@media (max-width: 1116px) {
+  .form-container .form-container__form div {
+    flex-direction: column;
+  }
 }
 .form-container .form-container__form a {
   width: auto;
@@ -232,7 +264,7 @@ html {
 }
 .form-container .form-container__form button {
   height: 35px;
-  width: 125px;
+  min-width: 125px;
   background-color: transparent;
   border: 2px solid #27b2ed;
   border-radius: 5px;
@@ -242,6 +274,11 @@ html {
   letter-spacing: 1.5px;
   transition: background-color 0.5s, color 0.5s;
   cursor: pointer;
+}
+@media (max-width: 1116px) {
+  .form-container .form-container__form button {
+    margin-bottom: 20px;
+  }
 }
 .form-container .form-container__form button:hover {
   background-color: #27b2ed;
