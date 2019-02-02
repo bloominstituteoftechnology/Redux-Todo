@@ -7,11 +7,19 @@ function Todo(props) {
     props.checkItem(props.id);
   };
 
-  return (
-    <div className="entry" onClick={clickHandler}>
-      {props.entry}
-    </div>
-  );
+  if (props.complete) {
+    return (
+      <div className="completed" onClick={clickHandler}>
+        {props.entry}
+      </div>
+    );
+  } else {
+    return (
+      <div className="incomplete" onClick={clickHandler}>
+        {props.entry}
+      </div>
+    );
+  }
 }
 
 function mapStateToProps() {
