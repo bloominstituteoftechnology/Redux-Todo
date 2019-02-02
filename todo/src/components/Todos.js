@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 function Todos(props) {
-    console.log(props)
+    console.log(props.state)
     return(
         <div>
             <ul>
