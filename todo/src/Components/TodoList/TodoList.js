@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addTodo, toggleCompleted } from "../../actions/actions";
+import { addTodo, toggleCompleted, removeTodo } from "../../actions/actions";
 
 class TodoList extends React.Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       todoText: ""
@@ -35,8 +36,15 @@ class TodoList extends React.Component {
         <ul>
           {this.props.todos.map((todo, i) => {
             return (
-              <li key={i} onClick={() => this.toggleCompleted(i)}>
-                {todo.value}
+              <li key={i}>
+                <div>
+                  <span onClick={() => this.toggleCompleted(i)}>
+                    {todo.value}
+                  </span>
+                  <button onClick={() => this.props.removeTodo(i)}>
+                    Delete
+                  </button>
+                </div>
               </li>
             );
           })}
@@ -48,7 +56,6 @@ class TodoList extends React.Component {
           onChange={this.handleChanges}
         />
         <button onClick={this.addTodo}>Add Todo</button>
-        <button>Delete Completed</button>
       </div>
     );
   }
@@ -63,5 +70,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleCompleted }
+  { addTodo, toggleCompleted, removeTodo }
 )(TodoList);

@@ -16,12 +16,6 @@ function reducer(state = initialState, action) {
         ...state,
         todos: action.payload
       };
-    case TOGGLE_COMPLETED:
-      console.log(action.payload);
-      return {
-        ...state,
-        todos: action.payload
-      };
     case REMOVE_TODO:
       console.log(action.payload);
       const todos = state.todos.slice();
@@ -31,6 +25,12 @@ function reducer(state = initialState, action) {
           ...todos.slice(0, action.payload),
           ...todos.slice(action.payload + 1)
         ]
+      };
+    case TOGGLE_COMPLETED:
+      console.log(action.payload);
+      return {
+        ...state,
+        todos: action.payload
       };
     default:
       return state;
