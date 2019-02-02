@@ -1,5 +1,24 @@
 import React from "react";
+import { connect } from "react-redux";
+import { checkItem } from "../Actions";
 
-export default function Todo(props) {
-  return <div className="entry">{props.entry}</div>;
+function Todo(props) {
+  const clickHandler = () => {
+    props.checkItem(props.id);
+  };
+
+  return (
+    <div className="entry" onClick={clickHandler}>
+      {props.entry}
+    </div>
+  );
 }
+
+function mapStateToProps() {
+  return {};
+}
+
+export default connect(
+  mapStateToProps,
+  { checkItem }
+)(Todo);
