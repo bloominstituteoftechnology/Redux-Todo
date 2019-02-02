@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import Todo from './Todo';
 
 const TodoList = (props) => {
- console.log(props)
+
   return(
     <ul>
-      {props.todos.map((task, index) => { return <Todo key ={index} todo ={task.value} toggleTodo = {props.toggleTodo} />})}
+      {props.todos.map((task, index) => { return <Todo key={index} todo={task.value} completed={task.completed} id={task.id} />})}
     </ul>
   );
 

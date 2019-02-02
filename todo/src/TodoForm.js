@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { addTodo } from './actions';
+import { clearCompleted } from './actions';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class TodoForm extends React.Component {
   }
 
   changeHandler = event => {
+    event.preventDefault();
     this.setState({
       inputText: event.target.value
     })
@@ -26,22 +28,26 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.addTodo}>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        this.props.addTodo(this.state.inputText)
+        this.setState({ inputText: "" })
+        }}>
         <input type="text" placeholder="Add Task" value={this.state.inputText} onChange={this.changeHandler}></input>
         <button type="submit" >Add Task</button>
-        {/* <button type = "button" onClick = {this.props.clearHandler}>Clear Completed</button> */}
+        <button type = "button" onClick={() => {this.props.clearCompleted()}}>Clear Completed</button>
       </form>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    newTodo: {
-      value: state.newTodo.value,
-      completed: state.newTodo.completed
+    todos: {
+      value: state.value,
+      completed: state.completed
     }
   }
 }
 
 
-export default connect(mapStateToProps, { addTodo: addTodo })(TodoForm);
+export default connect(mapStateToProps, { addTodo: addTodo, clearCompleted: clearCompleted })(TodoForm);
