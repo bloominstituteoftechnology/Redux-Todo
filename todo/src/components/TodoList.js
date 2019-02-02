@@ -14,18 +14,21 @@ class TodoList extends Component {
 
   render(){
     return (
-      <div>
+      <div className="todo-list">
         {this.props.todos.map((todo) => { 
           return (
             <div className='list-item'>
-              <div 
-                className={`${todo.completed.toString()} list-item-text`}
-                key={todo.id} 
-                id={todo.id} 
-                onClick={() => this.toggleComplete(todo.id)}>
-                {todo.value}
+              <div className="list-item-text">
+                <i class="fas fa-circle"></i>
+                <div 
+                  className={`${todo.completed.toString()} list-item-text`}
+                  key={todo.id} 
+                  id={todo.id} 
+                  onClick={() => this.toggleComplete(todo.id)}>
+                  {todo.value}
+                </div>
               </div>
-              <button onClick={() => this.deleteComplete(todo.id)}>Delete</button>
+                <i class="fas fa-trash-alt" onClick={() => this.deleteComplete(todo.id)}></i>
             </div>)})}
       </div>
     )
