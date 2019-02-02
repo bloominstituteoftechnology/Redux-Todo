@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/Action'
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions/Action'
 
 let initialState ={
     title: "My Todo App",
@@ -9,17 +9,16 @@ let initialState ={
 }
 
 export default function Reducer(state = initialState, action) {
-    console.log('Reducer', action)
     switch(action.type) {
         case ADD_TODO:
-        console.log('add_todo:', action)
-        const newTodo = {
-            todo: action.payload,
-            complete: false
-        }
-        return {
-            ...state, todos: [...state.todos, newTodo]
-        }
+            console.log('add_todo:', action)
+            const newTodo = {
+                todo: action.payload,
+                complete: false
+            }
+            return {
+                ...state, todos: [...state.todos, newTodo]
+            }
             // return Object.assign({}, state, {title: action.title})
    
         case TOGGLE_TODO:
@@ -28,6 +27,12 @@ export default function Reducer(state = initialState, action) {
                 todos: state.todos.map((todo, index) => 
                     action.payload === index ? {...todo, complete: !todo.complete} : todo
                 )
+            }
+        
+        case DELETE_TODO:
+            return {
+                ...state,
+                todos: state.todos.filter((todo, index) => action.payload !== index)
             }
 
         default: 
