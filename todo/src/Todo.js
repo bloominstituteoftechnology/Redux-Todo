@@ -23,7 +23,7 @@ class Todo extends React.Component{
 
     render() {
 
-        if (this.state.completed == true) {
+        if (this.state.todo.completed == true) {
             return <div style={{ textDecoration: 'line-through'}}
                         onClick={this.todoClickFn}> {this.state.todo.todo} </div>
         } else {

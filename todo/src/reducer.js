@@ -41,7 +41,8 @@ export default function reducer(state =initialState,action){
            console.log(todos);
            for (let i=0; i < todos.length; i++) {
                if (todos[i].id == action.payload) {
-                   todos[i].completed = true;
+                   //todos[i].completed = true;
+                   todos[i].completed=!todos[i].completed
 
                }
            }
@@ -59,3 +60,4 @@ export default function reducer(state =initialState,action){
 
 
 }
+// todos[i].completed=!todos[i].completed
