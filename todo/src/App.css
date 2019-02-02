@@ -157,6 +157,11 @@ button:active {
 
 @media (max-width: 450px) {
 
+  .title {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
   .alert_container {
     margin-bottom: 1.5rem;
     padding: 0.4rem 0;
