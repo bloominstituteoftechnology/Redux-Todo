@@ -5,8 +5,14 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 import reducer from './reducer/reducer';
+import { loadState, saveState } from './localstorage';
 
-const store = createStore(reducer);
+const persistedState = loadState();
+const store = createStore(reducer, persistedState);
+
+store.subscribe(() => {
+  saveState(store.getState());
+})
 
 ReactDOM.render(
 <Provider store={store}>
