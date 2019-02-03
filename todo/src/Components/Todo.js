@@ -9,13 +9,13 @@ function Todo(props) {
 
   if (props.complete) {
     return (
-      <li className="completed" onClick={clickHandler}>
+      <li className="completed list-item" onClick={clickHandler}>
         {props.entry}
       </li>
     );
   } else {
     return (
-      <li className="incomplete" onClick={clickHandler}>
+      <li className="incomplete list-item" onClick={clickHandler}>
         {props.entry}
       </li>
     );
