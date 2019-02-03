@@ -1,4 +1,4 @@
-import { INPUT_HANDLER, ADD_TODO, CLEAR_INPUT, TOGGLE_COMPLETED } from '../actions/index'
+import { INPUT_HANDLER, ADD_TODO, CLEAR_INPUT, TOGGLE_COMPLETED, CLEAR_COMPLETED } from '../actions/index'
 
 const initialState = {
   todos: [
@@ -35,6 +35,8 @@ const reducer = (state = initialState, action) => {
     case CLEAR_INPUT:
       return { ...state, inputText: ""}
     case TOGGLE_COMPLETED:
+      return { ...state, todos: action.payload}
+    case CLEAR_COMPLETED:
       return { ...state, todos: action.payload}
     default:
       return state

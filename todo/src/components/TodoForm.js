@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { inputHandler, addTodo, clearInput } from "../actions/index";
+import { inputHandler, addTodo, clearInput, clearCompleted } from "../actions/index";
 
 const TodoForm = props => {
 
@@ -8,6 +8,13 @@ const TodoForm = props => {
     e.preventDefault();
     props.addTodo(props.inputText);
     props.clearInput();
+  }
+
+  const handleCompleted = event => {
+      let todoArr = props.todos.filter( todo => {
+        return todo.completed !== true
+      })
+      props.clearCompleted(todoArr);
   }
 
   return (
@@ -22,7 +29,7 @@ const TodoForm = props => {
         <button type="submit">Add Todo</button>
         <button
           type="button"
-          // onClick={this.props.clearCompleted}
+          onClick={handleCompleted}
         >
           Clear Completed
         </button>
@@ -33,11 +40,12 @@ const TodoForm = props => {
 
 const mapStateToProps = state => {
   return {
+    todos: state.todos,
     inputText: state.inputText
   };
 };
 
 export default connect(
   mapStateToProps,
-  { inputHandler, addTodo, clearInput }
+  { inputHandler, addTodo, clearInput, clearCompleted }
 )(TodoForm);

@@ -2,6 +2,7 @@ export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 export const INPUT_HANDLER = "INPUT_HANDLER";
 export const CLEAR_INPUT = "CLEAR_INPUT";
+export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 
 export function addTodo(text) {
   return {
@@ -31,9 +32,15 @@ export function clearInput() {
 }
 
 export function toggleCompleted(newArray) {
-  console.log(newArray)
   return {
     type: TOGGLE_COMPLETED,
+    payload: newArray
+  }
+}
+
+export function clearCompleted(newArray) {
+  return {
+    type: CLEAR_COMPLETED,
     payload: newArray
   }
 }
