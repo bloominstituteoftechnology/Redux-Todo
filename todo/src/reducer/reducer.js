@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/actions';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions/actions';
 
 
 const initialState = {
@@ -6,15 +6,14 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-    console.log(action.todo)
     switch (action.type) {
-        case 'ADD_TODO':
+        case ADD_TODO:
         return {
             ...state,
             todos: [...state.todos, { value: action.todo, completed: false }]
           }
-        case 'TOGGLE_TODO':
-        console.log(action.todo)
+
+        case TOGGLE_TODO:
             return Object.assign({}, state, {
                 todos: state.todos.map(todo => {
                     if(todo.value === action.todo) {
@@ -25,8 +24,13 @@ export default function reducer(state = initialState, action) {
                     return todo
                 })
             })
-            
-          
+
+        case DELETE_TODO:
+            return Object.assign({}, state, {
+                todos: state.todos.filter( todo => {
+                    return todo.value !== action.todo
+                })
+            })
         default:
             return state;
     }

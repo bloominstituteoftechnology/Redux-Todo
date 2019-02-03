@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {toggleToDo} from '../actions/actions';
+import {toggleToDo, removeToDo} from '../actions/actions';
 
 function Todos(props) {
     console.log(props)
@@ -15,6 +15,9 @@ function Todos(props) {
                 className={todo.completed ? 'done' : 'notDone'}
                 >
                     {todo.value}
+                    
+                    <img src="https://img.icons8.com/material/20/000000/close-window.png"
+                    onClick={() => props.removeToDo(todo.value)}></img>
                 </li>
                 )})}
 
@@ -30,5 +33,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { toggleToDo } 
+    { toggleToDo, removeToDo } 
 )(Todos)
