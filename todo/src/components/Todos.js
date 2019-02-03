@@ -5,7 +5,8 @@ import {toggleToDo, removeToDo} from '../actions/actions';
 function Todos(props) {
     console.log(props)
     return(
-        <div>
+        <div className="todoList">
+        <h1>Todos:</h1>
             <ul>
 
                 {props.todos.map( todo => {
@@ -16,8 +17,9 @@ function Todos(props) {
                 >
                     {todo.value}
                     
-                    <img src="https://img.icons8.com/material/20/000000/close-window.png"
-                    onClick={() => props.removeToDo(todo.value)}></img>
+                    <img src="https://img.icons8.com/material/24/000000/close-window.png"
+                    onClick={() => props.removeToDo(todo.value)}
+                    className="deleteButton" />
                 </li>
                 )})}
 

@@ -19,14 +19,16 @@ class Form extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="form">
                 <input
                     type="input"
                     name="newTodo"
                     value={this.state.newTodo}
                     onChange={this.handleChanges}
                 />
-                <button onClick={this.addAndReset}>Add</button>
+                <img onClick={this.addAndReset} 
+                src="https://img.icons8.com/ios-glyphs/30/000000/plus-2-math.png"
+                className="button" />
             </div>
         )
     }
