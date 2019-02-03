@@ -4,8 +4,9 @@ import "./index.css";
 import App from "./App";
 
 // get the provider and create store
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
+import logger from "redux-logger";
 
 //import your reducer
 import rootReducer from "./reducers/reducer";
@@ -13,7 +14,11 @@ import rootReducer from "./reducers/reducer";
 // create the store and then pass it to the provider
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(logger)
+  )
 );
 
 ReactDOM.render(
