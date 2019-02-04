@@ -19,7 +19,6 @@ class TodoForm extends React.Component {
         this.setState({ inputValue: '' })
     }
     render() {
-        console.log(this.state.props);
         return(
 
             <div>
@@ -36,7 +35,7 @@ class TodoForm extends React.Component {
     }    
 }
 
-const mstp = state => {
+const mstp = () => {
     return {}
 }
 

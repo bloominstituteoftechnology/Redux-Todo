@@ -1,21 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Todo from './Todo';
+import { toggleComplete } from './../actions';
 
-const Todos = props => {
-    // console.log(props)
-    return (
-        <div>
-            <ul>
-                {props.todos.map((todo, index) => {
-                    return (
-                        <li key={index}>
-                            {todo.todo} {todo.completed.toString()}
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
-    )
+
+class Todos extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    deleteHandler = e => {
+        e.preventDefault();
+        this.props.deleteTodo(this.state.todo)
+    }
+    toggleComplete = (e, index) => {
+        e.preventDefault();
+        this.props.toggleComplete(index);
+    }
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.props.todos.map((todo, index) => {
+                        return (
+                            <li key={index} {...todo} onClick={ e => this.toggleComplete(e, index) } > {todo.name}  - {todo.completed.toString()}</li>
+                        )
+                    })}
+                </ul>
+            </div>
+        )
+    }    
 }
 
 const mstp = state => {
@@ -24,4 +38,4 @@ const mstp = state => {
     }
 }
 
-export default connect(mstp)(Todos);
+export default connect(mstp, { toggleComplete: toggleComplete })(Todos);

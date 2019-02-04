@@ -1,12 +1,33 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { toggleComplete } from './../actions';
 
-const Todo = props => {
+class Todo extends React.Component {
 
-    return (
-        <div>
-            <p>{props.todo}</p>
-        </div>
-    )
+    constructor(props) {
+        super(props);
+    }
+    
+    checkComplete = e => {
+        e.preventDefault();
+        this.props.toggleComplete(this.props.todo);
+    }
+
+    render() {
+        console.log(this.props);
+        return (
+            <li  onClick={() => this.props.checkComplete(this.props.todo)}>
+                
+                {this.props.name} - Completed: {this.props.completed.toString()}<span className="fa fa-close"></span>
+            </li>
+        );
+    }
+    
+};
+
+const mtsp = () => {
+    return {}
 }
 
-export default Todo;
+export default connect(mtsp, { toggleComplete: toggleComplete })(Todo);
+
