@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-const taskReducer = (state =[], action) => {
+const tasksReducer = (state =[], action) => {
     switch(action.type) {
         case 'ADD_TASK':
             state = state.concat(action.payload);
