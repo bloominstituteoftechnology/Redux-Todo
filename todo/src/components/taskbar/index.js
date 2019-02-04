@@ -15,8 +15,13 @@ class TaskBar extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+    };
+   };
+
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({addTask}, dispatch);
 }
 
-export default connect(() => {},mapDispatchToProps)(TaskBar);
+export default connect(() =>{}, mapDispatchToProps)(TaskBar);

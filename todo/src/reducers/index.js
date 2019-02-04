@@ -6,7 +6,7 @@ const tasksReducer = (state =[], action) => {
             state = state.concat(action.payload);
             break;
         case 'DELETE_TASK':
-            state = state.state.slic();
+            state = state.slice();
             state.splice(action.payload,1)
             break;
 
