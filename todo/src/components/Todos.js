@@ -23,7 +23,7 @@ class Todos extends React.Component {
                 <ul>
                     {this.props.todos.map((todo, index) => {
                         return (
-                            <li key={index} {...todo} onClick={ e => this.toggleComplete(e, index) } > {todo.name}  - {todo.completed.toString()}</li>
+                            <li style={{textDecoration: todo.completed ? 'line-through': 'none'}} key={index} {...todo} onClick={ e => this.toggleComplete(e, index) } > {todo.name}  - {todo.completed.toString()}</li>
                         )
                     })}
                 </ul>
