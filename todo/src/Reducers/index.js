@@ -1,7 +1,8 @@
 import { ADD_ITEM, CHECK_ITEM, REMOVE_ITEM } from "../Actions";
 
 const initialState = {
-  todos: []
+  todos: [],
+  completed: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -23,6 +24,9 @@ export default function reducer(state = initialState, action) {
       return {
         todos: state.todos.filter(item => {
           return !item.complete;
+        }),
+        completed: state.todos.filter(item => {
+          return item.complete;
         })
       };
     default:
