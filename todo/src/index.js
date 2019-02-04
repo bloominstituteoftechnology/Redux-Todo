@@ -7,6 +7,7 @@ import App from "./App";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
+import persistState from "redux-localstorage";
 
 //import your reducer
 import rootReducer from "./reducers/reducer";
@@ -17,6 +18,7 @@ const store = createStore(
   compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
       window.__REDUX_DEVTOOLS_EXTENSION__(),
+    persistState(null, { key: "test" }),
     applyMiddleware(logger)
   )
 );
