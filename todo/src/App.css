@@ -23,11 +23,12 @@
 
 .list-item {
   list-style-type: square;
-
+  text-align: left;
   list-style-position: inside;
   max-width: 300px;
   width: 95%;
   word-wrap: break-word;
+  cursor: pointer;
 }
 
 .completed {
