@@ -5,7 +5,6 @@ import { removeItem } from "../Actions";
 function ClearButton(props) {
   const clickHandler = e => {
     e.preventDefault();
-    console.log("yo");
     props.removeItem();
   };
 

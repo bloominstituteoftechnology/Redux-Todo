@@ -19,7 +19,6 @@ export const checkItem = id => {
 };
 
 export const removeItem = ids => {
-  console.log("action creator");
   return {
     type: REMOVE_ITEM
   };
