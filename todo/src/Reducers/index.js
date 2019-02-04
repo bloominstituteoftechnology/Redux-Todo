@@ -1,4 +1,4 @@
-import { ADD_ITEM, CHECK_ITEM } from "../Actions";
+import { ADD_ITEM, CHECK_ITEM, REMOVE_ITEM } from "../Actions";
 
 const initialState = {
   todos: []
@@ -19,6 +19,8 @@ export default function reducer(state = initialState, action) {
           } else return item;
         })
       };
+    case REMOVE_ITEM:
+
     default:
       return state;
   }
