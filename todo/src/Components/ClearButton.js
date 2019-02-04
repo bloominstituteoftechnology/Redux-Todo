@@ -1,7 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
+import { removeItem } from "../Actions";
 
-function ClearButton() {
-  return <button>Clear Completed</button>;
+function ClearButton(props) {
+  const clickHandler = e => {
+    e.preventDefault();
+    console.log("yo");
+    props.removeItem();
+  };
+
+  return <button onClick={clickHandler}>Clear Completed</button>;
 }
 
-export default ClearButton;
+function mapStateToProps() {
+  return {};
+}
+
+export default connect(
+  mapStateToProps,
+  { removeItem }
+)(ClearButton);

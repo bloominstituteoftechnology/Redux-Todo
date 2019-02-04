@@ -20,7 +20,12 @@ export default function reducer(state = initialState, action) {
         })
       };
     case REMOVE_ITEM:
-
+      console.log("reducer");
+      return {
+        todos: state.todos.filter(item => {
+          return !item.complete;
+        })
+      };
     default:
       return state;
   }
