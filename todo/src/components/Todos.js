@@ -5,9 +5,9 @@ import { toggleComplete, deleteTodo } from './../actions';
 
 class Todos extends React.Component {
   
-    deleteHandler = e => {
+    deleteHandler = (e, index) => {
         e.preventDefault();
-        this.props.deleteTodo(this.state.todo)
+        this.props.deleteTodo(index)
     }
     toggleHandler = (e, index) => {
         e.preventDefault();
@@ -27,8 +27,8 @@ class Todos extends React.Component {
                                 {...todo} 
                                 onClick={ e => this.toggleHandler(e, index) } > 
                                 {todo.name}
+                                <button onClick={ e => this.deleteHandler(e, index)}></button>
                             </li>
-                            // <button onClick={ e => this.deleteHandler}></button>
                         )
                     })}
                 </ul>
@@ -43,4 +43,7 @@ const mstp = state => {
     }
 }
 
-export default connect(mstp, { toggleComplete: toggleComplete })(Todos);
+export default connect(mstp, { 
+    toggleComplete: toggleComplete,
+    deleteTodo: deleteTodo
+})(Todos);

@@ -1,6 +1,4 @@
-import { ADD_TODO } from './actions';
-import { TOGGLE_COMPLETE } from './actions';
-// import { DELETE_TODO } from './actions';
+import { ADD_TODO, DELETE_TODO, TOGGLE_COMPLETE } from './actions';
 
 let defaultState = {
     todos: [
@@ -34,6 +32,14 @@ export default function reducer(state = defaultState, action) {
                     index === action.payload
                     ? { ...todo, completed: !todo.completed}
                     : todo
+                )
+            }
+            
+        case DELETE_TODO:
+            return {
+                ...state,
+                todos: state.todos.filter((todo, index) => 
+                    index !== action.payload
                 )
             }
         default: 
