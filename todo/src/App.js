@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './Todos';
-import AddToDo from './AddTodo';
+import AddToDo from './AddForm';
 
 class App extends Component {
     state = {
@@ -19,7 +19,7 @@ this.setState({
   todos
 })
   }
-  AddTodo = (todo) => {
+  addOne = (todo) => {
 todo.id = Date.now();
 let todos = [...this.state.todos, todo]
 this.setState({
@@ -33,7 +33,7 @@ this.setState({
       <div className="todo-app container">
       <h1 className='center blue-text'>Todo's</h1>
       <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
-      <AddTodo />
+      <AddTodo addTodo={this.addTodo}/>
       </div>
      
     );
