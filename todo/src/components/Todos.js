@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleComplete } from './../actions';
+import { toggleComplete, deleteTodo } from './../actions';
 
 
 class Todos extends React.Component {
@@ -19,7 +19,15 @@ class Todos extends React.Component {
                 <ul>
                     {this.props.todos.map((todo, index) => {
                         return (
-                            <li style={{textDecoration: todo.completed ? 'line-through': 'none'}} key={index} {...todo} onClick={ e => this.toggleHandler(e, index) } > {todo.name}</li>
+                            <li 
+                                style={{
+                                    textDecoration: todo.completed ? 'line-through'
+                                    : 'none'}} 
+                                key={index} 
+                                {...todo} 
+                                onClick={ e => this.toggleHandler(e, index) } > 
+                                {todo.name}
+                            </li>
                             // <button onClick={ e => this.deleteHandler}></button>
                         )
                     })}

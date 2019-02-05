@@ -14,3 +14,7 @@ export function addTodo(text) {
 export function toggleComplete(index) {
     return { type: TOGGLE_COMPLETE, payload: index }
 }
+
+export function deleteTodo(index) {
+    return { type: DELETE_TODO, payload: index }
+}
