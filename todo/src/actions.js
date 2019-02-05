@@ -6,7 +6,7 @@ export const CLICK_TODO="CLICK_TODO";
 
 export function addTodo(text, id){
       let newTodo={
-          id: id,
+          id: Date.now(),
           todo:text,
           completed:false
 

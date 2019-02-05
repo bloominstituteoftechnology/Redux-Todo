@@ -35,18 +35,41 @@ export default function reducer(state =initialState,action){
            console.log(newTodos)
            return Object.assign({},state,{todos:newTodos})
 
-       case CLICK_TODO:
+
+        case CLICK_TODO:
+
+           /*
+            * We come here for two reasons:
+            * 1. To mark it for deletion (this means an unmarked todo was clicked) :
+            *   Action to take: set completed as true
+            * 2. To unmark it for deletion(This means a marked todo was clicked) :
+            *   Action to take: set completed as false
+            *
+            *   This means that we need to toggle .complete flag of todo which was clicked.
+            *
+            */
            let todos = [...state.todos]
 
            console.log(todos);
+           /*
+            * action.payload contains the id of todo which was clicked.
+            * Loop through all todos and find the todo with matching id (i.e. action.payload).
+            * Once we find it, we will toggle the .completed flag of that todo.
+            */
            for (let i=0; i < todos.length; i++) {
                if (todos[i].id == action.payload) {
                    //todos[i].completed = true;
                    todos[i].completed=!todos[i].completed
+                   // if (todos[i].completed) {
+                   //     todos[i].completed = false;
+                   // } else {
+                   //     todos[i].completed = true;
+                   // }
 
                }
            }
            console.log(todos);
+           console.log("Todo added...");
            return Object.assign({},state,{todos:todos})
 
        default:

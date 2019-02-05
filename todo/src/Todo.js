@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from "react-dom";
-import {connect} from "react-redux";
+import {connect} from "react-redux";//with connect we got all the event handlers
 import {clickTodo} from "./actions";
 
 
@@ -15,7 +15,7 @@ class Todo extends React.Component{
         }
     }
 
-    todoClickFn=(event) =>{
+    todoClickFn=() =>{
 
         this.props.clickTodo(this.state.id)
         this.setState({completed:true})
