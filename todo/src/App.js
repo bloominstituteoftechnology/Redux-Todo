@@ -7,7 +7,7 @@ import TodoList from './Components/TodoList';
   render() {
     return (
       <div className = 'App'>
-        <TodoList todoList={'temp'}/>
+        <TodoList />
       </div>
     );
   }

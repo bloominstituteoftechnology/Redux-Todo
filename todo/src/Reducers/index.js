@@ -16,14 +16,23 @@ import { ACTIONS } from '../Actions';
         id: 2,
         text: 'Third Todo!',
         completed: false
-        }]
+        }],
+
+        currentInputText: '',
 }
 
  const todoReducer = (state = initialState, action) => {
     switch(action.type) {
+        case ACTIONS.HANDLE_INPUT:
+            console.log('input handled:', state.currentInputText);
+        return {...state, currentInputText: action.text};
+
         case ACTIONS.ADD_TODO:
             console.log('add');
-        return state;
+        if (!state.currentInputText){
+            return state;
+        }
+        return {...state, todos:[...state.todos, {id:Date.now(), text: state.currentInputText, completed: false}], currentInputText: ''};
 
         case ACTIONS.COMPLETE_TODO:
             console.log('complete');
