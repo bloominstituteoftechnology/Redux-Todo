@@ -5,10 +5,10 @@ export const ACTIONS = {
     DELETE_TODO: 'DELETE_TODO',
 };
 
-export const handleInput = text => ({type: ACTIONS.HANDLE_INPUT, text: text})
+export const handleInput = (text, eventTarget) => ({type: ACTIONS.HANDLE_INPUT, text: text, target:eventTarget})
 
 export const todoAdd = () => ({type: ACTIONS.ADD_TODO});
 
-export const todoComplete = () => ({type: ACTIONS.COMPLETE_TODO});
+export const todoComplete = id => ({type: ACTIONS.COMPLETE_TODO, id: id});
 
 export const todoDelete = () => ({type: ACTIONS.DELETE_TODO});

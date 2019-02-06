@@ -13,14 +13,14 @@ import {handleInput, todoAdd, todoComplete, todoDelete} from '../Actions';
             <div className = 'container'>
                 <div className = 'todos'>
                     {props.todos.map(
-                        todo => <Todo complete = {props.todoComplete} key = {todo.id} text = {todo.text}/>
+                        todo => <Todo key = {todo.id} completed = {todo.completed} complete = {props.todoComplete} id = {todo.id} text = {todo.text}/>
                     )}
                 </div>
                 <div className = 'todo-form'>
                     <form onSubmit = {addSubmit}>
                         <div className = 'new-todo container'>
                             <label htmlFor = 'new-todo'>Add task here</label>
-                            <input type = 'text' name = 'new-todo' id = 'new-todo' value = {props.currentInputText} onChange = {(e) => props.handleInput(e.currentTarget.value)}/>
+                            <input type = 'text' name = 'new-todo' id = 'new-todo' value = {props.currentInputText} onChange = {(e) => props.handleInput(e.currentTarget.value, e.currentTarget)}/>
                         </div>
                         <div className = 'add-todo todo-button' onClick={(addSubmit) => props.todoAdd('New Todo')}>Add task</div>
                     </form>

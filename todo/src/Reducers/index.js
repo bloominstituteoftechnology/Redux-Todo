@@ -22,9 +22,20 @@ import { ACTIONS } from '../Actions';
 }
 
  const todoReducer = (state = initialState, action) => {
+    let updateTodoList = [...state.todos];
+
     switch(action.type) {
         case ACTIONS.HANDLE_INPUT:
             console.log('input handled:', state.currentInputText);
+        
+        if(action.target.value !== '') {
+            action.target.classList.add('typing')
+            action.target.previousSibling.classList.add('is-typing');
+        } 
+        else {
+            action.target.classList.remove('typing');
+            action.target.previousSibling.classList.remove('is-typing');
+        }
         return {...state, currentInputText: action.text};
 
         case ACTIONS.ADD_TODO:
@@ -36,7 +47,15 @@ import { ACTIONS } from '../Actions';
 
         case ACTIONS.COMPLETE_TODO:
             console.log('complete');
-        return state;
+        updateTodoList.forEach(todo => {
+            if(todo.id === Number(action.id)){
+                todo.completed = !todo.completed;
+            }
+            console.log(todo.id, Number(action.id));
+        })
+        console.log(updateTodoList);
+        console.log(state.todos)
+        return {...state, todos: [...updateTodoList]};
 
         case ACTIONS.DELETE_TODO:
             console.log('delete');
