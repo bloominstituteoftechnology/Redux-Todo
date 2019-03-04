@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 import Todo from './Todo';
 
+import { connect } from 'react-redux';
+import { fetchTodos } from '../actions/todoActions';
+
 class TodoList extends Component {
     render() {
         return (
             <div>
-                <Todo />
+                {this.props.todos.todos.map(todo => (
+                    <Todo />
+                ))}
+                {console.log(this.props.todos)}
             </div>
         )
     }
 }
 
-export default TodoList
+const mapStateToProps = state => ({
+    todos: state.todos
+})
+
+export default connect(mapStateToProps, { fetchTodos })(TodoList);
