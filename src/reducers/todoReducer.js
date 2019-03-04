@@ -1,4 +1,4 @@
-import { FETCH_TODOS, ADD_TODO } from '../actions/types';
+import { ADD_TODO } from '../actions/types';
 
 const initalState = {
     todos: [],
@@ -7,10 +7,6 @@ const initalState = {
 
 export default (state = initalState, action) => {
     switch (action.type) {
-        case FETCH_TODOS:
-            return {
-                todos: [...state.todos]
-            }
         case ADD_TODO:
             return {
                 ...state,
