@@ -3,17 +3,17 @@ import { ADD_TODO, TOGGLE_COMPLETED } from '../actions';
 const initialState = {
 	todos: [
 		{
-			task: 'Walk Dog',
+			todo: 'Walk Dog',
 			id: 1234567890,
 			completed: false
 		},
 		{
-			task: 'Eat breakfast',
+			todo: 'Eat breakfast',
 			id: 1234567891,
 			completed: false
 		},
 		{
-			task: 'Get dressed',
+			todo: 'Get dressed',
 			id: 1234567892,
 			completed: false
 		}
@@ -24,7 +24,17 @@ export default (state = initialState, action) => {
 		case ADD_TODO:
 			return { todos: [ ...state.todos, action.payload ] };
 		case TOGGLE_COMPLETED:
-			console.log('toggle completed triggered', action);
+			return {
+				todos: [
+					...state.todos.map((todo) => {
+						if (todo.id !== action.payload.id) {
+							return todo;
+						} else {
+							return action.payload;
+						}
+					})
+				]
+			};
 		default:
 			return state;
 	}
