@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addTodo, toggleCompleted } from "../actions/index";
 
+import "./TodoApp.css";
+
 class TodoApp extends Component {
   state = {
     newTodo: ""
@@ -15,6 +17,7 @@ class TodoApp extends Component {
     e.preventDefault();
     this.props.addTodo(this.state.newTodo);
     console.log(this.state.newTodo);
+    this.setState({ newTodo: "" });
   };
 
   toggleCompleted = id => {
@@ -26,8 +29,13 @@ class TodoApp extends Component {
       <>
         <div className="TodoList">
           {this.props.todoList.map(item => (
-            <h4 key={item.id} onClick={() => this.toggleCompleted(item.id)}>
+            <h4
+              className={`${item.completed ? "item-completed" : null}`}
+              key={item.id}
+              onClick={() => this.toggleCompleted(item.id)}
+            >
               {item.todoItem}
+              <button>x</button>
             </h4>
           ))}
         </div>
