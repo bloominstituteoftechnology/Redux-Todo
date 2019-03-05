@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toggleTodoComplete } from '../actions/todoActions';
+import { toggleTodoComplete, deleteTodo } from '../actions/todoActions';
 
 class Todo extends Component {
 
@@ -8,11 +8,15 @@ class Todo extends Component {
         this.props.toggleTodoComplete(id);
     }
 
+    deleteTodo = id => {
+        this.props.deleteTodo(id);
+    }
+
     render() {
         return (
             <div>
                 <span onClick={() => this.toggleTodoComplete(this.props.todo.id)}>{this.props.todo.todo}</span> {' '}
-                <span>delete</span>
+                <span onClick={() => this.deleteTodo(this.props.todo.id)}>delete</span>
             </div>
         )
     }
