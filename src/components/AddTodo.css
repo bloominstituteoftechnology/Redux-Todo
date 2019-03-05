@@ -1,0 +1,27 @@
+.add-todo > form > input {
+    border-radius: 10px;
+    border: 1px solid lightcoral;
+    padding: 15px;
+    outline: none;
+    font-size: 16px;
+    margin: 0 10px 0 0;
+}
+
+.add-todo > form > input::placeholder {
+    font-size: 16px;
+}
+
+.add-todo > form > button {
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid lightcoral;
+    background: transparent;
+    transition: 0.2s ease-in-out;
+}
+
+.add-todo > form > button:hover {
+    background: lightcoral;
+    color: #ffffff;
+    cursor: pointer;
+}

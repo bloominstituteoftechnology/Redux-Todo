@@ -1,0 +1,10 @@
+.todo {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2px;
+    font-size: 20px;
+}
+
+.delete-todo {
+    cursor: pointer;
+}
