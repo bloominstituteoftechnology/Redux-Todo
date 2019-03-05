@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_COMPLETED } from "../actions";
+import { ADD_TODO, TOGGLE_COMPLETED, DELETE_TODO } from "../actions";
 
 //Step 1: Create store and initial list of todo Items
 const initialState = {
@@ -33,6 +33,14 @@ function reducer(state = initialState, action) {
             item.id === action.payload
               ? { ...item, completed: !item.completed }
               : item
+          )
+        };
+
+      case DELETE_TODO:
+        return {
+          ...state,
+          todoItems: state.todoItems.filter(
+            item => !(item.id === action.payload)
           )
         };
       default:

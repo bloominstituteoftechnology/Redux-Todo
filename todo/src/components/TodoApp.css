@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.todo-item {
+  display: flex;
+}
+
+h4 {
+  padding: 5px;
+}
+
 .item-completed {
   text-decoration: line-through;
 }
