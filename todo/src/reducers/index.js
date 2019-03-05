@@ -1,4 +1,4 @@
-import { addTodo, toggleCompleted } from '../actions';
+import { ADD_TODO, TOGGLE_COMPLETED } from '../actions';
 
 const initialState = {
 	todos: [
@@ -21,9 +21,9 @@ const initialState = {
 };
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case addTodo:
-			console.log('add todo triggered!', action);
-		case toggleCompleted:
+		case ADD_TODO:
+			return { todos: [ ...state.todos, action.payload ] };
+		case TOGGLE_COMPLETED:
 			console.log('toggle completed triggered', action);
 		default:
 			return state;
