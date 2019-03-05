@@ -1,1 +1,1 @@
-export { ADD_TODO, addTodo } from './todoActions';
+export { ADD_TODO, addTodo, TOGGLE_TODO_COMPLETE, toggleTodoComplete } from './todoActions';
