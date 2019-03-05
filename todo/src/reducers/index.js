@@ -1,4 +1,4 @@
-import { ADD_TODO } from "../actions";
+import { ADD_TODO, TOGGLE_COMPLETED } from "../actions";
 
 //Step 1: Create store and initial list of todo Items
 const initialState = {
@@ -24,6 +24,16 @@ function reducer(state = initialState, action) {
         return {
           ...state,
           todoItems: [...state.todoItems, newtodoItem]
+        };
+
+      case TOGGLE_COMPLETED:
+        return {
+          ...state,
+          todoItems: state.todoItems.map(item =>
+            item.id === action.payload
+              ? { ...item, completed: !item.completed }
+              : item
+          )
         };
       default:
         return state;

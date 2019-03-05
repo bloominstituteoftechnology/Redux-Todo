@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../actions/index";
+import { addTodo, toggleCompleted } from "../actions/index";
 
 class TodoApp extends Component {
   state = {
@@ -11,10 +11,14 @@ class TodoApp extends Component {
     this.setState({ newTodo: e.target.value });
   };
 
-  addFriendToList = e => {
+  addTodoToList = e => {
     e.preventDefault();
     this.props.addTodo(this.state.newTodo);
     console.log(this.state.newTodo);
+  };
+
+  toggleCompleted = id => {
+    this.props.toggleCompleted(id);
   };
 
   render() {
@@ -22,7 +26,9 @@ class TodoApp extends Component {
       <>
         <div className="TodoList">
           {this.props.todoList.map(item => (
-            <h4>{item.todoItem}</h4>
+            <h4 key={item.id} onClick={() => this.toggleCompleted(item.id)}>
+              {item.todoItem}
+            </h4>
           ))}
         </div>
         <input
@@ -32,7 +38,7 @@ class TodoApp extends Component {
           onChange={this.handleChanges}
           placeholder="Add a new Todo"
         />
-        <button onClick={this.addFriendToList}>Add Todo</button>
+        <button onClick={this.addTodoToList}>Add Todo</button>
       </>
     );
   }
@@ -44,5 +50,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleCompleted }
 )(TodoApp);
