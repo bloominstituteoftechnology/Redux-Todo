@@ -8,6 +8,7 @@ export default (state = initalState, action) => {
     switch (action.type) {
         case ADD_TODO:
             const newTodo = {
+                id: Date.now(),
                 todo: action.payload,
                 completed: false
             }
