@@ -3,11 +3,37 @@ import { connect } from "react-redux";
 import { addTodo } from "../actions/index";
 
 class TodoApp extends Component {
+  state = {
+    newTodo: ""
+  };
+
+  handleChanges = e => {
+    this.setState({ newTodo: e.target.value });
+  };
+
+  addFriendToList = e => {
+    e.preventDefault();
+    this.props.addTodo(this.state.newTodo);
+    console.log(this.state.newTodo);
+  };
+
   render() {
     return (
-      <div className="App">
-        <h1>Testing</h1>
-      </div>
+      <>
+        <div className="TodoList">
+          {this.props.todoList.map(item => (
+            <h4>{item.todoItem}</h4>
+          ))}
+        </div>
+        <input
+          name="newTodo"
+          type="text"
+          value={this.state.newTodo}
+          onChange={this.handleChanges}
+          placeholder="Add a new Todo"
+        />
+        <button onClick={this.addFriendToList}>Add Todo</button>
+      </>
     );
   }
 }
