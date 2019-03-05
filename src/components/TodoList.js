@@ -7,8 +7,8 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.props.todos.todos.map((todo, i) => (
-                    <Todo todo={todo} key={i} />
+                {this.props.todos.map(todo => (
+                    <Todo todo={todo} />
                 ))}
             </div>
         )
@@ -16,7 +16,7 @@ class TodoList extends Component {
 }
 
 const mapStateToProps = state => ({
-    todos: state.todos
+    todos: state.todosList.todos
 })
 
 export default connect(mapStateToProps, {})(TodoList);

@@ -16,11 +16,7 @@ class AddTodo extends Component {
     addTodo = e => {
         e.preventDefault();
 
-        const newTodo = {
-            todoText: this.state.todoText,
-            completed: false
-        }
-        this.props.addTodo(newTodo)
+        this.props.addTodo(this.state.todoText)
 
         this.setState({
             todoText: ''
@@ -39,10 +35,4 @@ class AddTodo extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, { addTodo })(AddTodo);
+export default connect(null, { addTodo })(AddTodo);
