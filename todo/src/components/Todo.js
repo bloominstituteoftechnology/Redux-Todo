@@ -19,9 +19,10 @@ class Todo extends React.Component {
 		return (
 			<div>
 				<h1>Todo List</h1>
-				{this.props.todos.map((todo) => {
+				{this.props.todos.map((todo, idx) => {
 					return (
 						<h2
+							key={idx}
 							onClick={(event) => this.handleComplete(event, todo)}
 							style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
 						>
