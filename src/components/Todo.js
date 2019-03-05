@@ -11,7 +11,8 @@ class Todo extends Component {
     render() {
         return (
             <div>
-                <span onClick={() => this.toggleTodoComplete(this.props.todo.id)}>{this.props.todo.todo} {console.log(this.props.todo.completed)}</span>
+                <span onClick={() => this.toggleTodoComplete(this.props.todo.id)}>{this.props.todo.todo}</span> {' '}
+                <span>delete</span>
             </div>
         )
     }
