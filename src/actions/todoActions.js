@@ -6,3 +6,12 @@ export const addTodo = (todo) => {
         payload: todo
     }
 }
+
+export const TOGGLE_TODO_COMPLETE = 'TOGGLE_TODO_COMPLETE';
+
+export const toggleTodoComplete = id => {
+    return {
+        type: TOGGLE_TODO_COMPLETE,
+        payload: id
+    }
+}
