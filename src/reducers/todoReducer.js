@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions/types';
+import { ADD_TODO } from '../actions';
 
 const initalState = {
     todos: [],
