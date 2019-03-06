@@ -8,12 +8,14 @@ class TodoList extends Component {
     render() {
 
         if (this.props.todos.length === 0) {
-            return <h1 className="todo-list-heading">Enter something todo :)</h1>
+            return <h1 className="todo-list-heading">Enter something to-do :)</h1>
         }
 
         return (
             <div className="todo-list">
-                {this.props.todos.sort((a, b) => b.id - a.id).map(todo => (
+                <h1 className="todo-list-heading">To-do list</h1>
+
+                {this.props.todos.map(todo => (
                     <Todo key={todo.id} todo={todo} />
                 ))}
             </div>
