@@ -1,28 +1,47 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addTodo } from './actions/action'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { newTodo: '' }
+    this.addTodo = this.addTodo.bind(this)
+  }
+
+  addTodo(e) {
+    e.preventDefault()
+  }
+
+  changeHandler = e => {
+    console.log(this.state)
+    this.setState({ newTodo: e.target.value })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <form>
+          <input
+            type="text"
+            placeholder="enter text"
+            onChange={this.changeHandler}
+            onSubmit={this.addTodo}
+          />
+          <input type="submit" value="submit" />
+        </form>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    newTodo: App.prototype.addTodo
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { addTodo }
+)(App)
