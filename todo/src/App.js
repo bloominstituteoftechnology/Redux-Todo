@@ -12,56 +12,39 @@ class App extends Component {
    this.state = {
      todos: [
       {
-        task: 'Clean House',
-        id: 1,
+        value: 'Clean House',
         completed: false
       },
       {
-        task: 'Cook food',
-        id: 2,
+        value: 'Cook food',
         completed: false
       },
       {
-        task: 'Wash dishes',
-        id: 1,
+        value: 'Wash dishes',
         completed: false
       },
       {
-        task: 'Learn react',
-        id: 2,
+        value: 'Learn react',
         completed: false
       },
       {
-        task: 'Walk the dog',
-        id: 1,
+        value: 'Walk the dog',
         completed: false
       },
       {
-        task: 'Buy groceries',
-        id: 2,
+        value: 'Buy groceries',
         completed: false
       }
     ],
     todo: ''
   };
 }
-   
-
- addTodo(event) {
-   event.preventDefault();
-   const newTodo 
-   this.setState({
-     todos: ''
-   })
- }
-
-
-
 
  render() {
     return (
       <div className="App">
-        
+        <Todo />
+        <todoList /> 
       </div>
     );
   }
