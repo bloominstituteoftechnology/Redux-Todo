@@ -3,17 +3,49 @@ import './App.css';
 import { connect } from 'react-redux';
 import { addTodo } from './actions';
 import todoList from './components/todoList';
+import Todo from './components/Todo';
 
-
-import './App.css';
 
 class App extends Component {
  constructor() {
    super()
    this.state = {
-     todo: ''
-   };
- }
+     todos: [
+      {
+        task: 'Clean House',
+        id: 1,
+        completed: false
+      },
+      {
+        task: 'Cook food',
+        id: 2,
+        completed: false
+      },
+      {
+        task: 'Wash dishes',
+        id: 1,
+        completed: false
+      },
+      {
+        task: 'Learn react',
+        id: 2,
+        completed: false
+      },
+      {
+        task: 'Walk the dog',
+        id: 1,
+        completed: false
+      },
+      {
+        task: 'Buy groceries',
+        id: 2,
+        completed: false
+      }
+    ],
+    todo: ''
+  };
+}
+   
 
  addTodo(event) {
    event.preventDefault();

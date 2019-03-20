@@ -1,20 +1,32 @@
-import { ADD_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO } from '../actions';
 
 const initialState = {
     todo: 'Todo from Redux store'
 };
 
-function reducer(state = initialState, action) {
-    console.log(action);
+export const reducer(state = initialState, action) => {
+    console.log('reducer - action: ', action);
     switch (action.type) {
         case ADD_TODO:
-        return {
-            ...state,
-            todo: action.payload
-        };
+            console.log('add_todo', action);
+            const newTodo = {'':action.payload};
+            return {
+                ...state,
+                todo: {
+                    ...state.todo, newTodo
+                },
+        case TOGGLE_TODO:
+            return {
+                ...state,
+                todo: state, todo.map((todo, index) => 
+                action.payload === index
+                return 
+                    {todo}
+                
+            }        
+                }
+            }
+            };
         default:
             return state;
     }
-}
-
-export default reducer;
