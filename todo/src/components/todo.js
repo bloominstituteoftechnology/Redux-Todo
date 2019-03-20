@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'raect-redux';
+import { connect } from 'react-redux';
 
 import { addNewTodo, toggleTodo } from '../actions';
 
@@ -27,12 +27,9 @@ class Todo extends React.Component {
             <>
                 <div className='todo-list'>
                     {this.props.todo.map((todo, index) => (
-                        <h3> onClick={event => this.props.toggleTodo(event, index)} key={index}>
-                            {todo.string}
-                        </h3>
+                        <h3> onClick={event => this.props.toggleTodo(event, index)} key={index} todo={todo}</h3>
                     ))}
                 </div>
-                ))}
                 <input
                     type='text'
                     value={this.state.newTodo}

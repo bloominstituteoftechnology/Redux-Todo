@@ -4,7 +4,7 @@ const initialState = {
     todo: 'Todo from Redux store'
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
     console.log('reducer - action: ', action);
     switch (action.type) {
         case ADD_TODO:
@@ -20,3 +20,5 @@ export const reducer = (state = initialState, action) => {
             return state;
     }        
 };
+
+export default reducer;
