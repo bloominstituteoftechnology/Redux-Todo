@@ -32,6 +32,7 @@ const Li = styled.li`
   width: 90%;
   color: #939;
   margin: 0 auto 20px;
+  margin-left: 26px;
 `;
 
 const Delete = styled.p`
