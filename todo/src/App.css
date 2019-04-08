@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat|Montserrat');
+
+html { 
+  background: url(./bg.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  border: 2px solid rgba(88, 111, 124, 0.2);
+  border-radius: 5px;
+  padding: 30px;
+  width: 400px;
+  margin: 200px auto;
+  background-color: rgba(88, 111, 124, 0.6);
+  color: white;
+  font-size: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Caveat', cursive;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+  width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.done {
+  text-decoration: line-through;
+  color: lightgray;
+}
+
+li {
+  text-align: left;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+input {
+  margin-right: 10px;
+  border-radius: 4px;
+  width: 250px;
+  border: 2px solid rgba(88, 111, 124);
+}
+
+.button {
+  border-radius: 3px;
+}
+
+.deleteButton {
+  margin-left: 30px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+  padding-left: 7px;
+}
