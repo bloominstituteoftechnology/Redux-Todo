@@ -29,12 +29,21 @@ class TodoList extends React.Component {
     });
   };
 
+  markTodo = e => {
+    console.log("Marking...", e.target.id);
+    this.props.toggleTodo(e.target.id);
+  };
+
   render() {
     return (
       <div className="todoList">
         <ul>
           {this.props.todos.map((todo, index) => {
-            return <li key={index}>{todo.value}</li>;
+            return (
+              <li onClick={this.markTodo} key={index} id={index}>
+                {todo.value}, {`${todo.completed}`}
+              </li>
+            );
           })}
         </ul>
         <form onSubmit={this.submitTodo}>
