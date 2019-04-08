@@ -3,13 +3,50 @@ import { connect } from "react-redux";
 import { addTodo, toggleTodo } from "../actions";
 
 class TodoList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: ""
+    };
+  }
+
+  handleChanges = e => {
+    e.preventDefault();
+    console.log(e.target.name, [e.target.name]);
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  submitTodo = e => {
+    e.preventDefault();
+    console.log("Submitting...");
+    this.props.addTodo(this.state.text);
+    // Reset everything
+    e.target.reset();
+    this.setState({
+      text: ""
+    });
+  };
+
   render() {
     return (
-      <ul>
-        {this.props.todos.map(todo => {
-          return <li>{todo.value}</li>;
-        })}
-      </ul>
+      <div className="todoList">
+        <ul>
+          {this.props.todos.map((todo, index) => {
+            return <li key={index}>{todo.value}</li>;
+          })}
+        </ul>
+        <form onSubmit={this.submitTodo}>
+          <input
+            onChange={this.handleChanges}
+            type="text"
+            name="text"
+            placeholder="Enter todo here"
+          />
+          <button>Submit todo</button>
+        </form>
+      </div>
     );
   }
 }
@@ -22,5 +59,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  (addTodo, toggleTodo)
+  { addTodo, toggleTodo }
 )(TodoList);
