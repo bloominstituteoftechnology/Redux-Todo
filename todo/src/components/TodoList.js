@@ -13,6 +13,12 @@ class TodoList extends React.Component {
     });
   };
 
+  addTodo = e => {
+    e.preventDefault();
+    this.props.addTodo(this.state.newTodo);
+    this.setState({ newTodo: "" });
+  };
+
   render() {
     return (
       <>
@@ -20,7 +26,7 @@ class TodoList extends React.Component {
         <input
           type="text"
           value={this.state.newTodo}
-          placeholder="Add a new todo"
+          placeholder="...add a new todo"
           onChange={this.handleChanges}
         />
         <button onClick={this.addTodo}>Add Todo</button>
