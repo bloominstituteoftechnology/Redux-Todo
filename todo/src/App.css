@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.list-item {
+  list-style-type: square;
+  text-align: left;
+  list-style-position: inside;
+  max-width: 300px;
+  width: 95%;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  background-color: #b57dc6;
+}
+
+.list-wrapper {
+  border: 2px dashed #e4ff0d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list {
+  max-width: 300px;
+  width: 99%;
+  border: 5px dotted #aa35f1;
+  box-shadow: 10px 10px 10px #4e4f4d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
