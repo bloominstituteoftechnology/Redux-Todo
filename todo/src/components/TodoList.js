@@ -33,7 +33,7 @@ class TodoList extends React.Component {
         <button onClick={this.filterTodo}>Clear</button>
         <div className="">
           {this.props.todos &&
-            this.props.todos.map(todo => <h3>{todo.task}</h3>)}
+            this.props.todos.map(todo => <h3 key={todo.id}>{todo.task}</h3>)}
         </div>
       </>
     );
