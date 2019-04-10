@@ -24,11 +24,15 @@ class TodoList extends React.Component {
     this.props.toggleTodo(id);
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className="todo-wrapper">
         <h2>TO DO (REDUX)</h2>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <input
             type="text"
             value={this.state.newTodo}
