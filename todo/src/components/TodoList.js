@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addTodo, toggleTodo } from "../actions";
+import "./TodoList.css";
 
 class TodoList extends React.Component {
   state = {
@@ -25,8 +26,8 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <>
-        <h2>Todo App</h2>
+      <div className="todo-wrapper">
+        <h2>TO DO (REDUX)</h2>
         <input
           type="text"
           value={this.state.newTodo}
@@ -44,7 +45,7 @@ class TodoList extends React.Component {
               </h3>
             ))}
         </div>
-      </>
+      </div>
     );
   }
 }
