@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  padding: 1px 40px;
+  padding: 10px 40px;
   margin: 10px;
 }
 
@@ -37,6 +37,7 @@ input::placeholder {
 input:focus {
   outline: none;
   border: 3px solid #e7bb41;
+  background: #e7e5df;
 }
 
 button {
@@ -65,7 +66,7 @@ button:focus {
   outline: none;
 }
 
-h3 {
+h4 {
   color: #393e41;
   cursor: pointer;
   background-image: linear-gradient(to bottom, #e7e5df, #d3d0cb, white);

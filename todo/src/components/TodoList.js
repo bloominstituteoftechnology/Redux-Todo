@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo, toggleTodo } from "../actions";
+import { addTodo, toggleTodo, clearTodo } from "../actions";
 import "./TodoList.css";
 
 class TodoList extends React.Component {
@@ -28,23 +28,25 @@ class TodoList extends React.Component {
     return (
       <div className="todo-wrapper">
         <h2>TO DO (REDUX)</h2>
-        <input
-          type="text"
-          value={this.state.newTodo}
-          placeholder="...add a new todo"
-          onChange={this.handleChanges}
-        />
-        <button onClick={this.addTodo}>Add Todo</button>
-        <button onClick={this.filterTodo}>Clear</button>
-        <div className="">
-          {this.props.todos &&
-            this.props.todos.map(todo => (
-              <h3 key={todo.id} onClick={() => this.toggleTodo(todo.id)}>
-                {todo.task}
-                {todo.completed && <i className="fa fa-check" />}
-              </h3>
-            ))}
-        </div>
+        <form>
+          <input
+            type="text"
+            value={this.state.newTodo}
+            placeholder="...add a new todo"
+            onChange={this.handleChanges}
+          />
+          <button onClick={this.addTodo}>Add Todo</button>
+          <button onClick={this.props.clearTodo}>Clear</button>
+          <div className="">
+            {this.props.todos &&
+              this.props.todos.map(todo => (
+                <h4 key={todo.id} onClick={() => this.toggleTodo(todo.id)}>
+                  {todo.task}
+                  {todo.completed && <i className="fa fa-check" />}
+                </h4>
+              ))}
+          </div>
+        </form>
       </div>
     );
   }
@@ -58,5 +60,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo }
+  { addTodo, toggleTodo, clearTodo }
 )(TodoList);
