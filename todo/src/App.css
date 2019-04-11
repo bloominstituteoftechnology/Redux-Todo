@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+
+
+
+.App {
+	width : 1000px;
+	height : 900px;
+	margin : 40px auto;
+
+}
+
+.list-heading {
+	color : red;
+	text-align: center;
+	padding-top: 55px;
+	font-size: 63px;
+}
