@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Todo from "./Todo";
 import { addTodo } from "../actions";
 
+
 export class TodosList extends Component {
   constructor(props) {
     super(props);
@@ -28,8 +29,8 @@ export class TodosList extends Component {
   render() {
     return (
       <div>
-        {this.props.todos.map(todo => (
-          <Todo todo={todo} key={todo.value} />
+        {this.props.todos.map((todo, index) => (
+          <Todo  todo={todo} key={index} index={index} />
         ))}
         <form onSubmit={this.submitHandler}>
           <input
