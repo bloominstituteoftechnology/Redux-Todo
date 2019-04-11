@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux'
 import Todo from "./Todo";
 
 export class TodosList extends Component {
@@ -36,10 +37,18 @@ export class TodosList extends Component {
             name="textField"
             onChange={this.handleChange}
           />
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
   }
 }
 
-export default TodosList;
+const mapStateToProps = state => {
+    return {
+        todos: state.todos
+    }
+}
+
+
+export default connect(mapStateToProps, {})(TodosList)

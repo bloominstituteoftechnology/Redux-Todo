@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodosList todos={this.state.todos} updateState={this.updateState} />
+        <TodosList updateState={this.updateState} />
       </div>
     );
   }
