@@ -7,10 +7,11 @@ export const addTodo = todo => {
   };
 };
 
-export const TOGGLE_TODO = "TOGGLE_TODO"
+export const TOGGLE_TODO = "TOGGLE_TODO";
+
 export const toggleTodo = todo => {
-    return {
-        type: TOGGLE_TODO,
-        payload: todo
-    }
-}
+  return {
+    type: TOGGLE_TODO,
+    payload: todo
+  };
+};
