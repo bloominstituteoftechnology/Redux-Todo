@@ -10,10 +10,13 @@ class App extends Component {
       todos: [{ value: "Walk the do", completed: false }]
     };
   }
+  updateState = (todo) => {
+    this.setState({todos: [...this.state.todos, todo]})
+  }
   render() {
     return (
       <div className="App">
-        <TodosList todos={this.state.todos} />
+        <TodosList todos={this.state.todos} updateState={this.updateState} />
       </div>
     );
   }
