@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 import Todo from "./Todo";
+import { addTodo } from '../actions'
 
 export class TodosList extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export class TodosList extends Component {
       value: this.state.textField,
       completed: false
     };
-    this.props.updateState(todo);
+    this.props.addTodo(todo);
     this.setState({
       textField: ""
     });
@@ -51,4 +52,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {})(TodosList)
+export default connect(mapStateToProps, {addTodo})(TodosList)
