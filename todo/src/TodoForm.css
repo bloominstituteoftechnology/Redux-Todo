@@ -1,0 +1,14 @@
+
+input{
+  padding: 5px 10px;
+}
+form button{
+  padding: 5px 10px;
+  background-color: lightgrayr;
+  border: 2px solid silver;
+}
+form button:hover{
+  padding: 5px 10px;
+  background-color: lavender;
+  border: 2px solid silver;
+}
