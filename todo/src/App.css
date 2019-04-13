@@ -1,0 +1,98 @@
+.App {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto 0 auto;
+  color: #323232;
+}
+
+button {
+  border: 1px solid #4A00E0;
+  background: #4A00E0;
+  color: #ffffff;
+  border-radius: 20px;  
+  padding: 10px 20px;
+  transition: all .3s ease-out;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #4A00E0;
+  background: #ffffff;
+}
+.title-con {
+  background: #8E2DE2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.title-con h1 {
+  margin: 0;
+  padding: 50px;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.list-item-text {
+  display: flex;
+  align-items: center;
+}
+
+.true {
+  text-decoration: line-through;
+  color: #a5a5a5;
+}
+
+.todo-form {
+  margin: 50px;
+  text-align: center;
+}
+
+.todo-form input {
+  font-size: 1rem;
+  width: 100%;
+}
+
+.todo-form button {
+  /* border: 1px solid #c9c9c9; */
+  font-size: 1rem;
+  margin-top: 10px;
+  width: 80%;
+}
+
+.clear-completed-button {
+  background:#0096e0;
+  border: 1px solid #0096e0;
+}
+
+.clear-completed-button:hover {
+  color:#0096e0;
+}
+
+.todo-con {
+  border: 1px solid #c9c9c9;
+}
+
+.todo-list {
+  margin: 0 50px 50px 50px;
+}
+
+.fa-circle {
+  padding-right: 10px;
+  font-size: .5rem;
+}
+
+.fa-trash-alt {
+  transition: all .3s ease-out;
+  cursor: pointer;
+}
+.fa-trash-alt:hover {
+  color: #be0000;
+}
