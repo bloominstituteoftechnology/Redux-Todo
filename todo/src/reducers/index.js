@@ -1,3 +1,10 @@
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  FINISHED_TASK,
+  DELETE_COMPLETED
+} from "../actions/index";
+
 // Declare initial state
 const initialState = {
   todos: []
@@ -10,7 +17,7 @@ export default (state = initialState, action) => {
       return {
         //something
       };
-    case DELETE:
+    case DELETE_TODO:
       return {
         //something
       };
