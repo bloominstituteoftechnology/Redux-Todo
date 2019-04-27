@@ -1,0 +1,27 @@
+.todoItem {
+    color: black;
+    position: absolute;
+}
+
+.deleteButton {
+    margin-left: 250px;
+}
+
+.todoItemContainer {
+    display: flex;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: red;
+}
+
+.todoList {
+    width: 600px;
+    margin: 0 auto;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+}
