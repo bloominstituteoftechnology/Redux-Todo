@@ -1,16 +1,15 @@
 import React from 'react';
-import Title from './components/Title';
+import Title from './components/title';
 import TodoList from './components/TodoList';
 import './App.css';
 
-class App extends Component {
-  render() {
+function App() {
     return (
       <>
      <Title />
+     <TodoList />
      </>
     );
   }
-}
 
 export default App;
