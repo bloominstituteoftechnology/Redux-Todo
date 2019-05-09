@@ -23,7 +23,7 @@ import { ADD_TODO, TOGGLE_TODO } from '../actions';
         case TOGGLE_TODO:
             return {
                 ...state,
-                todos: state.todos.map((todo,index) =? 
+                todos: state.todos.map((todo,index) => 
                 action.payload === index ? {...todo, completed: !todo.completed } : todo)
             };
         default:
