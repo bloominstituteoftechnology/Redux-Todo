@@ -45,3 +45,14 @@ import { updateTitle } from '../actions';
         )
     }
 } 
+
+const mapStateToProps = state => {
+  return {
+      title: state.title.title
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { updateTitle }
+)(Title); 
