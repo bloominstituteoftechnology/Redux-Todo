@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.completed {
+  color: #777;
+  text-decoration: line-through;
+}
+
+li {
+  cursor: pointer;
+  list-style: none;
+}
