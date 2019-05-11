@@ -1,0 +1,17 @@
+.listItems{
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.listContainer{
+  max-width: 300px;
+  margin: 0 auto;
+}
+.listItem{
+  list-style-type: square;
+}
+.completed{
+  text-decoration: line-through;
+}
