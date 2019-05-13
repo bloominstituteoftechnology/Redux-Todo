@@ -1,13 +1,20 @@
 import React from 'react';
 import Todo from '../Todo';
 import { connect } from 'react-redux';
-import { toggleComplete } from '../../actions';
+import { toggleComplete, deleteTodo } from '../../actions';
 import './TodoList.css';
 
-const TodoList = ({ todos, toggleComplete }) => (
+const TodoList = ({ todos, toggleComplete, deleteTodo }) => (
   <ul className="TodoList">
     {todos.map(todo => (
-      <Todo key={todo.id} {...todo} onClick={() => toggleComplete(todo.id)} />
+      <Todo
+        key={todo.id}
+        {...todo}
+        toggleComplete={toggleComplete}
+        deleteTodo={deleteTodo}
+        // toggleComplete={() => toggleComplete(todo.id)}
+        // deleteTodo={() => deleteTodo(todo.id)}
+      />
     ))}
   </ul>
 );
@@ -16,9 +23,7 @@ const mapStateToProps = state => ({
   todos: state.todos,
 });
 
-// export default TodoList;
-
 export default connect(
   mapStateToProps,
-  { toggleComplete }
+  { toggleComplete, deleteTodo }
 )(TodoList);

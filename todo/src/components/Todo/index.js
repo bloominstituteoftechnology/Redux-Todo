@@ -1,14 +1,16 @@
 import React from 'react';
 import './Todo.css';
 
-const Todo = ({ onClick, completed, text }) => (
+const Todo = ({ toggleComplete, completed, text, id, deleteTodo }) => (
   <li
     className="Todo"
-    onClick={onClick}
+    onClick={() => toggleComplete(id)}
     style={{ textDecoration: completed ? 'line-through' : 'none' }}
   >
     {text}
-    <span className="Todo__delete">✖</span>
+    <span onClick={() => deleteTodo(id)} className="Todo__delete">
+      ✖
+    </span>
   </li>
 );
 
