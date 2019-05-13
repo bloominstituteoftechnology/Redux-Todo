@@ -1,0 +1,19 @@
+.AddTodo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.AddTodo input[type=text] {
+  width: 75%;
+  height: 36px;
+  padding: 3px;
+  font-size: 17px;
+}
+
+.AddTodo input[type=submit] {
+  width: 20%;
+  border: 1px solid black;
+  height: 36px;
+  font-size: 22px;
+}

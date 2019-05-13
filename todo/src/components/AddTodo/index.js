@@ -20,17 +20,17 @@ class AddTodo extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <>
+        <form className="AddTodo" onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="What do you need to do today?"
             value={this.state.newTodo}
             onChange={this.handleChange}
           />
-          <button type="submit">Add Todo</button>
+          <input type="submit" value="✚" />
         </form>
-      </div>
+      </>
     );
   }
 }

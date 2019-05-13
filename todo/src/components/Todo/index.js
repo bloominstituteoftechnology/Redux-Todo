@@ -8,6 +8,7 @@ const Todo = ({ onClick, completed, text }) => (
     style={{ textDecoration: completed ? 'line-through' : 'none' }}
   >
     {text}
+    <span className="Todo__delete">✖</span>
   </li>
 );
 

@@ -1,6 +1,23 @@
 .Todo {
   position: relative;
   list-style-type: none;
-  padding: 5px 0;
-  margin-bottom: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.9);
+}
+
+
+.Todo__delete {
+  position: absolute;
+  right: 7px;
+  font-size: 18px;
+  cursor:pointer;
+  transition: all .2s ease-in-out;
+}
+
+.Todo__delete:hover {
+  transform: scale(1.2);
+  transition: all .2s ease;
+  color: red;
 }
