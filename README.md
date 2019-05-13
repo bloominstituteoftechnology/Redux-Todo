@@ -12,7 +12,7 @@ Topics:
 * `actions` - objects produced by `action creators` that will be fed through all reducers.
 * `mapStateToProps()` & `connect`
 
-## Project Description
+# Project Description
 
 ### Initialize Project
 
