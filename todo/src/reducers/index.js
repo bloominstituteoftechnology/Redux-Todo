@@ -19,21 +19,25 @@ function reducer(state = initialState, action) {
         ]
       };
     case TOGGLE_TODO:
+    console.log(state.todos)
       return {
         ...state,
-        todos: state.todos.map(todo => {
-          if (todo.id === action.payload) {
-            return {
-              ...todo,
-              completed: !todo.completed
-            };
-          }
-          return todo;
-        })
+        todos: state.todos.map(ele => {
+            if (ele.id === action.payload) {
+              return {
+                ...ele,
+                completed: !ele.completed
+              };
+            }
+            return ele;
+        }
+        )
+
       };
     default:
       return state;
   }
 }
+
 
 export default reducer;

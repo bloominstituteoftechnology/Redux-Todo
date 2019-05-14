@@ -23,6 +23,17 @@
   color: #61dafb;
 }
 
+.todo {
+  background-color: #61dafb;
+
+}
+
+.todo.completed {
+  background-color: #61dafb;
+  text-decoration: line-through;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

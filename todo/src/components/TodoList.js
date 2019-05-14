@@ -24,7 +24,8 @@ class TodoList extends React.Component {
   };
 
   toggleTodo = id => {
-    this.props.toggleTodo(id);
+    this.props.toggleTodo(id)
+    console.log(this.props.toggleTodo(id));
   };
 
   render() {
@@ -33,9 +34,9 @@ class TodoList extends React.Component {
         <div className="todo-list">
           {this.props.todos &&
             this.props.todos.map(todo => (
-              <h4 onClick={() => this.toggleTodo(todo.id)} key={todo.id}>
+              <h4 className={`todo ${todo.completed? 'completed': null}`}
+              onClick={() => this.toggleTodo(todo.id)} key={todo.id}>
                 {todo.value}
-                {todo.completed}
               </h4>
             ))}
         </div>
