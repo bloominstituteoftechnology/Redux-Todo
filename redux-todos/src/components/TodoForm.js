@@ -19,6 +19,7 @@ export default function TodoForm(props) {
                 type="text" 
                 placeholder="Enter a new todo item"
                 onChange={handleChange}
+                value={newTodo}
             />
             <button role="submit">+</button>
         </form>
