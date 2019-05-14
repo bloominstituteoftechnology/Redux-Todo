@@ -18,10 +18,11 @@ code {
 
 .App {
   max-width: 400px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 40px 30px;
   margin: 0 auto;
   margin-top: 60px;
   min-height: 400px;
-  background: black;
+  background: rgba(0,0,0,0.7);
+  border-radius: 5px;
 }
