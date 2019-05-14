@@ -1,19 +1,17 @@
-{
-    "initialState" : [
-        { 
-            "id": 0,
-            "content": "figure out how to use Redux's new hooks API",
-            "completed": false 
-        },
-        { 
-            "id": 1,
-            "content": "master slap bass",
-            "completed": false
-        },
-        { 
-            "id": 2,
-            "content": "go to Kinnard's crypto exchange meetup this evening",
-            "completed": false
-        }
-    ]
-}
+[
+    { 
+        "id": 0,
+        "content": "figure out how to use Redux's new hooks API",
+        "completed": false 
+    },
+    { 
+        "id": 1,
+        "content": "master slap bass",
+        "completed": false
+    },
+    { 
+        "id": 2,
+        "content": "go to Kinnard's crypto exchange meetup this evening",
+        "completed": false
+    }
+]
