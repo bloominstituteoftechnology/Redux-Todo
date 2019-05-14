@@ -1695,6 +1695,11 @@ array-reduce@~0.0.0:
   resolved "https://registry.yarnpkg.com/array-reduce/-/array-reduce-0.0.0.tgz#173899d3ffd1c7d9383e4479525dbe278cab5f2b"
   integrity sha1-FziZ0//Rx9k4PkR5Ul2+J4yrXys=
 
+array-slice@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/array-slice/-/array-slice-0.2.3.tgz#dd3cfb80ed7973a75117cdac69b0b99ec86186f5"
+  integrity sha1-3Tz7gO15c6dRF82sabC5nshhhvU=
+
 array-union@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/array-union/-/array-union-1.0.2.tgz#9a34410e4f4e3da23dea375be5be70f24778ec39"
@@ -2628,6 +2633,11 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
+
+console@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/console/-/console-0.5.2.tgz#ab20ccf5e16c92f9253816eef3b7ae78f7ad1f43"
+  integrity sha1-qyDM9eFskvklOBbu87euePetH0M=
 
 constants-browserify@^1.0.0:
   version "1.0.0"
@@ -7872,6 +7882,14 @@ react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
+
+react-logger@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-logger/-/react-logger-1.1.0.tgz#a400bb9f3d403bc87c1230b865691540a7fbde4a"
+  integrity sha1-pAC7nz1AO8h8EjC4ZWkVQKf73ko=
+  dependencies:
+    array-slice "^0.2.3"
+    console "^0.5.2"
 
 react-redux@^7.0.3:
   version "7.0.3"
