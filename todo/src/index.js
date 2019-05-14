@@ -4,8 +4,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import todos from './reducers';
 import logger from 'redux-logger';
-import './index.css';
 import App from './App';
+import './styles.css';
 
 // const store = createStore(
 //   todos,
