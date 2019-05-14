@@ -1,13 +1,17 @@
 import { NEW_TODO, TOGGLE_COMPLETE, DELETE_TODO } from '../actions';
 
+// const initialState = {
+//   todos: [
+//     {
+//       text: 'Learn Redux',
+//       id: 1557778493298,
+//       completed: false,
+//     },
+//   ],
+// };
+
 const initialState = {
-  todos: [
-    {
-      text: 'Learn Redux',
-      id: 1557778493298,
-      completed: false,
-    },
-  ],
+  todos: [],
 };
 
 const todos = (state = initialState, action) => {
@@ -21,6 +25,15 @@ const todos = (state = initialState, action) => {
         ],
       };
 
+    // return [
+    //   ...state,
+    //   {
+    //     id: Date.now(),
+    //     text: action.text,
+    //     completed: false,
+    //   },
+    // ];
+
     case TOGGLE_COMPLETE:
       return {
         ...state,
@@ -28,11 +41,21 @@ const todos = (state = initialState, action) => {
           todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
         ),
       };
+
+    // case TOGGLE_COMPLETE:
+    //   return state.map(todo =>
+    //     todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+    //   );
+
     case DELETE_TODO:
       return {
         ...state,
         todos: state.todos.filter(todo => todo.id !== action.id),
       };
+
+    // case DELETE_TODO:
+    //   return state.filter(todo => todo.id !== action.id);
+
     default:
       return state;
   }
