@@ -16,7 +16,7 @@ function App(props) {
   return (
     <div className="App">
       <h2>Yet Another "Todo List" App</h2>
-      <TodoContext.Provider value={initialState.todos}>
+      <TodoContext.Provider value={initialState}>
         <TodoForm />
         <TodoList />
       </TodoContext.Provider>
