@@ -1,19 +1,41 @@
-import React , {Component} from "react"
+import React, { Component } from "react"
+import './component.css';
 
 class TodoList extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            inputValue: ""
+        }
+    }
 
-    render(){
+    changeInputValue = e => {
+        this.setState({ inputValue: e.target.value });
+    }
+
+    createList = e => {
+        e.preventDefault();
+        this.setState({
+            inputValue: ""
+        })
+
+        this.props.newTodo(this.state.inputValue);
+    }
+
+    render() {
         return (
             <div>
-                <form>
-                <input type="text" />
-              
-                  <button type="submit">Add todoList</button>
-                  <button type="submit">Remove todoList</button>
 
-                  </form>
+                <form onSubmit={this.createList}>
+                    <input className="input" type="text"
+                        value={this.state.inputValue}
+                        placeholder="Add Task"
+                        onChange={this.changeInputValue} />
+
+                    <button type="submit" >Add todoList</button>
+                </form>
             </div>
-        
+
         )
     }
 }
