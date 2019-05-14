@@ -1,7 +1,12 @@
 import React from 'react'
 
-export default function TodoItem({item}) {
+export default function TodoItem(props) {
+    console.log(props)
     return (
-        <li>{item}</li>
+        <li>
+            <div>
+                {props.item.content}
+            </div>
+        </li>
     )
 }
