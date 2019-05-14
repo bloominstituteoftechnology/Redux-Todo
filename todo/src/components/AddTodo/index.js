@@ -8,14 +8,14 @@ class AddTodo extends React.Component {
     newTodo: '',
   };
 
+  handleChange = e => {
+    this.setState({ newTodo: e.target.value });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.addTodo(this.state.newTodo);
     this.setState({ newTodo: '' });
-  };
-
-  handleChange = e => {
-    this.setState({ newTodo: e.target.value });
   };
 
   render() {
@@ -35,13 +35,7 @@ class AddTodo extends React.Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   todos: state.todos,
-// });
-
 export default connect(
   null,
   { addTodo }
 )(AddTodo);
-
-// export default connect()(AddTodo);
