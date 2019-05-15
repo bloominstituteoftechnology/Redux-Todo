@@ -21,6 +21,10 @@ class TodoList extends Component {
         this.setState({ inputValue: '' })
     }
 
+    toggle = e => {
+        console.log('I just clicked')
+    }
+
     render() {
         return (
             <div className="addlist">
@@ -30,7 +34,7 @@ class TodoList extends Component {
                 
                 <div>
                     {this.props.todos.map((i, index) => (
-                        <div key={index}>{i.name}</div>
+                        <div key={index} onClick={this.toggle}>{i.name}</div>
                     ))}
                 </div>
                 <form  className='todolist' onSubmit={this.createList}>
