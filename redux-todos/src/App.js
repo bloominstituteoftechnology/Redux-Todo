@@ -22,11 +22,11 @@ function App(props) {
       return true;
     }
 
-    if (filter === 'COMPLETE' && todo.completed) {
+    if (filter === 'COMPLETE' && todo.complete) {
       return true;
     }
 
-    if (filter === 'INCOMPLETE' && !todo.completed) {
+    if (filter === 'INCOMPLETE' && !todo.complete) {
       return true;
     }
 

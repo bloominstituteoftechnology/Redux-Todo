@@ -1,17 +1,17 @@
 [
     { 
         "id": 0,
-        "content": "figure out how to use Redux's new hooks API",
-        "completed": false 
+        "task": "figure out how to use Redux's new hooks API",
+        "complete": false 
     },
     { 
         "id": 1,
-        "content": "master slap bass",
-        "completed": false
+        "task": "master slap bass",
+        "complete": false
     },
     { 
         "id": 2,
-        "content": "go to Kinnard's crypto exchange meetup this evening",
-        "completed": false
+        "task": "go to Kinnard's crypto exchange meetup this evening",
+        "complete": false
     }
 ]

@@ -5,16 +5,18 @@ import { addTodo } from '../store/actions'
 
 
 
-export default function TodoForm(props) {
+export default function TodoForm({dispatch}) {
     const [newTodo, setNewTodo] = useState([])
 
     function handleSubmit(evt) {
         evt.preventDefault()
-        props.dispatch(addTodo({
+
+        dispatch(addTodo({
             id: uuid(),
-            content:newTodo,
-            completed:false
+            task:newTodo,
+            complete:false
         }))
+
         setNewTodo('')
     }
     

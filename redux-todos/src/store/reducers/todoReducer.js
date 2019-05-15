@@ -9,26 +9,29 @@ export default function todoReducer(state=initialState, action) {
         case C.DO_TODO:
           return state.map(todo => {
             if (todo.id === action.payload.id) {
-              return { ...todo, completed: true };
+              return { ...todo, complete: true }
             } else {
-              return todo;
+              return todo
             }
-          });
+          })
+
         case C.UNDO_TODO:
           return state.map(todo => {
             if (todo.id === action.payload.id) {
-              return { ...todo, completed: false };
+              return { ...todo, complete: false }
             } else {
-              return todo;
+              return todo
             }
-          });
+          })
+
         case C.ADD_TODO:
           return state.concat({
-            content: action.payload.content,
             id: uuid(),
-            completed: false,
-          });
+            task: action.payload.task,
+            complete: false,
+          })
+
         default:
-          throw new Error('TODO: catch this error :P');
+          throw new Error('TODO: catch this error :P')
       }
 }

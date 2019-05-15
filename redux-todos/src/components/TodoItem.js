@@ -5,7 +5,7 @@ export default function TodoItem({item, dispatch}) {
 
   function handleChange() {
         dispatch({
-            type: item.completed ? C.UNDO_TODO : C.DO_TODO,
+            type: item.complete ? C.UNDO_TODO : C.DO_TODO,
             payload: { id: item.id }
         })
     }
@@ -15,11 +15,11 @@ export default function TodoItem({item, dispatch}) {
       <label>
         <input
           type="checkbox"
-          checked={item.completed}
+          checked={item.complete}
           onChange={handleChange}
         />
         {/* TODO (irony unintended): change API from "content" to "task" */}
-        {item.content}
+        {item.task}
       </label>
     </li>
   )
