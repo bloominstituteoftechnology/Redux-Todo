@@ -23,19 +23,28 @@ class TodoList extends Component {
 
     render() {
         return (
+            <div className="addlist">
+            
+            <h1>ADD LIST</h1>
             <div>
-                <div className='todo-list'>
+                
+                <div>
                     {this.props.todos.map((i, index) => (
                         <div key={index}>{i.name}</div>
                     ))}
                 </div>
-                <form onSubmit={this.createList}>
+                <form  className='todolist' onSubmit={this.createList}>
+              
+                <div>
                     <input className="input" type="text"
                         value={this.state.inputValue}
                         placeholder="Add Task"
                         onChange={this.changeInputValue} />
-                    <button type="submit" >Add todoList</button>
+                        
+                    <button className="button" type="submit" >Add todoList</button>
+                    </div>
                 </form>
+            </div>
             </div>
 
         )

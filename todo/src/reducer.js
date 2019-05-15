@@ -3,7 +3,7 @@ import { Add_TODO } from "./Actions"
 let defaultState = {
     todos: [
         {
-            name: "shopping",
+            name: "",
             completed: false
         }
     ]
