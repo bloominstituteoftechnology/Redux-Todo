@@ -7,16 +7,16 @@ export function addTodo(todo) {
     }
 }
 
-export function editTodo(todo) {
+export function doTodo(todo) {
     return {
-        type: C.EDIT_TODO,
+        type: C.DO_TODO,
         payload: todo
     }
 }
 
-export function deleteTodo(todo) {
+export function undoTodo(todo) {
     return {
-        type: C.DELETE_TODO,
+        type: C.UNDO_TODO,
         payload: todo
     }
 }

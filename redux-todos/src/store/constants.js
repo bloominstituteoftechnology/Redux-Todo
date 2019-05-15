@@ -1,7 +1,7 @@
 // Todos
 export const ADD_TODO = "ADD_TODO"
-export const EDIT_TODO = "EDIT_TODO"
-export const DELETE_TODO = "DELETE_TODO"
+export const DO_TODO = "DO_TODO"
+export const UNDO_TODO = "UNDO_TODO"
 
 // Filter
 export const SHOW_ALL = "SHOW_ALL"
