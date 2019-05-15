@@ -9,7 +9,7 @@ export function addTodo(todo) {
 
 export function editTodo(todo) {
     return {
-        type: C.ADD_TODO,
+        type: C.EDIT_TODO,
         payload: todo
     }
 }
