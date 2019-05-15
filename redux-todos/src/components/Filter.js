@@ -18,7 +18,7 @@ export default function Filter({ dispatch }) {
     }
   
     return (
-      <div>
+      <div className="filter">
         <button type="button" onClick={handleShowAll}>
           Show All
         </button>

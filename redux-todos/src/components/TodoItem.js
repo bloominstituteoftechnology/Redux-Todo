@@ -12,13 +12,12 @@ export default function TodoItem({item, dispatch}) {
 
   return (
     <li>
-      <label>
+      <label className={item.complete ? 'complete' : ''}>
         <input
           type="checkbox"
           checked={item.complete}
           onChange={handleChange}
         />
-        {/* TODO (irony unintended): change API from "content" to "task" */}
         {item.task}
       </label>
     </li>
