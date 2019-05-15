@@ -1,25 +1,25 @@
 import React from 'react'
+import * as C from '../store/constants'
 
-export default function TodoItem(props) {
-// const dispatch = useContext(TodoContext)
+export default function TodoItem({item, dispatch}) {
 
-//   function handleChange() {
-//         dispatch({
-//             type: props.item.complete ? 'UNDO_TODO' : 'DO_TODO',
-//             id: todo.id,
-//         })
-//     }
+  function handleChange() {
+        dispatch({
+            type: item.completed ? C.UNDO_TODO : C.DO_TODO,
+            payload: { id: item.id }
+        })
+    }
 
   return (
     <li>
       <label>
         <input
           type="checkbox"
-          checked={props.item.complete}
-        //   onChange={handleChange}
+          checked={item.completed}
+          onChange={handleChange}
         />
         {/* TODO (irony unintended): change API from "content" to "task" */}
-        {props.item.content}
+        {item.content}
       </label>
     </li>
   )
