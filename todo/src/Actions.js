@@ -3,7 +3,7 @@ export const Add_TODO = "Add_TODO";
 
 export function addTodoList(text) {
     let newTodo = {
-        name: Text,
+        name: text,
         completed: false
     }
     return {

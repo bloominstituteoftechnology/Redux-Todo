@@ -4,18 +4,13 @@ import App from './App';
 import './index.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import {reducer} from "../src/reducer"
+import reducer from "../src/reducer"
 
-// const store = createStore(
-//   reducer
-  
-// );
+const store = createStore(reducer);
 
 ReactDOM.render(
-  // <provider store={store}>
- 
-  <App />,
-  // </provider> 
-
+  <Provider store={store}>
+    <App />
+   </Provider>,
   document.getElementById('root')
 );

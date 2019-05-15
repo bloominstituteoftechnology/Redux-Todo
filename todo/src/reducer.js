@@ -15,6 +15,8 @@ export default function reducer(state = defaultState, action) {
         case Add_TODO:
             let newTodo = [...state.todos, action.payload];
             return Object.assign({}, state, { todos: newTodo })
+        default:
+            return state;    
         }
 }
 
