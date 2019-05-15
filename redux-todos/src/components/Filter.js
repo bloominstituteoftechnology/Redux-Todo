@@ -1,17 +1,20 @@
 import React from 'react'
+
 import * as C from '../store/constants'
+import { showAll, showComplete, showIncomplete } from '../store/actions'
+
 
 export default function Filter({ dispatch }) {
     const handleShowAll = () => {
-      dispatch({ type: C.SHOW_ALL })
+      dispatch( showAll() )
     }
   
     const handleShowComplete = () => {
-      dispatch({ type: C.SHOW_COMPLETE })
+      dispatch( showComplete() )
     }
   
     const handleShowIncomplete = () => {
-      dispatch({ type: C.SHOW_INCOMPLETE })
+      dispatch( showIncomplete() )
     }
   
     return (
