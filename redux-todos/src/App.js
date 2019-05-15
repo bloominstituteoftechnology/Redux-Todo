@@ -38,8 +38,8 @@ function App(props) {
       <h2>Yet Another "Todo List" App</h2>
       <TodoContext.Provider value={todos}>
         <TodoForm dispatch={dispatchTodos} />
-        <TodoList dispatch={dispatchTodos} todos={filteredTodos} />
         <Filter dispatch={dispatchFilter} />
+        <TodoList dispatch={dispatchTodos} todos={filteredTodos} />
       </TodoContext.Provider>
     </div>
   );
