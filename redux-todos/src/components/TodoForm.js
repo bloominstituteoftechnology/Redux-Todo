@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import uuid from 'uuid'
+
 import { addTodo } from '../store/actions'
+
 
 
 export default function TodoForm(props) {
@@ -8,7 +11,7 @@ export default function TodoForm(props) {
     function handleSubmit(evt) {
         evt.preventDefault()
         props.dispatch(addTodo({
-            id:69,
+            id: uuid(),
             content:newTodo,
             completed:false
         }))
