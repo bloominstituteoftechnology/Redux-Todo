@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { addTodo } from '../store/actions'
 
 
 export default function TodoForm(props) {
@@ -6,6 +7,11 @@ export default function TodoForm(props) {
 
     function handleSubmit(evt) {
         evt.preventDefault()
+        props.dispatch(addTodo({
+            id:69,
+            content:newTodo,
+            completed:false
+        }))
         setNewTodo('')
     }
     
