@@ -1,0 +1,17 @@
+[
+    { 
+        "id": 0,
+        "task": "figure out how to use Redux's new hooks API",
+        "complete": false 
+    },
+    { 
+        "id": 1,
+        "task": "master slap bass",
+        "complete": false
+    },
+    { 
+        "id": 2,
+        "task": "go to Kinnard's crypto exchange meetup this evening",
+        "complete": false
+    }
+]
