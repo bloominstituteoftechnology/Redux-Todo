@@ -1,0 +1,23 @@
+.input{
+    border:1px solid white;
+    border-bottom:1px solid black;
+    margin-left:20px;
+}
+
+.addlist{
+    border:1px solid black; 
+    margin-top:50px; 
+    width:400px;
+    margin-left: 400px;
+    border-radius:10px;
+}
+
+.button{
+    margin-left: 20px;
+    height:30px;
+    width:100px;
+}
+
+.todolist{
+    margin-top:150px;
+}
