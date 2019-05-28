@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Component } from 'react'
+import List from './Components.List'
+
 import './App.css';
 import { connect } from 'react-redux';
 
