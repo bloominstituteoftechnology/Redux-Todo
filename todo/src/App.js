@@ -1,34 +1,34 @@
 import React from 'react';
 
 import { Component } from 'react'
-import List from './Components.List'
+import List from './components.List'
 
 import './App.css';
 import { connect } from 'react-redux';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      NewTodo: ""
-    };
-    this.addTodo = this.addTodo.bind(this);
-    this.updateTodo = this.updateTodo.bind(this);
-  }
-  updateTodo(e) {
-    this.setState({
-      NewTodo: event.target.value
-    });
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     NewTodo: ""
+  //   };
+  //   this.addTodo = this.addTodo.bind(this);
+  //   this.updateTodo = this.updateTodo.bind(this);
+  // }
+  // updateTodo(e) {
+  //   this.setState({
+  //     NewTodo: todo.target.value
+  //   });
+  // }
 
-  addTodo(e) {
-    e.preventDefault();
-    this.props.addTodo({
-      value: this.state.NewTodo,
-      completed: false
-    });
-  }
+  // addTodo(e) {
+  //   e.preventDefault();
+  //   this.props.addTodo({
+  //     value: this.state.NewTodo,
+  //     completed: false
+  //   });
+  // }
 
   render() {
     return (
@@ -48,4 +48,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addEvent })(App);
+export default connect(mapStateToProps, { addTodo })(App);
