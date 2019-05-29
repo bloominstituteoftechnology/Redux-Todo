@@ -1,47 +1,38 @@
-import { TOGGLE, ADD } from "../actions";
-
-// export default (events = [], Actions) => {
-//   switch (Actions.type) {
-//     case ADD:
-//       return events.concat(Actions.data);
-//     case TOGGLE:
-//       events[Actions.data].complete = !events[Actions.data].complete;
-//       return events;
-
-//   }
-// }
-// function reducer() {
-
-// }
+import { ADD_TODO, TOGGLE_COMPLETED } from "../actions/index";
 
 const initialState = {
   todos: [
     {
-      value: 'Walk the dog.',
+      value: 'Walk the dog',
       completed: false
     }
-  ],
+  ]
 }
 
-
-
-function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
   //switch statement goes here
   switch (action.type) {
-    case ADD:
-      return {
-        ...state,
-        title: action.payload
-      };
-    case TOGGLE:
-      return {
-        ...state,
-        name: action.payload
-
+    case ADD_TODO:
+      const newTodo = {
+        value: action.text,
+        completed: false
       }
+      return {
+        ...state,
+        todos: [...state.todos, newTodo]
+      }
+    case TOGGLE_COMPLETED:
+      return {
+        ...state,
+        todos: state.todos.map((todo, index) =>
+          action.payload === index ? { ...todo, completed: !todo.completed } : todo
+        )
+      }
+
     default:
       return state;
   }
 }
+
 
 export default reducer;

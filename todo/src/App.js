@@ -1,42 +1,58 @@
 import React from 'react';
 
-import { Component } from 'react'
-import List from './components.List'
+// import { Component } from 'react'
 
-import './App.css';
+// import './App.css';
 import { connect } from 'react-redux';
+import { addTodo, toggleCompleted } from './actions/index'
 
 
-class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     NewTodo: ""
-  //   };
-  //   this.addTodo = this.addTodo.bind(this);
-  //   this.updateTodo = this.updateTodo.bind(this);
-  // }
-  // updateTodo(e) {
-  //   this.setState({
-  //     NewTodo: todo.target.value
-  //   });
-  // }
+class App extends React.Component {
+  state = {
+    task: ''
+  }
 
-  // addTodo(e) {
-  //   e.preventDefault();
-  //   this.props.addTodo({
-  //     value: this.state.NewTodo,
-  //     completed: false
-  //   });
-  // }
+
+  onInputChange = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    })
+  }
+
+  onButtonClick = () => {
+    if (this.state.task) {
+      this.props.addTodo(this.state.task)
+      this.setState({
+        task: ''
+      })
+    }
+  }
+
+  toggleCompleted = (event, index) => {
+    event.preventDefault();
+    this.props.toggleCompleted(index);
+  };
 
   render() {
     return (
-      <div className="App">
-        <form onSubmit={this.addTodo}>
-          <input onChange={this.updateTodo} placeholder="Add To List" value={this.state.NewTodo} />
-        </form>
-        <List todos={this.props.todos} />
+      <div>
+        {this.props.todos.map((todo, index) =>
+          <h3
+            key={index}
+            className={todo.completed ? 'complete' : ''}
+            onClick={event => this.toggleCompleted(event, index)}
+          >
+            {todo.value}
+          </h3>
+        )}
+        <input
+          name='task'
+          onChange={this.onInputChange}
+          value={this.state.task}
+          placeholder="Add new ToDo..."
+        />
+        <button onClick={this.onButtonClick}>Add New Todo</button>
       </div>
     );
   }
@@ -48,4 +64,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addTodo })(App);
+export default connect(mapStateToProps, { addTodo, toggleCompleted })(App);
+

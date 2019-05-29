@@ -1,17 +1,16 @@
-export const TOGGLE = 'TOGGLE'
-export const ADD = 'ADD'
+export const ADD_TODO = 'ADD'
+export const TOGGLE_COMPLETED = 'TOGGLE_COMPETED'
 
-export const add = (event) => {
+export const addTodo = userInput => {
   return {
-    type: ADD,
-    data: event
+    type: ADD_TODO,
+    text: userInput
   }
 }
 
-export const toggle = (index) => {
+export const toggleCompleted = index => {
   return {
-    type: 'TOGGLE',
-    data: index
+    type: TOGGLE_COMPLETED,
+    payload: index
   }
 }
-
