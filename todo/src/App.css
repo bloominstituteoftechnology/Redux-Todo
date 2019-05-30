@@ -35,3 +35,29 @@
 .complete {
   text-decoration: line-through;
 }
+
+body {
+  margin: 0;
+  height: 100px;
+  background-color: #333;
+  color: whitesmoke;
+  margin-top: 95px;
+  text-align: center;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: mediumpurple;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+
+h1 {
+  color: mediumpurple;
+}

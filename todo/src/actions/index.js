@@ -1,5 +1,5 @@
 export const ADD_TODO = 'ADD'
-export const TOGGLE_COMPLETED = 'TOGGLE_COMPETED'
+export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED'
 
 export const addTodo = userInput => {
   return {
