@@ -37,7 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Todo List App</h1>
+        <h1>Redux Todo List App</h1>
         {this.props.todos.map((todo, index) =>
           <h3
             key={index}
