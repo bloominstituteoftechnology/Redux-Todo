@@ -2,7 +2,7 @@
 
 Topics:
 
-* `redux` package
+* `redux` package 
 * `react-redux` package
 * Redux state vs react component state
 * `<Provider>` and `createStore(reducer)`
