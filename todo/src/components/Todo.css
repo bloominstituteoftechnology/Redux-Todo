@@ -1,0 +1,42 @@
+.todoList {
+    background: white;
+    max-width: 90%;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.todo {
+    max-width: 100%;
+    height: 22px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
+.todo span {
+    margin-right: 5px;
+}
+
+.todo button {
+    background: white;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.todo button:hover {
+    background: red;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.todo span:hover {
+    cursor: pointer;
+}
+
+.todoForm {
+
+}
