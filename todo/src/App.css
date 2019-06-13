@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+* {
+  /*border: 1px solid black;*/
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 500px;
+  padding: 20px;
+}
+
+.form-and-list-container {
+  justify-content: center;
+  margin-bottom: 20px;
+}
