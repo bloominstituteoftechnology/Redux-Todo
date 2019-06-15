@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+li{
+	font-size: 1.3rem;
+	color: teal;
+}
+
+.delete-btn{
+	margin-left: 12px;
+	width: 70px;
+        height: 20px;
+        text-align: center;
+        border-radius: 4px;
+        border: 1px solid chocolate;
+}
+
+.delete-btn:hover{
+	background-color: chocolate;
+}
+
+.strike{
+	 text-decoration: line-through chocolate; 
+	margin-top: 8px;
+
+}
+
+.regular{
+	 text-decoration: none;
+	margin-top: 8px;
+}
+
+.input-container{
+	margin-top: 40px;
+	width: 200px;
+	height: 20px;
+	text-align: center;
+	border-radius: 4px;
+	border: 1px solid chocolate;
+}
+
+.add-btn{
+	margin-left: 10px;
+	width: 100px;
+        height: 22px;
+	font-size: 0.6rem;
+        border-radius: 2px;
+        border: 1px solid teal;
+
+}
