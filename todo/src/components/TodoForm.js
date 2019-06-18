@@ -3,9 +3,10 @@ import { addTodo } from '../actions';
 import { connect } from 'react-redux';
 
 class TodoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      id: 0,
       value: "",
       done: false
     };
@@ -13,15 +14,27 @@ class TodoForm extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
-    this.props.addTodo(this.state);
-    this.setState({ value: "" });
+    if(this.state.value.length > 0) {
+      this.props.addTodo({id: this.newTodoID(), value: this.state.value, done: this.state.done });
+      this.setState({ value: "" });
+    }
   };
+
+  toggleTodoStatus = id => {
+    this.props.toggleTodoStatus(id);
+  };
+
+  newTodoID = () => {
+    return Math.max(...this.props.todoProps.map(todo=> todo.id), 0) + 1;
+  }
+
 
   onInputChange = event => this.setState({ [event.target.name]: event.target.value });
 
   render() {
     return (
       <div>
+        {/* onClick={() => this.toggleTodoStatus(this.state.id) */}
         <form onSubmit={this.addTodo}>
             <input
               type="text"
@@ -30,7 +43,7 @@ class TodoForm extends React.Component {
               value={this.state.value}
               onChange={this.onInputChange}
             />
-          <button type="submit">Add</button>
+          <button type="submit" onClick={() => this.newTodoID()}>Add</button>
         </form>
       </div>
     );

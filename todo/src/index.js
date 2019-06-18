@@ -6,6 +6,7 @@ import TodoList from './components/TodoList';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducers'
+import 'mdbreact/dist/css/mdb.css' 
 
 const store = createStore(reducer);
 
