@@ -50,7 +50,7 @@ class AddTODO extends Component {
             Add todo
           </button>
           <button className="Btn" onClick={() => this.props.remove()}>
-            Add todo
+            Remove todo
           </button>
         </div>
       </div>
