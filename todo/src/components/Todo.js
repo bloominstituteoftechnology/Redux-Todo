@@ -7,7 +7,7 @@ const Todo = props => {
     }
     return(
         <div>
-            <h3 style={props.completed === true ? style : null} onClick={() => props.toggleTodo(props.id)}>{props.todo}</h3>
+            <h3 className='border-b border-b-2 border-teal-500 py-2' style={props.completed === true ? style : null} onClick={() => props.toggleTodo(props.id)}>{props.todo}</h3>
         </div>
     )
 }

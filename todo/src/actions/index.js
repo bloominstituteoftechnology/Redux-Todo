@@ -15,3 +15,11 @@ export const toggleTodo = id => {
         payload: id
     }
 }
+
+export const deleteTodo = todos => {
+    console.log(todos);
+    return {
+        type: 'DELETE_TODO',
+        payload: todos
+    }
+}  

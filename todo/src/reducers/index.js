@@ -28,6 +28,15 @@ export const reducer = (state = inititalState, action) => {
                         }
                     })
                 }
+        case 'DELETE_TODO':
+            return{
+                ...state,
+                todos: state.todos.filter(todos => {
+                    return(
+                        todos.completed === false
+                    )
+                })
+            }
             default:
                 return state; 
     }
