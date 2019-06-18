@@ -1,6 +1,7 @@
 import React from 'react';
-import { addTodo } from '../actions';
+import { addTodo, toggleTodoStatus } from '../actions';
 import { connect } from 'react-redux';
+import TodoList from './TodoList';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -15,26 +16,24 @@ class TodoForm extends React.Component {
   addTodo = event => {
     event.preventDefault();
     if(this.state.value.length > 0) {
-      this.props.addTodo({id: this.newTodoID(), value: this.state.value, done: this.state.done });
+      this.props.addTodo({id: this.newTodoId(), value: this.state.value, done: this.state.done });
       this.setState({ value: "" });
     }
   };
 
-  toggleTodoStatus = id => {
-    this.props.toggleTodoStatus(id);
-  };
-
-  newTodoID = () => {
+  newTodoId = () => {
     return Math.max(...this.props.todoProps.map(todo=> todo.id), 0) + 1;
   }
-
+  
+  toggleTodo = id => {
+    this.props.toggleTodoStatus(id);
+  }
 
   onInputChange = event => this.setState({ [event.target.name]: event.target.value });
 
   render() {
     return (
       <div>
-        {/* onClick={() => this.toggleTodoStatus(this.state.id) */}
         <form onSubmit={this.addTodo}>
             <input
               type="text"
@@ -43,8 +42,9 @@ class TodoForm extends React.Component {
               value={this.state.value}
               onChange={this.onInputChange}
             />
-          <button type="submit" onClick={() => this.newTodoID()}>Add</button>
+          <button type="submit" onClick={() => this.newTodoId()}>Add</button>
         </form>
+        <TodoList toggle={this.toggleTodo}/>
       </div>
     );
   };
@@ -52,4 +52,4 @@ class TodoForm extends React.Component {
 
 const mapStateToProps = state => ({ todoProps: state.todos });
 
-export default connect(mapStateToProps, { addTodo })(TodoForm);
+export default connect(mapStateToProps, { addTodo, toggleTodoStatus })(TodoForm);
