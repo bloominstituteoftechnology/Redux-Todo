@@ -7,11 +7,13 @@ class AddTODO extends Component {
     text: ""
   };
   addToDo = () => {
-    let date = Date.now();
-    this.props.add(this.state.text, date);
-    this.setState({
-      text: ""
-    });
+    if (this.state.text.trim() !== "") {
+      let date = Date.now();
+      this.props.add(this.state.text, date);
+      this.setState({
+        text: ""
+      });
+    }
   };
   mapTODOS = () => {
     console.log(this.props.todos);
@@ -34,16 +36,23 @@ class AddTODO extends Component {
   };
   render() {
     return (
-      <div>
+      <div className={"Card"}>
         {this.mapTODOS()}
         <input
+          className="Input"
           text="text"
           value={this.state.text}
           placeholder="add todo"
           onChange={this.valueHandler}
         />
-        <button onClick={this.addToDo}>Add todo</button>
-        <button onClick={() => this.props.remove()}>Add todo</button>
+        <div>
+          <button className="Btn" onClick={this.addToDo}>
+            Add todo
+          </button>
+          <button className="Btn" onClick={() => this.props.remove()}>
+            Add todo
+          </button>
+        </div>
       </div>
     );
   }
