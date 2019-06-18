@@ -9,17 +9,15 @@ import { ADD_NEW_TASK, TOGGLE_TASK } from '../actions';
     ]
   };
 
-  export default taskReducer = ( state = initialState, action) => {
+  const taskReducer = ( state = initialState, action) => {
     switch(action.type) {
       case ADD_NEW_TASK:
-        return [
-          ...state,
-          { 
+        return { 
+            ...state,
             id: action.id, 
             task: action.task, 
             completed: false 
           }
-        ]
           
       case TOGGLE_TASK:
         return {
@@ -27,11 +25,11 @@ import { ADD_NEW_TASK, TOGGLE_TASK } from '../actions';
           todos: state.todos.map(task => {
             if (task.id === action.id) {
               return {
-                ...todos,
-                completed: !todos.completed
+                ...state,
+                completed: !task.completed
               }
             } else {
-              return todos;
+              return state.todos;
             }
           })
         }
@@ -40,4 +38,4 @@ import { ADD_NEW_TASK, TOGGLE_TASK } from '../actions';
     }
   }
 
-  
+  export default taskReducer;
