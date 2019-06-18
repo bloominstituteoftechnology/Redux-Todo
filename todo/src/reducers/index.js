@@ -14,15 +14,16 @@ function reducer(state = initialState, action) {
         case ADD_TODO:
             return { todos: [...state.todos, action.payload] }
         case TOGGLE_STATUS:
+            {window.localStorage.setItem('savedTasks', JSON.stringify(state.todos.map(todo => todo.id === action.payload ? {...todo, done: !todo.done} : todo )))}
             return { ...state, 
-                    todos: [...state.todos.map(todo => todo.id === action.payload ? {...todo, done: !todo.done} : todo) ]}    
+                todos: [...state.todos.map(todo => todo.id === action.payload ? {...todo, done: !todo.done} : todo) ]}    
         case DELETE_TODO:
-                {window.localStorage.setItem('savedTasks', JSON.stringify(state.todos.filter(todo => todo.id !== action.payload)))}
-                return { ...state, 
-                    todos: [...state.todos.filter(todo => todo.id !== action.payload) ]} 
+            {window.localStorage.setItem('savedTasks', JSON.stringify(state.todos.filter(todo => todo.id !== action.payload)))}
+            return { ...state, 
+                todos: [...state.todos.filter(todo => todo.id !== action.payload) ]} 
         case LOAD_TODOS:
-                return { ...state, 
-                    todos: [ ...action.payload ]} 
+            return { ...state, 
+                todos: [ ...action.payload ]} 
         default:
             return state;
     }
