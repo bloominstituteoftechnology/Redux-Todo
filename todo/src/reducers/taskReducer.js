@@ -1,3 +1,4 @@
+import { ADD_NEW_TASK, TOGGLE_TASK } from '../actions';
 
   const initialState = {
     todos: [

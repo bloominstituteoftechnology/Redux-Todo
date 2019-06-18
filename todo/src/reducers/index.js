@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import { titleReducer as title } from './titleReducer';
-import { taskReducer as taskList } from './taskReducer';
+import { taskReducer as todoList } from './taskReducer';
 
 export default combineReducers({
-  title,
-  taskList
+  todoList
 });
