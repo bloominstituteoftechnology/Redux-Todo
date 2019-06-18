@@ -1,5 +1,5 @@
 import React from 'react';
-import { addTodo, toggleTodoStatus } from '../actions';
+import { addTodo, toggleTodoStatus, deleteTodo } from '../actions';
 import { connect } from 'react-redux';
 import TodoList from './TodoList';
 
@@ -21,6 +21,10 @@ class TodoForm extends React.Component {
     }
   };
 
+  deleteATodo = id => {
+    this.props.deleteTodo(id);
+  }
+
   newTodoId = () => {
     return Math.max(...this.props.todoProps.map(todo=> todo.id), 0) + 1;
   }
@@ -33,18 +37,20 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.addTodo}>
+      <div className="form-container">
+        <form className="md-form" onSubmit={this.addTodo}>
             <input
               type="text"
               name="value"
-              placeholder="Add a task!"
               value={this.state.value}
               onChange={this.onInputChange}
+              id="exampleForm2"
+              className="form-control white-text"
+              autoComplete="off"
             />
-          <button type="submit" onClick={() => this.newTodoId()}>Add</button>
+          <button className="btn peach-gradient"type="submit" onClick={() => this.newTodoId()}>Add</button>
         </form>
-        <TodoList toggle={this.toggleTodo}/>
+        <TodoList toggle={this.toggleTodo} delete={this.deleteATodo}/>
       </div>
     );
   };
@@ -52,4 +58,4 @@ class TodoForm extends React.Component {
 
 const mapStateToProps = state => ({ todoProps: state.todos });
 
-export default connect(mapStateToProps, { addTodo, toggleTodoStatus })(TodoForm);
+export default connect(mapStateToProps, { addTodo, toggleTodoStatus, deleteTodo })(TodoForm);
