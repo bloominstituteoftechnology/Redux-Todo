@@ -1,5 +1,5 @@
 import React from 'react';
-import { addTodo, toggleTodoStatus, deleteTodo } from '../actions';
+import { addTodo, toggleTodoStatus, deleteTodo, loadTodos } from '../actions';
 import { connect } from 'react-redux';
 import TodoList from './TodoList';
 
@@ -13,11 +13,21 @@ class TodoForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const taskList = window.localStorage.getItem('savedTasks');
+    const parsedTaskList = JSON.parse(taskList);
+    console.log('I am a mounted teapot!')
+    if(parsedTaskList){
+      this.props.loadTodos(parsedTaskList);
+    }
+  }
+
   addTodo = event => {
     event.preventDefault();
     if(this.state.value.length > 0) {
       this.props.addTodo({id: this.newTodoId(), value: this.state.value, done: this.state.done });
-      this.setState({ value: "" });
+      this.setState({ value: "" },
+      () => {window.localStorage.setItem('savedTasks', JSON.stringify(this.props.todoProps))})
     }
   };
 
@@ -58,4 +68,4 @@ class TodoForm extends React.Component {
 
 const mapStateToProps = state => ({ todoProps: state.todos });
 
-export default connect(mapStateToProps, { addTodo, toggleTodoStatus, deleteTodo })(TodoForm);
+export default connect(mapStateToProps, { addTodo, toggleTodoStatus, deleteTodo, loadTodos })(TodoForm);
