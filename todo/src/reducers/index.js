@@ -13,6 +13,21 @@ export const reducer = (state = inititalState, action) => {
                 ...state,
                 todos: [...state.todos, newTodo]
             }
+        case 'TOGGLE_TODO':
+                return{
+                    ...state,
+                    todos: state.todos.map(todo => {
+                        if(action.payload === todo.id) {
+                            return {
+                                ...todo,
+                                completed: !todo.completed
+
+                            };
+                        } else {
+                            return todo; 
+                        }
+                    })
+                }
             default:
                 return state; 
     }

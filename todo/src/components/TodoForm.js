@@ -15,6 +15,11 @@ class TodoForm extends React.Component {
           newTodo: e.target.value
         })
       }
+    toggleTodo = (e, id) => {
+        console.log('clieck')
+        e.preventDefault();
+        this.props.toggleTodo(id);
+    }
 
     render(){
         return(

@@ -7,3 +7,11 @@ export const addTodo = todo => {
         payload: todo
     }
 }
+
+export const toggleTodo = id => {
+    console.log(id);
+    return{
+        type: 'TOGGLE_TODO',
+        payload: id
+    }
+}
