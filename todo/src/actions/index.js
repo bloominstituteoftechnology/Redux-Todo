@@ -23,3 +23,10 @@ export const deleteTodo = todos => {
         payload: todos
     }
 }  
+
+// export const importantTodo = todos => {
+//     console.log(todos);
+//     return(
+
+//     )
+// }
