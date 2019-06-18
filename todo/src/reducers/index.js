@@ -1,4 +1,4 @@
-import { ADD, REMOVE } from "../actions";
+import { ADD, REMOVE, PREPARE } from "../actions";
 
 const initialState = {
   todos: [{ value: "default", remove: false }]
@@ -18,8 +18,9 @@ export default (state = initialState, action) => {
         todos: [
           ...state.todos,
           {
+            id: action.payload.id,
             value: action.payload.value,
-            remove: action.payload.remove
+            remove: false
           }
         ]
       };
@@ -27,7 +28,18 @@ export default (state = initialState, action) => {
     case REMOVE:
       return {
         ...state,
-        remove: true
+        todos: state.todos.filter(todo => todo.remove != true)
+      };
+    case PREPARE:
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if (todo.id === action.payload) {
+            return { ...todo, remove: !todo.remove };
+          } else {
+            return todo;
+          }
+        })
       };
     default:
       return state;
