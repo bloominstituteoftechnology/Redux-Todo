@@ -40,7 +40,7 @@ class ToDoList extends React.Component {
               name="newItemInput"
               value={this.state.item.description}
               onChange={this.handleInputChanges}
-              placeholder="Enter new todo item"
+              placeholder="enter new item"
             />
             <button>Add</button>
           </form>
