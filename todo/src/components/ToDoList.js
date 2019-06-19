@@ -5,10 +5,7 @@ import { addNewItem, toggleDone } from "../actions";
 
 class ToDoList extends React.Component {
   state = {
-    item: {
-      description: "",
-      completed: ""
-    }
+    item: ""
   };
 
   handleInputChanges = e => {
@@ -21,16 +18,10 @@ class ToDoList extends React.Component {
 
   addItem = e => {
     e.preventDefault();
-    const newItem = {
-      description: this.state.item.description,
-      completed: false
-    };
+    const newItem = this.state.item.description;
     this.props.addNewItem(newItem);
     this.setState({
-      item: {
-        description: "",
-        completed: ""
-      }
+      item: ""
     });
   };
 
@@ -56,11 +47,9 @@ class ToDoList extends React.Component {
         </div>
 
         <div className="task-list">
+          <h2>Task List</h2>
           {this.props.items.map((item, index) => (
-            <div key={index}>
-              <h1>Task List</h1>
-              <p>{item.description}</p>
-            </div>
+            <p key={index}>{item.description}</p>
           ))}
         </div>
       </>
