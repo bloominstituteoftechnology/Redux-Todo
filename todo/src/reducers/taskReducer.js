@@ -12,24 +12,23 @@ import { ADD_NEW_TASK, TOGGLE_TASK } from '../actions';
   const taskReducer = ( state = initialState, action) => {
     switch(action.type) {
       case ADD_NEW_TASK:
+        const newTask = { task: action.payload, completed: false }
         return { 
             ...state,
-            id: action.id, 
-            task: action.task, 
-            completed: false 
+            todos: [ ...state.todos, newTask ]
           }
           
       case TOGGLE_TASK:
         return {
           ...state,
-          todos: state.todos.map(task => {
-            if (task.id === action.id) {
+          todos: state.todos.map((task, index) => {
+            if (task.id === index) {
               return {
                 ...state,
                 completed: !task.completed
               }
             } else {
-              return state.todos;
+              return task;
             }
           })
         }

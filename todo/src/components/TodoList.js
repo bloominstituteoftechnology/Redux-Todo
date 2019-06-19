@@ -4,22 +4,22 @@ import { addNewTask, toggleTask } from '../actions';
 
 class TodoList extends React.Component {
   state = {
-    todos: ''
+    newTask: ''
   }
 
   handleChanges = e => {
-    this.setState({ todos: e.target.value })
+    this.setState({ newTask: e.target.value })
   }
 
   addTodo = e => {
     e.preventDefault();
-    this.props.addNewTask(this.state.todos);
-    this.setState({ todos: '' })
+    this.props.addNewTask(this.state.newTask);
+    this.setState({ newTask: '' })
   }
 
-  toggleTask = (e) => {
+  toggleTask = (e, index) => {
     e.preventDefault();
-    this.props.toggleTask(this.props.todos.id)
+    this.props.toggleTask(index)
   }
 
 
@@ -29,22 +29,19 @@ class TodoList extends React.Component {
         <form onSubmit={TodoList.addTodo}>
           <div>
             <h1> My Todo List </h1>
-            
-              {this.props.todos.map(task => (
+              {this.props.todos.map((task, index) => (
                 <h4 
-                  onClick={this.toggleTask} 
-                  key={task.id}
+                  onClick={e => this.toggleTask(e, index)} 
+                  key={index}
                   style={{textDecoration: task.completed ? 'line-through' : 'none'}}
                   >
                   {task.task}
-                  {task.completed}                 
-                </h4>
-              
+                </h4>            
               ))}
           </div>
           <input 
           type = 'text'
-          value={this.state.todos}
+          value={this.state.newTask}
           onChange={this.handleChanges}
           placeholder="Add new task"
           />
