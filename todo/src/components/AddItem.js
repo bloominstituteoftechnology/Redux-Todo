@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addItem } from "../actions";
+import { addItem } from "../actions/";
 
 class AddItem extends Component {
   render() {

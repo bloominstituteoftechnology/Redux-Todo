@@ -1,8 +1,8 @@
+import { combineReducers } from "redux";
+import { addItemReducer } from "./addItemReducer";
+
 const rootReducer = combineReducers({
-  activeMovies: ShowIncomplete,
-  completedMovies: ShowComplete,
-  addItem: AddItem
-  //   deleteItem: DeleteItem,
+  addItemReducer
 });
 
 export default rootReducer;
