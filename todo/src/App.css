@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.todo-item {
+  cursor: pointer;
+  margin-left: 10px;
+}
+.item-container{
+  display: flex;
+  justify-content: center;
+}
+.delete-item{
+  cursor: pointer;
+  font-weight: bold;
+}
