@@ -5,7 +5,9 @@ import { addNewItem, toggleDone } from "../actions";
 
 class ToDoList extends React.Component {
   state = {
-    item: ""
+    item: {
+      description: ""
+    }
   };
 
   handleInputChanges = e => {
@@ -38,7 +40,7 @@ class ToDoList extends React.Component {
             <input
               type="text"
               name="newItemInput"
-              value={this.state.item.description}
+              value={this.state.item.description || ""}
               onChange={this.handleInputChanges}
               placeholder="enter new item"
             />
