@@ -5,14 +5,24 @@ import { addItem, toggleDone } from "../actions";
 
 class ToDoList extends React.Component {
   state = {
-    newItem: "",
-    completed: false
+    newItem: ""
   };
 
   handleInputChanges = e => {
     this.setState({
       newItem: e.target.value
     });
+  };
+
+  addItem = e => {
+    e.preventDefault();
+    this.props.addItem(this.state.newItem);
+    this.setState({ newItem: "" });
+  };
+
+  toggleDone = (e, index) => {
+    e.preventDefault();
+    this.props.toggleDone(index);
   };
 
   render() {
@@ -26,8 +36,8 @@ class ToDoList extends React.Component {
         </div>
 
         <div className="task-list">
-          {this.props.todos.map(item => (
-            <p>{item}</p>
+          {this.props.todos.map((item, index) => (
+            <p>{`${item} ${index}`}</p>
           ))}
         </div>
       </>
