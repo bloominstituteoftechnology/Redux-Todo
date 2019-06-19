@@ -47,7 +47,7 @@ class ToDoList extends React.Component {
             <input
               type="text"
               name="newItemInput"
-              value={this.state.newItem}
+              value={this.state.item.description}
               onChange={this.handleInputChanges}
               placeholder="Enter new todo item"
             />
