@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addItem } from "../actions";
+import { addItem, toggleDone } from "../actions";
 
 class ToDoList extends React.Component {
   state = {
@@ -9,7 +9,22 @@ class ToDoList extends React.Component {
   };
 
   render() {
-    return <div>Hello</div>;
+    return (
+      <>
+        <div className="add-item">
+          <form>
+            <input type="text" />
+            <button>Add</button>
+          </form>
+        </div>
+
+        <div className="task-list">
+          {this.props.todos.map(item => (
+            <p>{item}</p>
+          ))}
+        </div>
+      </>
+    );
   }
 }
 
@@ -21,5 +36,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addItem }
+  { addItem, toggleDone }
 )(ToDoList);
