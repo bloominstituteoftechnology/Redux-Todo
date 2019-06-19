@@ -1,23 +1,37 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addItem, toggleDone } from "../actions";
+import { addNewItem, toggleDone } from "../actions";
 
 class ToDoList extends React.Component {
   state = {
-    newItem: ""
+    item: {
+      description: "",
+      completed: ""
+    }
   };
 
   handleInputChanges = e => {
     this.setState({
-      newItem: e.target.value
+      item: {
+        description: e.target.value
+      }
     });
   };
 
   addItem = e => {
     e.preventDefault();
-    this.props.addItem(this.state.newItem);
-    this.setState({ newItem: "" });
+    const newItem = {
+      description: this.state.item.description,
+      completed: false
+    };
+    this.props.addNewItem(newItem);
+    this.setState({
+      item: {
+        description: "",
+        completed: ""
+      }
+    });
   };
 
   toggleDone = (e, index) => {
@@ -29,9 +43,10 @@ class ToDoList extends React.Component {
     return (
       <>
         <div className="add-item">
-          <form>
+          <form onSubmit={this.addItem}>
             <input
               type="text"
+              name="newItemInput"
               value={this.state.newItem}
               onChange={this.handleInputChanges}
               placeholder="Enter new todo item"
@@ -61,5 +76,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addItem, toggleDone }
+  { addNewItem, toggleDone }
 )(ToDoList);
