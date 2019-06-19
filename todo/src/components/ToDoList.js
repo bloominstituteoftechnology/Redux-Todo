@@ -51,7 +51,9 @@ class ToDoList extends React.Component {
         <div className="task-list">
           <h2>Task List</h2>
           {this.props.items.map((item, index) => (
-            <p key={index}>{item.description}</p>
+            <p key={index} onClick={e => this.toggleDone(e, index)}>
+              {item.description}
+            </p>
           ))}
         </div>
       </>
