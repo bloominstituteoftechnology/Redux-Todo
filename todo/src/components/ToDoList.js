@@ -5,7 +5,14 @@ import { addItem, toggleDone } from "../actions";
 
 class ToDoList extends React.Component {
   state = {
-    todos: []
+    newItem: "",
+    completed: false
+  };
+
+  handleInputChanges = e => {
+    this.setState({
+      newItem: e.target.value
+    });
   };
 
   render() {
