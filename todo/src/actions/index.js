@@ -14,3 +14,5 @@ export const clearCompleted = () => {
     type: 'CLEAR_COMPLETED',
   };
 };
+
+///nothing much to say here, just passing some payloads with the actions that take parameters and only passing a type with the plain action///

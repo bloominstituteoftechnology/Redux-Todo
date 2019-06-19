@@ -1,5 +1,4 @@
-
-
+/////setting initial state/////
 
 const initialState = {
   items: [
@@ -10,17 +9,18 @@ const initialState = {
   ]
 };
 
-const myItem = {name: 'boi', completed: true}
-
 function reducer(state = initialState, action) {
   console.log('reducer', action);
   switch (action.type) {
     case 'ADD_ITEM':
+      ///if ADD_ITEM comes through, we push the payload to our state's items array///
       return {
         ...state,
         items: [...state.items,action.payload]
       };
     case 'COMPLETE_ITEM':
+      ///if COMPLETE_ITEM comes through, we map over each item in our items array with an if////////
+      ///statement so that we can change the item with the matching ID to show 'completed: true'////
       return {
         ...state,
         items: state.items.map(item => {
@@ -32,6 +32,7 @@ function reducer(state = initialState, action) {
           return {...item}
         })
       };
+      ///if CLEAR_COMPLETED comes through, we filter out the 'completed: true' items from our state.///
     case 'CLEAR_COMPLETED':
       return {
         ...state,
