@@ -9,8 +9,10 @@ function App() {
   return (
     <div className="App">
       <AddItem />
-      <IncompleteList />
-      <CompleteList />
+      {/*   
+    <IncompleteList />
+    <CompleteList /> 
+    */}
     </div>
   );
 }
