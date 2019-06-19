@@ -30,14 +30,22 @@ class ToDoList extends React.Component {
       <>
         <div className="add-item">
           <form>
-            <input type="text" />
+            <input
+              type="text"
+              value={this.state.newItem}
+              onChange={this.handleInputChanges}
+              placeholder="Enter new todo item"
+            />
             <button>Add</button>
           </form>
         </div>
 
         <div className="task-list">
-          {this.props.todos.map((item, index) => (
-            <p>{`${item} ${index}`}</p>
+          {this.props.items.map((item, index) => (
+            <div key={index}>
+              <h1>Task List</h1>
+              <p>{item.description}</p>
+            </div>
           ))}
         </div>
       </>
@@ -47,7 +55,7 @@ class ToDoList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    todos: state.todoList.items
+    items: state.items
   };
 };
 
