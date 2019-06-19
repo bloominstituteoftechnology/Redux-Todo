@@ -17,9 +17,6 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         items: state.items.map((item, index) => {
-          {
-            console.log(item.completed);
-          }
           if (action.payload === index) {
             return {
               ...item,
