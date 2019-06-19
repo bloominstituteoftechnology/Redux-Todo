@@ -14,7 +14,22 @@ export const rootReducer = (state = initialState, action) => {
       };
 
     case TOGGLE_DONE:
-      break;
+      return {
+        ...state,
+        items: state.items.map((item, index) => {
+          {
+            console.log(item.completed);
+          }
+          if (action.payload === index) {
+            return {
+              ...item,
+              completed: !item.completed
+            };
+          } else {
+            return item;
+          }
+        })
+      };
 
     default:
       return state;
