@@ -1,7 +1,7 @@
 [build]
   command = "cd todo; yarn build"
   functions = "functions"
-  publish = "build"
+  publish = "todo/build"
   base="todo"
 
 
