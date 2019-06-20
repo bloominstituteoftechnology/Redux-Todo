@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { toggleTodo } from '../actionTypes';
+import './TodoList.scss';
 
 class Todo extends React.Component {
   constructor(props) {
@@ -14,12 +15,12 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <span
-        className={`todo${this.props.todo.completed ? 'complete' : ''}`}
-        onClick={this.toggleTodo(this.props.todo.id)}
+      <li
+        className={`${this.props.todo.complete ? 'complete' : ''}`}
+        onClick={() => this.toggleTodo(this.props.todo.id)}
       >
-        {this.props.todo.task}
-      </span>
+        {this.props.todo.todo}
+      </li>
     );
   }
 }

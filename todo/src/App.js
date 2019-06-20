@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './App.scss';
 
-import { addTodo } from './store/actionTypes';
-import TodoList from './store/components/TodoList';
+import { addTodo } from './actionTypes';
+import TodoList from './components/TodoList';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class App extends React.Component {
   addTodo = event => {
     event.preventDefault();
     this.props.addTodo(this.state.newTodo);
+    // addTodo(this.state.newTodo);
     this.setState({
       newTodo: ''
     });
@@ -33,7 +34,7 @@ class App extends React.Component {
         <TodoList todos={this.props.todos} />
         <form onSubmit={this.addTodo}>
           <input
-            name='todo'
+            name='newTodo'
             value={this.state.newTodo}
             onChange={this.handleChange}
             placeholder='Add New'
