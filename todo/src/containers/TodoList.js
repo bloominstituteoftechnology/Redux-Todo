@@ -5,11 +5,16 @@ import { bindActionCreators } from 'redux';
 
 class TodoList extends Component {
 
+  completeItem = (e) => {
+    this.props.completeItem(e)
+  }
+
   renderItems() {
     return this.props.items.map((item, i) => {
       return (
         <li
-          onClick={() => this.props.completeItem(item)}
+          className = {`${item.completed ? 'completed' : ''}`}
+          onClick={() => this.completeItem(item)}
           key={i}>
           {item.name}
         </li>
@@ -32,9 +37,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => { //methods on the returned object will be a prop
-  // When we call completeItem we should pass the action to all reducers
-  return bindActionCreators({ completeItem: completeItem }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export default connect(mapStateToProps, {completeItem})(TodoList);
