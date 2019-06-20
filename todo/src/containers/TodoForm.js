@@ -19,7 +19,7 @@ class TodoForm extends Component {
             [e.target.name]: e.target.value
         })
     }
-    ///adding this to make a new pull request///
+    ///adding this to make a new pull request/// /
     addItem = e => {
         e.preventDefault();
         this.setState({id: Date.now()})
