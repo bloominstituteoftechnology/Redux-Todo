@@ -1,21 +1,27 @@
 import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actionTypes';
 
 const initialState = {
-  todos: []
+  todos: JSON.parse(localStorage.getItem('todos')) || []
 };
 
 const emptyTodo = { todo: '', id: -1, complete: false };
+
+const setTodosLocalStorage = todoArray => {
+  localStorage.setItem('todos', JSON.stringify(todoArray));
+};
 
 const reducer = (state = initialState, action) => {
   console.log(action.type);
   switch (action.type) {
     case ADD_TODO:
+      let newTodos = [
+        ...state.todos,
+        { todo: action.newTodo, id: Date.now(), complete: false }
+      ];
+      setTodosLocalStorage(newTodos);
       return {
         ...state,
-        todos: [
-          ...state.todos,
-          { todo: action.newTodo, id: Date.now(), complete: false }
-        ]
+        todos: newTodos
       };
     case TOGGLE_TODO:
       let toggledList = state.todos.map(todo => {
@@ -27,6 +33,7 @@ const reducer = (state = initialState, action) => {
         }
         return todo;
       });
+      setTodosLocalStorage(toggledList);
       return {
         ...state,
         todos: toggledList
@@ -36,6 +43,7 @@ const reducer = (state = initialState, action) => {
         if (todo.id === action.id) return emptyTodo;
         return todo;
       });
+      setTodosLocalStorage(deletedList);
       return {
         ...state,
         todos: deletedList
