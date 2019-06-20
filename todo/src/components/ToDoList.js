@@ -34,7 +34,7 @@ class ToDoList extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="todo-app-container">
         <div className="add-item">
           <form onSubmit={this.addItem}>
             <input
@@ -60,7 +60,7 @@ class ToDoList extends React.Component {
             </p>
           ))}
         </div>
-      </>
+      </div>
     );
   }
 }
