@@ -22,7 +22,6 @@ class App extends React.Component {
   addTodo = event => {
     event.preventDefault();
     this.props.addTodo(this.state.newTodo);
-    // addTodo(this.state.newTodo);
     this.setState({
       newTodo: ''
     });

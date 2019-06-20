@@ -1,10 +1,13 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actionTypes';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actionTypes';
 
 const initialState = {
   todos: []
 };
 
+const emptyTodo = { todo: '', id: -1, complete: false };
+
 const reducer = (state = initialState, action) => {
+  console.log(action.type);
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -15,7 +18,7 @@ const reducer = (state = initialState, action) => {
         ]
       };
     case TOGGLE_TODO:
-      let newList = state.todos.map(todo => {
+      let toggledList = state.todos.map(todo => {
         if (todo.id === action.id) {
           return {
             ...todo,
@@ -26,8 +29,18 @@ const reducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        todos: newList
+        todos: toggledList
       };
+    case DELETE_TODO:
+      let deletedList = state.todos.map(todo => {
+        if (todo.id === action.id) return emptyTodo;
+        return todo;
+      });
+      return {
+        ...state,
+        todos: deletedList
+      };
+
     default:
       return state;
   }

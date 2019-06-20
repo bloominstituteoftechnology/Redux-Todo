@@ -6,9 +6,9 @@ import './TodoList.scss';
 const TodoList = props => {
   return (
     <ul>
-      {props.todos.map(todo => (
-        <Todo todo={todo} key={todo.id} />
-      ))}
+      {props.todos.map(todo => {
+        if (todo.id !== -1) return <Todo todo={todo} key={todo.id} />;
+      })}
     </ul>
   );
 };
