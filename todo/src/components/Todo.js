@@ -5,10 +5,6 @@ import { toggleTodo, deleteTodo } from '../actionTypes';
 import './TodoList.scss';
 
 class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   toggleTodo = id => {
     this.props.toggleTodo(id);
   };
@@ -19,14 +15,19 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <li>
+      <li className={`${this.props.todo.complete ? 'complete' : ''}`}>
         <span
-          className={`${this.props.todo.complete ? 'complete' : ''}`}
+          className='todo-task'
           onClick={() => this.toggleTodo(this.props.todo.id)}
         >
           {this.props.todo.todo}
         </span>
-        <button onClick={() => this.deleteTodo(this.props.todo.id)}>X</button>
+        <button
+          className='delete-button'
+          onClick={() => this.deleteTodo(this.props.todo.id)}
+        >
+          X
+        </button>
       </li>
     );
   }

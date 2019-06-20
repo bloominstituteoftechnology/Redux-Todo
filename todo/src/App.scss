@@ -1,33 +1,39 @@
 .App {
   text-align: center;
-}
+  font-family: Courier New, monospace;
+  @import url('https://fonts.googleapis.com/css?family=Faster+One&display=swap');
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  h1 {
+    font-family: 'Faster One', cursive;
+    font-weight: 400;
+    font-size: 64px;
   }
-  to {
-    transform: rotate(360deg);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  input {
+    padding: 3px 5px;
+    margin: 10px 0;
+    outline: none;
+  }
+
+  button.submit-button {
+    color: white;
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    border-radius: 28px;
+    font-size: 14px;
+    padding: 5px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      background-image: linear-gradient(to bottom, #3b99f1, #3da2e6);
+    }
   }
 }

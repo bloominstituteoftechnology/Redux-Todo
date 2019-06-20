@@ -30,6 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
+        <h1>Todo Tracker</h1>
         <TodoList todos={this.props.todos} />
         <form onSubmit={this.addTodo}>
           <input
@@ -37,8 +38,9 @@ class App extends React.Component {
             value={this.state.newTodo}
             onChange={this.handleChange}
             placeholder='Add New'
+            autoFocus
           />
-          <button>Submit</button>
+          <button className='submit-button'>Submit</button>
         </form>
       </div>
     );
