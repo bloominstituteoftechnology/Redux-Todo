@@ -1,5 +1,5 @@
 [build]
-  command = "cd todo; yarn build"
+  command = "cd todo; npm build"
   functions = "functions"
   publish = "todo/build"
 
