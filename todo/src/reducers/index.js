@@ -8,25 +8,26 @@ const initialState = {
       completed: false
     },
     {
-      value: "Buy milk.",
+      value: "Buy Milk.",
       completed: false
     }
   ]
 };
 
 function reducer(state = initialState, action) {
-  console.log("reducer:", action.payload);
+  console.log("reducer state:", state);
   switch (action.type) {
+    //Creating new todo
     case NEW_TODO:
-      return {
+      return Object.assign({}, state, {
         todos: [
+          ...state.todos,
           {
-            ...state,
             value: action.payload,
             completed: false
           }
         ]
-      };
+      });
     default:
       console.log("state:", state);
       return state;
