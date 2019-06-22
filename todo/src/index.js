@@ -10,10 +10,10 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 //importing reducer
-import reducer from "./reducers";
+import rootReducer from "./reducers";
 
 //Creating store
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>

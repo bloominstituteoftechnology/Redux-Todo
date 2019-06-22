@@ -19,7 +19,10 @@ class Form extends React.Component {
   //Creating the hendler for when submitting the form
   submitHandler = e => {
     e.preventDefault();
+    console.log("New Todo from Form:", this.state.newValue);
     this.props.newTodo(this.state.newValue);
+    //clear fild after submition
+    this.setState({ newValue: "" });
   };
   render() {
     return (
@@ -31,7 +34,6 @@ class Form extends React.Component {
           value={this.state.newValue}
           onChange={this.changeHandler}
         />
-
         <br />
         <button>Add Todo</button>
       </form>
