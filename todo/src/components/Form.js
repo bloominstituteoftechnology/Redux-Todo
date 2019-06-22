@@ -5,6 +5,7 @@ class Form extends React.Component {
     return (
       <form>
         <input placeholder="Add Todo" />
+        <button>Add Todo</button>
       </form>
     );
   }
