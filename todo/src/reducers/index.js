@@ -6,6 +6,7 @@ const initialState = {
     { task: 'Code for 3 hours', completed: true, id: 2 }
   ]
 };
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TASK:
