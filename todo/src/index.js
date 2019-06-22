@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-//Creating store
+//Import createStore
 import { createStore } from "redux";
 
 //Connecting redux with react
