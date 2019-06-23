@@ -12,10 +12,13 @@ class TodoList extends React.Component {
       <ul>
         {this.props.todos.map((item, index) => (
           <li
+            /* toggle class */
+            className={`item${item.completed ? " completed" : ""}`}
             key={index}
             onClick={e => {
               e.preventDefault();
-              console.log("index clicked:", index);
+
+              console.log("index clicked:", item.completed);
               //passing the index to the action to toggle item
               this.props.toggleComplete(index);
             }}

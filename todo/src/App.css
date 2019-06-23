@@ -38,3 +38,8 @@ ul {
   text-align: left;
 
 }
+
+.completed {
+  text-decoration: line-through;
+  color: #FFCC00
+}
