@@ -9,25 +9,33 @@ import { toggleComplete } from "../actions";
 class TodoList extends React.Component {
   render() {
     return (
-      <ul>
+      <div className="container">
         {this.props.todos.map((item, index) => (
-          <li
-            /* toggle class */
-            className={`item${item.completed ? " completed" : ""}`}
-            key={index}
-            onClick={e => {
-              e.preventDefault();
-
-              // console.log("index clicked:", index);
-
-              //passing the index to the action to toggle item
-              this.props.toggleComplete(index);
-            }}
-          >
-            {item.value}
-          </li>
+          <div key={index} className="todo-list">
+            <div className="todo-list">
+              <i
+                className={` far ${
+                  item.completed ? " fa-check-circle" : " fa-circle"
+                }`}
+                onClick={e => {
+                  e.preventDefault();
+                  // console.log("index clicked:", index);
+                  //passing the index to the action to toggle item
+                  this.props.toggleComplete(index);
+                }}
+              />
+              <h3 /* toggle class */
+                className={`${item.completed ? " completed" : ""}`}
+              >
+                {item.value}
+              </h3>
+            </div>
+            <span>
+              <i className="fas fa-trash-alt" />
+            </span>
+          </div>
         ))}
-      </ul>
+      </div>
     );
   }
 }
