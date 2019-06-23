@@ -18,7 +18,8 @@ class TodoList extends React.Component {
             onClick={e => {
               e.preventDefault();
 
-              console.log("index clicked:", item.completed);
+              // console.log("index clicked:", index);
+
               //passing the index to the action to toggle item
               this.props.toggleComplete(index);
             }}

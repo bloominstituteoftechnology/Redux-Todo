@@ -15,7 +15,7 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  console.log("reducer state:", state);
+  //   console.log("reducer state:", state);
   switch (action.type) {
     //Creating new todo
     case NEW_TODO:
