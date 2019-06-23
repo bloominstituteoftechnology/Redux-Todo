@@ -33,6 +33,7 @@ class Form extends React.Component {
           placeholder="Add Todo"
           value={this.state.newValue}
           onChange={this.changeHandler}
+          required
         />
         <br />
         <button>Add Todo</button>
