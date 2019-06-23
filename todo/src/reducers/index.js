@@ -1,4 +1,4 @@
-import { NEW_TODO, TOGGLE_COMPLETE } from "../actions";
+import { NEW_TODO, TOGGLE_COMPLETE, DELETE_ITEM } from "../actions";
 
 //creating initial state
 const initialState = {
@@ -38,6 +38,15 @@ function reducer(state = initialState, action) {
           }
           //   console.log("clicked:", action.payload)
           return todo;
+        })
+      });
+    case DELETE_ITEM:
+      return Object.assign({}, state, {
+        todos: state.todos.filter((todo, index) => {
+          if (index !== action.payload) {
+            return todo;
+          }
+          return null;
         })
       });
     default:

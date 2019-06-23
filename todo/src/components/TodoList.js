@@ -4,7 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 //import action toggleComplete
-import { toggleComplete } from "../actions";
+import { toggleComplete, deleteItem } from "../actions";
 
 class TodoList extends React.Component {
   render() {
@@ -31,7 +31,15 @@ class TodoList extends React.Component {
               </h3>
             </div>
             <span>
-              <i className="fas fa-trash-alt" />
+              <i
+                className="fas fa-trash-alt"
+                onClick={e => {
+                  e.preventDefault();
+                  console.log("Delete item :", index);
+                  //passing the index to the action to DELETE item
+                  this.props.deleteItem(index);
+                }}
+              />
             </span>
           </div>
         ))}
@@ -49,5 +57,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { toggleComplete }
+  { toggleComplete, deleteItem }
 )(TodoList);
