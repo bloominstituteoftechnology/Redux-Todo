@@ -13,13 +13,13 @@ class Form extends React.Component {
   };
 
   changeHandler = e => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
   //Creating the hendler for when submitting the form
   submitHandler = e => {
     e.preventDefault();
-    console.log("New Todo from Form:", this.state.newValue);
+    // console.log("New Todo from Form:", this.state.newValue);
     this.props.newTodo(this.state.newValue);
     //clear fild after submition
     this.setState({ newValue: "" });

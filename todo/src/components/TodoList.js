@@ -3,14 +3,27 @@ import React from "react";
 //connecting react redux
 import { connect } from "react-redux";
 
+//import action toggleComplete
+import { toggleComplete } from "../actions";
+
 class TodoList extends React.Component {
   render() {
     return (
-      <div>
+      <ul>
         {this.props.todos.map((item, index) => (
-          <h3 key={index}>{item.value}</h3>
+          <li
+            key={index}
+            onClick={e => {
+              e.preventDefault();
+              console.log("index clicked:", index);
+              //passing the index to the action to toggle item
+              this.props.toggleComplete(index);
+            }}
+          >
+            {item.value}
+          </li>
         ))}
-      </div>
+      </ul>
     );
   }
 }
@@ -24,5 +37,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { toggleComplete }
 )(TodoList);

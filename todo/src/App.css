@@ -33,3 +33,8 @@
     transform: rotate(360deg);
   }
 }
+
+ul {
+  text-align: left;
+
+}

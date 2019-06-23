@@ -1,4 +1,4 @@
-import { NEW_TODO } from "../actions";
+import { NEW_TODO, TOGGLE_COMPLETE } from "../actions";
 
 //creating initial state
 const initialState = {
@@ -28,8 +28,20 @@ function reducer(state = initialState, action) {
           }
         ]
       });
+    case TOGGLE_COMPLETE:
+      return Object.assign({}, state, {
+        todos: state.todos.map((todo, index) => {
+          if (index === action.payload) {
+            return Object.assign({}, todo, {
+              completed: !todo.completed
+            });
+          }
+          //   console.log("clicked:", action.payload)
+          return todo;
+        })
+      });
     default:
-      console.log("state:", state);
+      //   console.log("state:", state);
       return state;
   }
 }
