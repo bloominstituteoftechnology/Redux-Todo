@@ -35,8 +35,9 @@ class Form extends React.Component {
           onChange={this.changeHandler}
           required
         />
-        <br />
-        <button>Add Todo</button>
+        <button>
+          <i className="fas fa-plus-square" />
+        </button>
       </form>
     );
   }

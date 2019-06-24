@@ -19,23 +19,23 @@ class TodoList extends React.Component {
                 }`}
                 onClick={e => {
                   e.preventDefault();
-                  // console.log("index clicked:", index);
+                  console.log("Completed item:", index);
                   //passing the index to the action to toggle item
                   this.props.toggleComplete(index);
                 }}
               />
-              <h3 /* toggle class */
+              <h2 /* toggle class */
                 className={`${item.completed ? " completed" : ""}`}
               >
                 {item.value}
-              </h3>
+              </h2>
             </div>
             <span>
               <i
                 className="fas fa-trash-alt"
                 onClick={e => {
                   e.preventDefault();
-                  console.log("Delete item :", index);
+                  console.log("Deleted item :", index);
                   //passing the index to the action to DELETE item
                   this.props.deleteItem(index);
                 }}

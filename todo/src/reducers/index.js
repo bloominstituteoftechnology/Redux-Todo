@@ -4,11 +4,7 @@ import { NEW_TODO, TOGGLE_COMPLETE, DELETE_ITEM } from "../actions";
 const initialState = {
   todos: [
     {
-      value: "Walk the dog.",
-      completed: false
-    },
-    {
-      value: "Buy Milk.",
+      value: "Walk the dog",
       completed: false
     }
   ]

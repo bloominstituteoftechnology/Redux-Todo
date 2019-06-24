@@ -1,6 +1,8 @@
 .App {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'VT323',
+    monospace;
+
 }
 
 .App-logo {
@@ -50,15 +52,42 @@ ul {
 /* styling for completed toggle */
 .completed {
   text-decoration: line-through;
-  /* color: #FFB000 */
+  color: #FFB000
 }
+
+form {
+  padding: 50px 0;
+}
+
+input,
+textarea {
+  background-color: black;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  padding: 7px;
+  font-size: 14px;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  margin-left: 10px;
+}
+
 
 .todo-list {
   display: flex;
   justify-content: space-between;
-  align-items: center
+  align-items: center;
 }
 
 .todo-list i {
   padding-right: 7px
+}
+
+.fa-trash-alt:hover {
+  color: red
 }
