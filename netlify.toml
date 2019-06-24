@@ -1,0 +1,11 @@
+[build]
+ command = "yarn build"
+ functions = "functions"
+ publish = "todo/build"
+ base = "todo"
+
+
+ [[redirects]]
+   from = "/*"
+   to = "/index.html"
+   status = 200
