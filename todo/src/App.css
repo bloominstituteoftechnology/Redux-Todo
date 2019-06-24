@@ -100,3 +100,15 @@ button {
 .fa-check-circle {
   color: #FFB000
 }
+
+a {
+  color: inherit;
+  position: absolute;
+  left: 90%;
+  top: 15px
+}
+
+.fa-github-square {
+  font-size: 20px;
+
+}

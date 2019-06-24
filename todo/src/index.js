@@ -18,8 +18,8 @@ import rootReducer from "./reducers";
 import { loadState, saveState } from "./localStorage";
 const persistedState = loadState();
 
-//Creating store and passing the persistedState as second argument
-//for the local storage
+//Creating store and passing the persistedState as second
+//argument for the local storage
 const store = createStore(rootReducer, persistedState);
 
 //Local storage code (optional)
