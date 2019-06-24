@@ -27,16 +27,15 @@ import './App.css'
  render() { 
     return (
      <>
-        <div className="friends-list">
+        <div className="todos-list">
           {this.props.todos.map((todo, index) => {
               return (
                 <div>
             <h4 onClick={e => this.toggleTodo(e, index)} key={index}>
               {todo.name}
 
-              {todo.completed && <i className="fas fa-dragon" />} 
-            </h4>
-            <h1>{todo.index}</h1>
+             </h4>
+            <h1 key = {index}>{todo.completed}</h1>
             </div>
                 
               )

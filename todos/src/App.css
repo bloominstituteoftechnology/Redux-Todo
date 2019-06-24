@@ -35,4 +35,12 @@
   position: absolute;
   right: 12px;
   top: 9px;
+  background: yellow;
+}
+.todos-list{
+  background: yellow;
+
+}
+.complete {
+  background: orange;
 }

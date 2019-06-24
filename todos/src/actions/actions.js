@@ -7,13 +7,13 @@ export function addTodo(newTodo){
 
     return {
     type: ADD_TODO,
-    payload: {task: newTodo, completed: false}}
+    payload: {name: newTodo, completed: false }}
 }
 
 
 export function toggleTodo(idx) {
-    // console.log("bk: toggleFriend: ", idx);
-    return {
+    console.log("bk: toggleFriend: ", idx);
+     return {
       type: "TOGGLE_TODO",
       payload: idx
     };
