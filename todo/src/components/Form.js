@@ -19,7 +19,7 @@ class Form extends React.Component {
   //Creating the hendler for when submitting the form
   submitHandler = e => {
     e.preventDefault();
-    // console.log("New Todo from Form:", this.state.newValue);
+    console.log("New Todo:", this.state.newValue);
     this.props.newTodo(this.state.newValue);
     //clear fild after submition
     this.setState({ newValue: "" });
