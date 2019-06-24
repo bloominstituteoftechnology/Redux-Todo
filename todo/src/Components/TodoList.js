@@ -1,15 +1,49 @@
 import React from 'react';
-import Todo from './Todo';
+import { connect } from 'react-redux';
+import { toggleTodo } from '../actions';
 
-const TodoList = props => {
+const Todo = props => {
+  const { id, todo, handleClickTodo } = props;
   return (
     <div>
-      {this.props.todos.map((todo, index) => (
-        <Todo />
-      ))}
-      ;
+      <input
+        name={id}
+        type="checkbox"
+        value={todo.value}
+        checked={todo.completed}
+        onChange={() => handleClickTodo(id)}
+      />
+      <div htmlFor={id}>{todo.value}</div>
     </div>
   );
 };
 
-export default TodoList;
+const TodoList = props => {
+  const handleClickTodo = index => {
+    props.toggleTodo(index);
+  };
+
+  return (
+    <div>
+      {props.todos.map((todo, index) => (
+        <Todo
+          key={index}
+          id={index}
+          todo={todo}
+          handleClickTodo={handleClickTodo}
+        />
+      ))}
+    </div>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { toggleTodo }
+)(TodoList);
