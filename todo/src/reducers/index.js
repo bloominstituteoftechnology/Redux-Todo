@@ -9,7 +9,7 @@ const initialState = {
     },
     {
       value: "Go to the GYM",
-      completed: false
+      completed: true
     },
     {
       value: "Buy milk",

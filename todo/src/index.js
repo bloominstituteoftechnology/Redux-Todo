@@ -12,8 +12,25 @@ import { Provider } from "react-redux";
 //importing reducer
 import rootReducer from "./reducers";
 
-//Creating store
-const store = createStore(rootReducer);
+//Local storage code (optional)
+//Importing loadstate for local storage usage
+//has to be imported after the reducer to avoid errors
+import { loadState, saveState } from "./localStorage";
+const persistedState = loadState();
+
+//Creating store and passing the persistedState as second argument
+//for the local storage
+const store = createStore(rootReducer, persistedState);
+
+//Local storage code (optional)
+//The saveState function is called inside
+//the store.subscribe listener so it is called
+//every time the storage state changes
+store.subscribe(() => {
+  saveState({
+    todos: store.getState().todos
+  });
+});
 
 ReactDOM.render(
   <Provider store={store}>

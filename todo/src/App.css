@@ -52,7 +52,7 @@ ul {
 /* styling for completed toggle */
 .completed {
   text-decoration: line-through;
-  color: #FFB000
+  /* color: #FFB000 */
 }
 
 form {
@@ -90,4 +90,13 @@ button {
 
 .fa-trash-alt:hover {
   color: red
+}
+
+/* checked icon */
+.far {
+  font-size: 20px;
+}
+
+.fa-check-circle {
+  color: #FFB000
 }
