@@ -4,9 +4,15 @@ import { toggleTodo } from '../actions';
 
 const Todo = props => {
   const { id, todo, handleClickTodo } = props;
+  const style = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '1rem'
+  };
   return (
-    <div>
+    <div style={style}>
       <input
+        className="todo-checkbox"
         name={id}
         type="checkbox"
         value={todo.value}

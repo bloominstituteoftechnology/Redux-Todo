@@ -19,6 +19,7 @@ function App(props) {
 
   return (
     <div className="App">
+      <h2>Redux Todo List</h2>
       <form className="todo-list-form" onSubmit={e => submitTodoHandler(e)}>
         <input
           type="text"
