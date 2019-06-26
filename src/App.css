@@ -49,6 +49,12 @@ ul {
 
 }
 
+h1 {
+  margin-top: 50px;
+
+}
+
+
 /* styling for completed toggle */
 .completed {
   text-decoration: line-through;
@@ -107,7 +113,8 @@ a {
   color: inherit;
   position: absolute;
   left: 90%;
-  top: 15px
+  top: 15px;
+
 }
 
 .fa-github-square {
