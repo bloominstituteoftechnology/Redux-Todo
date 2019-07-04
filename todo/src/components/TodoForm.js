@@ -26,6 +26,7 @@ class TodoForm extends React.Component {
         user: localStorage.getItem('user'),
       });
       /* window.location.reload(); */
+      this.setState({ text: '' });
     }
   };
 
@@ -62,6 +63,7 @@ class TodoForm extends React.Component {
             id='exampleForm2'
             className='form-control white-text'
             autoComplete='off'
+            maxLength='14'
           />
           <button className='btn peach-gradient' type='submit'>
             Add
