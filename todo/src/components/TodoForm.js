@@ -2,70 +2,80 @@ import React from 'react';
 import { addTodo, toggleTodoStatus, deleteTodo, loadTodos } from '../actions';
 import { connect } from 'react-redux';
 import TodoList from './TodoList';
+import { Redirect } from 'react-router-dom';
 
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 0,
-      value: "",
-      done: false
+      text: '',
+      todos: [],
     };
   }
 
   componentDidMount() {
-    const taskList = window.localStorage.getItem('savedTasks');
-    const parsedTaskList = JSON.parse(taskList);
-    console.log('I am a mounted teapot!')
-    if(parsedTaskList){
-      this.props.loadTodos(parsedTaskList);
-    }
+    this.props.loadTodos();
   }
 
   addTodo = event => {
     event.preventDefault();
-    if(this.state.value.length > 0) {
-      this.props.addTodo({id: this.newTodoId(), value: this.state.value, done: this.state.done });
-      this.setState({ value: "" },
-      () => {window.localStorage.setItem('savedTasks', JSON.stringify(this.props.todoProps))})
+    if (this.state.text.length > 0) {
+      this.props.addTodo({
+        text: this.state.text,
+        status: false,
+        user: localStorage.getItem('user'),
+      });
+      /* window.location.reload(); */
     }
   };
 
   deleteATodo = id => {
     this.props.deleteTodo(id);
-  }
+    this.setState({ todos: this.props.todoProps });
+    /* window.location.reload(); */
+  };
 
-  newTodoId = () => {
-    return Math.max(...this.props.todoProps.map(todo=> todo.id), 0) + 1;
-  }
-  
   toggleTodo = id => {
-    this.props.toggleTodoStatus(id);
-  }
+    this.props.toggleTodoStatus({
+      _id: id,
+      status: !this.props.todoProps.filter(todo => todo._id === id)[0].status,
+    });
+    this.setState({ todos: this.props.todoProps });
+    /* window.location.reload(); */
+  };
 
-  onInputChange = event => this.setState({ [event.target.name]: event.target.value });
+  onInputChange = event =>
+    this.setState({ [event.target.name]: event.target.value });
 
   render() {
+    if (localStorage.getItem('user') === null) {
+      return <Redirect to='/' />;
+    }
     return (
-      <div className="form-container">
-        <form className="md-form" onSubmit={this.addTodo}>
-            <input
-              type="text"
-              name="value"
-              value={this.state.value}
-              onChange={this.onInputChange}
-              id="exampleForm2"
-              className="form-control white-text"
-              autoComplete="off"
-            />
-          <button className="btn peach-gradient"type="submit" onClick={() => this.newTodoId()}>Add</button>
+      <div className='form-container'>
+        <form className='md-form' onSubmit={this.addTodo}>
+          <input
+            type='text'
+            name='text'
+            value={this.state.text}
+            onChange={this.onInputChange}
+            id='exampleForm2'
+            className='form-control white-text'
+            autoComplete='off'
+          />
+          <button className='btn peach-gradient' type='submit'>
+            Add
+          </button>
         </form>
-        <TodoList toggle={this.toggleTodo} delete={this.deleteATodo}/>
+        <TodoList toggle={this.toggleTodo} delete={this.deleteATodo} />
       </div>
     );
-  };
+  }
 }
 
-const mapStateToProps = state => ({ todoProps: state.todos });
+const mapStateToProps = state => ({ todoProps: state.todoReducer.todos });
 
-export default connect(mapStateToProps, { addTodo, toggleTodoStatus, deleteTodo, loadTodos })(TodoForm);
+export default connect(
+  mapStateToProps,
+  { addTodo, toggleTodoStatus, deleteTodo, loadTodos },
+)(TodoForm);

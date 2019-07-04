@@ -1,21 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import TodoForm from './components/TodoForm';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './reducers'
-import 'mdbreact/dist/css/mdb.css' 
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from './reducers';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-const store = createStore(reducer);
+import './index.css';
+import 'mdbreact/dist/css/mdb.css';
+import App from './App';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, logger)),
+);
 
 ReactDOM.render(
-<Provider store={store}>
-    <div className="background-container">
-        <div className="application-container">
-            <h2 style={{ fontSize: "3rem", marginRight: "1rem" }}className="display-3 mb-0 pt-md-5 pt-5 white-text font-weight-bold">Redux Todo</h2>
-            <TodoForm />
-        </div>
-    </div>
-</Provider>,
- document.getElementById('root'));
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('root'),
+);
