@@ -10,7 +10,7 @@ export const userLogin = username => dispatch => {
   loadProgressBar();
   console.log('THIS WAS THE USERNAME: ', username);
   return axios
-    .get('http://localhost:3000/users')
+    .get('https://apirestnodeexpressmongo.herokuapp.com/users')
     .then(res => {
       if (res.data.filter(user => user.name === username).length > 0) {
         let userFound = res.data.filter(user => user.name === username)[0].name;
@@ -69,7 +69,7 @@ export const loadTodos = () => dispatch => {
   loadProgressBar();
   console.log('LOADING TODOS');
   return axios
-    .get('http://localhost:3000/todos')
+    .get('https://apirestnodeexpressmongo.herokuapp.com/todos')
     .then(res => {
       console.log('GOT SOME TODOS BACKEND: ', res);
       dispatch({ type: LOAD_TODOS_SUCCESS, payload: res.data });
@@ -89,7 +89,7 @@ export const addTodo = todo => dispatch => {
   loadProgressBar();
   console.log('ADDING TODO: ', todo);
   return axios
-    .post('http://localhost:3000/todos', todo, {
+    .post('https://apirestnodeexpressmongo.herokuapp.com/todos', todo, {
       headers: {
         'Content-Type': `application/json`,
       },
@@ -113,7 +113,7 @@ export const deleteTodo = id => dispatch => {
   loadProgressBar();
   console.log('DELETING TODO: ', id);
   return axios
-    .delete(`http://localhost:3000/todos/${id}`)
+    .delete(`https://apirestnodeexpressmongo.herokuapp.com/todos/${id}`)
     .then(res => {
       console.log('GOT RESPONSE DELETE TODO: ', res);
       dispatch({ type: DELETE_TODO_SUCCESS, payload: res.data });
@@ -134,7 +134,7 @@ export const toggleTodoStatus = todo => dispatch => {
   console.log('TOGGLING TODO: ', todo);
   return axios
     .patch(
-      `http://localhost:3000/todos/${todo._id}`,
+      `https://apirestnodeexpressmongo.herokuapp.com/todos/${todo._id}`,
       { status: todo.status },
       {
         headers: {
