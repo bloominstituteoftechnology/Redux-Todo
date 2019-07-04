@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { userLogin } from '../actions';
+import { Redirect } from 'react-router-dom';
+
+import { userLogin, userSignUp } from '../actions';
 
 class Login extends React.Component {
   constructor(props) {
@@ -9,8 +11,6 @@ class Login extends React.Component {
       user: '',
     };
   }
-
-  componentDidMount() {}
 
   onInputChange = event =>
     this.setState({ [event.target.name]: event.target.value });
@@ -22,31 +22,52 @@ class Login extends React.Component {
     });
   };
 
+  userSignUp = () => {
+    if (this.state.user.length > 0) {
+      this.props.userSignUp(this.state.user).then(() => {
+        this.props.history.push('/todo');
+      });
+    }
+  };
+
   render() {
+    if (localStorage.getItem('user')) {
+      return <Redirect to='/todo' />;
+    }
     return (
-      <div className='form-container'>
+      <div className='login-container'>
         <form className='md-form' onSubmit={this.userLogin}>
-          <input
-            type='text'
-            name='user'
-            value={this.state.user}
-            onChange={this.onInputChange}
-            id='exampleForm2'
-            className='form-control white-text'
-            autoComplete='off'
-          />
-          <button className='btn peach-gradient' type='submit'>
-            Login
-          </button>
+          <div className='login'>
+            <input
+              type='text'
+              name='user'
+              value={this.state.user}
+              onChange={this.onInputChange}
+              id='exampleForm2'
+              className='form-control white-text username-input'
+              autoComplete='off'
+              placeholder='Username'
+              maxLength='15'
+              required
+            />
+            <button className='btn peach-gradient' type='submit'>
+              Login
+            </button>
+          </div>
+          <div className='signup'>
+            <button
+              className='btn peach-gradient signup-btn'
+              onClick={() => this.userSignUp()}>
+              Sign Up
+            </button>
+          </div>
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({});
-
 export default connect(
-  mapStateToProps,
-  { userLogin },
+  null,
+  { userLogin, userSignUp },
 )(Login);

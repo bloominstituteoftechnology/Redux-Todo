@@ -81,7 +81,6 @@ function todoReducer(state = initialState, action) {
         isDeleting: true,
       };
     case DELETE_TODO_SUCCESS:
-      console.log('DEELTE: ', action.payload);
       return {
         ...state,
         todos: [
@@ -101,8 +100,6 @@ function todoReducer(state = initialState, action) {
         isToggling: true,
       };
     case TOGGLE_STATUS_SUCCESS:
-      console.log('PAYLOAD: ', action.payload);
-      console.log('STATE TODOS: ', state.todos);
       return {
         ...state,
         todos: [

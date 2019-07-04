@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import './index.css';
-import TodoForm from './components/TodoForm';
+import TodoPage from './views/TodoPage';
 import Login from './views/Login';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           Redux Todo
         </h2>
         <Route exact path='/' render={props => <Login {...props} />} />
-        <Route exact path='/todo' render={props => <TodoForm {...props} />} />
+        <Route exact path='/todo' render={props => <TodoPage {...props} />} />
       </div>
     </div>
   );

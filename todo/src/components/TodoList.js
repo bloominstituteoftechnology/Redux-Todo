@@ -1,13 +1,9 @@
 import React from 'react';
-import Todo from './Todo';
 import { connect } from 'react-redux';
 
-class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+import Todo from './Todo';
 
+class TodoList extends React.Component {
   render() {
     return (
       <div className='todo-list-container'>

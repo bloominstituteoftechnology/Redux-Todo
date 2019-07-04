@@ -20,15 +20,25 @@ h1 {
   min-height: 100vw;
 }
 
+.login-container {
+  min-height: 200vw;
+}
+
+::placeholder {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.signup-btn {
+  width: 98%;
+  margin: 0px !important;
+  margin-top: 0.5rem !important;
+}
+
 .application-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-.hello-world {
-  display: hidden;
 }
 
 code {
@@ -41,6 +51,10 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.todo-input {
+  font-size: 1.1rem;
 }
 
 .todo-list-container {
@@ -65,7 +79,7 @@ code {
 }
 
 .close {
-  background-image: url(https://i.imgur.com/oGcwVVi.png);
+  background-image: url(https://i.imgur.com/iviMK5g.png);
   background-repeat: no-repeat;
   background-size: 1rem 1rem;
   background-position: right 3px top 3px;

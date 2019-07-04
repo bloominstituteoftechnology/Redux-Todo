@@ -4,18 +4,18 @@ import {
   USER_LOGIN_FAILURE,
 } from '../actions';
 
-/* import {
+import {
   USER_REGISTER_START,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAILURE,
 } from '../actions';
- */
+
 const initialState = {
   user: '',
   isLogginIn: false,
   errorLoggingIn: '',
-  /*   isRegistering: false,
-  errorRegistering: '', */
+  isRegistering: false,
+  errorRegistering: '',
 };
 
 function todoReducer(state = initialState, action) {
@@ -37,7 +37,7 @@ function todoReducer(state = initialState, action) {
         isLogginIn: false,
         errorLoggingIn: action.payload,
       };
-    /*     case USER_REGISTER_START:
+    case USER_REGISTER_START:
       return {
         ...state,
         isRegistering: true,
@@ -53,7 +53,7 @@ function todoReducer(state = initialState, action) {
         ...state,
         isRegistering: false,
         errorRegistering: action.payload,
-      }; */
+      };
     default:
       return state;
   }
