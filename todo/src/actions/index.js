@@ -7,12 +7,13 @@ export const addTodo = newTodo => {
   }
 }
 
-export const TOGGLE_MEMBER = 'TOGGLE_MEMBER'
-export const toggleMember = index => {
-  console.log(index)
+export const TOGGLE_TODO = 'TOGGLE_TODO'
+export const toggleTodo = index => {
+  // console.log(index)
   return {
-    type: index,
+    type: TOGGLE_TODO,
     payload: index
   }
 }
+
 
