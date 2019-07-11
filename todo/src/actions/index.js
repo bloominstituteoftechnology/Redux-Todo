@@ -9,11 +9,17 @@ export const addTodo = newTodo => {
 
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const toggleTodo = index => {
-  // console.log(index)
+   console.log(index)
   return {
     type: TOGGLE_TODO,
     payload: index
   }
 }
 
+export const DELETE_TODO = 'DELETE_TODO'
+export const clearCompleted = () => {
+  return {
+    type: DELETE_TODO,
+  }
+}
 
