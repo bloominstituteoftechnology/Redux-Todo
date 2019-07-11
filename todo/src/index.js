@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createTodo } from 'redux'
 import reducer from './reducer'
 
-const store = createStore(reducer)
+const todo = createTodo(reducer)
 
 ReactDOM.render(
-    <Provider store={store}> 
+    <Provider todo={todo}> 
         <App />
     </Provider>,
     document.getElementById('root'));
