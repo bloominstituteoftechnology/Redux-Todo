@@ -1,11 +1,16 @@
-export const MAKE_TASK = 'MAKE_TASK'
-
-export function makeTask(task, account) {
+export const completeItem = (item) => {
     return {
-        type: MAKE_TASK,
-        payload: {
-            task,
-            account,
-        }
-    }
+      type: 'COMPLETE_ITEM',
+      payload: item.id
+    };
+  };
+
+export const addItem = (item) => {
+    return ({type: 'ADD_ITEM', payload: item})
 }
+
+export const clearCompleted = () => {
+  return {
+    type: 'CLEAR_COMPLETED',
+  };
+};
