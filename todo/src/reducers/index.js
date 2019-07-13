@@ -6,7 +6,6 @@ const initialState = {
    { todo: 'Make Shopping', completed: false }
   ]
  }
- 
 
 export const reducer = (state = initialState, action) => {
   //console.log("did the action make it to the reducer????");

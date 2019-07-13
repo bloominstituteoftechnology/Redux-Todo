@@ -1,4 +1,5 @@
 export const ADD_TODO = "ADD_TODO"
+
 export const addTodo = newTodo => {
   //console.log('FROM ACTIONS:', newTodo)
   return {
@@ -22,4 +23,3 @@ export const clearCompleted = () => {
     type: DELETE_TODO,
   }
 }
-

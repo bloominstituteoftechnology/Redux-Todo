@@ -16,13 +16,22 @@ code {
   text-align: center;
 }
 
+.friends-list i {
+   margin-left: 5px;
+   color: green;
+}
+
 .todo {
   color:red;
 }
 
-.todo.completed {
+.completed {
   color:green;
+  text-decoration: line-through;
 }
 
-
+/* .todo.completed {
+  color: tomato;
+  text-decoration: line-through;
+}  */
 

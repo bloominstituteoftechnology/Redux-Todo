@@ -11,7 +11,7 @@ class Todo extends React.Component {
   handleChange = e => {
     this.setState({ newTodo: e.target.value })
   }
-  
+
   addTodo = e => {
     e.preventDefault()
     this.props.addTodo(this.state.newTodo)
@@ -29,22 +29,26 @@ class Todo extends React.Component {
     this.props.clearCompleted()
   };
 
- 
+
   render() {
-   console.log('PROPS', this.props)
+   console.log('PROPS from TODO.JS', this.props)
     return(
       <div>
        <h2>TODO APP</h2>
             <div className="friends-list">
              {this.props.todos.map((todo, index) => (
-              <h4 onClick={e => this.toggleTodo(e, index)} key={index}>
-              {todo.todo}
-              {todo.completed &&  <i className="fas fa-check"/>}
+              <h4 
+                onClick={e => this.toggleTodo(e, index)} 
+                key={index}
+                className={`${todo.completed ? "completed" : " "}`}
+              >
+               {todo.todo}
+               {todo.completed && <i className="fas fa-check"/>}
               </h4>
              ))}
            </div>
        <form>
-         <input 
+         <input
            type= 'text'
            value={this.state.newTodo}
            onChange={this.handleChange}
@@ -59,7 +63,7 @@ class Todo extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('STATE:', state)
+   //console.log('STATE from TODO mapStateToProp:', state)
   return {
     todos: state.todos
   }
