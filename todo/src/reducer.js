@@ -1,7 +1,7 @@
 import { ADD_TODO } from './actions';
 
 const initialState = {
-    todoList: [],
+    todo: [],
 }
 
 export default function(state = initialState, action) {
