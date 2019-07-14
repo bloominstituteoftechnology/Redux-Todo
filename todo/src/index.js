@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 import Title from "./components/Title";
 import Todo from "./components/Todo";
-import './index.css';
+import './styles.css';
 
 const store = createStore();
 
