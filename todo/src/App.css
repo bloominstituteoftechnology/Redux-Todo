@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.friends-list i {
+   margin-left: 5px;
+   color: green;
+}
+
+.todo {
+  color:red;
+}
+
+.completed {
+  color:green;
+  text-decoration: line-through;
+}
+
+/* .todo.completed {
+  color: tomato;
+  text-decoration: line-through;
+}  */
+
