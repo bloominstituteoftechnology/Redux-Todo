@@ -1,13 +1,18 @@
 import React from 'react';
-import Todo from './Todo'
+import TodoList from "./TodoList";
+import TodoForm from './TodoForm';
 import './App.css';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div className="app">
-<Todo />
+
+<TodoList />
+<TodoForm />
       </div>
     );
   }
 }
+
+export default App;

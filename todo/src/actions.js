@@ -1,13 +1,23 @@
-// action type
-export const ADD_TODO = 'ADD_TODO'
+export const ADD = "ADD"
+export const CLEAR = "CLEAR"
+export const TOGGLE = "TOGGLE"
 
-// action creator
-export function addTodoItem(todo) {
-    // action
-    return {
-        type: ADD_TODO,
-        payload: {
-            todo,
-        }
-    }
+export const add = (text) => {
+  return {
+     type: ADD,
+     text: text
+  }
 }
+export const clear = (completed) => {
+  return {
+     type: CLEAR,
+     completed: completed
+  }
+}
+
+export const toggle = (id) => {
+  return {
+     type: TOGGLE,
+     id: id
+  }
+} 
