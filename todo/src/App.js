@@ -1,43 +1,37 @@
-import React from 'react';
-import TodoForm from './TodoForm'
-import Todos from './TodoList'
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
+import TodoList from './components/TodoList';
+import { addNewTodos } from './store/actions';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todo: ''
-    }
+function App({ addNewTodos }) {
+const [state, setState] = useState({text: ''})
+
+const addTodos = () => {
+  const todos = {
+    id: Date.now(),
+    text: state.text,
+    completed: false
   }
-
-  handleInputChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
-  addTodo = () => {
-    const { todo } = this.state;
-    const newTodo = {
-      id: this.props.length + 1,
-      completed: false,
-      text: todo
-    }
-
-    this.props.addTodo(newTodo);
-    this.setState({
-      todo: ''
-    })
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <TodoForm /> 
-      </div>
-    )
-  }
+  addNewTodos(todos)
+  setState({
+    text: ''
+  })
 }
 
-export default App;
+const handleChanges = (event) => {
+  setState({
+    text: event.target.value
+  })
+}
+
+  return (
+    <div className="App">
+      <TodoList />
+      <input name="todos" value={state.text} onChange={handleChanges} />
+      <button onClick={addTodos}>Add Todo</button>
+    </div>
+  );
+}
+
+export default connect(null, { addNewTodos })(App);
