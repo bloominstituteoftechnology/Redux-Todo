@@ -6,11 +6,9 @@ const TodoList = ({ todos }) => {
     return (
         <div>
             <h1>Todos</h1>
-            <ul>
                 {todos.map( (todo) => {
                     return <Todo todo={todo} key={todo.id} />
                 })}
-            </ul>
         </div>
     )
 }

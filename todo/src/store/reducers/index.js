@@ -1,4 +1,4 @@
-import { ADDTODO } from '../actions';
+import { ADDTODO, TOGGLETODO } from '../actions';
 
 const initialState = {
     todos: [
@@ -15,6 +15,16 @@ export const todosReducer = (state = initialState, action) => {
             ...state, 
             todos: [...state.todos, action.payload]
         }
+        case TOGGLETODO:
+            console.log("firing")
+            return state.map(todo => {
+                if (todo.id !== action.payload.id) {
+                    return todo;
+                } else return {
+                    ...todo,
+                    completed: !todo.completed
+                }
+            })
         default: 
             return state;
     }
