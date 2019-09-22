@@ -1,0 +1,58 @@
+.addToDo {
+  box-sizing: border-box;
+}
+
+.submitField {
+  width: 565px;
+  border-radius: 5px;
+}
+
+.submitButton {
+  border-radius: 3px;
+  margin: 0px 0px 0px 5px;
+}
+
+.toDoContainer {
+  box-sizing: border-box;
+  width: 600px;
+}
+.toDoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  padding: 0;
+  margin: 20px 0px;;
+  border-radius: 5px;
+  background: rgba(46, 3, 3, 0.274);
+  padding: 15px 15px 25px 15px;
+}
+.toDoItem {
+  display: flex;
+  width: 550px;
+  padding: 5px;
+  margin: 0px;
+  border-bottom: 1px solid white;
+}
+.checkBox {
+  width: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.toDoText {
+  width: 500px;
+}
+.completeButtonContainer {
+  display: flex;
+}
+.completeButton {
+  border-radius: 5px;
+}
+.deleteButtonContainer {
+  display: flex;
+}
+.deleteButton {
+  border-radius: 5px;
+}
