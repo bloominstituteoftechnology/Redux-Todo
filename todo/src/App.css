@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-title {
+  font-size: 2rem;
+  background-color: #222;
+  padding: 20px;
+  margin: 0;
+  color: white;
+}
+
+.newTodo {
+  font-size: 1rem;
+}
+.submitButton {
+  margin: 1%;
+  padding: 1%;
+}
+
+.itemTodo{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: .5%;
+  margin: .5%;
+}
+.itemComplete{
+  display: flex;
+  text-decoration-line: line-through;
+  justify-content: center;
+  list-style: none;
+  padding: .5%;
+  margin: .5%;
+}
