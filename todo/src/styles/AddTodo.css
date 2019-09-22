@@ -1,0 +1,30 @@
+.todoForm-container {
+  margin-top: 5px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todoForm {
+  border: none;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.todoForm-button {
+  padding: 8px;
+  width: 20%;
+  margin: auto;
+  background: #d9d9d9;
+  color: #555;
+  float: right;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.todoForm-button:hover {
+  background-color: #bbb;
+}
