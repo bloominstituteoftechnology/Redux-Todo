@@ -1,0 +1,28 @@
+.todo__form {
+  text-align: center;
+}
+
+.todo__form input {
+  width: 300px;
+  font-size: 20px;
+}
+
+.todo__form button {
+  font-size: 20px;
+}
+
+.todo__list {
+  margin: 0px auto;
+  width: 500px;
+}
+
+.todo__list li {
+  list-style-type: none;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-left: 30px;
+}
+
+.todo__checkbox {
+  margin-right: 25px;
+}
