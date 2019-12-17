@@ -1,0 +1,54 @@
+.App {
+ width: 100%;
+ display:flex;
+ align-items: center;
+ margin: 40px 0; 
+ flex-direction: column;
+
+}
+
+.task-input{
+  margin-bottom: 40px;
+  width: 100%;
+  
+  display: flex;
+  justify-content: center;
+}
+
+.addButton{
+  margin: 0 1%;
+  padding: 0 4%;
+}
+
+input{
+  padding: 0 1%;
+}
+
+.complete{
+  text-decoration: line-through red;
+}
+
+ul{
+  font-size: 2rem;
+  background-image: url(https://kathleenhalme.com/images/pin-clipart-post-it-notes-10.jpg);
+  width:25%;
+  border: 1px solid blue;
+  height: 250px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.todoWrapper {
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+}
+
+li{
+  
+}
+
