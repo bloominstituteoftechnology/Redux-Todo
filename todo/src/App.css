@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+  border: 1px solid black;
+  width: 500px;
+  margin: 50px auto;
+  background-color: #e2e8fd;
+  font-family: 'Heebo', sans-serif;
+}
+
+h1 {
+  font-weight: 400;
+  border-bottom: 4px double black;
+  padding: 15px 0 10px;
+  margin: 0 auto 20px;
+}
+
+h3 {
+  font-weight: 400;
+  margin: 10px;
+  text-align: end;
+}
+
+.input {
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  box-shadow: none;
+  margin-top: 20px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 5px;
+  width: 130px;
+  font-size: 14px;
+  margin: 20px 8px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+
+.todo-list {
+  width: 400px;
+  margin: 10px auto 50px;
+}
+
+.todo {
+  word-wrap: break-word;
+  width: 340px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.delete {
+  cursor: pointer;
+  padding: 5px 12px 3px;
+  margin: 5px;
+  font-size: 18px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+.delete:hover {
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+
+.complete {
+  text-decoration: line-through;
+}
