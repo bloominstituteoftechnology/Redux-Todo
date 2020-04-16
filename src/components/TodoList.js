@@ -31,7 +31,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className="todo-wrapper">
-        <h2>TO DO LIST APP</h2>
+        <h2>TODO LIST APP</h2>
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
