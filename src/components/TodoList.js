@@ -5,33 +5,33 @@ import "./TodoList.css";
 
 class TodoList extends React.Component {
   state = {
-    newTodo: ""
+    newTodo: "",
   };
 
-  handleChanges = e => {
+  handleChanges = (e) => {
     this.setState({
-      newTodo: e.target.value
+      newTodo: e.target.value,
     });
   };
 
-  addTodo = e => {
+  addTodo = (e) => {
     e.preventDefault();
     this.props.addTodo(this.state.newTodo);
     this.setState({ newTodo: "" });
   };
 
-  toggleTodo = id => {
+  toggleTodo = (id) => {
     this.props.toggleTodo(id);
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
   };
 
   render() {
     return (
       <div className="todo-wrapper">
-        <h2>TO DO (REDUX)</h2>
+        <h2>TO DO LIST APP</h2>
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
@@ -43,7 +43,7 @@ class TodoList extends React.Component {
           <button onClick={this.props.clearTodo}>Clear</button>
           <div className="">
             {this.props.todos &&
-              this.props.todos.map(todo => (
+              this.props.todos.map((todo) => (
                 <h4 key={todo.id} onClick={() => this.toggleTodo(todo.id)}>
                   {todo.task}
                   {todo.completed && <i className="fa fa-check" />}
@@ -56,13 +56,12 @@ class TodoList extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    todos: state.todos
+    todos: state.todos,
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { addTodo, toggleTodo, clearTodo }
-)(TodoList);
+export default connect(mapStateToProps, { addTodo, toggleTodo, clearTodo })(
+  TodoList
+);
