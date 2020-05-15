@@ -31,7 +31,7 @@ class ToDoList extends React.Component {
             <input 
                 type="text"
                 value={this.state.newTodo}
-                placeholder="theres more things to do"
+                placeholder="lets get these things done now PLEASE"
                 onChange={this.handleChanges}
             />
             <button onClick={this.addTask}>add task</button>
