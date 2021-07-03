@@ -1,0 +1,120 @@
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+}
+body {
+  color: rgba(0, 0, 0, 0.9);
+  background: #e6e6e6;
+  font-family: Nunito Sans;
+  font-size: 62.5%;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+}
+.button-mix {
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 1px;
+  border: 1px double #517183;
+  background: white;
+  padding: 2px 6px 2px 6px;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 2px;
+  cursor: pointer;
+  line-height: 5px;
+}
+.button-mix:hover {
+  border: 2px double #5aacdb;
+  padding: 2px 5px 2px 5px;
+}
+.button-mix:active {
+  background: rgba(90, 172, 219, 0.3);
+}
+.header {
+  user-select: none;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.App .list {
+  width: 250px;
+  height: 500px;
+  border-radius: 1px;
+  border: 1px solid #cecece;
+  background: white;
+}
+.App .list .item {
+  font-size: 0.8rem;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 20px 0;
+}
+.App .list .item li {
+  cursor: pointer;
+}
+.App .list .item button {
+  height: 20px;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 1px;
+  border: 1px double #517183;
+  background: white;
+  padding: 2px 6px 2px 6px;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 2px;
+  cursor: pointer;
+  line-height: 5px;
+  font-size: 0.8rem;
+}
+.App .list .item button:hover {
+  border: 2px double #5aacdb;
+  padding: 2px 5px 2px 5px;
+}
+.App .list .item button:active {
+  background: rgba(90, 172, 219, 0.3);
+}
+.App .form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.App .form input {
+  height: 25px;
+  width: 150px;
+  margin-right: 5px;
+  padding: 2px;
+  padding-left: 15px;
+  border-radius: 1px;
+  border: 1px solid #cecece;
+}
+.App .form button {
+  height: 30px;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 1px;
+  border: 1px double #517183;
+  background: white;
+  padding: 2px 6px 2px 6px;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 2px;
+  cursor: pointer;
+  line-height: 5px;
+}
+.App .form button:hover {
+  border: 2px double #5aacdb;
+  padding: 2px 5px 2px 5px;
+}
+.App .form button:active {
+  background: rgba(90, 172, 219, 0.3);
+}
