@@ -1,0 +1,6 @@
+
+[build]
+
+base = "./todo"
+publish = "./todo/build"
+command = "yarn build"
