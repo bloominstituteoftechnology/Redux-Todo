@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* Single todo */
+.todoCard {
+  border: 1px solid black;
+  max-width: 600px;
+  width: 100%;
+  margin: 25px auto;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.check {
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+}
+
+.complete {
+  color: #2cd34d;
+}
+
+.deleteIcon {
+  cursor: pointer;
+  color: #dd0a0a;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+/* Form */
+.addTodoInput {
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 5px;
+  max-width: 300px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid black;
+  font-size: 30px;
+  text-align: center;
+}
+
+.addTodoInput::placeholder {
+  font-size: 30px;
+  color: gray;
+  text-align: center;
+}
+.addTodoInput:focus,
+form .addButton:focus {
+  outline: none;
+}
+
+form .formButton {
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 5px 25px;
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 300px;
+  width: 100%;
+  transition: all 0.2s linear;
+  font-size: 20px;
+  display: block;
+}
+
+form .formButton:hover {
+  background: #327cdb;
+  color: #fff;
+}
+
+form .red:hover {
+  color: #fff;
+  background: #dd0a0a;
+}
+
+form .formButton:active {
+  transform: scale(0.99);
+}
