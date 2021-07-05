@@ -1,6 +1,6 @@
 # Redux & React
 
-Topics:
+Topics: 
 
 * `redux` package
 * `react-redux` package
