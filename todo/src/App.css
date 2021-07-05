@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.todo-list-input {
+  margin-top: 5%;
+}
+
+.true {
+  text-decoration: line-through;
+}
