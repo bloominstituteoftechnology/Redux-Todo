@@ -1,0 +1,166 @@
+
+.task-organizer {
+    width: 800px;
+    min-height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(244, 246, 247);
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 3px outset lightgray;
+}
+
+.task-folder-container {
+    width:  200px;
+    background-color: rgb(131, 164, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: 3px inset rgb(255, 236, 149);
+    
+}
+
+.folder-input-form{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.folder-input-field {
+    width: 50%;
+    text-align: center;
+}
+
+.folder-holder-title {
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.folderBtn {
+    width: 150px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.folderBtn-selected {
+    width: 150px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: rgb(219, 186, 38);
+    cursor: pointer;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.deleteFolderBtn {
+    border-radius: 10px;
+    background-color: rgb(190, 62, 62);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.generalFolder-spacer {
+    width: 30px;
+    border: 1px solid red;
+}
+
+.postIt-container {
+    /* border: 1px solid red; */
+    /* background-color: #fff; */
+    min-width: 70%;
+}
+
+.formAddBtn {
+    cursor: pointer;
+}
+
+.taskBtn-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    /* align-content: center; */
+    /* min-height: 50px; */
+    padding: 10px 0;
+}
+
+.taskBtn {
+    width: 400px;
+    border: 3px outset rgb(190, 190, 190);
+    background-color: rgb(180, 221, 245);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.taskNumber {
+    width: 20%;
+    border: 2px groove rgb(163, 163, 163);
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.task-content {
+    width: 70%;
+    cursor: pointer;
+    border: 2px dotted rgb(253, 193, 29);
+    background-color: rgb(255, 249, 194);
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-content-complete {
+    width: 70%;
+    cursor: pointer;
+    text-decoration: line-through;
+    border: 2px solid rgb(246, 121, 121);
+    background-color: rgb(248, 205, 205);
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteBtn {
+    margin: 10px 0;
+    background-color: rgb(230, 122, 122);
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-field {
+    height: 20px;
+    padding: 5px 15px;
+    text-align: center;
+    margin-right: 15px;
+    border-radius: 5px;
+    background-color: rgb(233, 252, 232);
+    color: #222222;
+}
+
+.formBtn {
+    width: 80px;
+    height: 30px;
+    padding: 5px 5px;
+    border-radius: 5px;
+    background-color: rgb(197, 246, 193);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
