@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+.todo-container {
+  margin: 1rem auto;
+}
+
+.todo-container li {
+  list-style: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.todo-container button {
+  background-color: white;
+  border: none;
+  padding: 0;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+input {
+  padding: 5px 10px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+}
