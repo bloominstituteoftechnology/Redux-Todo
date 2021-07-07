@@ -1,0 +1,10 @@
+.exampleListItem {
+    color: lightslategray;
+    font-style: italic;
+
+}
+
+.allDone {
+    text-decoration: line-through;
+    color: lightgray;
+}
