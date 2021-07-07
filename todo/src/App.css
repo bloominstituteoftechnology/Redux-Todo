@@ -1,0 +1,17 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  width: 983px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
