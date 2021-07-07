@@ -1,0 +1,23 @@
+.inputForm {
+  width: 18%;
+  margin: 0 auto;
+}
+
+ul {
+  width: 27%;
+  margin: 29px auto;
+}
+
+.listDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background: black;
+}
+
+li {
+  color: white;
+  highlight: none;
+}
