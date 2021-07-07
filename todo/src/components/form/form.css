@@ -1,0 +1,12 @@
+.form {
+    width: 880px;
+    margin-left: 25%;
+    margin-right: 25%;
+    display: block;
+    border: 1px solid red;
+}
+
+.inputBar {
+    display: flex;
+
+}
