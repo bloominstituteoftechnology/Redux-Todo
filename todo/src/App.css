@@ -1,0 +1,31 @@
+
+
+
+.todo-list-container{
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+}
+.todo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.none{
+  display: none;
+}
+
+.red{
+  color: red;
+  text-decoration: line-through;
+}
+
+.todo h5{
+  margin: 10px 5px;
+}
+
+form{
+  margin-bottom: 20px;
+}
