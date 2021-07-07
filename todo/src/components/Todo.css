@@ -1,0 +1,12 @@
+.todo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.todo-div .todo-list {
+    width: fit-content;
+    margin-bottom: 40px;
+}
