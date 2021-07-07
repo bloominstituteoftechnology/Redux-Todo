@@ -1,0 +1,107 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: black;
+  
+}
+
+.todoContainer {
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* border-radius: 15px; */
+  border: 1px solid white;
+ /*  padding-bottom: 10px; */
+  /* padding-top: 10px; */
+  background-color: rgb(9, 2, 37);
+}
+
+/* .todoContainer:hover {
+  background-color: slategray;
+} */
+
+.inputButton {
+  background-color: rgb(9, 2, 37);
+  /* border-radius: 10px; */
+  width: 100px;
+  font-size: 16px;
+  color: white;
+ /*  font-weight: bold; */
+  height: 30px;
+  border: 0px solid purple;
+}
+
+.inputButton:hover {
+  background-color: rgb(124, 140, 235);
+}
+
+.inputField {
+  border: 1px solid gray;
+  width: 200px;
+  height: auto;
+  left: 0px;
+  top: 0px;
+  font-size: 16px;
+ /*  border-radius: 15px; */
+}
+
+.clearButton {
+  color: white;
+  width: 140px;
+  font-size: 16px;
+  height: 30px;
+  left: 150px;
+  top: 100px;
+ /*  font-weight: bold;
+  font-size: 16px; */
+  background-color: rgb(9, 2, 37);
+ /*  border-radius: 15px; */
+ border: 0px solid black;
+}
+
+.clearButton:hover {
+  background-color: rgb(124, 140, 235);
+}
+
+li {
+  font-size: 16px;
+  color: white;
+ /*  border: 2px solid blue; */
+  width: 200px;
+  /* margin-left: 6px; */
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  font-size: 40px;
+  font-family: fantasy;
+  color: white;
+}
+
+.h1Container {
+  border: 1px solid white;
+  width: 700px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+ /*  border-radius: 10px; */
+  background-color: rgb(9, 2, 37);
+  color: white;
+  /* border: 2px solid orange; */
+}
+
+.ul {
+  color: white;
+  font-size: 16px;
+  border: 2px solid green;
+}
+
+
+
+
