@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+.App h2 {
+  font-size: 2.6rem;
+  color: #333;
+}
+
+.todo-container {
+  border: 1px solid black;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-top: 1px solid#333;
+  /* width: 80%; */
+  margin: 0 auto;
+}
+
+/* .todo-item:nth-of-type(2n) {
+  background-color: #ededed;
+} */
+
+/* .todo-item p {
+  padding: 0;
+  margin: 0;
+} */
+
+.delete-btn {
+  display: flex;
+  align-self: flex-end;
+  background-color: red;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(224, 224, 224);
+}
