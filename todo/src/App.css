@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.normal {
+  color: red;
+}
+
+.crossed-out {
+  text-decoration: line-through;
+}
