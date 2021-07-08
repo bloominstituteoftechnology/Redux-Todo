@@ -1,0 +1,32 @@
+/* .App {
+  /* text-align: center; */
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 50px;
+  margin-top: -13px;
+  margin-bottom: -30px;
+}
+
+.App-header {
+  text-align: center;
+  background-color: #b08c68;
+  height: 90px;
+  padding: 18px;
+  margin-top: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 35px;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

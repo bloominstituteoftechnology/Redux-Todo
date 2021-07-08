@@ -1,0 +1,38 @@
+/* .strikeout {
+    text-decoration: line-through;
+} */
+
+li {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    /* justify-content: center; */
+    /* align-content: center; */
+    /* text-align: center; */
+}
+
+.todo:first-child { 
+    padding-top: 20px;
+}
+
+.todo {
+    max-width: 600px;
+    width: 300px;
+    margin: 0px auto 0px 300px;
+    /* justify-content: center; */
+    /* text-align: center; */ 
+}
+
+.taskbar {
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.button {
+    background-color: lightskyblue;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
