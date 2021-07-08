@@ -1,0 +1,29 @@
+.todo-form {
+  padding: 10px;
+  font-size: 1.4rem;
+}
+
+
+.todo {
+  margin: 30px;
+  font-size: 1.4rem;
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+}
+
+.todo-text {
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #ccc;
+}
+
+.todo-button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 0 5px;
+  box-shadow: 1px 1px 3px #aaa;
+}
+
+.todo-button:hover {
+  box-shadow: 2px 2px 5px #888;
+}
