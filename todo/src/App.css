@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.todo-item {
+  cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+}
